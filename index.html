@@ -909,6 +909,71 @@ a.shelf-item:hover{background:var(--parch3);border-color:var(--gold3);}
   /* Still water */
   .still-water{padding:36px 12px;}
 }
+
+/* ── Library Map ── */
+.library-map-section{
+  background:linear-gradient(180deg,#0c0805 0%,#1a1208 100%);
+  padding:48px 24px 40px;text-align:center;
+  border-bottom:1px solid rgba(184,144,10,.15);
+}
+.library-map-header{margin-bottom:24px;}
+.map-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.3em;opacity:.6;margin-bottom:8px;}
+.map-title{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;color:var(--parch);margin-bottom:6px;}
+.map-sub{font-family:var(--mono);font-size:.55rem;color:var(--parch4);letter-spacing:.1em;opacity:.6;}
+.library-map-wrap{
+  max-width:640px;margin:0 auto;
+  border:1px solid rgba(184,144,10,.2);
+  background:#0a0804;
+  position:relative;
+}
+.library-map-wrap canvas{
+  width:100%;height:auto;display:block;
+  image-rendering:pixelated;
+  image-rendering:-moz-crisp-edges;
+  cursor:pointer;
+}
+.map-room-info{
+  max-width:640px;margin:12px auto 0;
+  min-height:60px;
+  transition:opacity .3s;
+  opacity:0;
+}
+.map-room-info-inner{
+  background:rgba(26,18,8,.6);
+  border:1px solid rgba(184,144,10,.18);
+  padding:14px 18px;
+  text-align:center;
+}
+.map-room-name{
+  font-family:var(--serif);font-size:1rem;font-weight:700;
+  color:var(--parch);margin-bottom:4px;
+}
+.map-room-name-en{
+  font-family:var(--mono);font-size:.55rem;color:var(--gold3);
+  opacity:.55;margin-left:8px;letter-spacing:.08em;
+}
+.map-room-desc{
+  font-family:var(--jp);font-size:.75rem;color:var(--parch4);
+  line-height:1.7;margin-bottom:10px;
+}
+.map-room-btn{
+  display:inline-block;
+  font-family:var(--mono);font-size:.6rem;
+  color:var(--gold3);letter-spacing:.1em;
+  padding:6px 18px;
+  border:1px solid rgba(184,144,10,.25);
+  background:rgba(184,144,10,.06);
+  text-decoration:none;cursor:pointer;
+  transition:all .2s;
+}
+.map-room-btn:hover{
+  background:rgba(184,144,10,.14);
+  border-color:rgba(184,144,10,.45);
+  color:var(--gold4);
+}
+.map-room-btn.disabled{
+  opacity:.4;cursor:default;border-color:rgba(184,144,10,.1);
+}
 </style>
 <link rel="stylesheet" href="shared.css"/>
 </head>
@@ -964,6 +1029,19 @@ a.shelf-item:hover{background:var(--parch3);border-color:var(--gold3);}
       <span class="hero-stat-label">MOAT TYPES</span>
     </div>
   </div>
+</div>
+
+<!-- ══════════════ LIBRARY MAP ══════════════ -->
+<div class="library-map-section">
+  <div class="library-map-header">
+    <div class="map-label">EXPLORE THE LIBRARY</div>
+    <div class="map-title">書庫を歩く</div>
+    <div class="map-sub">部屋をクリックして書架へ</div>
+  </div>
+  <div class="library-map-wrap">
+    <canvas id="libraryMapCanvas"></canvas>
+  </div>
+  <div class="map-room-info" id="mapRoomInfo"></div>
 </div>
 
 <!-- ══════════════ FEATURED: MORNING METHOD ══════════════ -->
@@ -2411,6 +2489,7 @@ function handleGuideQuery(){
 <script src="presence.js"></script>
 <script src="npc-widget.js"></script>
 <script src="enhancements.js"></script>
+<script src="library-map.js"></script>
 
 </body>
 </html>
