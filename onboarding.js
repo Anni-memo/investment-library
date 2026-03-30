@@ -1,18 +1,43 @@
 /* ═══════════════════════════════════════════════════════
-   Onboarding — 旅人アバター 3問ルート案内
+   Onboarding — 書庫の旅人 3問オンボーディング
    投資と思考の書斎
    ═══════════════════════════════════════════════════════ */
 (function () {
   'use strict';
 
-  /* ---------- LocalStorage keys ---------- */
-  var LS_DONE = 'ob_done';
-  var LS_NAME = 'ob_name';
-  var LS_ROUTE = 'ob_route';
+  /* ---------- LocalStorage ---------- */
+  var LS_KEY = 'library_traveler';
+
+  /* ---------- 既存の旧キーからの移行 ---------- */
+  function migrateOldKeys() {
+    var oldDone = localStorage.getItem('ob_done');
+    var oldName = localStorage.getItem('ob_name');
+    if (oldDone === '1' && !localStorage.getItem(LS_KEY)) {
+      var data = {
+        version: 1,
+        name: oldName || '',
+        avatar: { type: 'traveler', colorIdx: 0 },
+        companion: 'candle',
+        title: '放浪の旅人',
+        currentRoom: 'hub',
+        visitedRooms: ['hub'],
+        npcTalked: [],
+        onboardingDone: true,
+        createdAt: new Date().toISOString()
+      };
+      localStorage.setItem(LS_KEY, JSON.stringify(data));
+      localStorage.removeItem('ob_done');
+      localStorage.removeItem('ob_name');
+      localStorage.removeItem('ob_route');
+    }
+  }
+  migrateOldKeys();
 
   /* ---------- 既に完了済みなら「おかえりなさい」表示だけ ---------- */
-  if (localStorage.getItem(LS_DONE) === '1') {
-    showWelcomeBack();
+  var existing = null;
+  try { existing = JSON.parse(localStorage.getItem(LS_KEY)); } catch(e) {}
+  if (existing && existing.onboardingDone) {
+    showWelcomeBack(existing);
     return;
   }
 
@@ -22,60 +47,111 @@
   var questions = [
     {
       id: 1,
-      text: 'あなたが今いちばん知りたいのは？',
-      sub: 'まずは興味のある方向を教えてください',
+      text: 'この書庫で、今日は何を探しますか',
+      sub: '最初の一歩を選んでください',
       choices: [
-        { label: '投資の基本を学びたい', icon: '📖', key: 'basic' },
-        { label: '企業を分析する力をつけたい', icon: '🔍', key: 'analysis' },
-        { label: '思考や教養を深めたい', icon: '🌿', key: 'horizon' }
+        { label: '朝を整える言葉', key: 'morning' },
+        { label: '投資の判断基準', key: 'invest' },
+        { label: '企業分析のヒント', key: 'company' },
+        { label: '人物の生き方', key: 'people' },
+        { label: '教養と古典', key: 'culture' },
+        { label: '今日読む一篇', key: 'reading' }
       ]
     },
     {
       id: 2,
-      text: 'どのくらい投資に触れてきましたか？',
-      sub: '経験レベルに合ったコンテンツを案内します',
+      text: '今のあなたに、いちばん近い気分はどれですか',
+      sub: 'あなたの今の心に合わせてご案内します',
       choices: [
-        { label: 'まだ始めていない', icon: '🌱', key: 'beginner' },
-        { label: '少し経験がある', icon: '🌾', key: 'intermediate' },
-        { label: '5年以上やっている', icon: '🌳', key: 'advanced' }
+        { label: '静かに考えたい', key: 'quiet' },
+        { label: 'まず一歩進みたい', key: 'step' },
+        { label: '深く学びたい', key: 'deep' },
+        { label: '誰かの思想に触れたい', key: 'thought' },
+        { label: '少し話したい', key: 'talk' },
+        { label: 'まだ迷っている', key: 'lost' }
       ]
     },
     {
       id: 3,
-      text: '読み方の好みは？',
-      sub: 'あなたに合ったスタイルで案内します',
+      text: 'ここで、どんな人になりたいですか',
+      sub: 'あなたの旅の方角が決まります',
       choices: [
-        { label: '短い記事をさくさく', icon: '⚡', key: 'quick' },
-        { label: '一冊の本のように順番に', icon: '📚', key: 'sequential' },
-        { label: '気になるところから自由に', icon: '🗺️', key: 'free' }
+        { label: '冷静に判断できる人', key: 'calm' },
+        { label: '深く読む人', key: 'reader' },
+        { label: '企業を見抜ける人', key: 'analyst' },
+        { label: '習慣を整えられる人', key: 'habit' },
+        { label: '品のある投資家', key: 'elegant' },
+        { label: '自分の原則を持つ人', key: 'principle' }
       ]
     }
   ];
 
   /* ====================================================
-     ルート決定ロジック
+     結果生成ロジック
      ==================================================== */
-  function resolveRoute(answers) {
-    // answers = { 1: key, 2: key, 3: key }
-    var q1 = answers[1];
-    var q2 = answers[2];
-    var q3 = answers[3];
 
-    // Q3 が最優先でスタイル分岐
-    if (q3 === 'sequential') return { url: 'reading-routes/', label: '読書ルート', desc: '体系的に順番に読み進められるルートです' };
-    if (q3 === 'free') return { url: '', label: 'トップページ（棚一覧）', desc: '自由に気になる棚を巡ってみてください' };
+  /* アバター6系統 */
+  function resolveAvatar(a) {
+    var q1 = a[1], q2 = a[2], q3 = a[3];
+    if (q3 === 'calm' || q2 === 'quiet') return { type: 'sage', title: '静観の賢者' };
+    if (q3 === 'reader' || q1 === 'culture') return { type: 'researcher', title: '探究の研究者' };
+    if (q2 === 'step' || q2 === 'lost') return { type: 'traveler', title: '放浪の旅人' };
+    if (q3 === 'analyst' || q1 === 'company') return { type: 'scribe', title: '分析の書記官' };
+    if (q1 === 'morning' || q3 === 'habit') return { type: 'practitioner', title: '朝の実践者' };
+    if (q3 === 'elegant' || q1 === 'invest') return { type: 'merchant', title: '思慮深い商人' };
+    // fallback
+    return { type: 'traveler', title: '放浪の旅人' };
+  }
 
-    // Q1 × Q2 のマトリクス
-    if (q1 === 'basic' || q2 === 'beginner') return { url: 'hajimete/', label: 'はじめての投資', desc: '投資の基本から丁寧に学べるコーナーです' };
-    if (q1 === 'analysis') {
-      if (q2 === 'advanced') return { url: 'analysis-template/', label: '企業分析テンプレート', desc: '実践的な分析フレームワークを活用できます' };
-      return { url: 'moat/', label: '競争優位性（Moat）', desc: '企業の「堀」を見抜く力を養います' };
-    }
-    if (q1 === 'horizon') return { url: 'horizons/', label: '知の水平線', desc: '投資を超えた教養と思考の世界へ' };
-    if (q2 === 'intermediate') return { url: 'principles/', label: '投資原則', desc: 'バフェット・マンガーの原則を学びます' };
-    if (q2 === 'advanced') return { url: 'fcf/', label: 'FCF分析', desc: 'フリーキャッシュフローの深い分析へ' };
+  /* モンスター相棒5種 */
+  function resolveCompanion(a) {
+    var q1 = a[1], q2 = a[2], q3 = a[3];
+    if (q1 === 'culture' || q3 === 'reader') return { key: 'book_spirit', name: '本の精霊' };
+    if (q1 === 'invest' || q1 === 'company') return { key: 'gold_keeper', name: '金貨の守り手' };
+    if (q2 === 'quiet' || q1 === 'morning') return { key: 'candle', name: '蝋燭の火' };
+    if (q2 === 'thought' || q1 === 'people') return { key: 'quill_bird', name: '羽ペン鳥' };
+    if (q3 === 'habit' || q3 === 'principle') return { key: 'clock_keeper', name: '時計の番人' };
+    // fallback
+    return { key: 'candle', name: '蝋燭の火' };
+  }
 
-    return { url: 'reading-routes/', label: '読書ルート', desc: 'おすすめの読書コースをご用意しました' };
+  /* 初期スポーン部屋（Q1から） */
+  function resolveRoom(q1) {
+    var map = {
+      morning: 'morning-method',
+      invest: 'principles',
+      company: 'companies',
+      people: 'people',
+      culture: 'horizons',
+      reading: 'hub'
+    };
+    return map[q1] || 'hub';
+  }
+
+  /* 部屋のURL */
+  function roomUrl(room) {
+    var urls = {
+      'morning-method': 'morning-method/',
+      'principles': 'principles/',
+      'companies': 'companies/',
+      'people': 'people/',
+      'horizons': 'horizons/',
+      'hub': ''
+    };
+    return urls[room] || '';
+  }
+
+  /* 部屋の日本語名 */
+  function roomLabel(room) {
+    var labels = {
+      'morning-method': 'モーニングメソッド室',
+      'principles': '投資原則の間',
+      'companies': '企業分析書架',
+      'people': '入口ホール',
+      'horizons': '古典と思想の棚',
+      'hub': '中央広間'
+    };
+    return labels[room] || '中央広間';
   }
 
   /* ====================================================
@@ -86,7 +162,7 @@
     '/* --- Onboarding Overlay --- */',
     '#ob-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(26,18,8,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;transition:opacity .5s ease;font-family:var(--jp,"Noto Serif JP","Cormorant Garamond",serif)}',
     '#ob-overlay.show{opacity:1}',
-    '#ob-card{position:relative;width:92%;max-width:520px;background:var(--parch,#f5ede0);border:1px solid var(--parch3,#e8d8be);border-radius:14px;box-shadow:0 20px 60px rgba(26,18,8,.45);padding:40px 32px 32px;text-align:center;transform:translateY(30px) scale(.96);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s ease}',
+    '#ob-card{position:relative;width:92%;max-width:520px;background:var(--parch,#f5ede0);border:1px solid var(--parch3,#e8d8be);border-radius:14px;box-shadow:0 20px 60px rgba(26,18,8,.45);padding:40px 32px 32px;text-align:center;transform:translateY(30px) scale(.96);opacity:0;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .5s ease;max-height:90vh;overflow-y:auto}',
     '#ob-overlay.show #ob-card{transform:translateY(0) scale(1);opacity:1}',
 
     '/* progress */',
@@ -100,10 +176,9 @@
     '#ob-sub{font-size:.85rem;color:var(--ink3,#4a3520);margin:0 0 24px;opacity:.7}',
 
     '/* choices */',
-    '.ob-choices{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}',
-    '.ob-choice{display:flex;align-items:center;gap:12px;padding:14px 18px;border:1.5px solid var(--parch3,#e8d8be);border-radius:10px;background:var(--parch2,#efe4d0);cursor:pointer;transition:border-color .25s,background .25s,transform .15s;font-size:.95rem;color:var(--ink,#1a1208);text-align:left}',
-    '.ob-choice:hover{border-color:var(--gold,#8b6914);background:var(--parch,#f5ede0);transform:translateX(4px)}',
-    '.ob-choice .ob-icon{font-size:1.3rem;flex-shrink:0}',
+    '.ob-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}',
+    '.ob-choice{display:flex;align-items:center;justify-content:center;padding:14px 12px;border:1.5px solid var(--parch3,#e8d8be);border-radius:10px;background:var(--parch2,#efe4d0);cursor:pointer;transition:border-color .25s,background .25s,transform .15s;font-size:.88rem;color:var(--ink,#1a1208);text-align:center}',
+    '.ob-choice:hover{border-color:var(--gold,#8b6914);background:var(--parch,#f5ede0);transform:translateY(-2px)}',
 
     '/* skip */',
     '#ob-skip{display:inline-block;margin-top:4px;font-size:.8rem;color:var(--ink3,#4a3520);opacity:.5;cursor:pointer;border:none;background:none;font-family:inherit;transition:opacity .2s}',
@@ -111,9 +186,12 @@
 
     '/* result */',
     '#ob-result{display:none}',
-    '#ob-result h2{font-size:1.15rem;color:var(--ink,#1a1208);margin:0 0 8px;font-family:var(--serif,"Cormorant Garamond",serif)}',
-    '#ob-result .ob-route-name{display:inline-block;font-size:1.4rem;font-weight:700;color:var(--gold,#8b6914);margin:8px 0;font-family:var(--serif,"Cormorant Garamond",serif)}',
-    '#ob-result .ob-route-desc{font-size:.88rem;color:var(--ink3,#4a3520);margin:0 0 20px}',
+    '#ob-result h2{font-size:1rem;color:var(--ink3,#4a3520);margin:0 0 16px;font-family:var(--jp)}',
+    '.ob-result-box{background:var(--parch2,#efe4d0);border:1px solid var(--parch3,#e8d8be);border-radius:10px;padding:24px 20px;margin-bottom:20px;text-align:left;line-height:1.9}',
+    '.ob-result-title{font-size:1.1rem;font-weight:700;color:var(--ink,#1a1208);margin-bottom:8px;font-family:var(--serif,"Cormorant Garamond",serif)}',
+    '.ob-result-line{font-size:.85rem;color:var(--ink2,#2d2010);margin-bottom:4px}',
+    '.ob-result-line strong{color:var(--gold,#8b6914)}',
+    '.ob-result-room{font-size:.88rem;color:var(--ink3,#4a3520);font-style:italic;margin-top:8px}',
     '#ob-result .ob-go{display:inline-block;padding:12px 32px;border:none;border-radius:8px;background:var(--gold,#8b6914);color:var(--parch,#f5ede0);font-size:.95rem;font-family:inherit;cursor:pointer;transition:background .25s,transform .15s}',
     '#ob-result .ob-go:hover{background:var(--gold2,#b8900a);transform:scale(1.03)}',
 
@@ -128,12 +206,13 @@
     '#ob-welcome{position:fixed;top:16px;right:16px;z-index:9998;background:var(--parch,#f5ede0);border:1px solid var(--parch3,#e8d8be);border-radius:10px;padding:12px 20px;box-shadow:0 4px 20px rgba(26,18,8,.18);font-family:var(--jp);font-size:.9rem;color:var(--ink,#1a1208);opacity:0;transform:translateY(-12px);transition:opacity .5s,transform .5s;pointer-events:none}',
     '#ob-welcome.show{opacity:1;transform:translateY(0);pointer-events:auto}',
     '#ob-welcome .ob-wb-name{color:var(--gold,#8b6914);font-weight:600}',
+    '#ob-welcome .ob-wb-title{font-size:.75rem;color:var(--ink3,#4a3520);margin-top:2px}',
 
     '/* fade-out */',
     '#ob-overlay.hide{opacity:0;pointer-events:none}',
 
     '/* responsive */',
-    '@media(max-width:540px){#ob-card{padding:28px 18px 22px}#ob-question{font-size:1.1rem}.ob-choice{padding:12px 14px;font-size:.9rem}}'
+    '@media(max-width:540px){#ob-card{padding:28px 18px 22px}#ob-question{font-size:1.1rem}.ob-choices{grid-template-columns:1fr;}.ob-choice{padding:12px 14px;font-size:.85rem}}'
   ].join('\n');
   document.head.appendChild(style);
 
@@ -151,14 +230,13 @@
     '    <div class="ob-choices" id="ob-choices"></div>',
     '  </div>',
     '  <div id="ob-result">',
-    '    <h2>あなたへのおすすめルート</h2>',
-    '    <div class="ob-route-name" id="ob-route-label"></div>',
-    '    <p class="ob-route-desc" id="ob-route-desc"></p>',
+    '    <h2>あなたの旅が始まります</h2>',
+    '    <div class="ob-result-box" id="ob-result-box"></div>',
     '    <div id="ob-name-section">',
     '      <label>旅の名前を教えてください（任意）</label>',
     '      <input id="ob-name-input" type="text" placeholder="ニックネーム" maxlength="20">',
     '    </div>',
-    '    <button class="ob-go" id="ob-go">このルートへ進む</button>',
+    '    <button class="ob-go" id="ob-go">書庫に入る</button>',
     '  </div>',
     '  <button id="ob-skip">スキップして自由に探索する</button>',
     '</div>'
@@ -172,8 +250,7 @@
   var elChoices = document.getElementById('ob-choices');
   var elBody = document.getElementById('ob-body');
   var elResult = document.getElementById('ob-result');
-  var elRouteLabel = document.getElementById('ob-route-label');
-  var elRouteDesc = document.getElementById('ob-route-desc');
+  var elResultBox = document.getElementById('ob-result-box');
   var elGo = document.getElementById('ob-go');
   var elSkip = document.getElementById('ob-skip');
   var elNameInput = document.getElementById('ob-name-input');
@@ -181,7 +258,7 @@
   /* ---------- 状態 ---------- */
   var current = 0;
   var answers = {};
-  var resolvedRoute = null;
+  var resolvedData = null;
 
   /* ---------- プログレスドット ---------- */
   function renderDots() {
@@ -204,7 +281,7 @@
     q.choices.forEach(function (c) {
       var btn = document.createElement('button');
       btn.className = 'ob-choice';
-      btn.innerHTML = '<span class="ob-icon">' + c.icon + '</span><span>' + c.label + '</span>';
+      btn.textContent = c.label;
       btn.addEventListener('click', function () {
         answers[q.id] = c.key;
         next();
@@ -221,7 +298,6 @@
       showResult();
       return;
     }
-    // アニメーション付き切替
     elBody.style.opacity = '0';
     elBody.style.transform = 'translateX(24px)';
     setTimeout(function () {
@@ -233,31 +309,68 @@
   }
 
   function showResult() {
-    resolvedRoute = resolveRoute(answers);
+    var avatar = resolveAvatar(answers);
+    var companion = resolveCompanion(answers);
+    var room = resolveRoom(answers[1]);
+
+    resolvedData = {
+      avatar: avatar,
+      companion: companion,
+      room: room
+    };
+
     elBody.style.display = 'none';
     elSkip.style.display = 'none';
     elResult.style.display = 'block';
-    elRouteLabel.textContent = resolvedRoute.label;
-    elRouteDesc.textContent = resolvedRoute.desc;
+
+    elResultBox.innerHTML = [
+      '<div class="ob-result-title">あなたは今、「' + avatar.title + '」として書庫に入りました。</div>',
+      '<div class="ob-result-line">相棒：<strong>' + companion.name + '</strong></div>',
+      '<div class="ob-result-room">まずは' + roomLabel(room) + 'から歩きましょう。</div>'
+    ].join('');
+
     renderDots();
   }
 
-  /* ---------- ルートへ進む ---------- */
+  /* ---------- 書庫に入る ---------- */
   elGo.addEventListener('click', function () {
     var name = (elNameInput.value || '').trim();
-    if (name) localStorage.setItem(LS_NAME, name);
-    localStorage.setItem(LS_DONE, '1');
-    if (resolvedRoute) localStorage.setItem(LS_ROUTE, resolvedRoute.url);
+    var data = {
+      version: 1,
+      name: name,
+      avatar: { type: resolvedData.avatar.type, colorIdx: 0 },
+      companion: resolvedData.companion.key,
+      title: resolvedData.avatar.title,
+      currentRoom: resolvedData.room,
+      visitedRooms: [resolvedData.room],
+      npcTalked: [],
+      onboardingDone: true,
+      createdAt: new Date().toISOString()
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
     closeOverlay(function () {
-      if (resolvedRoute && resolvedRoute.url) {
-        window.location.href = resolvedRoute.url;
+      var url = roomUrl(resolvedData.room);
+      if (url) {
+        window.location.href = url;
       }
     });
   });
 
   /* ---------- スキップ ---------- */
   elSkip.addEventListener('click', function () {
-    localStorage.setItem(LS_DONE, '1');
+    var data = {
+      version: 1,
+      name: '',
+      avatar: { type: 'traveler', colorIdx: 0 },
+      companion: 'candle',
+      title: '放浪の旅人',
+      currentRoom: 'hub',
+      visitedRooms: ['hub'],
+      npcTalked: [],
+      onboardingDone: true,
+      createdAt: new Date().toISOString()
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(data));
     closeOverlay();
   });
 
@@ -272,7 +385,6 @@
 
   /* ---------- 表示開始 ---------- */
   renderQuestion(0);
-  // 少し遅延してフェードイン
   requestAnimationFrame(function () {
     requestAnimationFrame(function () {
       overlay.classList.add('show');
@@ -282,15 +394,17 @@
   /* ====================================================
      おかえりなさい表示
      ==================================================== */
-  function showWelcomeBack() {
-    var name = localStorage.getItem(LS_NAME);
-    if (!name) return;
+  function showWelcomeBack(traveler) {
+    if (!traveler.name) return;
     var wb = document.createElement('div');
     wb.id = 'ob-welcome';
-    wb.innerHTML = 'おかえりなさい、<span class="ob-wb-name">' + escapeHtml(name) + '</span>さん';
+    var html = 'おかえりなさい、<span class="ob-wb-name">' + escapeHtml(traveler.name) + '</span>さん';
+    if (traveler.title) {
+      html += '<div class="ob-wb-title">' + escapeHtml(traveler.title) + '</div>';
+    }
+    wb.innerHTML = html;
     document.body.appendChild(wb);
     setTimeout(function () { wb.classList.add('show'); }, 600);
-    // 5秒後に自動フェードアウト
     setTimeout(function () {
       wb.classList.remove('show');
       setTimeout(function () { wb.remove(); }, 600);

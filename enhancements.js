@@ -721,7 +721,9 @@ function initWelcomeback(){
   var achievementCount = data.achievements.length;
 
   // 名前（オンボーディングから）
-  var name = localStorage.getItem('ob_name');
+  var name = '';
+  try { var _t = JSON.parse(localStorage.getItem('library_traveler')); if(_t && _t.name) name = _t.name; } catch(e){}
+  if(!name) name = localStorage.getItem('ob_name') || '';
   var greeting = name ? (name + 'さん、') : '';
 
   // 時間帯に応じた挨拶
