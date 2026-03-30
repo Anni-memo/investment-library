@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="アダム・スミスと『国富論』— 市場経済の理論的基盤｜投資と思考の書斎"/>
+<meta property="og:description" content="1776年、スコットランドの哲学者が自由市場経済の理論的基盤を築いた。「見えざる手」が経済学という学問を生んだ。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>アダム・スミスと『国富論』— 市場経済の理論的基盤｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--rust:#8b3a1a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#0a0c10 30%,#141a28 60%,#1a2438 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(139,105,20,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.5rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(139,105,20,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">アダム・スミスと『国富論』</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">1776 · ECONOMICS · FREE MARKET</div>
+  <h1 class="hero-title">アダム・スミスと『国富論』</h1>
+  <p class="hero-sub">Adam Smith and The Wealth of Nations</p>
+  <p class="hero-lead">
+    個人が利益を追求すれば、社会全体が豊かになる。<br>
+    「見えざる手」── 経済学という学問はここから始まった。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか ── 経済学の誕生</h2>
+    <div class="section-body">
+      <p>1776年、スコットランドの哲学者アダム・スミスが『諸国民の富の性質と原因の研究』（通称『国富論』）を出版した。アメリカ独立宣言と同じ年である。</p>
+      <p>スミスは道徳哲学の教授であり、純粋な経済学者ではなかった。しかし『国富論』は、経済の仕組みを体系的に分析した初めての書物として、経済学という学問分野そのものを誕生させた。</p>
+      <p>全5編、約900ページ。分業の利点から国際貿易、税制、植民地政策まで、経済活動のあらゆる側面を論じた大著である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">なぜ書かれたか ── 重商主義への反論</h2>
+    <div class="section-body">
+      <p>スミスが『国富論』を執筆した背景には、当時支配的だった重商主義への強い批判があった。</p>
+      <ul>
+        <li><strong>重商主義</strong> ── 国家が貿易を統制し、金銀の蓄積を国富と見なす考え方。輸出を奨励し輸入を制限する</li>
+        <li><strong>ギルド制度</strong> ── 同業者組合が生産量や価格を統制し、新規参入を阻害していた</li>
+        <li><strong>東インド会社の独占</strong> ── 特定の企業に貿易の独占権を与え、競争を排除していた</li>
+      </ul>
+      <p>スミスはこれらの統制が経済の効率を妨げていると主張した。国家が管理するよりも、個人が自由に経済活動を行う方が、社会全体の富は増大する ── これが『国富論』の核心的メッセージだった。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「我々が食事を取れるのは、肉屋やパン屋や酒屋の慈悲心によるのではなく、<br>彼ら自身の利益への関心によるのである」── アダム・スミス『国富論』</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか ── 「見えざる手」と分業の発見</h2>
+    <div class="section-body">
+      <p>『国富論』が提示した中心的な概念は二つある。</p>
+      <p><strong>「見えざる手」（invisible hand）</strong> ── 個人が自己の利益を追求することで、意図せずして社会全体の富が増大するメカニズム。市場における価格の自動調整機能を指す。</p>
+      <p><strong>分業</strong> ── スミスは有名な「ピン工場」の例で分業の威力を示した。一人の職人がピンを最初から最後まで作ると1日20本程度だが、18の工程に分業すれば10人で1日48,000本を生産できる。</p>
+      <ul>
+        <li>自由市場は政府の介入なしに資源を効率的に配分できる</li>
+        <li>分業と専門化が生産性を飛躍的に向上させる</li>
+        <li>自由貿易は双方の国を豊かにする（比較優位の萌芽）</li>
+        <li>政府の役割は国防、司法、公共事業に限定すべき</li>
+      </ul>
+      <p>これらの考え方は、その後200年以上にわたって経済政策の基盤となった。自由放任主義（レッセフェール）の理論的根拠として、産業革命期のイギリスの経済政策を方向づけた。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT REMAINS</div>
+    <h2 class="section-title">今に残るもの ── 市場経済の思想的DNA</h2>
+    <div class="section-body">
+      <p>スミスの思想は、現代の市場経済の根幹に深く組み込まれている。</p>
+      <ul>
+        <li><strong>自由市場の原理</strong> ── 株式市場、為替市場、商品市場。すべて「見えざる手」による価格決定を前提としている</li>
+        <li><strong>自由貿易の論理</strong> ── WTO、FTA、TPP。国際貿易体制はスミスの思想の延長線上にある</li>
+        <li><strong>規制緩和の根拠</strong> ── レーガン、サッチャーの新自由主義改革は、スミスを理論的支柱とした</li>
+      </ul>
+      <p>ただし、スミスは無制限の自由を主張したわけではない。『国富論』には独占の弊害への批判、公共教育の必要性、富裕層への累進的課税の提案も含まれている。スミスを「政府不要論者」と読むのは誤読である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">投資家にとっての意味 ── 市場は「見えざる手」で動く</h2>
+    <div class="section-body">
+      <p>スミスの思想は、投資家にとっていくつかの本質的な洞察を提供する。</p>
+      <ul>
+        <li><strong>市場は情報を集約する</strong> ── 無数の参加者の判断が価格に反映される。これが効率的市場仮説の原型</li>
+        <li><strong>インセンティブがすべてを動かす</strong> ── 企業の経営者、政策決定者、消費者。全員が自己利益に基づいて行動する。この前提を忘れてはならない</li>
+        <li><strong>独占は非効率を生む</strong> ── 競争のない市場では価格が歪む。独占企業への投資は短期的には魅力的だが、長期的には規制リスクを伴う</li>
+      </ul>
+      <p>「見えざる手」は万能ではない。市場の失敗は存在する。しかし、市場メカニズムの力を理解することは、投資判断の最も基本的な出発点である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>見えざる手（invisible hand）</strong> — 個人の利己的行動が市場メカニズムを通じて社会全体の利益につながるという概念</li>
+        <li><strong>分業</strong> — 生産工程を細分化し、各工程を専門化することで生産性を飛躍的に向上させる仕組み</li>
+        <li><strong>自由貿易</strong> — 関税や輸入制限を撤廃し、国家間の自由な商取引を推進する考え方</li>
+        <li><strong>国富論</strong> — 1776年出版。正式名称『諸国民の富の性質と原因の研究』。経済学の始祖的著作</li>
+        <li><strong>重商主義</strong> — 金銀の蓄積を国富と見なし、国家が貿易を統制すべきとする経済思想</li>
+        <li><strong>自由放任主義（レッセフェール）</strong> — 政府は経済活動に介入せず、市場の自律的調整に任せるべきとする立場</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">市場経済の理論を理解した上で、その批判と発展を辿るために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../industrial-revolution/">
+        <span class="further-link-tag">1760–1840</span>
+        <span class="further-link-title">産業革命 — 資本と技術が結合した転換点</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../marx/">
+        <span class="further-link-tag">1867</span>
+        <span class="further-link-title">マルクスと『資本論』— 資本主義の解剖</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../keynes/">
+        <span class="further-link-tag">KEYNES</span>
+        <span class="further-link-title">ケインズと『一般理論』</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

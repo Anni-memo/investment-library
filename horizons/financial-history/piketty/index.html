@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ピケティと『21世紀の資本』— r > g の衝撃｜投資と思考の書斎"/>
+<meta property="og:description" content="資本収益率が経済成長率を上回り続ける限り、格差は拡大する。ピケティが300年のデータで実証した不等式の意味。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ピケティと『21世紀の資本』— r > g の衝撃｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#10080a 30%,#1e1018 60%,#2c1825 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(140,60,100,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(140,60,100,.12);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ピケティと『21世紀の資本』</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">2013 · INEQUALITY · r &gt; g</div>
+  <h1 class="hero-title">ピケティと『21世紀の資本』</h1>
+  <p class="hero-sub">Capital in the Twenty-First Century</p>
+  <p class="hero-lead">
+    資本収益率は経済成長率を上回り続ける。<br>
+    300年のデータが示した不等式 r &gt; g は、格差の議論を根本から変えた。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">経済学書が世界的ベストセラーになった</h2>
+    <div class="section-body">
+      <p>2013年、フランスの経済学者トマ・ピケティが『21世紀の資本（Le Capital au XXIe si&egrave;cle）』を出版した。700ページを超える学術書が、翌年の英訳版を契機に世界的ベストセラーとなった。</p>
+      <p>ピケティが行ったのは、20カ国以上、300年以上にわたる税務データ・資産データの体系的な分析だった。そこから導かれた結論はシンプルだが衝撃的だった。</p>
+      <p>資本収益率（r）は歴史的に年4〜5%で推移する一方、経済成長率（g）は年1〜2%にとどまる。r &gt; g が続く限り、資本を持つ者と持たない者の格差は構造的に拡大し続ける。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">r &gt; g ── この不等式は「なぜ金持ちはさらに金持ちになるのか」という問いに、<br>感情ではなくデータで答えた。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ注目されたか -->
+  <div class="article-section">
+    <div class="section-label">THE CAUSE</div>
+    <h2 class="section-title">リーマン後の世界が求めた「説明」</h2>
+    <div class="section-body">
+      <p>ピケティの著作が爆発的に受け入れられた背景には、時代の文脈がある。</p>
+      <ul>
+        <li><strong>リーマン・ショック後の格差拡大</strong> ── 量的緩和は資産価格を押し上げ、株や不動産を持つ者をさらに豊かにした。一方、賃金の伸びは鈍いままだった</li>
+        <li><strong>ウォール街占拠運動（2011年）</strong> ── 「We are the 99%」のスローガン。上位1%への富の集中が社会的な怒りを生んでいた</li>
+        <li><strong>データの力</strong> ── 感覚や主張ではなく、歴史的データに基づいた実証が説得力を持った</li>
+      </ul>
+      <p>ピケティ以前にも格差の議論はあった。しかし多くは「格差は良いか悪いか」という価値判断に終始していた。ピケティは「格差はなぜ構造的に拡大するのか」をメカニズムとして説明した。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- r > g の意味 -->
+  <div class="article-section">
+    <div class="section-label">THE MECHANISM</div>
+    <h2 class="section-title">r &gt; g が意味すること</h2>
+    <div class="section-body">
+      <p>r &gt; g の含意を具体的に考えてみよう。</p>
+      <p>資本収益率が年5%、経済成長率が年2%だとする。1億円の資産を持つ人は、何もしなくても年500万円の収入を得る。一方、労働で得られる賃金の伸びは経済成長率に近い年2%程度にとどまる。</p>
+      <p>この差が数十年続くと、資産格差は雪だるま式に拡大する。相続を通じて世代を超えて蓄積されれば、格差は固定化する。</p>
+      <ul>
+        <li><strong>労働 vs 資本</strong> ── 働いて稼ぐ速度よりも、お金がお金を生む速度の方が速い</li>
+        <li><strong>世代間蓄積</strong> ── 資産は相続され、格差は世代を超えて拡大する</li>
+        <li><strong>例外の時代</strong> ── 20世紀の二度の世界大戦が資本を破壊し、一時的に格差を縮小させた。だがそれは「例外」だった</li>
+      </ul>
+      <p>ピケティの処方箋は「グローバル累進資産税」だった。実現可能性には議論があるが、問題の構造を明確にした功績は大きい。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">格差議論が「感情」から「データ」へ</h2>
+    <div class="section-body">
+      <p>ピケティ以降、格差を巡る議論の質は明確に変わった。</p>
+      <ul>
+        <li><strong>World Inequality Database</strong> ── ピケティらが構築した世界格差データベースが公開され、誰でもデータにアクセスできるようになった</li>
+        <li><strong>税制議論の活発化</strong> ── 累進課税の強化、富裕税、デジタル課税の議論が具体化した</li>
+        <li><strong>最低税率の合意</strong> ── 2021年、OECD加盟国が法人税の最低税率15%で合意。税の底辺への競争に歯止め</li>
+      </ul>
+      <p>批判もある。「rは常にgを上回るとは限らない」「資本の定義が曖昧」「戦争以外にも格差縮小のメカニズムはある」。しかし、格差の議論がデータ駆動型になったこと自体が、ピケティの最大の貢献だろう。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">「資本を持つ側」に立つことの意味</h2>
+    <div class="section-body">
+      <p>ピケティの分析は、投資家にとって逆説的なメッセージを含んでいる。</p>
+      <p>r &gt; g が構造的に成り立つなら、株式を持つ者と持たない者の格差は時間とともに必然的に拡大する。つまり、「投資をしないこと」自体がリスクなのだ。</p>
+      <ul>
+        <li><strong>長期投資の理論的裏付け</strong> ── r &gt; g は「株式の長期リターンが経済成長率を上回る」ことの学術的根拠でもある</li>
+        <li><strong>複利の力</strong> ── r &gt; g の差がわずかでも、複利効果によって長期では巨大な差になる</li>
+        <li><strong>政策リスク</strong> ── 格差拡大が続けば、富裕税や資産課税の強化は不可避。投資家は税制変更リスクも視野に入れる必要がある</li>
+      </ul>
+      <p>ピケティは格差の拡大を問題視したが、個人の投資家にとっての実践的な教訓は明確だ。資本の側に立つこと。できるだけ早く、できるだけ長く。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">r &gt; g を知識として知ることと、実際に r の側に立つことは違う。<br>投資を始めるという行動だけが、この不等式の恩恵を個人にもたらす。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>r &gt; g</strong> — 資本収益率（r）が経済成長率（g）を上回る不等式。ピケティの中心的命題</li>
+        <li><strong>資本収益率（r）</strong> — 株式・不動産・債券などの資本から得られるリターンの年率</li>
+        <li><strong>経済成長率（g）</strong> — GDP（国内総生産）の成長率。労働所得の伸びに近似する</li>
+        <li><strong>資産格差</strong> — 保有資産の規模に基づく経済的格差。所得格差よりも大きい</li>
+        <li><strong>累進課税</strong> — 所得や資産が多いほど税率が高くなる課税方式</li>
+        <li><strong>グローバル資産税</strong> — ピケティが提唱した、全世界的な累進資産課税の構想</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">格差と資本の問題を、別の視点から考えるために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../marx/">
+        <span class="further-link-tag">MARX</span>
+        <span class="further-link-title">マルクスと『資本論』</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../keynes/">
+        <span class="further-link-tag">KEYNES</span>
+        <span class="further-link-title">ケインズと『一般理論』</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../ai-revolution/">
+        <span class="further-link-tag">AI</span>
+        <span class="further-link-title">AI革命 — 知的労働の自動化が変える資本の意味</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="マルクスと『資本論』— 資本主義の解剖｜投資と思考の書斎"/>
+<meta property="og:description" content="1867年、カール・マルクスが資本蓄積・剰余価値・搾取の構造を体系的に分析。20世紀の世界を二分した思想の原点。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>マルクスと『資本論』— 資本主義の解剖｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--rust:#8b3a1a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#100808 30%,#281010 60%,#381818 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(139,58,26,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.5rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(139,58,26,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">マルクスと『資本論』</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">1867 · CAPITAL · CRITIQUE</div>
+  <h1 class="hero-title">マルクスと『資本論』</h1>
+  <p class="hero-sub">Karl Marx and Das Kapital — The Anatomy of Capitalism</p>
+  <p class="hero-lead">
+    資本主義を最も鋭く解剖した思想家。<br>
+    その分析は、支持者にも批判者にも<br>
+    無視できない知的遺産を残した。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか ── 資本主義の「設計図」を暴いた書物</h2>
+    <div class="section-body">
+      <p>1867年、ドイツ出身の思想家カール・マルクスが『資本論（Das Kapital）』第1巻をハンブルクで出版した。第2巻と第3巻は、マルクスの死後にエンゲルスの編集により刊行された。</p>
+      <p>『資本論』は、資本主義経済の構造を内部から分析した著作である。商品の価値がどのように生まれ、利潤がどこから来るのか、資本がいかにして蓄積されるのか。マルクスはこれらを労働価値説に基づいて体系的に解明しようとした。</p>
+      <p>出版当時、反響は限定的だった。しかしこの書物は、20世紀の世界を二分する思想的基盤となる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">なぜ書かれたか ── 産業革命の影</h2>
+    <div class="section-body">
+      <p>マルクスが『資本論』を執筆した19世紀中葉のヨーロッパは、産業革命の恩恵と苦痛が同時に噴き出していた時代だった。</p>
+      <ul>
+        <li>工場労働者は1日14-16時間働き、女性や子どもも過酷な労働に従事した</li>
+        <li>労働者の平均寿命は、裕福な階層の半分以下だった</li>
+        <li>経済は急成長していたが、その果実は資本家に集中していた</li>
+        <li>周期的な恐慌が繰り返され、労働者は失業と貧困に晒された</li>
+      </ul>
+      <p>アダム・スミスの「見えざる手」は、なぜ労働者を救わないのか。市場の自由は、なぜ格差を拡大するのか。マルクスは、資本主義そのものの構造にその原因を見出そうとした。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「哲学者たちは世界をさまざまに解釈してきたにすぎない。<br>大切なのは、世界を変えることである」── マルクス『フォイエルバッハに関するテーゼ』</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか ── 20世紀の世界を二分した思想</h2>
+    <div class="section-body">
+      <p>マルクスの中心的な概念は「剰余価値」である。労働者は自分の賃金以上の価値を生産し、その差額（剰余価値）が資本家の利潤となる。これがマルクスの言う「搾取」の構造だった。</p>
+      <p>この分析は、二つの方向に巨大な影響を及ぼした。</p>
+      <ul>
+        <li><strong>共産主義革命の理論的基盤</strong> ── 1917年のロシア革命、1949年の中国革命。マルクスの思想は数億人の運命を変えた</li>
+        <li><strong>資本主義国の社会改良</strong> ── 最低賃金制度、労働組合の合法化、社会保障制度、累進課税。これらはすべて「マルクスへの回答」として生まれた側面がある</li>
+      </ul>
+      <p>皮肉なことに、マルクスが予言した「資本主義の崩壊」は起きなかった。資本主義は、マルクスの批判を取り込むことで自らを修正し、生き延びたのである。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT REMAINS</div>
+    <h2 class="section-title">今に残るもの ── 格差論争の原点</h2>
+    <div class="section-body">
+      <p>ソ連は崩壊し、中国は事実上の市場経済を採用した。しかし、マルクスの分析は決して過去のものではない。</p>
+      <ul>
+        <li><strong>格差の構造分析</strong> ── ピケティの『21世紀の資本』は、マルクスと同じ問いを現代のデータで検証した</li>
+        <li><strong>労働と資本の対立</strong> ── プラットフォーム企業のギグワーカー問題は、19世紀の工場労働問題の現代版</li>
+        <li><strong>周期的恐慌の理論</strong> ── 資本主義が周期的にバブルと崩壊を繰り返すというマルクスの指摘は、2008年のリーマン・ショックでも確認された</li>
+        <li><strong>AI時代の雇用不安</strong> ── 技術革新が労働者を不要にするという恐怖は、マルクスの「相対的過剰人口」論の延長線上にある</li>
+      </ul>
+      <p>マルクスを読むことは、共産主義を支持することではない。資本主義の構造的な弱点を理解するための、最も鋭利な知的道具を手に入れることである。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">投資家にとっての意味 ── 資本主義の脆弱性を知る</h2>
+    <div class="section-body">
+      <p>マルクスの分析は、投資家にとって不快だが重要な視点を提供する。</p>
+      <ul>
+        <li><strong>利潤率の傾向的低下</strong> ── 資本が蓄積されるほど利潤率が低下するというマルクスの仮説は、先進国の低金利環境と無関係ではない</li>
+        <li><strong>格差は政治リスクになる</strong> ── 格差の拡大はポピュリズムを生み、規制強化や増税につながる。ESG投資の台頭もこの文脈で理解できる</li>
+        <li><strong>景気循環は構造的</strong> ── 好況と不況の繰り返しは偶然ではなく、資本主義の内在的メカニズム。マルクスはこれを150年前に指摘した</li>
+      </ul>
+      <p>資本主義を信じて投資する者こそ、資本主義の批判者を読むべきだ。自分が乗っている船の弱点を知ることは、生存のための最低条件である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>剰余価値</strong> — 労働者が生産する価値のうち、賃金を超える部分。マルクスはこれを資本家の利潤の源泉とした</li>
+        <li><strong>資本蓄積</strong> — 剰余価値を再投資し、生産手段を拡大する過程。資本主義の原動力</li>
+        <li><strong>搾取</strong> — 労働者が生産した価値の一部を資本家が取得する構造的関係</li>
+        <li><strong>階級闘争</strong> — 資本家階級（ブルジョワジー）と労働者階級（プロレタリアート）の対立。マルクスは歴史の原動力とした</li>
+        <li><strong>共産党宣言</strong> — 1848年、マルクスとエンゲルスが共著で発表した政治文書。「万国の労働者よ、団結せよ！」</li>
+        <li><strong>唯物史観</strong> — 経済的な生産関係が社会構造と意識を規定するという歴史観</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">資本主義の批判を理解した上で、その修正と発展を辿るために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../adam-smith/">
+        <span class="further-link-tag">1776</span>
+        <span class="further-link-title">アダム・スミスと『国富論』— 市場経済の理論的基盤</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../industrial-revolution/">
+        <span class="further-link-tag">1760–1840</span>
+        <span class="further-link-title">産業革命 — 資本と技術が結合した転換点</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../piketty/">
+        <span class="further-link-tag">PIKETTY</span>
+        <span class="further-link-title">ピケティと『21世紀の資本』</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

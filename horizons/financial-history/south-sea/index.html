@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="南海泡沫事件 — ニュートンも騙されたバブル｜投資と思考の書斎"/>
+<meta property="og:description" content="1720年、イギリス南海会社の株価が半年で10倍に暴騰し崩壊。ニュートンすら大損した史上初の大規模バブルの構造と教訓。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>南海泡沫事件 — ニュートンも騙されたバブル｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--rust:#8b3a1a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#0a1018 30%,#102030 60%,#182838 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(139,105,20,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(139,105,20,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">南海泡沫事件</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">1720 · BUBBLE · MADNESS</div>
+  <h1 class="hero-title">南海泡沫事件</h1>
+  <p class="hero-sub">The South Sea Bubble — Newton Was Fooled Too</p>
+  <p class="hero-lead">
+    半年で株価10倍。そして崩壊。<br>
+    「天体の動きは計算できるが、人の狂気は計算できない」<br>
+    ── アイザック・ニュートン
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか ── 半年で10倍、そして崩壊</h2>
+    <div class="section-body">
+      <p>1720年、イギリスの南海会社（South Sea Company）の株価が異常な暴騰を見せた。年初に128ポンドだった株価は、6月には1,050ポンドに達した。半年で約10倍。ロンドン中が投機熱に浮かされた。</p>
+      <p>しかし、その年の秋には株価は急落し、多くの投資家が破産した。科学者アイザック・ニュートンも2万ポンド（現在の価値で数億円相当）を失ったと伝えられている。</p>
+      <p>万有引力を発見した天才でさえ、群衆の狂気には抗えなかった。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「天体の動きは計算できるが、人の狂気は計算できない」<br>── アイザック・ニュートン（南海泡沫事件で大損した後の言葉とされる）</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">なぜ起きたか ── 政府債務・インサイダー・賄賂の連鎖</h2>
+    <div class="section-body">
+      <p>南海泡沫事件の本質は、政府債務の株式化スキームにあった。</p>
+      <p>スペイン継承戦争（1701-1714）で膨らんだイギリスの国債を、南海会社が引き受ける。投資家は国債を南海会社の株式に転換できる。会社は南米貿易の独占権を持つ ── という触れ込みだった。</p>
+      <ul>
+        <li>南海会社の取締役たちは、株価を吊り上げるためにインサイダー取引を繰り返した</li>
+        <li>議員や閣僚に株式を贈り、法案の通過を確保した</li>
+        <li>実際の南米貿易はほとんど利益を生んでいなかった</li>
+        <li>株価の上昇自体が、さらなる株式転換と投機を呼ぶ循環が生まれた</li>
+      </ul>
+      <p>政治と金融が癒着し、虚構の上に虚構が積み重なる。これがバブルの典型的な構造である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか ── 泡沫会社禁止法の制定</h2>
+    <div class="section-body">
+      <p>南海泡沫事件は、バブルが規制を生んだ最初の事例となった。</p>
+      <p>崩壊後、イギリス議会は1720年に「泡沫会社禁止法（Bubble Act）」を制定した。王室の特許状なしに株式会社を設立することを禁じたのである。</p>
+      <p>この法律は、結果として約100年間にわたりイギリスの企業設立を厳しく制限した。産業革命期には、この規制が逆に経済発展の足かせとなったと指摘されている。</p>
+      <p>規制は過剰投機を防ぐためのものだったが、イノベーションも同時に抑制した。この「規制のジレンマ」は、300年後の現代にも通じるテーマである。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHAT REMAINS</div>
+    <h2 class="section-title">今に残るもの ── 「バブル」という言葉の起源</h2>
+    <div class="section-body">
+      <p>南海泡沫事件は、金融市場における「バブル（泡沫）」という概念を人類に刻みつけた。</p>
+      <ul>
+        <li><strong>投機と投資の境界</strong> ── 実態のない「物語」に群がる行為は投資ではない</li>
+        <li><strong>政治と金融の癒着</strong> ── インサイダー取引や政治家への賄賂は、現代でも繰り返されるテーマ</li>
+        <li><strong>規制の必要性と限界</strong> ── 市場の自由と投資家保護のバランスは永遠の課題</li>
+      </ul>
+      <p>チューリップ・バブル（1637年）、南海泡沫事件（1720年）、そして現代の暗号資産バブル。人間の投機衝動は、300年経っても本質的に変わっていない。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">投資家にとっての意味 ── 天才でもバブルには勝てない</h2>
+    <div class="section-body">
+      <p>ニュートンの失敗は、知性だけではバブルから身を守れないことを示している。</p>
+      <ul>
+        <li><strong>群集心理は合理性を圧倒する</strong> ── 周囲が儲けているとき、冷静でいることは極めて難しい</li>
+        <li><strong>「一度売って、また買い直す」が最も危険</strong> ── ニュートンは早期に利益確定したが、周囲の続騰を見て再参入し、大損した</li>
+        <li><strong>スキームの複雑さは危険信号</strong> ── 仕組みが理解できないものに投資してはならない</li>
+      </ul>
+      <p>バブルの最大の教訓は「自分は例外ではない」ということだ。天才物理学者ですら例外ではなかった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>南海会社（South Sea Company）</strong> — 1711年設立。南米貿易の独占権を謳い、政府債務の引き受けで巨大化した会社</li>
+        <li><strong>泡沫会社禁止法（Bubble Act）</strong> — 1720年制定。無許可の株式会社設立を禁じた法律。1825年に廃止</li>
+        <li><strong>政府債務の株式化</strong> — 国債を民間企業の株式に転換するスキーム。南海会社の中核的な仕組み</li>
+        <li><strong>アイザック・ニュートン</strong> — 万有引力の発見者。南海会社株で約2万ポンドの損失を被った</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">バブルの原型を理解した上で、市場と制度の歴史をさらに辿るために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../amsterdam-exchange/">
+        <span class="further-link-tag">1609</span>
+        <span class="further-link-title">アムステルダム証券取引所 — 世界初の株式市場</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../bank-of-england/">
+        <span class="further-link-tag">1694</span>
+        <span class="further-link-title">イングランド銀行 — 中央銀行の原型</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../bubble/">
+        <span class="further-link-tag">BUBBLE</span>
+        <span class="further-link-title">バブル経済とその崩壊</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

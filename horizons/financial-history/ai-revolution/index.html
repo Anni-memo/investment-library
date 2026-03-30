@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="AI革命 — 知的労働の自動化が変える資本の意味｜投資と思考の書斎"/>
+<meta property="og:description" content="ChatGPT以降、大規模言語モデルが知的労働を変え始めた。産業革命に匹敵する変化の中で、資本の意味が問い直されている。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>AI革命 — 知的労働の自動化が変える資本の意味｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#080a10 30%,#0e1420 60%,#142035 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(60,120,200,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(60,120,200,.12);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">AI革命</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">2023~ · LLM · INTELLECTUAL CAPITAL</div>
+  <h1 class="hero-title">AI革命</h1>
+  <p class="hero-sub">When Machines Begin to Think</p>
+  <p class="hero-lead">
+    産業革命が肉体労働を変えたように、<br>
+    AI革命は知的労働を変え、資本の意味そのものを問い直している。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">ChatGPTの衝撃 ── 知的労働の自動化が現実になった</h2>
+    <div class="section-body">
+      <p>2022年11月、OpenAIがChatGPTを公開した。わずか2ヶ月で1億ユーザーを突破。人類史上最速で普及したアプリケーションとなった。</p>
+      <p>それまでAIは画像認識やゲーム攻略など特定領域に限られていた。しかし大規模言語モデル（LLM）は、文章の執筆、コードの生成、翻訳、分析、要約 ── 知的労働の広範な領域を自動化し始めた。</p>
+      <p>2023年以降、GPT-4、Claude、Geminiなど競合モデルが次々と登場し、能力は急速に向上している。さらにAIエージェント ── 単に質問に答えるだけでなく、自律的にタスクを実行するAI ── の開発が加速している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ今起きたか -->
+  <div class="article-section">
+    <div class="section-label">THE CAUSE</div>
+    <h2 class="section-title">三つの臨界点が同時に超えられた</h2>
+    <div class="section-body">
+      <p>AI革命は突然起きたように見えるが、長い助走期間があった。</p>
+      <ul>
+        <li><strong>トランスフォーマー（2017年）</strong> ── Googleが発表した「Attention Is All You Need」論文。この新しいアーキテクチャが、言語処理の性能を飛躍的に向上させた</li>
+        <li><strong>計算資源の爆発的拡大</strong> ── GPUの進化とクラウドコンピューティングの発展により、兆単位のパラメータを持つモデルの訓練が可能になった</li>
+        <li><strong>データの蓄積</strong> ── インターネット上に蓄積された膨大なテキストデータが、モデルの「学習素材」として利用可能になった</li>
+      </ul>
+      <p>技術・計算資源・データの三つが同時に臨界点を超えたことで、AI革命は爆発的に進行している。そして重要なのは、この変化がまだ始まったばかりだということだ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">産業革命は蒸気機関の発明から社会全体の変革まで数十年を要した。<br>AI革命の時間軸は、はるかに圧縮されている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">資本の定義が変わり始めている</h2>
+    <div class="section-body">
+      <p>産業革命において資本とは、工場、機械、土地だった。20世紀には金融資本が中心になった。そして今、AI革命は資本の定義そのものを変えつつある。</p>
+      <ul>
+        <li><strong>知識が資本になる</strong> ── AIモデルの訓練データ、独自のナレッジベース、業務ノウハウのデジタル化。知識の蓄積そのものが競争優位となる</li>
+        <li><strong>データが資本になる</strong> ── 学習データの量と質が、AIの性能を決定する。データを持つ者が主導権を握る</li>
+        <li><strong>AIモデルが資本になる</strong> ── 訓練済みのAIモデルは、かつての工場設備のように「生産手段」として機能する</li>
+      </ul>
+      <p>kintoneのようなSaaSプラットフォームで構築していた業務フローが、AIエージェントに置き換わる可能性も現実化しつつある。「ソフトウェアを使う」から「AIに指示する」へ。インターフェースの革命でもある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">過去の産業革命が教えること</h2>
+    <div class="section-body">
+      <p>過去の技術革命は、投資家にいくつかのパターンを示している。</p>
+      <ul>
+        <li><strong>「つるはし売り」の法則</strong> ── ゴールドラッシュで最も儲けたのは金を掘った人ではなく、つるはしを売った人だった。AI革命でも、GPU（NVIDIA）、クラウド（AWS、Azure）、半導体製造装置など「インフラ」の提供者が最初の勝者となっている</li>
+        <li><strong>バブルと実需の見極め</strong> ── 鉄道バブル、ドットコムバブル。技術革命の初期には必ず過剰な期待と投機が生じる。しかしバブルが弾けた後に、真の勝者が浮かび上がる</li>
+        <li><strong>既存産業の再評価</strong> ── AIの恩恵を最も受けるのは、AI企業そのものではなく、AIを活用して生産性を劇的に向上させる既存産業かもしれない</li>
+      </ul>
+      <p>AI革命は「今、まさに起きている」歴史的事件である。金融史のほとんどの出来事は後から振り返って語られるが、これは私たちが当事者として生きている転換点だ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">産業革命は労働者の仕事を奪うと恐れられた。結果的に、新しい仕事を生み出した。<br>AI革命がどちらに向かうかは、まだ誰にも分からない。だからこそ、歴史に学ぶ意味がある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>大規模言語モデル（LLM）</strong> — 大量のテキストデータで訓練された巨大なニューラルネットワーク。GPT、Claude、Geminiなど</li>
+        <li><strong>トランスフォーマー</strong> — 2017年にGoogleが発表した「注意機構」に基づくアーキテクチャ。現在のLLMの基盤</li>
+        <li><strong>AIエージェント</strong> — 自律的にタスクを計画・実行するAIシステム。単なる質問応答を超えた能力</li>
+        <li><strong>知的資本</strong> — 知識、スキル、ノウハウなど無形の資産。AI時代における新たな競争優位の源泉</li>
+        <li><strong>データ資本</strong> — AIの学習・推論に必要なデータ群。量と質が企業価値を左右する時代に</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">AI革命の文脈を、過去の技術革命と対比するために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../industrial-revolution/">
+        <span class="further-link-tag">INDUSTRY</span>
+        <span class="further-link-title">産業革命と資本主義の誕生</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../piketty/">
+        <span class="further-link-tag">PIKETTY</span>
+        <span class="further-link-title">ピケティと『21世紀の資本』</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../bitcoin/">
+        <span class="further-link-tag">BITCOIN</span>
+        <span class="further-link-title">ビットコイン — 中央管理なきお金の実験</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

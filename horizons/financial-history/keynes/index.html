@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ケインズと『一般理論』— 政府介入の理論的基盤｜金融史の書庫｜投資と思考の書斎"/>
+<meta property="og:description" content="『雇用・利子および貨幣の一般理論』が経済学を変えた。市場は自己修復しない、政府が需要を創出すべきという革命的主張。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ケインズと『一般理論』— 政府介入の理論的基盤｜金融史の書庫｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,#0a0e14 45%,#0e1420 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(40,80,140,.08) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(40,80,140,.15);position:relative;margin-bottom:8px;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:20px;opacity:.8;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'---';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:100px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ケインズと『一般理論』</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">1936 : THEORY : REVOLUTION</div>
+  <h1 class="hero-title">ケインズと『一般理論』</h1>
+  <p class="hero-sub">Keynes and The General Theory, 1936</p>
+  <p class="hero-lead">
+    「市場は自動的には均衡に戻らない」。<br>大恐慌の廃墟から生まれた、政府介入の理論的基盤。
+  </p>
+</div>
+
+<!-- ARTICLE -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか --- 経済学の革命</h2>
+    <div class="section-body">
+      <p>1936年、ジョン・メイナード・ケインズは『雇用・利子および貨幣の一般理論』を出版した。それまでの経済学の常識を根底から覆す一冊だった。</p>
+      <p>古典派経済学は「市場に任せれば、価格と賃金の調整を通じて経済は自動的に完全雇用に戻る」と考えていた。しかし大恐慌は、その楽観を完全に否定した。失業率25%が何年も続く現実を、古典派は説明できなかった。</p>
+      <p>ケインズの主張は明快だった。不況期には、企業も家計も支出を減らす。支出が減れば所得が減り、所得が減ればさらに支出が減る。この「縮小の連鎖」を断ち切れるのは、利益動機で動かない主体 --- すなわち政府だけだ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜこの理論が必要だったか -->
+  <div class="article-section">
+    <div class="section-label">WHY IT WAS NEEDED</div>
+    <h2 class="section-title">なぜこの理論が必要だったか --- 古典派の破綻</h2>
+    <div class="section-body">
+      <p>世界大恐慌は、既存の経済理論への信頼を粉砕した。</p>
+      <p>古典派経済学の「セイの法則」は「供給はそれ自身の需要を生む」と主張した。つまり、生産されたものは必ず売れる。失業は一時的で、賃金が下がれば企業は再び人を雇う、と。</p>
+      <p>しかし現実は違った。賃金が下がっても、物価が下がっても、企業は人を雇わなかった。需要そのものが消失していたからだ。将来への不安が消費と投資を凍結させ、経済全体が縮小均衡に陥った。</p>
+      <p>ケインズはこの状態を理論的に説明し、処方箋を示した。それが「有効需要の原理」だった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 核心的な概念 -->
+  <div class="article-section">
+    <div class="section-label">CORE IDEAS</div>
+    <h2 class="section-title">核心的な概念 --- 有効需要・乗数効果・流動性の罠</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>有効需要</strong> --- 経済の産出量を決めるのは供給側ではなく、需要側。需要が不足すれば、たとえ生産能力があっても経済は縮小する</li>
+        <li><strong>乗数効果</strong> --- 政府が1億円支出すると、その所得が消費を生み、さらに所得を生む。最終的なGDPへの効果は1億円以上になる</li>
+        <li><strong>流動性の罠</strong> --- 金利がゼロ近辺まで下がると、金融緩和は効果を失う。現金を持っていても機会費用がないため、人々は投資に回さない</li>
+        <li><strong>アニマルスピリッツ</strong> --- 投資家の意思決定は合理的な計算だけでなく、「楽観」や「悲観」という感情に左右される</li>
+      </ul>
+
+      <div class="callout">
+        <p class="callout-text">「長期的には、我々は皆死んでいる」--- ケインズの有名な言葉は、「市場の自己調整を長期的に待て」という古典派への痛烈な批判だった。今苦しんでいる人々に「いずれ回復する」は答えにならない。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか --- 「大きな政府」の誕生</h2>
+    <div class="section-body">
+      <p>ケインズの理論は、戦後の経済運営を根本的に変えた。</p>
+      <ul>
+        <li><strong>財政政策の中心化</strong> --- 不況時には政府支出を増やし、好況時には引き締める。景気循環を政府が管理するという発想が定着</li>
+        <li><strong>ブレトンウッズ体制</strong> --- ケインズ自身が設計に深く関与した戦後の国際金融秩序。IMFと世界銀行の創設</li>
+        <li><strong>社会保障制度の充実</strong> --- 失業保険や年金は、不況時の「自動安定化装置」として機能する。ケインズ理論がその理論的根拠を提供</li>
+        <li><strong>完全雇用の政策目標化</strong> --- 失業は「個人の問題」ではなく「政府が解決すべき問題」になった</li>
+      </ul>
+      <p>1950年代から1970年代にかけて、ケインズ経済学は先進国の政策の主流だった。ニクソン大統領が「我々は皆ケインジアンだ」と語ったほどだ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 批判と限界 -->
+  <div class="article-section">
+    <div class="section-label">CRITICISM</div>
+    <h2 class="section-title">批判と限界 --- スタグフレーションの衝撃</h2>
+    <div class="section-body">
+      <p>ケインズ経済学は万能ではなかった。1970年代、インフレと不況が同時に進行する「スタグフレーション」が発生し、ケインズ理論では説明できない現象に直面した。</p>
+      <p>ミルトン・フリードマンに代表されるマネタリストは、財政政策より金融政策を重視すべきだと主張。政府支出の拡大はインフレを招くだけだと批判した。</p>
+      <p>しかし2008年のリーマン・ショックでケインズは「復活」した。金利がゼロに達し、「流動性の罠」が現実のものとなったとき、各国政府は大規模な財政出動に踏み切った。ケインズの理論は、危機のたびにその有効性を示し続けている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <p><strong>有効需要</strong> --- 実際に購買力を伴う需要。経済の産出量を決定する</p>
+      <p><strong>流動性の罠</strong> --- 金利がゼロ近辺で金融政策が効かなくなる状態</p>
+      <p><strong>乗数効果</strong> --- 政府支出が波及的にGDPを増加させる効果</p>
+      <p><strong>財政政策</strong> --- 政府支出と課税による経済調整の手段</p>
+      <p><strong>完全雇用</strong> --- 働きたい人が全員職を得ている状態（摩擦的失業を除く）</p>
+      <p><strong>アニマルスピリッツ</strong> --- 合理的計算を超えた、投資家の楽観・悲観の心理</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FURTHER READING -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">ケインズの理論的背景である大恐慌、その思想が制度化されたブレトンウッズ体制へと読み進めるために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../great-depression/">
+        <span class="further-link-tag">DEPRESSION</span>
+        <span class="further-link-title">世界大恐慌 --- 資本主義最大の危機</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../bretton-woods/">
+        <span class="further-link-tag">BRETTON WOODS</span>
+        <span class="further-link-title">ブレトンウッズ体制 --- ドル覇権の誕生</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../nixon-shock/">
+        <span class="further-link-tag">NIXON SHOCK</span>
+        <span class="further-link-title">ニクソン・ショック --- 金本位制の終焉</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>&emsp;&middot;
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

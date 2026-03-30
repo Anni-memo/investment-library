@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ニクソン・ショック — 金本位制の終焉｜金融史の書庫｜投資と思考の書斎"/>
+<meta property="og:description" content="1971年、ニクソン大統領がドルと金の交換を停止。ブレトンウッズ体制が崩壊し、お金は完全に「信用」だけで成り立つ時代へ。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ニクソン・ショック — 金本位制の終焉｜金融史の書庫｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,#0a0e14 45%,#0e1420 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(40,80,140,.08) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(40,80,140,.15);position:relative;margin-bottom:8px;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:20px;opacity:.8;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'---';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:100px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ニクソン・ショック</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">1971 : GOLD : FIAT</div>
+  <h1 class="hero-title">ニクソン・ショック --- 金本位制の終焉</h1>
+  <p class="hero-sub">The Nixon Shock, 1971</p>
+  <p class="hero-lead">
+    ドルと金の交換が停止された日。<br>お金は「信用」だけで成り立つ時代が始まった。
+  </p>
+</div>
+
+<!-- ARTICLE -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか --- 日曜夜のテレビ演説</h2>
+    <div class="section-body">
+      <p>1971年8月15日、日曜日の夜。リチャード・ニクソン大統領はテレビカメラの前に立ち、アメリカの経済政策を根本的に変える宣言を行った。</p>
+      <p>「ドルと金の交換を一時的に停止する」。</p>
+      <p>「一時的」と言ったが、二度と再開されることはなかった。ブレトンウッズ体制 --- 金1オンス＝35ドルで固定し、各国通貨がドルに連動する戦後の国際金融秩序 --- が、この瞬間に崩壊した。</p>
+      <p>同時にニクソンは90日間の賃金・物価凍結と10%の輸入課徴金を発表した。これらを総称して「ニクソン・ショック」と呼ぶ。世界の金融市場は翌朝から大混乱に陥った。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">なぜ起きたか --- アメリカの金が枯渇した</h2>
+    <div class="section-body">
+      <p>ブレトンウッズ体制の下、アメリカは各国中央銀行の要請に応じて、ドルを金に交換する義務を負っていた。しかし1960年代後半、その義務が維持不可能になった。</p>
+      <ul>
+        <li><strong>ベトナム戦争の戦費</strong> --- 膨大な軍事支出がアメリカの財政を圧迫。ドルが世界中に溢れた</li>
+        <li><strong>「偉大な社会」計画</strong> --- ジョンソン大統領の社会保障拡充が財政赤字をさらに拡大</li>
+        <li><strong>貿易赤字の常態化</strong> --- 1971年、アメリカは20世紀初めて貿易赤字を記録</li>
+        <li><strong>金準備の流出</strong> --- フランスのド・ゴール大統領がドルを金に交換するよう要求。各国が追随し、アメリカの金準備は急速に減少</li>
+      </ul>
+      <p>1971年8月時点で、アメリカの金準備は約100億ドル相当。一方、海外に保有されているドルは約400億ドル。すべての交換要求に応じることは、物理的に不可能だった。</p>
+
+      <div class="callout">
+        <p class="callout-text">フランスのド・ゴール大統領は、アメリカ海軍の艦船でフランスの金準備をアメリカから本国に運ばせた。ドルへの不信は、同盟国の間ですでに明白だった。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- スミソニアン合意から変動相場制へ -->
+  <div class="article-section">
+    <div class="section-label">TRANSITION</div>
+    <h2 class="section-title">スミソニアン合意から変動相場制へ</h2>
+    <div class="section-body">
+      <p>ニクソン・ショック後、各国は新たな固定相場制での合意を模索した。1971年12月、ワシントンのスミソニアン博物館で10カ国が集まり「スミソニアン合意」に至った。</p>
+      <p>金の公定価格を1オンス＝38ドルに引き上げ、各国通貨の変動幅を拡大する。しかしこの「修正ブレトンウッズ」は長持ちしなかった。</p>
+      <p>1973年までに主要国は次々と変動相場制に移行。為替レートは市場の需給で決まるようになった。人類史上初めて、すべての主要通貨が金の裏付けなしに流通する時代が本格的に始まった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか --- フィアットマネーの時代</h2>
+    <div class="section-body">
+      <p>ニクソン・ショックは、通貨の本質を根本的に変えた。</p>
+      <ul>
+        <li><strong>フィアットマネー（法定通貨）</strong> --- 通貨の価値は金でも銀でもなく、政府への信頼と法的強制力だけに依存するようになった</li>
+        <li><strong>変動相場制</strong> --- 為替レートは市場で決まる。中央銀行は介入できるが、市場の力に逆らい続けることはできない</li>
+        <li><strong>中央銀行の裁量拡大</strong> --- 金の制約から解放された中央銀行は、通貨供給量を自由に調整できるようになった。量的緩和も、ゼロ金利政策も、金本位制の下では不可能だった</li>
+        <li><strong>為替市場の巨大化</strong> --- 変動相場制は為替取引の需要を生み、外国為替市場は世界最大の金融市場に成長（1日の取引高7兆ドル超）</li>
+      </ul>
+      <p>通貨の「アンカー」が金から信用に移行したことで、政策の自由度は飛躍的に高まった。しかしそれは同時に、通貨の価値を維持する責任がすべて中央銀行と政府に委ねられたことを意味する。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">投資家にとっての意味 --- 通貨の減価は止まらない</h2>
+    <div class="section-body">
+      <p>ニクソン・ショック以降、すべての法定通貨は購買力を失い続けている。</p>
+      <p>1971年に1オンス35ドルだった金価格は、2024年には2,700ドルを超えた。ドルの購買力が77分の1以下になったことを、金が記録し続けている。日本円も例外ではない。1971年の1万円の購買力は、現在の約3分の1だ。</p>
+      <p>これは投資家にとって決定的に重要な事実だ。現金を保有し続けることは、フィアットマネーの減価リスクを取り続けることと同義である。</p>
+
+      <div class="callout">
+        <p class="callout-text">ニクソン・ショックは「お金とは何か」という問いの答えを変えた。金の裏付けという物理的制約が外れた瞬間から、通貨の価値は政府と中央銀行の規律にのみ依存している。その規律が揺らぐとき、資産防衛の手段を持つ者と持たない者の格差は拡大する。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <p><strong>ニクソン・ショック</strong> --- 1971年8月15日のドル・金交換停止と一連の経済政策の総称</p>
+      <p><strong>フィアットマネー</strong> --- 金属の裏付けを持たない法定通貨。政府の信用のみで流通</p>
+      <p><strong>変動相場制</strong> --- 為替レートが市場の需給で決まる制度</p>
+      <p><strong>金兌換停止</strong> --- ドルと金の交換義務を停止したこと</p>
+      <p><strong>スミソニアン合意</strong> --- ニクソン・ショック後の暫定的な固定相場の再調整合意（1971年12月）</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FURTHER READING -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">ニクソン・ショックの前後の文脈を理解するために。ブレトンウッズ体制の成立、金本位制の全体像、そしてFRBの役割へ。</p>
+    <div class="further-links">
+      <a class="further-link" href="../bretton-woods/">
+        <span class="further-link-tag">BRETTON WOODS</span>
+        <span class="further-link-title">ブレトンウッズ体制 --- ドル覇権の誕生</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../gold-standard/">
+        <span class="further-link-tag">GOLD STANDARD</span>
+        <span class="further-link-title">金本位制とは何だったのか</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../frb/">
+        <span class="further-link-tag">FRB</span>
+        <span class="further-link-title">連邦準備制度（FRB）</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>&emsp;&middot;
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

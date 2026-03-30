@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ビットコイン — 中央管理なきお金の実験｜投資と思考の書斎"/>
+<meta property="og:description" content="リーマン・ショック後に生まれたビットコイン。ブロックチェーン技術が問いかける「お金とは何か」。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ビットコイン — 中央管理なきお金の実験｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#0f1018 30%,#181a2a 60%,#20223a 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(212,170,34,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(212,170,34,.12);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ビットコイン</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">FINANCIAL HISTORY</div>
+  <div class="hero-ornament">2009 · BLOCKCHAIN · DECENTRALIZATION</div>
+  <h1 class="hero-title">ビットコイン</h1>
+  <p class="hero-sub">An Experiment in Money Without Central Authority</p>
+  <p class="hero-lead">
+    リーマン・ショックの灰の中から、中央管理者を持たない<br>
+    新しい「お金」の実験が静かに始まった。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">サトシ・ナカモトの論文とジェネシスブロック</h2>
+    <div class="section-body">
+      <p>2008年10月31日、「サトシ・ナカモト」を名乗る匿名の人物がメーリングリストに一本の論文を投稿した。「Bitcoin: A Peer-to-Peer Electronic Cash System」。わずか9ページの論文が、貨幣の歴史を変えることになる。</p>
+      <p>2009年1月3日、最初のブロック（ジェネシスブロック）が生成された。ブロックチェーンという分散型の台帳技術によって、中央管理者なしに価値の移転を可能にする実験が始まった。</p>
+      <p>初期のビットコインにはほとんど価値がなかった。2010年5月、プログラマーのラズロ・ハニエツが10,000BTCでピザ2枚を購入した。これが記録に残る最初のビットコイン決済である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">ジェネシスブロックには、こう刻まれている。<br>「The Times 03/Jan/2009 Chancellor on brink of second bailout for banks」<br>銀行救済を報じる新聞の見出し。ビットコインの出発点は、既存の金融システムへの不信だった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ生まれたか -->
+  <div class="article-section">
+    <div class="section-label">THE CAUSE</div>
+    <h2 class="section-title">なぜビットコインは生まれたか</h2>
+    <div class="section-body">
+      <p>リーマン・ショックは、中央銀行と金融機関への信頼を根底から揺るがした。政府は「大きすぎて潰せない」銀行を救済し、中央銀行は前例のない規模で紙幣を刷った。</p>
+      <p>ビットコインは、この構造への根本的なアンチテーゼとして設計された。</p>
+      <ul>
+        <li><strong>発行上限</strong> ── 2,100万BTCという上限が設定され、誰にも変更できない。インフレ政策への抵抗</li>
+        <li><strong>分散型</strong> ── 中央管理者がいない。ネットワーク参加者全員が台帳のコピーを持つ</li>
+        <li><strong>検閲耐性</strong> ── 特定の政府や機関が取引を止めることができない</li>
+        <li><strong>透明性</strong> ── すべての取引はブロックチェーン上に記録され、誰でも検証できる</li>
+      </ul>
+      <p>技術的には、暗号学とP2Pネットワークの組み合わせだった。「ビザンチン将軍問題」と呼ばれる分散システムの古典的課題を、プルーフ・オブ・ワーク（PoW）というメカニズムで解決した。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">「お金に中央管理者は必要か」という問い</h2>
+    <div class="section-body">
+      <p>ビットコインが提起した問いは、単なる技術の話にとどまらない。「お金とは何か」「誰がお金を管理すべきか」という根本的な問いだ。</p>
+      <p>人類の貨幣史において、お金は常に権力と結びついてきた。リディアの硬貨、ローマの金貨、各国の中央銀行。権力がお金の信用を保証してきた。ビットコインは、この数千年の前提に初めて挑戦した。</p>
+      <p>結果として、ブロックチェーン技術は暗号通貨の枠を超えて広がりつつある。</p>
+      <ul>
+        <li><strong>DeFi（分散型金融）</strong> ── 銀行なしで貸借・取引を行うプロトコル</li>
+        <li><strong>NFT</strong> ── デジタルデータに「唯一性」を付与する技術</li>
+        <li><strong>CBDC（中央銀行デジタル通貨）</strong> ── 皮肉にも、中央銀行自身がデジタル通貨の研究を進めている</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">デジタルゴールドか、投機的バブルか</h2>
+    <div class="section-body">
+      <p>ビットコインの評価は、今も大きく分かれている。</p>
+      <p>「デジタルゴールド」と呼ぶ者は、発行上限と分散性がインフレヘッジとして機能すると主張する。「チューリップ・バブルの再来」と呼ぶ者は、内在的価値がないと指摘する。</p>
+      <p>投資家にとって重要なのは、ビットコインが「正しいか間違いか」ではなく、通貨の歴史における構造的な転換点を示している可能性があることだ。金本位制の崩壊、変動相場制への移行。お金の形態は時代とともに変化してきた。</p>
+      <p>ビットコインが最終的にどうなるかは分からない。しかし「お金に中央管理者は本当に必要なのか」という問いは、もう取り消すことができない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">10,000BTCのピザは、2024年時点で数百億円の価値に相当する。<br>この逸話は、新しい技術の初期段階における価値評価の難しさを端的に示している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>サトシ・ナカモト</strong> — ビットコインの論文を発表した匿名の人物。正体は不明</li>
+        <li><strong>ブロックチェーン</strong> — 取引データをブロック単位で連鎖的に記録する分散型台帳技術</li>
+        <li><strong>マイニング</strong> — 取引の検証とブロック生成を行う計算作業。報酬としてBTCを受け取る</li>
+        <li><strong>分散型台帳</strong> — 中央管理者なしに、ネットワーク参加者全員が共有する台帳</li>
+        <li><strong>ジェネシスブロック</strong> — ビットコインのブロックチェーンにおける最初のブロック（Block 0）</li>
+        <li><strong>暗号通貨</strong> — 暗号技術を用いた分散型のデジタル通貨の総称</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">ビットコイン誕生の背景と、その先の展開を理解するために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../lehman/">
+        <span class="further-link-tag">LEHMAN</span>
+        <span class="further-link-title">リーマン・ショック — 100年に1度の金融危機</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../ai-revolution/">
+        <span class="further-link-tag">AI</span>
+        <span class="further-link-title">AI革命 — 知的労働の自動化が変える資本の意味</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../gold-standard/">
+        <span class="further-link-tag">GOLD</span>
+        <span class="further-link-title">金本位制の成立と崩壊</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>
