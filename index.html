@@ -446,6 +446,15 @@ body::before{
   </a>
 </div>
 
+<!-- ══════════════ FINANCIAL HISTORY (青バナー) ══════════════ -->
+<div style="background:linear-gradient(135deg,#0a0e18 0%,#141a2a 50%,#0e1420 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;">
+  <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
+    <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,136,208,.5);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
+  </a>
+</div>
+
 <!-- ══════════════ GUIDE: 書斎の案内人 ══════════════ -->
 <div class="guide">
   <div class="guide-inner">
@@ -501,6 +510,7 @@ body::before{
     <a href="fcf/">FCF</a> ·
     <a href="industries/">業種から歩く</a> ·
     <a href="horizons/">思考を広げる</a> ·
+    <a href="horizons/financial-history/">金融史</a> ·
     <a href="classics/">古典と先人の知恵</a> ·
     <a href="human/">人間理解</a> ·
     <a href="reading-routes/">読書ルート</a> ·
@@ -614,6 +624,7 @@ var guideData={
     {label:'MARCUS',text:'マルクス・アウレリウス｜哲人皇帝',url:'life-shelf/marcus-aurelius/'},
   ]},
   culture:{q:'どの方向へ深めますか？',sub:'',items:[
+    {label:'HISTORY',text:'金融史を歩く',url:'horizons/financial-history/'},
     {label:'HORIZONS',text:'思考を広げる棚',url:'horizons/'},
     {label:'CLASSICS',text:'古典と人間理解',url:'classics/'},
     {label:'BOOKS',text:'読む・聴く案内室',url:'book-guide/'},

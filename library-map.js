@@ -74,9 +74,10 @@
     companies:  { gx: 0,  gy: 13, gw: 18, gh: 12, label: '企業分析書架',          labelEn: 'COMPANIES',   url: 'companies/' },
     hub:        { gx: 19, gy: 13, gw: 18, gh: 12, label: '中央広間',              labelEn: 'MAIN HALL',   url: null },
     fcf:        { gx: 38, gy: 13, gw: 18, gh: 12, label: 'FCFの間',               labelEn: 'FCF',         url: 'fcf/' },
-    research:   { gx: 0,  gy: 26, gw: 18, gh: 8,  label: '論考の棚',              labelEn: 'RESEARCH',    url: 'research/' },
-    news:       { gx: 19, gy: 26, gw: 18, gh: 8,  label: 'ニュース解説室',        labelEn: 'NEWS',        url: 'news/' },
-    horizons:   { gx: 38, gy: 26, gw: 18, gh: 8,  label: '古典と思想の棚',        labelEn: 'HORIZONS',    url: 'horizons/' },
+    research:   { gx: 0,  gy: 26, gw: 14, gh: 8,  label: '論考の棚',              labelEn: 'RESEARCH',    url: 'research/' },
+    news:       { gx: 15, gy: 26, gw: 13, gh: 8,  label: 'ニュース解説室',        labelEn: 'NEWS',        url: 'news/' },
+    horizons:   { gx: 29, gy: 26, gw: 13, gh: 8,  label: '古典と思想の棚',        labelEn: 'HORIZONS',    url: 'horizons/' },
+    finhistory: { gx: 43, gy: 26, gw: 13, gh: 8,  label: '金融史の書庫',          labelEn: 'FIN HISTORY', url: 'horizons/financial-history/' },
     corridor:   { gx: 0,  gy: 35, gw: 56, gh: 6,  label: '思考の案内人たちの回廊', labelEn: 'CORRIDOR',   url: 'corridors/' }
   };
 
@@ -90,6 +91,7 @@
     research:   '独自の論考・分析記事のアーカイブ。',
     news:       '最新ニュースの解説と考察。',
     horizons:   '禅・哲学・テクノロジー思想の書棚。',
+    finhistory: 'メソポタミアからAI革命まで。7000年の金融史。',
     corridor:   '投資思想家たちの人物録。'
   };
 
@@ -770,6 +772,26 @@
     drawCandle(r.gx + 16, r.gy + 2, 0);
   }
 
+  function drawRoom_finhistory() {
+    var r = ROOMS.finhistory;
+    // Floor with blue-tinted stone
+    drawFloor(r, COLORS.floorStone, 0xC0B8A8);
+    drawCarpet(r, 2, 0x2A3A5A, 0x3A4A6A);
+    // Walls
+    drawWalls(r, 4, COLORS.wall);
+    // Timeline bookshelves along back wall
+    drawBookshelf(r.gx + 2, r.gy + 1, 0, 3, 4);
+    drawBookshelf(r.gx + 6, r.gy + 1, 0, 3, 4);
+    drawBookshelf(r.gx + 10, r.gy + 1, 0, 3, 4);
+    // Reading desk
+    drawDesk(r.gx + 4, r.gy + 4, 0);
+    drawDesk(r.gx + 8, r.gy + 4, 0);
+    // Candles for old-world feel
+    drawCandle(r.gx + 3, r.gy + 3, 0);
+    drawCandle(r.gx + 7, r.gy + 3, 0);
+    drawCandle(r.gx + 11, r.gy + 3, 0);
+  }
+
   function drawRoom_corridor() {
     var r = ROOMS.corridor;
     // Floor
@@ -880,6 +902,7 @@
     drawRoom_research();
     drawRoom_news();
     drawRoom_horizons();
+    drawRoom_finhistory();
     drawRoom_corridor();
 
     // Draw warm lamp glow effects
