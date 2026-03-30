@@ -24,6 +24,7 @@
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
   --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --green2:#2d8659;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -73,6 +74,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   padding:18px 22px;margin:32px 0;
   background:var(--parch2);
 }
+.callout-label{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.16em;margin-bottom:8px;opacity:.85;}
 .callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
 
 /* ── DIVIDER ── */
@@ -232,6 +234,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか</h2>
+    <div class="section-body">
+      <p>両・分・朱の複雑な通貨体系が十進法の「円」に統一され、国際取引が可能になった。国立銀行による紙幣乱発がインフレを招き、中央銀行（日本銀行）設立への道筋を作った。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
   <!-- 今に残っているもの -->
   <div class="article-section">
     <div class="section-label">LEGACY</div>
@@ -263,6 +276,28 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <li><strong>制度の安定性は資産価値の前提</strong> -- 通貨・法制度・中央銀行が安定していることは、すべての投資の大前提である</li>
       </ul>
       <p>現代の日本銀行の金融緩和政策、円安の進行、国債残高の膨張。これらを考えるとき、松方デフレや国立銀行の紙幣乱発の歴史は、単なる過去の出来事ではなく、現在の政策を評価するための参照点となる。</p>
+    </div>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--green2);">
+    <div class="callout-label">家計にとっての意味</div>
+    <p class="callout-text">通貨制度の変更は個人の資産価値を一変させる。明治の通貨改革では旧貨幣の交換レートで損得が生じた。通貨制度は「永遠」ではない。</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <p><strong>新貨条例</strong> — 1871年公布。円・銭・厘の十進法通貨体系を導入した法令。</p>
+      <p><strong>円・銭・厘</strong> — 1円=100銭=1000厘。明治以降の日本の通貨単位。</p>
+      <p><strong>国立銀行条例</strong> — 1872年制定。民間銀行に紙幣発行権を認めた法令。</p>
+      <p><strong>不換紙幣</strong> — 金や銀との交換を保証しない紙幣。1876年の条例改正で発行が認められた。</p>
+      <p><strong>松方デフレ</strong> — 松方正義による緊縮財政。不換紙幣を回収しインフレを収束させたが、深刻なデフレを招いた。</p>
+      <p><strong>渋沢栄一</strong> — 第一国立銀行を設立し、約500の企業創設に関わった「日本資本主義の父」。</p>
+      <p><strong>第一国立銀行</strong> — 1873年設立。日本初の近代的銀行。現・みずほ銀行の前身の一つ。</p>
     </div>
   </div>
 

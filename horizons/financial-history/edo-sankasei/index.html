@@ -24,6 +24,7 @@
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
   --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --green2:#2d8659;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -73,6 +74,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   padding:18px 22px;margin:32px 0;
   background:var(--parch2);
 }
+.callout-label{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.16em;margin-bottom:8px;opacity:.85;}
 .callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
 
 /* ── DIVIDER ── */
@@ -190,6 +192,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか</h2>
+    <div class="section-body">
+      <p>三貨制度によって、日本初の為替市場が自然発生した。金銀比価の変動が経済に影響を与え、両替商が金融の中心に座った。江戸と大坂の経済圏が通貨を通じて結びついた。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
   <!-- 今に残っているもの -->
   <div class="article-section">
     <div class="section-label">LEGACY</div>
@@ -221,6 +234,28 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <li>信用は支配階級の力をも凌駕する。金融の力学は、政治的な力関係とは独立して動く</li>
       </ul>
       <p>現代においても、為替変動・決済インフラ・信用供与の構造を理解することは、投資判断の基盤である。江戸の三貨制度は、その原型を日本の歴史の中に見せてくれる。</p>
+    </div>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--green2);">
+    <div class="callout-label">家計にとっての意味</div>
+    <p class="callout-text">通貨が複数並立する世界では、どの通貨で資産を持つかが生活を左右した。現代のドル建て/円建ての資産配分と本質は同じ。</p>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <p><strong>三貨制度</strong> — 江戸時代に金貨・銀貨・銭貨の三種の通貨が並立した制度。</p>
+      <p><strong>両替商</strong> — 三貨の交換を行い、預金・貸付・為替など銀行機能も担った商人。</p>
+      <p><strong>札差</strong> — 武士の禄米を換金・前貸しした金融業者。</p>
+      <p><strong>金遣い</strong> — 江戸を中心とした東日本の金貨経済圏。</p>
+      <p><strong>銀遣い</strong> — 大阪を中心とした西日本の銀貨経済圏。</p>
+      <p><strong>丁銀</strong> — 秤量貨幣として重さで価値を量った銀貨。</p>
+      <p><strong>小判</strong> — 計数貨幣として枚数で価値を数えた金貨。</p>
     </div>
   </div>
 
