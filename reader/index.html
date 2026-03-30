@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light" data-writing="vertical">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>Reader | 投資と思考の書斎</title>
+<meta name="description" content="投資と思考の書斎 ブックリーダー"/>
+<meta name="robots" content="noindex,nofollow"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="reader.css"/>
+</head>
+<body>
+
+<div id="reader-app">
+  <!-- Top Bar -->
+  <header id="reader-header">
+    <button id="toc-toggle" title="目次">&#9776;</button>
+    <div id="book-title"></div>
+    <div id="chapter-title"></div>
+    <div class="header-right">
+      <button id="notes-toggle" title="読書ノート">&#128278;</button>
+      <button id="settings-toggle" title="設定">&#9881;</button>
+      <a id="close-reader" href="../classics/" title="閉じる">&#10005;</a>
+    </div>
+  </header>
+
+  <!-- TOC Panel -->
+  <nav id="toc-panel">
+    <div class="toc-header">目次</div>
+    <ul id="toc-list"></ul>
+  </nav>
+  <div id="toc-overlay"></div>
+
+  <!-- Settings Panel -->
+  <div id="settings-panel">
+    <div class="settings-group">
+      <label>テーマ</label>
+      <div class="theme-buttons">
+        <button class="theme-btn" data-theme="light">紙</button>
+        <button class="theme-btn" data-theme="sepia">セピア</button>
+        <button class="theme-btn" data-theme="dark">夜</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <label>文字サイズ</label>
+      <input type="range" id="font-size-slider" min="14" max="24" value="18" step="1"/>
+      <span id="font-size-value">18px</span>
+    </div>
+    <div class="settings-group">
+      <label>行間</label>
+      <input type="range" id="line-height-slider" min="1.6" max="2.8" value="2.2" step="0.1"/>
+      <span id="line-height-value">2.2</span>
+    </div>
+    <div class="settings-group">
+      <label>組方向</label>
+      <div class="writing-buttons">
+        <button class="writing-btn" data-writing="horizontal">横書き</button>
+        <button class="writing-btn active" data-writing="vertical">縦書き</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <label>表示</label>
+      <div class="view-buttons">
+        <button class="view-btn active" data-view="paged">ページ送り</button>
+        <button class="view-btn" data-view="scroll">スクロール</button>
+      </div>
+    </div>
+  </div>
+  <div id="settings-overlay"></div>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"><div id="scroll-progress-fill"></div></div>
+
+  <!-- Reading Area -->
+  <main id="reader-viewport">
+    <div id="page-container">
+      <div id="page-content"></div>
+    </div>
+    <!-- Tap zones for prev/next -->
+    <div id="tap-prev" class="tap-zone"></div>
+    <div id="tap-next" class="tap-zone"></div>
+    <!-- Side navigation arrows (always visible) -->
+    <div id="nav-prev" class="nav-arrow" title="前のページ">&#8249;</div>
+    <div id="nav-next" class="nav-arrow" title="次のページ">&#8250;</div>
+  </main>
+
+  <!-- Bottom Bar -->
+  <footer id="reader-footer">
+    <button id="prev-page" title="前のページ">&#8249;</button>
+    <div id="progress-area">
+      <div id="progress-bar"><div id="progress-fill"></div></div>
+      <div id="page-info"></div>
+    </div>
+    <button id="next-page" title="次のページ">&#8250;</button>
+  </footer>
+
+  <!-- Reading Time Badge -->
+  <div id="reading-time"></div>
+
+  <!-- Text Selection Popup -->
+  <div id="selection-popup">
+    <button id="save-selection" title="読書ノートに保存">&#128278; 保存</button>
+    <button id="copy-selection" title="コピー">&#128203; コピー</button>
+    <button id="share-selection" title="共有">&#8599; 共有</button>
+  </div>
+
+  <!-- Notes Panel -->
+  <nav id="notes-panel">
+    <div class="notes-header">
+      <span>読書ノート</span>
+      <button id="notes-close">&#10005;</button>
+    </div>
+    <div id="notes-empty" class="notes-empty">保存したメモはまだありません。<br>テキストを選択して「保存」してください。</div>
+    <ul id="notes-list"></ul>
+    <div class="notes-actions">
+      <button id="notes-copy-all">すべてコピー</button>
+      <button id="notes-share-all">すべて共有</button>
+      <button id="notes-clear">すべて削除</button>
+    </div>
+  </nav>
+  <div id="notes-overlay"></div>
+
+  <!-- Loading -->
+  <div id="reader-loading">
+    <div class="loading-text">読み込み中...</div>
+  </div>
+</div>
+
+<script src="reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="moat・経営者・財務・資本配分の4軸で企業を評価する長期投資家のための分析フレームワーク。具体的な評価基準と質問リストで企業分析を体系化する。"/>
+<meta property="og:title" content="企業分析テンプレート｜長期投資と思考のライブラリ"/>
+<meta property="og:description" content="moat・経営者・財務・資本配分の4軸で企業を評価する長期投資家のための分析フレームワーク。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/analysis-template/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/analysis-template/"/>
+<title>企業分析テンプレート｜長期投資と思考のライブラリ</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "企業分析テンプレート——moat・経営者・財務・資本配分の4軸",
+  "description": "moat・経営者・財務・資本配分の4軸で企業を評価する長期投資家のための分析フレームワーク。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-03-28",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "企業分析"}, {"@type": "Thing", "name": "投資フレームワーク"}],
+  "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+    {"@type": "ListItem", "position": 2, "name": "企業分析テンプレート"}
+  ]}
+}
+</script>
+
+<link rel="stylesheet" href="../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:var(--gold)44;font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{background:linear-gradient(160deg,var(--ink) 0%,#1a2a0a 50%,#2a3a10 100%);color:var(--parch);padding:56px 24px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--green2);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(58,104,40,.15) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green3),transparent);}
+.hero-ornament{font-family:var(--serif);font-size:1rem;color:var(--green3);letter-spacing:.35em;margin-bottom:16px;opacity:.8;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,3rem);font-weight:700;line-height:1.18;color:var(--parch);margin-bottom:6px;text-shadow:0 2px 20px rgba(90,138,58,.25);position:relative;}
+.hero-title em{font-style:italic;color:var(--green3);display:block;font-size:.62em;letter-spacing:.04em;margin-top:4px;}
+.hero-sub{font-size:.86rem;color:var(--parch3);font-weight:300;margin-top:16px;line-height:1.8;position:relative;}
+.hero-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:20px;position:relative;}
+.hero-tag{font-family:var(--mono);font-size:.56rem;color:var(--green3);border:1px solid var(--green2)66;padding:3px 10px;letter-spacing:.1em;}
+
+.article{max-width:800px;margin:0 auto;padding:36px 20px 20px;}
+
+.intro-block{background:linear-gradient(135deg,var(--ink) 0%,#1a2a0a 100%);color:var(--parch);border-radius:2px;padding:26px 26px;margin-bottom:32px;border-left:4px solid var(--green2);}
+.intro-label{font-family:var(--mono);font-size:.54rem;color:var(--green3);letter-spacing:.18em;margin-bottom:10px;}
+.intro-text{font-family:var(--serif);font-size:clamp(.92rem,2.5vw,1.05rem);font-style:italic;line-height:1.9;color:var(--parch2);}
+.intro-text strong{color:var(--green3);font-style:normal;}
+
+.section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--parch4);}
+.section-num{font-family:var(--mono);font-size:.56rem;color:var(--green2);letter-spacing:.15em;}
+.section-title{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--ink);}
+
+.template-block{background:var(--parch2);border:1px solid var(--parch4);border-radius:2px;padding:24px 24px;margin-bottom:20px;border-top:3px solid var(--green2);box-shadow:0 2px 12px rgba(26,18,8,.08);animation:fadeIn .4s ease both;}
+.template-block:nth-child(1){animation-delay:.05s}.template-block:nth-child(2){animation-delay:.1s}
+.template-block:nth-child(3){animation-delay:.15s}.template-block:nth-child(4){animation-delay:.2s}
+.template-axis{font-family:var(--mono);font-size:.54rem;color:var(--green2);letter-spacing:.14em;margin-bottom:8px;}
+.template-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.template-desc{font-size:.8rem;line-height:1.85;color:var(--ink2);margin-bottom:14px;}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.checklist li{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;line-height:1.7;color:var(--ink2);}
+.checklist li::before{content:'□';font-family:var(--mono);color:var(--green2);flex-shrink:0;font-size:.72rem;margin-top:1px;}
+
+.scoring-block{background:var(--parch2);border:1px solid var(--parch4);border-radius:2px;padding:22px 22px;margin-bottom:24px;}
+.scoring-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:14px;}
+.scoring-row{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--parch4);}
+.scoring-row:last-child{border-bottom:none}
+.scoring-axis{font-family:var(--mono);font-size:.6rem;color:var(--green2);width:100px;flex-shrink:0;}
+.scoring-bar-wrap{flex:1;height:6px;background:var(--parch4);border-radius:3px;overflow:hidden;}
+.scoring-bar{height:100%;background:linear-gradient(90deg,var(--green2),var(--green3));border-radius:3px;}
+.scoring-note{font-size:.7rem;color:var(--ink3);width:120px;flex-shrink:0;text-align:right;}
+
+.summary{background:linear-gradient(135deg,var(--ink) 0%,#1a2a0a 100%);color:var(--parch);border-radius:2px;padding:30px 26px;margin-bottom:32px;border:1px solid var(--green2)33;position:relative;overflow:hidden;}
+.summary::before{content:'\2605';position:absolute;top:-10px;right:20px;font-size:8rem;color:var(--green3);opacity:.06;line-height:1;}
+.summary-label{font-family:var(--mono);font-size:.54rem;color:var(--green3);letter-spacing:.18em;margin-bottom:14px;}
+.summary-text{font-family:var(--serif);font-size:clamp(.95rem,2.5vw,1.1rem);font-style:italic;line-height:1.9;color:var(--parch);}
+.summary-text strong{color:var(--green3);font-style:normal;}
+
+.related-section{margin-bottom:40px;}
+.related-header{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--parch4);}
+.related-list{display:flex;flex-direction:column;gap:10px;}
+.related-item{background:var(--parch2);border:1px solid var(--parch4);border-radius:2px;padding:14px 18px;display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;transition:all .2s;}
+.related-item:hover{background:var(--parch3);transform:translateX(4px);}
+.related-tag{font-family:var(--mono);font-size:.52rem;color:var(--gold2);background:var(--gold)12;border:1px solid var(--gold)28;padding:2px 8px;flex-shrink:0;}
+.related-title{font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--ink);flex:1;}
+.related-soon{font-family:var(--mono);font-size:.5rem;color:var(--ink3);border:1px solid var(--parch4);padding:2px 6px;margin-left:8px;}
+.related-arrow{color:var(--gold3);flex-shrink:0;opacity:.6;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid var(--gold)44;}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em;}
+.footer a{color:var(--gold3);text-decoration:none;}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid var(--gold)44;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../">← 賢者の本棚</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../principles/">私の投資原則</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">企業分析テンプレート</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">― COMPANY ANALYSIS FRAMEWORK ―</div>
+  <h1 class="hero-title">
+    企業分析テンプレート
+    <em>企業分析 · 長期投資家のための評価軸</em>
+  </h1>
+  <p class="hero-sub">
+    moat・経営者・財務・資本配分の4軸で企業を評価する。<br>
+    今後の個別企業分析記事の土台となる基準フレームワーク。
+  </p>
+  <div class="hero-tags">
+    <span class="hero-tag">#企業分析</span>
+    <span class="hero-tag">#分析テンプレート</span>
+    <span class="hero-tag">#moat</span>
+    <span class="hero-tag">#資本配分</span>
+    <span class="hero-tag">#財務分析</span>
+  </div>
+</div>
+
+<div class="article">
+
+  <div class="intro-block">
+    <div class="intro-label">ABOUT THIS TEMPLATE</div>
+    <div class="intro-text">
+      このテンプレートは、<strong>長期保有に値する企業かどうか</strong>を判断するための評価軸をまとめたものです。財務数字だけでなく、事業の構造・経営者の質・資本配分まで含めた4軸で企業を見ます。個別企業分析記事はすべてこのフレームに沿って書かれます。
+    </div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-num">FRAMEWORK</span>
+    <h2 class="section-title">4つの評価軸</h2>
+  </div>
+
+  <div class="template-block">
+    <div class="template-axis">AXIS 01 — 競争優位性</div>
+    <div class="template-title">moat（永続的競争優位性）</div>
+    <div class="template-desc">この企業を守る「堀」は何か。なぜ競合に真似されにくいのかを確認する。</div>
+    <ul class="checklist">
+      <li>スイッチングコスト・ネットワーク効果・ブランドのいずれかが存在するか</li>
+      <li>価格を少し上げても顧客が離れにくい構造があるか</li>
+      <li>シェアが高い理由が、構造的なものか偶然か</li>
+      <li>5年後・10年後もその強みが残る理由を説明できるか</li>
+      <li>AIや技術変化で moat が崩れるリスクはあるか</li>
+      <li>競合が10億円を投じても奪えない強みがあるか（Buffett基準）</li>
+    </ul>
+  </div>
+
+  <div class="template-block">
+    <div class="template-axis">AXIS 02 — 経営者</div>
+    <div class="template-title">経営者の質</div>
+    <div class="template-desc">長期投資では経営者の姿勢が業績を大きく左右する。誠実さと長期志向を見る。</div>
+    <ul class="checklist">
+      <li>IR資料・決算説明の言葉が一貫しているか（楽観的な見通し一辺倒でないか）</li>
+      <li>悪い情報を早く・正直に開示しているか</li>
+      <li>長期的な視点で事業を語っているか（短期利益だけを重視していないか）</li>
+      <li>株主を重視した姿勢が言動に表れているか</li>
+      <li>創業者、またはオーナーシップを持つ経営者か</li>
+      <li>無理な楽観・誇大表現がないか</li>
+    </ul>
+  </div>
+
+  <div class="template-block">
+    <div class="template-axis">AXIS 03 — 財務</div>
+    <div class="template-title">財務の健全性</div>
+    <div class="template-desc">利益だけでなくキャッシュの流れを重視。数字が何を意味するかを考える。</div>
+    <ul class="checklist">
+      <li>フリーキャッシュフロー（FCF）が継続的にプラスか</li>
+      <li>営業利益率・ROICが同業他社と比べて高いか</li>
+      <li>売上に対して契約負債（前受収益）が大きいか（先払い型の収益モデルか）</li>
+      <li>有利子負債が過大でないか、自己資本比率は適切か</li>
+      <li>のれん・無形資産が過大に積み上がっていないか</li>
+      <li>売上債権・在庫の回転期間に異常がないか</li>
+    </ul>
+  </div>
+
+  <div class="template-block">
+    <div class="template-axis">AXIS 04 — 資本配分</div>
+    <div class="template-title">資本配分の合理性</div>
+    <div class="template-desc">利益やキャッシュをどう使うかが企業価値を左右する。配分の質を評価する。</div>
+    <ul class="checklist">
+      <li>成長投資（設備・R&amp;D・M&amp;A）に対してリターンが伴っているか</li>
+      <li>自社株買いが割安なタイミングで行われているか</li>
+      <li>配当方針が持続可能で一貫しているか</li>
+      <li>無理・無駄なM&amp;Aをしていないか</li>
+      <li>キャッシュを過剰に眠らせていないか（または合理的な理由があるか）</li>
+      <li>ROICが資本コストを上回っているか</li>
+    </ul>
+  </div>
+
+  <div class="section-header" style="margin-top:32px">
+    <span class="section-num">SCORING</span>
+    <h2 class="section-title">総合評価の考え方</h2>
+  </div>
+
+  <div class="scoring-block">
+    <div class="scoring-title">4軸の重みづけ（長期保有の観点）</div>
+    <div class="scoring-row">
+      <span class="scoring-axis">moat</span>
+      <div class="scoring-bar-wrap"><div class="scoring-bar" style="width:95%"></div></div>
+      <span class="scoring-note">最重要</span>
+    </div>
+    <div class="scoring-row">
+      <span class="scoring-axis">経営者の質</span>
+      <div class="scoring-bar-wrap"><div class="scoring-bar" style="width:85%"></div></div>
+      <span class="scoring-note">非常に重要</span>
+    </div>
+    <div class="scoring-row">
+      <span class="scoring-axis">財務健全性</span>
+      <div class="scoring-bar-wrap"><div class="scoring-bar" style="width:75%"></div></div>
+      <span class="scoring-note">重要</span>
+    </div>
+    <div class="scoring-row">
+      <span class="scoring-axis">資本配分</span>
+      <div class="scoring-bar-wrap"><div class="scoring-bar" style="width:80%"></div></div>
+      <span class="scoring-note">非常に重要</span>
+    </div>
+  </div>
+
+  <div class="summary">
+    <div class="summary-label">HOW TO USE — 使い方</div>
+    <div class="summary-text">
+      このテンプレートは「買うか否か」の決断ツールではなく、<strong>企業を深く理解するための思考整理ツール</strong>です。チェックリストを埋めることで、自分がその企業について何を知っていて、何を知らないかが明確になります。
+    </div>
+  </div>
+
+  <!-- ── 印刷用 分析記入シート ── -->
+  <style>
+  .print-sheet{background:var(--parch);border:2px solid var(--ink3);padding:28px 26px;margin-bottom:24px;page-break-inside:avoid;}
+  .print-sheet-title{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:6px;border-bottom:2px solid var(--ink);padding-bottom:6px;}
+  .print-sheet-sub{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.1em;margin-bottom:18px;}
+  .print-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+  .print-label{font-family:var(--mono);font-size:.6rem;color:var(--green2);width:120px;flex-shrink:0;padding-top:4px;letter-spacing:.06em;}
+  .print-input{flex:1;border-bottom:1px solid var(--parch4);min-height:28px;font-size:.78rem;color:var(--ink3);}
+  .print-input.tall{min-height:56px;}
+  .print-section{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);margin:22px 0 12px;padding-top:10px;border-top:1px solid var(--parch4);}
+  .print-score-row{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
+  .print-score-label{font-size:.72rem;color:var(--ink2);width:120px;flex-shrink:0;}
+  .print-score-boxes{display:flex;gap:4px;}
+  .print-score-box{width:24px;height:24px;border:1px solid var(--ink3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.55rem;color:var(--ink3);}
+  @media print{
+    .print-sheet{border:2px solid #000;break-inside:avoid;}
+    .nav,.hero,.intro-block,.template-block,.scoring-block,.summary,.related-section,.further,.footer,.scroll-top,.music-toggle,#yt-player-container{display:none !important;}
+    .print-sheet{display:block !important;}
+    body{background:#fff !important;color:#000 !important;}
+    .article{max-width:100%;padding:0 20px;}
+  }
+  </style>
+
+  <div class="section-header" style="margin-top:32px">
+    <span class="section-num">WORKSHEET</span>
+    <h2 class="section-title">分析記入シート（印刷用）</h2>
+  </div>
+
+  <div class="print-sheet">
+    <div class="print-sheet-title">企業分析ワークシート</div>
+    <div class="print-sheet-sub">印刷して手書きで記入できます。Ctrl+P（Cmd+P）で印刷してください。</div>
+
+    <div class="print-row"><div class="print-label">企業名</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">証券コード</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">業種</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">分析日</div><div class="print-input"></div></div>
+
+    <div class="print-section">AXIS 01 — moat（競争優位性）</div>
+    <div class="print-row"><div class="print-label">moatの種類</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">持続性の根拠</div><div class="print-input tall"></div></div>
+    <div class="print-row"><div class="print-label">最大のリスク</div><div class="print-input tall"></div></div>
+
+    <div class="print-section">AXIS 02 — 経営者の質</div>
+    <div class="print-row"><div class="print-label">経営者名</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">誠実さの評価</div><div class="print-input tall"></div></div>
+    <div class="print-row"><div class="print-label">長期志向か</div><div class="print-input"></div></div>
+
+    <div class="print-section">AXIS 03 — 財務の健全性</div>
+    <div class="print-row"><div class="print-label">FCF（直近3年）</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">営業利益率</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">ROIC</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">自己資本比率</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">有利子負債</div><div class="print-input"></div></div>
+
+    <div class="print-section">AXIS 04 — 資本配分</div>
+    <div class="print-row"><div class="print-label">配当方針</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">自社株買い</div><div class="print-input"></div></div>
+    <div class="print-row"><div class="print-label">M&amp;A実績</div><div class="print-input tall"></div></div>
+
+    <div class="print-section">総合評価</div>
+    <div class="print-score-row">
+      <div class="print-score-label">moat</div>
+      <div class="print-score-boxes"><div class="print-score-box">1</div><div class="print-score-box">2</div><div class="print-score-box">3</div><div class="print-score-box">4</div><div class="print-score-box">5</div></div>
+    </div>
+    <div class="print-score-row">
+      <div class="print-score-label">経営者の質</div>
+      <div class="print-score-boxes"><div class="print-score-box">1</div><div class="print-score-box">2</div><div class="print-score-box">3</div><div class="print-score-box">4</div><div class="print-score-box">5</div></div>
+    </div>
+    <div class="print-score-row">
+      <div class="print-score-label">財務健全性</div>
+      <div class="print-score-boxes"><div class="print-score-box">1</div><div class="print-score-box">2</div><div class="print-score-box">3</div><div class="print-score-box">4</div><div class="print-score-box">5</div></div>
+    </div>
+    <div class="print-score-row">
+      <div class="print-score-label">資本配分</div>
+      <div class="print-score-boxes"><div class="print-score-box">1</div><div class="print-score-box">2</div><div class="print-score-box">3</div><div class="print-score-box">4</div><div class="print-score-box">5</div></div>
+    </div>
+
+    <div class="print-section">投資判断メモ</div>
+    <div class="print-row"><div class="print-label">買いの理由</div><div class="print-input tall"></div></div>
+    <div class="print-row"><div class="print-label">見送りの理由</div><div class="print-input tall"></div></div>
+    <div class="print-row"><div class="print-label">適正株価の目安</div><div class="print-input"></div></div>
+  </div>
+
+  <div class="related-section">
+    <div class="related-header">関連記事</div>
+    <div class="related-list">
+      <a class="related-item" href="../moat/">
+        <span class="related-tag">投資哲学</span>
+        <span class="related-title">永続的競争優位性（moat）をどう見るか</span>
+        <span class="related-arrow">→</span>
+      </a>
+      <a class="related-item" href="../fcf/">
+        <span class="related-tag">財務分析</span>
+        <span class="related-title">FCFとは何か</span>
+        <span class="related-arrow">→</span>
+      </a>
+      <a class="related-item" href="../principles/">
+        <span class="related-tag">投資哲学</span>
+        <span class="related-title">私の投資原則</span>
+        <span class="related-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<style>
+.further{background:var(--parch);border-top:1px solid var(--parch4);padding:36px 24px;}
+.further-inner{max-width:860px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:18px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--parch2);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+</style>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">枠組みを持ったら、実際の業種へ歩く。最初に整備された棚として、情報通信業がある。</p>
+    <div class="further-links">
+      <a class="further-link" href="../industries/it-telecom/">
+        <span class="further-link-tag">業種</span>
+        <span class="further-link-title">情報通信業を歩く</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../industries/">
+        <span class="further-link-tag">業種一覧</span>
+        <span class="further-link-title">業種から歩く棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../horizons/civilization/">
+        <span class="further-link-tag">教養</span>
+        <span class="further-link-title">投資を入口に文明を考える</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../">書斎の入口</a> ·
+    <a href="../hajimete/">初めての方へ</a> ·
+    <a href="../principles/">投資原則</a> ·
+    <a href="../industries/">業種から歩く</a> ·
+    <a href="../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>200);});
+
+</script>
+<script src="../shared.js"></script>
+<script src="../ai-assistant.js"></script>
+</body>
+</html>

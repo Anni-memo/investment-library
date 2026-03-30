@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="8人の思想家の「レンズ」を通して投資・人生を見つめ直す。バフェット、マンガー、フィッシャー、アウレリウス、フランクル、論語、渋沢栄一、フランクリンの核心的な問いかけを対話的に体験する回廊。"/>
+<meta property="og:title" content="思考の案内人たちの回廊｜投資と思考の書斎"/>
+<meta property="og:description" content="8人の思想家の核心的な問いかけを対話的に体験する。バフェット、マンガー、フィッシャー、アウレリウス、フランクル、論語、渋沢栄一、フランクリン。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/corridors/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/corridors/"/>
+<title>思考の案内人たちの回廊｜投資と思考の書斎</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "思考の案内人たちの回廊",
+  "description": "8人の思想家の「レンズ」を通して投資・人生を見つめ直す対話的な回廊。",
+  "url": "https://anni-memo.github.io/investment-library/corridors/",
+  "isPartOf": {"@type": "WebSite", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+      {"@type": "ListItem", "position": 2, "name": "思考の案内人たちの回廊"}
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ウォーレン・バフェット"},
+      {"@type": "ListItem", "position": 2, "name": "チャーリー・マンガー"},
+      {"@type": "ListItem", "position": 3, "name": "フィリップ・フィッシャー"},
+      {"@type": "ListItem", "position": 4, "name": "マルクス・アウレリウス"},
+      {"@type": "ListItem", "position": 5, "name": "ヴィクトール・フランクル"},
+      {"@type": "ListItem", "position": 6, "name": "論語（孔子）"},
+      {"@type": "ListItem", "position": 7, "name": "渋沢栄一"},
+      {"@type": "ListItem", "position": 8, "name": "ベンジャミン・フランクリン"}
+    ]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --accent:#2a4a3a;--accent2:#3a6a52;--accent3:#5a9a78;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* -- NAV -- */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* -- HERO -- */
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,#0e0c08 40%,#1a1408 100%);
+  color:var(--parch);padding:80px 24px 72px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(184,144,10,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-ornament{font-family:var(--mono);font-size:.65rem;color:var(--gold3);letter-spacing:.4em;margin-bottom:22px;opacity:.55;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,3rem);font-weight:700;line-height:1.2;color:var(--parch);position:relative;margin-bottom:16px;}
+.hero-sub{font-family:var(--jp);font-size:clamp(.82rem,2vw,.95rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:620px;margin:0 auto;}
+
+/* -- CORRIDOR INTRO -- */
+.corridor-intro{
+  max-width:720px;margin:0 auto;padding:48px 24px 40px;
+}
+.corridor-intro-box{
+  background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--gold2);
+  padding:28px;position:relative;
+}
+.corridor-intro-label{font-family:var(--mono);font-size:.5rem;color:var(--gold2);letter-spacing:.15em;margin-bottom:12px;}
+.corridor-intro-body{font-size:.85rem;color:var(--ink3);line-height:2.1;font-weight:300;}
+
+/* -- GUIDE CARDS CONTAINER -- */
+.guides-container{
+  max-width:780px;margin:0 auto;padding:0 24px 56px;
+}
+.guides-label{
+  font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:24px;
+  padding-bottom:10px;border-bottom:1px solid var(--parch4);
+}
+
+/* -- GUIDE CARD -- */
+.guide-card{
+  position:relative;margin-bottom:6px;
+  background:var(--parch);border:1px solid var(--parch4);
+  transition:all .25s ease;
+}
+.guide-card:hover{border-color:var(--gold3);box-shadow:0 4px 20px rgba(26,18,8,.08);}
+.guide-card.open{border-color:var(--gold3);background:var(--parch2);}
+.guide-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,var(--gold3),var(--gold));
+  opacity:0;transition:opacity .25s ease;
+}
+.guide-card:hover::before,.guide-card.open::before{opacity:1;}
+
+/* -- GUIDE HEADER (clickable) -- */
+.guide-header{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:24px 24px 24px 20px;cursor:pointer;
+  user-select:none;position:relative;
+}
+.guide-number{
+  font-family:var(--mono);font-size:.7rem;color:var(--gold2);
+  letter-spacing:.06em;min-width:24px;padding-top:4px;opacity:.7;
+}
+.guide-info{flex:1;min-width:0;}
+.guide-name{
+  font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);
+  margin-bottom:4px;line-height:1.3;
+}
+.guide-era{
+  font-family:var(--mono);font-size:.52rem;color:var(--ink3);
+  letter-spacing:.1em;margin-bottom:10px;
+}
+.guide-question{
+  font-size:.88rem;color:var(--ink2);line-height:1.8;font-weight:400;
+  font-style:italic;position:relative;padding-left:16px;
+}
+.guide-question::before{
+  content:'\201C';position:absolute;left:0;top:-2px;
+  font-family:var(--serif);font-size:1.4rem;color:var(--gold3);font-style:normal;
+}
+.guide-toggle{
+  font-family:var(--mono);font-size:.75rem;color:var(--gold3);
+  padding-top:6px;transition:transform .3s ease;flex-shrink:0;
+}
+.guide-card.open .guide-toggle{transform:rotate(180deg);}
+
+/* -- GUIDE DETAIL (accordion content) -- */
+.guide-detail{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.4,0,.2,1),opacity .3s ease;
+  opacity:0;
+}
+.guide-card.open .guide-detail{
+  opacity:1;
+}
+.guide-detail-inner{
+  padding:0 24px 28px 60px;
+}
+.guide-divider{
+  border:none;border-top:1px solid var(--parch4);margin:0 0 20px 0;
+}
+.guide-points{list-style:none;margin-bottom:20px;}
+.guide-points li{
+  font-size:.82rem;color:var(--ink2);line-height:1.9;font-weight:300;
+  padding:6px 0 6px 20px;position:relative;
+}
+.guide-points li::before{
+  content:'\2014';position:absolute;left:0;color:var(--gold3);font-weight:400;
+}
+.guide-links-label{
+  font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.14em;
+  margin-bottom:10px;
+}
+.guide-links{display:flex;flex-wrap:wrap;gap:6px;}
+.guide-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;
+  font-family:var(--jp);font-size:.72rem;color:var(--ink2);
+  background:var(--parch);border:1px solid var(--parch4);
+  text-decoration:none;transition:all .2s;
+}
+.guide-link:hover{
+  border-color:var(--gold3);color:var(--gold);background:rgba(212,170,34,.06);
+}
+.guide-link-arrow{
+  font-size:.6rem;color:var(--gold3);transition:transform .2s;
+}
+.guide-link:hover .guide-link-arrow{transform:translateX(2px);}
+
+/* -- NEXT READS -- */
+.next-reads{background:var(--ink2);border-top:1px solid rgba(139,105,20,.2);padding:36px 24px;}
+.next-reads-inner{max-width:700px;margin:0 auto;}
+.next-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.14em;margin-bottom:16px;opacity:.8;}
+.next-links{display:flex;flex-direction:column;gap:2px;}
+.next-link{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(139,105,20,.18);text-decoration:none;transition:all .18s;}
+.next-link:hover{border-color:var(--gold2);background:rgba(255,255,255,.07);}
+.next-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.1em;width:100px;flex-shrink:0;}
+.next-link-title{font-family:var(--serif);font-size:.9rem;color:var(--parch);font-weight:500;}
+
+/* -- FOOTER -- */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* -- SCROLL TOP -- */
+.scroll-top{position:fixed;bottom:80px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+/* -- RESPONSIVE -- */
+@media(max-width:599px){
+  .guide-header{padding:18px 16px 18px 14px;gap:10px;}
+  .guide-detail-inner{padding:0 16px 22px 40px;}
+  .guide-name{font-size:1.02rem;}
+  .guide-question{font-size:.82rem;}
+  .guide-links{flex-direction:column;}
+  .guide-link{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">思考の案内人たちの回廊</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ornament">THE CORRIDORS</div>
+  <h1 class="hero-title">思考の案内人たちの回廊</h1>
+  <p class="hero-sub">
+    古い石造りの回廊を歩くように、<br>
+    8人の思想家の「問い」の前に立ち止まる。<br>
+    答えを急がず、レンズを通して世界を見つめ直す場所。
+  </p>
+</div>
+
+<!-- CORRIDOR INTRO -->
+<div class="corridor-intro">
+  <div class="corridor-intro-box">
+    <div class="corridor-intro-label">ABOUT THIS CORRIDOR</div>
+    <div class="corridor-intro-body">
+      この回廊には、投資と人生に深い洞察を残した8人の案内人が待っています。
+      それぞれが持つ「核心の問い」は、あなたの判断を照らすレンズです。
+      カードをクリックして、その思想家の3つの視点と関連する書斎のページを辿ってください。
+      <a href="../thinkers/" style="color:var(--gold2);text-decoration:none;border-bottom:1px dotted var(--gold3);">対話形式で思想家と語る「案内人たち」ページ</a>も合わせてどうぞ。
+    </div>
+  </div>
+</div>
+
+<!-- 8 GUIDE CARDS -->
+<div class="guides-container">
+  <div class="guides-label">8 GUIDES IN THE CORRIDOR</div>
+
+  <!-- 1. バフェット -->
+  <div class="guide-card" data-guide="buffett">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">01</div>
+      <div class="guide-info">
+        <div class="guide-name">ウォーレン・バフェット</div>
+        <div class="guide-era">INVESTOR / 1930 &ndash;</div>
+        <div class="guide-question">この企業は10年後も価値を生み続けているか？</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「理解できないものには投資しない」。能力の輪を守ることが最初の防御線になる。</li>
+          <li>企業の「経済的な堀（moat）」を見極める。価格競争ではなく構造的優位性に賭ける。</li>
+          <li>短期の値動きではなく、事業そのものの質を見る。時間が味方する投資だけを選ぶ。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../principles/"><span>私の投資原則</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../moat/"><span>永続的競争優位性（moat）</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../principles/circle-of-competence/"><span>能力の輪</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. マンガー -->
+  <div class="guide-card" data-guide="munger">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">02</div>
+      <div class="guide-info">
+        <div class="guide-name">チャーリー・マンガー</div>
+        <div class="guide-era">INVESTOR / 1924 &ndash; 2023</div>
+        <div class="guide-question">逆から考えよ。何が起きたら最悪か？</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「反転思考（Inversion）」。成功を考えるより、失敗を徹底的に洗い出す方が確実。</li>
+          <li>多分野のメンタルモデルを編み上げ、一つの視点に偏らない「格子状の知恵」を作る。</li>
+          <li>「愚かなことを避けるだけで、人生は十分にうまくいく」。賢くなるより愚かさを減らす。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../horizons/mental-models/"><span>メンタルモデル入門</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../horizons/behavioral-economics/"><span>行動経済学と投資判断</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. フィッシャー -->
+  <div class="guide-card" data-guide="fisher">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">03</div>
+      <div class="guide-info">
+        <div class="guide-name">フィリップ・フィッシャー</div>
+        <div class="guide-era">INVESTOR / 1907 &ndash; 2004</div>
+        <div class="guide-question">この企業の顧客・従業員・競合に話を聞いたか？</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「スカトルバット（聞き込み調査）」。数字に表れない情報を足で集める。</li>
+          <li>15の質問で成長企業を見極める。経営の質・研究開発・販売力・利益率の持続性。</li>
+          <li>優れた企業を見つけたら、売る理由がない限り持ち続ける。長期保有の哲学。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../analysis-template/"><span>企業分析テンプレート</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../companies/"><span>企業分析ページ</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. アウレリウス -->
+  <div class="guide-card" data-guide="aurelius">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">04</div>
+      <div class="guide-info">
+        <div class="guide-name">マルクス・アウレリウス</div>
+        <div class="guide-era">ROMAN EMPEROR &amp; PHILOSOPHER / 121 &ndash; 180</div>
+        <div class="guide-question">お前がコントロールできるのは自分の判断だけだ</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「自省録」に書かれた自分への戒め。外部の出来事ではなく、自分の解釈を統御する。</li>
+          <li>市場の暴落も栄光も、すべては過ぎ去る。変化を受け入れ、動じない心を鍛える。</li>
+          <li>「今この瞬間」に集中すること。過去への後悔と未来への不安から自由になる。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../life-shelf/marcus-aurelius/"><span>マルクス・アウレリウス</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../horizons/stoicism/"><span>ストア哲学と投資</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. フランクル -->
+  <div class="guide-card" data-guide="frankl">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">05</div>
+      <div class="guide-info">
+        <div class="guide-name">ヴィクトール・フランクル</div>
+        <div class="guide-era">PSYCHIATRIST &amp; PHILOSOPHER / 1905 &ndash; 1997</div>
+        <div class="guide-question">どんな状況でも、態度を選ぶ自由がある</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「夜と霧」。極限状態でも人間には最後の自由がある。それは自分の態度を選ぶ自由。</li>
+          <li>「人生があなたに問いかけている」。何を得るかではなく、何を与えるかを考える。</li>
+          <li>苦しみの中にこそ意味がある。損失や失敗を「意味の発見」として捉え直す力。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../horizons/"><span>思考を広げる棚</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../life-shelf/"><span>人生の書架</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. 論語 -->
+  <div class="guide-card" data-guide="confucius">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">06</div>
+      <div class="guide-info">
+        <div class="guide-name">論語（孔子）</div>
+        <div class="guide-era">PHILOSOPHER / 551 BC &ndash; 479 BC</div>
+        <div class="guide-question">知之者不如好之者、好之者不如楽之者</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>知ることより好むこと、好むことより楽しむこと。投資も学問も、楽しめる者が最も強い。</li>
+          <li>「利を見ては義を思え」。利益の前に、それが道義に適っているかを問う習慣。</li>
+          <li>「学びて思わざれば則ち罔し」。情報を集めるだけでは足りない。自分の頭で考え抜く。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../thinkers/"><span>思考の案内人たち</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../horizons/"><span>思考を広げる棚</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. 渋沢栄一 -->
+  <div class="guide-card" data-guide="shibusawa">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">07</div>
+      <div class="guide-info">
+        <div class="guide-name">渋沢栄一</div>
+        <div class="guide-era">INDUSTRIALIST / 1840 &ndash; 1931</div>
+        <div class="guide-question">道徳と経済は一体である</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>「論語と算盤」。道義に基づかない利益は長続きしない。倫理と経済は車の両輪。</li>
+          <li>約500の企業設立に関わった「日本資本主義の父」。個人の利益と公益を両立させる。</li>
+          <li>「正しい道理に基づいた富が、国も人も豊かにする」。投資の先にある社会的意義を見る。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../thinkers/"><span>思考の案内人たち</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../principles/"><span>私の投資原則</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. フランクリン -->
+  <div class="guide-card" data-guide="franklin">
+    <div class="guide-header" onclick="toggleGuide(this)">
+      <div class="guide-number">08</div>
+      <div class="guide-info">
+        <div class="guide-name">ベンジャミン・フランクリン</div>
+        <div class="guide-era">POLYMATH &amp; STATESMAN / 1706 &ndash; 1790</div>
+        <div class="guide-question">時間に投資せよ。それが最大のリターンを生む</div>
+      </div>
+      <div class="guide-toggle">&#9662;</div>
+    </div>
+    <div class="guide-detail">
+      <div class="guide-detail-inner">
+        <hr class="guide-divider"/>
+        <ul class="guide-points">
+          <li>13の徳目を毎週一つずつ実践。節制・勤勉・誠実——小さな改善の複利的な積み重ね。</li>
+          <li>「早寝早起きが人を健康に、裕福に、賢明にする」。朝の習慣が人生全体を変える。</li>
+          <li>「時は金なり」の本当の意味。お金ではなく時間の使い方こそが最大の投資対象。</li>
+        </ul>
+        <div class="guide-links-label">RELATED IN THE LIBRARY</div>
+        <div class="guide-links">
+          <a class="guide-link" href="../morning-practice/"><span>朝の実践室</span><span class="guide-link-arrow">&rarr;</span></a>
+          <a class="guide-link" href="../morning-method/"><span>モーニングメソッド</span><span class="guide-link-arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEXT READS -->
+<div class="next-reads">
+  <div class="next-reads-inner">
+    <div class="next-label">書斎の他の棚を歩く</div>
+    <div class="next-links">
+      <a class="next-link" href="../thinkers/">
+        <span class="next-link-tag">THINKERS</span>
+        <span class="next-link-title">思考の案内人たち（対話形式）</span>
+      </a>
+      <a class="next-link" href="../people/">
+        <span class="next-link-tag">PEOPLE</span>
+        <span class="next-link-title">人物録｜今をつくる人々</span>
+      </a>
+      <a class="next-link" href="../life-shelf/">
+        <span class="next-link-tag">LIFE SHELF</span>
+        <span class="next-link-title">人生の書架</span>
+      </a>
+      <a class="next-link" href="../principles/">
+        <span class="next-link-tag">PRINCIPLES</span>
+        <span class="next-link-title">私の投資原則</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../">書斎の入口</a> ·
+    <a href="../hajimete/">初めての方へ</a> ·
+    <a href="../principles/">投資原則</a> ·
+    <a href="../people/">人物録</a> ·
+    <a href="../thinkers/">案内人たち</a> ·
+    <a href="../industries/">業種から歩く</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+/* -- Accordion Toggle -- */
+function toggleGuide(header) {
+  var card = header.parentElement;
+  var detail = card.querySelector('.guide-detail');
+  var isOpen = card.classList.contains('open');
+
+  /* close all other cards */
+  document.querySelectorAll('.guide-card.open').forEach(function(c) {
+    if (c !== card) {
+      c.classList.remove('open');
+      c.querySelector('.guide-detail').style.maxHeight = '0';
+    }
+  });
+
+  if (isOpen) {
+    card.classList.remove('open');
+    detail.style.maxHeight = '0';
+  } else {
+    card.classList.add('open');
+    detail.style.maxHeight = detail.scrollHeight + 'px';
+    /* smooth scroll to card */
+    setTimeout(function() {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+
+/* Recalculate max-height on window resize */
+window.addEventListener('resize', function() {
+  document.querySelectorAll('.guide-card.open .guide-detail').forEach(function(d) {
+    d.style.maxHeight = d.scrollHeight + 'px';
+  });
+});
+
+/* Scroll top */
+window.addEventListener('scroll', function() {
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 300);
+});
+
+/* Keyboard accessibility */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && e.target.closest('.guide-header')) {
+    e.target.closest('.guide-header').click();
+  }
+});
+</script>
+<script src="../shared.js"></script>
+<script src="../ai-assistant.js"></script>
+</body>
+</html>
