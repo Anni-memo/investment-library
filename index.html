@@ -932,6 +932,21 @@ a.shelf-item:hover{background:var(--parch3);border-color:var(--gold3);}
   image-rendering:-moz-crisp-edges;
   cursor:pointer;
 }
+.map-traveler-info{
+  max-width:640px;margin:10px auto 0;
+  text-align:center;
+  padding:8px 14px;
+  background:rgba(26,18,8,.45);
+  border:1px solid rgba(184,144,10,.12);
+}
+.traveler-info-text{
+  font-family:var(--jp);font-size:.72rem;
+  color:var(--parch4);letter-spacing:.04em;
+}
+.traveler-companion-tag{
+  font-family:var(--mono);font-size:.58rem;
+  color:var(--gold3);opacity:.7;margin-left:12px;
+}
 .map-room-info{
   max-width:640px;margin:12px auto 0;
   min-height:60px;
@@ -1013,6 +1028,7 @@ a.shelf-item:hover{background:var(--parch3);border-color:var(--gold3);}
   <div class="library-map-wrap">
     <canvas id="libraryMapCanvas"></canvas>
   </div>
+  <div class="map-traveler-info" id="mapTravelerInfo" style="display:none;"></div>
   <div class="map-room-info" id="mapRoomInfo"></div>
 </div>
 

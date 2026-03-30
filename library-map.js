@@ -83,34 +83,245 @@
     { room: 'corridor',  label: '宿屋主人', offsetX: 10, offsetY: 0 }
   ];
 
-  /* ── avatar sprite 16x16 ── */
-  /* 0=transparent,1=skin,2=cloak,3=gold accent,4=hair,5=shadow */
-  var AVATAR_SPRITE = [
-    [0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0],
-    [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
-    [0,0,0,0,4,4,4,4,4,4,4,4,0,0,0,0],
-    [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
-    [0,0,0,0,1,0,1,1,1,1,0,1,0,0,0,0],
-    [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
-    [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
-    [0,0,0,3,2,2,2,2,2,2,2,2,3,0,0,0],
-    [0,0,3,2,2,2,2,2,2,2,2,2,2,3,0,0],
-    [0,0,2,2,2,2,2,1,1,2,2,2,2,2,0,0],
-    [0,0,2,2,2,2,2,1,1,2,2,2,2,2,0,0],
-    [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
-    [0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0],
-    [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
-    [0,0,0,0,0,2,5,0,0,5,2,0,0,0,0,0],
-    [0,0,0,0,0,5,5,0,0,5,5,0,0,0,0,0]
-  ];
+  /* ── avatar sprites 16x16 (6 types) ── */
+  /* 0=transparent,1=skin(#e8c8a0),2=main color,3=gold accent(#d4aa22),4=hair(#2d2010),5=white(#f5ede0) */
 
-  var AVATAR_PAL = {
-    1: '#e8c8a0', // skin
-    2: '#5a3a1a', // cloak
-    3: GOLD,      // gold accent
-    4: '#3a2810', // hair
-    5: '#2a1a0a'  // shadow / boots
+  var AVATAR_SPRITES = {
+    /* 賢者: 長いローブ、フード */
+    sage: [
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,2,2,4,4,4,4,2,2,0,0,0,0],
+      [0,0,0,0,2,1,1,1,1,1,1,2,0,0,0,0],
+      [0,0,0,0,0,1,0,1,1,0,1,0,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
+      [0,0,0,3,2,2,2,2,2,2,2,2,3,0,0,0],
+      [0,0,3,2,2,2,2,2,2,2,2,2,2,3,0,0],
+      [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,1,1,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
+      [0,0,0,2,2,2,2,0,0,2,2,2,2,0,0,0],
+      [0,0,0,0,2,2,2,0,0,2,2,2,0,0,0,0]
+    ],
+    /* 研究者: コート、メガネ(1px) */
+    scholar: [
+      [0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,1,5,5,1,1,5,5,1,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0],
+      [0,0,0,2,2,5,2,2,2,2,5,2,2,0,0,0],
+      [0,0,0,2,2,5,2,1,1,2,5,2,2,0,0,0],
+      [0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,0,2,4,0,0,4,2,0,0,0,0,0],
+      [0,0,0,0,0,4,4,0,0,4,4,0,0,0,0,0]
+    ],
+    /* 旅人: マント、帽子（既存ベース） */
+    traveler: [
+      [0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,4,4,4,4,4,4,4,4,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,1,0,1,1,1,1,0,1,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,3,2,2,2,2,2,2,2,2,3,0,0,0],
+      [0,0,3,2,2,2,2,2,2,2,2,2,2,3,0,0],
+      [0,0,2,2,2,2,2,1,1,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,1,1,2,2,2,2,2,0,0],
+      [0,0,2,2,2,2,2,2,2,2,2,2,2,2,0,0],
+      [0,0,0,2,2,2,2,2,2,2,2,2,2,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,0,2,4,0,0,4,2,0,0,0,0,0],
+      [0,0,0,0,0,4,4,0,0,4,4,0,0,0,0,0]
+    ],
+    /* 書記官: 直立、巻物を持つ */
+    scribe: [
+      [0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,1,0,1,1,1,1,0,1,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,2,2,2,1,1,2,2,2,5,3,0,0],
+      [0,0,0,0,2,2,2,1,1,2,2,2,5,3,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,5,0,0,0],
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0],
+      [0,0,0,0,0,2,4,0,0,4,2,0,0,0,0,0],
+      [0,0,0,0,0,4,4,0,0,4,4,0,0,0,0,0]
+    ],
+    /* 朝の実践者: 軽装、走るポーズ風 */
+    morning: [
+      [0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,1,0,1,1,1,1,0,1,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,1,2,2,2,2,2,2,2,2,1,0,0,0],
+      [0,0,1,0,2,2,2,2,2,2,2,2,0,1,0,0],
+      [0,0,0,0,2,2,2,1,1,2,2,2,0,0,0,0],
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,0,4,0,2,2,0,4,0,0,0,0,0],
+      [0,0,0,0,4,0,0,0,0,0,0,4,0,0,0,0],
+      [0,0,0,4,4,0,0,0,0,0,0,4,4,0,0,0]
+    ],
+    /* 商人: 帽子、ベスト */
+    merchant: [
+      [0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0],
+      [0,0,0,0,3,3,3,3,3,3,3,3,0,0,0,0],
+      [0,0,0,0,0,4,4,4,4,4,4,0,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,1,0,1,1,1,1,0,1,0,0,0,0],
+      [0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0],
+      [0,0,0,0,0,1,1,1,1,1,1,0,0,0,0,0],
+      [0,0,0,0,2,2,3,2,2,3,2,2,0,0,0,0],
+      [0,0,0,0,2,2,3,2,2,3,2,2,0,0,0,0],
+      [0,0,0,1,2,2,3,1,1,3,2,2,1,0,0,0],
+      [0,0,0,1,2,2,2,1,1,2,2,2,1,0,0,0],
+      [0,0,0,0,2,2,2,2,2,2,2,2,0,0,0,0],
+      [0,0,0,0,0,2,2,2,2,2,2,0,0,0,0,0],
+      [0,0,0,0,0,0,2,2,2,2,0,0,0,0,0,0],
+      [0,0,0,0,0,2,4,0,0,4,2,0,0,0,0,0],
+      [0,0,0,0,0,4,4,0,0,4,4,0,0,0,0,0]
+    ]
   };
+
+  /* main colour per avatar type */
+  var AVATAR_MAIN_COLORS = {
+    sage:     '#4a2a6a',
+    scholar:  '#2a3d6a',
+    traveler: '#6a4a2a',
+    scribe:   '#4a4a4a',
+    morning:  '#2a5a3a',
+    merchant: '#6a2a2a'
+  };
+
+  /* build palette for a given avatar type */
+  function avatarPalette(type) {
+    return {
+      1: '#e8c8a0',
+      2: AVATAR_MAIN_COLORS[type] || '#6a4a2a',
+      3: '#d4aa22',
+      4: '#2d2010',
+      5: '#f5ede0'
+    };
+  }
+
+  /* ── companion sprites 8x8 (5 types) ── */
+  /* 0=transparent, 1=main, 2=accent, 3=eye(black) */
+  var COMPANION_SPRITES = {
+    /* 本の精霊: 小さな開いた本 */
+    book: [
+      [0,0,1,1,1,1,0,0],
+      [0,1,2,2,2,2,1,0],
+      [1,2,1,1,1,1,2,1],
+      [1,2,1,3,1,1,2,1],
+      [1,2,1,1,1,1,2,1],
+      [1,2,1,1,3,1,2,1],
+      [0,1,2,2,2,2,1,0],
+      [0,0,1,1,1,1,0,0]
+    ],
+    /* 金貨の守り手: 丸い金貨型 */
+    coin: [
+      [0,0,1,1,1,1,0,0],
+      [0,1,2,2,2,2,1,0],
+      [1,2,2,1,1,2,2,1],
+      [1,2,1,2,2,1,2,1],
+      [1,2,1,2,2,1,2,1],
+      [1,2,2,1,1,2,2,1],
+      [0,1,2,2,2,2,1,0],
+      [0,0,1,1,1,1,0,0]
+    ],
+    /* 蝋燭の火: 揺れる炎型 */
+    candle: [
+      [0,0,0,2,2,0,0,0],
+      [0,0,2,1,1,2,0,0],
+      [0,2,1,1,1,1,2,0],
+      [0,2,1,1,1,1,2,0],
+      [0,0,1,1,1,1,0,0],
+      [0,0,0,1,1,0,0,0],
+      [0,0,0,3,3,0,0,0],
+      [0,0,3,3,3,3,0,0]
+    ],
+    /* 羽ペン鳥: 小鳥型 */
+    quill: [
+      [0,0,0,1,1,0,0,0],
+      [0,0,1,1,1,1,0,0],
+      [0,1,1,3,1,1,2,0],
+      [0,1,1,1,1,1,2,2],
+      [0,0,1,1,1,1,0,0],
+      [0,0,1,1,1,1,0,0],
+      [0,0,0,1,1,0,0,0],
+      [0,0,1,0,0,1,0,0]
+    ],
+    /* 時計の番人: 歯車型 */
+    clock: [
+      [0,0,1,1,1,1,0,0],
+      [0,1,0,2,2,0,1,0],
+      [1,0,2,2,2,2,0,1],
+      [1,2,2,3,3,2,2,1],
+      [1,2,2,3,2,2,2,1],
+      [1,0,2,2,2,2,0,1],
+      [0,1,0,2,2,0,1,0],
+      [0,0,1,1,1,1,0,0]
+    ]
+  };
+
+  var COMPANION_PALETTES = {
+    book:   { 1: '#d4aa22', 2: '#f5ede0', 3: '#1a1208' },
+    coin:   { 1: '#d4aa22', 2: '#f0d060', 3: '#8b6914' },
+    candle: { 1: '#e08020', 2: '#f0c040', 3: '#4a3520' },
+    quill:  { 1: '#f5ede0', 2: '#d4aa22', 3: '#1a1208' },
+    clock:  { 1: '#a0a0a0', 2: '#d0d0d0', 3: '#1a1208' }
+  };
+
+  var COMPANION_LABELS = {
+    book:   '本の精霊',
+    coin:   '金貨の守り手',
+    candle: '蝋燭の火',
+    quill:  '羽ペン鳥',
+    clock:  '時計の番人'
+  };
+
+  var AVATAR_LABELS = {
+    sage:     '静観の賢者',
+    scholar:  '探究の研究者',
+    traveler: '放浪の旅人',
+    scribe:   '記録の書記官',
+    morning:  '朝の実践者',
+    merchant: '交易の商人'
+  };
+
+  /* ── read traveler config from localStorage ── */
+  var _travelerData = (function () {
+    try {
+      return JSON.parse(localStorage.getItem('library_traveler') || '{}');
+    } catch (e) { return {}; }
+  })();
+  var _avatarType = (_travelerData.avatar && _travelerData.avatar.type) ? _travelerData.avatar.type : 'traveler';
+  var _companionType = _travelerData.companion || 'book';
+  var _nickname = _travelerData.nickname || '';
+
+  /* backwards compat: keep AVATAR_SPRITE pointing to current type */
+  var AVATAR_SPRITE = AVATAR_SPRITES[_avatarType] || AVATAR_SPRITES.traveler;
+  var AVATAR_PAL = avatarPalette(_avatarType);
 
   /* NPC sprite 8x8 */
   var NPC_SPRITE = [
@@ -235,6 +446,9 @@
       ctx.fillText(r.labelEn, cx, cy + 6);
     }
 
+    // draw other travelers (presence ghosts)
+    drawOtherTravelers();
+
     // draw NPCs
     drawNPCs();
 
@@ -315,7 +529,141 @@
   function drawAvatar() {
     var ax = avatarPos.x - 8;
     var ay = avatarPos.y - 8;
-    drawSprite(AVATAR_SPRITE, AVATAR_PAL, ax, ay, 1);
+    var sprite = AVATAR_SPRITES[_avatarType] || AVATAR_SPRITES.traveler;
+    var pal = avatarPalette(_avatarType);
+    drawSprite(sprite, pal, ax, ay, 1);
+    // draw companion at bottom-right offset
+    drawCompanion(ax + 12, ay + 10);
+  }
+
+  function drawCompanion(px, py) {
+    var sprite = COMPANION_SPRITES[_companionType];
+    var pal = COMPANION_PALETTES[_companionType];
+    if (!sprite || !pal) return;
+    drawSprite(sprite, pal, px, py, 1);
+  }
+
+  /* ── other travelers (Presence) ── */
+  var _otherTravelersCache = null;
+  var _otherTravelersLastUpdate = 0;
+  var OTHER_TRAVELER_INTERVAL = 30000; // 30s refresh
+
+  function getOtherTravelers() {
+    var now = Date.now();
+    if (_otherTravelersCache && (now - _otherTravelersLastUpdate) < OTHER_TRAVELER_INTERVAL) {
+      return _otherTravelersCache;
+    }
+    _otherTravelersLastUpdate = now;
+
+    // try real presence data
+    var presenceData = window.__shelfPresence;
+    var roomIds = Object.keys(ROOMS);
+    var result = {};
+    var rng = pseudoRandom(Math.floor(now / OTHER_TRAVELER_INTERVAL));
+
+    if (presenceData && typeof presenceData === 'object') {
+      for (var i = 0; i < roomIds.length; i++) {
+        var rid = roomIds[i];
+        var count = presenceData[rid] || 0;
+        result[rid] = generateGhosts(rid, count, rng);
+      }
+    } else {
+      // pseudo-generate based on time of day
+      var hour = new Date().getHours();
+      var baseCount;
+      if (hour >= 6 && hour < 10) baseCount = 1;        // morning: few
+      else if (hour >= 10 && hour < 18) baseCount = 3;   // daytime: more
+      else if (hour >= 18 && hour < 23) baseCount = 2;   // evening: medium
+      else baseCount = 1;                                 // night: few
+
+      for (var i = 0; i < roomIds.length; i++) {
+        var rid = roomIds[i];
+        var variance = Math.floor(rng() * 2);
+        var count = Math.max(0, Math.min(3, baseCount + variance - 1));
+        if (rid === 'hub') count = Math.min(3, count + 1); // hub is busier
+        result[rid] = generateGhosts(rid, count, rng);
+      }
+    }
+
+    _otherTravelersCache = result;
+    return result;
+  }
+
+  function pseudoRandom(seed) {
+    var s = seed || 1;
+    return function () {
+      s = (s * 16807 + 0) % 2147483647;
+      return (s - 1) / 2147483646;
+    };
+  }
+
+  function generateGhosts(roomId, count, rng) {
+    var r = ROOMS[roomId];
+    if (!r) return [];
+    var ghosts = [];
+    var types = ['sage','scholar','traveler','scribe','morning','merchant'];
+    for (var i = 0; i < count; i++) {
+      ghosts.push({
+        x: r.x * TILE + 8 + Math.floor(rng() * (r.w * TILE - 16)),
+        y: r.y * TILE + 8 + Math.floor(rng() * (r.h * TILE - 16)),
+        type: types[Math.floor(rng() * types.length)]
+      });
+    }
+    return ghosts;
+  }
+
+  function drawOtherTravelers() {
+    var others = getOtherTravelers();
+    var roomIds = Object.keys(others);
+    ctx.globalAlpha = 0.3;
+    for (var i = 0; i < roomIds.length; i++) {
+      var ghosts = others[roomIds[i]];
+      for (var g = 0; g < ghosts.length; g++) {
+        var ghost = ghosts[g];
+        var sprite = AVATAR_SPRITES[ghost.type] || AVATAR_SPRITES.traveler;
+        var pal = avatarPalette(ghost.type);
+        // draw at half size (8x8 effective) by sampling every other pixel
+        drawMiniSprite(sprite, pal, ghost.x - 4, ghost.y - 4);
+      }
+    }
+    ctx.globalAlpha = 1.0;
+
+    // draw person count badges per room
+    drawRoomBadges(others);
+  }
+
+  /* draw a 16x16 sprite scaled down to 8x8 (sample every 2nd pixel) */
+  function drawMiniSprite(sprite, pal, px, py) {
+    for (var row = 0; row < 16; row += 2) {
+      for (var col = 0; col < 16; col += 2) {
+        var v = sprite[row][col];
+        if (v === 0) continue;
+        ctx.fillStyle = pal[v] || '#ff00ff';
+        ctx.fillRect(px + col / 2, py + row / 2, 1, 1);
+      }
+    }
+  }
+
+  function drawRoomBadges(others) {
+    ctx.globalAlpha = 0.7;
+    var roomIds = Object.keys(others);
+    for (var i = 0; i < roomIds.length; i++) {
+      var rid = roomIds[i];
+      var count = others[rid].length;
+      if (count <= 0) continue;
+      var r = ROOMS[rid];
+      if (!r) continue;
+      var bx = (r.x + r.w) * TILE - 16;
+      var by = (r.y + r.h) * TILE - 10;
+      ctx.fillStyle = 'rgba(26,18,8,0.6)';
+      ctx.fillRect(bx - 1, by - 1, 16, 9);
+      ctx.font = '7px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = 'rgba(212,170,34,0.8)';
+      ctx.fillText(count + '人', bx + 7, by + 3);
+    }
+    ctx.globalAlpha = 1.0;
   }
 
   function drawNPCs() {
@@ -461,6 +809,25 @@
     }
   }
 
+  /* ── traveler info panel ── */
+  function initTravelerInfo() {
+    var el = document.getElementById('mapTravelerInfo');
+    if (!el) return;
+    var avatarLabel = AVATAR_LABELS[_avatarType] || '放浪の旅人';
+    var companionLabel = COMPANION_LABELS[_companionType] || '本の精霊';
+    var nameStr = _nickname ? ' ' + _nickname : '';
+    var avatarEmoji = {
+      sage: '\uD83E\uDDD9', scholar: '\uD83D\uDD2C', traveler: '\uD83E\uDDD3',
+      scribe: '\uD83D\uDCDC', morning: '\uD83C\uDF05', merchant: '\uD83D\uDCB0'
+    };
+    var emoji = avatarEmoji[_avatarType] || '\uD83E\uDDD3';
+    el.innerHTML = '<span class="traveler-info-text">' +
+      emoji + ' ' + avatarLabel + nameStr +
+      '  <span class="traveler-companion-tag">相棒: ' + companionLabel + '</span>' +
+      '</span>';
+    el.style.display = 'block';
+  }
+
   /* ── init ── */
   function init() {
     canvas = document.getElementById('libraryMapCanvas');
@@ -479,6 +846,15 @@
     canvas.addEventListener('touchstart', onCanvasClick, { passive: false });
     canvas.addEventListener('mousemove', onCanvasMove);
     canvas.addEventListener('mouseleave', onCanvasLeave);
+
+    // populate traveler info panel
+    initTravelerInfo();
+
+    // refresh other travelers periodically
+    setInterval(function () {
+      _otherTravelersCache = null; // force refresh
+      dirty = true;
+    }, OTHER_TRAVELER_INTERVAL);
 
     // start render loop
     dirty = true;
