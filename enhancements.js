@@ -734,35 +734,23 @@ function initWelcomeback(){
   else if(hour >= 12 && hour < 18) timeGreeting = 'こんにちは。';
   else timeGreeting = 'こんばんは。';
 
-  var banner = document.createElement('div');
-  banner.id = 'welcomeback-banner';
-  banner.style.cssText =
-    'background:linear-gradient(135deg,var(--ink2) 0%,#2a1c0a 100%);' +
-    'border-bottom:1px solid rgba(184,144,10,0.15);' +
-    'padding:14px 24px;text-align:center;position:relative;z-index:5;' +
-    'animation:slideUp 0.6s cubic-bezier(0.22,1,0.36,1) both;';
+  var text = greeting + timeGreeting + '<span style="color:var(--gold3);">おかえりなさい。</span>';
 
-  var stats = [];
-  if(daysSinceFirst > 0) stats.push(daysSinceFirst + '日目');
-  if(pagesVisited > 0) stats.push(pagesVisited + 'ページ訪問');
-  if(achievementCount > 0) stats.push(achievementCount + '個の実績');
-
-  banner.innerHTML =
-    '<div style="max-width:600px;margin:0 auto;display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;">' +
-      '<div style="font-family:var(--serif);font-size:0.88rem;color:var(--parch3);">' +
-        greeting + timeGreeting + '<span style="color:var(--gold3);">おか���りなさい。</span>' +
-      '</div>' +
-      (stats.length > 0 ? '<div style="font-family:var(--mono);font-size:0.5rem;color:var(--gold3);letter-spacing:0.1em;opacity:0.7;">' +
-        stats.join(' · ') + '</div>' : '') +
-      '<button onclick="this.parentElement.parentElement.remove()" ' +
-        'style="background:none;border:none;color:var(--parch4);cursor:pointer;font-size:0.8rem;opacity:0.4;padding:2px 6px;" ' +
-        'title="閉じる">&times;</button>' +
-    '</div>';
-
-  // ヒーローの後に挿入
-  var hero = document.querySelector('.hero');
-  if(hero && hero.nextSibling){
-    hero.parentNode.insertBefore(banner, hero.nextSibling);
+  // ガイドラベルの横にインライン表示
+  var guideLabel = document.querySelector('.guide-label');
+  if(guideLabel){
+    var wb = document.createElement('span');
+    wb.id = 'welcomeback-inline';
+    wb.style.cssText =
+      'font-family:var(--serif);font-size:0.78rem;color:var(--parch3);' +
+      'margin-left:12px;letter-spacing:0;opacity:0;transition:opacity 0.6s ease;';
+    wb.innerHTML = text;
+    guideLabel.style.display = 'flex';
+    guideLabel.style.alignItems = 'baseline';
+    guideLabel.style.justifyContent = 'center';
+    guideLabel.style.gap = '8px';
+    guideLabel.appendChild(wb);
+    setTimeout(function(){ wb.style.opacity = '1'; }, 100);
   }
 }
 
