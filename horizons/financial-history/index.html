@@ -67,7 +67,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* 5MIN OVERVIEW CARDS */
 .ov-grid{display:grid;grid-template-columns:1fr;gap:3px}
-.ov-card{display:flex;gap:0;border:1px solid var(--parch4);transition:all .15s}
+a.ov-card,a.th-card{text-decoration:none;color:inherit}
+.ov-card{display:flex;gap:0;border:1px solid var(--parch4);transition:all .15s;cursor:pointer}
 .ov-card:hover{border-color:var(--gold2);background:var(--parch2)}
 .ov-era{min-width:90px;padding:16px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
 .ov-era-num{font-family:var(--mono);font-size:.46rem;letter-spacing:.1em;opacity:.7}
@@ -200,13 +201,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="sec-title">5分で全体像</div>
   <div class="sec-intro">7つの時代を、1枚ずつ。ここだけ読んでも金融史の骨格がわかる。</div>
   <div class="ov-grid">
-    <div class="ov-card"><div class="ov-era" style="background:var(--ink);color:var(--gold3)"><div class="ov-era-num">ERA 01</div><div class="ov-era-period">BC3000-500</div></div><div class="ov-body"><h3>お金の起源</h3><p>穀物が利子を生み、金属が通貨になり、信用仲介が職業になった。お金は「モノ」として生まれた。</p><div class="ov-jp">日本: 和同開珎（708年）— 最古の公式鋳造貨幣</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:#2d2010;color:var(--gold3)"><div class="ov-era-num">ERA 02</div><div class="ov-era-period">960-1500</div></div><div class="ov-body"><h3>信用の発明</h3><p>紙幣が生まれ、複式簿記が発明された。お金は「記録」に変わった。メディチ銀行が近代金融を開いた。</p><div class="ov-jp">日本: 堂島米市場（1730年）— 世界初の先物取引</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:var(--green);color:var(--green3)"><div class="ov-era-num">ERA 03</div><div class="ov-era-period">1553-1720</div></div><div class="ov-body"><h3>株式会社の誕生</h3><p>リスクを分け合う「株式」という革命。東インド会社が生まれ、チューリップ・バブルが弾けた。</p><div class="ov-jp">日本: 両替商・札差 — 江戸の金融インフラ</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:var(--blue);color:var(--blue3)"><div class="ov-era-num">ERA 04</div><div class="ov-era-period">1760-1870</div></div><div class="ov-body"><h3>資本主義の確立</h3><p>産業革命が資本を加速。スミスが市場を理論化し、マルクスが資本主義を解剖した。</p><div class="ov-jp">日本: 明治維新（1868年）— 円の誕生・日本銀行設立</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:#3a1a1a;color:var(--rust2)"><div class="ov-era-num">ERA 05</div><div class="ov-era-period">1873-1945</div></div><div class="ov-body"><h3>恐慌と戦争の時代</h3><p>世界大恐慌がケインズを生み、ブレトンウッズがドル覇権を確立した。資本主義最大の試練。</p><div class="ov-jp">日本: 金本位制離脱（1931年）・新円切替（1946年）</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:#1a1a3a;color:var(--blue3)"><div class="ov-era-num">ERA 06</div><div class="ov-era-period">1952-2000</div></div><div class="ov-body"><h3>現代金融の構築</h3><p>金本位制が終わり、デリバティブが生まれ、バブルが世界中で弾けた。日本の失われた30年。</p><div class="ov-jp">日本: 高度成長・間接金融・日経38,915円・バブル崩壊</div></div></div>
-    <div class="ov-card"><div class="ov-era" style="background:#0a1a2a;color:var(--blue3)"><div class="ov-era-num">ERA 07</div><div class="ov-era-period">2008-現在</div></div><div class="ov-body"><h3>危機と変革 — 新しいお金</h3><p>リーマンがシステムを壊し、ビットコインが中央管理を問い、AIが資本の意味を変え始めた。</p><div class="ov-jp">日本: ゼロ金利・量的緩和・NISA・新しい資本主義</div></div></div>
+    <a class="ov-card" href="#era1"><div class="ov-era" style="background:var(--ink);color:var(--gold3)"><div class="ov-era-num">ERA 01</div><div class="ov-era-period">BC3000-500</div></div><div class="ov-body"><h3>お金の起源</h3><p>穀物が利子を生み、金属が通貨になり、信用仲介が職業になった。お金は「モノ」として生まれた。</p><div class="ov-jp">日本: 和同開珎（708年）— 最古の公式鋳造貨幣</div></div></a>
+    <a class="ov-card" href="#era2"><div class="ov-era" style="background:#2d2010;color:var(--gold3)"><div class="ov-era-num">ERA 02</div><div class="ov-era-period">960-1730</div></div><div class="ov-body"><h3>信用の発明</h3><p>紙幣が生まれ、複式簿記が発明された。お金は「記録」に変わった。メディチ銀行が近代金融を開いた。</p><div class="ov-jp">日本: 堂島米市場（1730年）— 世界初の先物取引</div></div></a>
+    <a class="ov-card" href="#era3"><div class="ov-era" style="background:var(--green);color:var(--green3)"><div class="ov-era-num">ERA 03</div><div class="ov-era-period">1553-1720</div></div><div class="ov-body"><h3>株式会社の誕生</h3><p>リスクを分け合う「株式」という革命。東インド会社が生まれ、チューリップ・バブルが弾けた。</p><div class="ov-jp">日本: 両替商・札差 — 江戸の金融インフラ</div></div></a>
+    <a class="ov-card" href="#era4"><div class="ov-era" style="background:var(--blue);color:var(--blue3)"><div class="ov-era-num">ERA 04</div><div class="ov-era-period">1760-1870</div></div><div class="ov-body"><h3>資本主義の確立</h3><p>産業革命が資本を加速。スミスが市場を理論化し、マルクスが資本主義を解剖した。</p><div class="ov-jp">日本: 明治維新（1868年）— 円の誕生・日本銀行設立</div></div></a>
+    <a class="ov-card" href="#era5"><div class="ov-era" style="background:#3a1a1a;color:var(--rust2)"><div class="ov-era-num">ERA 05</div><div class="ov-era-period">1873-1945</div></div><div class="ov-body"><h3>恐慌と戦争の時代</h3><p>世界大恐慌がケインズを生み、ブレトンウッズがドル覇権を確立した。資本主義最大の試練。</p><div class="ov-jp">日本: 金本位制離脱（1931年）・新円切替（1946年）</div></div></a>
+    <a class="ov-card" href="#era6"><div class="ov-era" style="background:#1a1a3a;color:var(--blue3)"><div class="ov-era-num">ERA 06</div><div class="ov-era-period">1952-2000</div></div><div class="ov-body"><h3>現代金融の構築</h3><p>金本位制が終わり、デリバティブが生まれ、バブルが世界中で弾けた。日本の失われた30年。</p><div class="ov-jp">日本: 高度成長・間接金融・日経38,915円・バブル崩壊</div></div></a>
+    <a class="ov-card" href="#era7"><div class="ov-era" style="background:#0a1a2a;color:var(--blue3)"><div class="ov-era-num">ERA 07</div><div class="ov-era-period">2008-現在</div></div><div class="ov-body"><h3>危機と変革 — 新しいお金</h3><p>リーマンがシステムを壊し、ビットコインが中央管理を問い、AIが資本の意味を変え始めた。</p><div class="ov-jp">日本: ゼロ金利・量的緩和・NISA・新しい資本主義</div></div></a>
   </div>
 </div>
 
@@ -379,16 +380,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="sec-title">金融を形作った思想家たち</div>
   <div class="sec-intro">彼らの思想は、今もあなたのポートフォリオに影響を与えている。</div>
   <div class="th-grid">
-    <div class="th-card market"><div class="th-nm">アダム・スミス</div><div class="th-dt">1723 — 1790</div><div class="th-rl">「見えざる手」。自由市場経済の理論的基盤を築いた。</div></div>
-    <div class="th-card critic"><div class="th-nm">カール・マルクス</div><div class="th-dt">1818 — 1883</div><div class="th-rl">資本蓄積と搾取の構造を解剖。資本主義の影を照らした。</div></div>
-    <div class="th-card"><div class="th-nm">ケインズ</div><div class="th-dt">1883 — 1946</div><div class="th-rl">有効需要と政府介入。大恐慌から経済学を救った。</div></div>
-    <div class="th-card"><div class="th-nm">フリードマン</div><div class="th-dt">1912 — 2006</div><div class="th-rl">マネタリズム。「インフレは常に貨幣的現象である。」</div></div>
-    <div class="th-card critic"><div class="th-nm">ピケティ</div><div class="th-dt">1971 —</div><div class="th-rl">r > g。300年のデータで資本と格差の関係を実証した。</div></div>
-    <div class="th-card japan-th"><div class="th-nm">渋沢栄一</div><div class="th-dt">1840 — 1931</div><div class="th-rl">「論語と算盤」。道徳と経済の両立を説いた日本資本主義の父。</div></div>
-    <div class="th-card japan-th"><div class="th-nm">高橋是清</div><div class="th-dt">1854 — 1936</div><div class="th-rl">金本位制離脱と積極財政で日本をデフレから救った。ケインズに先駆けた実践者。</div></div>
-    <div class="th-card investor"><div class="th-nm">ベンジャミン・グレアム</div><div class="th-dt">1894 — 1976</div><div class="th-rl">バリュー投資の父。「安全域」という概念を生んだ。</div></div>
-    <div class="th-card investor"><div class="th-nm">バフェット</div><div class="th-dt">1930 —</div><div class="th-rl">複利と長期の体現者。世界最高の投資家。</div></div>
-    <div class="th-card investor"><div class="th-nm">マンガー</div><div class="th-dt">1924 — 2023</div><div class="th-rl">多角的思考モデル。逆から考え、愚かさを避ける。</div></div>
+    <a class="th-card market" href="../capitalism/"><div class="th-nm">アダム・スミス</div><div class="th-dt">1723 — 1790</div><div class="th-rl">「見えざる手」。自由市場経済の理論的基盤を築いた。</div></a>
+    <a class="th-card critic" href="../capitalism/"><div class="th-nm">カール・マルクス</div><div class="th-dt">1818 — 1883</div><div class="th-rl">資本蓄積と搾取の構造を解剖。資本主義の影を照らした。</div></a>
+    <a class="th-card" href="gold-standard/"><div class="th-nm">ケインズ</div><div class="th-dt">1883 — 1946</div><div class="th-rl">有効需要と政府介入。大恐慌から経済学を救った。</div></a>
+    <a class="th-card" href="zero-rate/"><div class="th-nm">フリードマン</div><div class="th-dt">1912 — 2006</div><div class="th-rl">マネタリズム。「インフレは常に貨幣的現象である。」</div></a>
+    <a class="th-card critic" href="global-crises/"><div class="th-nm">ピケティ</div><div class="th-dt">1971 —</div><div class="th-rl">r > g。300年のデータで資本と格差の関係を実証した。</div></a>
+    <a class="th-card japan-th" href="birth-of-yen/"><div class="th-nm">渋沢栄一</div><div class="th-dt">1840 — 1931</div><div class="th-rl">「論語と算盤」。道徳と経済の両立を説いた日本資本主義の父。</div></a>
+    <a class="th-card japan-th" href="gold-standard/"><div class="th-nm">高橋是清</div><div class="th-dt">1854 — 1936</div><div class="th-rl">金本位制離脱と積極財政で日本をデフレから救った。ケインズに先駆けた実践者。</div></a>
+    <a class="th-card investor" href="../safety-margin/"><div class="th-nm">ベンジャミン・グレアム</div><div class="th-dt">1894 — 1976</div><div class="th-rl">バリュー投資の父。「安全域」という概念を生んだ。</div></a>
+    <a class="th-card investor" href="../value-investing-essence/"><div class="th-nm">バフェット</div><div class="th-dt">1930 —</div><div class="th-rl">複利と長期の体現者。世界最高の投資家。</div></a>
+    <a class="th-card investor" href="../mental-models/"><div class="th-nm">マンガー</div><div class="th-dt">1924 — 2023</div><div class="th-rl">多角的思考モデル。逆から考え、愚かさを避ける。</div></a>
   </div>
 </div>
 
