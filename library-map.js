@@ -44,21 +44,21 @@
   };
 
   /* ── grid constants ── */
-  var COLS = 30, ROWS = 22, TILE = 16;
-  var CW = COLS * TILE, CH = ROWS * TILE; // 480x352
+  var COLS = 40, ROWS = 28, TILE = 24;
+  var CW = COLS * TILE, CH = ROWS * TILE; // 960x672
 
   /* ── room definitions (grid coords: x,y,w,h in tiles) ── */
   var ROOMS = {
-    entrance:   { x: 1,  y: 1,  w: 9,  h: 6, label: '入口ホール',       labelEn: 'Entrance Hall',    url: 'hajimete/' },
-    principles: { x: 11, y: 1,  w: 9,  h: 6, label: '投資原則の間',     labelEn: 'Principles',       url: 'principles/' },
-    moat:       { x: 21, y: 1,  w: 8,  h: 6, label: 'Moatの間',         labelEn: 'Moat Room',        url: 'moat/' },
-    companies:  { x: 1,  y: 8,  w: 9,  h: 6, label: '企業分析書架',     labelEn: 'Companies',        url: 'companies/' },
-    hub:        { x: 11, y: 8,  w: 9,  h: 6, label: '中央広間',         labelEn: 'Central Hall',     url: null },
-    fcf:        { x: 21, y: 8,  w: 8,  h: 6, label: 'FCFの間',          labelEn: 'FCF Room',         url: 'fcf/' },
-    research:   { x: 1,  y: 15, w: 9,  h: 3, label: '論考の棚',         labelEn: 'Research',         url: 'research/' },
-    news:       { x: 11, y: 15, w: 9,  h: 3, label: 'ニュース解説室',   labelEn: 'News Room',        url: 'news/' },
-    horizons:   { x: 21, y: 15, w: 8,  h: 3, label: '古典と思想の棚',   labelEn: 'Horizons',         url: 'horizons/' },
-    corridor:   { x: 1,  y: 19, w: 28, h: 2, label: '思考の案内人たちの回廊', labelEn: 'Corridor', url: 'corridors/' }
+    entrance:   { x: 1,  y: 1,  w: 12, h: 8, label: '入口ホール',       labelEn: 'ENTRANCE',         url: 'hajimete/' },
+    principles: { x: 14, y: 1,  w: 12, h: 8, label: '投資原則の間',     labelEn: 'PRINCIPLES',       url: 'principles/' },
+    moat:       { x: 27, y: 1,  w: 12, h: 8, label: 'Moatの間',         labelEn: 'MOAT',             url: 'moat/' },
+    companies:  { x: 1,  y: 10, w: 12, h: 8, label: '企業分析書架',     labelEn: 'COMPANIES',        url: 'companies/' },
+    hub:        { x: 14, y: 10, w: 12, h: 8, label: '中央広間',         labelEn: 'MAIN HALL',        url: null },
+    fcf:        { x: 27, y: 10, w: 12, h: 8, label: 'FCFの間',          labelEn: 'FCF',              url: 'fcf/' },
+    research:   { x: 1,  y: 19, w: 12, h: 4, label: '論考の棚',         labelEn: 'RESEARCH',         url: 'research/' },
+    news:       { x: 14, y: 19, w: 12, h: 4, label: 'ニュース解説室',   labelEn: 'NEWS',             url: 'news/' },
+    horizons:   { x: 27, y: 19, w: 12, h: 4, label: '古典と思想の棚',   labelEn: 'HORIZONS',         url: 'horizons/' },
+    corridor:   { x: 1,  y: 24, w: 38, h: 3, label: '思考の案内人たちの回廊', labelEn: 'CORRIDOR', url: 'corridors/' }
   };
 
   var ROOM_DESC = {
