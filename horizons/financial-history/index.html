@@ -88,11 +88,15 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
 
 /* TIMELINE ITEMS */
 .tl{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}
-.tl-item{display:flex;gap:0;border:1px solid var(--parch4);transition:all .15s}
+.tl-item{display:flex;gap:0;border:1px solid var(--parch4);transition:all .15s;text-decoration:none;color:inherit}
 .tl-item:hover{border-color:var(--gold2)}
+a.tl-item:hover .tl-nm{color:var(--gold2)}
+a.tl-item .tl-bd{position:relative}
+a.tl-item .tl-bd::after{content:'\2192';position:absolute;right:10px;top:12px;color:var(--gold3);font-size:.7rem;opacity:0;transition:opacity .15s}
+a.tl-item:hover .tl-bd::after{opacity:1}
 .tl-yr{min-width:76px;padding:12px 8px;background:var(--ink);color:var(--gold3);font-family:var(--mono);font-size:.6rem;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;flex-shrink:0;text-align:center}
 .tl-bd{padding:12px 16px;flex:1;background:var(--parch2)}
-.tl-nm{font-family:var(--serif);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.tl-nm{font-family:var(--serif);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:3px;transition:color .15s}
 .tl-ds{font-size:.72rem;color:var(--ink3);line-height:1.75}
 .tl-tg{display:inline-block;font-family:var(--mono);font-size:.44rem;padding:2px 6px;border:1px solid;margin-top:5px;letter-spacing:.04em}
 .tl-tg.crisis{color:var(--rust2);border-color:var(--rust)}
@@ -225,11 +229,11 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 01</span><span class="era-title">お金の起源</span><span class="era-period">BC3000 — BC500</span></div>
   <p class="era-intro">人類が最初に「価値の交換」を記録に残した時代。穀物が利子を生み、金属が通貨になり、信用仲介という仕事が生まれた。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">BC3000</div><div class="tl-bd"><div class="tl-nm">メソポタミアの穀物貸付</div><div class="tl-ds">世界最古の「利子」の記録。大麦を貸し、収穫後に多く返す契約。お金より先に「信用」が生まれた。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">BC1750</div><div class="tl-bd"><div class="tl-nm">ハンムラビ法典</div><div class="tl-ds">利率の上限を法で定めた人類最初の金融規制。穀物貸付33.3%、銀貸付20%。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">BC700</div><div class="tl-bd"><div class="tl-nm">リディア王国 — 世界初の鋳造硬貨</div><div class="tl-ds">エレクトラム（金銀合金）で均一な硬貨を鋳造。「お金」が物から記号へ変わり始めた瞬間。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">BC500</div><div class="tl-bd"><div class="tl-nm">ギリシャの両替商 — 金融仲介の始まり</div><div class="tl-ds">トラペジタイ（両替商）が預金・貸付・送金を仲介。銀行業の原型。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">708</div><div class="tl-bd"><div class="tl-nm">和同開珎 — 日本最古の公式貨幣</div><div class="tl-ds">唐の開元通宝に倣い鋳造。ただし庶民には浸透せず、米や布が実質的な通貨であり続けた。</div><span class="tl-tg japan">JAPAN</span></div></div>
+    <a class="tl-item" href="../money/"></div><div class="tl-ds">世界最古の「利子」の記録。大麦を貸し、収穫後に多く返す契約。お金より先に「信用」が生まれた。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="../money/"></div><div class="tl-ds">利率の上限を法で定めた人類最初の金融規制。穀物貸付33.3%、銀貸付20%。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="../money/"> — 世界初の鋳造硬貨</div><div class="tl-ds">エレクトラム（金銀合金）で均一な硬貨を鋳造。「お金」が物から記号へ変わり始めた瞬間。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="../credit/"> — 金融仲介の始まり</div><div class="tl-ds">トラペジタイ（両替商）が預金・貸付・送金を仲介。銀行業の原型。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="edo-sankasei/"> — 日本最古の公式貨幣</div><div class="tl-ds">唐の開元通宝に倣い鋳造。ただし庶民には浸透せず、米や布が実質的な通貨であり続けた。</div><span class="tl-tg japan">JAPAN</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">投資家にとっての意味</div><p><strong>お金より先に信用が生まれた。</strong>これは今日の金融市場でも本質は同じだ。株式も債券も、その根底にあるのは「将来返済される」という信用の構造。最古の金融危機が利率規制から始まったように、規制と市場の緊張は7000年前から続いている。</p></div>
 </div>
@@ -241,11 +245,11 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 02</span><span class="era-title">信用の発明</span><span class="era-period">960 — 1730</span></div>
   <p class="era-intro">紙が金属を超えた時代。中国で紙幣が生まれ、イタリアで複式簿記が発明され、日本では世界初の先物市場が動いていた。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">960</div><div class="tl-bd"><div class="tl-nm">宋の「交子」— 世界初の紙幣</div><div class="tl-ds">四川の商人が鉄銭の代わりに紙の証書を流通。お金の非物質化が始まった。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1397</div><div class="tl-bd"><div class="tl-nm">メディチ銀行設立</div><div class="tl-ds">為替手形・支店網・分散経営。ルネサンスを支えた近代銀行業のモデル。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1494</div><div class="tl-bd"><div class="tl-nm">パチョーリ — 複式簿記の体系化</div><div class="tl-ds">借方と貸方で取引を記録。「会計学の父」。企業の透明性はここから始まった。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1600s</div><div class="tl-bd"><div class="tl-nm">江戸の三貨制度</div><div class="tl-ds">金（江戸）・銀（大阪）・銭（庶民）の三貨が並立。両替商が金融インフラを支えた。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1730</div><div class="tl-bd"><div class="tl-nm">堂島米市場 — 世界初の先物取引</div><div class="tl-ds">大阪・堂島で米の帳合米取引（先物）が公認。シカゴ商品取引所より120年早い。</div><span class="tl-tg japan">JAPAN</span></div></div>
+    <a class="tl-item" href="../money/">— 世界初の紙幣</div><div class="tl-ds">四川の商人が鉄銭の代わりに紙の証書を流通。お金の非物質化が始まった。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="../credit/"></div><div class="tl-ds">為替手形・支店網・分散経営。ルネサンスを支えた近代銀行業のモデル。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="../credit/"> — 複式簿記の体系化</div><div class="tl-ds">借方と貸方で取引を記録。「会計学の父」。企業の透明性はここから始まった。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="edo-sankasei/"></div><div class="tl-ds">金（江戸）・銀（大阪）・銭（庶民）の三貨が並立。両替商が金融インフラを支えた。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="dojima/"> — 世界初の先物取引</div><div class="tl-ds">大阪・堂島で米の帳合米取引（先物）が公認。シカゴ商品取引所より120年早い。</div><span class="tl-tg japan">JAPAN</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">投資家にとっての意味</div><p><strong>日本は金融イノベーションの先駆者だった。</strong>堂島の先物取引は、リスクヘッジ・価格発見機能・標準化された契約という現代デリバティブの本質をすべて備えていた。「金融は欧米の発明」という通念は、歴史的には正確ではない。</p></div>
 </div>
@@ -257,12 +261,12 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 03</span><span class="era-title">株式会社の誕生</span><span class="era-period">1553 — 1720</span></div>
   <p class="era-intro">リスクを分け合う「株式」という革命的発明。東インド会社が生まれ、アムステルダムに世界初の株式市場が立ち、そして人類最初のバブルが弾けた。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">1600</div><div class="tl-bd"><div class="tl-nm">イギリス東インド会社設立</div><div class="tl-ds">特許状による貿易独占。国家と資本が結びついた最初の巨大企業。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1602</div><div class="tl-bd"><div class="tl-nm">オランダ東インド会社（VOC）</div><div class="tl-ds">世界初の公開株式会社。株式を誰でも売買できる仕組みを発明した。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1609</div><div class="tl-bd"><div class="tl-nm">アムステルダム証券取引所</div><div class="tl-ds">世界初の常設株式市場。空売り・先物取引もここから生まれた。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1637</div><div class="tl-bd"><div class="tl-nm">チューリップ・バブル崩壊</div><div class="tl-ds">球根1つが家1軒分に高騰し、突然崩壊。人類最初の投機バブル。「市場は時に狂気に支配される。」</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1694</div><div class="tl-bd"><div class="tl-nm">イングランド銀行設立</div><div class="tl-ds">戦費調達のため設立。中央銀行の原型。政府と通貨の関係が決定的に変わった。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1720</div><div class="tl-bd"><div class="tl-nm">南海泡沫事件</div><div class="tl-ds">南海会社株が10倍に暴騰し崩壊。ニュートンも大損した。「天体の動きは計算できるが、人の狂気は計算できない。」</div><span class="tl-tg crisis">CRISIS</span></div></div>
+    <a class="tl-item" href="../equity/"></div><div class="tl-ds">特許状による貿易独占。国家と資本が結びついた最初の巨大企業。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="../equity/">（VOC）</div><div class="tl-ds">世界初の公開株式会社。株式を誰でも売買できる仕組みを発明した。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="../equity/"></div><div class="tl-ds">世界初の常設株式市場。空売り・先物取引もここから生まれた。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">球根1つが家1軒分に高騰し、突然崩壊。人類最初の投機バブル。「市場は時に狂気に支配される。」</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="../central-bank/"></div><div class="tl-ds">戦費調達のため設立。中央銀行の原型。政府と通貨の関係が決定的に変わった。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">南海会社株が10倍に暴騰し崩壊。ニュートンも大損した。「天体の動きは計算できるが、人の狂気は計算できない。」</div><span class="tl-tg crisis">CRISIS</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">今に残っているもの</div><p><strong>株式会社という仕組みそのもの。</strong>VOCが発明した「リスクを広く分散し、利益を比例配分する」構造は、今日のトヨタもAppleもまったく同じだ。そしてチューリップ・バブルが示した教訓 — 人間の欲望は制度をすり抜ける — も400年間変わっていない。</p></div>
 </div>
@@ -274,12 +278,12 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 04</span><span class="era-title">資本主義の確立</span><span class="era-period">1760 — 1870</span></div>
   <p class="era-intro">蒸気機関が資本を加速させた時代。スミスが市場を理論化し、マルクスが資本主義を解剖した。日本は鎖国を解き、円を生み出した。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">1760</div><div class="tl-bd"><div class="tl-nm">産業革命の始まり</div><div class="tl-ds">蒸気機関・工場制度。資本と技術が結合し、生産力が爆発的に拡大した。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1776</div><div class="tl-bd"><div class="tl-nm">アダム・スミス『国富論』</div><div class="tl-ds">「見えざる手」— 個人の利益追求が社会全体の富を増やす。市場経済の理論的基盤。</div><span class="tl-tg thinker">THINKER</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1867</div><div class="tl-bd"><div class="tl-nm">マルクス『資本論』第1巻</div><div class="tl-ds">資本蓄積・剰余価値・搾取構造を体系的に解剖。20世紀の世界史を二分した一冊。</div><span class="tl-tg thinker">THINKER</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1868</div><div class="tl-bd"><div class="tl-nm">明治維新 — 近代国家への転換</div><div class="tl-ds">封建制度を廃し、西洋型の経済制度を急速に導入。渋沢栄一が「論語と算盤」で資本主義の倫理を説いた。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1871</div><div class="tl-bd"><div class="tl-nm">「円」の誕生 — 新貨条例</div><div class="tl-ds">両・分・朱の複雑な体系から十進法の「円」へ。1ドル=1円の金本位制を採用。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1882</div><div class="tl-bd"><div class="tl-nm">日本銀行設立</div><div class="tl-ds">松方正義の主導で設立。不換紙幣の乱発によるインフレを収束させるため、中央銀行が必要だった。</div><span class="tl-tg japan">JAPAN</span></div></div>
+    <a class="tl-item" href="../industrial-revolution/"></div><div class="tl-ds">蒸気機関・工場制度。資本と技術が結合し、生産力が爆発的に拡大した。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="../capitalism/">『国富論』</div><div class="tl-ds">「見えざる手」— 個人の利益追求が社会全体の富を増やす。市場経済の理論的基盤。</div><span class="tl-tg thinker">THINKER</span></div></a>
+    <a class="tl-item" href="../capitalism/">第1巻</div><div class="tl-ds">資本蓄積・剰余価値・搾取構造を体系的に解剖。20世紀の世界史を二分した一冊。</div><span class="tl-tg thinker">THINKER</span></div></a>
+    <a class="tl-item" href="birth-of-yen/"> — 近代国家への転換</div><div class="tl-ds">封建制度を廃し、西洋型の経済制度を急速に導入。渋沢栄一が「論語と算盤」で資本主義の倫理を説いた。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="birth-of-yen/"> — 新貨条例</div><div class="tl-ds">両・分・朱の複雑な体系から十進法の「円」へ。1ドル=1円の金本位制を採用。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="boj/"></div><div class="tl-ds">松方正義の主導で設立。不換紙幣の乱発によるインフレを収束させるため、中央銀行が必要だった。</div><span class="tl-tg japan">JAPAN</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">投資家にとっての意味</div><p><strong>スミスとマルクスは対立ではなく、同じ現象の表と裏を見ている。</strong>市場が富を生む（スミス）と同時に格差を生む（マルクス）。どちらか一方だけでは資本主義を理解できない。渋沢栄一の「論語と算盤」は、この対立を日本的に統合しようとした試みだった。</p></div>
 </div>
@@ -291,13 +295,13 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 05</span><span class="era-title">恐慌と戦争の時代</span><span class="era-period">1873 — 1945</span></div>
   <p class="era-intro">資本主義が最大の試練に直面した時代。世界恐慌がケインズを生み、戦争が国際金融秩序を作り変えた。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">1907</div><div class="tl-bd"><div class="tl-nm">JPモルガンの私的救済</div><div class="tl-ds">銀行危機を一人の金融家が救済。中央銀行不在の限界が露呈した。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1913</div><div class="tl-bd"><div class="tl-nm">連邦準備制度（FRB）設立</div><div class="tl-ds">「最後の貸し手」としてのアメリカの中央銀行。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1929</div><div class="tl-bd"><div class="tl-nm">ウォール街大暴落 → 世界大恐慌</div><div class="tl-ds">株価が89%下落。失業率25%。資本主義最大の危機。世界を戦争へ向かわせた。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1931</div><div class="tl-bd"><div class="tl-nm">日本の金本位制離脱</div><div class="tl-ds">高橋是清蔵相が金輸出を再禁止し、積極財政に転換。日本は世界に先駆けてデフレを脱した。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1936</div><div class="tl-bd"><div class="tl-nm">ケインズ『一般理論』</div><div class="tl-ds">政府支出による有効需要の創出。「市場は自動的には回復しない」という革命的主張。</div><span class="tl-tg thinker">THINKER</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1944</div><div class="tl-bd"><div class="tl-nm">ブレトンウッズ体制</div><div class="tl-ds">ドルを基軸通貨とする固定相場制。IMF・世界銀行設立。戦後国際金融秩序の誕生。</div><span class="tl-tg inst">INSTITUTION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1946</div><div class="tl-bd"><div class="tl-nm">新円切替 — 金融緊急措置</div><div class="tl-ds">旧紙幣を無効化し、預金封鎖を実施。戦後インフレの抑制と財産税課税。国民の資産が一夜にして凍結された。</div><span class="tl-tg japan">JAPAN</span></div></div>
+    <a class="tl-item" href="global-crises/">の私的救済</div><div class="tl-ds">銀行危機を一人の金融家が救済。中央銀行不在の限界が露呈した。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="../central-bank/">（FRB）設立</div><div class="tl-ds">「最後の貸し手」としてのアメリカの中央銀行。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="global-crises/"> → 世界大恐慌</div><div class="tl-ds">株価が89%下落。失業率25%。資本主義最大の危機。世界を戦争へ向かわせた。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="gold-standard/"></div><div class="tl-ds">高橋是清蔵相が金輸出を再禁止し、積極財政に転換。日本は世界に先駆けてデフレを脱した。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="gold-standard/"></div><div class="tl-ds">政府支出による有効需要の創出。「市場は自動的には回復しない」という革命的主張。</div><span class="tl-tg thinker">THINKER</span></div></a>
+    <a class="tl-item" href="gold-standard/"></div><div class="tl-ds">ドルを基軸通貨とする固定相場制。IMF・世界銀行設立。戦後国際金融秩序の誕生。</div><span class="tl-tg inst">INSTITUTION</span></div></a>
+    <a class="tl-item" href="shinyen/"> — 金融緊急措置</div><div class="tl-ds">旧紙幣を無効化し、預金封鎖を実施。戦後インフレの抑制と財産税課税。国民の資産が一夜にして凍結された。</div><span class="tl-tg japan">JAPAN</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">家計にとっての意味</div><p><strong>新円切替は「国家が個人の資産を凍結できる」という事実を示した。</strong>歴史的に見れば珍しいことではない。だからこそ資産の分散（通貨・国・資産クラス）は、投資理論ではなく歴史的教訓として重要なのだ。</p></div>
 </div>
@@ -309,13 +313,13 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 06</span><span class="era-title">現代金融の構築</span><span class="era-period">1952 — 2000</span></div>
   <p class="era-intro">金本位制が終わり、デリバティブが生まれ、バブルが世界中で弾けた。日本は高度成長から失われた30年へ。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">1952</div><div class="tl-bd"><div class="tl-nm">マーコウィッツのポートフォリオ理論</div><div class="tl-ds">リスクとリターンの数学的定式化。分散投資が理論的裏付けを得た。</div><span class="tl-tg thinker">THINKER</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1955-73</div><div class="tl-bd"><div class="tl-nm">日本の高度経済成長</div><div class="tl-ds">年率10%成長。間接金融（銀行融資中心）で企業を育て、メインバンク制が日本型資本主義を形成した。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1971</div><div class="tl-bd"><div class="tl-nm">ニクソン・ショック — 金本位制の終焉</div><div class="tl-ds">ドルと金の交換停止。お金は完全に「信用」だけで成り立つ時代へ。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1987</div><div class="tl-bd"><div class="tl-nm">ブラック・マンデー</div><div class="tl-ds">ダウが1日で22.6%下落。プログラム取引と市場の最初の衝突。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1989</div><div class="tl-bd"><div class="tl-nm">日本バブル崩壊</div><div class="tl-ds">日経平均38,915円をピークに崩壊。土地神話の終焉。失われた30年の始まり。</div><span class="tl-tg crisis">CRISIS</span><span class="tl-tg japan" style="margin-left:4px">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">1998</div><div class="tl-bd"><div class="tl-nm">LTCM破綻</div><div class="tl-ds">ノーベル賞学者が運用するヘッジファンドの崩壊。理論と現実の乖離。「天才の失敗」。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2000</div><div class="tl-bd"><div class="tl-nm">ITバブル崩壊</div><div class="tl-ds">ナスダックが78%下落。「技術革命」と「投機」は別のものだ。</div><span class="tl-tg crisis">CRISIS</span></div></div>
+    <a class="tl-item" href="../equity/">のポートフォリオ理論</div><div class="tl-ds">リスクとリターンの数学的定式化。分散投資が理論的裏付けを得た。</div><span class="tl-tg thinker">THINKER</span></div></a>
+    <a class="tl-item" href="high-growth/"></div><div class="tl-ds">年率10%成長。間接金融（銀行融資中心）で企業を育て、メインバンク制が日本型資本主義を形成した。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="gold-standard/"> — 金本位制の終焉</div><div class="tl-ds">ドルと金の交換停止。お金は完全に「信用」だけで成り立つ時代へ。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">ダウが1日で22.6%下落。プログラム取引と市場の最初の衝突。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="bubble/"></div><div class="tl-ds">日経平均38,915円をピークに崩壊。土地神話の終焉。失われた30年の始まり。</div><span class="tl-tg crisis">CRISIS</span><span class="tl-tg japan" style="margin-left:4px">JAPAN</span></div></a>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">ノーベル賞学者が運用するヘッジファンドの崩壊。理論と現実の乖離。「天才の失敗」。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">ナスダックが78%下落。「技術革命」と「投機」は別のものだ。</div><span class="tl-tg crisis">CRISIS</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">投資家にとっての意味</div><p><strong>日本人が現預金志向なのは、バブル崩壊のトラウマが構造化されたからだ。</strong>株で損をした世代が「株は危ない」と次世代に伝え、間接金融文化も相まって投資文化が定着しなかった。歴史を知ることで、この構造を自覚的に超えられる。</p></div>
 </div>
@@ -327,13 +331,13 @@ a.ov-card,a.th-card{text-decoration:none;color:inherit}
   <div class="era-head"><span class="era-num">ERA 07</span><span class="era-title">危機と変革 — 新しいお金</span><span class="era-period">2008 — 現在</span></div>
   <p class="era-intro">リーマンが金融工学の限界を示し、ビットコインが中央管理を問い、AIが知的労働を自動化し始めた。私たちは今、この時代の中にいる。</p>
   <div class="tl">
-    <div class="tl-item"><div class="tl-yr">2008</div><div class="tl-bd"><div class="tl-nm">リーマン・ショック</div><div class="tl-ds">サブプライムローン危機から世界金融危機へ。「100年に1度」の信用収縮。信用格付けの信頼が崩壊した。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2009</div><div class="tl-bd"><div class="tl-nm">ビットコイン誕生</div><div class="tl-ds">サトシ・ナカモトによるP2P電子通貨。中央管理者のいないお金の実験。</div><span class="tl-tg innov">INNOVATION</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2013</div><div class="tl-bd"><div class="tl-nm">ピケティ『21世紀の資本』</div><div class="tl-ds">r &gt; g — 資本収益率が経済成長率を上回り続ける限り、格差は拡大する。300年のデータで証明。</div><span class="tl-tg thinker">THINKER</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2013</div><div class="tl-bd"><div class="tl-nm">異次元の金融緩和（黒田バズーカ）</div><div class="tl-ds">日銀が大規模な量的・質的金融緩和を開始。マネタリーベースを2年で2倍にする前例のない実験。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2020</div><div class="tl-bd"><div class="tl-nm">コロナショック → 無制限量的緩和</div><div class="tl-ds">世界の中央銀行が最終兵器を使った。金利ゼロ、無限の流動性供給。財政と金融の境界が消えた。</div><span class="tl-tg crisis">CRISIS</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2024</div><div class="tl-bd"><div class="tl-nm">新NISA制度開始</div><div class="tl-ds">非課税枠の恒久化・拡大。「貯蓄から投資へ」の国家的転換。日本人の資産形成の歴史的転換点になるか。</div><span class="tl-tg japan">JAPAN</span></div></div>
-    <div class="tl-item"><div class="tl-yr">2023〜</div><div class="tl-bd"><div class="tl-nm">AI革命 — 知的労働の自動化</div><div class="tl-ds">ChatGPT以降、知的労働の自動化が加速。産業革命が肉体労働を変えたように、AI革命が知的労働を変える。資本の意味そのものが問い直されている。</div><span class="tl-tg innov">INNOVATION</span></div></div>
+    <a class="tl-item" href="global-crises/"></div><div class="tl-ds">サブプライムローン危機から世界金融危機へ。「100年に1度」の信用収縮。信用格付けの信頼が崩壊した。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="../money/"></div><div class="tl-ds">サトシ・ナカモトによるP2P電子通貨。中央管理者のいないお金の実験。</div><span class="tl-tg innov">INNOVATION</span></div></a>
+    <a class="tl-item" href="global-crises/">『21世紀の資本』</div><div class="tl-ds">r &gt; g — 資本収益率が経済成長率を上回り続ける限り、格差は拡大する。300年のデータで証明。</div><span class="tl-tg thinker">THINKER</span></div></a>
+    <a class="tl-item" href="zero-rate/">（黒田バズーカ）</div><div class="tl-ds">日銀が大規模な量的・質的金融緩和を開始。マネタリーベースを2年で2倍にする前例のない実験。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="global-crises/"> → 無制限量的緩和</div><div class="tl-ds">世界の中央銀行が最終兵器を使った。金利ゼロ、無限の流動性供給。財政と金融の境界が消えた。</div><span class="tl-tg crisis">CRISIS</span></div></a>
+    <a class="tl-item" href="zero-rate/"></div><div class="tl-ds">非課税枠の恒久化・拡大。「貯蓄から投資へ」の国家的転換。日本人の資産形成の歴史的転換点になるか。</div><span class="tl-tg japan">JAPAN</span></div></a>
+    <a class="tl-item" href="what-is-financial-history/"> — 知的労働の自動化</div><div class="tl-ds">ChatGPT以降、知的労働の自動化が加速。産業革命が肉体労働を変えたように、AI革命が知的労働を変える。資本の意味そのものが問い直されている。</div><span class="tl-tg innov">INNOVATION</span></div></a>
   </div>
   <div class="era-insight"><div class="era-insight-label">3行でわかる今</div><p><strong>リーマン以降、中央銀行は「何でもやる」時代に入った。</strong>その結果、お金の価値は政策で動く時代になった。だからインフレ・金利・中央銀行の動きを読む力が、現代の投資家に不可欠なのだ。そしてNISAの登場は、日本人が「バブル後のトラウマ」を乗り越える制度的なきっかけになり得る。</p></div>
 </div>
