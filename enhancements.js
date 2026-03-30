@@ -15,7 +15,7 @@ var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matche
 // ════════════════════════════════════════
 var UISounds = {
   ctx: null,
-  enabled: true,
+  enabled: false,
 
   init: function(){
     // ユーザー操作後にAudioContext生成
@@ -614,12 +614,13 @@ function initPageTransitions(){
     if(!href || href.startsWith('#') || href.startsWith('javascript') ||
        href.startsWith('http') || link.target === '_blank') return;
 
+    var absoluteUrl = link.href; // ブラウザが解決した絶対URL
     e.preventDefault();
     curtain.style.opacity = '1';
     curtain.style.pointerEvents = 'all';
 
     setTimeout(function(){
-      window.location.href = href;
+      window.location.href = absoluteUrl;
     }, 300);
   });
 }
