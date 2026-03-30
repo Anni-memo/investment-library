@@ -323,50 +323,6 @@ body::before{
   opacity:.4;cursor:default;border-color:rgba(184,144,10,.1);
 }
 
-/* ── CORRIDOR — 主要導線の回廊 ── */
-.main-corridor{
-  background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%);
-  padding:36px 24px;
-  border-bottom:1px solid rgba(184,144,10,.1);
-}
-.main-corridor-inner{max-width:780px;margin:0 auto;}
-.main-corridor-label{
-  font-family:var(--mono);font-size:.46rem;color:var(--gold3);
-  letter-spacing:.25em;text-align:center;margin-bottom:20px;opacity:.5;
-}
-.corridor-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
-}
-@media(max-width:640px){.corridor-grid{grid-template-columns:1fr;gap:4px;}}
-.corridor-card{
-  display:flex;flex-direction:column;align-items:center;
-  padding:28px 20px 24px;
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(184,144,10,.12);
-  text-decoration:none;color:inherit;
-  transition:all .25s cubic-bezier(.22,1,.36,1);
-  text-align:center;
-}
-.corridor-card:hover{
-  border-color:rgba(184,144,10,.3);
-  background:rgba(255,255,255,.04);
-  transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(0,0,0,.2);
-}
-.corridor-icon{font-size:1.4rem;margin-bottom:12px;opacity:.8;}
-.corridor-name{
-  font-family:var(--serif);font-size:clamp(.95rem,2.5vw,1.15rem);
-  font-weight:600;color:var(--parch);margin-bottom:6px;line-height:1.3;
-}
-.corridor-desc{
-  font-family:var(--jp);font-size:.72rem;color:var(--parch4);
-  line-height:1.7;font-weight:300;margin-bottom:10px;
-}
-.corridor-tag{
-  font-family:var(--mono);font-size:.44rem;color:var(--gold3);
-  letter-spacing:.12em;opacity:.5;
-}
-
 /* ── GUIDE ── */
 .guide{background:var(--ink2);padding:40px 24px;border-bottom:1px solid rgba(184,144,10,.12);}
 .guide-inner{max-width:560px;margin:0 auto;text-align:center;}
@@ -481,31 +437,22 @@ body::before{
 
 </div>
 
-<!-- ══════════════ MAIN CORRIDOR — 主要導線の回廊 ══════════════ -->
-<div class="main-corridor" id="morningSection">
-  <div class="main-corridor-inner">
-    <div class="main-corridor-label">THE MAIN CORRIDOR</div>
-    <div class="corridor-grid">
-      <a class="corridor-card" href="morning-method/">
-        <div class="corridor-icon">&#9728;&#65039;</div>
-        <div class="corridor-name">朝の実践を始める</div>
-        <div class="corridor-desc">瞑想・アファメーション・運動・読書・ジャーナリング。一日を整える。</div>
-        <div class="corridor-tag">MORNING METHOD &rarr;</div>
-      </a>
-      <a class="corridor-card" href="horizons/financial-history/">
-        <div class="corridor-icon">&#9200;</div>
-        <div class="corridor-name">金融史の書庫</div>
-        <div class="corridor-desc">メソポタミアから堂島、リーマン、AI革命まで。7000年の構造を歩く。</div>
-        <div class="corridor-tag">FINANCIAL HISTORY &rarr;</div>
-      </a>
-      <a class="corridor-card" href="people/">
-        <div class="corridor-icon">&#128100;</div>
-        <div class="corridor-name">人物録</div>
-        <div class="corridor-desc">投資家・経営者・思想家。その人の核心を読む。</div>
-        <div class="corridor-tag">PEOPLE &rarr;</div>
-      </a>
-    </div>
-  </div>
+<!-- ══════════════ MORNING METHOD (全幅緑バンド) ══════════════ -->
+<div id="morningSection" style="background:linear-gradient(135deg,#0a1210 0%,#1a2a22 50%,#0e1810 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;">
+  <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
+    <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">朝の実践を始める</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">瞑想・アファメーション・運動・読書・ジャーナリング</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(212,170,34,.5);letter-spacing:.1em;margin-top:10px;">MORNING PRACTICE →</div>
+  </a>
+</div>
+
+<!-- ══════════════ FINANCIAL HISTORY (青バナー) ══════════════ -->
+<div style="background:linear-gradient(135deg,#0a0e18 0%,#141a2a 50%,#0e1420 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;">
+  <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
+    <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
+    <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,136,208,.5);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
+  </a>
 </div>
 
 <!-- ══════════════ GUIDE: 書斎の案内人 ══════════════ -->
