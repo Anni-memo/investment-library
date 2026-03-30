@@ -442,22 +442,28 @@ body::before{
   </div>
   <div class="hero-tagline">A quiet library for long-term thinkers</div>
 
-  <!-- モーニングメソッド（ヒーロー内） -->
-  <div id="morningSection" style="max-width:480px;margin:32px auto 0;position:relative;z-index:2;">
-    <a href="morning-method/" style="display:block;text-decoration:none;padding:18px 22px;background:rgba(90,154,120,.06);border:1px solid rgba(90,154,120,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(90,154,120,.35)';this.style.background='rgba(90,154,120,.1)'" onmouseout="this.style.borderColor='rgba(90,154,120,.15)';this.style.background='rgba(90,154,120,.06)'">
-      <div style="font-family:'DM Mono',monospace;font-size:.44rem;color:#5a9a78;letter-spacing:.2em;margin-bottom:6px;opacity:.65;">MORNING PRACTICE</div>
-      <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(.95rem,2.5vw,1.2rem);font-weight:600;color:#f5ede0;line-height:1.4;">朝の実践を始める — 瞑想・運動・読書・ジャーナリング</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:#5a9a78;letter-spacing:.1em;margin-top:8px;opacity:.7;">実践を始める →</div>
+</div>
+
+<!-- ══════════════ MORNING METHOD (全幅緑バンド) ══════════════ -->
+<div id="morningSection" style="background:linear-gradient(135deg,#0a1210 0%,#1a2a22 50%,#0e1810 100%);padding:36px 24px;border-bottom:1px solid rgba(90,154,120,.12);">
+  <div style="max-width:560px;margin:0 auto;text-align:center;">
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:#5a9a78;letter-spacing:.25em;margin-bottom:16px;opacity:.65;">MORNING PRACTICE</div>
+    <a href="morning-method/" style="display:block;text-decoration:none;padding:28px 24px;background:rgba(90,154,120,.04);border:1px solid rgba(90,154,120,.12);transition:all .25s;" onmouseover="this.style.borderColor='rgba(90,154,120,.3)';this.style.background='rgba(90,154,120,.07)'" onmouseout="this.style.borderColor='rgba(90,154,120,.12)';this.style.background='rgba(90,154,120,.04)'">
+      <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:700;color:#f5ede0;line-height:1.4;margin-bottom:12px;">モーニングメソッド実践</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:.82rem;color:#dfc9a8;line-height:2;font-weight:300;margin-bottom:16px;">朝の1時間を最高の投資に。<br>瞑想・アファメーション・運動・読書・ジャーナリング。</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.56rem;color:#5a9a78;letter-spacing:.1em;">実践を始める →</div>
     </a>
   </div>
+</div>
 
-  <!-- 書斎の案内人（ヒーロー内） -->
-  <div style="max-width:480px;margin:24px auto 0;position:relative;z-index:2;">
-    <div style="font-family:'DM Mono',monospace;font-size:.44rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:10px;opacity:.5;text-align:center;">YOUR GUIDE</div>
-    <div style="font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--parch);margin-bottom:4px;text-align:center;" id="guideQuestion">今日はどこから歩きますか？</div>
-    <div style="font-size:.68rem;color:var(--parch4);margin-bottom:14px;font-weight:300;text-align:center;" id="guideSub">選んでください。案内人がお連れします。</div>
+<!-- ══════════════ GUIDE: 書斎の案内人 ══════════════ -->
+<div class="guide">
+  <div class="guide-inner">
+    <div class="guide-label">YOUR GUIDE</div>
+    <div class="guide-q" id="guideQuestion">今日はどこから歩きますか？</div>
+    <div class="guide-sub" id="guideSub">選んでください。案内人がお連れします。</div>
 
-    <div id="guideTree" style="display:flex;flex-direction:column;gap:3px;">
+    <div class="guide-tree" id="guideTree">
       <div class="guide-btn" onclick="guideStep('morning')"><span class="guide-btn-icon">MORNING</span>朝を整えたい</div>
       <div class="guide-btn" onclick="guideStep('invest')"><span class="guide-btn-icon">INVESTMENT</span>投資を学びたい</div>
       <div class="guide-btn" onclick="guideStep('people')"><span class="guide-btn-icon">PEOPLE</span>人物を読みたい</div>
@@ -465,16 +471,15 @@ body::before{
       <div class="guide-btn" onclick="guideStep('company')"><span class="guide-btn-icon">ANALYSIS</span>企業を調べたい</div>
     </div>
 
-    <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(184,144,10,.06);">
-      <div style="display:flex;gap:6px;justify-content:center;align-items:center;">
-        <input id="guideInput" type="text" placeholder="または、ここに入力..." style="font-family:var(--jp);font-size:.7rem;color:var(--parch);background:rgba(255,255,255,.03);border:1px solid rgba(184,144,10,.08);padding:7px 11px;outline:none;width:200px;transition:border-color .2s;"/>
-        <button id="micBtn" onclick="startVoiceGuide()" title="音声入力" style="background:none;border:1px solid rgba(184,144,10,.08);color:var(--parch4);cursor:pointer;padding:6px 9px;font-size:.75rem;transition:all .15s;opacity:.5;">&#127908;</button>
-        <button onclick="handleGuideQuery()" title="送信" style="background:none;border:1px solid rgba(184,144,10,.08);color:var(--parch4);cursor:pointer;padding:6px 9px;font-size:.75rem;transition:all .15s;opacity:.5;">&#10148;</button>
+    <div class="guide-micro">
+      <div class="guide-micro-row">
+        <input id="guideInput" type="text" placeholder="または、ここに入力..."/>
+        <button id="micBtn" onclick="startVoiceGuide()" title="音声入力">&#127908;</button>
+        <button onclick="handleGuideQuery()" title="送信">&#10148;</button>
       </div>
-      <div id="micStatus" style="font-family:var(--mono);font-size:.44rem;color:var(--gold3);letter-spacing:.06em;margin-top:3px;min-height:.7em;opacity:0;transition:opacity .3s;text-align:center;"></div>
+      <div id="micStatus" style="font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.06em;margin-top:4px;min-height:.8em;opacity:0;transition:opacity .3s;"></div>
     </div>
   </div>
-
 </div>
 
 <!-- ══════════════ LIBRARY MAP ══════════════ -->
