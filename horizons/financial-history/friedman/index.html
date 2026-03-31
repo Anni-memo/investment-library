@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ミルトン・フリードマン — マネタリズムと市場原理｜金融史の書庫｜投資と思考の書斎"/>
+<meta property="og:description" content="「インフレは、いつでもどこでも貨幣的現象である」。大恐慌をFRBの失敗として読み替え、ケインズ経済学に挑んだ知性。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ミルトン・フリードマン — マネタリズムと市場原理｜金融史の書庫｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,#0a0e14 45%,#0e1420 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(40,80,140,.08) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-era{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.22em;margin-bottom:10px;opacity:.6;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(40,80,140,.15);position:relative;margin-bottom:8px;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:20px;opacity:.8;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'---';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:100px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ミルトン・フリードマン</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shelf">SHELF 05 &middot; FINANCIAL HISTORY</div>
+  <div class="hero-era">1912 &mdash; 2006</div>
+  <div class="hero-ornament">Milton Friedman &mdash; Monetarism and Free Markets</div>
+  <h1 class="hero-title">ミルトン・フリードマン</h1>
+  <p class="hero-sub">マネタリズムと市場原理</p>
+  <p class="hero-lead">
+    「インフレは、いつでもどこでも貨幣的現象である」。<br>ケインズの「大きな政府」に異議を唱え、貨幣供給こそが経済を動かすと証明した思想家。
+  </p>
+</div>
+
+<!-- ARTICLE -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">何が起きたか --- マネタリズムの台頭</h2>
+    <div class="section-body">
+      <p>1963年、ミルトン・フリードマンはアンナ・シュワルツとの共著『合衆国の貨幣史 1867-1960年』を発表した。経済学の歴史を書き換える一冊だった。</p>
+      <p>それまで世界大恐慌は「資本主義の本質的欠陥」あるいは「需要不足」として理解されていた。ケインズ経済学が支配的であり、不況の原因は民間の支出不足、処方箋は政府支出の拡大 --- それが常識だった。</p>
+      <p>フリードマンとシュワルツは膨大な歴史的データを精査し、まったく異なる結論に至った。大恐慌の真因は、連邦準備制度理事会（FRB）が貨幣供給を急激に縮小させたことにある。1929年から1933年にかけて、マネーサプライは約3分の1も減少した。銀行が次々と破綻し、FRBはそれを傍観した。恐慌を深刻化させたのは市場の失敗ではなく、中央銀行の失敗だったのだ。</p>
+      <p>この再解釈は、戦後経済学の根本的な前提を揺るがした。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜこの思想が生まれたか -->
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">なぜこの思想が生まれたか --- ケインズ体制の矛盾</h2>
+    <div class="section-body">
+      <p>1950年代から60年代、ケインズ経済学は全盛期を迎えていた。政府が財政政策で景気を微調整する --- いわゆる「ファインチューニング」が可能だと信じられていた。</p>
+      <p>しかしフリードマンは早くからその限界を指摘していた。1957年の『消費の経済理論』で提唱した「恒常所得仮説」は、ケインズ理論の核心に疑問を投げかけた。人々の消費は一時的な所得の変動ではなく、長期的に予想される恒常的な所得水準に基づいて決まる。したがって、一時的な財政出動で消費を刺激しても効果は限定的だ、と。</p>
+      <p>1968年、フリードマンはアメリカ経済学会の会長講演で「自然失業率仮説」を発表した。政府がインフレを許容して失業率を下げようとしても、長期的には失業率は「自然率」に戻り、インフレだけが残る。フィリップス曲線のトレードオフは、長期的には成立しない。</p>
+      <p>この予言は、1970年代のスタグフレーション --- インフレと不況の同時進行 --- によって劇的に証明された。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">何が変わったか --- 政策パラダイムの転換</h2>
+    <div class="section-body">
+      <p>フリードマンの思想は、1970年代後半から世界の経済政策を根本的に変えた。</p>
+      <ul>
+        <li><strong>金融政策の中心化</strong> --- 経済安定化の主役が財政政策から金融政策へ移行。中央銀行が貨幣供給量を適切に管理することこそが重要だという認識が定着</li>
+        <li><strong>レーガノミクスとサッチャリズム</strong> --- 1980年代、レーガン米大統領とサッチャー英首相がフリードマンの思想を政策に反映。規制緩和、減税、民営化の波が世界を変えた</li>
+        <li><strong>インフレ・ターゲティング</strong> --- 中央銀行が物価安定を最優先目標に掲げる枠組みが広まった。これはフリードマンの「インフレは貨幣的現象」という主張の制度化</li>
+        <li><strong>変動為替相場制</strong> --- フリードマンは1953年の論文で変動相場制の優位性を主張。ブレトンウッズ体制崩壊後、彼の提案が現実となった</li>
+      </ul>
+      <p>1976年、フリードマンはノーベル経済学賞を受賞した。消費分析、貨幣の歴史と理論、経済安定化政策の複雑性の実証に対する貢献が評価された。</p>
+
+      <div class="callout">
+        <p class="callout-text">「インフレは、いつでもどこでも貨幣的現象である」--- フリードマンのこの命題は、経済学史上もっとも頻繁に引用される一節のひとつとなった。政府が過剰に通貨を発行すれば物価は上がる。その単純な真理を、彼は生涯をかけて証明し続けた。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 遺産 -->
+  <div class="article-section">
+    <div class="section-label">LEGACY</div>
+    <h2 class="section-title">遺産 --- 自由と市場への信頼</h2>
+    <div class="section-body">
+      <p>フリードマンの知的遺産は、狭義のマネタリズムを超えて広がっている。</p>
+      <p>1962年の『資本主義と自由』、1980年の『選択の自由』は、専門書を超えて広く一般に読まれた。彼は経済的自由が政治的自由の前提条件であると主張し、政府による市場への介入を体系的に批判した。教育バウチャー制度、負の所得税（後のEITCの原型）、徴兵制の廃止と志願制軍隊への移行 --- これらはすべてフリードマンが提唱し、後に実現した政策だ。</p>
+      <p>彼の影響は東西冷戦後の世界にも及んだ。旧社会主義国の市場経済移行、中国の経済改革開放、チリの経済自由化（その政治的文脈は議論を呼んだが）--- いずれの場面でも、フリードマンの思想が参照された。</p>
+      <p>同時に批判も絶えない。市場万能主義は格差を拡大させたのではないか。金融規制の緩和は2008年の金融危機を招いたのではないか。フリードマンの遺産は、今なお賛否両論の渦中にある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">投資家にとっての意味 --- 2020年代への示唆</h2>
+    <div class="section-body">
+      <p>フリードマンの思想は、2020年代の投資家にとってかつてないほど切実な意味を持つ。</p>
+      <p>2020年のコロナ危機に対し、世界各国は空前の規模で通貨を発行した。米国のマネーサプライ（M2）は2020年2月から2022年初頭にかけて約40%膨張した。フリードマンの理論が正しければ、その帰結は明白だった。そして実際、2022年に先進国を高インフレが襲った。米国のCPIは9%を超え、40年ぶりの水準に達した。</p>
+      <p>「インフレは貨幣的現象である」。この命題は、中央銀行のバランスシートと物価の関係を見る際の、最も基本的なフレームワークであり続けている。</p>
+      <ul>
+        <li><strong>貨幣供給量の監視</strong> --- マネーサプライの急激な変動は、将来の物価変動のシグナルになりうる。フリードマンが示したように、貨幣供給から物価への波及には「長く可変的なラグ」がある</li>
+        <li><strong>中央銀行の政策判断</strong> --- FRBの利上げ・利下げの判断を理解するには、フリードマンが確立した貨幣と物価の関係の理解が不可欠</li>
+        <li><strong>政府介入の限界</strong> --- 財政出動が短期的に景気を浮揚させても、長期的にはインフレという代償を伴う。恒常所得仮説が教えるように、一時的な給付金は消費を持続的には増やさない</li>
+      </ul>
+
+      <div class="callout">
+        <p class="callout-text">フリードマンの教えの核心は、「政策にはタダ飯はない」ということだ。通貨を大量に刷れば、いずれ物価が上がる。金利を人為的に下げ続ければ、いずれ歪みが蓄積する。投資家がこの原則を忘れたとき、次の危機が始まる。</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <p><strong>マネタリズム</strong> --- 貨幣供給量の変動が経済変動の主因であるとする学派。フリードマンが理論的支柱</p>
+      <p><strong>恒常所得仮説</strong> --- 消費は一時的所得ではなく、長期的に期待される恒常所得に基づくという理論</p>
+      <p><strong>自然失業率</strong> --- 経済構造から決まる失業率の均衡水準。金融・財政政策では長期的に変えられない</p>
+      <p><strong>マネーサプライ（M2）</strong> --- 現金通貨、預金通貨、定期預金等を含む通貨供給量の指標</p>
+      <p><strong>スタグフレーション</strong> --- インフレーション（物価上昇）と景気後退（失業増加）が同時に進行する状態</p>
+      <p><strong>フィリップス曲線</strong> --- 失業率とインフレ率の間のトレードオフ関係。フリードマンは長期的にはこの関係が成立しないと論証</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FURTHER READING -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">フリードマンが挑んだケインズの思想、彼の理論の契機となったニクソン・ショック、そして彼の遺産が試される現代の金融政策へ。</p>
+    <div class="further-links">
+      <a class="further-link" href="../keynes/">
+        <span class="further-link-tag">1936</span>
+        <span class="further-link-title">ケインズと『一般理論』 --- 政府介入の理論的基盤</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../nixon-shock/">
+        <span class="further-link-tag">1971</span>
+        <span class="further-link-title">ニクソン・ショック --- 金本位制の終焉</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../zero-rate/">
+        <span class="further-link-tag">現代</span>
+        <span class="further-link-title">ゼロ金利と量的緩和 --- 非伝統的金融政策の時代</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>&emsp;&middot;
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

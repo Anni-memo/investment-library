@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="LTCM破綻 — 天才たちの失敗｜投資と思考の書斎"/>
+<meta property="og:description" content="1998年、ノーベル賞学者を擁するヘッジファンドLTCMが破綻寸前に。レバレッジとモデルリスクが招いた危機の全貌。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>LTCM破綻 — 天才たちの失敗｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0505 0%,#1a0a0a 40%,#2a1414 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">LTCM破綻</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF 05 · FINANCIAL HISTORY</div>
+  <div class="hero-sub">1998</div>
+  <div class="hero-ornament">LTCM — When Genius Failed</div>
+  <h1 class="hero-title">LTCM破綻<br>天才たちの失敗</h1>
+  <p class="hero-lead">
+    ノーベル賞学者を擁し、最先端の金融理論で武装したヘッジファンド。<br>
+    その栄光と崩壊は、市場の本質について何を語るのか。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">ドリームチームの誕生と崩壊</h2>
+    <div class="section-body">
+      <p>1994年、元ソロモン・ブラザーズのトレーダー、ジョン・メリウェザーがヘッジファンド「ロングターム・キャピタル・マネジメント（LTCM）」を設立した。そのチームは金融史上かつてないほど豪華だった。</p>
+      <p>オプション価格理論でノーベル経済学賞を受賞したマイロン・ショールズとロバート・マートン。FRB（連邦準備制度理事会）元副議長のデヴィッド・マリンズ。ハーバード大学やMITの一流学者たち。「ドリームチーム」と呼ばれたその集団は、金融理論を実践に移す究極の実験だった。</p>
+      <p>LTCMの戦略は「収束裁定取引（コンバージェンス・アービトラージ）」。理論的に同じ価値を持つはずの債券間の微小な価格差を見つけ、割安な方を買い、割高な方を売る。スプレッドが収束すれば利益になる。ひとつひとつの取引の利益は極めて小さいが、莫大なレバレッジをかけることで大きなリターンを生み出した。</p>
+      <p>設立から4年間の成績は驚異的だった。1994年は年率28%、1995年は43%、1996年は41%、1997年は17%。投資家たちは殺到し、運用資産は47億ドルに達した。しかし、その裏で総ポジションは1兆2,500億ドル以上、レバレッジは自己資本の25倍を超えていた。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">ロシア危機 ── モデルが想定しなかった「ありえない」事態</h2>
+    <div class="section-body">
+      <p>1998年8月17日、ロシアがルーブルを切り下げ、国内向け国債のデフォルト（債務不履行）を宣言した。世界の金融市場に激震が走った。</p>
+      <p>投資家はパニックに陥り、リスク資産から安全資産へ一斉に逃避した。「質への逃避（Flight to Quality）」。米国債の利回りは急低下し、新興国債券やジャンク債のスプレッドは急拡大した。LTCMが利益の源泉としていたスプレッドは、収束するどころか爆発的に拡大した。</p>
+      <ul>
+        <li><strong>モデルの前提崩壊</strong> ── LTCMのモデルは過去のデータに基づいていた。しかしロシアのデフォルトは「100年に1度」どころか、モデルが想定する範囲の外側の事象だった</li>
+        <li><strong>流動性の蒸発</strong> ── 平時には活発に取引されていた市場が凍りつき、ポジションを解消しようにも買い手がいなかった</li>
+        <li><strong>相関の収束</strong> ── 本来無関係であるはずの複数の市場が、パニック時には同時に同じ方向に動いた。分散効果は消失した</li>
+        <li><strong>レバレッジの罠</strong> ── 自己資本の25倍以上のレバレッジは、わずか4%の損失で資本がゼロになることを意味していた</li>
+      </ul>
+      <p>1998年8月だけで、LTCMは資本の44%にあたる19億ドルを失った。9月にはさらに損失が加速し、資本は23億ドルにまで縮小した。ファンドは事実上の破綻状態に陥った。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「市場は、あなたが支払い能力を維持できる期間よりも長く、非合理的でいられる。」<br>── ジョン・メイナード・ケインズ（に帰される格言）</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">FRB主導の救済 ── 36億ドルの協調出資</h2>
+    <div class="section-body">
+      <p>LTCMの破綻は、もはやひとつのヘッジファンドの問題ではなかった。総ポジション1兆ドル超の巨大ファンドが無秩序に清算されれば、世界の金融市場が連鎖的に崩壊する危険があった。</p>
+      <p>1998年9月23日、ニューヨーク連邦準備銀行のウィリアム・マクドナー総裁が仲介役となり、ウォール街の主要14社による36億ドルの救済出資が合意された。ゴールドマン・サックス、メリルリンチ、JPモルガン、ドイツ銀行、UBSなど、世界の金融機関が名を連ねた。</p>
+      <p>FRBは公的資金を使わなかったが、民間の救済を「調整」したことで、事実上の政府介入だった。この前例は、後に「大きすぎて潰せない（Too Big to Fail）」問題として10年後のリーマン・ショック時に再び浮上する。</p>
+      <ul>
+        <li><strong>ヘッジファンド規制の議論</strong> ── LTCMの破綻をきっかけに、ヘッジファンドの透明性とレバレッジ規制の必要性が認識された</li>
+        <li><strong>リスク管理の再考</strong> ── VaR（バリュー・アット・リスク）モデルの限界が広く認知され、ストレステストの重要性が高まった</li>
+        <li><strong>カウンターパーティ・リスク</strong> ── 金融機関が互いのエクスポージャーを把握する必要性が浮き彫りになった</li>
+        <li><strong>システミック・リスクの認知</strong> ── 個々の主体が合理的に行動しても、システム全体が脆弱になりうるという認識が広まった</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 遺産 -->
+  <div class="article-section">
+    <div class="section-label">LEGACY</div>
+    <h2 class="section-title">金融工学の光と影</h2>
+    <div class="section-body">
+      <p>LTCMの物語は、金融工学そのものへの深い問いを投げかけた。ブラック＝ショールズ・モデルをはじめとする数理モデルは、市場の本質を捉えているのか、それとも市場を単純化しすぎているのか。</p>
+      <p>ショールズとマートンのモデルは、市場が効率的であり、価格変動が正規分布に従うことを前提としている。しかし現実の市場では、「ファットテール」──正規分布が予測するよりもはるかに頻繁に極端な変動が起きる。LTCMのモデルが「数百万年に1度」と計算した損失は、現実にはわずか数年で発生した。</p>
+      <p>ナシーム・ニコラス・タレブは後にこの種の事象を「ブラック・スワン」と呼んだ。LTCMの破綻は、その概念が広く認知される契機となった。</p>
+      <p>しかし同時に、LTCMの失敗は金融工学の否定ではない。モデルは有用なツールであり続けている。問題は、モデルの限界を忘れ、モデルを「現実そのもの」と取り違えたことにあった。地図は領土ではない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">天才たちが犯した最大の過ちは、知性の限界を知らなかったことではない。<br>市場が「合理的」であることを前提にしたことだ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">LTCMが教える5つの教訓</h2>
+    <div class="section-body">
+      <p>LTCMの破綻から四半世紀以上が経過したが、その教訓は今なお色あせない。</p>
+      <ul>
+        <li><strong>レバレッジは両刃の剣</strong> ── 高レバレッジは利益を増幅するが、損失も同様に増幅する。生存が最優先であるならば、レバレッジの上限は「最悪のシナリオでも耐えられる水準」でなければならない</li>
+        <li><strong>モデルは現実の近似にすぎない</strong> ── どれほど精緻なモデルも、未知のリスクを完全には捉えられない。モデルへの過信は、最も危険なリスクのひとつである</li>
+        <li><strong>流動性リスクを軽視しない</strong> ── 平時に存在する流動性は、危機時には蒸発する。「売りたいときに売れない」リスクは、あらゆるリスク指標に先行して顕在化する</li>
+        <li><strong>テールリスクは「想定外」ではない</strong> ── 極端な事象は、統計モデルが示すよりもはるかに頻繁に起きる。「100年に1度」を想定外とすることは、投資家にとって許されない</li>
+        <li><strong>分散は万能薬ではない</strong> ── 危機時にはあらゆる相関が1に収束する。真の分散とは、資産クラスの分散ではなく、リスク要因の分散である</li>
+      </ul>
+      <p>LTCMの共同創業者であるメリウェザーは、その後も2度にわたってヘッジファンドを立ち上げた。いずれも最終的に閉鎖された。市場は天才に対しても容赦しない。謙虚さこそが、長期的な生存の条件である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>LTCM（ロングターム・キャピタル・マネジメント）</strong> — 1994年設立のヘッジファンド。1998年にロシア危機で破綻寸前に追い込まれた</li>
+        <li><strong>収束裁定取引（コンバージェンス・アービトラージ）</strong> — 理論上同価値の資産間の価格差から利益を得る戦略。スプレッドの収束を前提とする</li>
+        <li><strong>レバレッジ</strong> — 借入や金融派生商品を用いて、自己資本以上の投資を行うこと。LTCMは25倍超を運用した</li>
+        <li><strong>VaR（バリュー・アット・リスク）</strong> — 一定の確率のもとで、一定期間に被りうる最大損失額を推定するリスク指標</li>
+        <li><strong>ブラック＝ショールズ・モデル</strong> — オプション価格の理論モデル。ショールズとマートンが1997年にノーベル賞を受賞した</li>
+        <li><strong>ファットテール</strong> — 正規分布が予測するよりも極端な事象が頻繁に起きる統計的性質。金融市場の本質的特徴</li>
+        <li><strong>質への逃避（Flight to Quality）</strong> — 市場混乱時にリスク資産から安全資産へ資金が一斉に移動する現象</li>
+        <li><strong>システミック・リスク</strong> — 個別の金融機関の問題が金融システム全体に波及するリスク</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">LTCM破綻の前後の文脈と、危機の系譜を理解するために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../black-monday/">
+        <span class="further-link-tag">1987</span>
+        <span class="further-link-title">ブラック・マンデー — プログラム取引の暴走</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../lehman/">
+        <span class="further-link-tag">2008</span>
+        <span class="further-link-title">リーマン・ショック — 100年に1度の金融危機</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../../uncertainty/">
+        <span class="further-link-tag">CONCEPT</span>
+        <span class="further-link-title">恐慌とバブル — 不確実性の本質</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

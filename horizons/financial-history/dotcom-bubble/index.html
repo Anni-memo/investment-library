@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="ITバブル崩壊 — 技術と投機の分離｜投資と思考の書斎"/>
+<meta property="og:description" content="2000年、Nasdaqは5048の頂点から78%暴落した。インターネットという本物の革命が、なぜ史上最大級のバブルを生んだのか。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>ITバブル崩壊 — 技術と投機の分離｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0505 0%,#1a0a0a 40%,#2a1414 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-era{font-family:var(--mono);font-size:2.4rem;color:var(--gold4);letter-spacing:.15em;margin-bottom:8px;opacity:.35;position:relative;font-weight:700;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">ITバブル崩壊</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF 05 · FINANCIAL HISTORY</div>
+  <div class="hero-era">2000</div>
+  <div class="hero-ornament">Dot-com Bubble — When the Internet Dream Burst</div>
+  <h1 class="hero-title">ITバブル崩壊<span style="font-size:.5em;display:block;margin-top:8px;font-weight:400;opacity:.7;">技術と投機の分離</span></h1>
+  <p class="hero-lead">
+    Nasdaqは1,000から5,048へ駆け上がり、そして78%崩落した。<br>
+    インターネットという本物の革命が、なぜ史上最大級の投機狂騒を生んだのか。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- 何が起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHAT HAPPENED</div>
+    <h2 class="section-title">Nasdaq 5,048 ── 頂点と崩壊</h2>
+    <div class="section-body">
+      <p>1995年、Nasdaq総合指数は約1,000だった。Windows 95の発売、Netscapeの上場、インターネットの商業化。「世界が変わる」という確信が市場に流れ込み、テクノロジー株は天井知らずの上昇を始めた。</p>
+      <p>1999年には狂騒が頂点に達する。IPO初日に株価が数倍になることは珍しくなく、売上も利益もない企業が数十億ドルの時価総額を獲得した。Pets.com（ペット用品のオンライン販売）は2億ドル以上を調達しスーパーボウルでCMを流したが、IPOからわずか9ヶ月で清算された。オンライン食品宅配のWebvanは8億ドルを燃やし尽くして倒産した。</p>
+      <p>2000年3月10日、Nasdaq総合指数は5,048.62の史上最高値を記録する。しかしそこが頂点だった。利上げ、決算の悪化、そして「利益のない企業に価値はあるのか」という当たり前の問いが市場に戻ってきた。</p>
+      <p>崩壊は速かった。Nasdaqは2002年10月に1,114まで下落。ピークから78%の暴落である。約5兆ドルの時価総額が消失した。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- なぜ起きたか -->
+  <div class="article-section">
+    <div class="section-label">WHY IT HAPPENED</div>
+    <h2 class="section-title">「ニュー・エコノミー」という物語の力</h2>
+    <div class="section-body">
+      <p>バブルの原因は単純な強欲ではない。インターネットが世界を変えるという認識は正しかった。問題は、正しい認識が投機の免罪符になったことにある。</p>
+      <ul>
+        <li><strong>「ニュー・エコノミー」論</strong> ── 従来のバリュエーション指標（PER、PBR）は時代遅れであり、「ページビュー」や「アイボール（閲覧数）」こそが新しい価値尺度だと主張された</li>
+        <li><strong>IPOの錬金術</strong> ── ベンチャーキャピタルが投資し、投資銀行が上場させ、アナリストが買い推奨を出す。この利益相反の連鎖が市場を過熱させた</li>
+        <li><strong>個人投資家の参入</strong> ── オンライン証券の普及で、誰もがデイトレーダーになれた。チャットルームやテレビ番組が投機を煽った</li>
+        <li><strong>FRBの金融緩和</strong> ── 1998年のLTCM危機後の利下げが流動性を供給し、バブルの最終段階を加速させた</li>
+        <li><strong>「今回は違う」</strong> ── 歴史上あらゆるバブルに共通する、最も危険な4語がここでも繰り返された</li>
+      </ul>
+      <p>1996年12月、FRB議長アラン・グリーンスパンは「根拠なき熱狂（irrational exuberance）」と警告した。しかしNasdaqはその後さらに3年以上上昇し続けた。正しい警告でも、タイミングが早すぎれば市場では無力である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「市場は、あなたが支払い能力を維持できる期間よりも長く、非合理的であり続けることができる」<br>── この格言がこれほど実証された局面は少ない。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 何が変わったか -->
+  <div class="article-section">
+    <div class="section-label">WHAT CHANGED</div>
+    <h2 class="section-title">淘汰の後に残ったもの ── 真のインフラ</h2>
+    <div class="section-body">
+      <p>バブル崩壊後、テクノロジーセクターは荒野と化した。しかし、すべてが消えたわけではない。バブル期に敷設された光ファイバー網、構築されたデータセンター、そして開発されたソフトウェア基盤は残った。</p>
+      <ul>
+        <li><strong>Amazon</strong> ── 株価は107ドルから7ドルへ93%下落した。しかしジェフ・ベゾスはキャッシュフロー経営に転換し、生き延びた。同社は後にクラウドコンピューティング（AWS）で世界を変える</li>
+        <li><strong>Google</strong> ── バブル崩壊後の2004年に上場。検索広告という持続可能なビジネスモデルを確立した</li>
+        <li><strong>規制強化</strong> ── サーベンス・オクスリー法（SOX法、2002年）が成立し、企業の財務報告と内部統制が厳格化された。エンロンやワールドコムの会計不正がきっかけだった</li>
+        <li><strong>アナリスト規制</strong> ── 投資銀行のアナリストが自社の引受業務のために買い推奨を出す利益相反が規制された</li>
+      </ul>
+      <p>鉄道バブル（1840年代）が崩壊しても鉄道網は残ったように、ITバブルが崩壊してもインターネットのインフラは残った。投機は消えるが、技術革命は消えない。この区別が重要である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 遺産 -->
+  <div class="article-section">
+    <div class="section-label">LEGACY</div>
+    <h2 class="section-title">バブルの構造は繰り返す ── AIブームとの相似</h2>
+    <div class="section-body">
+      <p>ITバブルが遺した最も重要な教訓は、「本物の技術革命」と「投機的過熱」は共存するという事実である。</p>
+      <p>2020年代のAIブームには、ITバブルとの構造的類似が多い。革命的技術への確信、「今回は違う」という物語、利益なき高バリュエーション、個人投資家の熱狂。しかし相違点もある。AI関連の主要企業（Nvidia、Microsoft、Google）は莫大な利益を上げており、1999年のドットコム企業とは本質的に異なる。</p>
+      <p>問題は常に「何が」ではなく「いくらで」である。インターネットは世界を変えた。しかし2000年3月のNasdaq 5,048で買った投資家が元値を回復するには、2015年まで15年を要した。正しい技術に、間違った価格で投資すれば、それは投機と変わらない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">技術革命は本物だった。バブルも本物だった。<br>この二つは矛盾しない。投資家にとっての問いは常に「何を買うか」ではなく「いくらで買うか」である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 投資家にとっての意味 -->
+  <div class="article-section">
+    <div class="section-label">FOR INVESTORS</div>
+    <h2 class="section-title">生き残る側に立つために</h2>
+    <div class="section-body">
+      <p>ITバブルの崩壊は、投資家に普遍的な教訓を突きつける。</p>
+      <ul>
+        <li><strong>物語と価値を分離せよ</strong> ── 魅力的なナラティブは判断力を曇らせる。「世界を変える」ことと「投資として利益が出る」ことは別の問題である</li>
+        <li><strong>利益なきバリュエーションに警戒せよ</strong> ── 売上成長率だけで正当化される株価は、成長が鈍化した瞬間に崩壊する</li>
+        <li><strong>生存者バイアスに注意せよ</strong> ── Amazonが100倍になった話は有名だが、同時期に上場した何百ものドットコム企業は消滅した。Amazonに賭けた天才と、Pets.comに賭けた愚者の違いは、事後的にしかわからない</li>
+        <li><strong>セクター集中は致命傷になりうる</strong> ── テクノロジー株100%のポートフォリオは、78%の損失を意味した。分散は退屈だが、生存を保証する</li>
+        <li><strong>回復には時間がかかる</strong> ── Nasdaqが2000年の高値を回復するのに15年かかった。時間軸の誤認は、最も高くつく投資ミスのひとつである</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 関連用語 -->
+  <div class="article-section">
+    <div class="section-label">KEY TERMS</div>
+    <h2 class="section-title">関連用語</h2>
+    <div class="section-body">
+      <ul>
+        <li><strong>ドットコム・バブル</strong> — 1995年-2000年のインターネット関連株の投機的上昇とその崩壊</li>
+        <li><strong>Nasdaq総合指数</strong> — 米国Nasdaq市場に上場する全銘柄の時価総額加重平均指数。テクノロジー株の比率が高い</li>
+        <li><strong>IPO（新規株式公開）</strong> — 企業が初めて株式を公開市場で売り出すこと。バブル期には初日に数倍になるケースが続出した</li>
+        <li><strong>根拠なき熱狂（Irrational Exuberance）</strong> — 1996年にグリーンスパンFRB議長が使った表現。資産価格の過熱を警告した</li>
+        <li><strong>バーン・レート</strong> — スタートアップが毎月消費する現金の額。ドットコム企業の多くは収益化前に資金を使い果たした</li>
+        <li><strong>サーベンス・オクスリー法（SOX法）</strong> — 2002年成立。企業の財務報告の正確性と内部統制を強化する法律</li>
+        <li><strong>PER（株価収益率）</strong> — 株価を一株当たり利益で割った指標。バブル期には「PERは無意味」と主張された</li>
+        <li><strong>生存者バイアス</strong> — 成功した事例のみに注目し、消滅した多数の事例を無視する認知の歪み</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">ITバブル崩壊の前後の文脈を理解するために。</p>
+    <div class="further-links">
+      <a class="further-link" href="../ltcm/">
+        <span class="further-link-tag">1998</span>
+        <span class="further-link-title">LTCM破綻 — 天才たちの敗北</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../lehman/">
+        <span class="further-link-tag">2008</span>
+        <span class="further-link-title">リーマン・ショック — 100年に1度の金融危機</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../tulip-bubble/">
+        <span class="further-link-tag">1637</span>
+        <span class="further-link-title">チューリップ・バブル — 人類最初の投機狂騒</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../">書斎の入口へ戻る</a>　·
+    <a href="../">金融史の書庫</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

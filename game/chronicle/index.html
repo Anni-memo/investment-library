@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>金融史クロノス — 第1話：チューリップ狂乱</title>
+<meta name="description" content="時間を越えて金融史の現場へ潜入し、熱狂の裏にある矛盾を暴く知的ミステリーアドベンチャー。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #1a1208;
+  --ink2: #2d2010;
+  --ink3: #4a3520;
+  --parch: #f5ede0;
+  --parch2: #efe4d0;
+  --parch3: #e8d8be;
+  --parch4: #dfc9a8;
+  --gold: #8b6914;
+  --gold2: #b8900a;
+  --gold3: #d4aa22;
+  --gold4: #f0cc55;
+  --rust: #8b3a1a;
+  --green: #2a4a1a;
+  --blue: #1a2a4a;
+  --red: #a03030;
+  --font-serif: 'Cormorant Garamond', 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-serif);
+  background: var(--ink);
+  color: var(--parch);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ===== GAME CONTAINER ===== */
+#game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== SCENE BACKGROUNDS ===== */
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+.bg-bureau {
+  background: linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 40%, #16213e 100%);
+}
+.bg-bureau::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(212,170,34,0.08) 0%, transparent 60%);
+}
+
+.bg-market {
+  background: linear-gradient(180deg, #87CEEB 0%, #e8d8be 40%, #c4a882 100%);
+}
+.bg-market::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(255,120,80,0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 40%, rgba(255,200,100,0.08) 0%, transparent 40%);
+}
+
+.bg-tavern {
+  background: linear-gradient(180deg, #1a1208 0%, #2d1f0e 30%, #3d2a15 100%);
+}
+.bg-tavern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 70%, rgba(255,160,50,0.15) 0%, transparent 50%);
+}
+
+.bg-notary {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2a2018 40%, #352a1e 100%);
+}
+.bg-notary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(200,180,140,0.08) 0%, transparent 40%);
+}
+
+.bg-manor {
+  background: linear-gradient(180deg, #1a0a0a 0%, #2a1510 40%, #3d2520 100%);
+}
+.bg-manor::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(212,170,34,0.12) 0%, transparent 50%);
+}
+
+.bg-confrontation {
+  background: linear-gradient(180deg, #0a0505 0%, #1a0808 30%, #2a1010 100%);
+}
+.bg-confrontation::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(160,48,48,0.12) 0%, transparent 60%);
+}
+
+.bg-truth {
+  background: linear-gradient(180deg, #0d0d1a 0%, #1a1a30 50%, #0d0d1a 100%);
+}
+.bg-truth::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(212,170,34,0.15) 0%, transparent 50%);
+}
+
+/* ===== TITLE SCREEN ===== */
+#title-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a0505 0%, #1a0a08 30%, #0d0d1a 70%, #050510 100%);
+  z-index: 100;
+  transition: opacity 1s ease;
+}
+
+.title-ornament {
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.title-main {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--parch);
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 20px rgba(212,170,34,0.2);
+}
+
+.title-sub {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  color: var(--gold3);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.title-episode {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  color: var(--parch4);
+  letter-spacing: 0.3em;
+  margin-bottom: 3rem;
+  opacity: 0.6;
+}
+
+.title-concept {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: var(--parch3);
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 500px;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  padding: 0.8em 2.5em;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold3);
+  cursor: pointer;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn:hover {
+  background: rgba(212,170,34,0.1);
+  border-color: var(--gold3);
+  color: var(--gold4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(212,170,34,0.15);
+}
+.btn:active { transform: translateY(0); }
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: rgba(10,5,5,0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212,170,34,0.15);
+  z-index: 50;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.top-bar-left {
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  opacity: 0.8;
+}
+
+.top-bar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.evidence-count {
+  color: var(--gold3);
+  cursor: pointer;
+  padding: 0.3em 0.8em;
+  border: 1px solid rgba(212,170,34,0.3);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.evidence-count:hover {
+  background: rgba(212,170,34,0.1);
+  border-color: var(--gold3);
+}
+.evidence-count.pulse {
+  animation: pulse-gold 0.6s ease;
+}
+
+@keyframes pulse-gold {
+  0% { box-shadow: 0 0 0 0 rgba(212,170,34,0.5); }
+  100% { box-shadow: 0 0 0 12px rgba(212,170,34,0); }
+}
+
+/* ===== DIALOGUE BOX ===== */
+.dialogue-area {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 40;
+  padding: 0 1rem 1rem;
+}
+
+.dialogue-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(10,8,5,0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,170,34,0.2);
+  border-radius: 4px;
+  padding: 1.2rem 1.5rem;
+  min-height: 140px;
+  position: relative;
+}
+
+.dialogue-speaker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold3);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.dialogue-text {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--parch);
+  min-height: 3em;
+}
+
+.dialogue-text .char {
+  opacity: 0;
+  display: inline;
+}
+.dialogue-text .char.visible {
+  opacity: 1;
+}
+
+.dialogue-indicator {
+  position: absolute;
+  bottom: 0.8rem;
+  right: 1.2rem;
+  font-size: 0.7rem;
+  color: var(--gold);
+  opacity: 0.5;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0; }
+}
+
+/* ===== CHOICES ===== */
+.choices-area {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 40;
+  padding: 0 1rem 1rem;
+}
+
+.choices-box {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.choice-btn {
+  font-family: var(--font-serif);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  padding: 0.9em 1.5em;
+  background: rgba(10,8,5,0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,170,34,0.25);
+  color: var(--parch);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  line-height: 1.6;
+}
+.choice-btn:hover {
+  background: rgba(212,170,34,0.08);
+  border-color: var(--gold3);
+  color: var(--gold4);
+  transform: translateX(4px);
+}
+
+/* ===== MAP SCREEN ===== */
+.map-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  padding: 60px 1rem 1rem;
+}
+
+.map-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.map-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  color: var(--parch);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.map-location {
+  background: rgba(10,8,5,0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,170,34,0.2);
+  border-radius: 4px;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.map-location:hover {
+  border-color: var(--gold3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(212,170,34,0.1);
+}
+.map-location.visited {
+  border-color: rgba(212,170,34,0.1);
+  opacity: 0.6;
+}
+.map-location.visited::after {
+  content: 'INVESTIGATED';
+  position: absolute;
+  top: 0.5rem; right: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--green);
+  background: rgba(42,74,26,0.2);
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+}
+.map-location.locked {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.map-loc-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.map-loc-name {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--parch);
+  margin-bottom: 0.3rem;
+}
+.map-loc-desc {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--parch4);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.map-action {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.map-hint {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* ===== EVIDENCE BOARD ===== */
+.evidence-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  background: rgba(5,3,2,0.95);
+  backdrop-filter: blur(16px);
+  display: none;
+  flex-direction: column;
+  padding: 60px 1.5rem 1.5rem;
+  overflow-y: auto;
+}
+.evidence-panel.open { display: flex; }
+
+.evidence-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.evidence-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--gold3);
+  text-transform: uppercase;
+}
+
+.evidence-close {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--parch3);
+  cursor: pointer;
+  padding: 0.3em 0.8em;
+  border: 1px solid rgba(212,170,34,0.2);
+  background: transparent;
+  transition: all 0.3s;
+}
+.evidence-close:hover {
+  border-color: var(--gold3);
+  color: var(--gold4);
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.8rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.evidence-card {
+  background: rgba(20,15,10,0.8);
+  border: 1px solid rgba(212,170,34,0.15);
+  border-radius: 3px;
+  padding: 1rem;
+  cursor: default;
+  transition: all 0.3s;
+}
+.evidence-card:hover {
+  border-color: rgba(212,170,34,0.4);
+}
+.evidence-card.selecting {
+  cursor: pointer;
+}
+.evidence-card.selecting:hover {
+  border-color: var(--gold3);
+  background: rgba(212,170,34,0.08);
+  transform: scale(1.02);
+}
+.evidence-card.selected {
+  border-color: var(--gold3);
+  background: rgba(212,170,34,0.12);
+  box-shadow: 0 0 20px rgba(212,170,34,0.15);
+}
+
+.evidence-card-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.evidence-card-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--parch);
+  margin-bottom: 0.4rem;
+}
+
+.evidence-card-desc {
+  font-size: 0.8rem;
+  color: var(--parch3);
+  line-height: 1.6;
+}
+
+/* ===== CONFRONTATION ===== */
+.confrontation-header {
+  position: absolute;
+  top: 60px;
+  left: 0; right: 0;
+  text-align: center;
+  z-index: 35;
+}
+
+.confrontation-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.credibility-bar {
+  max-width: 300px;
+  margin: 0.8rem auto;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.credibility-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rust), var(--gold3));
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+.credibility-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--parch3);
+  letter-spacing: 0.15em;
+}
+
+/* ===== OBJECTION FLASH ===== */
+.objection-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(160,48,48,0.15);
+}
+.objection-overlay.show {
+  display: flex;
+  animation: flash-in 0.5s ease;
+}
+
+.objection-text {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--gold4);
+  text-shadow: 0 0 30px rgba(212,170,34,0.5), 0 2px 10px rgba(0,0,0,0.8);
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@keyframes flash-in {
+  0% { opacity: 0; transform: scale(1.5); }
+  30% { opacity: 1; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== CHARACTER AREA ===== */
+.character-area {
+  position: absolute;
+  top: 48px;
+  bottom: 180px;
+  left: 0; right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+  padding: 0 2rem;
+}
+
+.character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.char-portrait {
+  width: clamp(80px, 12vw, 120px);
+  height: clamp(80px, 12vw, 120px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  border: 2px solid rgba(212,170,34,0.3);
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.char-name {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--parch3);
+}
+
+/* ===== EVIDENCE GET NOTIFICATION ===== */
+.evidence-get {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 65;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 3rem;
+  background: rgba(5,3,2,0.95);
+  border: 1px solid var(--gold3);
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(212,170,34,0.2);
+}
+.evidence-get.show {
+  display: flex;
+  animation: evidence-pop 0.5s ease;
+}
+
+@keyframes evidence-pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.evidence-get-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.evidence-get-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gold4);
+  margin-bottom: 0.5rem;
+}
+
+.evidence-get-desc {
+  font-size: 0.85rem;
+  color: var(--parch3);
+  line-height: 1.6;
+  max-width: 350px;
+}
+
+/* ===== SCREEN TRANSITIONS ===== */
+.fade-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.fade-overlay.active { opacity: 1; pointer-events: all; }
+
+/* ===== TRUTH SCREEN ===== */
+.truth-container {
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 2rem 2rem;
+  text-align: center;
+}
+
+.truth-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.truth-title {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--parch);
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 20px rgba(212,170,34,0.2);
+}
+
+.truth-text {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  color: var(--parch2);
+  line-height: 2.2;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.truth-text p {
+  margin-bottom: 1em;
+}
+
+.truth-text .highlight {
+  color: var(--gold4);
+  font-weight: 600;
+}
+
+/* ===== EPILOGUE / LIBRARY LINK ===== */
+.epilogue-container {
+  position: absolute;
+  inset: 0;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 2rem 2rem;
+  text-align: center;
+}
+
+.epilogue-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.epilogue-title {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--parch);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.epilogue-text {
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+  color: var(--parch3);
+  line-height: 2;
+  max-width: 550px;
+  margin-bottom: 2rem;
+}
+
+.library-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 450px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.library-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(20,15,10,0.8);
+  border: 1px solid rgba(212,170,34,0.2);
+  border-radius: 3px;
+  color: var(--parch);
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: left;
+}
+.library-link:hover {
+  border-color: var(--gold3);
+  background: rgba(212,170,34,0.08);
+  transform: translateX(4px);
+}
+
+.library-link-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.library-link-title {
+  font-size: 0.9rem;
+  color: var(--parch);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .map-grid { grid-template-columns: 1fr; }
+  .dialogue-box { min-height: 120px; padding: 1rem; }
+  .evidence-grid { grid-template-columns: 1fr; }
+  .character-area { padding: 0 1rem; }
+}
+
+/* ===== SCREEN SHAKE ===== */
+.shake {
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+</style>
+</head>
+<body>
+<div id="game">
+  <div class="fade-overlay" id="fadeOverlay"></div>
+
+  <!-- Title Screen -->
+  <div id="title-screen">
+    <div class="title-ornament">Market Archive Bureau</div>
+    <div class="title-main">金融史クロノス</div>
+    <div class="title-sub">Chronos &mdash; Financial History</div>
+    <div class="title-episode">Episode 01 &mdash; Tulip Mania, 1637</div>
+    <div class="title-concept">
+      時間を越えて金融史の現場へ潜入し、<br/>
+      熱狂の裏にある矛盾を暴く。
+    </div>
+    <button class="btn" id="startBtn">調査を開始する</button>
+  </div>
+
+  <!-- Top Bar (hidden initially) -->
+  <div class="top-bar" id="topBar" style="display:none">
+    <div class="top-bar-left">EPISODE 01 &mdash; TULIP MANIA, 1637</div>
+    <div class="top-bar-right">
+      <div class="evidence-count" id="evidenceBtn" title="証拠一覧を開く">
+        EVIDENCE: <span id="evidenceCountNum">0</span> / 8
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene Background -->
+  <div class="scene-bg" id="sceneBg"></div>
+
+  <!-- Character Area -->
+  <div class="character-area" id="charArea" style="display:none"></div>
+
+  <!-- Map Screen -->
+  <div class="map-container" id="mapScreen" style="display:none"></div>
+
+  <!-- Confrontation Header -->
+  <div class="confrontation-header" id="confrontHeader" style="display:none"></div>
+
+  <!-- Truth Screen -->
+  <div class="truth-container" id="truthScreen" style="display:none"></div>
+
+  <!-- Epilogue Screen -->
+  <div class="epilogue-container" id="epilogueScreen" style="display:none"></div>
+
+  <!-- Dialogue Area -->
+  <div class="dialogue-area" id="dialogueArea" style="display:none">
+    <div class="dialogue-box">
+      <div class="dialogue-speaker" id="speakerName"></div>
+      <div class="dialogue-text" id="dialogueText"></div>
+      <div class="dialogue-indicator" id="dialogueIndicator">CLICK TO CONTINUE</div>
+    </div>
+  </div>
+
+  <!-- Choices Area -->
+  <div class="choices-area" id="choicesArea" style="display:none">
+    <div class="choices-box" id="choicesBox"></div>
+  </div>
+
+  <!-- Evidence Panel -->
+  <div class="evidence-panel" id="evidencePanel">
+    <div class="evidence-header">
+      <div class="evidence-title">Evidence Board &mdash; 証拠一覧</div>
+      <button class="evidence-close" id="evidenceClose">CLOSE</button>
+    </div>
+    <div class="evidence-grid" id="evidenceGrid"></div>
+  </div>
+
+  <!-- Evidence Get Notification -->
+  <div class="evidence-get" id="evidenceGet">
+    <div class="evidence-get-label">Evidence Obtained</div>
+    <div class="evidence-get-name" id="evidenceGetName"></div>
+    <div class="evidence-get-desc" id="evidenceGetDesc"></div>
+  </div>
+
+  <!-- Objection Overlay -->
+  <div class="objection-overlay" id="objectionOverlay">
+    <div class="objection-text" id="objectionText"></div>
+  </div>
+</div>
+
+<script>
+// ===== GAME ENGINE =====
+const G = {
+  state: 'title',
+  evidence: [],
+  visited: new Set(),
+  credibility: 100,
+  confrontRound: 0,
+  typing: false,
+  typingResolve: null,
+  fullText: '',
+  charIndex: 0,
+  typeTimer: null,
+  selectingEvidence: false,
+  currentCorrectEvidence: null,
+};
+
+// ===== EVIDENCE DATABASE =====
+const EVIDENCE_DB = {
+  price_chart: {
+    id: 'price_chart',
+    tag: 'Market Record',
+    name: '球根価格推移表',
+    desc: 'センペル・アウグストゥスの価格が3ヶ月で20倍に高騰している記録。指数関数的な上昇曲線を描いている。',
+  },
+  maria_testimony: {
+    id: 'maria_testimony',
+    tag: 'Testimony',
+    name: 'マリアの証言',
+    desc: '「最近の買い手のほとんどは庭師ではなく転売目的の投機家。花を植える人はもういない。」',
+  },
+  tavern_rumors: {
+    id: 'tavern_rumors',
+    tag: 'Field Note',
+    name: '酒場の噂メモ',
+    desc: '従業員が給料全額を球根に投じた話。靴屋も肉屋も球根の話しかしない。庶民まで投機に参加している。',
+  },
+  income_data: {
+    id: 'income_data',
+    tag: 'Economic Data',
+    name: '職人年収データ',
+    desc: '熟練職人の年収は約300ギルダー。一方、センペル・アウグストゥス1個は10,000ギルダー。年収の33倍。',
+  },
+  futures_contract: {
+    id: 'futures_contract',
+    tag: 'Document',
+    name: '先物契約書',
+    desc: '実物の球根を一度も確認せずに取引されている契約書。引き渡し期日も曖昧で、転売だけが繰り返されている。',
+  },
+  ledger_analysis: {
+    id: 'ledger_analysis',
+    tag: 'Financial Record',
+    name: 'ピーテルの帳簿分析',
+    desc: 'ヘンドリック・ファン・デル・ベルグの借入記録。球根購入のために莫大な借金を重ねている。資産の大半が未実現利益。',
+  },
+  demand_survey: {
+    id: 'demand_survey',
+    tag: 'Analysis',
+    name: '実需調査メモ',
+    desc: '球根の最終的な買い手（庭に植える人）は市場参加者の5%未満。95%以上が転売目的で購入している。',
+  },
+  hendrick_letter: {
+    id: 'hendrick_letter',
+    tag: 'Private Document',
+    name: 'ヘンドリックの私信',
+    desc: '知人宛の手紙。「来月中にすべての球根を売り抜ける。この熱狂がいつまでも続くとは思えない。」と書かれている。',
+  },
+};
+
+// ===== DOM REFS =====
+const $ = id => document.getElementById(id);
+const fadeOverlay = $('fadeOverlay');
+const topBar = $('topBar');
+const sceneBg = $('sceneBg');
+const charArea = $('charArea');
+const mapScreen = $('mapScreen');
+const dialogueArea = $('dialogueArea');
+const choicesArea = $('choicesArea');
+const speakerName = $('speakerName');
+const dialogueText = $('dialogueText');
+const dialogueIndicator = $('dialogueIndicator');
+const choicesBox = $('choicesBox');
+const evidencePanel = $('evidencePanel');
+const evidenceGrid = $('evidenceGrid');
+const evidenceGet = $('evidenceGet');
+const objectionOverlay = $('objectionOverlay');
+const confrontHeader = $('confrontHeader');
+const truthScreen = $('truthScreen');
+const epilogueScreen = $('epilogueScreen');
+
+// ===== UTILITIES =====
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function fadeIn() {
+  fadeOverlay.classList.add('active');
+  await sleep(600);
+}
+
+async function fadeOut() {
+  fadeOverlay.classList.remove('active');
+  await sleep(600);
+}
+
+function hideAll() {
+  mapScreen.style.display = 'none';
+  dialogueArea.style.display = 'none';
+  choicesArea.style.display = 'none';
+  charArea.style.display = 'none';
+  confrontHeader.style.display = 'none';
+  truthScreen.style.display = 'none';
+  epilogueScreen.style.display = 'none';
+}
+
+function setBg(cls) {
+  sceneBg.className = 'scene-bg ' + cls;
+}
+
+function setCharacters(chars) {
+  charArea.style.display = 'flex';
+  charArea.style.gap = '3rem';
+  charArea.style.justifyContent = 'center';
+  charArea.innerHTML = chars.map(c => `
+    <div class="character">
+      <div class="char-portrait" style="background:${c.bg}">${c.icon}</div>
+      <div class="char-name">${c.name}</div>
+    </div>
+  `).join('');
+}
+
+function updateEvidenceCount() {
+  $('evidenceCountNum').textContent = G.evidence.length;
+}
+
+// ===== TEXT SYSTEM =====
+function typeText(text, speed = 30) {
+  return new Promise(resolve => {
+    G.typing = true;
+    G.fullText = text;
+    G.charIndex = 0;
+    G.typingResolve = resolve;
+    dialogueText.innerHTML = '';
+    dialogueIndicator.style.display = 'none';
+
+    clearInterval(G.typeTimer);
+    G.typeTimer = setInterval(() => {
+      if (G.charIndex < G.fullText.length) {
+        dialogueText.textContent = G.fullText.substring(0, G.charIndex + 1);
+        G.charIndex++;
+      } else {
+        clearInterval(G.typeTimer);
+        G.typing = false;
+        dialogueIndicator.style.display = 'block';
+      }
+    }, speed);
+  });
+}
+
+function skipType() {
+  if (G.typing) {
+    clearInterval(G.typeTimer);
+    dialogueText.textContent = G.fullText;
+    G.typing = false;
+    dialogueIndicator.style.display = 'block';
+  }
+}
+
+function completeDialogue() {
+  if (G.typingResolve) {
+    const r = G.typingResolve;
+    G.typingResolve = null;
+    r();
+  }
+}
+
+// Click handler for dialogue
+document.addEventListener('click', e => {
+  if (G.selectingEvidence) return;
+  if (evidencePanel.classList.contains('open')) return;
+  if (evidenceGet.classList.contains('show')) {
+    evidenceGet.classList.remove('show');
+    return;
+  }
+
+  if (G.typing) {
+    skipType();
+  } else if (G.typingResolve) {
+    completeDialogue();
+  }
+});
+
+// ===== DIALOGUE SYSTEM =====
+async function say(speaker, text, speakerColor) {
+  dialogueArea.style.display = 'block';
+  speakerName.textContent = speaker;
+  if (speakerColor) speakerName.style.color = speakerColor;
+  else speakerName.style.color = 'var(--gold3)';
+
+  await typeText(text);
+  await new Promise(resolve => { G.typingResolve = resolve; });
+}
+
+async function narrate(text) {
+  await say('', text, 'var(--parch3)');
+}
+
+function showChoices(options) {
+  return new Promise(resolve => {
+    dialogueArea.style.display = 'none';
+    choicesArea.style.display = 'block';
+    choicesBox.innerHTML = options.map((opt, i) => `
+      <button class="choice-btn" data-idx="${i}">${opt.text}</button>
+    `).join('');
+
+    choicesBox.querySelectorAll('.choice-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        choicesArea.style.display = 'none';
+        resolve(parseInt(btn.dataset.idx));
+      });
+    });
+  });
+}
+
+// ===== EVIDENCE SYSTEM =====
+async function gainEvidence(id) {
+  if (G.evidence.find(e => e.id === id)) return;
+  const ev = EVIDENCE_DB[id];
+  G.evidence.push(ev);
+  updateEvidenceCount();
+
+  // Pulse the counter
+  const btn = $('evidenceBtn');
+  btn.classList.add('pulse');
+  setTimeout(() => btn.classList.remove('pulse'), 600);
+
+  // Show notification
+  $('evidenceGetName').textContent = ev.name;
+  $('evidenceGetDesc').textContent = ev.desc;
+  evidenceGet.classList.add('show');
+
+  await sleep(200);
+  // Wait for click
+  await new Promise(resolve => {
+    const handler = () => {
+      evidenceGet.classList.remove('show');
+      resolve();
+    };
+    setTimeout(() => {
+      document.addEventListener('click', handler, { once: true });
+    }, 300);
+  });
+}
+
+function renderEvidencePanel(selecting = false) {
+  evidenceGrid.innerHTML = G.evidence.map(ev => `
+    <div class="evidence-card ${selecting ? 'selecting' : ''}" data-id="${ev.id}">
+      <div class="evidence-card-tag">${ev.tag}</div>
+      <div class="evidence-card-name">${ev.name}</div>
+      <div class="evidence-card-desc">${ev.desc}</div>
+    </div>
+  `).join('');
+
+  if (G.evidence.length === 0) {
+    evidenceGrid.innerHTML = '<div style="color:var(--parch3);font-style:italic;padding:2rem;">まだ証拠を収集していません。</div>';
+  }
+}
+
+// Evidence panel open/close
+$('evidenceBtn').addEventListener('click', e => {
+  e.stopPropagation();
+  if (!G.selectingEvidence) {
+    renderEvidencePanel(false);
+    evidencePanel.classList.add('open');
+  }
+});
+$('evidenceClose').addEventListener('click', e => {
+  e.stopPropagation();
+  evidencePanel.classList.remove('open');
+});
+
+// ===== SCENES =====
+
+// --- BRIEFING ---
+async function sceneBriefing() {
+  await fadeIn();
+  hideAll();
+  topBar.style.display = 'flex';
+  setBg('bg-bureau');
+  setCharacters([
+    { icon: '👤', bg: 'rgba(26,42,74,0.6)', name: 'DIRECTOR' },
+  ]);
+  await fadeOut();
+
+  await say('局長', '新しい任務だ。');
+  await say('局長', '1637年、オランダ共和国。チューリップの球根ひとつが、アムステルダムの運河沿いの邸宅と同じ値段で取引されていた時代だ。');
+  await say('局長', '公式記録では「一時的な投機熱」とされている。だが当時の証言には矛盾が多い。');
+  await say('局長', '君の任務は、ハールレムの現場に潜入し、この熱狂の構造を解明することだ。');
+
+  setCharacters([
+    { icon: '👤', bg: 'rgba(26,42,74,0.6)', name: 'DIRECTOR' },
+    { icon: '📋', bg: 'rgba(42,74,26,0.4)', name: 'RIO' },
+  ]);
+
+  await say('リオ', 'チューリップが家より高い...？本当にそんなことが？', '#a0d080');
+  await say('局長', 'それこそが、この事件の核心だ。なぜ人々は信じたのか。なぜ誰も止めなかったのか。');
+  await say('局長', '現地で証拠を集め、中心人物の矛盾を暴け。健闘を祈る。');
+
+  await sceneMap();
+}
+
+// --- MAP ---
+async function sceneMap() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-market');
+  await fadeOut();
+
+  showMap();
+}
+
+function showMap() {
+  hideAll();
+  mapScreen.style.display = 'flex';
+
+  const locations = [
+    { id: 'market', icon: '🌷', name: '花市場', desc: 'ハールレムの球根取引の中心地。売り手と買い手が熱気に包まれている。' },
+    { id: 'tavern', icon: '🍺', name: '酒場「金の鋤」', desc: '庶民が集まる酒場。噂と本音が飛び交う。' },
+    { id: 'notary', icon: '📜', name: '公証人事務所', desc: '取引記録と契約書が保管されている。数字は嘘をつかない。' },
+    { id: 'manor', icon: '🏛️', name: 'ファン・デル・ベルグ邸', desc: '球根王と呼ばれる大投機家の豪邸。何かが隠されている。' },
+  ];
+
+  const visitedCount = G.visited.size;
+  const canConfront = visitedCount >= 4;
+
+  mapScreen.innerHTML = `
+    <div class="map-title">Investigation Phase</div>
+    <div class="map-subtitle">1637年 ハールレム &mdash; 調査地を選べ</div>
+    <div class="map-grid">
+      ${locations.map(loc => `
+        <div class="map-location ${G.visited.has(loc.id) ? 'visited' : ''}" data-loc="${loc.id}">
+          <div class="map-loc-icon">${loc.icon}</div>
+          <div class="map-loc-name">${loc.name}</div>
+          <div class="map-loc-desc">${loc.desc}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="map-action">
+      ${canConfront
+        ? '<button class="btn" id="confrontBtn">対決に進む</button>'
+        : ''}
+    </div>
+    <div class="map-hint">
+      ${canConfront
+        ? '全ての調査地を訪問しました。対決に進めます。'
+        : `調査済み: ${visitedCount} / 4　全地点を調査すると対決に進めます。`}
+    </div>
+  `;
+
+  // Location click handlers
+  mapScreen.querySelectorAll('.map-location:not(.visited)').forEach(el => {
+    el.addEventListener('click', () => {
+      const loc = el.dataset.loc;
+      visitLocation(loc);
+    });
+  });
+
+  // Confront button
+  const confrontBtn = $('confrontBtn');
+  if (confrontBtn) {
+    confrontBtn.addEventListener('click', () => scenePreConfront());
+  }
+}
+
+async function visitLocation(loc) {
+  switch (loc) {
+    case 'market': await sceneMarket(); break;
+    case 'tavern': await sceneTavern(); break;
+    case 'notary': await sceneNotary(); break;
+    case 'manor': await sceneManor(); break;
+  }
+}
+
+// --- FLOWER MARKET ---
+async function sceneMarket() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-market');
+  setCharacters([
+    { icon: '🌷', bg: 'rgba(180,80,120,0.4)', name: 'MARIA' },
+  ]);
+  await fadeOut();
+
+  await say('マリア', 'あら、お客さん？球根に興味があるの？今が買い時よ！', '#e89090');
+  await say('マリア', '先週の倍の値段がついてるわ。来週にはもっと上がるって、みんな言ってる。', '#e89090');
+
+  const choice = await showChoices([
+    { text: '誰が買っているのか聞く' },
+    { text: '価格について詳しく聞く' },
+  ]);
+
+  if (choice === 0) {
+    await say('マリア', '庭師？もうほとんどいないわよ。最近の買い手は商人や、裕福な奥様方ね。', '#e89090');
+    await say('マリア', 'みんな転売目的。花を植えるために買う人なんて、もういないわ。', '#e89090');
+    await say('リオ', '花を育てるためじゃなく...転売のためだけに？', '#a0d080');
+  } else {
+    await say('マリア', 'センペル・アウグストゥスなら1個10,000ギルダーよ。3ヶ月前は500だったけどね。', '#e89090');
+    await say('マリア', '値段が上がるから買う。買うから値段が上がる。最高でしょ？', '#e89090');
+    await say('リオ', '20倍...たった3ヶ月で...？', '#a0d080');
+  }
+
+  await gainEvidence('maria_testimony');
+  await gainEvidence('price_chart');
+
+  await say('', 'マリアの言葉の裏に、重要な事実が見えた。買い手の目的が「花」から「利益」に変わっている。');
+
+  G.visited.add('market');
+  await sceneMap();
+}
+
+// --- TAVERN ---
+async function sceneTavern() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-tavern');
+  setCharacters([
+    { icon: '🍺', bg: 'rgba(139,58,26,0.4)', name: 'JAN' },
+  ]);
+  await fadeOut();
+
+  await say('ヤン', 'ああ、旅のお方か。一杯やっていくかい？', '#d4a060');
+  await say('ヤン', 'この店の客も、半分は球根の話しかしなくなったよ。朝から晩まで球根、球根だ。', '#d4a060');
+
+  await say('ヤン', '昨日なんか、うちの従業員が給料全額つぎ込んだって言ってた。狂ってるよな。', '#d4a060');
+
+  const choice = await showChoices([
+    { text: '庶民の暮らしぶりを聞く' },
+    { text: '球根取引の噂を聞く' },
+  ]);
+
+  if (choice === 0) {
+    await say('ヤン', '職人の年収は300ギルダーってとこだ。それが球根1個で10,000ギルダーだぜ？', '#d4a060');
+    await say('ヤン', '家一軒買える金を、花の球根に...。まともな世界じゃないよ。', '#d4a060');
+  } else {
+    await say('ヤン', '靴屋も肉屋もパン屋も、みんな球根を買ってる。あと貴族も、議員も。', '#d4a060');
+    await say('ヤン', '「乗り遅れるな」ってのが合言葉さ。誰も彼も、隣の奴が儲けた話を聞いて飛びつくんだ。', '#d4a060');
+  }
+
+  await say('リオ', '身分も職業も関係なく、全員が熱狂している...。', '#a0d080');
+
+  await gainEvidence('tavern_rumors');
+  await gainEvidence('income_data');
+
+  await say('', '価格と実生活の乖離。この数字のズレが、熱狂の異常さを示している。');
+
+  G.visited.add('tavern');
+  await sceneMap();
+}
+
+// --- NOTARY OFFICE ---
+async function sceneNotary() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-notary');
+  setCharacters([
+    { icon: '📜', bg: 'rgba(100,80,50,0.4)', name: 'PIETER' },
+  ]);
+  await fadeOut();
+
+  await say('ピーテル', 'お役人さんか。よく来てくれた。この帳簿を見てほしい。', '#c0b080');
+  await say('ピーテル', '私は30年この仕事をしているが、こんな取引は見たことがない。', '#c0b080');
+
+  await say('ピーテル', 'この先物契約を見てくれ。実物の球根を一度も確認せずに取引されている。', '#c0b080');
+  await say('ピーテル', '引き渡し期日すら曖昧だ。紙の上で権利だけが転売されている。', '#c0b080');
+
+  await gainEvidence('futures_contract');
+
+  await say('ピーテル', 'そしてこの男...ヘンドリック・ファン・デル・ベルグ。市場では「球根王」と呼ばれている。', '#c0b080');
+  await say('ピーテル', 'だが帳簿を見ると、球根購入のために莫大な借金を重ねている。資産のほとんどが未実現の含み益だ。', '#c0b080');
+  await say('ピーテル', '球根の値段が下がれば、すべてが崩れる。砂の城だよ。', '#c0b080');
+
+  await gainEvidence('ledger_analysis');
+
+  const choice = await showChoices([
+    { text: '実際に球根を使っている人はどれくらいいるか聞く' },
+    { text: 'ヘンドリックについてもっと聞く' },
+  ]);
+
+  if (choice === 0) {
+    await say('ピーテル', '私の見立てでは、実際に庭に植える目的の買い手は5%もいない。', '#c0b080');
+    await say('ピーテル', '95%以上が転売目的だ。これは市場ではない。椅子取りゲームだよ。', '#c0b080');
+    await gainEvidence('demand_survey');
+  } else {
+    await say('ピーテル', 'ヘンドリックは表向き「球根の未来を信じている」と言っている。', '#c0b080');
+    await say('ピーテル', 'だが借入の額を見ると...信じているというより、信じさせたいのだろうな。', '#c0b080');
+    await gainEvidence('demand_survey');
+  }
+
+  await say('リオ', '実物のない取引...膨らむ借金...。数字は正直ですね。', '#a0d080');
+
+  G.visited.add('notary');
+  await sceneMap();
+}
+
+// --- MANOR ---
+async function sceneManor() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-manor');
+  setCharacters([]);
+  charArea.style.display = 'none';
+  await fadeOut();
+
+  await say('リオ', 'すごい邸宅ですね...。これも球根で建てたんでしょうか。', '#a0d080');
+  await narrate('ヘンドリックは不在だった。邸宅の中を調査する機会だ。');
+
+  const choice = await showChoices([
+    { text: '応接間を調べる' },
+    { text: '書斎を調べる' },
+  ]);
+
+  if (choice === 0) {
+    await narrate('応接間のテーブルに、最新の新聞が置かれている。');
+    await narrate('見出しには「チューリップ：新たなる黄金」と大きく書かれている。記事は球根投資の素晴らしさを絶賛している。');
+    await say('リオ', '新聞まで熱狂を煽っている...。冷静な声はどこにもないんですか？', '#a0d080');
+
+    await narrate('続いて書斎に向かった。');
+  } else {
+    await narrate('書斎の机には、大量の取引記録と手紙が積まれている。');
+  }
+
+  await narrate('書斎の引き出しから、封のされていない手紙を見つけた。');
+  await narrate('宛先は知人の商人。日付は3日前。');
+  await say('', '「...来月中にすべての球根を売り抜けるつもりだ。この熱狂がいつまでも続くとは、さすがに思えない。賢い者は、椅子取りゲームが終わる前に席を立つものだ...」');
+
+  await say('リオ', '...！「球根の未来を信じている」と言いながら、自分は売り抜けるつもりだった...？', '#a0d080');
+  await say('', 'これは決定的な矛盾だ。ヘンドリックの公の発言と、本心が完全に食い違っている。');
+
+  await gainEvidence('hendrick_letter');
+
+  G.visited.add('manor');
+  await sceneMap();
+}
+
+// --- PRE-CONFRONTATION ---
+async function scenePreConfront() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-bureau');
+  setCharacters([]);
+  charArea.style.display = 'none';
+  await fadeOut();
+
+  await say('', '全ての調査地を回り、十分な証拠が揃った。');
+  await say('リオ', '証拠は揃いました。ヘンドリック・ファン・デル・ベルグに直接対峙する時です。', '#a0d080');
+  await say('', '彼は市場の中心にいる。彼の主張の矛盾を崩せば、この熱狂の構造が見える。');
+
+  await narrate('ヘンドリックとの対決が始まる。彼の発言の中から矛盾を見つけ、適切な証拠を突きつけろ。');
+
+  await sceneConfrontation();
+}
+
+// --- CONFRONTATION ---
+const CONFRONT_ROUNDS = [
+  {
+    statement: '球根の価格は正当な需要を反映している。オランダ中の人々がチューリップを愛しているのだ。これは自然な市場原理に過ぎない。',
+    correctEvidence: 'maria_testimony',
+    objection: 'その熱狂には裏付けがありません！',
+    explanation: '買い手のほとんどは花を育てる目的ではなく、転売目的の投機家です。マリアの証言がそれを裏付けています。',
+    reaction: 'ぐ...花を愛する者もいれば...利益を愛する者もいる。それの何が悪いというのだ？',
+  },
+  {
+    statement: '先物契約は効率的な取引手段に過ぎない。何の問題もない。実物がなくとも、信用こそが商取引の基盤だ。',
+    correctEvidence: 'futures_contract',
+    objection: 'その証言、記録と矛盾します！',
+    explanation: 'この先物契約では実物の確認も引き渡し期日の保証もありません。信用ではなく、「次の買い手が現れる」という期待だけで回っています。',
+    reaction: '...実物がなくとも、将来届く球根の価値を...いや、それは...',
+  },
+  {
+    statement: '私の財務状況は盤石だ。この邸宅を見ればわかるだろう。私は堅実な投資家だ。',
+    correctEvidence: 'ledger_analysis',
+    objection: '数字が、あなたの言葉を否定しています！',
+    explanation: '帳簿によれば、あなたの資産の大半は球根の含み益であり、購入資金の大部分は借入です。価格が下落すれば、すべてが崩壊します。',
+    reaction: '...一時的な資金繰りに過ぎん...！利益が出れば返済できる...！',
+  },
+  {
+    statement: '私は球根の価値を心から信じている。だからこそ保有し続けているのだ。売る気などない。',
+    correctEvidence: 'hendrick_letter',
+    objection: '価格は、すでに答えを出しています！',
+    explanation: 'あなた自身が知人への手紙でこう書いています。「来月中にすべて売り抜ける」「この熱狂がいつまでも続くとは思えない」と。',
+    reaction: '...！...どこでその手紙を...。...私は...私は...。',
+  },
+];
+
+async function sceneConfrontation() {
+  await fadeIn();
+  hideAll();
+  G.state = 'confrontation';
+  G.confrontRound = 0;
+  G.credibility = 100;
+  setBg('bg-confrontation');
+
+  setCharacters([
+    { icon: '🎩', bg: 'rgba(139,58,26,0.5)', name: 'HENDRICK' },
+  ]);
+
+  confrontHeader.style.display = 'block';
+  confrontHeader.innerHTML = `
+    <div class="confrontation-label">Confrontation &mdash; 対決</div>
+    <div class="credibility-bar"><div class="credibility-fill" id="credFill" style="width:100%"></div></div>
+    <div class="credibility-label">HENDRICK'S CREDIBILITY: <span id="credPercent">100</span>%</div>
+  `;
+
+  await fadeOut();
+
+  await say('ヘンドリック', 'ほう...市場記録監査局の調査官が、私に何の用だ？', '#e07040');
+  await say('ヘンドリック', '私の取引に問題があるとでも？馬鹿な。この市場は完全に健全だ。', '#e07040');
+  await say('', 'ヘンドリックの主張を聞き、矛盾を見つけたら証拠を突きつけろ。');
+
+  for (let i = 0; i < CONFRONT_ROUNDS.length; i++) {
+    await playConfrontRound(i);
+  }
+
+  await sceneConfrontEnd();
+}
+
+async function playConfrontRound(roundIdx) {
+  const round = CONFRONT_ROUNDS[roundIdx];
+  G.currentCorrectEvidence = round.correctEvidence;
+
+  await say('ヘンドリック', round.statement, '#e07040');
+
+  // Show evidence selection
+  await narrate('証拠を提示せよ。右上の「EVIDENCE」をクリックして証拠を選べ。');
+
+  // Enable evidence selection mode
+  G.selectingEvidence = true;
+  dialogueArea.style.display = 'none';
+
+  const selectedId = await selectEvidence();
+  G.selectingEvidence = false;
+
+  if (selectedId === round.correctEvidence) {
+    // Correct!
+    await showObjection(round.objection);
+
+    G.credibility -= 25;
+    updateCredibility();
+
+    // Screen shake
+    document.getElementById('game').classList.add('shake');
+    setTimeout(() => document.getElementById('game').classList.remove('shake'), 400);
+
+    await say('', round.explanation);
+    await say('ヘンドリック', round.reaction, '#e07040');
+
+    if (roundIdx < CONFRONT_ROUNDS.length - 1) {
+      await say('ヘンドリック', 'だが...まだだ！私の言い分を聞け！', '#e07040');
+    }
+  } else {
+    // Wrong evidence
+    await say('リオ', 'この証拠ではないようです...。もう一度考えましょう。', '#a0d080');
+    // Retry the same round
+    await playConfrontRound(roundIdx);
+  }
+}
+
+function selectEvidence() {
+  return new Promise(resolve => {
+    renderEvidencePanel(true);
+    evidencePanel.classList.add('open');
+
+    const handleClick = (e) => {
+      const card = e.target.closest('.evidence-card');
+      if (card) {
+        const id = card.dataset.id;
+        evidencePanel.classList.remove('open');
+        resolve(id);
+      }
+    };
+
+    evidenceGrid.addEventListener('click', handleClick, { once: false });
+
+    // Override close button to not resolve
+    const closeHandler = () => {
+      // Re-prompt
+      renderEvidencePanel(true);
+    };
+
+    // Clean up when panel closes with selection
+    const observer = new MutationObserver(() => {
+      if (!evidencePanel.classList.contains('open')) {
+        evidenceGrid.removeEventListener('click', handleClick);
+        observer.disconnect();
+      }
+    });
+    observer.observe(evidencePanel, { attributes: true, attributeFilter: ['class'] });
+  });
+}
+
+async function showObjection(text) {
+  const overlay = objectionOverlay;
+  $('objectionText').textContent = text;
+  overlay.classList.add('show');
+  await sleep(1500);
+  overlay.classList.remove('show');
+  await sleep(300);
+}
+
+function updateCredibility() {
+  const fill = $('credFill');
+  const percent = $('credPercent');
+  if (fill) fill.style.width = G.credibility + '%';
+  if (percent) percent.textContent = G.credibility;
+}
+
+// --- CONFRONTATION END ---
+async function sceneConfrontEnd() {
+  await say('ヘンドリック', '......。', '#e07040');
+  await say('ヘンドリック', '...わかっていたさ。こんなものがいつまでも続くはずがないことくらい。', '#e07040');
+  await say('ヘンドリック', 'だが...皆が信じている中で、一人だけ「これは嘘だ」と言える人間がどれだけいる？', '#e07040');
+  await say('ヘンドリック', '熱狂の中にいると...自分が狂っているのか、世界が狂っているのか、わからなくなるんだ。', '#e07040');
+
+  await say('リオ', '...悪人がいたわけじゃない。構造が...人間を狂わせたんですね。', '#a0d080');
+
+  await sceneTruth();
+}
+
+// --- TRUTH REVELATION ---
+async function sceneTruth() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-truth');
+
+  truthScreen.style.display = 'flex';
+  truthScreen.innerHTML = `
+    <div class="truth-label">Truth Revealed &mdash; 真相解明</div>
+    <div class="truth-title">チューリップ狂乱の構造</div>
+    <div class="truth-text">
+      <p>球根の価格は、花としての価値ではなく、<span class="highlight">「次の誰かがもっと高く買ってくれる」</span>という期待だけで支えられていた。</p>
+      <p>希少性の物語が投機熱を生み、投機熱がさらなる物語を生む。<span class="highlight">この自己強化ループ</span>が続く限り、価格は上がり続けた。</p>
+      <p>先物契約により実物を見ずに取引が可能になり、価格は実需から完全に切り離された。職人の年収33年分の球根を、誰も花壇に植えるつもりはなかった。</p>
+      <p>しかし、<span class="highlight">実需を失った価格には、必ず終わりが来る。</span></p>
+      <p>1637年2月3日、ハールレムのオークションで、突然買い手がつかなくなった。数日で価格は90%以上下落した。</p>
+      <p>悪人がいたのではない。<span class="highlight">構造が崩壊した</span>のだ。</p>
+      <p>そしてこの構造は――400年後の今も、形を変えて繰り返されている。</p>
+    </div>
+    <button class="btn" id="truthNextBtn">監査報告へ</button>
+  `;
+
+  await fadeOut();
+
+  await new Promise(resolve => {
+    $('truthNextBtn').addEventListener('click', resolve);
+  });
+
+  await sceneEpilogue();
+}
+
+// --- EPILOGUE & LIBRARY LINK ---
+async function sceneEpilogue() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-bureau');
+
+  epilogueScreen.style.display = 'flex';
+  epilogueScreen.innerHTML = `
+    <div class="epilogue-label">Audit Report Filed &mdash; 監査報告完了</div>
+    <div class="epilogue-title">第1話「チューリップ狂乱」&mdash; 調査完了</div>
+    <div class="epilogue-text">
+      この事件で見えたのは、投機バブルの原型だった。<br/>
+      希少性の物語、実需なき価格、群衆の熱狂、そして信用の崩壊。<br/>
+      この構造を知ることは、未来の熱狂を見抜く目を養うことでもある。<br/><br/>
+      投資Libraryで、さらに深く学ぶことができます。
+    </div>
+    <div class="library-links">
+      <a class="library-link" href="../../horizons/financial-history/tulip-bubble/" target="_blank">
+        <span class="library-link-tag">1637</span>
+        <span class="library-link-title">チューリップ・バブル &mdash; 人類最初の投機バブル</span>
+      </a>
+      <a class="library-link" href="../../horizons/financial-history/south-sea/" target="_blank">
+        <span class="library-link-tag">1720</span>
+        <span class="library-link-title">南海泡沫事件 &mdash; 国家の権威が生んだバブル</span>
+      </a>
+      <a class="library-link" href="../../horizons/bubble-history/" target="_blank">
+        <span class="library-link-tag">OVERVIEW</span>
+        <span class="library-link-title">バブルの歴史 &mdash; 400年の投機の記録</span>
+      </a>
+      <a class="library-link" href="../../horizons/financial-history/" target="_blank">
+        <span class="library-link-tag">SHELF 05</span>
+        <span class="library-link-title">金融史の書庫 &mdash; メソポタミアからAI革命まで</span>
+      </a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <button class="btn" id="replayBtn">もう一度プレイ</button>
+      <a class="btn" href="../../" style="text-decoration:none;display:inline-flex;align-items:center;">書斎に戻る</a>
+    </div>
+    <div style="margin-top:2rem;font-family:var(--font-mono);font-size:0.55rem;color:var(--parch4);letter-spacing:0.2em;opacity:0.5;">
+      MARKET ARCHIVE BUREAU &mdash; CHRONOS: FINANCIAL HISTORY<br/>
+      EPISODE 01 COMPLETE
+    </div>
+  `;
+
+  await fadeOut();
+
+  $('replayBtn').addEventListener('click', () => location.reload());
+}
+
+// ===== START =====
+$('startBtn').addEventListener('click', async () => {
+  const titleScreen = $('title-screen');
+  titleScreen.style.opacity = '0';
+  await sleep(1000);
+  titleScreen.style.display = 'none';
+  await sceneBriefing();
+});
+</script>
+</body>
+</html>
