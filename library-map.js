@@ -56,15 +56,15 @@
   var R3_A = 330, R3_B = 360, R3_C = 360, R3_D = IW_TOTAL - R3_A - R3_B - R3_C;
 
   var ROOMS = {
-    entrance:   { x:IX,            y:IY,                w:COL_A,    h:RH1, label:'はじめての資産形成',  labelEn:'BEGINNER\'S GUIDE',  sub:'投資図書館の歩き方',             url:'hajimete/',                    floor:'stone'  },
-    principles: { x:IX+COL_A,      y:IY,                w:COL_B,    h:RH1, label:'私の投資原則',       labelEn:'MY PRINCIPLES',      sub:'バフェット・マンガー・フィッシャー', url:'principles/',                  floor:'wood'   },
-    moat:       { x:IX+COL_A+COL_B,y:IY,                w:COL_C,    h:RH1, label:'強い会社の見抜き方',  labelEn:'COMPETITIVE MOAT',   sub:'moat / 競争優位を学ぶ',          url:'moat/',                        floor:'ornate' },
+    entrance:   { x:IX,            y:IY,                w:COL_A,    h:RH1, label:'はじめの棚',          labelEn:'FIRST STEPS',        sub:'投資図書館の歩き方',             url:'hajimete/',                    floor:'stone'  },
+    principles: { x:IX+COL_A,      y:IY,                w:COL_B,    h:RH1, label:'投資原則の棚',       labelEn:'PRINCIPLES',         sub:'バフェット・マンガー・フィッシャー', url:'principles/',                  floor:'wood'   },
+    moat:       { x:IX+COL_A+COL_B,y:IY,                w:COL_C,    h:RH1, label:'競争優位の棚',       labelEn:'COMPETITIVE MOAT',   sub:'moat / 経済的な堀を学ぶ',        url:'moat/',                        floor:'ornate' },
     companies:  { x:IX,            y:IY+RH1,            w:COL_A,    h:RH2, label:'企業研究室',         labelEn:'COMPANY RESEARCH',   sub:'企業分析と銘柄研究',             url:'companies/',                   floor:'wood'   },
-    hub:        { x:IX+COL_A,      y:IY+RH1,            w:COL_B,    h:RH2, label:'NISAではじめる',     labelEn:'START WITH NISA',    sub:'はじめての資産形成',              url:null,                           floor:'marble' },
-    fcf:        { x:IX+COL_A+COL_B,y:IY+RH1,            w:COL_C,    h:RH2, label:'企業の稼ぐ力',       labelEn:'CASH FLOW POWER',    sub:'FCF / キャッシュ創出力',          url:'fcf/',                         floor:'wood'   },
-    research:   { x:IX,            y:IY+RH1+RH2,        w:R3_A,     h:RH3, label:'学びの書庫',         labelEn:'RESEARCH',           sub:'独自の分析と論考',               url:'research/',                    floor:'dark'   },
+    hub:        { x:IX+COL_A,      y:IY+RH1,            w:COL_B,    h:RH2, label:'NISAではじめる',     labelEn:'START WITH NISA',    sub:'制度の理解から積立設定まで',       url:'nisa/',                        floor:'marble' },
+    fcf:        { x:IX+COL_A+COL_B,y:IY+RH1,            w:COL_C,    h:RH2, label:'キャッシュフローの棚', labelEn:'CASH FLOW',          sub:'FCF / 企業の稼ぐ力を読む',       url:'fcf/',                         floor:'wood'   },
+    research:   { x:IX,            y:IY+RH1+RH2,        w:R3_A,     h:RH3, label:'論考の書庫',         labelEn:'RESEARCH',           sub:'独自の分析と論考',               url:'research/',                    floor:'dark'   },
     news:       { x:IX+R3_A,       y:IY+RH1+RH2,        w:R3_B,     h:RH3, label:'ニュース解説室',     labelEn:'NEWS & INSIGHTS',    sub:'最新ニュースの考察',             url:'news/',                        floor:'stone'  },
-    horizons:   { x:IX+R3_A+R3_B,  y:IY+RH1+RH2,        w:R3_C,     h:RH3, label:'人類の智慧の棚',     labelEn:'HORIZONS',           sub:'禅・哲学・テクノロジー',          url:'horizons/',                    floor:'ornate' },
+    horizons:   { x:IX+R3_A+R3_B,  y:IY+RH1+RH2,        w:R3_C,     h:RH3, label:'思考を広げる棚',     labelEn:'HORIZONS',           sub:'禅・哲学・テクノロジー',          url:'horizons/',                    floor:'ornate' },
     finhistory: { x:IX+R3_A+R3_B+R3_C, y:IY+RH1+RH2,    w:R3_D,     h:RH3, label:'金融史の回廊',       labelEn:'FINANCIAL HISTORY',  sub:'7000年の金融史',                url:'horizons/financial-history/',   floor:'dark'   },
     corridor:   { x:IX,            y:IY+RH1+RH2+RH3,    w:IW_TOTAL, h:RH4, label:'思索の回廊',         labelEn:'THINKERS\' GALLERY', sub:'投資思想家の人物録',             url:'thinkers/',                    floor:'stone'  }
   };
@@ -74,7 +74,7 @@
     principles:'バフェット、マンガー、フィッシャーの投資哲学を収録。',
     moat:'経済的な堀（モート）で強い企業を見抜く方法。',
     companies:'個別企業の分析ページ。銘柄研究の書架。',
-    hub:'書庫の心臓部。ここから各テーマの部屋へ。',
+    hub:'NISAの仕組みと始め方を全8章で学ぶeラーニング。',
     fcf:'フリーキャッシュフローで企業の本質的な価値を読む。',
     research:'独自の論考・分析記事のアーカイブ。',
     news:'最新ニュースの背景と投資家視点の考察。',
@@ -1180,7 +1180,7 @@
     if(hit!==hoveredRoom){hoveredRoom=hit; canvas.style.cursor=(hit&&ROOMS[hit].url)?'pointer':'default'; dirty=true;
       var info=document.getElementById('mapRoomInfo');
       if(info){if(hit){var r=ROOMS[hit]; info.style.opacity='1';
-        info.innerHTML='<div class="map-room-info-inner"><span class="map-room-name">'+r.label+'</span><span class="map-room-name-en">'+r.labelEn+'</span><div class="map-room-desc">'+(ROOM_DESC[hit]||'')+'</div>'+(r.url?'<a class="map-room-btn" href="'+r.url+'">この部屋へ \u2192</a>':'<span class="map-room-btn disabled">各部屋への分岐点</span>')+'</div>';
+        info.innerHTML='<div class="map-room-info-inner"><span class="map-room-name">'+r.label+'</span><span class="map-room-name-en">'+r.labelEn+'</span><div class="map-room-desc">'+(ROOM_DESC[hit]||'')+'</div>'+(r.url?'<a class="map-room-btn" href="'+r.url+'">この部屋へ \u2192</a>':'')+'</div>';
       }else{info.style.opacity='0';}}
     }
   }
@@ -1216,7 +1216,11 @@
     canvas.addEventListener('mousemove',onMouseMove);
     canvas.addEventListener('click',onClick);
     canvas.addEventListener('mouseleave',function(){hoveredRoom=null;canvas.style.cursor='default';dirty=true;var info=document.getElementById('mapRoomInfo');if(info)info.style.opacity='0';});
-    canvas.addEventListener('touchstart',function(e){e.preventDefault();var t=e.touches[0];onMouseMove({clientX:t.clientX,clientY:t.clientY});onClick({clientX:t.clientX,clientY:t.clientY});},{passive:false});
+    // Touch: distinguish tap from scroll by tracking movement distance
+    var touchStartPos=null;
+    canvas.addEventListener('touchstart',function(e){var t=e.touches[0];touchStartPos={x:t.clientX,y:t.clientY};},{passive:true});
+    canvas.addEventListener('touchmove',function(e){if(touchStartPos){var t=e.touches[0];var dx=t.clientX-touchStartPos.x,dy=t.clientY-touchStartPos.y;if(Math.abs(dx)>10||Math.abs(dy)>10)touchStartPos=null;}},{passive:true});
+    canvas.addEventListener('touchend',function(e){if(touchStartPos){var t=e.changedTouches[0];onMouseMove({clientX:t.clientX,clientY:t.clientY});onClick({clientX:t.clientX,clientY:t.clientY});}touchStartPos=null;},{passive:true});
     loadAssets(function(){initFloorPatterns();dirty=true;tick();});
   }
 
