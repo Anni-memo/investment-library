@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="リーマン・ブラザーズ社内｜リーマン・ショック深層｜投資と思考の書斎"/>
+<meta property="og:description" content="Repo 105による会計操作、リチャード・ファルドの独裁、内部告発者の解雇。リーマン・ブラザーズ崩壊の内側を解剖する。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>リーマン・ブラザーズ社内｜リーマン・ショック深層｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#180808 30%,#2a0e0e 60%,#3a1414 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.quote-block{background:var(--ink);color:var(--parch);padding:24px 28px;border-radius:4px;margin:2em 0;border-left:3px solid var(--gold3);}
+.quote-text{font-family:var(--serif);font-size:1.05rem;font-style:italic;line-height:1.9;margin-bottom:8px;}
+.quote-attr{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.1em;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.data-table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.85rem;}
+.data-table th{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-align:left;padding:8px 12px;border-bottom:2px solid var(--gold);background:var(--parch2);}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.6;}
+.data-table tr:hover td{background:var(--parch2);}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">リーマン・ショック</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">リーマン・ブラザーズ社内</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">LEHMAN CRISIS &mdash; DEEP DIVE</div>
+  <div class="hero-ornament">RICHARD FULD &middot; REPO 105 &middot; WHISTLEBLOWER</div>
+  <h1 class="hero-title">リーマン・ブラザーズ社内</h1>
+  <p class="hero-sub">Inside Lehman Brothers</p>
+  <p class="hero-lead">
+    Repo 105と隠された真実。<br>
+    独裁者CEO、会計操作、そして解雇された内部告発者。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">RICHARD FULD</div>
+    <h2 class="section-title">リチャード・ファルドCEO &mdash; 「ゴリラ」と呼ばれた独裁者</h2>
+    <div class="section-body">
+      <p>リーマン・ブラザーズのCEOリチャード・ファルドは、社内で<strong>「ゴリラ」</strong>と恐れられていた。威圧的なリーダーシップスタイルで知られ、悪いニュースを持ってくる部下を怒鳴りつけることで有名だった。この恐怖の文化が、組織内のリスク情報の流れを致命的に遮断した。</p>
+      <p>2000年から2007年までの報酬合計は約<strong>$484 million（約4億8,400万ドル）</strong>。株式報酬を含めたこの巨額の報酬は、会社が崩壊に向かう間も支払われ続けた。</p>
+      <p>2008年4月、サブプライム危機が深刻化する中でファルドは<strong>「最悪の事態は過ぎた」</strong>と公言した。しかし社内では、バランスシート上の不良資産が膨れ上がっていた。</p>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">"I take full responsibility for the decisions that I made and for the actions that I took."</div>
+      <div class="quote-attr">リチャード・ファルド、2008年10月 議会証言 &mdash; しかし同時に空売り業者と風説の流布を非難した</div>
+    </div>
+
+    <div class="section-body">
+      <p>議会証言でファルドは「完全な責任を受け入れる」と述べたが、同時に空売り業者と虚偽の噂がリーマンを破滅に追い込んだと主張した。自らの経営判断やリスク管理の失敗には、最後まで正面から向き合うことはなかった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">REPO 105</div>
+    <h2 class="section-title">Repo 105 &mdash; 四半期末の会計操作</h2>
+    <div class="section-body">
+      <p>リーマン・ブラザーズの崩壊後、破産管財人アントン・ヴァルカスの報告書が明らかにした最も衝撃的な事実が<strong>Repo 105</strong>と呼ばれる会計操作だった。</p>
+      <p>その手法は巧妙だった。四半期末の直前に、約<strong>$500億</strong>の資産を一時的にバランスシートから除外する。$100の資産を$105で「売却」し、四半期報告書を提出した後に買い戻す。わずか$5の上乗せによって、この取引は会計上「売却」として扱われ、レバレッジ比率を実態よりも低く見せることができた。</p>
+      <ul>
+        <li><strong>アメリカの法律事務所</strong>はこの取引に対する法的意見書の発行を拒否した</li>
+        <li>ロンドンの<strong>Linklaters法律事務所</strong>がイギリス法に基づいて意見書を発行。取引はロンドン子会社経由で実行された</li>
+        <li>監査法人<strong>Ernst & Young</strong>はRepo 105の存在を認識しながら、投資家や規制当局に報告しなかった</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">Repo 105は「違法」ではなかったかもしれない。しかし投資家を欺く目的で使われたことは、ヴァルカス報告書が詳細に立証している。合法と正当は、別の概念だ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">WHISTLEBLOWER</div>
+    <h2 class="section-title">内部告発者 Matthew Lee</h2>
+    <div class="section-body">
+      <p>リーマン・ブラザーズの上級副社長マシュー・リーは、2008年5月に経営陣へ内部告発レターを送付した。バランスシートの操作を具体的に指摘し、会計処理に重大な懸念があることを訴えた。</p>
+      <p>リーは四半期末にバランスシートから数百億ドルの資産が一時的に消えていることに気づいていた。彼の告発は正確で、後にヴァルカス報告書が裏付けることになる内容そのものだった。</p>
+      <p>しかしリーマンの経営陣は警告に耳を傾けなかった。マシュー・リーは告発の直後に<strong>解雇</strong>された。リーマンが破綻するわずか数か月前のことだった。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">組織が最も必要としている情報は、しばしば組織が最も聞きたくない情報と一致する。マシュー・リーの運命は、その構造的矛盾を象徴している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">BEAR STEARNS</div>
+    <h2 class="section-title">ベア・スターンズの前兆（2008年3月）</h2>
+    <div class="section-body">
+      <p>リーマンの崩壊には前兆があった。2008年3月、ウォール街第5位の投資銀行ベア・スターンズが事実上の破綻を迎える。その崩壊のスピードは、誰もが想像していなかったものだった。</p>
+      <ul>
+        <li><strong>3月10日</strong> &mdash; 「流動性は十分にある」と公式声明を発表</li>
+        <li><strong>3月13日</strong> &mdash; 手元現金が$180億から<strong>$2億</strong>に激減。わずか3日で</li>
+        <li><strong>3月16日</strong> &mdash; JPモルガンが<strong>$2/株</strong>で買収（1年前の株価は$170）</li>
+      </ul>
+      <p>CEO アラン・シュワルツは崩壊のわずか<strong>3日前</strong>にCNBCのインタビューで「流動性に問題はない」と断言していた。</p>
+    </div>
+
+    <div class="quote-block">
+      <div class="quote-text">"We don't see any pressure on our liquidity, let alone a liquidity crisis."</div>
+      <div class="quote-attr">アラン・シュワルツ、ベア・スターンズCEO、2008年3月12日 CNBC &mdash; 翌日、現金は$2億に</div>
+    </div>
+
+    <div class="section-body">
+      <p>ベア・スターンズの崩壊は、金融機関が「信用」という目に見えない基盤の上に立っていることを証明した。信用が失われた瞬間、どれだけの資産を持っていても意味がない。そしてこの教訓は、6か月後にリーマン・ブラザーズで繰り返されることになる。</p>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">DEEP DIVE — LEHMAN CRISIS</div>
+    <p class="further-reason">リーマン社内の腐敗は、ウォール街全体のボーナス文化と不可分だった。</p>
+    <div class="further-links">
+      <a class="further-link" href="../wall-street-culture/">
+        <span class="further-link-tag">NEXT</span>
+        <span class="further-link-title">ウォール街のボーナス文化 &mdash; 踊り続けなければならない</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../rating-agencies/">
+        <span class="further-link-tag">PREV</span>
+        <span class="further-link-title">格付け会社の利益相反 &mdash; 「牛が組成しても格付けする」</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">OVERVIEW</span>
+        <span class="further-link-title">リーマン・ショック &mdash; 概要に戻る</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../../">書斎の入口へ戻る</a>&ensp;&middot;
+    <a href="../../">金融史の書庫</a>&ensp;&middot;
+    <a href="../">リーマン・ショック</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

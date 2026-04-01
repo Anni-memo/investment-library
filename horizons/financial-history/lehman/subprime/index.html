@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="サブプライムローンの実態｜リーマン・ショック深層｜投資と思考の書斎"/>
+<meta property="og:description" content="NINJA Loan、嘘つきローン、ARM金利の罠。信用力の低い借り手に住宅ローンが大量供給された構造を解剖する。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>サブプライムローンの実態｜リーマン・ショック深層｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#180808 30%,#2a0e0e 60%,#3a1414 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.data-table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.85rem;}
+.data-table th{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-align:left;padding:8px 12px;border-bottom:2px solid var(--gold);background:var(--parch2);}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.6;}
+.data-table tr:hover td{background:var(--parch2);}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">リーマン・ショック</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">サブプライムローンの実態</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">LEHMAN CRISIS &mdash; DEEP DIVE</div>
+  <div class="hero-ornament">SUBPRIME &middot; NINJA LOAN &middot; ARM</div>
+  <h1 class="hero-title">サブプライムローンの実態</h1>
+  <p class="hero-sub">The Anatomy of Toxic Loans</p>
+  <p class="hero-lead">
+    年収$14,000のイチゴ摘み労働者が$720,000の住宅ローンを組めた時代。<br>
+    「住宅価格は下がらない」という神話が、すべての前提だった。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">NINJA LOAN</div>
+    <h2 class="section-title">「嘘つきローン」の正体</h2>
+    <div class="section-body">
+      <p>サブプライムローンとは、信用力の低い借り手向けの住宅ローンである。しかし2000年代に広がったのは、それ以上に異常なローンだった。</p>
+      <p>業界内で<strong>NINJA Loan</strong>（No Income, No Job, No Assets）と呼ばれた自己申告型ローン。借り手が収入を申告し、貸し手はそれを検証しない。正式名称は「Stated Income Loan」だが、現場では<strong>「Liar's Loan（嘘つきローン）」</strong>と呼ばれていた。</p>
+      <p>金融危機調査委員会（FCIC）の報告書には、カリフォルニア州の<strong>イチゴ摘み労働者（年収約$14,000）が$720,000の住宅ローンを組めた事例</strong>が記録されている。年収の50倍を超えるローンが、審査をすり抜けた。</p>
+      <p>2006年時点で、新規住宅ローンの約<strong>40%</strong>がサブプライムまたはAlt-A（検証緩和型）ローンだった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">ARM TRAP</div>
+    <h2 class="section-title">ARM金利の罠 ── 「2/28」型の時限爆弾</h2>
+    <div class="section-body">
+      <p>サブプライムローンの多くは<strong>ARM（Adjustable Rate Mortgage、変動金利型）</strong>で組まれた。特に「2/28」型が典型だった。</p>
+      <ul>
+        <li><strong>最初の2年間</strong> ── ティーザーレート（誘引金利）で2〜3%の低金利</li>
+        <li><strong>残りの28年間</strong> ── 市場金利に連動し、6〜12%に跳ね上がる</li>
+      </ul>
+      <p>借り手には「2年後に借り換え（リファイナンス）すればいい」と説明された。住宅価格が上がり続ける限り、担保価値が増えるので借り換えは容易だった。</p>
+      <p>しかし住宅価格が下落に転じると、借り換えは不可能になる。金利が跳ね上がったローンを払えなくなった借り手が、大量にデフォルトした。これが連鎖崩壊の起点となる。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「住宅価格が上がり続ける」── この一つの前提が崩れるだけで、すべてが逆回転する構造だった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">COUNTRYWIDE</div>
+    <h2 class="section-title">カントリーワイド ── 全米最大の住宅ローン工場</h2>
+    <div class="section-body">
+      <p>Countrywide Financial（カントリーワイド）は全米最大のモーゲージ貸付業者だった。CEOのアンジェロ・モジーロは「すべてのアメリカ人に住宅を」と掲げ、2006年には<strong>$4,680億</strong>のローンを組成した。</p>
+      <p>しかしモジーロは内部メールで矛盾した認識を示していた。</p>
+      <ul>
+        <li>「我々が組成しているローンの一部は<strong>有毒（toxic）</strong>だ」── 自社のローンの質を懸念するメール</li>
+        <li>同時期に自社株を大量売却 ── 2004〜2008年に約$1.4億相当を売却</li>
+      </ul>
+      <p>カントリーワイドは2008年1月にバンク・オブ・アメリカに買収される。モジーロはSECから詐欺で訴えられ、$6,750万の和解金を支払った。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">ORIGINATE TO DISTRIBUTE</div>
+    <h2 class="section-title">「組成して売却」── インセンティブの歪み</h2>
+    <div class="section-body">
+      <p>なぜ返済能力のない借り手にローンが供給されたのか。答えは<strong>「Originate-to-Distribute（組成して売却）」モデル</strong>にある。</p>
+      <p>従来の銀行は、ローンを組成し、返済完了まで自分で保有した。借り手が返済できなければ銀行が損をする。だから審査は厳しかった。</p>
+      <p>しかし証券化の時代には、ローンは組成された直後にウォール街に売却され、MBS（住宅ローン担保証券）として世界中の投資家に販売された。</p>
+      <ul>
+        <li><strong>ローンオフィサー</strong> ── ローンを組めば組むほどボーナスが増える。ローンの質は問われない</li>
+        <li><strong>貸付業者</strong> ── 組成したローンを即座に売却。デフォルトリスクは手元に残らない</li>
+        <li><strong>投資銀行</strong> ── ローンを束ねて証券化し、手数料を得る。証券も投資家に売却</li>
+      </ul>
+      <p>全員が短期的な手数料で利益を得て、誰もローンの最終的なリスクを負わない。この構造が、審査基準の底抜けを生んだ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">リスクを負う者がいなくなったとき、リスクは消えたのではない。見えなくなっただけだ。<br>そしてそのリスクは、世界中の投資家のポートフォリオに静かに埋め込まれていた。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">SCALE OF CRISIS</div>
+    <h2 class="section-title">住宅市場崩壊の規模</h2>
+    <div class="section-body">
+      <p>ケース・シラー住宅価格指数で見る、バブルとその崩壊。</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>指標</th><th>数値</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>バブル期の上昇率（1997〜2006年）</td><td>約124%上昇</td></tr>
+          <tr><td>ピーク</td><td>2006年7月（指数値 206.52）</td></tr>
+          <tr><td>底値</td><td>2012年2月頃（指数値 約134）</td></tr>
+          <tr><td>全国平均の下落率</td><td>約35%</td></tr>
+          <tr><td>ラスベガス</td><td>約62%下落</td></tr>
+          <tr><td>フェニックス</td><td>約56%下落</td></tr>
+          <tr><td>マイアミ</td><td>約51%下落</td></tr>
+          <tr><td>消失した住宅資産価値</td><td>約$6兆</td></tr>
+        </tbody>
+      </table>
+
+      <p>差し押さえ件数は2006年の約72万件から2010年には約290万件に急増。2007年から2012年の累計で<strong>1,000万件</strong>以上の住宅が差し押さえとなった。</p>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">DEEP DIVE — LEHMAN CRISIS</div>
+    <p class="further-reason">サブプライムローンは、証券化の連鎖によって世界中に拡散された。</p>
+    <div class="further-links">
+      <a class="further-link" href="../securitization/">
+        <span class="further-link-tag">NEXT</span>
+        <span class="further-link-title">証券化の錬金術 — BBBがAAAに変わるまで</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../rating-agencies/">
+        <span class="further-link-tag">RATINGS</span>
+        <span class="further-link-title">格付け会社の利益相反 — 「牛が組成しても格付けする」</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">OVERVIEW</span>
+        <span class="further-link-title">リーマン・ショック — 概要に戻る</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../../">書斎の入口へ戻る</a>&ensp;&middot;
+    <a href="../../">金融史の書庫</a>&ensp;&middot;
+    <a href="../">リーマン・ショック</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

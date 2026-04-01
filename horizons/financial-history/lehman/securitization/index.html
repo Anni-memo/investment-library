@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="証券化の錬金術｜リーマン・ショック深層｜投資と思考の書斎"/>
+<meta property="og:description" content="MBS、CDO、CDO²。BBBの集合体がAAAに変わる錬金術。リスクは分散されたのではなく、見えなくなっただけだった。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>証券化の錬金術｜リーマン・ショック深層｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+.hero{background:linear-gradient(160deg,#050508 0%,#180808 30%,#2a0e0e 60%,#3a1414 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+.diagram{background:var(--ink);color:var(--parch);padding:28px 24px;border-radius:4px;margin:2em 0;font-family:var(--mono);font-size:.75rem;line-height:2;text-align:center;border:1px solid rgba(184,144,10,.25);}
+.diagram .arrow{color:var(--gold3);font-size:1.2rem;display:block;margin:4px 0;}
+.diagram .box{display:inline-block;border:1px solid var(--gold3);padding:6px 16px;margin:4px;border-radius:2px;}
+.diagram .box-danger{border-color:var(--gold4);color:var(--gold4);}
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">リーマン・ショック</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">証券化の錬金術</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">LEHMAN CRISIS &mdash; DEEP DIVE</div>
+  <div class="hero-ornament">MBS &middot; CDO &middot; SYNTHETIC CDO</div>
+  <h1 class="hero-title">証券化の錬金術</h1>
+  <p class="hero-sub">The Alchemy of Securitization</p>
+  <p class="hero-lead">
+    BBBの集合体がAAAに変わる。<br>
+    リスクは分散されたのではなく、見えなくなっただけだった。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">MBS</div>
+    <h2 class="section-title">住宅ローン担保証券 ── 証券化の第一段階</h2>
+    <div class="section-body">
+      <p><strong>MBS（Mortgage-Backed Securities、住宅ローン担保証券）</strong>は、数千件の住宅ローンをプールし、そのキャッシュフロー（毎月の返済金）を証券化した金融商品である。</p>
+      <p>投資家はMBSを購入することで、住宅ローンの返済金の一部を受け取る。借り手が毎月ローンを返済する限り、安定した利回りが得られる。</p>
+      <p>MBSは<strong>トランシェ（tranche、フランス語で「スライス」）</strong>構造で分割される。</p>
+      <ul>
+        <li><strong>シニア・トランシェ（AAA格、約80%）</strong> ── 最も安全。損失が発生しても最後に影響を受ける</li>
+        <li><strong>メザニン・トランシェ（AA〜BBB格、約15%）</strong> ── 中間リスク</li>
+        <li><strong>エクイティ・トランシェ（格付けなし、約5%）</strong> ── 最も危険。損失を最初に吸収する</li>
+      </ul>
+      <p>2007年時点でMBS市場の規模は約<strong>$7.3兆</strong>。米国国債市場に匹敵する巨大市場だった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">CDO — THE ALCHEMY</div>
+    <h2 class="section-title">CDO ── BBBがAAAに変わる魔法</h2>
+    <div class="section-body">
+      <p>MBSのシニア・トランシェ（AAA格）は飛ぶように売れた。しかしメザニン・トランシェ（BBB格）は売れ残る。</p>
+      <p>そこでウォール街が編み出したのが<strong>CDO（Collateralized Debt Obligation、債務担保証券）</strong>である。</p>
+      <p>売れ残ったBBBトランシェを大量に集めて新しいプールを作り、再びトランシェ構造で分割する。すると、その新しいプールの上位80%が再び<strong>AAA</strong>格に格付けされる。</p>
+
+      <div class="diagram">
+        <span class="box">住宅ローン 数千件</span>
+        <span class="arrow">&darr; 証券化</span>
+        <span class="box">MBS（AAA 80% / BBB 15% / Equity 5%）</span>
+        <span class="arrow">&darr; BBB部分を集めて再証券化</span>
+        <span class="box box-danger">CDO（AAA 80% / BBB 15% / Equity 5%）</span>
+        <span class="arrow">&darr; さらにCDOのBBBを集めて...</span>
+        <span class="box box-danger">CDO&sup2;（AAA 80% / ...）</span>
+      </div>
+
+      <p>これが<strong>CDO&sup2;（CDOのCDO）</strong>である。元のローンから3段階離れ、リスクの追跡は事実上不可能になった。</p>
+      <p>2007年時点でCDO市場の規模は約<strong>$1.3兆</strong>。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">格付け会社の論理は「異なる地域のローンを束ねれば分散効果でリスクが下がる」というものだった。<br>しかし全米の住宅価格が同時に下落する事態が来たとき、分散は幻想だったと判明する。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">SYNTHETIC CDO</div>
+    <h2 class="section-title">合成CDO ── 原資産なきリスクの増幅</h2>
+    <div class="section-body">
+      <p>さらに異常だったのが<strong>合成CDO（Synthetic CDO）</strong>である。</p>
+      <p>通常のCDOは実際の住宅ローンを裏付けに持つ。しかし合成CDOは、<strong>CDS（Credit Default Swap）</strong>で構成され、実際のローンを1件も保有していない。</p>
+      <p>CDSとは、ある証券がデフォルトした場合に支払いを受けられる契約である。保険に似ているが、決定的な違いがある。</p>
+      <ul>
+        <li><strong>保険</strong> ── 実際に家を持っている人だけが火災保険をかけられる</li>
+        <li><strong>CDS</strong> ── 他人の家にも火災保険をかけられる。しかも何件でも</li>
+      </ul>
+      <p>これにより、1つのサブプライムローンのリスクが10倍、20倍に増幅された。原資産の何倍ものリスクが金融システム内に生み出された。</p>
+      <p>ゴールドマン・サックスが組成した<strong>ABACUS 2007-AC1</strong>は、この合成CDOの象徴的事例である。ヘッジファンドのジョン・ポールソンが「最も破綻しやすい」サブプライム証券を選定し、ゴールドマンがそれを「独立した第三者が選定した」と投資家に説明して販売した。投資家は約$10億の損失、ポールソンは約$10億の利益を得た。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">CDS MARKET</div>
+    <h2 class="section-title">CDS市場 ── $62兆の影の爆弾</h2>
+    <div class="section-body">
+      <p>CDS市場の想定元本は、2000年のわずか$9,000億から、2007年末には約<strong>$62兆</strong>に膨張した。世界のGDP合計とほぼ同額である。</p>
+      <p>CDSは規制されていないOTC（店頭）デリバティブだった。取引所を通さず、担保要件も不十分。誰がどれだけのリスクを抱えているか、全体像を把握している者は誰もいなかった。</p>
+      <p>最大のCDS売り手が<strong>AIG Financial Products</strong>だった。ロンドン拠点のわずか400人のチームが、$4,400億以上のCDSを発行していた。責任者ジョセフ・カッサーノは2007年8月にこう断言した。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">「我々のCDSポートフォリオから1ドルでも損失が出るシナリオは想像しがたい」<br>&mdash; ジョセフ・カッサーノ、AIG Financial Products、2007年8月</p>
+    </div>
+
+    <div class="section-body">
+      <p>AIGは保険と同じ機能のCDSを大量発行しながら、保険会社と違い、支払い準備金（引当金）を一切積み立てていなかった。住宅価格がわずか5%下がるだけで破綻する構造だった。</p>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">DEEP DIVE — LEHMAN CRISIS</div>
+    <p class="further-reason">なぜ格付け会社はこの構造に高い格付けを与え続けたのか。</p>
+    <div class="further-links">
+      <a class="further-link" href="../rating-agencies/">
+        <span class="further-link-tag">NEXT</span>
+        <span class="further-link-title">格付け会社の利益相反 — 「牛が組成しても格付けする」</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../subprime/">
+        <span class="further-link-tag">PREV</span>
+        <span class="further-link-title">サブプライムローンの実態 — 嘘つきローンの正体</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">OVERVIEW</span>
+        <span class="further-link-title">リーマン・ショック — 概要に戻る</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../../">書斎の入口へ戻る</a>&ensp;&middot;
+    <a href="../../">金融史の書庫</a>&ensp;&middot;
+    <a href="../">リーマン・ショック</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

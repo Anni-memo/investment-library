@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="危機の時系列｜リーマン・ショック深層｜投資と思考の書斎"/>
+<meta property="og:description" content="2007年2月のHSBC評価損から2009年3月のダウ底値まで。リーマン・ショックに至る危機の全時系列を追う。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<title>危機の時系列｜リーマン・ショック深層｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{
+  background:linear-gradient(160deg,#050508 0%,#180808 30%,#2a0e0e 60%,#3a1414 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(180,40,40,.06) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-sub{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.05rem);color:var(--parch3);font-style:italic;position:relative;margin-bottom:22px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 24px rgba(180,40,40,.15);position:relative;margin-bottom:12px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+.quote-block{background:var(--ink);border-left:3px solid var(--gold3);padding:20px 24px;margin:32px 0;color:var(--parch3);}
+.quote-block p{font-family:var(--serif);font-size:.95rem;line-height:1.85;font-weight:400;}
+.quote-block .quote-attr{font-family:var(--mono);font-size:.65rem;color:var(--gold3);margin-top:8px;letter-spacing:.08em;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+.data-table{width:100%;border-collapse:collapse;margin:1.5em 0;font-size:.85rem;}
+.data-table th{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--gold);text-align:left;padding:8px 12px;border-bottom:2px solid var(--gold);background:var(--parch2);}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.6;}
+.data-table tr:hover td{background:var(--parch2);}
+
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../../">金融史の書庫</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">リーマン・ショック</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">危機の時系列</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">LEHMAN CRISIS &mdash; DEEP DIVE</div>
+  <div class="hero-ornament">2007 &middot; 2008 &middot; 2009 &middot; CHRONOLOGY</div>
+  <h1 class="hero-title">危機の時系列</h1>
+  <p class="hero-sub">Timeline of the Crisis</p>
+  <p class="hero-lead">
+    2007年2月の最初の警告から、2009年3月の市場底値まで。<br>
+    世界金融システムが崩壊していく25ヶ月間の記録。
+  </p>
+</div>
+
+<main class="article">
+
+  <div class="article-section">
+    <div class="section-label">OMEN &mdash; 2007</div>
+    <h2 class="section-title">前兆 2007年</h2>
+    <div class="section-body">
+      <p>住宅バブルの崩壊は、一夜にして起きたわけではない。2007年を通じて、警告シグナルは何度も発せられていた。</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>時期</th><th>出来事</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2007年2月</td><td><strong>HSBC、$105億の評価損を計上</strong> &mdash; サブプライム関連で最初の大きな警告。世界最大級の銀行が損失を認めた</td></tr>
+          <tr><td>2007年6月</td><td><strong>ベア・スターンズ傘下の2ヘッジファンド崩壊</strong> &mdash; サブプライムMBSに集中投資していた2ファンドがほぼ全額毀損</td></tr>
+          <tr><td>2007年8月9日</td><td><strong>BNPパリバ・ショック</strong> &mdash; 傘下3ファンドの償還を凍結。「公正な価値評価が不可能」と発表。ECBが&euro;950億を緊急供給</td></tr>
+          <tr><td>2007年9月</td><td><strong>英ノーザン・ロック取り付け騒ぎ</strong> &mdash; 150年ぶりの英国銀行取り付け。支店前に預金者が長蛇の列</td></tr>
+          <tr><td>2007年10月</td><td><strong>メリルリンチ、$79億の評価損</strong> &mdash; CEO スタン・オニールが辞任に追い込まれる</td></tr>
+          <tr><td>2007年12月</td><td><strong>FRBがTAF（Term Auction Facility）を創設</strong> &mdash; 銀行間市場の機能不全に対応する緊急流動性供給</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">COLLAPSE &mdash; 2008</div>
+    <h2 class="section-title">崩壊 2008年</h2>
+    <div class="section-body">
+      <p>2008年、警告は現実となった。3月のベア・スターンズ崩壊から始まり、9月の「恐怖の2週間」で世界金融システムは崩壊の瀬戸際に立った。</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>時期</th><th>出来事</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1月</td><td><strong>カントリーワイド、バンク・オブ・アメリカに買収される</strong> &mdash; 全米最大のモーゲージ貸付業者の終焉</td></tr>
+          <tr><td>3月14&ndash;16日</td><td><strong>ベア・スターンズ崩壊</strong> &mdash; JPモルガンが$2/株で救済買収（1年前は$170/株）。FRBが$300億の損失保証</td></tr>
+          <tr><td>7月</td><td><strong>IndyMac銀行破綻</strong> &mdash; 当時米史上3番目の銀行破綻。預金者がATM前に殺到</td></tr>
+          <tr><td>9月7日</td><td><strong>ファニーメイ・フレディマック国有化</strong> &mdash; 米住宅ローンの約半分を保証する2社を政府が管理下に</td></tr>
+          <tr><td>9月15日</td><td><strong>リーマン・ブラザーズ破産申請</strong>（負債$6,130億）&mdash; 同日、メリルリンチがBofAに買収を発表</td></tr>
+          <tr><td>9月16日</td><td><strong>AIG救済、$850億</strong> &mdash; FRBが事実上の国有化。CDSの売り手として世界中と繋がっていた</td></tr>
+          <tr><td>9月17日</td><td><strong>Reserve Primary Fund、元本割れ（breaking the buck）</strong> &mdash; MMF史上2度目。機関投資家がパニック的に資金引き揚げ</td></tr>
+          <tr><td>9月21日</td><td><strong>ゴールドマン・サックス、モルガン・スタンレーが銀行持株会社に転換</strong> &mdash; ウォール街の投資銀行モデルの終焉</td></tr>
+          <tr><td>9月25日</td><td><strong>ワシントン・ミューチュアル破綻</strong> &mdash; 資産$3,070億、米史上最大の銀行破綻。JPモルガンが預金業務を引き継ぎ</td></tr>
+          <tr><td>9月29日</td><td><strong>TARP否決 &rarr; ダウ777ポイント下落</strong> &mdash; 史上最大の1日下落幅（当時）。市場がパニックに陥る</td></tr>
+          <tr><td>10月3日</td><td><strong>TARP可決（$7,000億）</strong> &mdash; 修正版が上院・下院を通過。金融安定化の枠組みが成立</td></tr>
+          <tr><td>10月28日</td><td><strong>日経平均6,994円</strong> &mdash; バブル崩壊後の最安値を26年ぶりに更新</td></tr>
+          <tr><td>11月</td><td><strong>シティグループ救済</strong> &mdash; 政府が$200億注入＋$3,060億の不良資産を保証</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">BOTTOM &mdash; 2009</div>
+    <h2 class="section-title">底 2009年</h2>
+    <div class="section-body">
+      <table class="data-table">
+        <thead>
+          <tr><th>時期</th><th>出来事</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2009年3月</td><td><strong>ダウ6,547</strong> &mdash; 2007年10月のピーク（14,164）から<strong>54%下落</strong>。同月、AIG幹部が公的資金で救済された直後に$1.65億のボーナスを受領し、国民の怒りが頂点に達した</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="article-section">
+    <div class="section-label">TARP &mdash; THE VOTE</div>
+    <h2 class="section-title">TARP法案の劇的な経緯</h2>
+    <div class="section-body">
+      <p>2008年9月、ポールソン財務長官とバーナンキFRB議長は議会に$7,000億の緊急救済法案（TARP）を要請した。しかし、その成立までの道のりは想像以上に険しかった。</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>日付</th><th>経緯</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>9月29日</td><td><strong>下院で否決</strong>（205対228） &mdash; 共和党の2/3が反対。直後にダウが777ポイント下落</td></tr>
+          <tr><td>10月1日</td><td><strong>修正版を上院が可決</strong> &mdash; 預金保険の上限引き上げ等を追加し、反対派の切り崩しに成功</td></tr>
+          <tr><td>10月3日</td><td><strong>下院が修正版を可決</strong>（263対171） &mdash; 市場の暴落と選挙区からの圧力が議員の態度を変えた</td></tr>
+        </tbody>
+      </table>
+
+      <p>法案審議中、議員のもとには有権者からの電話が殺到した。その比率は<strong>100対1でNo</strong>。「ウォール街を税金で救うな」という声が圧倒的だった。</p>
+    </div>
+
+    <div class="quote-block">
+      <p>「我々は資本主義を救うために社会主義を行っている」</p>
+      <div class="quote-attr">&mdash; バーニー・フランク（下院金融委員長）</div>
+    </div>
+  </div>
+
+</main>
+
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">DEEP DIVE &mdash; LEHMAN CRISIS</div>
+    <p class="further-reason">時系列を追った先に見えるのは、危機が国境を越えて波及していく姿である。</p>
+    <div class="further-links">
+      <a class="further-link" href="../contagion/">
+        <span class="further-link-tag">NEXT</span>
+        <span class="further-link-title">世界への波及 &mdash; アイスランドから日本まで</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../key-players/">
+        <span class="further-link-tag">PREV</span>
+        <span class="further-link-title">主要人物 &mdash; 危機を動かした者たち</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">OVERVIEW</span>
+        <span class="further-link-title">リーマン・ショック &mdash; 概要に戻る</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../../../">書斎の入口へ戻る</a>&ensp;&middot;
+    <a href="../../">金融史の書庫</a>&ensp;&middot;
+    <a href="../">リーマン・ショック</a>
+  </div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+</body>
+</html>

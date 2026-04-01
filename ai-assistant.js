@@ -275,6 +275,9 @@ function initAssistant(){
   var sendBtn = document.getElementById('aiChatSend');
   var messages = document.getElementById('aiChatMessages');
 
+  // FABを常に表示
+  fab.classList.add('scroll-visible');
+
   fab.addEventListener('click', function(){
     chatWindow.classList.toggle('open');
     fab.classList.toggle('hidden');
@@ -465,8 +468,9 @@ function initAssistant(){
 
 function getAssistantCSS(){
   return '' +
-  '#ai-assistant-widget{position:fixed;bottom:72px;right:16px;z-index:9000;font-family:"Noto Serif JP","Cormorant Garamond",serif;}' +
-  '.ai-fab{position:fixed;bottom:72px;right:16px;z-index:9001;padding:8px 14px;border-radius:24px;background:linear-gradient(135deg,#1a1208 0%,#2d2010 100%);border:1.5px solid rgba(184,144,10,.35);color:#d4aa22;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 24px rgba(26,18,8,.45),0 0 12px rgba(184,144,10,.08);transition:all .3s;}' +
+  '#ai-assistant-widget{z-index:9000;font-family:"Noto Serif JP","Cormorant Garamond",serif;}' +
+  '.ai-fab{position:fixed !important;bottom:120px !important;right:16px !important;left:auto !important;top:auto !important;z-index:9001;padding:8px 14px;border-radius:24px;background:linear-gradient(135deg,#1a1208 0%,#2d2010 100%);border:1.5px solid rgba(184,144,10,.35);color:#d4aa22;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 24px rgba(26,18,8,.45),0 0 12px rgba(184,144,10,.08);transition:all .3s;opacity:0;pointer-events:none;}' +
+  '.ai-fab.scroll-visible{opacity:1;pointer-events:all;}' +
   '.ai-fab:hover{background:linear-gradient(135deg,#2d2010 0%,#3a2a18 100%);border-color:#d4aa22;transform:translateY(-2px);box-shadow:0 6px 28px rgba(26,18,8,.5),0 0 16px rgba(184,144,10,.15);}' +
   '.ai-fab-icon{flex-shrink:0;}' +
   '.ai-fab-label{font-family:"Noto Serif JP",serif;font-size:.6rem;color:#d4aa22;letter-spacing:.06em;white-space:nowrap;opacity:.9;}' +
@@ -494,6 +498,7 @@ function getAssistantCSS(){
   '.ai-typing-dot:nth-child(3){animation-delay:.3s;}' +
   '@keyframes ai-bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-6px);opacity:1}}' +
   /* ダークモード */
+  '' +
   '[data-theme="dark"] .ai-chat-window{background:#1a1208;border-color:#3a2a18;}' +
   '[data-theme="dark"] .ai-msg-bot{background:#221a0e;color:#e8dcc8;border-color:#3a2a18;}' +
   '[data-theme="dark"] .ai-chat-input-wrap{background:#221a0e;border-color:#3a2a18;}' +

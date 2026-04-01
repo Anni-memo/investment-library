@@ -135,14 +135,14 @@ body::before{
 
 /* ── HERO (Video Background) ── */
 .hero{
-  background:#0c0805;
+  background:transparent;
   color:var(--parch);
   min-height:auto;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:32px 24px 20px;
   text-align:center;
   position:relative;overflow:hidden;
-  border-bottom:1px solid rgba(184,144,10,.15);
+  z-index:2;
 }
 .hero-video-wrap{
   position:absolute;inset:0;z-index:0;
@@ -233,7 +233,7 @@ body::before{
 
 /* ── Hero responsive ── */
 @media(max-width:768px){
-  .hero{min-height:85vh;padding:60px 20px 48px;}
+  .hero{min-height:42vh;padding:40px 20px 32px;}
   .hero-video-overlay{
     background:linear-gradient(180deg,
       rgba(10,8,4,.65) 0%,
@@ -251,7 +251,7 @@ body::before{
   .hero-video-fallback{opacity:1 !important;}
 }
 @media(max-width:480px){
-  .hero{min-height:80vh;padding:48px 12px 32px;}
+  .hero{min-height:40vh;padding:32px 12px 24px;}
   .hero-title{font-size:clamp(1.6rem,8vw,2.2rem);margin-bottom:20px;}
   .hero-ornament{font-size:.42rem;letter-spacing:.3em;margin-bottom:20px;}
   .hero-tagline{font-size:.75rem;letter-spacing:.06em;margin-bottom:20px;}
@@ -419,65 +419,33 @@ body::before{
 </head>
 <body>
 
-<!-- ══════════════ HERO ══════════════ -->
+<!-- ══════════════ HERO + BANNERS (共通背景) ══════════════ -->
+<div class="hero-wrap" style="position:relative;overflow:hidden;">
+  <!-- 共通背景画像 -->
+  <div style="position:absolute;inset:0;background:url('assets/hero-poster.jpg') center/cover no-repeat;z-index:0;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.3) 0%,rgba(10,8,4,.2) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.5) 100%);z-index:1;pointer-events:none;"></div>
 
-<div class="hero">
-  <!-- Video Background -->
-  <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline
-           poster="assets/hero-poster.jpg"
-           onloadeddata="this.classList.add('loaded');this.parentElement.classList.add('video-ready')">
-      <source src="assets/hero-video.mp4" type="video/mp4">
-      <source src="assets/hero-video.webm" type="video/webm">
-    </video>
-    <div class="hero-video-overlay"></div>
-    <div class="hero-video-fallback"></div>
+  <!-- HERO -->
+  <div class="hero" style="background:transparent;">
+    <h1 class="hero-title" style="position:relative;z-index:2;">投資と思考の書斎</h1>
   </div>
-  <h1 class="hero-title" style="position:relative;z-index:2;">投資と思考の書斎</h1>
 
-</div>
+  <!-- MORNING METHOD -->
+  <div id="morningSection" style="background:linear-gradient(135deg,rgba(10,18,16,.65) 0%,rgba(26,42,34,.6) 50%,rgba(14,24,16,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+    <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
+      <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">朝の実践を始める</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">瞑想・アファメーション・運動・読書・ジャーナリング</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(212,170,34,.5);letter-spacing:.1em;margin-top:10px;">MORNING PRACTICE →</div>
+    </a>
+  </div>
 
-<!-- ══════════════ MORNING METHOD (全幅緑バンド) ══════════════ -->
-<div id="morningSection" style="background:linear-gradient(135deg,#0a1210 0%,#1a2a22 50%,#0e1810 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;">
-  <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
-    <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">朝の実践を始める</div>
-    <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">瞑想・アファメーション・運動・読書・ジャーナリング</div>
-    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(212,170,34,.5);letter-spacing:.1em;margin-top:10px;">MORNING PRACTICE →</div>
-  </a>
-</div>
-
-<!-- ══════════════ FINANCIAL HISTORY (青バナー) ══════════════ -->
-<div style="background:linear-gradient(135deg,#0a0e18 0%,#141a2a 50%,#0e1420 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;">
-  <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
-    <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
-    <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
-    <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,136,208,.5);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
-  </a>
-</div>
-
-<!-- ══════════════ GUIDE: 書斎の案内人 ══════════════ -->
-<div class="guide">
-  <div class="guide-inner">
-    <div class="guide-label">YOUR GUIDE</div>
-    <div class="guide-q" id="guideQuestion">今日はどこから歩きますか？</div>
-    <div class="guide-sub" id="guideSub">選んでください。案内人がお連れします。</div>
-
-    <div class="guide-tree" id="guideTree">
-      <div class="guide-btn" onclick="guideStep('morning')"><span class="guide-btn-icon">MORNING</span>朝を整えたい</div>
-      <div class="guide-btn" onclick="guideStep('invest')"><span class="guide-btn-icon">INVESTMENT</span>投資を学びたい</div>
-      <div class="guide-btn" onclick="guideStep('people')"><span class="guide-btn-icon">PEOPLE</span>人物を読みたい</div>
-      <div class="guide-btn" onclick="guideStep('culture')"><span class="guide-btn-icon">CULTURE</span>教養を深めたい</div>
-      <div class="guide-btn" onclick="guideStep('company')"><span class="guide-btn-icon">ANALYSIS</span>企業を調べたい</div>
-    </div>
-
-    <div class="guide-micro">
-      <div class="guide-micro-row">
-        <input id="guideInput" type="text" placeholder="または、ここに入力..."/>
-        <button id="micBtn" onclick="startVoiceGuide()" title="音声入力">&#127908;</button>
-        <button onclick="handleGuideQuery()" title="送信">&#10148;</button>
-      </div>
-      <div id="micStatus" style="font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.06em;margin-top:4px;min-height:.8em;opacity:0;transition:opacity .3s;"></div>
-    </div>
+  <!-- FINANCIAL HISTORY -->
+  <div style="background:linear-gradient(135deg,rgba(10,14,24,.6) 0%,rgba(20,26,42,.55) 50%,rgba(14,20,32,.6) 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+    <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
+      <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,136,208,.5);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
+    </a>
   </div>
 </div>
 
@@ -523,8 +491,15 @@ body::before{
     <a href="book-guide/">読む・聴く案内室</a> ·
     <a href="smart-home/">今日の書斎</a> ·
     <a href="learning/">まなびの時間</a> ·
+    <a href="nisa/">NISAの始め方</a> ·
     <a href="api/articles.json">API</a> ·
     <a href="llms.txt">llms.txt</a>
+  </div>
+  <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(184,144,10,.15);font-size:.64rem;">
+    <span style="font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:rgba(212,170,34,.4);">SISTER SITE</span><br/>
+    <a href="https://anni-memo.github.io/finance-education/" target="_blank" rel="noopener">お金と暮らしの学びの書架</a>
+    <span style="color:rgba(223,201,168,.35);margin:0 4px;">—</span>
+    <span style="color:rgba(223,201,168,.5);">学校で使える金融教育の無料AI図書館</span>
   </div>
   <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
   <div style="margin-top:6px">書籍情報・Amazonリンクは参考です。購入前に最新情報をご確認ください。</div>
@@ -571,7 +546,8 @@ var SEARCH_DATA = [
   {title:"稲盛和夫｜利他と規律で三つの企業を築いた経営者",url:"people/inamori-kazuo/",desc:"京セラ・KDDI・JAL。人間として何が正しいかを判断基準に",cat:"INAMORI"},
   {title:"ナシーム・タレブ｜不確実性を味方にする思想家",url:"people/taleb/",desc:"ブラック・スワン、反脆弱性、身銭を切れ",cat:"TALEB"},
   {title:"セネカ｜時間を最大の資産と見なした哲学者",url:"people/seneca/",desc:"人生は短いのではない。我々が短くしているのだ",cat:"SENECA"},
-  {title:"思考の案内人たち",url:"thinkers/",desc:"バフェット・マンガー・アウレリウスの思想をレンズとして判断を照らす",cat:"THINKERS"}
+  {title:"思考の案内人たち",url:"thinkers/",desc:"バフェット・マンガー・アウレリウスの思想をレンズとして判断を照らす",cat:"THINKERS"},
+  {title:"NISAの始め方",url:"nisa/",desc:"はじめてでも迷わない。制度の理解から口座開設・積立設定まで全8章のeラーニング",cat:"NISA E-LEARNING"}
 ];
 
 (function(){
@@ -599,183 +575,14 @@ var SEARCH_DATA = [
   });
 })();
 
-// ── 書斎の案内人：ツリーナビゲーション ──
-var guideData={
-  morning:{q:'朝の過ごし方を選んでください。',sub:'',items:[
-    {label:'PRACTICE',text:'3分で整える',url:'morning-practice/'},
-    {label:'METHOD',text:'モーニングメソッドを学ぶ',url:'morning-method/'},
-    {label:'NIGHT',text:'夜の読書で休む',url:'night-reading/'},
-    {label:'HOME',text:'パーソナルホームを開く',url:'smart-home/'},
-  ]},
-  invest:{q:'何から学びますか？',sub:'',items:[
-    {label:'FIRST',text:'初めての方へ',url:'hajimete/'},
-    {label:'PRINCIPLES',text:'投資原則から',url:'principles/'},
-    {label:'MOAT',text:'moat（経済的堀）を理解する',url:'moat/'},
-    {label:'FCF',text:'FCF（フリーキャッシュフロー）を読む',url:'fcf/'},
-    {label:'MENTAL',text:'投資家の心理を知る',url:'human/'},
-  ]},
-  people:{q:'誰を読みますか？',sub:'',items:[
-    {label:'ALL',text:'人物録を開く',url:'people/'},
-    {label:'TANAKA',text:'田中渓｜投資・習慣・身体をつなぐ実践者',url:'people/tanaka-kei/'},
-    {label:'BNF',text:'BNF｜公開資料から辿る個人投資家',url:'people/bnf/'},
-    {label:'INAMORI',text:'稲盛和夫｜利他と規律の経営者',url:'people/inamori-kazuo/'},
-    {label:'TALEB',text:'タレブ｜不確実性を味方にする思想家',url:'people/taleb/'},
-    {label:'SENECA',text:'セネカ｜時間を資産と見なした哲学者',url:'people/seneca/'},
-    {label:'MARCUS',text:'マルクス・アウレリウス｜哲人皇帝',url:'life-shelf/marcus-aurelius/'},
-  ]},
-  culture:{q:'どの方向へ深めますか？',sub:'',items:[
-    {label:'HISTORY',text:'金融史を歩く',url:'horizons/financial-history/'},
-    {label:'HORIZONS',text:'思考を広げる棚',url:'horizons/'},
-    {label:'CLASSICS',text:'古典と人間理解',url:'classics/'},
-    {label:'BOOKS',text:'読む・聴く案内室',url:'book-guide/'},
-    {label:'ROUTES',text:'読書ルートを歩く',url:'reading-routes/'},
-    {label:'SHELF',text:'人生の書架',url:'life-shelf/'},
-    {label:'THINKERS',text:'思考の案内人たち',url:'thinkers/'},
-  ]},
-  company:{q:'どう調べますか？',sub:'',items:[
-    {label:'INDUSTRY',text:'業種から歩く（14業種）',url:'industries/'},
-    {label:'COMPANY',text:'企業分析を読む（69社）',url:'companies/'},
-    {label:'MEMO',text:'銘柄メモを見る',url:'hajimete/memo/'},
-    {label:'RESEARCH',text:'論考の棚',url:'research/'},
-    {label:'NEWS',text:'ニュース記事',url:'news/'},
-  ]},
-};
-function guideStep(key){
-  var d=guideData[key];if(!d)return;
-  var q=document.getElementById('guideQuestion');
-  var s=document.getElementById('guideSub');
-  var t=document.getElementById('guideTree');
-  q.textContent=d.q;
-  s.textContent=d.sub;
-  var html='<button class="guide-back" onclick="guideReset()">&#8592; 戻る</button>';
-  d.items.forEach(function(item){
-    html+='<a class="guide-btn" href="'+item.url+'"><span class="guide-btn-icon">'+item.label+'</span>'+item.text+'</a>';
-  });
-  t.innerHTML=html;
-}
-function guideReset(){
-  var q=document.getElementById('guideQuestion');
-  var s=document.getElementById('guideSub');
-  var t=document.getElementById('guideTree');
-  q.textContent='今日はどこから歩きますか？';
-  s.textContent='選んでください。案内人がお連れします。';
-  t.innerHTML='<div class="guide-btn" onclick="guideStep(\'morning\')"><span class="guide-btn-icon">MORNING</span>朝を整えたい</div>'
-    +'<div class="guide-btn" onclick="guideStep(\'invest\')"><span class="guide-btn-icon">INVESTMENT</span>投資を学びたい</div>'
-    +'<div class="guide-btn" onclick="guideStep(\'people\')"><span class="guide-btn-icon">PEOPLE</span>人物を読みたい</div>'
-    +'<div class="guide-btn" onclick="guideStep(\'culture\')"><span class="guide-btn-icon">CULTURE</span>教養を深めたい</div>'
-    +'<div class="guide-btn" onclick="guideStep(\'company\')"><span class="guide-btn-icon">ANALYSIS</span>企業を調べたい</div>';
-}
-
-// ── 書斎の案内人：音声入力 ──
-var voiceRecognition=null;
-function startVoiceGuide(){
-  var btn=document.getElementById('micBtn');
-  var status=document.getElementById('micStatus');
-  var input=document.getElementById('guideInput');
-  if(btn.classList.contains('listening')){
-    if(voiceRecognition)voiceRecognition.stop();
-    return;
-  }
-  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SR){
-    status.textContent='お使いのブラウザは音声入力に対応していません。テキストで入力してください。';
-    status.style.opacity='1';
-    setTimeout(function(){status.style.opacity='0';},4000);
-    return;
-  }
-  voiceRecognition=new SR();
-  voiceRecognition.lang='ja-JP';
-  voiceRecognition.continuous=false;
-  voiceRecognition.interimResults=true;
-  btn.classList.add('listening');
-  btn.style.opacity='1';
-  btn.style.color='#d4aa22';
-  status.textContent='聴いています...';
-  status.style.opacity='1';
-  voiceRecognition.onresult=function(e){
-    var transcript='';
-    for(var i=e.resultIndex;i<e.results.length;i++){
-      transcript+=e.results[i][0].transcript;
-    }
-    input.value=transcript;
-    if(e.results[e.results.length-1].isFinal){
-      status.textContent='「'+transcript+'」';
-      setTimeout(function(){handleGuideQuery();},600);
-    }
-  };
-  voiceRecognition.onerror=function(e){
-    btn.classList.remove('listening');
-    btn.style.opacity='.5';
-    btn.style.color='var(--parch4)';
-    if(e.error==='not-allowed'){
-      status.textContent='マイクの使用が許可されていません。ブラウザの設定を確認してください。';
-    }else{
-      status.textContent='音声認識エラー：'+e.error;
-    }
-    status.style.opacity='1';
-    setTimeout(function(){status.style.opacity='0';},4000);
-  };
-  voiceRecognition.onend=function(){
-    btn.classList.remove('listening');
-    btn.style.opacity='.5';
-    btn.style.color='var(--parch4)';
-    setTimeout(function(){status.style.opacity='0';},3000);
-  };
-  voiceRecognition.start();
-}
-
-// ── 書斎の案内人 ──
-function handleGuideQuery(){
-  var input=document.getElementById('guideInput');
-  if(!input)return;
-  var q=input.value.trim().toLowerCase();
-  if(!q)return;
-  var routes=[
-    {keys:['整え','3分','朝','瞑想','アファメーション','morning'],url:'morning-practice/'},
-    {keys:['人物','田中','bnf','稲盛','タレブ','セネカ','アウレリウス','人物録'],url:'people/'},
-    {keys:['田中渓','田中けい','たなかけい','kei tanaka'],url:'people/tanaka-kei/'},
-    {keys:['bnf','ジェイコム'],url:'people/bnf/'},
-    {keys:['稲盛','京セラ','jal','利他','アメーバ'],url:'people/inamori-kazuo/'},
-    {keys:['タレブ','ブラックスワン','反脆弱','antifragile'],url:'people/taleb/'},
-    {keys:['セネカ','時間','人生の短さ'],url:'people/seneca/'},
-    {keys:['ニュース','日経','今日'],url:'news/'},
-    {keys:['企業','分析','会社','銘柄'],url:'companies/'},
-    {keys:['moat','堀','競争優位'],url:'moat/'},
-    {keys:['fcf','キャッシュフロー','フリー'],url:'fcf/'},
-    {keys:['業種','セクター','業界'],url:'industries/'},
-    {keys:['本','読書','一冊','book'],url:'book-guide/'},
-    {keys:['原則','バフェット','マンガー','フィッシャー'],url:'principles/'},
-    {keys:['モーニング','savers','メソッド'],url:'morning-method/'},
-    {keys:['夜','寝る前','リラックス'],url:'night-reading/'},
-    {keys:['落合','デジタル'],url:'horizons/ochiai-yoichi/'},
-    {keys:['藤田','サイバー','abema'],url:'life-shelf/fujita-susumu/'},
-    {keys:['禅','zen','何もしない'],url:'horizons/zen/'},
-    {keys:['用語','glossary','辞書'],url:'glossary/'},
-  ];
-  for(var i=0;i<routes.length;i++){
-    for(var j=0;j<routes[i].keys.length;j++){
-      if(q.indexOf(routes[i].keys[j])!==-1){
-        window.location.href=routes[i].url;
-        return;
-      }
-    }
-  }
-  var searchInput=document.getElementById('siteSearch');
-  if(searchInput){searchInput.value=input.value;searchInput.dispatchEvent(new Event('input'));searchInput.focus();window.scrollTo({top:searchInput.offsetTop-100,behavior:'smooth'});}
-}
-// Enterキー対応
-(function(){
-  var gi=document.getElementById('guideInput');
-  if(gi)gi.addEventListener('keydown',function(e){if(e.key==='Enter')handleGuideQuery();});
-})();
+// NPCガイド削除済み（AI FABに統合）
 </script>
 <script src="onboarding.js"></script>
 <script src="shared.js"></script>
 <script src="ai-assistant.js"></script>
 <script src="presence.js"></script>
-<script src="npc-widget.js"></script>
+<!-- npc-widget.js 削除済み（AI FABに統合） -->
 <script src="enhancements.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/obelisk.js/1.2.1/obelisk.min.js"></script>
 <script src="library-map.js"></script>
 
 </body>

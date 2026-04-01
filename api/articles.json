@@ -603,6 +603,20 @@
       "dateAdded": "2026-03-28"
     },
     {
+      "title": "Claude Codeへの話し方で出力が変わる？— 研究データで検証する最適プロンプト",
+      "url": "/investment-library/learning/prompt-optimization/",
+      "description": "チップ・専門家ペルソナ・過度な敬語。ネットで広まるテクニックを研究データで検証し、本当に効く指示の出し方を解説。",
+      "category": "tools",
+      "tags": [
+        "Claude Code",
+        "プロンプト最適化",
+        "EmotionPrompt",
+        "エビデンス"
+      ],
+      "difficulty": "beginner",
+      "dateAdded": "2026-04-01"
+    },
+    {
       "title": "まなびの時間：投資用語クイズ・算数チャレンジ・読解チャレンジ",
       "url": "/investment-library/learning/",
       "description": "投資用語クイズ（10問1セット）・算数チャレンジ（初級〜上級・投資計算）・読解チャレンジ（記事理解度テスト）の3モードで楽しく学べる。",
