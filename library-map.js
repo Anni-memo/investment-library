@@ -111,15 +111,29 @@
   /* ══════════════════════════════════════
      4. NPC DEFINITIONS
      ══════════════════════════════════════ */
+  // pose: 'walk'=歩行, 'reading'=座って読書, 'shelving'=本棚で探索, 'idle'=立ち
+  // bodyColor: 服の色
   var NPCS = [
-    { room:'entrance',   name:'案内人', rx:0.6, ry:0.55, dir:0, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 },
-    { room:'hub',        name:'執事',   rx:0.5, ry:0.5,  dir:0, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 },
-    { room:'principles', name:'学者',   rx:0.35,ry:0.6,  dir:2, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 },
-    { room:'companies',  name:'司書',   rx:0.7, ry:0.5,  dir:1, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 },
-    { room:'corridor',   name:'旅人',   rx:0.5, ry:0.4,  dir:0, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 },
-    { room:'finhistory', name:'語り部', rx:0.5, ry:0.55, dir:0, tx:0, ty:0, state:'idle', wait:0, walkFrame:0 }
+    // === 歩行NPC（最小限：2体のみ） ===
+    { room:'hub',        name:'執事',     rx:0.5, ry:0.5,  dir:0, pose:'walk', bodyColor:'#3a5a4a', tx:0,ty:0,state:'idle',wait:30,walkFrame:0 },
+    { room:'corridor',   name:'旅人',     rx:0.3, ry:0.4,  dir:2, pose:'walk', bodyColor:'#6a4a3a', tx:0,ty:0,state:'idle',wait:60,walkFrame:0 },
+    // === 座って読書中NPC（メイン：8体） ===
+    { room:'entrance',   name:'案内人',   rx:0.45,ry:0.58, dir:0, pose:'reading', bodyColor:'#4a6a3a' },
+    { room:'principles', name:'学者',     rx:0.48,ry:0.62, dir:0, pose:'reading', bodyColor:'#3a4a6a' },
+    { room:'moat',       name:'分析家',   rx:0.22,ry:0.62, dir:0, pose:'reading', bodyColor:'#5a3a5a' },
+    { room:'moat',       name:'研究者',   rx:0.62,ry:0.62, dir:0, pose:'reading', bodyColor:'#4a4a3a' },
+    { room:'fcf',        name:'会計士',   rx:0.35,ry:0.62, dir:0, pose:'reading', bodyColor:'#3a3a5a' },
+    { room:'research',   name:'著述家',   rx:0.55,ry:0.6,  dir:0, pose:'reading', bodyColor:'#5a4a2a' },
+    { room:'news',       name:'記者',     rx:0.4, ry:0.6,  dir:0, pose:'reading', bodyColor:'#4a3a4a' },
+    { room:'horizons',   name:'哲学者',   rx:0.4, ry:0.55, dir:0, pose:'reading', bodyColor:'#2a5a5a' },
+    // === 本棚で探索中NPC（4体） ===
+    { room:'companies',  name:'司書',     rx:0.12,ry:0.35, dir:3, pose:'shelving', bodyColor:'#5a6a3a' },
+    { room:'finhistory', name:'語り部',   rx:0.75,ry:0.2,  dir:3, pose:'shelving', bodyColor:'#6a3a2a' },
+    { room:'principles', name:'書生',     rx:0.8, ry:0.25, dir:3, pose:'shelving', bodyColor:'#4a5a5a' },
+    { room:'entrance',   name:'来訪者',   rx:0.08,ry:0.35, dir:3, pose:'shelving', bodyColor:'#5a4a5a' }
   ];
-  for (var ni = 0; ni < NPCS.length; ni++) { NPCS[ni].tx = NPCS[ni].rx; NPCS[ni].ty = NPCS[ni].ry; }
+  // 歩行NPCのtx/ty初期化
+  for (var ni = 0; ni < NPCS.length; ni++) { if(NPCS[ni].pose==='walk'){NPCS[ni].tx=NPCS[ni].rx;NPCS[ni].ty=NPCS[ni].ry;} }
 
   /* ══════════════════════════════════════
      5. STATE
@@ -351,28 +365,85 @@
 
   function drawBookshelf(x,y,w,h,seed) {
     var rng=seededRand(seed||42);
+    // Frame with depth
     ctx.fillStyle=C.woodDark; ctx.fillRect(x,y,w,h);
     ctx.fillStyle=C.woodMid; ctx.fillRect(x+1,y+1,w-2,h-2);
+    // Inner shadow (depth)
+    ctx.fillStyle='rgba(0,0,0,.08)'; ctx.fillRect(x+2,y+2,w-4,h-4);
     var sc=Math.max(2,Math.floor(h/12)), sh=h/sc;
     for(var s=0;s<sc;s++){var sy=y+s*sh; var bx=x+2;
-      while(bx<x+w-3){var bw=2+Math.floor(rng()*3),bh=sh*(0.6+rng()*0.35),bc=bookColors[Math.floor(rng()*bookColors.length)];
-        ctx.fillStyle=bc; ctx.fillRect(bx,sy+(sh-bh),bw,bh-1);
-        ctx.fillStyle='rgba(255,255,255,.1)'; ctx.fillRect(bx,sy+(sh-bh),1,bh-1); bx+=bw+1;}
+      while(bx<x+w-3){var bw=2+Math.floor(rng()*3),bh=sh*(0.55+rng()*0.4),bc=bookColors[Math.floor(rng()*bookColors.length)];
+        var by=sy+(sh-bh);
+        ctx.fillStyle=bc; ctx.fillRect(bx,by,bw,bh-1);
+        // Top highlight
+        ctx.fillStyle='rgba(255,255,255,.15)'; ctx.fillRect(bx,by,bw,1);
+        // Side shadow
+        ctx.fillStyle='rgba(0,0,0,.2)'; ctx.fillRect(bx+bw-1,by,1,bh-1);
+        // Spine highlight
+        ctx.fillStyle='rgba(255,255,255,.08)'; ctx.fillRect(bx,by,1,bh-1);
+        bx+=bw+1;}
       ctx.fillStyle=C.woodLight; ctx.fillRect(x+1,sy+sh-1,w-2,1);}
-    ctx.fillStyle='rgba(0,0,0,.12)'; ctx.fillRect(x,y+h,w,3);
+    // Bottom shadow
+    ctx.fillStyle='rgba(0,0,0,.18)'; ctx.fillRect(x,y+h,w,3);
+    // Side trim
+    ctx.fillStyle='rgba(184,144,10,.08)'; ctx.fillRect(x,y,1,h); ctx.fillRect(x+w-1,y,1,h);
   }
 
   function drawDesk(x,y,w,h) {
-    ctx.fillStyle='rgba(0,0,0,.1)'; ctx.fillRect(x+2,y+2,w,h);
+    // Legs
+    ctx.fillStyle=C.woodDark;
+    ctx.fillRect(x+2,y+h-2,3,4); ctx.fillRect(x+w-5,y+h-2,3,4);
+    // Shadow under desk
+    ctx.fillStyle='rgba(0,0,0,.12)'; ctx.fillRect(x+2,y+h+1,w-4,2);
+    // Tabletop
     ctx.fillStyle=C.woodLight; ctx.fillRect(x,y,w,h);
     ctx.fillStyle=C.woodMid; ctx.fillRect(x+1,y+1,w-2,h-2);
+    // Wood grain texture
+    ctx.fillStyle='rgba(0,0,0,.04)'; for(var g=0;g<w;g+=3) ctx.fillRect(x+g,y+1,1,h-2);
+    // Edge
     ctx.strokeStyle=C.woodDark; ctx.lineWidth=0.5; ctx.strokeRect(x,y,w,h);
-    ctx.fillStyle=C.paper; ctx.fillRect(x+4,y+3,w*0.3,h*0.4);
-    ctx.fillStyle=C.ink; ctx.fillRect(x+w-10,y+4,4,4);
+    // Paper stack
+    ctx.fillStyle=C.paper; ctx.fillRect(x+4,y+3,w*0.3,h*0.45);
+    ctx.fillStyle='#e8e0d0'; ctx.fillRect(x+5,y+4,w*0.25,h*0.35);
+    // Ink well
+    ctx.fillStyle='#3a2a1a'; ctx.fillRect(x+w-11,y+4,5,5);
+    ctx.fillStyle='#8a6a4a'; ctx.fillRect(x+w-10,y+3,3,1);
+    // Quill pen
+    ctx.strokeStyle=C.gold; ctx.lineWidth=0.8;
+    ctx.beginPath(); ctx.moveTo(x+w-14,y+3); ctx.lineTo(x+w-7,y+7); ctx.stroke();
   }
 
-  function drawChair(x,y) { ctx.fillStyle=C.woodMid; ctx.fillRect(x,y,10,12); ctx.fillStyle=C.woodDark; ctx.fillRect(x+1,y,8,3); }
+  function drawChair(x,y) {
+    // Legs
+    ctx.fillStyle=C.woodDark;
+    ctx.fillRect(x+1,y+9,2,4); ctx.fillRect(x+7,y+9,2,4);
+    // Seat
+    ctx.fillStyle=C.woodMid; ctx.fillRect(x,y+7,10,4);
+    ctx.fillStyle='rgba(0,0,0,.08)'; ctx.fillRect(x,y+10,10,1);
+    // Backrest
+    ctx.fillStyle=C.woodDark; ctx.fillRect(x+1,y,8,8);
+    ctx.fillStyle=C.woodMid; ctx.fillRect(x+2,y+1,6,6);
+  }
   function drawPlantPot(x,y) { ctx.fillStyle='#8b5a2a'; ctx.fillRect(x,y+4,10,8); ctx.fillStyle='#3d6828'; ctx.fillRect(x-2,y,14,6); ctx.fillStyle='#2a4a18'; ctx.fillRect(x+1,y-3,8,5); }
+
+  function drawGlobe(x,y) {
+    // Stand
+    ctx.fillStyle=C.woodDark; ctx.fillRect(x-2,y+8,4,3); ctx.fillRect(x-6,y+10,12,2);
+    // Globe sphere
+    ctx.fillStyle='#4a8ac0'; ctx.beginPath(); ctx.arc(x,y,7,0,Math.PI*2); ctx.fill();
+    // Continents
+    ctx.fillStyle='#2a6a1a'; ctx.fillRect(x-3,y-3,3,3); ctx.fillRect(x+1,y+1,4,2); ctx.fillRect(x-2,y+3,2,2);
+    // Highlight
+    ctx.fillStyle='rgba(255,255,255,.25)'; ctx.beginPath(); ctx.arc(x-2,y-3,2.5,0,Math.PI*2); ctx.fill();
+    // Ring
+    ctx.strokeStyle=C.gold; ctx.lineWidth=0.8; ctx.beginPath(); ctx.ellipse(x,y,8,8,0,0,Math.PI*2); ctx.stroke();
+  }
+
+  function drawScroll(x,y) {
+    ctx.fillStyle='#e8dcc0'; ctx.fillRect(x+2,y,16,7);
+    ctx.fillStyle='#8b6a4a'; ctx.fillRect(x,y-1,3,9); ctx.fillRect(x+17,y-1,3,9);
+    ctx.fillStyle='rgba(26,18,8,.1)'; ctx.fillRect(x+4,y+2,12,0.5); ctx.fillRect(x+4,y+4,12,0.5);
+  }
 
   /* ══════════════════════════════════════
      13. DRAWING — CANDLES & LIGHTING
@@ -482,48 +553,102 @@
 
       switch(id) {
         case 'entrance':
+          // Left wall bookshelves
           drawBookshelf(ix,iy+32,14,ih-38,seed+100);
-          drawDesk(ix+iw*0.35,iy+ih*0.45,55,28); drawChair(ix+iw*0.35+20,iy+ih*0.45+30);
-          drawLamp(ix+iw*0.35+2,iy+ih*0.45-10,true); drawPlantPot(ix+iw-16,iy+ih-18); break;
+          // Desk + chair + lamp
+          drawDesk(ix+iw*0.35,iy+ih*0.45,58,28); drawChair(ix+iw*0.35+22,iy+ih*0.45+30);
+          drawLamp(ix+iw*0.35+2,iy+ih*0.45-10,true);
+          // Welcome globe
+          drawGlobe(ix+iw*0.75,iy+ih*0.3);
+          drawPlantPot(ix+iw-16,iy+ih-18); drawPlantPot(ix+4,iy+ih-18);
+          break;
         case 'principles':
+          // Right wall bookshelves
           drawBookshelf(ix+iw-18,iy+32,14,ih-38,seed+200);
-          drawDesk(ix+iw*0.4,iy+ih*0.5,48,24); drawChair(ix+iw*0.4+16,iy+ih*0.5+26);
-          drawLamp(ix+iw*0.4+52,iy+ih*0.5,false); drawPlantPot(ix+4,iy+ih-14); break;
+          // Center island bookshelves
+          drawBookshelf(ix+iw*0.15,iy+ih*0.35,40,18,seed+210);
+          // Desk + chair
+          drawDesk(ix+iw*0.4,iy+ih*0.55,52,24); drawChair(ix+iw*0.4+18,iy+ih*0.55+26);
+          drawLamp(ix+iw*0.4+56,iy+ih*0.55,false); drawPlantPot(ix+4,iy+ih-14);
+          break;
         case 'moat':
-          drawDesk(ix+iw*0.15,iy+ih*0.5,52,24); drawDesk(ix+iw*0.55,iy+ih*0.5,52,24);
-          drawChair(ix+iw*0.15+18,iy+ih*0.5+26); drawChair(ix+iw*0.55+18,iy+ih*0.5+26);
-          drawLamp(ix+iw*0.45,iy+ih*0.35,true); break;
+          // Two desks for collaborative study
+          drawDesk(ix+iw*0.12,iy+ih*0.5,55,24); drawDesk(ix+iw*0.52,iy+ih*0.5,55,24);
+          drawChair(ix+iw*0.12+20,iy+ih*0.5+26); drawChair(ix+iw*0.52+20,iy+ih*0.5+26);
+          drawLamp(ix+iw*0.42,iy+ih*0.35,true);
+          // Side bookshelf
+          drawBookshelf(ix+iw-16,iy+32,14,ih-38,seed+250);
+          break;
         case 'companies':
+          // Both side bookshelves + island
           drawBookshelf(ix,iy+32,14,ih-38,seed+300); drawBookshelf(ix+iw-18,iy+32,14,ih-38,seed+310);
-          drawDesk(ix+iw*0.35,iy+ih*0.55,52,24); drawChair(ix+iw*0.35+18,iy+ih*0.55+26);
-          drawLamp(ix+iw*0.35+56,iy+ih*0.55+4,false); break;
+          drawBookshelf(ix+iw*0.35,iy+ih*0.3,50,18,seed+320); // island
+          drawDesk(ix+iw*0.35,iy+ih*0.6,55,24); drawChair(ix+iw*0.35+20,iy+ih*0.6+26);
+          drawLamp(ix+iw*0.35+58,iy+ih*0.6+4,false);
+          break;
         case 'hub':
+          // Grand hall with globe, fountain, plants
           var hcx=ix+iw/2, hcy=iy+ih/2;
-          ctx.beginPath(); ctx.arc(hcx,hcy,18,0,Math.PI*2); ctx.fillStyle='#8a7a68'; ctx.fill();
-          ctx.beginPath(); ctx.arc(hcx,hcy,14,0,Math.PI*2); ctx.fillStyle='#6090b0'; ctx.fill();
-          ctx.beginPath(); ctx.arc(hcx,hcy,8,0,Math.PI*2); ctx.fillStyle='#7aa0c0'; ctx.fill();
+          // Fountain
+          ctx.beginPath(); ctx.arc(hcx,hcy,20,0,Math.PI*2); ctx.fillStyle='#8a7a68'; ctx.fill();
+          ctx.beginPath(); ctx.arc(hcx,hcy,16,0,Math.PI*2); ctx.fillStyle='#5a8ab0'; ctx.fill();
+          ctx.beginPath(); ctx.arc(hcx,hcy,10,0,Math.PI*2); ctx.fillStyle='#7aa0c0'; ctx.fill();
+          // Globes
+          drawGlobe(ix+40,iy+30); drawGlobe(ix+iw-46,iy+30);
+          // Plants in corners
           drawPlantPot(ix+6,iy+6); drawPlantPot(ix+iw-18,iy+6); drawPlantPot(ix+6,iy+ih-18); drawPlantPot(ix+iw-18,iy+ih-18);
-          ctx.fillStyle=C.woodMid; ctx.fillRect(hcx-28,hcy+24,56,8); ctx.fillRect(hcx-28,hcy-32,56,8); break;
+          // Benches
+          ctx.fillStyle=C.woodMid; ctx.fillRect(hcx-28,hcy+28,56,8); ctx.fillRect(hcx-28,hcy-36,56,8);
+          // Scrolls display
+          drawScroll(ix+iw*0.25,iy+ih*0.7); drawScroll(ix+iw*0.65,iy+ih*0.7);
+          break;
         case 'fcf':
+          // Right wall bookshelves
           drawBookshelf(ix+iw-18,iy+32,14,ih-38,seed+400);
-          drawDesk(ix+iw*0.25,iy+ih*0.5,48,24); drawChair(ix+iw*0.25+16,iy+ih*0.5+26);
-          drawLamp(ix+iw*0.25-10,iy+ih*0.4,true); drawPlantPot(ix+iw-16,iy+ih-14); break;
+          // Left island bookshelf
+          drawBookshelf(ix+iw*0.08,iy+ih*0.35,40,18,seed+410);
+          drawDesk(ix+iw*0.35,iy+ih*0.55,52,24); drawChair(ix+iw*0.35+18,iy+ih*0.55+26);
+          drawLamp(ix+iw*0.35-10,iy+ih*0.45,true); drawPlantPot(ix+iw-16,iy+ih-14);
+          break;
         case 'research':
-          drawDesk(ix+iw*0.35,iy+ih*0.5,42,20); drawLamp(ix+iw*0.35+46,iy+ih*0.5,false); break;
+          // Expanded: island bookshelf + larger desk
+          drawBookshelf(ix+iw*0.05,iy+ih*0.3,35,22,seed+450);
+          drawDesk(ix+iw*0.5,iy+ih*0.45,52,22); drawChair(ix+iw*0.5+18,iy+ih*0.45+24);
+          drawLamp(ix+iw*0.5+56,iy+ih*0.45,false);
+          break;
         case 'news':
-          drawDesk(ix+iw*0.3,iy+ih*0.5,42,20); drawLamp(ix+iw*0.7,iy+ih*0.3,false); break;
+          // Two desks for reading
+          drawDesk(ix+iw*0.15,iy+ih*0.45,48,22); drawDesk(ix+iw*0.55,iy+ih*0.45,48,22);
+          drawChair(ix+iw*0.15+16,iy+ih*0.45+24); drawChair(ix+iw*0.55+16,iy+ih*0.45+24);
+          drawLamp(ix+iw*0.42,iy+ih*0.25,false);
+          break;
         case 'horizons':
-          drawDesk(ix+iw*0.3,iy+ih*0.5,42,20); drawPlantPot(ix+iw-14,iy+ih-14); drawLamp(ix+6,iy+ih*0.4,false); break;
+          // Reading + meditation area
+          drawBookshelf(ix+iw-16,iy+4,12,ih-10,seed+460);
+          drawDesk(ix+iw*0.25,iy+ih*0.45,50,22); drawChair(ix+iw*0.25+18,iy+ih*0.45+24);
+          drawPlantPot(ix+4,iy+ih-14); drawPlantPot(ix+iw-14,iy+ih-14);
+          drawLamp(ix+6,iy+ih*0.35,false);
+          break;
         case 'finhistory':
-          drawBookshelf(ix+iw-16,iy+4,12,ih-10,seed+500);
-          drawDesk(ix+iw*0.2,iy+ih*0.5,42,20); drawLamp(ix+iw*0.2+46,iy+ih*0.5,false); break;
+          // Full right wall bookshelf + scrolls
+          drawBookshelf(ix+iw-16,iy+4,14,ih-10,seed+500);
+          drawBookshelf(ix+iw*0.05,iy+ih*0.3,35,22,seed+510);
+          drawDesk(ix+iw*0.4,iy+ih*0.5,48,22); drawChair(ix+iw*0.4+16,iy+ih*0.5+24);
+          drawLamp(ix+iw*0.4+52,iy+ih*0.5,false);
+          drawScroll(ix+8,iy+ih-18);
+          break;
         case 'corridor':
-          for(var p=0;p<8;p++){var px=ix+30+p*(iw/8);
-            ctx.fillStyle='#b8900a'; ctx.fillRect(px,iy+2,24,20);
-            ctx.fillStyle='#2a1a0a'; ctx.fillRect(px+2,iy+4,20,16);
-            ctx.fillStyle='#5a4a3a'; ctx.fillRect(px+4,iy+6,16,12);
-            ctx.fillStyle='#3a2a1a'; ctx.beginPath(); ctx.arc(px+12,iy+10,4,0,Math.PI*2); ctx.fill(); ctx.fillRect(px+8,iy+13,8,5);}
-          ctx.fillStyle=C.woodMid; ctx.fillRect(ix+iw*0.2,iy+ih*0.6,50,8); ctx.fillRect(ix+iw*0.6,iy+ih*0.6,50,8); break;
+          // Portraits of thinkers
+          for(var p=0;p<10;p++){var px=ix+20+p*(iw/10);
+            ctx.fillStyle=C.gold2; ctx.fillRect(px,iy+2,22,18);
+            ctx.fillStyle='#1a1208'; ctx.fillRect(px+2,iy+4,18,14);
+            ctx.fillStyle='#4a3a2a'; ctx.fillRect(px+3,iy+5,16,11);
+            ctx.fillStyle='#d4b896'; ctx.beginPath(); ctx.arc(px+11,iy+9,3,0,Math.PI*2); ctx.fill();
+            ctx.fillRect(px+8,iy+12,6,4);}
+          // Benches
+          ctx.fillStyle=C.woodMid;
+          ctx.fillRect(ix+iw*0.15,iy+ih*0.6,55,8); ctx.fillRect(ix+iw*0.45,iy+ih*0.6,55,8); ctx.fillRect(ix+iw*0.75,iy+ih*0.6,55,8);
+          break;
       }
     }
   }
@@ -561,17 +686,18 @@
   /* ══════════════════════════════════════
      17. NPC MOVEMENT & DRAWING
      ══════════════════════════════════════ */
-  var CHAR_W=64, CHAR_H=64, NPC_SPEED=0.003;
+  var CHAR_W=64, CHAR_H=64, NPC_SPEED=0.003, WALK_FRAMES=36, WALK_DURATION=4;
 
   function updateNPCs() {
     for(var i=0;i<NPCS.length;i++){
       var npc=NPCS[i];
+      if(npc.pose!=='walk') continue; // 読書・探索NPCは動かない
       if(npc.state==='idle'){npc.wait--;
-        if(npc.wait<=0){npc.tx=0.2+Math.random()*0.6; npc.ty=0.3+Math.random()*0.5; npc.state='walk';}
+        if(npc.wait<=0){npc.tx=0.15+Math.random()*0.7; npc.ty=0.25+Math.random()*0.55; npc.state='walk';}
       } else {
         var dx=npc.tx-npc.rx, dy=npc.ty-npc.ry, dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<NPC_SPEED*2){npc.rx=npc.tx; npc.ry=npc.ty; npc.state='idle'; npc.wait=60+Math.floor(Math.random()*120); npc.walkFrame=0;}
-        else{npc.rx+=dx/dist*NPC_SPEED; npc.ry+=dy/dist*NPC_SPEED; npc.walkFrame++;
+        if(dist<NPC_SPEED*2){npc.rx=npc.tx; npc.ry=npc.ty; npc.state='idle'; npc.wait=80+Math.floor(Math.random()*160); npc.walkFrame=0;}
+        else{npc.rx+=dx/dist*NPC_SPEED; npc.ry+=dy/dist*NPC_SPEED; npc.walkFrame=(npc.walkFrame+1)%WALK_FRAMES;
           npc.dir=Math.abs(dx)>Math.abs(dy)?(dx>0?2:1):(dy>0?0:3);}
         dirty=true;
       }
@@ -581,16 +707,85 @@
   function drawNPCs() {
     for(var i=0;i<NPCS.length;i++){
       var npc=NPCS[i], r=ROOMS[npc.room]; if(!r)continue;
-      var x=r.x+r.w*npc.rx, y=r.y+r.h*npc.ry, dw=28, dh=28;
-      ctx.fillStyle='rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(x,y+dh/2+1,dw/2.5,3,0,0,Math.PI*2); ctx.fill();
-      var sheet=null, col=0, row=npc.dir||0;
-      if(npc.state==='walk'&&assets.charWalk&&assets.charWalk.complete&&assets.charWalk.naturalWidth>0){sheet=assets.charWalk; col=Math.floor(npc.walkFrame/4)%9;}
-      else if(assets.charIdle&&assets.charIdle.complete&&assets.charIdle.naturalWidth>0){sheet=assets.charIdle; col=0;}
-      if(sheet){try{ctx.drawImage(sheet,col*CHAR_W,row*CHAR_H,CHAR_W,CHAR_H,x-dw/2,y-dh/2,dw,dh);}catch(e){}}
+      var x=Math.round(r.x+r.w*npc.rx), y=Math.round(r.y+r.h*npc.ry);
+      var bc=npc.bodyColor||'#4a6a3a';
+
+      // Shadow
+      ctx.fillStyle='rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(x,y+15,8,3,0,0,Math.PI*2); ctx.fill();
+
+      if(npc.pose==='reading') {
+        drawNPCReading(x,y,bc,i);
+      } else if(npc.pose==='shelving') {
+        drawNPCShelving(x,y,bc,i);
+      } else {
+        drawNPCWalking(x,y,npc);
+      }
+
+      // Name label
       ctx.font='600 7px "Noto Serif JP",serif'; ctx.textAlign='center';
-      ctx.fillStyle='rgba(0,0,0,.4)'; ctx.fillText(npc.name,x+1,y-dh/2+1);
-      ctx.fillStyle=C.gold; ctx.fillText(npc.name,x,y-dh/2);
+      ctx.fillStyle='rgba(0,0,0,.4)'; ctx.fillText(npc.name,x+1,y-16);
+      ctx.fillStyle=C.gold; ctx.fillText(npc.name,x,y-17);
     }
+  }
+
+  function drawNPCWalking(x,y,npc) {
+    var sheet=null, col=0, row=npc.dir||0, dw=28, dh=28;
+    if(npc.state==='walk'&&assets.charWalk&&assets.charWalk.complete&&assets.charWalk.naturalWidth>0){
+      sheet=assets.charWalk; col=Math.floor(npc.walkFrame/WALK_DURATION)%9;
+    } else if(assets.charIdle&&assets.charIdle.complete&&assets.charIdle.naturalWidth>0){
+      sheet=assets.charIdle; col=0;
+    }
+    if(sheet){
+      var sx=col*CHAR_W, sy=row*CHAR_H;
+      if(sx+CHAR_W<=sheet.naturalWidth && sy+CHAR_H<=sheet.naturalHeight){
+        try{ctx.drawImage(sheet,sx,sy,CHAR_W,CHAR_H,x-dw/2,y-dh/2,dw,dh);}catch(e){}
+      }
+    }
+  }
+
+  function drawNPCReading(x,y,bc,idx) {
+    // 座って読書中のNPC
+    // 椅子
+    ctx.fillStyle=C.woodMid; ctx.fillRect(x-6,y+4,12,8);
+    ctx.fillStyle=C.woodDark; ctx.fillRect(x-5,y,10,5);
+    // 頭
+    ctx.fillStyle='#d4b896'; ctx.beginPath(); ctx.arc(x,y-6,5,0,Math.PI*2); ctx.fill();
+    // 髪
+    ctx.fillStyle='#3a2a1a'; ctx.fillRect(x-4,y-11,8,4);
+    // 体（前かがみ）
+    ctx.fillStyle=bc; ctx.fillRect(x-5,y-1,10,8);
+    // 腕（机に伸ばす）
+    ctx.fillStyle=bc; ctx.fillRect(x-7,y+1,4,3); ctx.fillRect(x+3,y+1,4,3);
+    // 手
+    ctx.fillStyle='#d4b896'; ctx.fillRect(x-8,y+1,2,2); ctx.fillRect(x+6,y+1,2,2);
+    // 開いた本（机上）
+    ctx.fillStyle='#f0e8d0'; ctx.fillRect(x-8,y+3,16,8);
+    ctx.fillStyle=bookColors[idx%bookColors.length]; ctx.fillRect(x-8,y+3,1,8); ctx.fillRect(x+7,y+3,1,8);
+    ctx.fillStyle='rgba(26,18,8,.15)'; ctx.fillRect(x-1,y+4,1,6);
+    // テキスト風の線
+    ctx.fillStyle='rgba(26,18,8,.1)';
+    ctx.fillRect(x-6,y+5,5,0.5); ctx.fillRect(x-6,y+7,5,0.5);
+    ctx.fillRect(x+1,y+5,5,0.5); ctx.fillRect(x+1,y+7,5,0.5);
+  }
+
+  function drawNPCShelving(x,y,bc,idx) {
+    // 本棚に向かって本を探すNPC
+    // 脚
+    ctx.fillStyle='#3a2a1a'; ctx.fillRect(x-3,y+8,3,5); ctx.fillRect(x+1,y+8,3,5);
+    // 体
+    ctx.fillStyle=bc; ctx.fillRect(x-5,y-2,10,11);
+    // 頭（上を向く）
+    ctx.fillStyle='#d4b896'; ctx.beginPath(); ctx.arc(x,y-7,5,0,Math.PI*2); ctx.fill();
+    // 髪
+    ctx.fillStyle='#3a2a1a'; ctx.fillRect(x-4,y-12,8,4);
+    // 右腕を上に伸ばす
+    ctx.fillStyle=bc; ctx.fillRect(x+4,y-8,3,10);
+    // 手
+    ctx.fillStyle='#d4b896'; ctx.fillRect(x+4,y-10,3,3);
+    // 左腕は下に
+    ctx.fillStyle=bc; ctx.fillRect(x-7,y+1,3,5);
+    // 左手に本を持つ
+    ctx.fillStyle=bookColors[idx%bookColors.length]; ctx.fillRect(x-9,y+3,4,6);
   }
 
   /* ══════════════════════════════════════
