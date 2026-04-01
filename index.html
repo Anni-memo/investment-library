@@ -260,9 +260,9 @@ body::before{
 /* ── Library Map ── */
 /* ── ROOM MAP (CSS Grid) ── */
 .room-map-section{
-  background:linear-gradient(180deg,#0c0805 0%,#1a1208 50%,#0e0a04 100%);
   padding:48px 24px 40px;text-align:center;
   border-bottom:1px solid rgba(184,144,10,.15);
+  position:relative;z-index:2;
 }
 .room-map-header{margin-bottom:28px;}
 .room-map-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.3em;opacity:.6;margin-bottom:10px;}
@@ -283,7 +283,7 @@ body::before{
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;text-decoration:none;
   padding:28px 16px;
-  background:rgba(26,18,8,.5);
+  background:rgba(40,14,16,.4);
   border:1px solid rgba(184,144,10,.12);
   position:relative;overflow:hidden;
   transition:all .35s cubic-bezier(.25,.8,.25,1);
@@ -295,7 +295,7 @@ body::before{
 }
 .room-card:hover{
   border-color:rgba(184,144,10,.35);
-  background:rgba(26,18,8,.7);
+  background:rgba(48,16,20,.6);
   transform:translateY(-2px);
   box-shadow:0 8px 32px rgba(0,0,0,.3),0 0 1px rgba(212,170,34,.2);
 }
@@ -303,7 +303,7 @@ body::before{
 .room-card--center{
   grid-area:center;
   padding:40px 24px;
-  background:rgba(26,18,8,.6);
+  background:rgba(48,16,20,.5);
   border-color:rgba(184,144,10,.2);
 }
 .room-card--center .room-card-name{font-size:clamp(1.2rem,3vw,1.5rem);}
@@ -355,7 +355,7 @@ body::before{
 }
 /* ── OTHER SHELVES ── */
 .other-shelves{
-  background:var(--ink);padding:28px 24px 20px;
+  padding:28px 24px 20px;
   border-bottom:1px solid rgba(184,144,10,.1);
   text-align:center;
 }
@@ -468,39 +468,38 @@ body::before{
 </head>
 <body>
 
-<!-- ══════════════ HERO + BANNERS (共通背景) ══════════════ -->
+<!-- ══════════════ HERO + BANNERS + ROOM MAP (共通背景) ══════════════ -->
 <div class="hero-wrap" style="position:relative;overflow:hidden;">
-  <!-- 共通背景画像 -->
-  <div style="position:absolute;inset:0;background:url('assets/hero-poster.jpg') center/cover no-repeat;z-index:0;"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.3) 0%,rgba(10,8,4,.2) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.5) 100%);z-index:1;pointer-events:none;"></div>
+  <!-- 共通背景画像（ヒーローから書庫マップまで貫通） -->
+  <div style="position:absolute;inset:0;background:url('assets/hero-poster.jpg') center top/cover no-repeat;z-index:0;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.25) 0%,rgba(10,8,4,.15) 15%,rgba(10,8,4,.2) 30%,rgba(10,8,4,.35) 50%,rgba(10,8,4,.55) 75%,rgba(10,8,4,.75) 100%);z-index:1;pointer-events:none;"></div>
 
   <!-- HERO -->
   <div class="hero" style="background:transparent;">
     <h1 class="hero-title" style="position:relative;z-index:2;">投資と思考の書斎</h1>
   </div>
 
-  <!-- MORNING METHOD -->
-  <div id="morningSection" style="background:linear-gradient(135deg,rgba(10,18,16,.65) 0%,rgba(26,42,34,.6) 50%,rgba(14,24,16,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
-    <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
+  <!-- MORNING METHOD (緑のオーバーレイ) -->
+  <div id="morningSection" style="background:linear-gradient(135deg,rgba(14,32,20,.72) 0%,rgba(26,48,34,.68) 50%,rgba(18,36,22,.72) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.15);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+    <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(90,154,120,.25);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(90,154,120,.5)';this.style.background='rgba(90,154,120,.06)'" onmouseout="this.style.borderColor='rgba(90,154,120,.25)';this.style.background='transparent'">
       <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">朝の実践を始める</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">瞑想・アファメーション・運動・読書・ジャーナリング</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(212,170,34,.5);letter-spacing:.1em;margin-top:10px;">MORNING PRACTICE →</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(90,154,120,.6);letter-spacing:.1em;margin-top:10px;">MORNING PRACTICE →</div>
     </a>
   </div>
 
-  <!-- FINANCIAL HISTORY -->
-  <div style="background:linear-gradient(135deg,rgba(10,14,24,.6) 0%,rgba(20,26,42,.55) 50%,rgba(14,20,32,.6) 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
-    <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
+  <!-- FINANCIAL HISTORY (蒼のオーバーレイ) -->
+  <div style="background:linear-gradient(135deg,rgba(12,18,36,.72) 0%,rgba(22,32,56,.68) 50%,rgba(16,24,44,.72) 100%);padding:24px 24px;border-bottom:1px solid rgba(72,120,192,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+    <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,120,192,.25);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,120,192,.5)';this.style.background='rgba(72,120,192,.06)'" onmouseout="this.style.borderColor='rgba(72,120,192,.25)';this.style.background='transparent'">
       <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,136,208,.5);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(72,120,192,.6);letter-spacing:.1em;margin-top:10px;">FINANCIAL HISTORY &rarr;</div>
     </a>
   </div>
-</div>
 
-<!-- ══════════════ ROOM MAP ══════════════ -->
-<div class="room-map-section">
-  <div class="room-map-header">
+  <!-- ROOM MAP (えんじ色のオーバーレイ — 書庫の背景画像が透ける) -->
+  <div class="room-map-section" style="background:linear-gradient(180deg,rgba(48,16,18,.7) 0%,rgba(56,20,24,.65) 40%,rgba(40,14,16,.75) 100%);">
+    <div class="room-map-header">
     <div class="room-map-label">EXPLORE THE LIBRARY</div>
     <h2 class="room-map-title">書庫を歩く</h2>
     <p class="room-map-sub">まず部屋を選んで入る。<br>各部屋の中で、最初の一冊が待っています。</p>
@@ -555,25 +554,27 @@ body::before{
       <div class="room-card-arrow">ENTER →</div>
     </a>
   </div>
-</div>
 
-<!-- ══════════════ OTHER SHELVES ══════════════ -->
-<div class="other-shelves">
-  <div class="other-shelves-label">OTHER ROOMS</div>
-  <div class="other-shelves-grid">
-    <a class="other-shelf-link" href="hajimete/">初めての方へ</a>
-    <a class="other-shelf-link" href="principles/">投資原則</a>
-    <a class="other-shelf-link" href="moat/">moat</a>
-    <a class="other-shelf-link" href="fcf/">FCF</a>
-    <a class="other-shelf-link" href="industries/">業種分析</a>
-    <a class="other-shelf-link" href="horizons/">思考を広げる</a>
-    <a class="other-shelf-link" href="horizons/financial-history/">金融史</a>
-    <a class="other-shelf-link" href="nisa/">NISA eラーニング</a>
-    <a class="other-shelf-link" href="people/">人物録</a>
-    <a class="other-shelf-link" href="thinkers/">思索の回廊</a>
-    <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
+  <!-- OTHER SHELVES (えんじ色背景の延長) -->
+  <div class="other-shelves" style="position:relative;z-index:2;">
+    <div class="other-shelves-label">OTHER ROOMS</div>
+    <div class="other-shelves-grid">
+      <a class="other-shelf-link" href="hajimete/">初めての方へ</a>
+      <a class="other-shelf-link" href="principles/">投資原則</a>
+      <a class="other-shelf-link" href="moat/">moat</a>
+      <a class="other-shelf-link" href="fcf/">FCF</a>
+      <a class="other-shelf-link" href="industries/">業種分析</a>
+      <a class="other-shelf-link" href="horizons/">思考を広げる</a>
+      <a class="other-shelf-link" href="horizons/financial-history/">金融史</a>
+      <a class="other-shelf-link" href="nisa/">NISA eラーニング</a>
+      <a class="other-shelf-link" href="people/">人物録</a>
+      <a class="other-shelf-link" href="thinkers/">思索の回廊</a>
+      <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
+      <a class="other-shelf-link" href="library-map-classic/">書庫マップ（クラシック）</a>
+    </div>
   </div>
-</div>
+
+</div><!-- /hero-wrap -->
 
 <!-- ══════════════ FOOTER ══════════════ -->
 
