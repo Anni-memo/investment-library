@@ -24,7 +24,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 .hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}.preparing{text-align:center;padding:60px 24px;}.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 </style>
 </head>
@@ -40,12 +52,73 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">一極集中のリスクと、分散の具体的な考え方を理解する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← リスクと守りの部屋に戻る</a>
-  </div>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">集中投資が抱えるリスク</h2>
+    <div class="section-body">
+      <p>「この会社は絶対に大丈夫」。そう思って1つの銘柄に資産の大半を集中させることは、投資における最大のリスクのひとつです。</p>
+      <p>どんなに優良な企業でも、不祥事、規制変更、技術革新による競争力の喪失など、予測できない事態は起こり得ます。かつて日本を代表する企業だった東芝は、不正会計問題をきっかけに株価が大幅に下落しました。アメリカでも、エネルギー大手エンロンは粉飾決算の発覚で破綻し、株式は無価値になりました。</p>
+      <p>1社に集中していた投資家は、その1社の運命とともに資産を失います。分散投資の本質は、こうした「予測不能な最悪のケース」から身を守ることにあります。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">分散の3つの軸</h2>
+    <div class="section-body">
+      <p>分散投資には、大きく3つの軸があります。</p>
+      <p>第一に「銘柄分散」。複数の企業に投資を分けることで、1社の業績悪化が全体に与える影響を小さくします。10社に均等に投資していれば、1社が倒産しても損失は全体の10%にとどまります。</p>
+      <p>第二に「地域分散」。日本だけでなく、アメリカ、ヨーロッパ、新興国にも投資を広げることです。日本経済が停滞しても、世界のどこかは成長しています。地域をまたいだ分散は、特定の国のリスクを軽減します。</p>
+      <p>第三に「時間分散」。一度にまとめて買うのではなく、毎月定額を積み立てていく方法です。高値で一括購入してしまうリスクを避け、購入価格を平準化する効果があります。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">全世界株式インデックスという選択</h2>
+    <div class="section-body">
+      <p>銘柄分散と地域分散を、1つの商品で同時に実現できるのが「全世界株式インデックスファンド」です。</p>
+      <p>たとえば「eMAXIS Slim 全世界株式（オール・カントリー）」は、日本を含む先進国と新興国の約3,000銘柄に分散投資しています。これ1本を持つだけで、世界中の企業の成長を幅広く取り込むことができます。</p>
+      <p>個別銘柄を選ぶ知識や時間がなくても、インデックスファンドを通じて十分な分散が得られます。「何を買えばいいかわからない」という人にとって、全世界株式インデックスはもっとも合理的な出発点のひとつです。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">積立投資は時間の分散</h2>
+    <div class="section-body">
+      <p>「いつ買えばいいかわからない」という悩みに対する、もっとも実用的な答えが積立投資です。</p>
+      <p>毎月決まった金額を自動で買い付けていく仕組みは、相場の上下に関係なく機械的に投資を続けます。価格が高いときには少なく、価格が安いときには多く買うことになるため、結果的に購入単価が平準化されます。</p>
+      <p>これを「ドルコスト平均法」と呼びます。タイミングを読む必要がなく、感情に左右されにくいという点で、長期投資との相性が非常に良い手法です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 05</div>
+    <h2 class="section-title">分散でも避けられないリスク</h2>
+    <div class="section-body">
+      <p>分散投資は万能ではありません。リーマンショックやコロナショックのように、世界中の市場が同時に下落する「システミックリスク」に対しては、株式の分散だけでは守り切れません。</p>
+      <p>こうしたリスクに備えるには、株式以外の資産クラス、たとえば債券や現金を一定割合で保有しておくことが有効です。また、生活防衛資金を別に確保しておくことで、暴落時に投資を取り崩す必要がなくなります。</p>
+      <p>分散投資の目的は「絶対に損をしない」ことではなく、「致命的な損失を避ける」こと。退場さえしなければ、時間が味方になってくれます。</p>
+    </div>
+    <div class="callout">
+      <div class="callout-text">分散投資は"勝つため"ではなく、"退場しないため"の戦略。</div>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../what-is-a-crash/">← 暴落とは何か</a>
+    <a href="../emergency-fund-thinking/">生活防衛資金の考え方 →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

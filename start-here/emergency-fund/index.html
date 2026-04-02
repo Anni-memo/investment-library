@@ -67,12 +67,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
 .hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.preparing{text-align:center;padding:60px 24px;}
-.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}
-.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}
-.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}
 .back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}
 .back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
 .footer a{color:var(--gold3);text-decoration:none}
@@ -92,12 +100,67 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">投資の前に整える、暮らしの安全圏。生活費の何ヶ月分が必要かを考える。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← はじめての資産形成に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">投資の前に、守りを固める</h2>
+    <div class="section-body">
+      <p>投資の話を始める前に、ひとつ確認しておきたいことがある。暮らしの「安全圏」は確保されているだろうか。</p>
+      <p>人生には予測できない出来事が起こる。突然の病気やケガ、会社の業績悪化による減収、家電の故障や家族の介護。そうした想定外の支出に対応できるお金がなければ、投資どころではなくなる。</p>
+      <p>生活防衛資金とは、そうした「もしも」のときに自分の暮らしを守るために、投資とは別に確保しておく現金のこと。これは投資の前提条件であり、資産形成の最初の一歩でもある。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">生活防衛資金の目安</h2>
+    <div class="section-body">
+      <p>一般的に、生活防衛資金の目安は「月の生活費 x 3〜6ヶ月分」とされている。ただし、この数字は働き方や家族構成によって変わる。</p>
+      <p><strong>会社員・公務員の場合</strong>は、雇用保険（失業給付）や傷病手当金といったセーフティネットがあるため、3ヶ月分が最低ライン。余裕があれば6ヶ月分を目指すと安心感が増す。</p>
+      <p><strong>自営業・フリーランスの場合</strong>は、雇用保険がなく、収入が途絶えるリスクが高い。6ヶ月分以上、できれば12ヶ月分を確保しておきたい。</p>
+      <p><strong>共働き世帯の場合</strong>は、片方の収入が途絶えてももう片方でカバーできるため、やや少なめでも対応できる場合がある。とはいえ、3ヶ月分は最低限確保しておくべきだ。</p>
+      <p>たとえば月の生活費が25万円なら、75万円〜150万円が目安になる。この金額は「投資には回さないお金」として、はっきり分けておく。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">どこに置くか</h2>
+    <div class="section-body">
+      <p>生活防衛資金に求められる条件は、ただひとつ。「必要なときに、すぐ引き出せること」。これが最優先であり、増やすことは求めない。</p>
+      <p>最もシンプルな置き場所は、<strong>普通預金</strong>。いつでも引き出せて、元本が減るリスクがない。メガバンクの金利は低いが、目的を考えればそれで十分。</p>
+      <p>少しでも金利を得たい場合は、<strong>ネット銀行の普通預金</strong>が選択肢になる。一部のネット銀行では、条件を満たすと年0.1〜0.2%程度の金利が適用される場合がある。ただし、金利を追いかけて複雑な仕組みに手を出す必要はない。</p>
+      <p>定期預金も候補にはなるが、中途解約時に金利が下がることがある。生活防衛資金は「急に必要になる」性質のお金なので、流動性を優先すべきだ。</p>
+      <p>投資信託や株式に生活防衛資金を入れてはいけない。値下がりしているときに限って、お金が必要になることがある。それでは防衛資金の意味をなさない。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">生活防衛資金は「使わないためのお金」ではなく、「何かあったとき自分を守るお金」。</div>
   </div>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">資金が貯まってから、投資へ</h2>
+    <div class="section-body">
+      <p>「生活防衛資金を貯めてからでは遅いのでは」と感じるかもしれない。しかし、順番を間違えるとリスクへの耐性が大きく下がる。</p>
+      <p>投資には値動きがつきものだ。一時的に資産が20〜30%減ることは、長期投資では珍しくない。そのとき、生活防衛資金があれば「今は下がっているけれど、生活に困るわけではない」と冷静でいられる。逆に防衛資金がなければ、含み損を抱えたまま売却に追い込まれることもある。</p>
+      <p>まず守りを固め、それから攻めに転じる。この順番が、長く投資を続けるための基本になる。</p>
+      <p>生活防衛資金の準備は、地味で目立たない作業だ。SNSで話題になることもない。しかし、この土台があるかないかで、投資を続けられるかどうかが変わる。焦らず、着実に積み上げていけばいい。</p>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../what-is-investing/">← 投資は何のためにするのか</a>
+    <a href="../nisa-ideco-taxable/">次 → NISA・iDeCo・課税口座の違い</a>
+  </nav>
+
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

@@ -24,7 +24,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 .hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}.preparing{text-align:center;padding:60px 24px;}.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
+.article-section{margin-bottom:48px;}.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}.section-body p{margin-bottom:1.4em;}.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.82rem;}.compare-table th{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;text-align:left;padding:10px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}.compare-table td{padding:10px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.7;font-weight:300;}.compare-table tr:last-child td{border-bottom:none;}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 </style>
 </head>
@@ -40,12 +45,72 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">申告すべきケースと、申告した方が得なケースを整理する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← 税金と口座の部屋に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">確定申告が必要なケース</h2>
+    <div class="section-body">
+      <p>投資に関連して確定申告が義務となる主な場面は、次の通りだ。</p>
+      <p>第一に、一般口座や特定口座（源泉徴収なし）で年間の譲渡所得が20万円を超えた場合（給与所得者の場合）。源泉徴収がされていないため、自分で申告して納税する必要がある。</p>
+      <p>第二に、複数の証券会社の口座間で損益通算をしたい場合。同じ証券会社の特定口座内であれば自動で通算されるが、別々の証券会社の損益を相殺するには確定申告が必要になる。</p>
+      <p>第三に、損失の繰越控除を利用したい場合。今年の損失を翌年以降3年間にわたって繰り越すためには、損失が出た年から毎年連続で確定申告を行わなければならない。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">申告した方が得になるケース</h2>
+    <div class="section-body">
+      <p>義務ではないが、確定申告をすることで税負担が軽くなる場面もある。</p>
+      <p>配当金の総合課税を選ぶ場合がその代表例だ。課税所得が695万円以下であれば、配当控除によって実質的な税率が申告分離課税の20.315%より低くなる可能性がある。</p>
+      <p>外国税額控除を受けたい場合も、確定申告が必要になる。米国株の配当には10%の米国源泉税がかかるが、確定申告をすれば日本の所得税からその分を差し引くことができる（NISA口座を除く）。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">確定申告が不要なケース</h2>
+    <div class="section-body">
+      <p>特定口座（源泉徴収あり）のみで取引しており、口座をまたいだ損益通算や繰越控除を使う予定がなければ、確定申告は不要だ。税金の計算と納付は証券会社が完了している。</p>
+      <p>新NISA口座のみで投資している場合も同様。利益は非課税であり、申告の義務はない。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">申告するとかえって不利になるケース</h2>
+    <div class="section-body">
+      <p>確定申告には「した方が得」な場面がある一方で、「しない方がよい」場面も存在する。</p>
+      <p>最も注意すべきは、国民健康保険料への影響だ。確定申告をすると、申告した所得が合計所得金額に算入される。特定口座（源泉徴収あり）の利益は、申告しなければ合計所得金額に含まれないが、確定申告をするとその分が加算され、国民健康保険料や後期高齢者医療保険料が上がる可能性がある。</p>
+      <p>同様に、配偶者控除や扶養控除の判定にも影響する。申告によって合計所得金額が基準を超えると、控除が受けられなくなることがある。節税のつもりで申告したら、他の負担が増えてしまう ── そうした事態を避けるために、全体のバランスを見て判断する必要がある。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 05</div>
+    <h2 class="section-title">e-Taxの活用</h2>
+    <div class="section-body">
+      <p>確定申告は、国税庁のe-Tax（電子申告）を使えば自宅から完結できる。マイナンバーカードとスマートフォン、またはICカードリーダーがあれば、税務署に出向く必要はない。</p>
+      <p>証券会社の年間取引報告書をもとに、画面の案内に従って入力するだけで申告書が作成される。配当の総合課税や外国税額控除など、やや複雑な申告も選択肢をクリックしていくだけで進められるようになっている。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">確定申告は"しなければならない場面"と"したほうが得な場面"がある。</div>
   </div>
+
+  <nav class="article-nav">
+    <a href="../what-is-tax-free-in-nisa/">← NISAで非課税になるもの</a>
+    <a href="../">税金と口座の部屋に戻る →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

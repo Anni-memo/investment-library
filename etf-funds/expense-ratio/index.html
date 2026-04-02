@@ -24,7 +24,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 .hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}.preparing{text-align:center;padding:60px 24px;}.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.82rem;}
+.compare-table th{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;text-align:left;padding:10px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}
+.compare-table td{padding:10px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.7;font-weight:300;}
+.compare-table tr:last-child td{border-bottom:none;}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 </style>
 </head>
@@ -40,12 +56,81 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">コストが20年後に与える差。安さの意味と限界を理解する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← ETF・投資信託の部屋に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">信託報酬の仕組み</h2>
+    <div class="section-body">
+      <p>信託報酬とは、投資信託を保有している間、毎日自動的に差し引かれる運用管理費用のことだ。年率で表示されるが、実際には日割りで基準価額から天引きされる。投資家が別途支払う必要はなく、目に見えにくいコストである。</p>
+      <p>信託報酬は、運用会社（ファンドの運用を行う）、販売会社（証券会社や銀行）、信託銀行（資産を管理する）の三者に配分される。例えば信託報酬が年0.15%のファンドであれば、100万円を1年間保有した場合、約1,500円が差し引かれる計算になる。</p>
+      <p>この金額だけを見ると「大したことない」と感じるかもしれない。しかし、投資は複利で成長する。コストもまた、複利で効いてくる。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">0.1%と1.0%の差：20年後の現実</h2>
+    <div class="section-body">
+      <p>具体的な数字で考えてみよう。100万円を年利5%で20年間運用した場合、信託報酬の違いがどれほどの差を生むか。</p>
+      <table class="compare-table">
+        <thead><tr><th>信託報酬</th><th>実質リターン</th><th>20年後の資産額</th><th>差額</th></tr></thead>
+        <tbody>
+          <tr><td>年0.1%</td><td>年4.9%</td><td>約260万円</td><td>--</td></tr>
+          <tr><td>年0.5%</td><td>年4.5%</td><td>約241万円</td><td>約-19万円</td></tr>
+          <tr><td>年1.0%</td><td>年4.0%</td><td>約219万円</td><td>約-41万円</td></tr>
+          <tr><td>年1.5%</td><td>年3.5%</td><td>約200万円</td><td>約-60万円</td></tr>
+        </tbody>
+      </table>
+      <p>信託報酬が0.1%と1.0%では、20年後に約41万円の差が開く。元本100万円に対して41万円だから、無視できない金額だ。投資額が500万円なら約205万円、1,000万円なら約410万円の差になる。</p>
+      <p>しかも、この差額は「何もしなくても確実に発生する」ものだ。市場リターンは不確実だが、コストは確実にリターンを削る。だからこそ、コスト管理は投資家が自分でコントロールできる数少ない要素として重要なのである。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">隠れコストの存在</h2>
+    <div class="section-body">
+      <p>信託報酬だけがコストのすべてではない。投資信託には「隠れコスト」と呼ばれる費用が存在する。</p>
+      <p>具体的には、ファンドが株式を売買する際の「売買委託手数料」、資産を保管する際の「保管費用」、監査法人への「監査費用」などがある。これらは信託報酬には含まれず、運用報告書の中で「その他費用」として開示される。</p>
+      <p>信託報酬と隠れコストを合算したものを「実質コスト」と呼ぶ。例えば、信託報酬が年0.09%のファンドでも、実質コストが年0.15%ということがある。ファンドを比較する際は、運用報告書で実質コストを確認するのが正確だ。</p>
+      <p>実質コストは運用開始後にしか判明しないため、新しいファンドでは確認できない。ただし、同じシリーズの既存ファンド（例えばeMAXIS Slimシリーズの他のファンド）の実績から、おおよその水準を推測することは可能である。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">低コスト投信の代表例</h2>
+    <div class="section-body">
+      <p>日本で購入できる低コストインデックスファンドの代表格を紹介する。</p>
+      <p>eMAXIS Slimシリーズ（三菱UFJアセットマネジメント）は、「業界最低水準の運用コストを将来にわたって目指し続ける」と宣言しているシリーズだ。全世界株式（オール・カントリー）の信託報酬は年0.05775%と、極めて低い水準にある。</p>
+      <p>SBI・Vシリーズ（SBIアセットマネジメント）は、米バンガード社のETFに投資する形式で低コストを実現している。SBI・V・S&amp;P500の信託報酬は年0.0938%程度。楽天・プラスシリーズも同様に競争力のあるコスト設定で人気がある。</p>
+      <p>はじめて投資信託を選ぶ際は、これらの低コストシリーズの中から、自分が投資したい地域（全世界、米国、日本など）に合ったものを選ぶのが堅実な第一歩となる。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">コストは確実にリターンを削る。未来のリターンは不確実でも、コストは確実。自分でコントロールできる数少ない変数だからこそ、静かに、しかし真剣に向き合う価値がある。</div>
   </div>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 05</div>
+    <h2 class="section-title">コストだけで選ばない視点</h2>
+    <div class="section-body">
+      <p>コストは重要だが、0.01%の差に神経質になりすぎる必要はない。100万円に対して年0.01%の差は100円に過ぎない。それよりも、純資産総額の大きさ（繰上償還リスクの低さ）、トラッキングエラーの小ささ（指数との乖離が少ないか）、運用会社の信頼性といった要素も確認すべきだ。</p>
+      <p>また、コストを下げるために投資を始められないのでは本末転倒だ。「最良のファンドを見つけてから始めよう」と考えているうちに、市場に参加していない時間が積み重なっていく。低コストの主要ファンドであれば、どれを選んでも大きな差はない。まず始めて、必要があれば後から乗り換えればよい。</p>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../index-investing/">← インデックス投資の考え方</a>
+    <a href="../how-to-start-tsumitate/">積立投資の始め方 →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

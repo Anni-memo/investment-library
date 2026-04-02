@@ -67,12 +67,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
 .hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.preparing{text-align:center;padding:60px 24px;}
-.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}
-.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}
-.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}
-.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}
-.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
 .footer a{color:var(--gold3);text-decoration:none}
@@ -92,12 +98,61 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">配当性向・FCF・連続増配の意味を読む。表面利回りではなく持続性を見る。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← 配当の部屋に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">配当性向で「余裕」を測る</h2>
+    <div class="section-body">
+      <p>配当性向とは、企業が稼いだ純利益のうち、何%を配当金として株主に還元しているかを示す指標です。配当性向が30%であれば、利益の7割は企業の手元に残っていることになります。</p>
+      <p>一般に、配当性向が40〜50%以下であれば安心圏と考えられています。この水準なら、仮に一時的に業績が落ち込んでも、配当を維持できる余力があります。逆に配当性向が80%を超えている企業は、少しの減益でも配当を維持するのが難しくなります。</p>
+      <p>ただし、配当性向は業種によって適正な水準が異なります。成熟した事業を持つ企業は高めでも安定しやすく、設備投資が必要な製造業では低めでも合理的です。数字だけでなく、その企業の事業特性と合わせて判断することが大切です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">連続増配という「実績」</h2>
+    <div class="section-body">
+      <p>配当を毎年増やし続けている企業があります。日本で最も長い連続増配記録を持つ花王は、30年以上にわたって毎年配当を増やしてきました。KDDIも20年以上の連続増配を誇ります。</p>
+      <p>連続増配は、単なる数字の記録ではありません。その企業が長期にわたって安定した利益を出し続け、かつ株主還元を経営の重要な方針として位置づけていることの証です。リーマンショックやコロナ禍といった困難な時期を乗り越えて増配を続けた企業は、それだけの「体力」と「意志」を持っていると言えます。</p>
+      <p>もちろん、連続増配が永遠に続く保証はありません。しかし、10年、20年と増配を続けてきた企業は、簡単にはその記録を途切れさせたくないという経営判断が働きやすい傾向があります。過去の実績は、未来を保証するものではありませんが、信頼の手がかりにはなります。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">フリーキャッシュフローの安定性</h2>
+    <div class="section-body">
+      <p>配当の持続力を見るうえで、純利益よりも重要な指標があります。フリーキャッシュフロー（FCF）です。FCFとは、事業活動で得た現金から、設備投資など必要な支出を差し引いた「手元に残る現金」のことです。</p>
+      <p>会計上の利益は、減価償却や引当金の計上方法によって増減しますが、キャッシュフローは実際にお金が動いた事実を反映します。配当は現金で支払うものですから、実際に手元にある現金が安定していることが重要です。</p>
+      <p>FCFが安定して黒字であり、かつ配当の支払い総額を上回っている企業は、無理なく配当を支払えている状態です。逆に、FCFがマイナスの年が頻繁にある企業は、借入金や内部留保を取り崩して配当を出している可能性があり、持続性に注意が必要です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">業種による安定度の違い</h2>
+    <div class="section-body">
+      <p>配当の安定性は、企業が属する業種によっても大きく異なります。通信・電力・ガスといったインフラ系の事業は、景気に左右されにくい安定した需要があるため、配当も安定しやすい傾向があります。</p>
+      <p>一方、鉄鋼・化学・海運といった景気敏感業種は、好況時に大幅な増配をする反面、不況時には大幅な減配や無配になることも珍しくありません。直近数年の配当だけを見ると高利回りに見えても、過去10年のスパンで見れば配当が大きく変動している場合があります。</p>
+      <p>食品・日用品・医薬品といったディフェンシブ業種は、インフラほどではないものの、比較的安定した配当が期待できます。配当を安定収入として考えるのであれば、業種の特性を理解しておくことが不可欠です。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">配当の「持続力」を見るには、一時的な利益ではなく、キャッシュフローの安定性を見る。</div>
   </div>
+
+  <nav class="article-nav">
+    <a href="../dividend-yield/">← 配当利回りの見方</a>
+    <a href="../drip-power/">配当再投資の力 →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

@@ -67,12 +67,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
 .hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.preparing{text-align:center;padding:60px 24px;}
-.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}
-.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}
-.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}
-.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}
-.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
 .footer a{color:var(--gold3);text-decoration:none}
@@ -92,12 +98,61 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">複利効果の可視化。時間を味方にする仕組み。配当を再投資し続ける力を理解する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← 配当の部屋に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">配当再投資（DRIP）とは</h2>
+    <div class="section-body">
+      <p>配当再投資とは、受け取った配当金をそのまま使わず、同じ株式や投資信託を追加購入することです。英語ではDRIP（Dividend Reinvestment Plan）と呼ばれます。</p>
+      <p>仕組みは単純です。100株を持っていて年間5,000円の配当を受け取ったら、その5,000円で追加の株を買う。すると翌年は、増えた株数に対して配当が支払われるため、受け取る配当金も少し増える。増えた配当でまた株を買う。この繰り返しです。</p>
+      <p>一見すると小さな金額の積み重ねに過ぎませんが、この「配当が配当を生む」仕組みこそが、長期投資における複利効果の本質です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">複利効果の具体例</h2>
+    <div class="section-body">
+      <p>100万円を配当利回り3%の株式に投資した場合を考えてみます。配当を毎年受け取って使ってしまう場合、20年間で受け取る配当の合計は60万円です（3万円 × 20年）。元本と合わせて160万円。</p>
+      <p>一方、配当を毎年再投資し続けた場合はどうなるか。1年目の配当3万円で株を追加購入すると、2年目の元本は103万円。2年目の配当は約3.09万円。これを繰り返すと、20年後には約180.6万円になります。配当を使った場合と比べて、約20万円の差が生まれます。</p>
+      <p>この差は、投資額が大きくなるほど、期間が長くなるほど、配当利回りが高いほど、さらに広がります。30年では約242.7万円となり、再投資しない場合の190万円と比べて50万円以上の差になります。時間が経つほど、複利の効果は加速していきます。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">配当再投資は、時間を味方にする静かな戦略。</div>
   </div>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">再投資型投資信託との違い</h2>
+    <div class="section-body">
+      <p>投資信託には「分配金あり」と「分配金なし（再投資型）」があります。再投資型の投資信託は、ファンドの内部で配当や利息を自動的に再投資してくれるため、投資家が自分で再投資する手間がかかりません。</p>
+      <p>しかも、再投資型の投資信託では分配金が支払われないため、配当にかかる税金（約20%）が発生しません。個別株で配当を受け取って再投資する場合は、まず税金が引かれた後の金額で再投資することになるため、税引き後の複利効率は投資信託の再投資型に劣ります。</p>
+      <p>ただし、NISA口座を利用すれば、個別株の配当も非課税で受け取れます。この場合、税金の不利は解消されるため、個別株での配当再投資も十分に有効な選択肢になります。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">新NISAでの配当再投資</h2>
+    <div class="section-body">
+      <p>新NISAの成長投資枠では、個別株の配当金が非課税になります。ただし、配当の受け取り方法を「株式数比例配分方式」に設定しておく必要があります。郵便局受け取りや銀行口座振込を選んでいると、NISA口座でも配当に課税されてしまうので注意が必要です。</p>
+      <p>新NISAの年間投資枠は成長投資枠が240万円です。配当金で追加購入する分もこの枠を消費しますが、枠に余裕がある限りは非課税で再投資を続けられます。</p>
+      <p>一方、つみたて投資枠で購入できる投資信託の多くは再投資型です。こちらはファンド内部で自動再投資されるため、NISA枠を追加消費しません。「個別株の配当再投資」と「投資信託の自動再投資」は、それぞれ異なる特性を持っています。自分の投資スタイルに合った方法を選ぶことが大切です。</p>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../dividend-safety/">← 減配しにくい会社の見分け方</a>
+    <a href="../shareholder-benefits/">株主優待はどう考えるか →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

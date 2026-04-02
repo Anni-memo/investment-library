@@ -24,7 +24,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 .hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}.preparing{text-align:center;padding:60px 24px;}.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 </style>
 </head>
@@ -40,12 +52,62 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">投資に回してはいけないお金の基準を整理する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← リスクと守りの部屋に戻る</a>
-  </div>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">投資を始めても、防衛資金は別に保つ</h2>
+    <div class="section-body">
+      <p>投資を始める前に生活防衛資金を確保する。これは資産形成の基本中の基本です。しかし、投資を始めたあとにこそ、防衛資金の意味はより深くなります。</p>
+      <p>投資を続けていると、資産が増えていく感覚に慣れてきます。すると「この防衛資金も投資に回せば、もっと増えるのに」という誘惑が生まれます。しかし、生活防衛資金は「投資の成績を上げるためのお金」ではありません。「投資を続けるためのお金」です。</p>
+      <p>防衛資金がなければ、急な出費が発生したときに投資を取り崩すしかありません。そしてそのタイミングが暴落の最中であれば、最悪の価格で売却することになります。防衛資金は、投資を守る最後の砦です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">ライフイベントによる見直し</h2>
+    <div class="section-body">
+      <p>生活防衛資金の適正額は、生活の状況によって変わります。独身で安定した収入があるときと、家族が増えたときでは、必要な備えの規模が異なります。</p>
+      <p>結婚すれば世帯の支出構造が変わります。出産を控えていれば、収入が一時的に減る期間を想定する必要があります。転職を考えているなら、次の収入が確定するまでの空白期間を乗り越える資金が必要です。</p>
+      <p>一般的な目安として、会社員であれば生活費の3〜6ヶ月分、自営業やフリーランスであれば6〜12ヶ月分が推奨されます。ただしこれはあくまで目安であり、自分の生活に合った金額を考えることが大切です。</p>
+      <p>ライフイベントのたびに「今の防衛資金は十分か」を問い直す習慣を持つこと。それは投資判断と同じくらい重要な行為です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">防衛資金を投資に回したくなる誘惑</h2>
+    <div class="section-body">
+      <p>相場が好調なとき、防衛資金が銀行口座で眠っているのを見ると、もったいないと感じるかもしれません。「ほんの少しだけ投資に回そう」という気持ちは自然なものです。</p>
+      <p>しかし、防衛資金を削って投資に回すことは、保険を解約して株を買うようなものです。何も起きなければ問題ありませんが、何かが起きたとき、取り返しがつきません。</p>
+      <p>投資に回す金額を増やしたいなら、防衛資金を削るのではなく、収入を増やすか、支出を見直すことで投資原資を作るのが正しい順序です。防衛資金は「投資していないお金」ではなく、「投資を守るために働いているお金」だと認識することが大切です。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">防衛資金の置き場所</h2>
+    <div class="section-body">
+      <p>生活防衛資金は、すぐに引き出せることが最優先です。利回りを追求する場所ではありません。</p>
+      <p>もっとも基本的な置き場所は、ネット銀行の普通預金です。メガバンクと比べて金利が高い場合が多く、スマートフォンからいつでも確認・引き出しができます。元本保証があり、預金保険制度の対象（1,000万円まで）なので安全性も確保されています。</p>
+      <p>もう少し利回りを意識するなら、個人向け国債（変動10年）も選択肢になります。最低金利0.05%が保証されており、購入から1年経過すれば中途換金も可能です。ただし、すぐに現金化できない期間がある点には注意が必要です。</p>
+      <p>防衛資金の置き場所で重要なのは、「増やすこと」ではなく「減らさないこと」と「すぐに使えること」。この2点を満たしていれば、それで十分です。</p>
+    </div>
+    <div class="callout">
+      <div class="callout-text">投資で利益を出すより、投資を続けられる態勢を保つことのほうが大切。</div>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../why-diversification-matters/">← 分散投資はなぜ必要か</a>
+    <a href="../high-yield-trap/">高利回りの罠 →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

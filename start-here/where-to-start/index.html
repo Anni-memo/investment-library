@@ -67,12 +67,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
 .hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.preparing{text-align:center;padding:60px 24px;}
-.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}
-.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}
-.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}
 .back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}
 .back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
 .footer a{color:var(--gold3);text-decoration:none}
@@ -92,12 +100,68 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">迷ったときに立ち戻る、最初の判断基準。NISA？投資信託？個別株？</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← はじめての資産形成に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">迷いの正体</h2>
+    <div class="section-body">
+      <p>「投資を始めたい」と思っても、いざ調べ始めると選択肢の多さに圧倒される。NISA、iDeCo、投資信託、個別株、ETF、ロボアドバイザー。証券会社だけでも何十社とあり、投資信託は日本だけで6,000本を超える。</p>
+      <p>情報を集めれば集めるほど、どれを選べばいいかわからなくなる。それは判断力が足りないのではなく、選択肢が多すぎるからだ。完璧な答えを探そうとすると、いつまでも動き出せなくなる。</p>
+      <p>ここでは「まず最初の一歩を踏み出す」ための、できるだけシンプルな道筋を示したい。正解はひとつではないが、多くの人にとって合理的な出発点はある。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">最初の4ステップ</h2>
+    <div class="section-body">
+      <p><strong>ステップ1：生活防衛資金を確認する。</strong>月の生活費の3〜6ヶ月分が、すぐに引き出せる預金にあるか。これがなければ、まずここから始める。投資はその後でいい。</p>
+      <p><strong>ステップ2：証券口座を開設する。</strong>ネット証券がおすすめ。SBI証券や楽天証券は、取扱商品が豊富で手数料が低く、初心者向けの情報も充実している。口座開設は無料で、維持費もかからない。NISA口座も同時に申し込める。</p>
+      <p><strong>ステップ3：新NISAのつみたて投資枠で、投資信託を1本選ぶ。</strong>最初から複数のファンドを組み合わせる必要はない。まずは1本。選び方は次のセクションで説明する。</p>
+      <p><strong>ステップ4：月1万円から積み立てを始める。</strong>金額は少なくていい。大切なのは「始める」こと。毎月自動で買い付ける設定にしておけば、タイミングを悩む必要もなくなる。余裕ができたら金額を増やせばいい。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">最初の1本の選び方</h2>
+    <div class="section-body">
+      <p>投資信託を選ぶとき、最初に見るべきポイントは3つ。「何に投資しているか」「コスト（信託報酬）はいくらか」「純資産総額は十分か」。</p>
+      <p>初めての1本として、多くの専門家や経験者が推奨するのは次の2つのタイプだ。</p>
+      <p><strong>全世界株式インデックスファンド。</strong>世界中の先進国・新興国の株式市場に幅広く分散投資する。代表的な商品は「eMAXIS Slim 全世界株式（オール・カントリー）」。信託報酬は年0.05775%と極めて低い。世界経済全体の成長を取り込む設計で、地域の偏りが少ない。</p>
+      <p><strong>米国株式（S&amp;P500）インデックスファンド。</strong>アメリカの主要企業500社に投資する。代表的な商品は「eMAXIS Slim 米国株式（S&amp;P500）」。信託報酬は年0.09372%。過去の長期リターンは全世界株式を上回る傾向があるが、アメリカ一国に集中するリスクもある。</p>
+      <p>どちらを選んでも、大きな間違いにはならない。迷ったら全世界株式を選ぶのが、分散の観点からはより安全な選択になる。重要なのは、信託報酬が0.2%以下の低コストファンドを選ぶこと。長期投資では、このわずかなコスト差が数十万円の差になることもある。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">完璧な準備ができてから始める人は、いつまでも始められない。小さく始めて、学びながら調整する。それが資産形成の現実的な道筋。</div>
   </div>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">始めたあとの心構え</h2>
+    <div class="section-body">
+      <p>積み立てを始めたら、最も大切なことは「続ける」ことだ。そして続けるために必要なのは、意外にも「あまり見ない」ことかもしれない。</p>
+      <p><strong>毎日の値動きを気にしない。</strong>株価は毎日上下する。それは異常なことではなく、市場の日常だ。積み立て投資は、価格が高いときも安いときも一定額を買い続けることで、購入単価を平準化する仕組み（ドルコスト平均法）。短期的な値動きに一喜一憂する必要はない。</p>
+      <p><strong>暴落が来ても売らない。</strong>投資を続けていれば、いつか必ず大きな下落に遭遇する。リーマンショック級の暴落では、資産が一時的に40〜50%下がることもあった。しかし、歴史的に見れば、世界の株式市場はすべての暴落から回復してきた。暴落時に売ってしまうと、その後の回復の恩恵を受けられない。</p>
+      <p><strong>SNSの声に振り回されない。</strong>「今すぐ売るべき」「この銘柄が10倍になる」といった情報は、ほとんどがノイズだ。自分の投資方針と目的に立ち返ること。根拠のある判断は、他人の意見ではなく自分の状況から生まれる。</p>
+      <p><strong>年に1〜2回、振り返る。</strong>積み立て額は適切か、生活防衛資金は維持されているか、投資の目的に変化はないか。大きな見直しは不要でも、定期的に確認する習慣は持っておきたい。</p>
+      <p>積み立て投資は、「忘れる」くらいがちょうどいい。派手さはないが、時間を味方につけた資産形成は、振り返ったとき、静かに大きな差を生んでいることが多い。</p>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../stocks-vs-funds/">← 個別株と投資信託の違い</a>
+    <a href="../">はじめての資産形成に戻る →</a>
+  </nav>
+
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

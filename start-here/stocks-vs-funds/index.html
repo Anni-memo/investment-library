@@ -67,12 +67,24 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
 .hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.preparing{text-align:center;padding:60px 24px;}
-.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}
-.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}
-.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}
 .back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}
 .back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.82rem;}
+.compare-table th{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;text-align:left;padding:10px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}
+.compare-table td{padding:10px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.7;font-weight:300;}
+.compare-table tr:last-child td{border-bottom:none;}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
 .footer a{color:var(--gold3);text-decoration:none}
@@ -92,12 +104,66 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">自分で選ぶか、まとめて持つか。それぞれの特徴と向き不向き。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← はじめての資産形成に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">2つの投資の形</h2>
+    <div class="section-body">
+      <p>投資の方法は、大きく分けて2つある。自分で企業を選んで株を買う「個別株投資」と、多くの銘柄をまとめて保有する「投資信託（ファンド）」。どちらも資産形成の手段として広く使われているが、性格はかなり異なる。</p>
+      <p>個別株は、1社ごとの成長や業績に自分の判断で賭ける投資。投資信託は、プロや指数（インデックス）の仕組みを通じて、数百から数千の企業にまとめて投資する方法。ETF（上場投資信託）は、投資信託の一種で、株式と同じようにリアルタイムで売買できるものを指す。</p>
+      <p>どちらが優れているということではない。それぞれの特徴を理解した上で、自分の時間・知識・目的に合った方法を選ぶことが大切だ。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">個別株の特徴</h2>
+    <div class="section-body">
+      <p>個別株投資は、特定の企業の株式を自分で選んで購入する方法。その企業が成長すれば大きなリターンが得られるが、業績が悪化すれば大きく値下がりする可能性もある。</p>
+      <p><strong>配当金</strong>を受け取れることが魅力のひとつ。日本の上場企業には、年間の配当利回りが3〜5%に達する銘柄もある。また、日本株の特徴として<strong>株主優待</strong>制度があり、商品券や自社製品を受け取れる企業もある。</p>
+      <p>一方で、リスクは集中する。1社に投資した場合、その企業が不祥事を起こしたり、業界全体が不振に陥れば、資産が大きく毀損する。分散するには自分で複数の銘柄を選ぶ必要があり、それには時間と分析力が求められる。</p>
+      <p>購入単位は原則100株単位（単元株）。たとえば株価3,000円の銘柄なら、最低投資額は30万円になる。一部の証券会社では1株から買える「単元未満株」サービスもあるが、取引条件は限られることが多い。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">投資信託の特徴</h2>
+    <div class="section-body">
+      <p>投資信託は、多くの投資家から集めたお金をひとつにまとめ、運用のプロやルール（指数）に基づいて分散投資する仕組み。1本の投資信託を買うだけで、数百〜数千の企業に間接的に投資したことになる。</p>
+      <p>最大の利点は<strong>分散効果</strong>。たとえば「全世界株式インデックスファンド」を1本持てば、日本・アメリカ・ヨーロッパ・新興国の主要企業に幅広く投資できる。1社が倒産しても、全体への影響は限定的だ。</p>
+      <p><strong>少額から始められる</strong>のも大きな特徴。多くの証券会社で100円から購入でき、毎月の自動積立設定も可能。投資のハードルが極めて低い。</p>
+      <p>コストとして<strong>信託報酬</strong>（運用管理費用）がかかる。これは保有期間中ずっと発生する費用で、年率0.05〜1.5%程度。インデックスファンドは0.1%前後と低コストなものが多く、アクティブファンドは高めに設定されていることが多い。長期投資では、この差が最終リターンに大きく影響する。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">どちらが「正解」ということはない。自分の時間・知識・目的に合った方を選ぶ。迷ったら、まず投資信託から始めるのが無理のない一歩になる。</div>
   </div>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">組み合わせるという選択肢</h2>
+    <div class="section-body">
+      <p>個別株と投資信託は、どちらか一方しか選べないわけではない。両方を組み合わせる「コア・サテライト戦略」という考え方がある。</p>
+      <p><strong>コア（核）</strong>として、資産の大部分をインデックス型の投資信託で運用する。全世界株式やS&amp;P500に連動するファンドを毎月積み立てることで、安定的な資産の土台を作る。</p>
+      <p><strong>サテライト（衛星）</strong>として、資産の一部を自分が興味のある個別株に振り向ける。応援したい企業、配当が魅力的な企業、業界の成長に期待する企業など、自分なりの判断で選ぶ楽しさがある。</p>
+      <p>たとえば「資産の80%をインデックスファンド、20%を個別株」という配分は、よく見られる組み合わせだ。コアが安定を支え、サテライトが学びと楽しさを提供する。</p>
+      <p>最初は投資信託だけで始め、知識と経験が積み上がってきたら個別株を少しずつ加えていく。この段階的なアプローチが、無理なく投資の幅を広げる方法になる。</p>
+    </div>
+  </section>
+
+  <nav class="article-nav">
+    <a href="../nisa-ideco-taxable/">← NISA・iDeCo・課税口座の違い</a>
+    <a href="../where-to-start/">次 → まず何から始めればいいか</a>
+  </nav>
+
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>

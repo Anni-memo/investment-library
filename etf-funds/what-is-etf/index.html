@@ -24,7 +24,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 .hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 .hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}.preparing{text-align:center;padding:60px 24px;}.preparing-icon{font-size:2rem;opacity:.3;margin-bottom:16px;}.preparing-text{font-family:var(--serif);font-size:1.1rem;color:var(--ink3);font-weight:500;margin-bottom:8px;}.preparing-sub{font-size:.8rem;color:var(--ink3);opacity:.6;line-height:1.8;}.back-link{display:inline-block;margin-top:32px;font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;padding:10px 24px;border:1px solid var(--parch4);transition:all .2s;}.back-link:hover{border-color:var(--gold2);background:var(--parch2);}
+.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
+.article-section{margin-bottom:48px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
+.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
+.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
+.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.82rem;}
+.compare-table th{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;text-align:left;padding:10px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}
+.compare-table td{padding:10px 12px;border-bottom:1px solid var(--parch4);color:var(--ink2);line-height:1.7;font-weight:300;}
+.compare-table tr:last-child td{border-bottom:none;}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 </style>
 </head>
@@ -40,12 +56,74 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">投資信託との違い・メリット・活用法。上場投資信託の特徴を整理する。</p>
 </div>
 <main class="article">
-  <div class="preparing">
-    <div class="preparing-icon">✦</div>
-    <div class="preparing-text">この記事を準備しています</div>
-    <div class="preparing-sub">静かに、丁寧に書いています。<br>もう少しお待ちください。</div>
-    <a class="back-link" href="../">← ETF・投資信託の部屋に戻る</a>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 01</div>
+    <h2 class="section-title">ETFの基本：上場している投資信託</h2>
+    <div class="section-body">
+      <p>ETF（Exchange Traded Fund）は、日本語で「上場投資信託」と呼ばれる。その名の通り、証券取引所に上場している投資信託であり、株式と同じようにリアルタイムで売買できる。</p>
+      <p>通常の投資信託は、1日1回算出される基準価額で取引される。注文した時点では正確な約定価格がわからない。一方ETFは、取引所が開いている時間帯であれば、そのときの市場価格で即座に売買できる。指値注文も成行注文も可能だ。</p>
+      <p>ETFの中身は通常の投資信託と同じように、株式や債券など複数の資産で構成されている。ひとつのETFを買うだけで、数十〜数千の銘柄に自動的に分散投資できるという仕組みは、一般的な投資信託と変わらない。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 02</div>
+    <h2 class="section-title">投資信託との違い</h2>
+    <div class="section-body">
+      <p>ETFと投資信託は仕組みとしては近いが、実際の使い勝手にはいくつかの違いがある。</p>
+      <table class="compare-table">
+        <thead><tr><th>項目</th><th>ETF</th><th>投資信託</th></tr></thead>
+        <tbody>
+          <tr><td>売買方法</td><td>取引所でリアルタイム</td><td>1日1回の基準価額で</td></tr>
+          <tr><td>注文方法</td><td>指値・成行が可能</td><td>基準価額での約定のみ</td></tr>
+          <tr><td>最低購入金額</td><td>1口単位（数千円〜）</td><td>100円から可能</td></tr>
+          <tr><td>信託報酬</td><td>低い傾向（0.03%〜0.2%）</td><td>やや高め（0.05%〜1.5%）</td></tr>
+          <tr><td>自動積立</td><td>証券会社による（非対応も）</td><td>ほぼ全社で対応</td></tr>
+          <tr><td>分配金</td><td>自動再投資できない場合が多い</td><td>再投資型を選択可能</td></tr>
+          <tr><td>新NISA対応</td><td>成長投資枠で購入可能</td><td>つみたて投資枠・成長投資枠</td></tr>
+        </tbody>
+      </table>
+      <p>最大の実務的な違いは「自動積立のしやすさ」と「分配金の再投資」だ。投資信託はほぼすべての証券会社で毎月自動積立に対応しており、分配金も自動で再投資できる。ETFはこの点でやや手間がかかる。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 03</div>
+    <h2 class="section-title">代表的なETF</h2>
+    <div class="section-body">
+      <p>日本の証券取引所で購入できる代表的なETFをいくつか紹介する。</p>
+      <p>国内株式に投資するなら、NEXT FUNDS 日経225連動型上場投信（1321）やTOPIX連動型上場投信（1306）が代表格だ。日経平均株価やTOPIXといった国内主要指数に連動する。</p>
+      <p>米国株式に投資するなら、MAXIS米国株式（S&amp;P500）上場投信（2558）や、海外ETFとしてバンガード・S&amp;P500 ETF（VOO）、バンガード・トータル・ストック・マーケットETF（VTI）が広く知られている。</p>
+      <p>全世界に分散投資するなら、MAXIS全世界株式（オール・カントリー）上場投信（2559）や、バンガード・トータル・ワールド・ストックETF（VT）がある。</p>
+      <p>いずれも信託報酬が非常に低く、長期保有に適した商品設計になっている。</p>
+    </div>
+  </section>
+
+  <hr class="divider"/>
+
+  <section class="article-section">
+    <div class="section-label">SECTION 04</div>
+    <h2 class="section-title">ETFが向いている人・向いていない人</h2>
+    <div class="section-body">
+      <p>ETFが向いているのは、コストを極限まで下げたい人、市場の動きを見ながら自分のタイミングで売買したい人、まとまった資金で一括投資を考えている人だ。信託報酬は投資信託よりもさらに低い場合が多く、長期保有するほどその差が効いてくる。</p>
+      <p>一方、毎月コツコツ積み立てたい人、投資にあまり手間をかけたくない人には、通常の投資信託のほうが使いやすい。自動積立と分配金再投資が簡単に設定でき、一度セットすれば基本的に放置できるからだ。</p>
+      <p>実際のところ、同じ指数に連動するETFと投資信託の長期リターンに大きな差はない。どちらが「正解」というよりも、自分の投資スタイルに合った方を選べばよい。大切なのは、低コストで広く分散された商品を選び、長く持ち続けることだ。</p>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-text">ETFは投資信託の「上場版」。リアルタイムで売買したい人、コストを極限まで下げたい人に向いている。ただし、積立の手軽さを重視するなら投資信託という選択も合理的だ。</div>
   </div>
+
+  <nav class="article-nav">
+    <a href="../what-is-fund/">← 投資信託とは何か</a>
+    <a href="../index-investing/">インデックス投資の考え方 →</a>
+  </nav>
 </main>
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>
