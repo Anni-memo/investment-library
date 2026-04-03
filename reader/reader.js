@@ -77,7 +77,7 @@
 
     var hint = document.createElement('div');
     hint.id = 'swipe-hint';
-    hint.textContent = '← スワイプ or 矢印キーでページ送り →';
+    hint.textContent = '→ スワイプ or 矢印キーでページ送り ←';
     app.appendChild(hint);
 
     localStorage.setItem(key, '1');
@@ -882,12 +882,12 @@
         case 'ArrowLeft':
         case 'ArrowUp':
           e.preventDefault();
-          prevPage();
+          nextPage();
           break;
         case 'ArrowRight':
         case 'ArrowDown':
           e.preventDefault();
-          nextPage();
+          prevPage();
           break;
         case 'Escape':
           if (tocPanel.classList.contains('open')) { closeTOC(); }
@@ -912,7 +912,7 @@
       var dy = e.changedTouches[0].clientY - touchStartY;
 
       if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-        if (dx < 0) { nextPage(); }
+        if (dx > 0) { nextPage(); }
         else { prevPage(); }
       }
     }, { passive: true });
