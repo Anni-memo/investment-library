@@ -268,6 +268,8 @@ body::before{
 .room-map-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.3em;opacity:.6;margin-bottom:10px;}
 .room-map-title{font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);margin-bottom:8px;}
 .room-map-sub{font-family:var(--jp);font-size:.8rem;color:var(--parch4);line-height:1.9;font-weight:300;max-width:480px;margin:0 auto;}
+.room-map-graph-link{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:.7rem;color:var(--gold3);text-decoration:none;letter-spacing:.06em;border:1px solid rgba(184,144,10,.3);padding:8px 20px;transition:all .3s;}
+.room-map-graph-link:hover{border-color:var(--gold4);background:rgba(184,144,10,.08);color:var(--gold4);}
 .room-grid{
   display:grid;
   grid-template-columns:1fr 1.4fr 1fr;
@@ -532,6 +534,7 @@ body::before{
     <div class="room-map-label">EXPLORE THE LIBRARY</div>
     <h2 class="room-map-title">書庫を歩く</h2>
     <p class="room-map-sub">まず部屋を選んで入る。<br>各部屋の中で、最初の一冊が待っています。</p>
+    <a href="library-graph/" class="room-map-graph-link">📖 書庫の鳥瞰図で全体を眺める →</a>
   </div>
 
   <div class="room-grid">
