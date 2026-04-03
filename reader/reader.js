@@ -327,6 +327,7 @@
     viewMode = mode;
     document.documentElement.setAttribute('data-view', mode);
     app.setAttribute('data-view', mode);
+    closeSettings();
     try { localStorage.setItem('reader-viewMode', mode); } catch (e) { /* */ }
 
     var btns = document.querySelectorAll('.view-btn');
@@ -335,11 +336,12 @@
     }
 
     if (mode === 'scroll') {
-      loadAllChaptersForScroll();
       document.body.style.overflow = 'auto';
       document.documentElement.style.overflow = 'auto';
       document.documentElement.style.height = 'auto';
       document.body.style.height = 'auto';
+      window.scrollTo(0, 0);
+      loadAllChaptersForScroll();
     } else {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
@@ -367,6 +369,8 @@
       pageContent.innerHTML = combined;
       pageContent.style.transform = 'none';
       hideLoading();
+      window.scrollTo(0, 0);
+      if (pageContent.scrollLeft !== undefined) { pageContent.scrollLeft = 0; }
       initScrollProgress();
     }).catch(function () {
       pageContent.innerHTML = '<div class="reader-error"><h2>読み込みエラー</h2></div>';
