@@ -137,7 +137,7 @@ body::before{
 .hero{
   background:transparent;
   color:var(--parch);
-  min-height:auto;
+  min-height:70vh;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   padding:32px 24px 20px;
   text-align:center;
@@ -233,7 +233,7 @@ body::before{
 
 /* ── Hero responsive ── */
 @media(max-width:768px){
-  .hero{min-height:42vh;padding:40px 20px 32px;}
+  .hero{min-height:55vh;padding:40px 20px 32px;}
   .hero-video-overlay{
     background:linear-gradient(180deg,
       rgba(10,8,4,.65) 0%,
@@ -251,7 +251,7 @@ body::before{
   .hero-video-fallback{opacity:1 !important;}
 }
 @media(max-width:480px){
-  .hero{min-height:40vh;padding:32px 12px 24px;}
+  .hero{min-height:50vh;padding:32px 12px 24px;}
   .hero-title{font-size:clamp(1.6rem,8vw,2.2rem);margin-bottom:20px;}
   .hero-ornament{font-size:.42rem;letter-spacing:.3em;margin-bottom:20px;}
   .hero-tagline{font-size:.75rem;letter-spacing:.06em;margin-bottom:20px;}
@@ -461,6 +461,25 @@ body::before{
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
 
+/* ── HERO GRAPH (overlay inside hero) ── */
+.hero-graph-overlay{
+  position:absolute;inset:0;z-index:3;
+}
+.hero-graph-overlay canvas{display:block;width:100%;height:100%;cursor:grab;}
+.hero-graph-link{
+  position:absolute;bottom:10px;right:16px;
+  font-family:var(--mono);font-size:.44rem;color:var(--gold3);
+  letter-spacing:.1em;text-decoration:none;opacity:.4;transition:opacity .2s;z-index:4;
+}
+.hero-graph-link:hover{opacity:.9;}
+.hero-graph-tooltip{
+  position:absolute;z-index:10;background:rgba(13,11,6,.92);
+  border:1px solid rgba(184,144,10,.25);padding:8px 12px;
+  pointer-events:none;opacity:0;transition:opacity .15s;max-width:200px;
+}
+.hero-graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.hero-graph-tooltip-cat{font-family:var(--mono);font-size:.4rem;color:var(--gold3);letter-spacing:.1em;}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 </style>
@@ -476,7 +495,16 @@ body::before{
 
   <!-- HERO -->
   <div class="hero" style="background:transparent;">
-    <h1 class="hero-title" style="position:relative;z-index:2;">投資と思考の書斎</h1>
+    <!-- Graph overlay (behind title) -->
+    <div class="hero-graph-overlay">
+      <canvas id="heroGraph"></canvas>
+      <a href="library-graph/" class="hero-graph-link">全体を探索する →</a>
+      <div class="hero-graph-tooltip" id="hgTooltip">
+        <div class="hero-graph-tooltip-title" id="hgTtTitle"></div>
+        <div class="hero-graph-tooltip-cat" id="hgTtCat"></div>
+      </div>
+    </div>
+    <h1 class="hero-title" style="position:relative;z-index:4;pointer-events:none;">投資と思考の書斎</h1>
   </div>
 
   <!-- MORNING METHOD -->
@@ -573,6 +601,7 @@ body::before{
     <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
     <a class="other-shelf-link" href="start-here/real-estate/">不動産投資</a>
     <a class="other-shelf-link" href="library-map-classic/">書庫マップ（クラシック）</a>
+    <a class="other-shelf-link" href="library-graph/" style="border-color:rgba(184,144,10,.25);color:var(--gold3);opacity:.8;">書庫の鳥瞰図</a>
   </div>
 </div>
 
@@ -609,6 +638,7 @@ body::before{
     <a href="taxes/">税金と口座</a> ·
     <a href="risk-defense/">リスクと守り</a> ·
     <a href="library-map-classic/">書庫マップ</a> ·
+    <a href="library-graph/">鳥瞰図</a> ·
     <a href="api/articles.json">API</a> ·
     <a href="llms.txt">llms.txt</a>
   </div>
@@ -699,6 +729,297 @@ var SEARCH_DATA = [
 })();
 
 // NPCガイド削除済み（AI FABに統合）
+
+// ── HERO GRAPH (lightweight) ──
+(function(){
+  var canvas=document.getElementById('heroGraph');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('hgTooltip');
+  var ttTitle=document.getElementById('hgTtTitle');
+  var ttCat=document.getElementById('hgTtCat');
+  var W,H;
+
+  var CATS={
+    principles:{label:'投資原則',color:'#d4aa22'},
+    concepts:{label:'概念・moat',color:'#b8900a'},
+    horizons:{label:'思考を広げる',color:'#4888d0'},
+    human:{label:'人間理解',color:'#c05020'},
+    industries:{label:'業種分析',color:'#5a8a3a'},
+    hajimete:{label:'はじめて',color:'#7ab05a'},
+    'life-shelf':{label:'人生の書架',color:'#8b5a3a'},
+    practice:{label:'実践',color:'#6a4a8a'},
+    tools:{label:'ツール',color:'#4a6a8a'},
+    guide:{label:'ガイド',color:'#7ab05a'},
+    section:{label:'セクション',color:'#8b6914'},
+    people:{label:'人物録',color:'#3d6828'},
+    history:{label:'金融史',color:'#2a3d6a'}
+  };
+
+  var nodes=[],nodeMap={};
+  function N(id,label,cat,url,r){
+    var c=CATS[cat]||CATS.section;
+    var n={id:id,label:label,cat:cat,url:url,color:c.color,r:Math.round(r*1.4),
+      px:0,py:0,vx:0,vy:0,hover:false,dragging:false};
+    nodes.push(n);nodeMap[id]=n;
+  }
+  var edges=[];
+  function E(a,b){if(nodeMap[a]&&nodeMap[b])edges.push({from:a,to:b});}
+
+  /* Hub nodes */
+  N('top','投資と思考の書斎','section','./',18);
+  N('principles','投資原則','principles','principles/',12);
+  N('moat','moat','concepts','moat/',12);
+  N('fcf','FCF','concepts','fcf/',11);
+  N('horizons','思考を広げる','horizons','horizons/',12);
+  N('human','人間理解','human','human/',11);
+  N('industries','業種分析','industries','industries/',10);
+  N('hajimete','はじめての方へ','hajimete','hajimete/',11);
+  N('people','人物録','people','people/',10);
+  N('history','金融史','history','horizons/financial-history/',11);
+  N('life','人生の書架','life-shelf','life-shelf/',10);
+  N('morning','モーニングメソッド','practice','morning-method/',9);
+  N('nisa','NISA','guide','nisa/',9);
+  N('start','資産形成入門','guide','start-here/',9);
+  N('thinkers','思索の回廊','section','thinkers/',8);
+  N('classics','古典と先人','section','classics/',8);
+  /* Key articles */
+  N('compound','複利の力','horizons','horizons/compound-interest/',8);
+  N('mental','メンタルモデル','horizons','horizons/mental-models/',8);
+  N('value','バリュー投資','horizons','horizons/value-investing-essence/',7);
+  N('behavioral','行動経済学','horizons','horizons/behavioral-economics/',7);
+  N('circle','能力の輪','principles','principles/circle-of-competence/',7);
+  N('mr-market','ミスター・マーケット','principles','principles/mr-market/',7);
+  N('safety','安全マージン','horizons','horizons/safety-margin/',7);
+  N('fomo','FOMO','human','human/fomo/',6);
+  N('loss','損失回避','human','human/loss-aversion/',6);
+  N('stoicism','ストア哲学','horizons','horizons/stoicism/',7);
+  N('network','ネットワーク効果','concepts','moat/network-effects/',7);
+  N('bubble','バブルの歴史','horizons','horizons/bubble-history/',7);
+
+  /* Hub edges */
+  E('top','principles');E('top','moat');E('top','fcf');E('top','horizons');
+  E('top','human');E('top','industries');E('top','hajimete');E('top','people');
+  E('top','history');E('top','life');E('top','morning');E('top','nisa');
+  E('top','start');E('top','thinkers');E('top','classics');
+  /* Article edges */
+  E('horizons','compound');E('horizons','mental');E('horizons','value');
+  E('horizons','behavioral');E('horizons','safety');E('horizons','stoicism');
+  E('horizons','bubble');
+  E('principles','circle');E('principles','mr-market');
+  E('human','fomo');E('human','loss');
+  E('moat','network');
+  /* Cross links */
+  E('value','mr-market');E('value','safety');E('behavioral','fomo');
+  E('behavioral','loss');E('mental','circle');E('mental','compound');
+  E('stoicism','thinkers');E('bubble','history');E('compound','start');
+  E('network','industries');
+
+  /* Connection map */
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+
+  function resize(){
+    var hero=canvas.closest('.hero');
+    if(!hero)return;
+    var rect=hero.getBoundingClientRect();
+    W=rect.width;
+    H=rect.height;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    initLayout();
+  }
+
+  function initLayout(){
+    var catGroups={};
+    nodes.forEach(function(n){
+      if(!catGroups[n.cat])catGroups[n.cat]=[];
+      catGroups[n.cat].push(n);
+    });
+    var catKeys=Object.keys(catGroups);
+    var angleStep=(Math.PI*2)/catKeys.length;
+    var hubR=Math.max(W,H)*0.32;
+    catKeys.forEach(function(cat,ci){
+      var a=angleStep*ci-Math.PI/2;
+      var cx=W/2+Math.cos(a)*hubR;
+      var cy=H/2+Math.sin(a)*hubR;
+      var g=catGroups[cat];
+      g.forEach(function(n,ni){
+        var spread=Math.min(120,35+g.length*10);
+        var ga=(Math.PI*2/g.length)*ni;
+        var gr=spread*(0.3+Math.random()*0.7);
+        n.px=cx+Math.cos(ga)*gr;
+        n.py=cy+Math.sin(ga)*gr;
+        n.vx=0;n.vy=0;
+      });
+    });
+    if(nodeMap['top']){nodeMap['top'].px=W/2;nodeMap['top'].py=H/2;}
+  }
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var repulse=300/(dist*dist)*50;
+        var fx=dx/dist*repulse,fy=dy/dist*repulse;
+        if(!a.dragging){a.vx-=fx*0.004;a.vy-=fy*0.004;}
+        if(!b.dragging){b.vx+=fx*0.004;b.vy+=fy*0.004;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=nodeMap[e.from],b=nodeMap[e.to];
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=50+(a.r+b.r);
+      var force=(dist-target)*0.002;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.00008;
+      n.vy+=(H/2-n.py)*0.00008;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+4,Math.min(W-n.r-4,n.px));
+      n.py=Math.max(n.r+4,Math.min(H-n.r-4,n.py));
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){hovConns[hovId]=true;if(connMap[hovId])connMap[hovId].forEach(function(id){hovConns[id]=true;});}
+
+    edges.forEach(function(e){
+      var a=nodeMap[e.from],b=nodeMap[e.to];if(!a||!b)return;
+      var hl=hovId&&hovConns[e.from]&&hovConns[e.to];
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,0.45)':'rgba(139,105,20,0.08)';
+      ctx.lineWidth=hl?1.5:0.5;ctx.stroke();
+    });
+
+    nodes.forEach(function(n){
+      var isHov=n.hover;
+      var dimmed=hovId&&!hovConns[n.id];
+      var dr=isHov?n.r*1.2:n.r;
+
+      if((n.id==='top'||isHov)&&!dimmed){
+        ctx.beginPath();ctx.arc(n.px,n.py,dr+10,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,dr,n.px,n.py,dr+10);
+        g.addColorStop(0,'rgba(212,170,34,0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+
+      ctx.beginPath();ctx.arc(n.px,n.py,dr,0,Math.PI*2);
+      ctx.fillStyle=isHov?'#f0cc55':n.color;
+      ctx.globalAlpha=dimmed?0.1:(n.id==='top'?0.85:(isHov?0.9:0.5));
+      ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=isHov?'rgba(240,204,85,0.6)':'rgba(245,237,224,0.1)';
+      ctx.lineWidth=isHov?1.5:0.5;
+      if(!dimmed)ctx.stroke();
+
+      var showLabel=n.r>=10||isHov||(hovId&&hovConns[n.id]);
+      if(showLabel&&!dimmed){
+        var fs=Math.max(7,n.r*0.55);
+        ctx.font=(n.r>=12?'600 ':'300 ')+fs+'px "Noto Serif JP",serif';
+        ctx.fillStyle=isHov?'#f0cc55':'rgba(245,237,224,0.5)';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(n.label,n.px,n.py+dr+9);
+      }
+    });
+  }
+
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+
+  /* Interaction */
+  var dragNode=null,dragDist=0,dragStart={x:0,y:0};
+
+  function getNodeAt(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];var dx=x-n.px,dy=y-n.py;
+      if(dx*dx+dy*dy<(n.r+6)*(n.r+6))return n;
+    }return null;
+  }
+  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+
+  function showTip(n,x,y){
+    ttTitle.textContent=n.label;
+    ttCat.textContent=(CATS[n.cat]||{label:n.cat}).label;
+    var rect=canvas.parentElement.getBoundingClientRect();
+    var tx=x+14,ty=y-8;
+    if(tx+200>rect.width)tx=x-210;
+    if(ty<0)ty=y+14;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';tooltip.style.opacity='1';
+  }
+  function hideTip(){tooltip.style.opacity='0';}
+
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);dragDist=0;dragStart=p;
+    if(dragNode){dragNode.dragging=true;canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragNode){
+      dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStart.x)+Math.abs(p.y-dragStart.y);
+      dragStart=p;
+    }else{
+      var h=getNodeAt(p.x,p.y);
+      nodes.forEach(function(n){n.hover=false;});
+      if(h){h.hover=true;canvas.style.cursor=h.url?'pointer':'grab';showTip(h,p.x,p.y);}
+      else{canvas.style.cursor='grab';hideTip();}
+    }
+  });
+  canvas.addEventListener('mouseup',function(){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url)window.location.href=dragNode.url;
+      dragNode=null;
+    }
+    canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    if(dragNode)dragNode.dragging=false;dragNode=null;
+    nodes.forEach(function(n){n.hover=false;});hideTip();
+  });
+
+  /* Touch */
+  var touchStart=0;
+  canvas.addEventListener('touchstart',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);dragDist=0;dragStart=p;touchStart=Date.now();
+    if(dragNode){dragNode.dragging=true;e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(dragNode){
+      var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStart.x)+Math.abs(p.y-dragStart.y);
+      dragStart=p;e.preventDefault();
+    }
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<8&&dragNode.url)window.location.href=dragNode.url;
+      dragNode=null;
+    }
+  });
+
+  resize();
+  window.addEventListener('resize',resize);
+  loop();
+})();
 </script>
 <script src="onboarding.js"></script>
 <script src="shared.js"></script>
