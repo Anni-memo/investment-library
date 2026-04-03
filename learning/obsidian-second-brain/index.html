@@ -119,19 +119,55 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .qa-btn:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
 .qa-icon{font-size:.7rem;}
 
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.52rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.7rem;flex-shrink:0;}
+
+/* Navigation Cockpit below hero */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
 /* ===== Floating My Note FAB + Panel ===== */
 /* FAB: メモ用紙風 — 案内人(bottom:120px)の上 */
-.mynote-fab{position:fixed;bottom:90px;right:26px;z-index:8999;width:56px;height:62px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab{position:fixed;bottom:90px;right:42px;z-index:8999;width:66px;height:72px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
 .mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
 .mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px 2px 2px 2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
 .mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
 .mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
 .mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
-@media(max-width:600px){.mynote-fab{bottom:72px;right:10px;width:42px;height:48px;}}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:18px;width:50px;height:56px;}}
 
 /* Panel */
-.mynote-panel{position:fixed;bottom:90px;right:90px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel{position:fixed;bottom:90px;right:116px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
 .mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
 .mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
 .mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
@@ -297,28 +333,49 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
     <!-- Right: Vault Tree + Quick Actions -->
     <div class="hero-col-side hero-col-right">
-      <div class="vault-tree">
-        <div class="vault-tree-label">VAULT TREE</div>
-        <div class="vault-tree-content">
-          <div class="vt-item vt-root"><span class="vt-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
-          <div class="vt-children">
-            <div class="vt-item vt-folder"><span class="vt-icon">&#128194;</span><a href="../">まなびの時間</a><span class="vt-count">4</span></div>
-            <div class="vt-children">
-              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
-              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
-              <div class="vt-item vt-active"><span class="vt-icon">&#128221;</span><span>メモの複利</span></div>
-              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
-            </div>
-          </div>
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="../../reader/?book=obsidian-second-brain" target="_blank"><span class="qa-icon">&#128214;</span> 読書モードで読む</a>
+          <a class="qa-btn-v" href="../../assets/pdf/learning/memo-compound-summary.pdf" target="_blank"><span class="qa-icon">&#128196;</span> PDFサマリー</a>
+          <a class="qa-btn-v" href="../../assets/pdf/learning/zettelkasten-worksheet.pdf" target="_blank"><span class="qa-icon">&#128221;</span> ワークシート</a>
         </div>
-        <div class="vt-meta">430+ 記事 / 37 セクション</div>
-      </div>
-      <div class="quick-actions">
-        <a class="qa-btn" href="../../reader/?book=obsidian-second-brain" target="_blank"><span class="qa-icon">&#128214;</span> 読書モード</a>
-        <a class="qa-btn" href="../../assets/pdf/learning/memo-compound-summary.pdf" target="_blank"><span class="qa-icon">&#128196;</span> PDF</a>
-        <a class="qa-btn" href="../../assets/pdf/learning/zettelkasten-worksheet.pdf" target="_blank"><span class="qa-icon">&#128221;</span> ワークシート</a>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Navigation Cockpit: Tree + TOC -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">まなびの時間</a><span class="ct-count">4</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>メモの複利</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 18 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec01"><span class="toc-num">01</span>知識は複利で働く</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>ルーマンの9万枚</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>3種類のノート</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>メモの複利</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>Obsidianという第二の脳</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>AIに脳を渡す</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>環境を設計する</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>今日からできる3ステップ</a></li>
+      <li><a href="#sec09"><span class="toc-num">09</span>終わりに</a></li>
+    </ol>
   </div>
 </div>
 
@@ -357,10 +414,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <div class="container">
 
-  <div class="reading-time">READING TIME: APPROX. 18 MIN</div>
-
   <!-- 01 -->
-  <div class="section">
+  <div class="section" id="sec01">
     <div class="section-num">01</div>
     <h2 class="section-title">知識は複利で働く——バフェットとマンガーの読書術</h2>
     <div class="body-text">
@@ -401,7 +456,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 02 -->
-  <div class="section">
+  <div class="section" id="sec02">
     <div class="section-num">02</div>
     <h2 class="section-title">ルーマンの9万枚——ツェッテルカステンの発明</h2>
     <div class="body-text">
@@ -460,7 +515,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 03 -->
-  <div class="section">
+  <div class="section" id="sec03">
     <div class="section-num">03</div>
     <h2 class="section-title">3種類のノート——Take Notes! の教え</h2>
     <div class="body-text">
@@ -507,7 +562,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 04 -->
-  <div class="section">
+  <div class="section" id="sec04">
     <div class="section-num">04</div>
     <h2 class="section-title">メモの複利——なぜリンクが価値を指数関数的に増やすのか</h2>
     <div class="body-text">
@@ -577,7 +632,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 05 -->
-  <div class="section">
+  <div class="section" id="sec05">
     <div class="section-num">05</div>
     <h2 class="section-title">Obsidianという「第二の脳」</h2>
     <div class="body-text">
@@ -630,7 +685,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 06 -->
-  <div class="section">
+  <div class="section" id="sec06">
     <div class="section-num">06</div>
     <h2 class="section-title">AIに「脳」を渡す — Obsidian × Claude Code</h2>
     <div class="body-text">
@@ -726,7 +781,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 07 -->
-  <div class="section">
+  <div class="section" id="sec07">
     <div class="section-num">07</div>
     <h2 class="section-title">環境を設計する——意志より仕組みが勝つ</h2>
     <div class="body-text">
@@ -784,7 +839,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 08 -->
-  <div class="section">
+  <div class="section" id="sec08">
     <div class="section-num">08</div>
     <h2 class="section-title">始め方——今日からできる3ステップ</h2>
     <div class="body-text">
@@ -816,7 +871,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 09 -->
-  <div class="section">
+  <div class="section" id="sec09">
     <div class="section-num">09</div>
     <h2 class="section-title">終わりに——人間は計画を立てるのをやめた瞬間、学習を始める</h2>
     <div class="body-text">

@@ -515,7 +515,7 @@ function getAssistantCSS(){
   '[data-theme="dark"] .ai-tree-btn{background:#221a0e;color:#e8dcc8;border-color:#3a2a18;}' +
   '[data-theme="dark"] .ai-tree-btn:hover{border-color:#d4aa22;color:#d4aa22;}' +
   '[data-theme="dark"] .ai-tree-back{color:#b0a088;}' +
-  '@media(max-width:420px){.ai-chat-window{width:calc(100vw - 16px);right:8px;bottom:64px;height:calc(100vh - 100px);}.ai-fab{right:12px;bottom:64px;}}';
+  '@media(max-width:420px){.ai-chat-window{width:calc(100vw - 16px);right:8px;bottom:64px;height:calc(100vh - 100px);}.ai-fab{right:12px;bottom:64px;padding:4px 9px;border-radius:18px;gap:5px;}.ai-fab-label{font-size:.48rem;}.ai-fab-icon svg{width:18px;height:18px;}}';
 }
 
 // ── 初期化 ──
