@@ -65,21 +65,104 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-.hero{background:linear-gradient(160deg,#060404 0%,var(--ink) 30%,#1a1505 60%,#2a1c0a 100%);color:var(--parch);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.12) 0%,transparent 70%);}
+.hero{background:linear-gradient(160deg,#060404 0%,var(--ink) 30%,#1a1505 60%,#2a1c0a 100%);color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:14px;opacity:.7;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.4rem,4.5vw,2.4rem);font-weight:700;color:var(--parch);position:relative;line-height:1.25;}
-.hero-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.2em;margin-top:12px;opacity:.75;position:relative;}
-.hero-lead{margin-top:24px;position:relative;font-family:var(--serif);font-size:clamp(.82rem,2vw,.95rem);color:var(--parch3);font-style:italic;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
+
+/* Hero 3-column layout */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
 
 .container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
 .reading-time{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:40px;text-align:center;opacity:.7;}
 
-/* Tree Map */
-.tree-map-wrap{margin:0 0 56px;padding:28px;background:var(--ink);border:1px solid rgba(184,144,10,.2);overflow-x:auto;}
-.tree-map-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:16px;text-align:center;opacity:.7;}
-.tree-map-svg{display:block;margin:0 auto;max-width:100%;}
+/* Quick Actions in hero */
+.cockpit-right{display:flex;flex-direction:column;gap:14px;min-width:0;}
+
+/* Graph View */
+.graph-card{background:#0d0f14;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Vault Tree */
+.vault-tree{background:#16130e;border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.vault-tree-label{font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.vault-tree-content{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.vt-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;position:relative;}
+.vt-item a{color:var(--parch3);text-decoration:none;transition:color .15s;}
+.vt-item a:hover{color:var(--gold3);}
+.vt-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.vt-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.vt-children{padding-left:20px;}
+.vt-root{opacity:.7;}
+.vt-folder{}
+.vt-sibling{opacity:.6;}
+.vt-sibling:hover{opacity:1;background:rgba(184,144,10,.06);}
+.vt-active{background:rgba(212,170,34,.1);border-left:2px solid var(--gold3);padding-left:4px;}
+.vt-active span:not(.vt-icon){color:var(--gold3);font-weight:500;}
+.vt-meta{font-family:var(--mono);font-size:.42rem;color:rgba(184,144,10,.35);letter-spacing:.1em;margin-top:10px;text-align:right;}
+
+/* Quick Actions */
+.quick-actions{display:flex;gap:4px;margin-top:8px;}
+.qa-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 4px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.5rem;transition:all .15s;border-radius:3px;white-space:nowrap;}
+.qa-btn:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-icon{font-size:.7rem;}
+
+/* ===== Floating My Note FAB + Panel ===== */
+/* FAB: メモ用紙風 — 案内人(bottom:120px)の上 */
+.mynote-fab{position:fixed;bottom:90px;right:26px;z-index:8999;width:56px;height:62px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
+.mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px 2px 2px 2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
+.mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
+.mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
+.mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:10px;width:42px;height:48px;}}
+
+/* Panel */
+.mynote-panel{position:fixed;bottom:90px;right:90px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.1rem;cursor:pointer;padding:2px 6px;transition:color .2s;}
+.mynote-panel-close:hover{color:var(--gold4);}
+.mynote-panel-body{background:repeating-linear-gradient(to bottom,transparent,transparent 27px,rgba(184,144,10,.08) 27px,rgba(184,144,10,.08) 28px);padding:12px 14px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:72px;width:calc(100vw - 16px);max-height:55vh;}}
+
+.mynote-card-streak{font-family:var(--mono);font-size:.55rem;color:var(--gold3);}
+.mynote-card-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px;}
+.mynote-card-nav-btn{background:none;border:1px solid var(--parch4);padding:3px 10px;font-family:var(--mono);font-size:.5rem;color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;}
+.mynote-card-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-card-nav-date{font-family:var(--mono);font-size:.58rem;color:var(--ink);font-weight:600;min-width:110px;text-align:center;}
+.mynote-panel textarea{width:100%;min-height:100px;font-size:16px;line-height:1.7;padding:10px;border:1px solid var(--parch4);border-radius:4px;resize:none;font-family:var(--jp);background:rgba(255,255,255,.5);color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-panel textarea:focus{border-color:var(--gold);}
+.mynote-panel textarea::placeholder{color:var(--parch4);font-size:.78rem;}
+.mynote-card-status{display:flex;align-items:center;justify-content:space-between;padding:6px 0 0;gap:8px;}
+.mynote-card-saved{font-family:var(--mono);font-size:.44rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+
+/* ========== End Cockpit ========== */
 
 .section{margin-bottom:56px;}
 .section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
@@ -159,42 +242,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .pdf-btn-icon{font-size:1.1rem;}
 .pdf-btn-sub{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.1em;}
 
-/* MyNote Floating Widget */
-.mynote-fab{position:fixed;bottom:170px;right:16px;z-index:8999;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a1208,#2d2010);border:1.5px solid rgba(184,144,10,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(26,18,8,.4);transition:all .3s;flex-direction:column;gap:2px;}
-.mynote-fab:hover{border-color:#d4aa22;transform:translateY(-2px);box-shadow:0 6px 28px rgba(26,18,8,.5),0 0 12px rgba(184,144,10,.12);}
-.mynote-fab-streak{font-family:var(--mono);font-size:.42rem;color:var(--gold3);line-height:1;margin-top:-2px;}
-.mynote-panel{position:fixed;bottom:170px;right:68px;z-index:8998;width:320px;max-width:calc(100vw - 80px);max-height:calc(100vh - 200px);background:var(--parch);border:1px solid var(--parch3);box-shadow:0 8px 48px rgba(26,18,8,.35);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(20px) scale(.95);transition:all .3s;}
-.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
-.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--gold);}
-.mynote-panel-title{font-family:var(--serif);font-size:.9rem;font-weight:600;flex:1;}
-.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.2rem;cursor:pointer;padding:2px 6px;}
-@media(max-width:600px){.mynote-panel{right:8px;bottom:130px;width:calc(100vw - 16px);max-height:60vh;}.mynote-fab{bottom:130px;right:8px;}}
-.mynote-streak{font-family:var(--mono);font-size:.65rem;color:var(--gold3);}
-.mynote-progress{padding:8px 14px 0;}
-.mynote-progress-bar{width:100%;height:4px;background:var(--parch4);border-radius:2px;overflow:hidden;}
-.mynote-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold3));border-radius:2px;transition:width .5s ease;}
-.mynote-progress-label{font-family:var(--mono);font-size:.42rem;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
-.mynote-nav{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 14px;}
-.mynote-nav-btn{background:none;border:1px solid var(--parch4);padding:4px 10px;font-family:var(--mono);font-size:.55rem;color:var(--ink3);cursor:pointer;transition:all .2s;}
-.mynote-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
-.mynote-nav-date{font-family:var(--mono);font-size:.62rem;color:var(--ink);font-weight:600;min-width:120px;text-align:center;}
-.mynote-textarea{width:calc(100% - 28px);margin:0 14px;min-height:120px;font-size:16px;line-height:1.6;padding:12px;border:1px solid var(--parch4);border-radius:6px;resize:none;font-family:var(--jp);background:#fff;color:var(--ink);outline:none;transition:border-color .2s;}
-.mynote-textarea:focus{border-color:var(--gold);}
-.mynote-textarea::placeholder{color:var(--parch4);}
-.mynote-status{display:flex;align-items:center;justify-content:space-between;padding:4px 14px 8px;gap:8px;}
-.mynote-saved{font-family:var(--mono);font-size:.46rem;color:var(--green2);opacity:0;transition:opacity .3s;}
-.mynote-saved.visible{opacity:1;}
-.mynote-wordcount{font-family:var(--mono);font-size:.42rem;color:var(--ink3);}
-.mynote-calendar{padding:0 14px 14px;}
-.mynote-calendar-label{font-family:var(--mono);font-size:.42rem;color:var(--gold);letter-spacing:.12em;margin-bottom:4px;}
-.mynote-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
-.mynote-calendar-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);position:relative;cursor:default;}
-.mynote-calendar-day.has-note{background:var(--gold);opacity:.7;}
-.mynote-calendar-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
-.mynote-calendar-day.future{background:transparent;border:1px solid var(--parch4);}
-.mynote-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
-.mynote-calendar-weekdays span{font-family:var(--mono);font-size:.34rem;color:var(--ink3);text-align:center;}
-
 .next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
 .next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
 .next-link:hover{border-color:var(--gold3);background:var(--parch3);}
@@ -226,145 +273,91 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </nav>
 
 <div class="hero">
-  <div class="hero-label">KNOWLEDGE COMPOUND INTEREST</div>
-  <h1 class="hero-title">メモの複利<br><span style="font-size:.6em;font-weight:400;opacity:.85;">— Obsidian × AI で築く投資家の第二の脳</span></h1>
-  <div class="hero-sub">ZETTELKASTEN &times; OBSIDIAN &times; CLAUDE CODE</div>
-  <p class="hero-lead">9万枚のカードで70冊の本を書いた男がいる。<br>知識は複利で増える——その仕組みを、あなたの手元に。</p>
+  <div class="hero-3col">
+    <!-- Left: Graph View -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title + Lead -->
+    <div class="hero-col-center">
+      <div class="hero-label">KNOWLEDGE COMPOUND INTEREST</div>
+      <h1 class="hero-title">メモの複利<br><span style="font-size:.6em;font-weight:400;opacity:.85;">— Obsidian × AI で築く投資家の第二の脳</span></h1>
+      <div class="hero-sub">ZETTELKASTEN &times; OBSIDIAN &times; CLAUDE CODE</div>
+      <p class="hero-lead">9万枚のカードで70冊の本を書いた男がいる。<br>知識は複利で増える——その仕組みを、あなたの手元に。</p>
+    </div>
+
+    <!-- Right: Vault Tree + Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="vault-tree">
+        <div class="vault-tree-label">VAULT TREE</div>
+        <div class="vault-tree-content">
+          <div class="vt-item vt-root"><span class="vt-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
+          <div class="vt-children">
+            <div class="vt-item vt-folder"><span class="vt-icon">&#128194;</span><a href="../">まなびの時間</a><span class="vt-count">4</span></div>
+            <div class="vt-children">
+              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
+              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+              <div class="vt-item vt-active"><span class="vt-icon">&#128221;</span><span>メモの複利</span></div>
+              <div class="vt-item vt-sibling"><span class="vt-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="vt-meta">430+ 記事 / 37 セクション</div>
+      </div>
+      <div class="quick-actions">
+        <a class="qa-btn" href="../../reader/?book=obsidian-second-brain" target="_blank"><span class="qa-icon">&#128214;</span> 読書モード</a>
+        <a class="qa-btn" href="../../assets/pdf/learning/memo-compound-summary.pdf" target="_blank"><span class="qa-icon">&#128196;</span> PDF</a>
+        <a class="qa-btn" href="../../assets/pdf/learning/zettelkasten-worksheet.pdf" target="_blank"><span class="qa-icon">&#128221;</span> ワークシート</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Floating My Note FAB + Panel (above AI assistant) -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">NOTE</div>
+  </div>
+  <span class="mynote-fab-streak" id="mcFabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&#9664;</button>
+      <div class="mynote-card-nav-date" id="mcDate">今日</div>
+      <button class="mynote-card-nav-btn" id="mcNext">&#9654;</button>
+    </div>
+    <textarea id="mcTextarea" placeholder="このページから、1枚書く"></textarea>
+    <div class="mynote-card-status">
+      <div class="mynote-card-saved" id="mcSaved">&#10003; 保存済み</div>
+      <div class="mynote-card-wordcount" id="mcWordcount">0 文字</div>
+    </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label" id="mcCalLabel"></div>
+      <div class="mynote-card-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalGrid"></div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
 
   <div class="reading-time">READING TIME: APPROX. 18 MIN</div>
-
-  <!-- TREE MAP: この記事の位置 -->
-  <div class="tree-map-wrap">
-    <div class="tree-map-label">YOU ARE HERE — この記事の位置</div>
-    <svg class="tree-map-svg" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" style="font-family:'DM Mono',monospace;">
-      <!-- Root -->
-      <rect x="280" y="10" width="160" height="32" rx="3" fill="#1a1208" stroke="#d4aa22" stroke-width="1"/>
-      <text x="360" y="30" fill="#f5ede0" font-size="9" text-anchor="middle" letter-spacing=".5">投資と思考の書斎</text>
-
-      <!-- Lines from root -->
-      <line x1="360" y1="42" x2="360" y2="60" stroke="#8b6914" stroke-width="1" opacity=".5"/>
-      <line x1="100" y1="60" x2="620" y2="60" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-
-      <!-- Branches -->
-      <!-- はじめに -->
-      <line x1="60" y1="60" x2="60" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="10" y="80" width="100" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="60" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">はじめての方へ</text>
-
-      <!-- 教養と人間理解 -->
-      <line x1="170" y1="60" x2="170" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="115" y="80" width="110" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="170" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">教養と人間理解</text>
-
-      <!-- 思考を広げる -->
-      <line x1="290" y1="60" x2="290" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="235" y="80" width="110" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="290" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">思考を広げる棚</text>
-      <!-- sub: 金融史 -->
-      <line x1="290" y1="104" x2="290" y2="120" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-      <rect x="248" y="120" width="84" height="18" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
-      <text x="290" y="132" fill="#8b6914" font-size="6" text-anchor="middle">金融史の回廊 (47)</text>
-
-      <!-- 人物録 -->
-      <line x1="400" y1="60" x2="400" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="358" y="80" width="84" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="400" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">人物録 (25)</text>
-
-      <!-- 企業研究 -->
-      <line x1="500" y1="60" x2="500" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="455" y="80" width="90" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="500" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">企業研究 (226)</text>
-
-      <!-- 論考 -->
-      <line x1="600" y1="60" x2="600" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
-      <rect x="558" y="80" width="84" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
-      <text x="600" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">論考の棚 (13)</text>
-
-      <!-- ===== まなびの時間（ハイライト） ===== -->
-      <line x1="660" y1="60" x2="660" y2="80" stroke="#d4aa22" stroke-width="1.5"/>
-      <rect x="608" y="80" width="104" height="24" rx="2" fill="#2d2010" stroke="#d4aa22" stroke-width="1.5"/>
-      <text x="660" y="95" fill="#d4aa22" font-size="7.5" text-anchor="middle" font-weight="700">まなびの時間</text>
-
-      <!-- Articles under まなびの時間 -->
-      <line x1="660" y1="104" x2="660" y2="130" stroke="#d4aa22" stroke-width="1"/>
-      <line x1="580" y1="130" x2="720" y2="130" stroke="#d4aa22" stroke-width=".5" opacity=".5"/>
-
-      <!-- Claude Code Setup -->
-      <line x1="590" y1="130" x2="590" y2="148" stroke="#8b6914" stroke-width=".5" opacity=".5"/>
-      <rect x="548" y="148" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
-      <text x="590" y="161" fill="#dfc9a8" font-size="5.5" text-anchor="middle">Claude Code Setup</text>
-
-      <!-- Claude Code Memory -->
-      <line x1="660" y1="130" x2="660" y2="148" stroke="#8b6914" stroke-width=".5" opacity=".5"/>
-      <rect x="618" y="148" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
-      <text x="660" y="161" fill="#dfc9a8" font-size="5.5" text-anchor="middle">記憶を設計する</text>
-
-      <!-- Prompt Optimization -->
-      <line x1="590" y1="168" x2="590" y2="186" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
-      <rect x="548" y="186" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
-      <text x="590" y="199" fill="#dfc9a8" font-size="5.5" text-anchor="middle">話し方で変わる</text>
-
-      <!-- ★ THIS ARTICLE (highlighted) -->
-      <line x1="660" y1="168" x2="660" y2="186" stroke="#d4aa22" stroke-width="1.5"/>
-      <rect x="610" y="186" width="100" height="24" rx="2" fill="#d4aa22" stroke="#f0cc55" stroke-width="1.5"/>
-      <text x="660" y="200" fill="#1a1208" font-size="6.5" text-anchor="middle" font-weight="700">メモの複利</text>
-      <text x="660" y="208" fill="#4a3520" font-size="4.5" text-anchor="middle">★ YOU ARE HERE</text>
-
-      <!-- Left side: more shelves (compact) -->
-      <!-- 投資原則 -->
-      <line x1="60" y1="60" x2="60" y2="155" stroke="#8b6914" stroke-width=".5" opacity=".15"/>
-      <rect x="10" y="155" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="60" y="168" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">投資原則</text>
-
-      <!-- 朝の実践 -->
-      <rect x="10" y="180" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="60" y="193" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">朝の実践室</text>
-
-      <!-- 人間理解 -->
-      <rect x="10" y="205" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="60" y="218" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">人間理解の棚</text>
-
-      <!-- moat -->
-      <rect x="115" y="155" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="165" y="168" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">競争優位性</text>
-
-      <!-- 業種 -->
-      <rect x="115" y="180" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="165" y="193" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">業種から歩く (16)</text>
-
-      <!-- リスク -->
-      <rect x="115" y="205" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
-      <text x="165" y="218" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">リスクと守り</text>
-
-      <!-- Connection arrows showing knowledge links -->
-      <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4aa22" opacity=".4"/>
-        </marker>
-      </defs>
-      <!-- Link: メモの複利 → 複利の力 -->
-      <path d="M 610 198 C 500 198, 400 170, 290 140" stroke="#d4aa22" stroke-width=".7" fill="none" stroke-dasharray="3,3" opacity=".3" marker-end="url(#arrow)"/>
-      <text x="440" y="162" fill="#d4aa22" font-size="4.5" opacity=".5" transform="rotate(-10,440,162)">複利の概念</text>
-
-      <!-- Link: メモの複利 → 教養 -->
-      <path d="M 610 196 C 450 220, 300 160, 170 104" stroke="#d4aa22" stroke-width=".7" fill="none" stroke-dasharray="3,3" opacity=".3" marker-end="url(#arrow)"/>
-      <text x="370" y="180" fill="#d4aa22" font-size="4.5" opacity=".5" transform="rotate(-20,370,180)">教養×メモ</text>
-
-      <!-- Legend -->
-      <rect x="10" y="260" width="140" height="50" rx="2" fill="none" stroke="#4a3520" stroke-width=".5" opacity=".4"/>
-      <text x="20" y="275" fill="#8b6914" font-size="5" opacity=".6">LEGEND</text>
-      <rect x="20" y="282" width="8" height="8" fill="#d4aa22"/>
-      <text x="32" y="289" fill="#dfc9a8" font-size="5">現在の記事</text>
-      <line x1="20" y1="298" x2="36" y2="298" stroke="#d4aa22" stroke-dasharray="3,3" stroke-width=".7" opacity=".4"/>
-      <text x="40" y="301" fill="#dfc9a8" font-size="5">知識のリンク</text>
-
-      <!-- Stats -->
-      <text x="360" y="260" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".5">430+ 記事 / 37 セクション / 知識は複利で増える</text>
-    </svg>
-  </div>
 
   <!-- 01 -->
   <div class="section">
@@ -909,16 +902,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </ul>
   </div>
 
-  <!-- Graph View -->
-  <div class="section" style="margin-top:48px;">
-    <div class="section-num">GRAPH VIEW</div>
-    <h2 class="section-title">知識のネットワーク — この記事のつながり</h2>
-    <div class="body-text"><p>Obsidianのグラフビューのように、この記事と関連する知識のつながりを可視化。ノードをドラッグして動かせます。</p></div>
-    <div id="graphContainer" style="background:#1a1208;border:1px solid rgba(184,144,10,.2);margin:20px 0;position:relative;overflow:hidden;border-radius:2px;">
-      <canvas id="graphCanvas" style="display:block;width:100%;cursor:grab;"></canvas>
-    </div>
-  </div>
-
   <!-- Navigation Links -->
   <div class="next-links">
     <a class="next-link" href="../claude-code-memory/">
@@ -933,41 +916,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 </div>
 
-<!-- Floating MyNote Widget -->
-<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
-  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#d4aa22" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
-  <span class="mynote-fab-streak" id="fabStreak"></span>
-</div>
-<div id="mynotePanel" class="mynote-panel">
-  <div class="mynote-panel-header">
-    <span class="mynote-panel-title">My Note</span>
-    <span class="mynote-streak" id="streakDisplay"></span>
-    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
-  </div>
-  <div class="mynote-progress">
-    <div class="mynote-progress-bar"><div class="mynote-progress-fill" id="progressFill"></div></div>
-    <div class="mynote-progress-label">
-      <span id="progressLabel">0 / 66日</span>
-      <span style="opacity:.5;">習慣化チャレンジ</span>
-    </div>
-  </div>
-  <div class="mynote-nav">
-    <button class="mynote-nav-btn" id="prevDay">&larr;</button>
-    <div class="mynote-nav-date" id="currentDate"></div>
-    <button class="mynote-nav-btn" id="nextDay">&rarr;</button>
-  </div>
-  <textarea class="mynote-textarea" id="noteTextarea" placeholder="今日の気づき、学んだこと..."></textarea>
-  <div class="mynote-status">
-    <div class="mynote-saved" id="savedIndicator">&#10003; 保存済み</div>
-    <div class="mynote-wordcount" id="wordCount">0 文字</div>
-  </div>
-  <div class="mynote-calendar">
-    <div class="mynote-calendar-label" id="calendarLabel"></div>
-    <div class="mynote-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
-    <div class="mynote-calendar-grid" id="calendarGrid"></div>
-  </div>
-</div>
-
 <footer class="site-footer">
   <nav class="footer-nav">
     <a href="../../">書斎の入口</a>
@@ -980,15 +928,269 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </footer>
 
 <script>
-/* === MyNote: Floating panel + Graph View === */
+/* ===== Knowledge Graph (Canvas API) ===== */
 (function(){
-  /* --- MyNote --- */
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var W,H;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+
+  var catLabels={self:'この記事',concept:'概念',person:'人物',tool:'ツール',article:'記事',book:'書籍'};
+
+  var nodes=[
+    {id:'self',label:'メモの複利',x:0,y:0,r:24,color:'#d4aa22',cat:'self',url:null,desc:'この記事'},
+    {id:'zettel',label:'Zettelkasten',x:-130,y:-70,r:16,color:'#8b6914',cat:'concept',url:null,desc:'ルーマンのカード箱メソッド'},
+    {id:'buffett',label:'バフェットの読書',x:140,y:-50,r:14,color:'#3d6828',cat:'person',url:'../../people/buffett/',desc:'複利と忍耐の体現者'},
+    {id:'munger',label:'マンガーの格子構造',x:110,y:60,r:14,color:'#3d6828',cat:'person',url:'../../people/munger/',desc:'多分野思考の巨人'},
+    {id:'obsidian',label:'Obsidian',x:-90,y:80,r:16,color:'#8b6914',cat:'tool',url:'https://obsidian.md',desc:'第二の脳'},
+    {id:'claude',label:'Claude Code',x:-170,y:20,r:14,color:'#8b6914',cat:'tool',url:'../claude-code-setup/',desc:'AIエージェント'},
+    {id:'compound',label:'複利の力',x:170,y:-120,r:13,color:'#c05020',cat:'article',url:'../../horizons/compound-interest/',desc:'時間が生む指数関数'},
+    {id:'habits',label:'7つの習慣',x:-30,y:-130,r:13,color:'#c05020',cat:'article',url:'../../classics/seven-habits/',desc:'人格主義のリーダーシップ'},
+    {id:'morning',label:'モーニングメソッド',x:-180,y:-50,r:13,color:'#c05020',cat:'article',url:'../../morning-method/',desc:'朝の6つの実践'},
+    {id:'fukuzawa',label:'福澤諭吉',x:50,y:130,r:12,color:'#3d6828',cat:'person',url:'../../classics/fukuzawa/',desc:'学問のすすめ'},
+    {id:'luhmann',label:'ルーマン',x:-150,y:-120,r:14,color:'#3d6828',cat:'person',url:null,desc:'社会学者・9万枚のカード'},
+    {id:'takenotes',label:'Take Notes!',x:-60,y:-100,r:12,color:'#2a3d6a',cat:'book',url:null,desc:'ズーンク・アーレンス著'},
+    {id:'atomichabits',label:'Atomic Habits',x:30,y:-100,r:12,color:'#2a3d6a',cat:'book',url:'../../morning-practice/atomic-habits/',desc:'複利で伸びる1つの習慣'},
+    {id:'memory',label:'記憶を設計する',x:-200,y:80,r:12,color:'#c05020',cat:'article',url:'../claude-code-memory/',desc:'Claude Codeの記憶設計'},
+    {id:'mental',label:'メンタルモデル',x:190,y:15,r:12,color:'#c05020',cat:'article',url:'../../horizons/mental-models/',desc:'マンガーの思考法'},
+    {id:'gadamer',label:'解釈学的循環',x:10,y:110,r:11,color:'#2a3d6a',cat:'concept',url:null,desc:'知識が螺旋状に深まる'}
+  ];
+
+  var edges=[
+    {from:'self',to:'zettel'},{from:'self',to:'buffett'},{from:'self',to:'munger'},
+    {from:'self',to:'obsidian'},{from:'self',to:'claude'},{from:'self',to:'compound'},
+    {from:'self',to:'fukuzawa'},{from:'self',to:'gadamer'},
+    {from:'zettel',to:'luhmann'},{from:'zettel',to:'takenotes'},{from:'zettel',to:'obsidian'},
+    {from:'buffett',to:'compound'},{from:'munger',to:'mental'},{from:'munger',to:'buffett'},
+    {from:'obsidian',to:'claude'},{from:'obsidian',to:'memory'},
+    {from:'habits',to:'self'},{from:'morning',to:'self'},
+    {from:'takenotes',to:'luhmann'},{from:'atomichabits',to:'habits'},
+    {from:'fukuzawa',to:'gadamer'},{from:'compound',to:'munger'}
+  ];
+
+  /* Direct connections for each node (for hover highlight) */
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+
+  /* Which labels to show by default: self + direct connections of self */
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;
+    H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();});
+
+  /* Physics simulation */
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=90;
+      var force=(dist-target)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    /* Determine hovered node and its connections */
+    var hovId=null;
+    var hovConns={};
+    nodes.forEach(function(n){if(n.hover){hovId=n.id;}});
+    if(hovId){
+      hovConns[hovId]=true;
+      if(connMap[hovId])connMap[hovId].forEach(function(id){hovConns[id]=true;});
+    }
+
+    /* Edges */
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var isHighlight=hovId&&(hovConns[e.from]&&hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':'rgba(139,105,20,0.12)';
+      ctx.lineWidth=isHighlight?1.5:0.8;
+      ctx.stroke();
+    });
+
+    /* Nodes */
+    nodes.forEach(function(n){
+      var isHov=n.hover;
+      var drawR=isHov?n.r*1.15:n.r;
+
+      /* Glow for self always, and for hovered node */
+      if(n.cat==='self'||isHov){
+        ctx.beginPath();ctx.arc(n.px,n.py,drawR+10,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,drawR,n.px,n.py,drawR+10);
+        var gc=n.cat==='self'?'212,170,34':'184,144,10';
+        g.addColorStop(0,'rgba('+gc+',0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+
+      /* Circle */
+      ctx.beginPath();ctx.arc(n.px,n.py,drawR,0,Math.PI*2);
+      ctx.fillStyle=isHov?'#f0cc55':n.color;
+      ctx.globalAlpha=n.cat==='self'?1:(isHov?0.9:0.65);
+      ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=isHov?'rgba(240,204,85,0.6)':'rgba(245,237,224,0.15)';
+      ctx.lineWidth=isHov?1.5:0.7;ctx.stroke();
+
+      /* Label: show for default set or if hovered or if this node is in hovered connections */
+      var showLabel=defaultLabels[n.id]||isHov||(hovId&&hovConns[n.id]);
+      if(showLabel){
+        var fs=Math.max(8,n.r*0.55);
+        ctx.font=(n.cat==='self'?'600 ':'300 ')+fs+'px "Noto Serif JP",serif';
+        ctx.fillStyle=isHov?'#f0cc55':'rgba(245,237,224,0.75)';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(n.label,n.px,n.py+drawR+11);
+      }
+    });
+
+    /* Legend */
+    var cats=[{label:'この記事',color:'#d4aa22'},{label:'概念',color:'#8b6914'},{label:'人物',color:'#3d6828'},{label:'書籍',color:'#2a3d6a'},{label:'記事',color:'#c05020'},{label:'ツール',color:'#8b6914'}];
+    ctx.font='8px "DM Mono",monospace';ctx.textAlign='left';
+    cats.forEach(function(c,i){
+      var lx=10,ly=H-8-((cats.length-1-i)*14);
+      ctx.beginPath();ctx.arc(lx,ly,3.5,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.6;ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='rgba(139,105,20,0.5)';ctx.fillText(c.label,lx+9,ly+3);
+    });
+  }
+
+  /* Interaction */
+  var dragNode=null,dragStartX=0,dragStartY=0,dragDist=0;
+
+  function getNodeAt(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];var dx=x-n.px,dy=y-n.py;
+      if(dx*dx+dy*dy<(n.r+8)*(n.r+8))return n;
+    }return null;
+  }
+  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+
+  function showTooltip(n,cx,cy){
+    ttTitle.textContent=n.label;
+    ttCat.textContent=catLabels[n.cat]||n.cat;
+    ttDesc.textContent=n.desc||'';
+    var rect=canvas.parentElement.getBoundingClientRect();
+    var tx=cx+16,ty=cy-10;
+    if(tx+200>rect.width)tx=cx-200;
+    if(ty<0)ty=cy+16;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';tooltip.style.opacity='1';
+  }
+  function hideTooltip(){tooltip.style.opacity='0';}
+
+  /* Mouse events */
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragNode){
+      dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;
+    }else{
+      var h=getNodeAt(p.x,p.y);
+      nodes.forEach(function(n){n.hover=false;});
+      if(h){h.hover=true;canvas.style.cursor=h.url?'pointer':'grab';showTooltip(h,p.x,p.y);}
+      else{canvas.style.cursor='grab';hideTooltip();}
+    }
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url){window.location.href=dragNode.url;}
+      dragNode=null;
+    }
+    canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    if(dragNode)dragNode.dragging=false;dragNode=null;
+    nodes.forEach(function(n){n.hover=false;});hideTooltip();
+  });
+
+  /* Touch events */
+  var touchStartTime=0;
+  canvas.addEventListener('touchstart',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;touchStartTime=Date.now();e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(dragNode){
+      var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;e.preventDefault();
+    }
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url){window.location.href=dragNode.url;}
+      dragNode=null;
+    }
+  });
+
+  /* Animation loop */
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  loop();
+})();
+
+/* ===== My Note Card (localStorage) ===== */
+(function(){
   var STORAGE_PREFIX='myNote_';
   var today=new Date();
   var currentViewDate=new Date(today);
   var saveTimer=null;
-  var fab=document.getElementById('mynoteFab');
-  var panel=document.getElementById('mynotePanel');
 
   function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   function formatDate(d){var days=['日','月','火','水','木','金','土'];return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日（'+days[d.getDay()]+'）';}
@@ -999,178 +1201,71 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   function calcChallengeDays(){var c=0;for(var i=0;i<200;i++){var dd=new Date(today);dd.setDate(dd.getDate()-i);if(getNoteData(dd))c++;}return Math.min(c,66);}
 
   function updateUI(){
-    document.getElementById('currentDate').textContent=formatDate(currentViewDate);
+    document.getElementById('mcDate').textContent=formatDate(currentViewDate);
     var note=getNoteData(currentViewDate);
-    document.getElementById('noteTextarea').value=note?note.text:'';
+    document.getElementById('mcTextarea').value=note?note.text:'';
     var count=note?note.text.length:0;
-    document.getElementById('wordCount').textContent=count+' 文字';
+    document.getElementById('mcWordcount').textContent=count+' 文字';
     var streak=calcStreak();
-    document.getElementById('streakDisplay').textContent=streak>0?'\uD83D\uDD25 '+streak+'日連続':'';
-    document.getElementById('fabStreak').textContent=streak>0?'\uD83D\uDD25'+streak:'';
+    var streakEl=document.getElementById('mcStreak');if(streakEl)streakEl.textContent=streak>0?'\uD83D\uDD25 '+streak+'日連続':'';
+    var fabStreakEl=document.getElementById('mcFabStreak');if(fabStreakEl)fabStreakEl.textContent=streak>0?'\uD83D\uDD25'+streak:'';
     var days=calcChallengeDays();
-    document.getElementById('progressFill').style.width=Math.round(days/66*100)+'%';
-    document.getElementById('progressLabel').textContent=days+' / 66日';
+    var pfEl=document.getElementById('mcProgressFill');if(pfEl)pfEl.style.width=Math.round(days/66*100)+'%';
+    var plEl=document.getElementById('mcProgressLabel');if(plEl)plEl.textContent=days+' / 66日';
     var isToday=dateKey(currentViewDate)===dateKey(today);
-    document.getElementById('nextDay').style.opacity=isToday?'.3':'1';
-    document.getElementById('nextDay').disabled=isToday;
+    document.getElementById('mcNext').style.opacity=isToday?'.3':'1';
+    document.getElementById('mcNext').disabled=isToday;
     renderCalendar();
   }
-  function showSaved(){var el=document.getElementById('savedIndicator');var now=new Date();el.textContent='\u2713 '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');el.classList.add('visible');setTimeout(function(){el.classList.remove('visible');},2500);}
-  function renderCalendar(){var grid=document.getElementById('calendarGrid');grid.innerHTML='';var year=currentViewDate.getFullYear(),month=currentViewDate.getMonth();document.getElementById('calendarLabel').textContent=year+'年'+(month+1)+'月';var startDay=(new Date(year,month,1).getDay()+6)%7;var dim=new Date(year,month+1,0).getDate();for(var i=0;i<startDay;i++){var b=document.createElement('div');b.className='mynote-calendar-day';b.style.cssText='background:transparent;border:none;';grid.appendChild(b);}for(var d=1;d<=dim;d++){var cell=document.createElement('div');var cd=new Date(year,month,d);var isFuture=cd>today;var hasNote=!isFuture&&getNoteData(cd);var isT=dateKey(cd)===dateKey(today);cell.className='mynote-calendar-day'+(hasNote?' has-note':'')+(isFuture?' future':'')+(isT&&hasNote?' today':'');grid.appendChild(cell);}}
 
-  fab.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))updateUI();});
-  document.getElementById('mynoteClose').addEventListener('click',function(){panel.classList.remove('open');});
-  document.getElementById('noteTextarea').addEventListener('input',function(){var text=this.value;document.getElementById('wordCount').textContent=text.length+' 文字';clearTimeout(saveTimer);saveTimer=setTimeout(function(){saveNoteData(currentViewDate,text);showSaved();updateUI();},500);this.style.height='auto';this.style.height=Math.max(120,this.scrollHeight)+'px';});
-  document.getElementById('prevDay').addEventListener('click',function(){currentViewDate.setDate(currentViewDate.getDate()-1);updateUI();});
-  document.getElementById('nextDay').addEventListener('click',function(){if(dateKey(currentViewDate)!==dateKey(today)){currentViewDate.setDate(currentViewDate.getDate()+1);updateUI();}});
-  updateUI();
-
-  /* === Graph View: Canvas-based interactive knowledge graph === */
-  var canvas=document.getElementById('graphCanvas');
-  if(!canvas)return;
-  var ctx=canvas.getContext('2d');
-  var W,H,dpr=window.devicePixelRatio||1;
-
-  var nodes=[
-    {id:'self',label:'メモの複利',x:0,y:0,r:22,color:'#d4aa22',fixed:false,cat:'self'},
-    {id:'zettel',label:'Zettelkasten',x:-120,y:-80,r:16,color:'#b8900a',cat:'concept'},
-    {id:'buffett',label:'バフェットの読書',x:130,y:-60,r:14,color:'#5a8a3a',cat:'person'},
-    {id:'munger',label:'マンガーの格子構造',x:100,y:60,r:14,color:'#5a8a3a',cat:'person'},
-    {id:'obsidian',label:'Obsidian',x:-80,y:80,r:16,color:'#8b6914',cat:'tool'},
-    {id:'claude',label:'Claude Code',x:-160,y:30,r:14,color:'#8b6914',cat:'tool'},
-    {id:'compound',label:'複利の力',x:160,y:-130,r:13,color:'#c05020',cat:'article'},
-    {id:'habits',label:'7つの習慣',x:-30,y:-140,r:13,color:'#c05020',cat:'article'},
-    {id:'morning',label:'モーニングメソッド',x:-180,y:-40,r:13,color:'#c05020',cat:'article'},
-    {id:'fukuzawa',label:'福澤諭吉',x:50,y:140,r:12,color:'#5a8a3a',cat:'person'},
-    {id:'luhmann',label:'ルーマン',x:-140,y:-130,r:14,color:'#5a8a3a',cat:'person'},
-    {id:'takenotes',label:'Take Notes!',x:-60,y:-100,r:12,color:'#2a3d6a',cat:'book'},
-    {id:'atomichabits',label:'Atomic Habits',x:30,y:-100,r:12,color:'#2a3d6a',cat:'book'},
-    {id:'memory',label:'記憶を設計する',x:-200,y:90,r:12,color:'#c05020',cat:'article'},
-    {id:'mental',label:'メンタルモデル',x:180,y:20,r:12,color:'#c05020',cat:'article'},
-    {id:'gadamer',label:'解釈学的循環',x:0,y:100,r:11,color:'#2a3d6a',cat:'concept'},
-  ];
-  var edges=[
-    {from:'self',to:'zettel'},{from:'self',to:'buffett'},{from:'self',to:'munger'},
-    {from:'self',to:'obsidian'},{from:'self',to:'claude'},{from:'self',to:'compound'},
-    {from:'self',to:'fukuzawa'},{from:'self',to:'gadamer'},
-    {from:'zettel',to:'luhmann'},{from:'zettel',to:'takenotes'},{from:'zettel',to:'obsidian'},
-    {from:'buffett',to:'compound'},{from:'munger',to:'mental'},{from:'munger',to:'buffett'},
-    {from:'obsidian',to:'claude'},{from:'obsidian',to:'memory'},
-    {from:'habits',to:'self'},{from:'morning',to:'self'},
-    {from:'takenotes',to:'luhmann'},{from:'atomichabits',to:'habits'},
-    {from:'fukuzawa',to:'gadamer'},{from:'compound',to:'munger'},
-  ];
-
-  function resize(){
-    var rect=canvas.parentElement.getBoundingClientRect();
-    W=rect.width;H=Math.max(380,Math.min(500,W*0.6));
-    canvas.width=W*dpr;canvas.height=H*dpr;
-    canvas.style.height=H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    /* Center nodes */
-    nodes.forEach(function(n){n.px=W/2+n.x;n.py=H/2+n.y;n.vx=0;n.vy=0;});
+  function showSaved(){
+    var el=document.getElementById('mcSaved');
+    var now=new Date();
+    el.textContent='\u2713 '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+    el.classList.add('visible');
+    setTimeout(function(){el.classList.remove('visible');},2500);
   }
-  resize();
-  window.addEventListener('resize',function(){resize();draw();});
 
-  /* Physics */
-  function simulate(){
-    for(var i=0;i<nodes.length;i++){
-      var a=nodes[i];
-      for(var j=i+1;j<nodes.length;j++){
-        var b=nodes[j];
-        var dx=b.px-a.px,dy=b.py-a.py;
-        var dist=Math.sqrt(dx*dx+dy*dy)||1;
-        var force=200/dist;
-        var fx=dx/dist*force,fy=dy/dist*force;
-        if(!a.dragging){a.vx-=fx*0.01;a.vy-=fy*0.01;}
-        if(!b.dragging){b.vx+=fx*0.01;b.vy+=fy*0.01;}
-      }
+  function renderCalendar(){
+    var grid=document.getElementById('mcCalGrid');grid.innerHTML='';
+    var year=currentViewDate.getFullYear(),month=currentViewDate.getMonth();
+    document.getElementById('mcCalLabel').textContent=year+'年'+(month+1)+'月';
+    var startDay=(new Date(year,month,1).getDay()+6)%7;
+    var dim=new Date(year,month+1,0).getDate();
+    for(var i=0;i<startDay;i++){var b=document.createElement('div');b.className='mc-day';b.style.cssText='background:transparent;border:none;';grid.appendChild(b);}
+    for(var d=1;d<=dim;d++){
+      var cell=document.createElement('div');
+      var cd=new Date(year,month,d);
+      var isFuture=cd>today;
+      var hasNote=!isFuture&&getNoteData(cd);
+      var isT=dateKey(cd)===dateKey(today);
+      cell.className='mc-day'+(hasNote?' has-note':'')+(isFuture?' future':'')+(isT&&hasNote?' today':'');
+      grid.appendChild(cell);
     }
-    edges.forEach(function(e){
-      var a=nodes.find(function(n){return n.id===e.from;});
-      var b=nodes.find(function(n){return n.id===e.to;});
-      if(!a||!b)return;
-      var dx=b.px-a.px,dy=b.py-a.py;
-      var dist=Math.sqrt(dx*dx+dy*dy)||1;
-      var target=100;
-      var force=(dist-target)*0.003;
-      var fx=dx/dist*force,fy=dy/dist*force;
-      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
-      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
-    });
-    nodes.forEach(function(n){
-      if(n.dragging)return;
-      /* Gravity toward center */
-      n.vx+=(W/2-n.px)*0.0003;
-      n.vy+=(H/2-n.py)*0.0003;
-      /* Damping */
-      n.vx*=0.92;n.vy*=0.92;
-      n.px+=n.vx;n.py+=n.vy;
-      /* Bounds */
-      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
-      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
-    });
   }
 
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    /* Edges */
-    edges.forEach(function(e){
-      var a=nodes.find(function(n){return n.id===e.from;});
-      var b=nodes.find(function(n){return n.id===e.to;});
-      if(!a||!b)return;
-      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
-      ctx.strokeStyle='rgba(184,144,10,0.15)';ctx.lineWidth=1;ctx.stroke();
-    });
-    /* Nodes */
-    nodes.forEach(function(n){
-      /* Glow for center */
-      if(n.cat==='self'){
-        ctx.beginPath();ctx.arc(n.px,n.py,n.r+8,0,Math.PI*2);
-        var g=ctx.createRadialGradient(n.px,n.py,n.r,n.px,n.py,n.r+8);
-        g.addColorStop(0,'rgba(212,170,34,0.2)');g.addColorStop(1,'transparent');
-        ctx.fillStyle=g;ctx.fill();
-      }
-      /* Node circle */
-      ctx.beginPath();ctx.arc(n.px,n.py,n.r,0,Math.PI*2);
-      ctx.fillStyle=n.hover?'#f0cc55':n.color;ctx.globalAlpha=n.cat==='self'?1:0.7;ctx.fill();ctx.globalAlpha=1;
-      ctx.strokeStyle=n.hover?'#f0cc55':'rgba(245,237,224,0.3)';ctx.lineWidth=n.hover?2:1;ctx.stroke();
-      /* Label */
-      ctx.font=(n.cat==='self'?'bold ':'')+Math.max(9,n.r*0.6)+'px "Noto Serif JP",serif';
-      ctx.fillStyle='#f5ede0';ctx.textAlign='center';ctx.textBaseline='middle';
-      /* Measure & shrink if needed */
-      var fs=Math.max(9,n.r*0.6);
-      while(ctx.measureText(n.label).width>n.r*2.8&&fs>6){fs-=0.5;ctx.font=(n.cat==='self'?'bold ':'')+fs+'px "Noto Serif JP",serif';}
-      ctx.fillText(n.label,n.px,n.py+n.r+12);
-    });
-    /* Legend */
-    var cats=[{label:'この記事',color:'#d4aa22'},{label:'概念',color:'#b8900a'},{label:'人物',color:'#5a8a3a'},{label:'書籍',color:'#2a3d6a'},{label:'記事',color:'#c05020'},{label:'ツール',color:'#8b6914'}];
-    ctx.font='9px "DM Mono",monospace';ctx.textAlign='left';
-    cats.forEach(function(c,i){
-      var lx=12,ly=H-10-((cats.length-1-i)*16);
-      ctx.beginPath();ctx.arc(lx,ly,4,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.7;ctx.fill();ctx.globalAlpha=1;
-      ctx.fillStyle='#8b6914';ctx.fillText(c.label,lx+10,ly+3);
-    });
+  /* Textarea auto-resize + save */
+  var ta=document.getElementById('mcTextarea');
+  ta.addEventListener('input',function(){
+    var text=this.value;
+    document.getElementById('mcWordcount').textContent=text.length+' 文字';
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){saveNoteData(currentViewDate,text);showSaved();updateUI();},500);
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
+
+  document.getElementById('mcPrev').addEventListener('click',function(){currentViewDate.setDate(currentViewDate.getDate()-1);updateUI();});
+  document.getElementById('mcNext').addEventListener('click',function(){if(dateKey(currentViewDate)!==dateKey(today)){currentViewDate.setDate(currentViewDate.getDate()+1);updateUI();}});
+
+  /* FAB open/close */
+  var fab=document.getElementById('mynoteFab');
+  var panel=document.getElementById('mynotePanel');
+  if(fab&&panel){
+    fab.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))updateUI();});
+    document.getElementById('mynoteClose').addEventListener('click',function(){panel.classList.remove('open');});
   }
 
-  /* Drag interaction */
-  var dragNode=null,hoverNode=null;
-  function getNodeAt(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];var dx=x-n.px,dy=y-n.py;if(dx*dx+dy*dy<(n.r+6)*(n.r+6))return n;}return null;}
-  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
-
-  canvas.addEventListener('mousedown',function(e){var p=getXY(e);dragNode=getNodeAt(p.x,p.y);if(dragNode){dragNode.dragging=true;canvas.style.cursor='grabbing';}});
-  canvas.addEventListener('mousemove',function(e){var p=getXY(e);if(dragNode){dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;}else{var h=getNodeAt(p.x,p.y);nodes.forEach(function(n){n.hover=false;});if(h){h.hover=true;canvas.style.cursor='pointer';}else{canvas.style.cursor='grab';}}});
-  canvas.addEventListener('mouseup',function(){if(dragNode)dragNode.dragging=false;dragNode=null;canvas.style.cursor='grab';});
-  canvas.addEventListener('mouseleave',function(){if(dragNode)dragNode.dragging=false;dragNode=null;nodes.forEach(function(n){n.hover=false;});});
-  /* Touch */
-  canvas.addEventListener('touchstart',function(e){var p=getXY(e);dragNode=getNodeAt(p.x,p.y);if(dragNode){dragNode.dragging=true;e.preventDefault();}},{passive:false});
-  canvas.addEventListener('touchmove',function(e){if(dragNode){var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;e.preventDefault();}},{passive:false});
-  canvas.addEventListener('touchend',function(){if(dragNode)dragNode.dragging=false;dragNode=null;});
-
-  /* Animation loop */
-  function loop(){simulate();draw();requestAnimationFrame(loop);}
-  loop();
+  updateUI();
 })();
 </script>
 
