@@ -341,6 +341,74 @@
   color: var(--ink, #1a1208);
 }
 
+/* ── リーダー＆PDFボタン ── */
+.hero-actions {
+  margin-top: 22px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-reader-btn,
+.hero-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 22px;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--parch, #f5ede0);
+  background: transparent;
+  border: 1px solid rgba(184,144,10,.45);
+  text-decoration: none;
+  letter-spacing: .04em;
+  transition: all .25s;
+  border-radius: 2px;
+}
+.hero-reader-btn {
+  background: rgba(184,144,10,.12);
+  border-color: rgba(184,144,10,.6);
+}
+.hero-reader-btn:hover {
+  background: rgba(184,144,10,.25);
+  border-color: var(--gold3, #d4aa22);
+  color: var(--gold4, #f0cc55);
+}
+.hero-pdf-btn:hover {
+  background: rgba(184,144,10,.15);
+  border-color: var(--gold3, #d4aa22);
+  color: var(--gold4, #f0cc55);
+}
+.hero-reader-btn svg,
+.hero-pdf-btn svg {
+  opacity: .7;
+  transition: opacity .2s;
+}
+.hero-reader-btn:hover svg,
+.hero-pdf-btn:hover svg {
+  opacity: 1;
+}
+[data-theme="dark"] .hero-reader-btn,
+[data-theme="dark"] .hero-pdf-btn {
+  border-color: rgba(212,170,34,.4);
+  color: var(--parch, #e8dcc8);
+}
+[data-theme="dark"] .hero-reader-btn {
+  background: rgba(212,170,34,.1);
+  border-color: rgba(212,170,34,.5);
+}
+[data-theme="dark"] .hero-reader-btn:hover,
+[data-theme="dark"] .hero-pdf-btn:hover {
+  background: rgba(212,170,34,.12);
+  border-color: var(--gold3, #f5d870);
+  color: var(--gold4, #ffe99a);
+}
+@media print {
+  .hero-actions { display: none !important; }
+}
+
 /* ── 印刷用スタイル ── */
 @media print {
   body::before,

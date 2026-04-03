@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>金融史クロノス — 第10話：ウォール街、最後の48時間</title>
+<meta name="description" content="リーマンショックを信用設計の崩壊として体験する調査対決型エピソード。"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0a0e14;--ink2:#131a24;--ink3:#1c2636;
+  --steel:#c8cdd4;--steel2:#9aa3b0;--steel3:#6b7788;
+  --glass:#e8ecf0;--glass2:#d0d6de;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --red:#a03030;--red2:#c04040;--red3:#e05050;
+  --green:#2a6a3a;--green2:#3a8a4a;
+  --blue:#1a3a6a;--blue2:#2a5090;
+  --warn:#c49020;
+  --font-serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --font-mono:'DM Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-serif);background:var(--ink);color:var(--steel);overflow:hidden;height:100vh;width:100vw;}
+
+/* ===== GAME CONTAINER ===== */
+#game{width:100vw;height:100vh;position:relative;overflow:hidden;}
+
+/* ===== SCENE BACKGROUNDS ===== */
+.scene-bg{position:absolute;inset:0;transition:opacity .8s ease;z-index:0;}
+.bg-manhattan{background:linear-gradient(180deg,#050810 0%,#0a1020 40%,#101828 100%);}
+.bg-manhattan::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,rgba(30,60,120,.08) 0%,transparent 60%);}
+.bg-briefing{background:linear-gradient(180deg,#0d1018 0%,#141c2a 40%,#1a2438 100%);}
+.bg-briefing::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(100,140,200,.06) 0%,transparent 50%);}
+.bg-mortgage{background:linear-gradient(180deg,#1a1810 0%,#2a2418 40%,#352e20 100%);}
+.bg-mortgage::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(200,160,80,.08) 0%,transparent 50%);}
+.bg-securitize{background:linear-gradient(180deg,#0a1020 0%,#101830 40%,#182040 100%);}
+.bg-securitize::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(60,100,180,.1) 0%,transparent 50%);}
+.bg-rating{background:linear-gradient(180deg,#101010 0%,#1a1a20 40%,#222230 100%);}
+.bg-rating::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(180,180,200,.06) 0%,transparent 40%);}
+.bg-lehman{background:linear-gradient(180deg,#0a0a10 0%,#10101a 30%,#181828 100%);}
+.bg-lehman::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(40,60,120,.1) 0%,transparent 50%);}
+.bg-abacus{background:linear-gradient(180deg,#0a0810 0%,#141020 40%,#1c1830 100%);}
+.bg-abacus::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(100,60,140,.06) 0%,transparent 50%);}
+.bg-congress{background:linear-gradient(180deg,#101008 0%,#1a1a14 40%,#242418 100%);}
+.bg-congress::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(160,140,80,.06) 0%,transparent 40%);}
+.bg-confrontation{background:linear-gradient(180deg,#050308 0%,#0a0610 30%,#100a18 100%);}
+.bg-confrontation::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(160,48,48,.08) 0%,transparent 60%);}
+.bg-truth{background:linear-gradient(180deg,#050508 0%,#0a0a14 50%,#050508 100%);}
+.bg-truth::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(212,170,34,.1) 0%,transparent 50%);}
+
+/* ===== TITLE SCREEN ===== */
+#title-screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#020308 0%,#050810 30%,#0a1020 70%,#030508 100%);z-index:100;transition:opacity 1s ease;}
+.title-ornament{font-family:var(--font-mono);font-size:clamp(.6rem,1.2vw,.85rem);letter-spacing:.4em;color:var(--steel3);text-transform:uppercase;margin-bottom:.5rem;opacity:.6;}
+.title-date{font-family:var(--font-mono);font-size:clamp(.7rem,1.3vw,.9rem);letter-spacing:.3em;color:var(--red);margin-bottom:1.5rem;opacity:.8;}
+.title-news{font-family:var(--font-mono);font-size:clamp(.55rem,1vw,.75rem);color:var(--red2);letter-spacing:.15em;margin-bottom:2rem;opacity:0;transition:opacity 1.5s ease;text-align:center;line-height:1.8;max-width:500px;}
+.title-news.show{opacity:.7;}
+.title-main{font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--glass);text-align:center;line-height:1.3;margin-bottom:.5rem;text-shadow:0 2px 20px rgba(30,60,120,.2);}
+.title-sub{font-size:clamp(.9rem,2vw,1.3rem);color:var(--steel2);margin-bottom:.5rem;font-weight:400;font-style:italic;}
+.title-episode{font-family:var(--font-mono);font-size:clamp(.7rem,1.2vw,.9rem);color:var(--steel3);letter-spacing:.3em;margin-bottom:3rem;opacity:.6;}
+.title-concept{font-size:clamp(.8rem,1.5vw,1rem);color:var(--steel2);margin-bottom:3rem;text-align:center;max-width:500px;line-height:1.8;opacity:.6;}
+.btn{font-family:var(--font-mono);font-size:clamp(.75rem,1.2vw,.9rem);padding:.8em 2.5em;border:1px solid var(--steel3);background:transparent;color:var(--steel);cursor:pointer;letter-spacing:.2em;text-transform:uppercase;transition:all .3s ease;position:relative;overflow:hidden;}
+.btn:hover{background:rgba(200,205,212,.06);border-color:var(--steel);color:var(--glass);transform:translateY(-1px);box-shadow:0 4px 20px rgba(100,140,200,.1);}
+.btn:active{transform:translateY(0);}
+.btn-gold{border-color:var(--gold);color:var(--gold3);}
+.btn-gold:hover{background:rgba(212,170,34,.08);border-color:var(--gold3);color:var(--gold4);}
+.btn-red{border-color:var(--red);color:var(--red2);}
+.btn-red:hover{background:rgba(160,48,48,.08);border-color:var(--red2);color:var(--red3);}
+
+/* ===== TOP BAR ===== */
+.top-bar{position:absolute;top:0;left:0;right:0;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;background:rgba(5,8,14,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,205,212,.08);z-index:50;font-family:var(--font-mono);font-size:.7rem;}
+.top-bar-left{color:var(--steel3);letter-spacing:.15em;opacity:.8;}
+.top-bar-right{display:flex;gap:1rem;align-items:center;}
+.evidence-count{color:var(--steel2);cursor:pointer;padding:.3em .8em;border:1px solid rgba(200,205,212,.15);border-radius:2px;transition:all .3s;}
+.evidence-count:hover{background:rgba(200,205,212,.06);border-color:var(--steel);}
+.evidence-count.pulse{animation:pulse-steel .6s ease;}
+@keyframes pulse-steel{0%{box-shadow:0 0 0 0 rgba(200,205,212,.4);}100%{box-shadow:0 0 0 12px rgba(200,205,212,0);}}
+
+/* ===== GAUGE ===== */
+.gauge-bar{display:flex;align-items:center;gap:.5rem;color:var(--steel3);font-size:.6rem;letter-spacing:.1em;}
+.gauge-track{width:80px;height:4px;background:rgba(200,205,212,.1);border-radius:2px;overflow:hidden;}
+.gauge-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold3));width:0%;transition:width .6s ease;border-radius:2px;}
+
+/* ===== DIALOGUE ===== */
+.dialogue-area{position:absolute;bottom:0;left:0;right:0;z-index:40;padding:0 1rem 1rem;}
+.dialogue-box{max-width:800px;margin:0 auto;background:rgba(5,8,14,.92);backdrop-filter:blur(12px);border:1px solid rgba(200,205,212,.1);border-radius:4px;padding:1.2rem 1.5rem;min-height:140px;position:relative;}
+.dialogue-speaker{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;color:var(--steel2);margin-bottom:.6rem;text-transform:uppercase;}
+.dialogue-text{font-size:clamp(.9rem,1.8vw,1.05rem);line-height:1.9;color:var(--steel);min-height:3em;}
+.dialogue-indicator{position:absolute;bottom:.8rem;right:1.2rem;font-size:.7rem;color:var(--steel3);opacity:.5;animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:.5;}50%{opacity:0;}}
+
+/* ===== CHOICES ===== */
+.choices-area{position:absolute;bottom:0;left:0;right:0;z-index:40;padding:0 1rem 1rem;}
+.choices-box{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:.5rem;}
+.choice-btn{font-family:var(--font-serif);font-size:clamp(.85rem,1.5vw,1rem);padding:.9em 1.5em;background:rgba(5,8,14,.9);backdrop-filter:blur(8px);border:1px solid rgba(200,205,212,.15);color:var(--steel);cursor:pointer;text-align:left;transition:all .3s ease;border-radius:3px;line-height:1.6;}
+.choice-btn:hover{background:rgba(200,205,212,.06);border-color:var(--steel);color:var(--glass);transform:translateX(4px);}
+
+/* ===== MAP ===== */
+.map-container{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;z-index:30;padding:60px 1rem 1rem;overflow-y:auto;}
+.map-title{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.3em;color:var(--steel3);margin-bottom:.5rem;text-transform:uppercase;}
+.map-subtitle{font-size:clamp(1.1rem,2.2vw,1.4rem);color:var(--steel);margin-bottom:1.5rem;text-align:center;}
+.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;max-width:700px;width:100%;}
+.map-location{background:rgba(10,14,20,.85);backdrop-filter:blur(8px);border:1px solid rgba(200,205,212,.1);border-radius:4px;padding:1rem;cursor:pointer;transition:all .4s ease;position:relative;overflow:hidden;}
+.map-location:hover{border-color:var(--steel2);transform:translateY(-2px);box-shadow:0 4px 20px rgba(100,140,200,.08);}
+.map-location.visited{border-color:rgba(42,106,58,.3);opacity:.7;}
+.map-location.visited::after{content:'INVESTIGATED';position:absolute;top:.4rem;right:.4rem;font-family:var(--font-mono);font-size:.5rem;letter-spacing:.1em;color:var(--green);background:rgba(42,106,58,.15);padding:.15em .4em;border-radius:2px;}
+.map-location.locked{opacity:.25;pointer-events:none;filter:grayscale(1);}
+.map-loc-icon{font-size:1.5rem;margin-bottom:.4rem;}
+.map-loc-name{font-size:clamp(.85rem,1.3vw,1rem);font-weight:600;color:var(--steel);margin-bottom:.2rem;}
+.map-loc-desc{font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);letter-spacing:.03em;line-height:1.4;}
+.map-action{margin-top:1.5rem;text-align:center;}
+.map-hint{font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);opacity:.6;margin-top:.8rem;text-align:center;}
+
+/* ===== EVIDENCE PANEL ===== */
+.evidence-panel{position:absolute;inset:0;z-index:60;background:rgba(5,5,8,.95);backdrop-filter:blur(16px);display:none;flex-direction:column;padding:60px 1.5rem 1.5rem;overflow-y:auto;}
+.evidence-panel.open{display:flex;}
+.evidence-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
+.evidence-title{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.3em;color:var(--steel2);text-transform:uppercase;}
+.evidence-close{font-family:var(--font-mono);font-size:.8rem;color:var(--steel3);cursor:pointer;padding:.3em .8em;border:1px solid rgba(200,205,212,.15);background:transparent;transition:all .3s;}
+.evidence-close:hover{background:rgba(200,205,212,.06);border-color:var(--steel);}
+.evidence-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;}
+.evidence-card{background:rgba(15,18,24,.8);border:1px solid rgba(200,205,212,.1);border-radius:3px;padding:1rem;transition:all .3s;}
+.evidence-card:hover{border-color:var(--steel2);background:rgba(20,24,32,.9);}
+.evidence-card.selecting{cursor:pointer;}
+.evidence-card.selecting:hover{border-color:var(--gold3);box-shadow:0 0 12px rgba(212,170,34,.15);}
+.evidence-card-tag{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.15em;color:var(--steel3);margin-bottom:.4rem;text-transform:uppercase;}
+.evidence-card-name{font-size:.95rem;font-weight:600;color:var(--steel);margin-bottom:.3rem;}
+.evidence-card-desc{font-size:.75rem;color:var(--steel3);line-height:1.5;}
+
+/* ===== EVIDENCE GET ===== */
+.evidence-get{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.9);z-index:70;background:rgba(5,8,14,.95);border:1px solid rgba(200,205,212,.2);border-radius:4px;padding:2rem;text-align:center;opacity:0;pointer-events:none;transition:all .4s ease;min-width:300px;}
+.evidence-get.show{opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:all;}
+.evidence-get-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.4em;color:var(--steel3);margin-bottom:.8rem;text-transform:uppercase;}
+.evidence-get-name{font-size:1.3rem;font-weight:600;color:var(--gold4);margin-bottom:.5rem;}
+.evidence-get-desc{font-size:.85rem;color:var(--steel2);line-height:1.6;max-width:350px;margin:0 auto;}
+
+/* ===== CONFRONTATION ===== */
+.confrontation-header{position:absolute;top:48px;left:0;right:0;z-index:45;padding:.8rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.confrontation-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.3em;color:var(--red);text-transform:uppercase;}
+.credibility-bar{width:min(300px,60vw);height:6px;background:rgba(200,205,212,.1);border-radius:3px;overflow:hidden;}
+.credibility-fill{height:100%;background:linear-gradient(90deg,var(--red2),var(--gold3));transition:width .6s ease;border-radius:3px;}
+.credibility-label{font-family:var(--font-mono);font-size:.55rem;color:var(--steel3);letter-spacing:.15em;}
+
+/* ===== OBJECTION ===== */
+.objection-overlay{position:fixed;inset:0;z-index:75;display:flex;align-items:center;justify-content:center;background:rgba(160,48,48,.15);opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.objection-overlay.show{opacity:1;pointer-events:all;}
+.objection-text{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;color:var(--red3);text-shadow:0 2px 20px rgba(160,48,48,.4);letter-spacing:.1em;}
+
+/* ===== CHARACTER ===== */
+.character-area{position:absolute;top:60px;left:0;right:0;z-index:20;display:flex;gap:2rem;justify-content:center;padding:1rem 1rem 0;}
+.character{display:flex;flex-direction:column;align-items:center;gap:.4rem;}
+.char-portrait{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:1px solid rgba(200,205,212,.15);}
+.char-name{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.15em;color:var(--steel3);}
+
+/* ===== MINI GAME AREA ===== */
+.minigame-area{position:absolute;top:60px;left:0;right:0;bottom:180px;z-index:25;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;}
+.minigame-panel{background:rgba(10,14,20,.9);border:1px solid rgba(200,205,212,.1);border-radius:6px;padding:1.5rem;max-width:700px;width:100%;}
+.minigame-title{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.2em;color:var(--steel3);margin-bottom:1rem;text-transform:uppercase;}
+.mg-row{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.mg-label{font-size:.8rem;color:var(--steel2);min-width:120px;}
+.mg-value{font-family:var(--font-mono);font-size:.9rem;color:var(--glass);font-weight:600;}
+.mg-value.danger{color:var(--red2);}
+.mg-value.safe{color:var(--green2);}
+.mg-slider{width:200px;accent-color:var(--steel3);}
+.mg-result{margin-top:1rem;padding:1rem;border:1px solid rgba(200,205,212,.1);border-radius:4px;background:rgba(5,8,14,.6);}
+.mg-result-title{font-family:var(--font-mono);font-size:.65rem;color:var(--steel3);letter-spacing:.15em;margin-bottom:.5rem;}
+
+/* ===== TRUTH SCREEN ===== */
+.truth-container{position:absolute;inset:0;z-index:35;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 2rem 2rem;text-align:center;overflow-y:auto;}
+.truth-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.5em;color:var(--steel3);margin-bottom:1rem;text-transform:uppercase;}
+.truth-title{font-size:clamp(1.3rem,3vw,2rem);font-weight:700;color:var(--glass);margin-bottom:2rem;text-shadow:0 2px 20px rgba(100,140,200,.15);}
+.truth-text{font-size:clamp(.9rem,1.5vw,1.05rem);color:var(--steel);line-height:2.2;max-width:600px;margin-bottom:2rem;text-align:left;}
+.truth-text p{margin-bottom:1em;}
+.truth-text .highlight{color:var(--gold4);font-weight:600;}
+
+/* ===== LAYER VIZ ===== */
+.layer-viz{display:flex;flex-direction:column;gap:.6rem;max-width:500px;width:100%;margin-bottom:2rem;}
+.layer-block{padding:1rem;border:1px solid rgba(200,205,212,.1);border-radius:4px;background:rgba(10,14,20,.8);transition:all .5s ease;cursor:pointer;}
+.layer-block:hover{border-color:var(--steel2);}
+.layer-block.active{border-color:var(--red2);box-shadow:0 0 20px rgba(160,48,48,.1);}
+.layer-block.connected{border-color:var(--gold3);box-shadow:0 0 20px rgba(212,170,34,.1);}
+.layer-tag{font-family:var(--font-mono);font-size:.55rem;color:var(--steel3);letter-spacing:.15em;margin-bottom:.3rem;}
+.layer-name{font-size:1rem;font-weight:600;color:var(--steel);}
+.layer-connector{width:2px;height:20px;background:rgba(200,205,212,.1);margin:0 auto;transition:background .5s ease;}
+.layer-connector.active{background:var(--red2);}
+
+/* ===== EPILOGUE ===== */
+.epilogue-container{position:absolute;inset:0;z-index:35;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:60px 2rem 2rem;text-align:center;overflow-y:auto;}
+.epilogue-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.4em;color:var(--steel3);margin-bottom:1rem;text-transform:uppercase;margin-top:1rem;}
+.epilogue-title{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--glass);margin-bottom:1.5rem;font-weight:600;}
+.epilogue-text{font-size:clamp(.85rem,1.3vw,.95rem);color:var(--steel2);line-height:2;max-width:600px;margin-bottom:2rem;text-align:left;}
+.library-links{display:flex;flex-direction:column;gap:.6rem;max-width:450px;width:100%;margin-bottom:2rem;}
+.library-link{display:flex;align-items:center;gap:1rem;padding:.8rem 1.2rem;background:rgba(10,14,20,.8);border:1px solid rgba(200,205,212,.1);border-radius:3px;color:var(--steel);text-decoration:none;transition:all .3s;text-align:left;}
+.library-link:hover{border-color:var(--steel2);background:rgba(200,205,212,.04);transform:translateX(4px);}
+.library-link-tag{font-family:var(--font-mono);font-size:.55rem;letter-spacing:.15em;color:var(--steel3);white-space:nowrap;}
+.library-link-title{font-size:.9rem;color:var(--steel);}
+
+/* ===== HYPOTHESIS PANEL ===== */
+.hypothesis-panel{display:flex;gap:.8rem;max-width:700px;width:100%;margin-bottom:1.5rem;flex-wrap:wrap;justify-content:center;}
+.hypothesis-card{flex:1;min-width:180px;padding:1rem;background:rgba(10,14,20,.8);border:1px solid rgba(200,205,212,.1);border-radius:4px;text-align:center;transition:all .3s;}
+.hypothesis-tag{font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);letter-spacing:.15em;margin-bottom:.4rem;}
+.hypothesis-text{font-size:.85rem;color:var(--steel);}
+.hypothesis-card.highlight{border-color:var(--gold3);background:rgba(212,170,34,.04);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .map-grid{grid-template-columns:1fr 1fr;}
+  .dialogue-box{min-height:120px;padding:1rem;}
+  .evidence-grid{grid-template-columns:1fr;}
+  .character-area{padding:0 .5rem;}
+  .hypothesis-panel{flex-direction:column;}
+  .minigame-panel{padding:1rem;}
+  .mg-row{flex-direction:column;align-items:flex-start;gap:.3rem;}
+}
+
+/* ===== SCREEN SHAKE ===== */
+.shake{animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}
+
+/* ===== CRACK OVERLAY ===== */
+.crack-overlay{position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;transition:opacity .8s ease;}
+.crack-overlay.show{opacity:1;}
+.crack-line{position:absolute;background:rgba(160,48,48,.15);transform-origin:center;}
+
+/* ===== FADE ===== */
+.fade-overlay{position:absolute;inset:0;background:var(--ink);z-index:80;pointer-events:none;opacity:0;transition:opacity .6s ease;}
+.fade-overlay.active{opacity:1;pointer-events:all;}
+
+/* ===== BATTLE TESTIMONY ===== */
+.testimony-box{max-width:700px;width:100%;margin:0 auto;padding:1.2rem;background:rgba(10,14,20,.9);border:1px solid rgba(200,205,212,.1);border-radius:4px;position:absolute;top:120px;left:50%;transform:translateX(-50%);z-index:30;}
+.testimony-label{font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);letter-spacing:.2em;margin-bottom:.6rem;}
+.testimony-text{font-size:clamp(.9rem,1.6vw,1.05rem);color:var(--steel);line-height:1.9;font-style:italic;}
+.testimony-highlight{color:var(--red2);font-weight:600;font-style:normal;}
+
+/* ===== PRESENT BTN ===== */
+.present-btn{position:absolute;bottom:170px;left:50%;transform:translateX(-50%);z-index:42;}
+</style>
+</head>
+<body>
+<div id="game">
+  <div class="fade-overlay" id="fadeOverlay"></div>
+  <div class="crack-overlay" id="crackOverlay"></div>
+
+  <!-- Title Screen -->
+  <div id="title-screen">
+    <div class="title-ornament">Market Archive Bureau</div>
+    <div class="title-date">September 2008</div>
+    <div class="title-news" id="titleNews">
+      "Lehman Brothers may file for bankruptcy."<br/>
+      &mdash; Breaking News
+    </div>
+    <div class="title-main">金融史クロノス</div>
+    <div class="title-sub">Chronos &mdash; Financial History</div>
+    <div class="title-episode">Episode 10 &mdash; Wall Street, The Last 48 Hours</div>
+    <div class="title-concept">
+      倒れたのは一社かもしれない。<br/>だが、壊れたのは一社ではない。
+    </div>
+    <button class="btn" id="startBtn">調査を開始する</button>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar" id="topBar" style="display:none">
+    <div class="top-bar-left">EPISODE 10 &mdash; WALL STREET, 2008</div>
+    <div class="top-bar-right">
+      <div class="gauge-bar">
+        <span>解析度</span>
+        <div class="gauge-track"><div class="gauge-fill" id="gaugeFill"></div></div>
+        <span id="gaugePercent">0</span>%
+      </div>
+      <div class="evidence-count" id="evidenceBtn" title="証拠一覧を開く">
+        EVIDENCE: <span id="evidenceCountNum">0</span> / 23
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene Background -->
+  <div class="scene-bg" id="sceneBg"></div>
+
+  <!-- Character Area -->
+  <div class="character-area" id="charArea" style="display:none"></div>
+
+  <!-- Mini Game Area -->
+  <div class="minigame-area" id="minigameArea" style="display:none"></div>
+
+  <!-- Map Screen -->
+  <div class="map-container" id="mapScreen" style="display:none"></div>
+
+  <!-- Testimony Box (for battles) -->
+  <div class="testimony-box" id="testimonyBox" style="display:none"></div>
+
+  <!-- Confrontation Header -->
+  <div class="confrontation-header" id="confrontHeader" style="display:none"></div>
+
+  <!-- Truth Screen -->
+  <div class="truth-container" id="truthScreen" style="display:none"></div>
+
+  <!-- Epilogue Screen -->
+  <div class="epilogue-container" id="epilogueScreen" style="display:none"></div>
+
+  <!-- Dialogue Area -->
+  <div class="dialogue-area" id="dialogueArea" style="display:none">
+    <div class="dialogue-box">
+      <div class="dialogue-speaker" id="speakerName"></div>
+      <div class="dialogue-text" id="dialogueText"></div>
+      <div class="dialogue-indicator" id="dialogueIndicator">CLICK TO CONTINUE</div>
+    </div>
+  </div>
+
+  <!-- Choices Area -->
+  <div class="choices-area" id="choicesArea" style="display:none">
+    <div class="choices-box" id="choicesBox"></div>
+  </div>
+
+  <!-- Present Evidence Button -->
+  <button class="btn btn-red present-btn" id="presentBtn" style="display:none">証拠をつきつける</button>
+
+  <!-- Evidence Panel -->
+  <div class="evidence-panel" id="evidencePanel">
+    <div class="evidence-header">
+      <div class="evidence-title">Evidence Board &mdash; 証拠一覧</div>
+      <button class="evidence-close" id="evidenceClose">CLOSE</button>
+    </div>
+    <div class="evidence-grid" id="evidenceGrid"></div>
+  </div>
+
+  <!-- Evidence Get Notification -->
+  <div class="evidence-get" id="evidenceGet">
+    <div class="evidence-get-label">Evidence Obtained</div>
+    <div class="evidence-get-name" id="evidenceGetName"></div>
+    <div class="evidence-get-desc" id="evidenceGetDesc"></div>
+  </div>
+
+  <!-- Objection Overlay -->
+  <div class="objection-overlay" id="objectionOverlay">
+    <div class="objection-text" id="objectionText"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// GAME STATE
+// ============================================================
+const G = {
+  state: 'title',
+  evidence: [],
+  visited: new Set(),
+  gauge: 0,          // 信用崩壊解析度 0-100
+  credibility: 100,  // 対決時の相手信用度
+  confrontRound: 0,
+  typing: false,
+  typingResolve: null,
+  fullText: '',
+  charIndex: 0,
+  typeTimer: null,
+  selectingEvidence: false,
+  currentCorrectEvidence: null,
+  consecutiveMisses: 0,
+  miniConfrontDone: false,
+};
+
+// ============================================================
+// EVIDENCE DATABASE (23 cards)
+// ============================================================
+const EVIDENCE_DB = {
+  A1: { id:'A1', tag:'Contract', name:'ARM契約書',
+    desc:'初期金利は低いが、金利リセット後に返済額が急増する変動金利型住宅ローン契約。' },
+  A2: { id:'A2', tag:'Internal Memo', name:'成約件数重視メモ',
+    desc:'返済能力より契約成立件数を評価基準とする営業方針を示す内部メモ。' },
+  A3: { id:'A3', tag:'Checklist', name:'審査基準緩和表',
+    desc:'収入証明・頭金比率など、本来必要な審査条件が段階的に緩められた記録。' },
+  B1: { id:'B1', tag:'Structure', name:'MBS構造図',
+    desc:'住宅ローンを束ねて証券化した基本構造。個々のリスクが集合体に変換されている。' },
+  B2: { id:'B2', tag:'Design Doc', name:'CDOトランシェ図',
+    desc:'損失を下位層（エクイティ）に押し込み、上位層を安全に見せる設計図。危険は消えず、並べ替えられただけ。' },
+  B3: { id:'B3', tag:'Sales Material', name:'「分散で安全化」営業資料',
+    desc:'証券化により分散効果でリスクが低減されたと謳う販売資料。安全の根拠は構造、実体ではない。' },
+  B4: { id:'B4', tag:'Assumption', name:'楽観的前提メモ',
+    desc:'住宅価格の大幅下落を想定しないモデル前提。前提が崩れれば結論も崩れる。' },
+  C1: { id:'C1', tag:'Internal Mail', name:'内部メール：House of Cards',
+    desc:'格付け会社内部で「house of cards（砂上の楼閣）」と表現されたメッセージ。案件の脆さを認識していた痕跡。' },
+  C2: { id:'C2', tag:'Internal Mail', name:'内部メール：Cowsでも格付け',
+    desc:'「cowsでも格付けする」という内部メール。案件の質より取引維持が優先されていた空気を示す。' },
+  C3: { id:'C3', tag:'Revenue Data', name:'収益構造グラフ',
+    desc:'格付け会社の収益が発行体からの手数料に大きく依存していることを示す図。判断の独立性への疑問。' },
+  C4: { id:'C4', tag:'Model Doc', name:'格付けモデル前提資料',
+    desc:'AAAの維持条件が極めて楽観的な前提に依存している。住宅価格下落率をわずかに変えるだけで崩壊する。' },
+  D1: { id:'D1', tag:'Accounting', name:'Repo 105文書',
+    desc:'四半期末に資産を一時的にバランスシートから外し、公開上のネットレバレッジを下げて見せる処理の記録。' },
+  D2: { id:'D2', tag:'Ledger', name:'四半期末資産移動帳票',
+    desc:'四半期末のみ大量の資産が移動し、翌期初に戻っている。特定時点だけ数字の見え方が整えられている。' },
+  D3: { id:'D3', tag:'Whistleblower', name:'Matthew Leeレター',
+    desc:'2008年5月、リーマン内部から発せられた懸念の書簡。バランスシートの不透明さを指摘する内部警告。' },
+  D4: { id:'D4', tag:'Risk Alert', name:'流動性懸念メモ',
+    desc:'短期資金調達への過度な依存と、市場環境悪化時の流動性リスクを警告する社内メモ。' },
+  E1: { id:'E1', tag:'Case File', name:'ABACUS案件メモ',
+    desc:'synthetic CDO案件の概要。商品設計と利害関係のねじれを示す。Lehman固有ではなく、同時代の利益相反の事例。' },
+  E2: { id:'E2', tag:'Disclosure', name:'投資家向け説明資料',
+    desc:'安全性を印象づける外向け資料。重要な利害関係の記述が不十分。' },
+  E3: { id:'E3', tag:'Diagram', name:'ショートポジション関係図',
+    desc:'商品の値下がりで利益を得るポジションを持つ関係者の構図。買い手からは見えにくい。' },
+  E4: { id:'E4', tag:'Role Memo', name:'商品選定役割メモ',
+    desc:'RMBSの選定に、ショート側の意向が影響を持っていた可能性を示す役割分担メモ。' },
+  F1: { id:'F1', tag:'Hearing', name:'規制当局ヒアリング資料',
+    desc:'当局が市場の自己規律を重視し、過度な介入を避けていた時代背景を示す公聴会資料。' },
+  F2: { id:'F2', tag:'Rule Change', name:'2004年ルール改正メモ',
+    desc:'SECのルール改正で、大手業者に内部モデルを使った代替的な自己資本計算が認められた経緯。' },
+  F3: { id:'F3', tag:'Model Doc', name:'内部モデル説明資料',
+    desc:'精緻な計算モデルが安全の保証と同義ではないことを示す。モデルは前提次第で結論が変わる。' },
+  W1: { id:'W1', tag:'Public Statement', name:'Fuld発言記事',
+    desc:'2008年4月、ファルドが株主に向けて「the worst is behind us（最悪は過ぎた）」と語った記事。' },
+};
+
+// ============================================================
+// DOM REFS
+// ============================================================
+const $ = id => document.getElementById(id);
+const fadeOverlay = $('fadeOverlay');
+const topBar = $('topBar');
+const sceneBg = $('sceneBg');
+const charArea = $('charArea');
+const minigameArea = $('minigameArea');
+const mapScreen = $('mapScreen');
+const dialogueArea = $('dialogueArea');
+const choicesArea = $('choicesArea');
+const speakerName = $('speakerName');
+const dialogueText = $('dialogueText');
+const dialogueIndicator = $('dialogueIndicator');
+const choicesBox = $('choicesBox');
+const evidencePanel = $('evidencePanel');
+const evidenceGrid = $('evidenceGrid');
+const evidenceGet = $('evidenceGet');
+const objectionOverlay = $('objectionOverlay');
+const confrontHeader = $('confrontHeader');
+const testimonyBox = $('testimonyBox');
+const truthScreen = $('truthScreen');
+const epilogueScreen = $('epilogueScreen');
+const presentBtn = $('presentBtn');
+const crackOverlay = $('crackOverlay');
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function fadeIn() { fadeOverlay.classList.add('active'); await sleep(600); }
+async function fadeOut() { fadeOverlay.classList.remove('active'); await sleep(600); }
+
+function hideAll() {
+  mapScreen.style.display = 'none';
+  dialogueArea.style.display = 'none';
+  choicesArea.style.display = 'none';
+  charArea.style.display = 'none';
+  minigameArea.style.display = 'none';
+  confrontHeader.style.display = 'none';
+  testimonyBox.style.display = 'none';
+  truthScreen.style.display = 'none';
+  epilogueScreen.style.display = 'none';
+  presentBtn.style.display = 'none';
+}
+
+function setBg(cls) { sceneBg.className = 'scene-bg ' + cls; }
+
+function setCharacters(chars) {
+  charArea.style.display = 'flex';
+  charArea.innerHTML = chars.map(c => `
+    <div class="character">
+      <div class="char-portrait" style="background:${c.bg}">${c.icon}</div>
+      <div class="char-name">${c.name}</div>
+    </div>
+  `).join('');
+}
+
+function updateEvidenceCount() {
+  $('evidenceCountNum').textContent = G.evidence.length;
+}
+
+function updateGauge(delta) {
+  G.gauge = Math.max(0, Math.min(100, G.gauge + delta));
+  $('gaugeFill').style.width = G.gauge + '%';
+  $('gaugePercent').textContent = G.gauge;
+}
+
+function addCrack() {
+  crackOverlay.classList.add('show');
+  const line = document.createElement('div');
+  line.className = 'crack-line';
+  const x = 20 + Math.random() * 60;
+  const y = 20 + Math.random() * 60;
+  const angle = Math.random() * 360;
+  const len = 30 + Math.random() * 80;
+  line.style.cssText = `left:${x}%;top:${y}%;width:${len}px;height:1px;transform:rotate(${angle}deg);`;
+  crackOverlay.appendChild(line);
+}
+
+// ============================================================
+// TEXT SYSTEM
+// ============================================================
+function typeText(text, speed = 25) {
+  return new Promise(resolve => {
+    G.typing = true;
+    G.fullText = text;
+    G.charIndex = 0;
+    G.typingResolve = resolve;
+    dialogueText.innerHTML = '';
+    dialogueIndicator.style.display = 'none';
+    clearInterval(G.typeTimer);
+    G.typeTimer = setInterval(() => {
+      if (G.charIndex < G.fullText.length) {
+        dialogueText.textContent = G.fullText.substring(0, G.charIndex + 1);
+        G.charIndex++;
+      } else {
+        clearInterval(G.typeTimer);
+        G.typing = false;
+        dialogueIndicator.style.display = 'block';
+      }
+    }, speed);
+  });
+}
+
+function skipType() {
+  if (G.typing) {
+    clearInterval(G.typeTimer);
+    dialogueText.textContent = G.fullText;
+    G.typing = false;
+    dialogueIndicator.style.display = 'block';
+  }
+}
+
+function completeDialogue() {
+  if (G.typingResolve) { const r = G.typingResolve; G.typingResolve = null; r(); }
+}
+
+document.addEventListener('click', e => {
+  if (G.selectingEvidence) return;
+  if (evidencePanel.classList.contains('open')) return;
+  if (evidenceGet.classList.contains('show')) { evidenceGet.classList.remove('show'); return; }
+  if (G.typing) skipType();
+  else if (G.typingResolve) completeDialogue();
+});
+
+// ============================================================
+// DIALOGUE SYSTEM
+// ============================================================
+async function say(speaker, text, speakerColor) {
+  dialogueArea.style.display = 'block';
+  speakerName.textContent = speaker;
+  speakerName.style.color = speakerColor || 'var(--steel2)';
+  await typeText(text);
+  await new Promise(resolve => { G.typingResolve = resolve; });
+}
+
+async function narrate(text) { await say('', text, 'var(--steel3)'); }
+
+function showChoices(options) {
+  return new Promise(resolve => {
+    dialogueArea.style.display = 'none';
+    choicesArea.style.display = 'block';
+    choicesBox.innerHTML = options.map((opt, i) => `
+      <button class="choice-btn" data-idx="${i}">${opt.text}</button>
+    `).join('');
+    choicesBox.querySelectorAll('.choice-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        choicesArea.style.display = 'none';
+        resolve(parseInt(btn.dataset.idx));
+      });
+    });
+  });
+}
+
+// ============================================================
+// EVIDENCE SYSTEM
+// ============================================================
+async function gainEvidence(id) {
+  if (G.evidence.find(e => e.id === id)) return;
+  const ev = EVIDENCE_DB[id];
+  if (!ev) return;
+  G.evidence.push(ev);
+  updateEvidenceCount();
+  updateGauge(3);
+
+  const btn = $('evidenceBtn');
+  btn.classList.add('pulse');
+  setTimeout(() => btn.classList.remove('pulse'), 600);
+
+  $('evidenceGetName').textContent = ev.name;
+  $('evidenceGetDesc').textContent = ev.desc;
+  evidenceGet.classList.add('show');
+
+  await sleep(200);
+  await new Promise(resolve => {
+    setTimeout(() => {
+      document.addEventListener('click', () => {
+        evidenceGet.classList.remove('show');
+        resolve();
+      }, { once: true });
+    }, 300);
+  });
+}
+
+function renderEvidencePanel(selecting = false) {
+  evidenceGrid.innerHTML = G.evidence.map(ev => `
+    <div class="evidence-card ${selecting ? 'selecting' : ''}" data-id="${ev.id}">
+      <div class="evidence-card-tag">${ev.tag}</div>
+      <div class="evidence-card-name">${ev.name}</div>
+      <div class="evidence-card-desc">${ev.desc}</div>
+    </div>
+  `).join('');
+  if (G.evidence.length === 0) {
+    evidenceGrid.innerHTML = '<div style="color:var(--steel3);font-style:italic;padding:2rem;">まだ証拠を収集していません。</div>';
+  }
+}
+
+$('evidenceBtn').addEventListener('click', e => {
+  e.stopPropagation();
+  if (!G.selectingEvidence) {
+    renderEvidencePanel(false);
+    evidencePanel.classList.add('open');
+  }
+});
+$('evidenceClose').addEventListener('click', e => {
+  e.stopPropagation();
+  evidencePanel.classList.remove('open');
+});
+
+function selectEvidence() {
+  return new Promise(resolve => {
+    renderEvidencePanel(true);
+    evidencePanel.classList.add('open');
+    const handleClick = (e) => {
+      const card = e.target.closest('.evidence-card');
+      if (card) {
+        const id = card.dataset.id;
+        evidencePanel.classList.remove('open');
+        evidenceGrid.removeEventListener('click', handleClick);
+        resolve(id);
+      }
+    };
+    evidenceGrid.addEventListener('click', handleClick);
+  });
+}
+
+async function showObjection(text) {
+  $('objectionText').textContent = text;
+  objectionOverlay.classList.add('show');
+  await sleep(1500);
+  objectionOverlay.classList.remove('show');
+  await sleep(300);
+}
+
+function updateCredibility() {
+  const fill = $('credFill');
+  const percent = $('credPercent');
+  if (fill) fill.style.width = G.credibility + '%';
+  if (percent) percent.textContent = G.credibility;
+}
+
+// ============================================================
+// HINT SYSTEM
+// ============================================================
+const HINTS = [
+  'その証拠は現象を示している。原因ではない。',
+  '相手の言葉のどこが"見せ方"に依存しているか考えて。',
+  '内部で何を知っていたかに戻るべきです。',
+];
+
+async function showHint() {
+  const idx = Math.min(G.consecutiveMisses - 3, HINTS.length - 1);
+  if (idx >= 0) {
+    await say('補佐役', 'ヒント：' + HINTS[idx], '#6090c0');
+  }
+}
+
+// ============================================================
+// SCENES
+// ============================================================
+
+// --- OPENING ---
+async function sceneOpening() {
+  const titleNews = $('titleNews');
+  await sleep(1500);
+  titleNews.classList.add('show');
+}
+
+// --- BRIEFING ---
+async function sceneBriefing() {
+  await fadeIn();
+  hideAll();
+  topBar.style.display = 'flex';
+  setBg('bg-briefing');
+  setCharacters([
+    { icon: '👤', bg: 'rgba(26,58,106,.5)', name: 'DIRECTOR' },
+  ]);
+  await fadeOut();
+
+  await say('局長', '新しい任務だ。', '#6090c0');
+  await say('局長', '2008年9月。リーマン・ブラザーズが破綻寸前にある。', '#6090c0');
+  await say('局長', '倒れたのは一社かもしれない。だが、壊れたのは一社ではない。', '#6090c0');
+
+  setCharacters([
+    { icon: '👤', bg: 'rgba(26,58,106,.5)', name: 'DIRECTOR' },
+    { icon: '📋', bg: 'rgba(42,106,58,.4)', name: 'RIO' },
+  ]);
+
+  await say('リオ', '任務内容は？', '#70b080');
+  await say('局長', '風評ではなく、証拠で示せ。なぜリーマンは倒れたのか。そして、なぜ誰も止められなかったのか。', '#6090c0');
+
+  await narrate('壁面スクリーンに3つの仮説が映し出される。');
+
+  // Show hypotheses in minigame area
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="hypothesis-panel">
+      <div class="hypothesis-card"><div class="hypothesis-tag">仮説 A</div><div class="hypothesis-text">住宅ローンの焦げ付きが原因</div></div>
+      <div class="hypothesis-card"><div class="hypothesis-tag">仮説 B</div><div class="hypothesis-text">市場のパニックが原因</div></div>
+      <div class="hypothesis-card highlight"><div class="hypothesis-tag">仮説 C</div><div class="hypothesis-text">証券化・格付け・レバレッジ・会計処理の複合崩壊</div></div>
+    </div>
+  `;
+
+  await say('リオ', 'みんな、単純な答えを欲しがります。「住宅バブルが崩れたから」「パニックが起きたから」。', '#70b080');
+  await say('リオ', 'でも本当にそれだけなら、一社の破綻でここまで世界は壊れない。', '#70b080');
+  await say('主人公', 'つまり、崩れたのは建物じゃない。建て方そのものか。');
+  await say('リオ', 'その通りです。さあ、入口から見ていきましょう。', '#70b080');
+
+  minigameArea.style.display = 'none';
+  await sceneMap();
+}
+
+// --- MAP ---
+async function sceneMap() {
+  await fadeIn();
+  hideAll();
+  setBg('bg-manhattan');
+  await fadeOut();
+  showMap();
+}
+
+function showMap() {
+  hideAll();
+  mapScreen.style.display = 'flex';
+
+  const locations = [
+    { id:'mortgage', icon:'🏠', name:'住宅ローン仲介', desc:'危機の出発点。返せない人に貸す構造。', unlock: true },
+    { id:'securitize', icon:'📊', name:'証券化デスク', desc:'危険を"商品"に変換する錬金術。', unlock: true },
+    { id:'rating', icon:'🛡️', name:'格付け会社', desc:'AAAの権威は何に支えられていたか。', unlock: true },
+    { id:'lehman', icon:'🏛️', name:'リーマン本社', desc:'帳簿の表情と実体のズレ。', unlock: G.visited.has('rating') },
+    { id:'abacus', icon:'💼', name:'大手証券会議室', desc:'同時代の利益相反。誰が何で得をするか。', unlock: G.visited.has('lehman') },
+    { id:'congress', icon:'⚖️', name:'議会／規制当局', desc:'なぜ止められなかったのか。', unlock: G.visited.has('lehman') },
+  ];
+
+  const visitedCount = G.visited.size;
+  const canConfront = visitedCount >= 6;
+
+  mapScreen.innerHTML = `
+    <div class="map-title">Investigation Phase</div>
+    <div class="map-subtitle">2007-2008 ニューヨーク &mdash; 調査地を選べ</div>
+    <div class="map-grid">
+      ${locations.map(loc => {
+        const visited = G.visited.has(loc.id);
+        const locked = !loc.unlock;
+        return `<div class="map-location ${visited ? 'visited' : ''} ${locked ? 'locked' : ''}" data-loc="${loc.id}">
+          <div class="map-loc-icon">${loc.icon}</div>
+          <div class="map-loc-name">${loc.name}</div>
+          <div class="map-loc-desc">${loc.desc}</div>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="map-action">
+      ${canConfront ? '<button class="btn btn-red" id="confrontBtn">対決に進む</button>' : ''}
+    </div>
+    <div class="map-hint">
+      ${canConfront
+        ? '全ての調査地を訪問しました。対決フェーズに進めます。'
+        : `調査済み: ${visitedCount} / 6　全地点を調査すると対決に進めます。`}
+    </div>
+  `;
+
+  mapScreen.querySelectorAll('.map-location:not(.visited):not(.locked)').forEach(el => {
+    el.addEventListener('click', () => visitLocation(el.dataset.loc));
+  });
+
+  const confrontBtn = $('confrontBtn');
+  if (confrontBtn) confrontBtn.addEventListener('click', () => sceneBattleHub());
+}
+
+async function visitLocation(loc) {
+  switch (loc) {
+    case 'mortgage': await sceneMortgage(); break;
+    case 'securitize': await sceneSecuritize(); break;
+    case 'rating': await sceneRating(); break;
+    case 'lehman': await sceneLehman(); break;
+    case 'abacus': await sceneAbacus(); break;
+    case 'congress': await sceneCongress(); break;
+  }
+}
+
+// ============================================================
+// INVESTIGATION SCENES
+// ============================================================
+
+// --- MORTGAGE OFFICE ---
+async function sceneMortgage() {
+  await fadeIn(); hideAll(); setBg('bg-mortgage');
+  setCharacters([{ icon:'🏠', bg:'rgba(180,140,60,.4)', name:'BROKER' }]);
+  await fadeOut();
+
+  await say('仲介担当', 'いらっしゃい。住宅ローンの相談？今ならARM（変動金利型）がお得ですよ。', '#c0a060');
+  await say('仲介担当', '最初の2年は月々わずか。その後？家は値上がりするから、借り換えればいい。', '#c0a060');
+
+  // Mini-game: ARM simulator
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">ARM返済シミュレーター</div>
+      <div class="mg-row"><span class="mg-label">年収</span><span class="mg-value">$50,000</span></div>
+      <div class="mg-row"><span class="mg-label">初期金利</span><span class="mg-value safe">2.0%</span></div>
+      <div class="mg-row">
+        <span class="mg-label">リセット後金利</span>
+        <input type="range" class="mg-slider" id="rateSlider" min="4" max="12" value="8" step="0.5"/>
+        <span class="mg-value" id="rateValue">8.0%</span>
+      </div>
+      <div class="mg-result" id="armResult">
+        <div class="mg-result-title">月返済額の変化</div>
+        <div class="mg-row"><span class="mg-label">初期（2年間）</span><span class="mg-value safe" id="initPay">$740</span></div>
+        <div class="mg-row"><span class="mg-label">リセット後</span><span class="mg-value" id="resetPay">$1,470</span></div>
+        <div class="mg-row"><span class="mg-label">家計圧迫率</span><span class="mg-value" id="burden">35%</span></div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="armConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  const slider = $('rateSlider');
+  const updateARM = () => {
+    const rate = parseFloat(slider.value);
+    $('rateValue').textContent = rate.toFixed(1) + '%';
+    const resetMonthly = Math.round(300000 * (rate/100/12) / (1 - Math.pow(1+rate/100/12, -336)));
+    $('resetPay').textContent = '$' + resetMonthly.toLocaleString();
+    const burden = Math.round(resetMonthly / (50000/12) * 100);
+    $('burden').textContent = burden + '%';
+    const burdenEl = $('burden');
+    const resetEl = $('resetPay');
+    if (burden > 40) { burdenEl.className = 'mg-value danger'; resetEl.className = 'mg-value danger'; }
+    else { burdenEl.className = 'mg-value'; resetEl.className = 'mg-value'; }
+  };
+  slider.addEventListener('input', updateARM);
+  updateARM();
+
+  await new Promise(resolve => {
+    $('armConfirm').addEventListener('click', resolve);
+  });
+
+  minigameArea.style.display = 'none';
+
+  await say('主人公', 'これは"返せる人向けのローン"じゃない。"今日だけ通せればいいローン"だ。');
+
+  const choice = await showChoices([
+    { text: '返済能力の審査はどうなっている？' },
+    { text: '成約の評価基準を聞く' },
+  ]);
+
+  if (choice === 0) {
+    await say('仲介担当', '以前はもっと厳しかったよ。収入証明、頭金20%、勤務先確認...。', '#c0a060');
+    await say('仲介担当', 'でも最近は、ほとんどノーチェックだ。書類だけ揃ってればいい。', '#c0a060');
+  } else {
+    await say('仲介担当', '上の連中は成約件数しか見てない。月に何本ローンを通したか。', '#c0a060');
+    await say('仲介担当', '返済できるかどうかは...正直、俺たちの仕事じゃないんだ。', '#c0a060');
+  }
+
+  await say('仲介担当', 'でも家は値上がりし続けるって、みんな信じてた。借り換えればいい。売ればいい。そういう空気だったんだよ。', '#c0a060');
+
+  await gainEvidence('A1');
+  await gainEvidence('A2');
+  await gainEvidence('A3');
+
+  await say('リオ', '最初の歪みはここです。返済能力ではなく、成約件数で回る世界。', '#70b080');
+  updateGauge(3);
+
+  G.visited.add('mortgage');
+  await sceneMap();
+}
+
+// --- SECURITIZATION DESK ---
+async function sceneSecuritize() {
+  await fadeIn(); hideAll(); setBg('bg-securitize');
+  setCharacters([{ icon:'📊', bg:'rgba(40,80,160,.4)', name:'STRUCTURER' }]);
+  await fadeOut();
+
+  await say('証券化デスク社員', '金融は変換の技術だ。生のままじゃ売れないリスクを、誰かが買える形にする。', '#6090c0');
+
+  // CDO Mini-game
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">CDO組成 — リスクの並べ替え</div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;">
+        <div style="flex:1;min-width:200px;">
+          <div class="mg-result-title">元のローンプール</div>
+          <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem;">
+            <span style="padding:.3em .6em;background:rgba(160,48,48,.2);border:1px solid rgba(160,48,48,.3);border-radius:2px;font-size:.7rem;color:var(--red2);">サブプライム A</span>
+            <span style="padding:.3em .6em;background:rgba(160,48,48,.2);border:1px solid rgba(160,48,48,.3);border-radius:2px;font-size:.7rem;color:var(--red2);">サブプライム B</span>
+            <span style="padding:.3em .6em;background:rgba(196,144,32,.2);border:1px solid rgba(196,144,32,.3);border-radius:2px;font-size:.7rem;color:var(--warn);">Alt-A</span>
+            <span style="padding:.3em .6em;background:rgba(42,106,58,.2);border:1px solid rgba(42,106,58,.3);border-radius:2px;font-size:.7rem;color:var(--green2);">プライム</span>
+          </div>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <div class="mg-result-title">構造化後のトランシェ</div>
+          <div id="trancheView" style="margin-top:.5rem;">
+            <div style="padding:.5em;background:rgba(42,106,58,.15);border:1px solid rgba(42,106,58,.25);border-radius:2px 2px 0 0;text-align:center;">
+              <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--green2);">シニア（AAA候補）— 80%</span>
+            </div>
+            <div style="padding:.4em;background:rgba(196,144,32,.15);border:1px solid rgba(196,144,32,.25);text-align:center;">
+              <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--warn);">メザニン — 15%</span>
+            </div>
+            <div style="padding:.3em;background:rgba(160,48,48,.15);border:1px solid rgba(160,48,48,.25);border-radius:0 0 2px 2px;text-align:center;">
+              <span style="font-family:var(--font-mono);font-size:.6rem;color:var(--red2);">エクイティ — 5%（損失吸収）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mg-row">
+        <span class="mg-label">住宅価格下落率</span>
+        <input type="range" class="mg-slider" id="cdoSlider" min="0" max="30" value="0" step="1"/>
+        <span class="mg-value" id="cdoDecline">0%</span>
+      </div>
+      <div class="mg-result">
+        <div class="mg-row"><span class="mg-label">エクイティ層</span><span class="mg-value" id="cdoEquity">健全</span></div>
+        <div class="mg-row"><span class="mg-label">メザニン層</span><span class="mg-value" id="cdoMezz">健全</span></div>
+        <div class="mg-row"><span class="mg-label">シニア層（AAA）</span><span class="mg-value" id="cdoSenior">健全</span></div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="cdoConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  const cdoSlider = $('cdoSlider');
+  const updateCDO = () => {
+    const decline = parseInt(cdoSlider.value);
+    $('cdoDecline').textContent = decline + '%';
+    const eq = $('cdoEquity'), mz = $('cdoMezz'), sn = $('cdoSenior');
+    if (decline >= 5) { eq.textContent = '壊滅'; eq.className = 'mg-value danger'; }
+    else { eq.textContent = '健全'; eq.className = 'mg-value safe'; }
+    if (decline >= 15) { mz.textContent = '毀損'; mz.className = 'mg-value danger'; }
+    else if (decline >= 8) { mz.textContent = '劣化'; mz.className = 'mg-value'; }
+    else { mz.textContent = '健全'; mz.className = 'mg-value safe'; }
+    if (decline >= 25) { sn.textContent = '崩壊'; sn.className = 'mg-value danger'; }
+    else if (decline >= 18) { sn.textContent = '毀損'; sn.className = 'mg-value danger'; }
+    else { sn.textContent = '健全'; sn.className = 'mg-value safe'; }
+  };
+  cdoSlider.addEventListener('input', updateCDO);
+
+  await new Promise(resolve => { $('cdoConfirm').addEventListener('click', resolve); });
+  minigameArea.style.display = 'none';
+
+  await say('主人公', '危険を消したんじゃない。並べ替えただけだ。');
+  await say('証券化デスク社員', 'そうだ。でも並べ替えるだけで、上位層は安全に見える。買い手がつく。市場が動く。', '#6090c0');
+  await say('主人公', 'その言い方は綺麗だ。でも、見えにくくしただけなら話は別だ。');
+
+  await gainEvidence('B1');
+  await gainEvidence('B2');
+  await gainEvidence('B3');
+  await gainEvidence('B4');
+
+  await say('リオ', '証券化はリスク消滅ではない。「複雑」は「安全」と同義ではありません。', '#70b080');
+  updateGauge(3);
+
+  G.visited.add('securitize');
+  await sceneMap();
+}
+
+// --- RATING AGENCY ---
+async function sceneRating() {
+  await fadeIn(); hideAll(); setBg('bg-rating');
+  setCharacters([{ icon:'🛡️', bg:'rgba(120,120,150,.4)', name:'ANALYST' }]);
+  await fadeOut();
+
+  await say('格付けアナリスト', 'いらっしゃい。格付けモデルについてお聞きになりたいと？', '#a0a0c0');
+  await say('格付けアナリスト', 'モデルはモデルだ。前提が変われば結果も変わる。それは当然のことだ。', '#a0a0c0');
+
+  // Rating model mini-game
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">格付けモデル感度テスト</div>
+      <div class="mg-row"><span class="mg-label">住宅価格下落率</span>
+        <input type="range" class="mg-slider" id="ratingDecline" min="0" max="25" value="0" step="1"/>
+        <span class="mg-value" id="rdVal">0%</span></div>
+      <div class="mg-row"><span class="mg-label">延滞率</span>
+        <input type="range" class="mg-slider" id="ratingDelinq" min="2" max="20" value="3" step="1"/>
+        <span class="mg-value" id="rqVal">3%</span></div>
+      <div class="mg-row"><span class="mg-label">相関係数</span>
+        <input type="range" class="mg-slider" id="ratingCorr" min="5" max="50" value="10" step="5"/>
+        <span class="mg-value" id="rcVal">10%</span></div>
+      <div class="mg-result">
+        <div class="mg-row"><span class="mg-label">シニア格付け</span>
+          <span class="mg-value safe" id="ratingResult" style="font-size:1.3rem;font-weight:700;">AAA</span></div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="ratingConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  const updateRating = () => {
+    const d = parseInt($('ratingDecline').value);
+    const q = parseInt($('ratingDelinq').value);
+    const c = parseInt($('ratingCorr').value);
+    $('rdVal').textContent = d + '%';
+    $('rqVal').textContent = q + '%';
+    $('rcVal').textContent = c + '%';
+    const stress = d * 2 + q * 1.5 + c * 0.8;
+    const el = $('ratingResult');
+    if (stress < 15) { el.textContent = 'AAA'; el.className = 'mg-value safe'; el.style.fontSize = '1.3rem'; }
+    else if (stress < 25) { el.textContent = 'AA'; el.className = 'mg-value'; el.style.fontSize = '1.3rem'; }
+    else if (stress < 35) { el.textContent = 'BBB'; el.className = 'mg-value'; el.style.fontSize = '1.3rem'; el.style.color = 'var(--warn)'; }
+    else if (stress < 50) { el.textContent = 'BB'; el.className = 'mg-value danger'; el.style.fontSize = '1.3rem'; }
+    else { el.textContent = 'ジャンク'; el.className = 'mg-value danger'; el.style.fontSize = '1.3rem'; }
+  };
+  $('ratingDecline').addEventListener('input', updateRating);
+  $('ratingDelinq').addEventListener('input', updateRating);
+  $('ratingCorr').addEventListener('input', updateRating);
+
+  await new Promise(resolve => { $('ratingConfirm').addEventListener('click', resolve); });
+  minigameArea.style.display = 'none';
+
+  await say('主人公', 'たったこれだけ前提を触るだけで崩れるのか。');
+  await say('格付けアナリスト', 'モデルはモデルだ。前提が変われば結果も変わる。', '#a0a0c0');
+  await say('主人公', '問題はそこじゃない。崩れうると知りながら、そのラベルを市場に流し続けたことだ。');
+
+  await gainEvidence('C1');
+  await gainEvidence('C2');
+  await gainEvidence('C3');
+  await gainEvidence('C4');
+
+  await say('リオ', '権威は、正しいから強いわけじゃない。みんなが信じるから強いんです。', '#70b080');
+
+  // Mini confrontation
+  await narrate('格付けアナリストが反論する。');
+  await say('格付けアナリスト', '我々は当時の情報で最善を尽くしただけです。結果論で責めるのは不公平だ。', '#a0a0c0');
+  await narrate('矛盾を突ける証拠を選べ。まず、構造的な問題を示す証拠から。');
+
+  G.selectingEvidence = true;
+  let selected = await selectEvidence();
+  G.selectingEvidence = false;
+
+  if (selected === 'C3') {
+    await showObjection('異議あり！');
+    await say('主人公', '収益が発行体に依存する構造で、独立した判断ができるのか？');
+    await say('格付けアナリスト', '収益構造は関係ない。我々の分析は技術的に正当だ。', '#a0a0c0');
+
+    await narrate('さらに内部の認識を示す証拠を。');
+    G.selectingEvidence = true;
+    selected = await selectEvidence();
+    G.selectingEvidence = false;
+
+    if (selected === 'C1' || selected === 'C2') {
+      await showObjection('異議あり！');
+      await say('主人公', '問題は"間違えたこと"だけじゃない。市場シェアと発行体依存が、判断そのものを曇らせていたことだ。');
+      await say('格付けアナリスト', '......。', '#a0a0c0');
+      updateGauge(8);
+      addCrack();
+    } else {
+      await say('リオ', 'もう少し的確な証拠がありそうです。でも、前に進みましょう。', '#70b080');
+      updateGauge(3);
+    }
+  } else {
+    // Wrong first pick
+    await say('リオ', 'その証拠は重要ですが、まず構造的な問題を示しましょう。', '#70b080');
+    await narrate('収益構造に関する証拠が効果的です。');
+    G.selectingEvidence = true;
+    selected = await selectEvidence();
+    G.selectingEvidence = false;
+    await showObjection('異議あり！');
+    await say('主人公', '市場シェアと発行体依存が、判断そのものを曇らせていた。');
+    updateGauge(5);
+    addCrack();
+  }
+
+  G.miniConfrontDone = true;
+  G.visited.add('rating');
+  await sceneMap();
+}
+
+// --- LEHMAN HQ ---
+async function sceneLehman() {
+  await fadeIn(); hideAll(); setBg('bg-lehman');
+  setCharacters([]);
+  charArea.style.display = 'none';
+  await fadeOut();
+
+  await narrate('リーマン・ブラザーズ本社。この章の中核だ。');
+
+  // Repo 105 mini-game
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">Repo 105 ビジュアル検証</div>
+      <div style="display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button class="btn" id="repoNormal" style="flex:1;">通常状態</button>
+        <button class="btn" id="repoQEnd" style="flex:1;">四半期末処理</button>
+        <button class="btn btn-red" id="repoApply" style="flex:1;">Repo 105適用</button>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div class="mg-result" style="flex:1;min-width:200px;">
+          <div class="mg-result-title">公開上の数字</div>
+          <div class="mg-row"><span class="mg-label">総資産</span><span class="mg-value" id="repoAsset">$691B</span></div>
+          <div class="mg-row"><span class="mg-label">負債</span><span class="mg-value" id="repoDebt">$668B</span></div>
+          <div class="mg-row"><span class="mg-label">ネットレバレッジ</span><span class="mg-value" id="repoLev">16.1x</span></div>
+        </div>
+        <div class="mg-result" style="flex:1;min-width:200px;">
+          <div class="mg-result-title">実体リスク</div>
+          <div class="mg-row"><span class="mg-label">実質リスク量</span><span class="mg-value danger" id="repoRisk">変化なし</span></div>
+          <div class="mg-row"><span class="mg-label">流動性リスク</span><span class="mg-value danger" id="repoLiq">高い</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="repoConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  $('repoNormal').addEventListener('click', () => {
+    $('repoAsset').textContent = '$691B'; $('repoAsset').className = 'mg-value';
+    $('repoDebt').textContent = '$668B'; $('repoDebt').className = 'mg-value';
+    $('repoLev').textContent = '16.1x'; $('repoLev').className = 'mg-value';
+    $('repoRisk').textContent = '変化なし'; $('repoLiq').textContent = '高い';
+  });
+  $('repoQEnd').addEventListener('click', () => {
+    $('repoAsset').textContent = '$639B'; $('repoAsset').className = 'mg-value safe';
+    $('repoDebt').textContent = '$616B'; $('repoDebt').className = 'mg-value safe';
+    $('repoLev').textContent = '12.1x'; $('repoLev').className = 'mg-value safe';
+    $('repoRisk').textContent = '変化なし'; $('repoLiq').textContent = '高い';
+  });
+  $('repoApply').addEventListener('click', () => {
+    $('repoAsset').textContent = '$639B → 見栄え改善'; $('repoAsset').className = 'mg-value safe';
+    $('repoDebt').textContent = '$616B → 見栄え改善'; $('repoDebt').className = 'mg-value safe';
+    $('repoLev').textContent = '12.1x ✓'; $('repoLev').className = 'mg-value safe';
+    $('repoRisk').textContent = '変化なし ✕'; $('repoRisk').className = 'mg-value danger';
+    $('repoLiq').textContent = '依然 高い ✕'; $('repoLiq').className = 'mg-value danger';
+  });
+
+  await new Promise(resolve => { $('repoConfirm').addEventListener('click', resolve); });
+  minigameArea.style.display = 'none';
+
+  await say('主人公', '数字の顔色だけがよくなる。');
+
+  setCharacters([{ icon:'📋', bg:'rgba(42,106,58,.4)', name:'RIO' }]);
+
+  await say('リオ', 'ええ。体温は下がっていないのに、顔だけ化粧しているようなものです。', '#70b080');
+  await say('主人公', 'これを健全化と呼ぶのか。');
+  await say('リオ', '呼びたい人間は、そう呼びます。', '#70b080');
+
+  await gainEvidence('D1');
+  await gainEvidence('D2');
+
+  await narrate('社内文書フォルダに、一通の内部書簡を見つけた。');
+  await say('', '2008年5月16日、Matthew Lee——リーマンのシニア・ヴァイス・プレジデントが、バランスシートの不透明さについて懸念を記した書簡。');
+  await say('リオ', '内部から警告が出ていた...。しかも経営層に宛てて。', '#70b080');
+
+  await gainEvidence('D3');
+  await gainEvidence('D4');
+
+  await say('主人公', '予見できなかったのではない。見えていた人間はいた。');
+  updateGauge(5);
+  addCrack();
+
+  G.visited.add('lehman');
+  await sceneMap();
+}
+
+// --- ABACUS / SECURITIES MEETING ROOM ---
+async function sceneAbacus() {
+  await fadeIn(); hideAll(); setBg('bg-abacus');
+  setCharacters([{ icon:'💼', bg:'rgba(80,60,120,.4)', name:'BANKER' }]);
+  await fadeOut();
+
+  await narrate('これはリーマン固有の問題ではない。同時代の市場全体に広がっていた利益相反だ。');
+  await say('証券側NPC', '我々は市場に流動性を提供しただけだ。顧客はプロだ。自己判断で取引している。', '#9080b0');
+
+  // Connection mini-game
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">誰が何で得をするか — 関係図</div>
+      <div style="display:flex;flex-direction:column;gap:.6rem;">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <div style="padding:.6em 1em;background:rgba(80,60,120,.15);border:1px solid rgba(80,60,120,.3);border-radius:3px;font-size:.8rem;color:var(--steel);">商品組成者</div>
+          <div style="padding:.6em 1em;background:rgba(160,48,48,.15);border:1px solid rgba(160,48,48,.3);border-radius:3px;font-size:.8rem;color:var(--red2);">RMBS選定関与者</div>
+        </div>
+        <div style="text-align:center;font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);">↕ 利害の方向 ↕</div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;">
+          <div style="padding:.6em 1em;background:rgba(42,106,58,.15);border:1px solid rgba(42,106,58,.3);border-radius:3px;font-size:.8rem;color:var(--green2);">投資家（買い手）</div>
+          <div style="padding:.6em 1em;background:rgba(196,144,32,.15);border:1px solid rgba(196,144,32,.3);border-radius:3px;font-size:.8rem;color:var(--warn);">ショート側（下落で利益）</div>
+        </div>
+        <div class="mg-result" style="margin-top:.5rem;">
+          <div class="mg-result-title">構図の核心</div>
+          <p style="font-size:.8rem;color:var(--steel2);line-height:1.6;">RMBS選定に関与した側がショートポジションを持ち、<br/>その利害が投資家に十分に開示されていなかった。<br/>投資家は約10億ドルの損失を被った。</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="abacusConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  await new Promise(resolve => { $('abacusConfirm').addEventListener('click', resolve); });
+  minigameArea.style.display = 'none';
+
+  await say('主人公', '売り手と買い手だけの話じゃない。"壊れる側に賭けている設計者"がいる。');
+  await say('リオ', 'しかも、そのことを買い手が十分に知らない。', '#70b080');
+  await say('主人公', '商品じゃない。これは構図だ。');
+
+  await gainEvidence('E1');
+  await gainEvidence('E2');
+  await gainEvidence('E3');
+  await gainEvidence('E4');
+
+  // Mini confrontation
+  await say('証券側NPC', '我々は市場に流動性を提供しただけだ。', '#9080b0');
+  await showObjection('異議あり！');
+  await say('主人公', '流動性という言葉で、利害のねじれは消えない。');
+  updateGauge(5);
+  addCrack();
+
+  G.visited.add('abacus');
+  await sceneMap();
+}
+
+// --- CONGRESS / REGULATORS ---
+async function sceneCongress() {
+  await fadeIn(); hideAll(); setBg('bg-congress');
+  setCharacters([{ icon:'⚖️', bg:'rgba(120,110,60,.4)', name:'REGULATOR' }]);
+  await fadeOut();
+
+  await say('規制担当', '監督はしていた。ただ、我々は市場の自己規律を信じていた。', '#b0a070');
+
+  // Timeline
+  minigameArea.style.display = 'flex';
+  minigameArea.innerHTML = `
+    <div class="minigame-panel">
+      <div class="minigame-title">規制環境の変遷</div>
+      <div style="display:flex;flex-direction:column;gap:.4rem;">
+        <div style="display:flex;gap:.8rem;align-items:center;padding:.5em;border-left:2px solid var(--green2);">
+          <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--steel3);min-width:50px;">〜2003</span>
+          <span style="font-size:.8rem;color:var(--steel);">従来の自己資本規制（ネット・キャピタル・ルール）</span>
+        </div>
+        <div style="display:flex;gap:.8rem;align-items:center;padding:.5em;border-left:2px solid var(--warn);">
+          <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--warn);min-width:50px;">2004</span>
+          <span style="font-size:.8rem;color:var(--steel);">SEC改正：大手業者に内部モデルによる代替計算を認可</span>
+        </div>
+        <div style="display:flex;gap:.8rem;align-items:center;padding:.5em;border-left:2px solid var(--red);">
+          <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--red2);min-width:50px;">2004〜</span>
+          <span style="font-size:.8rem;color:var(--steel);">レバレッジ比率の上昇。自己管理を信じる時代。</span>
+        </div>
+        <div style="display:flex;gap:.8rem;align-items:center;padding:.5em;border-left:2px solid var(--red2);">
+          <span style="font-family:var(--font-mono);font-size:.7rem;color:var(--red3);min-width:50px;">2007〜</span>
+          <span style="font-size:.8rem;color:var(--steel);">住宅市場崩壊。内部モデルの前提が破綻。</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1rem;">
+        <button class="btn" id="congressConfirm">確認した</button>
+      </div>
+    </div>
+  `;
+
+  await new Promise(resolve => { $('congressConfirm').addEventListener('click', resolve); });
+  minigameArea.style.display = 'none';
+
+  await say('主人公', '信じた結果、何が起きた？');
+  await say('規制担当', '信用の担保が、信用そのものに依存しすぎた。', '#b0a070');
+
+  await gainEvidence('F1');
+  await gainEvidence('F2');
+  await gainEvidence('F3');
+  // Also give W1 here
+  await gainEvidence('W1');
+
+  await say('リオ', '2008年4月、ファルドは株主に「the worst is behind us」と語っています。', '#70b080');
+  await say('主人公', '最悪は過ぎた...。本当にそう信じていたのか、それとも信じたかっただけか。');
+  updateGauge(5);
+
+  G.visited.add('congress');
+  await sceneMap();
+}
+
+// ============================================================
+// BATTLE SYSTEM
+// ============================================================
+
+async function sceneBattleHub() {
+  await fadeIn(); hideAll(); setBg('bg-manhattan');
+  await fadeOut();
+
+  mapScreen.style.display = 'flex';
+  mapScreen.innerHTML = `
+    <div class="map-title">Confrontation Phase</div>
+    <div class="map-subtitle">対決 &mdash; 矛盾を暴け</div>
+    <div class="map-grid" style="grid-template-columns:repeat(2,1fr);max-width:500px;">
+      <div class="map-location" data-battle="rating" id="battleRating">
+        <div class="map-loc-icon">🛡️</div>
+        <div class="map-loc-name">格付け会社</div>
+        <div class="map-loc-desc">「最善を尽くした」は通用するか</div>
+      </div>
+      <div class="map-location" data-battle="securities" id="battleSecurities">
+        <div class="map-loc-icon">💼</div>
+        <div class="map-loc-name">証券化プレイヤー</div>
+        <div class="map-loc-desc">「需要に応えた」は免罪符か</div>
+      </div>
+      <div class="map-location" data-battle="fuld1" id="battleFuld1">
+        <div class="map-loc-icon">🏛️</div>
+        <div class="map-loc-name">ファルド前半</div>
+        <div class="map-loc-desc">「財務は健全だった」を崩す</div>
+      </div>
+      <div class="map-location locked" data-battle="fuld2" id="battleFuld2">
+        <div class="map-loc-icon">⚡</div>
+        <div class="map-loc-name">ファルド最終戦</div>
+        <div class="map-loc-desc">「予見できなかった」は真実か</div>
+      </div>
+    </div>
+    <div class="map-hint">上から順に対決を進めてください。</div>
+  `;
+
+  G.battlesWon = G.battlesWon || new Set();
+
+  // Update states
+  if (G.battlesWon.has('rating')) $('battleRating').classList.add('visited');
+  if (G.battlesWon.has('securities')) $('battleSecurities').classList.add('visited');
+  if (G.battlesWon.has('fuld1')) {
+    $('battleFuld1').classList.add('visited');
+    $('battleFuld2').classList.remove('locked');
+  }
+
+  // Check if all done
+  if (G.battlesWon.size >= 4) {
+    mapScreen.innerHTML += `<div class="map-action" style="margin-top:1rem;"><button class="btn btn-gold" id="truthBtn">真相解明へ</button></div>`;
+    $('truthBtn').addEventListener('click', () => sceneTruth());
+    return;
+  }
+
+  mapScreen.querySelectorAll('.map-location:not(.visited):not(.locked)').forEach(el => {
+    el.addEventListener('click', () => {
+      const b = el.dataset.battle;
+      switch(b) {
+        case 'rating': battleRating(); break;
+        case 'securities': battleSecurities(); break;
+        case 'fuld1': battleFuld1(); break;
+        case 'fuld2': battleFuld2(); break;
+      }
+    });
+  });
+}
+
+// --- Battle helper ---
+async function runBattle(config) {
+  await fadeIn(); hideAll();
+  G.state = 'confrontation';
+  G.credibility = 100;
+  G.consecutiveMisses = 0;
+  setBg('bg-confrontation');
+
+  setCharacters(config.characters);
+
+  confrontHeader.style.display = 'block';
+  confrontHeader.innerHTML = `
+    <div class="confrontation-label">Confrontation &mdash; ${config.label}</div>
+    <div class="credibility-bar"><div class="credibility-fill" id="credFill" style="width:100%"></div></div>
+    <div class="credibility-label">${config.opponentName}'S CREDIBILITY: <span id="credPercent">100</span>%</div>
+  `;
+
+  await fadeOut();
+
+  if (config.intro) {
+    for (const line of config.intro) {
+      await say(line.speaker, line.text, line.color);
+    }
+  }
+
+  for (let i = 0; i < config.rounds.length; i++) {
+    await playBattleRound(config.rounds[i], config.opponentName, config.opponentColor);
+  }
+
+  if (config.outro) {
+    for (const line of config.outro) {
+      await say(line.speaker, line.text, line.color);
+    }
+  }
+
+  G.battlesWon = G.battlesWon || new Set();
+  G.battlesWon.add(config.id);
+  updateGauge(8);
+  addCrack();
+
+  await sceneBattleHub();
+}
+
+async function playBattleRound(round, opponentName, opponentColor) {
+  // Show testimony
+  testimonyBox.style.display = 'block';
+  testimonyBox.innerHTML = `
+    <div class="testimony-label">${opponentName}の証言</div>
+    <div class="testimony-text">${round.statement}</div>
+  `;
+
+  await say(opponentName, round.statement, opponentColor);
+
+  dialogueArea.style.display = 'none';
+  await narrate('証拠をつきつけろ。');
+
+  let correct = false;
+  while (!correct) {
+    G.selectingEvidence = true;
+    dialogueArea.style.display = 'none';
+    presentBtn.style.display = 'block';
+
+    const selectedId = await new Promise(resolve => {
+      presentBtn.onclick = async () => {
+        presentBtn.style.display = 'none';
+        const id = await selectEvidence();
+        resolve(id);
+      };
+    });
+
+    G.selectingEvidence = false;
+    presentBtn.style.display = 'none';
+
+    if (round.correct.includes(selectedId)) {
+      correct = true;
+      G.consecutiveMisses = 0;
+
+      await showObjection(round.objection);
+
+      G.credibility -= round.damage || 25;
+      updateCredibility();
+
+      document.getElementById('game').classList.add('shake');
+      setTimeout(() => document.getElementById('game').classList.remove('shake'), 400);
+
+      await say('主人公', round.explanation);
+
+      if (round.reaction) {
+        await say(opponentName, round.reaction, opponentColor);
+      }
+    } else {
+      G.consecutiveMisses++;
+      updateGauge(-3);
+
+      if (G.consecutiveMisses >= 3) {
+        await showHint();
+      } else {
+        await say('リオ', 'この証拠ではないようです...。もう一度考えましょう。', '#70b080');
+      }
+    }
+  }
+
+  testimonyBox.style.display = 'none';
+}
+
+// --- Battle 1: Rating Agency ---
+async function battleRating() {
+  await runBattle({
+    id: 'rating',
+    label: '格付け会社',
+    opponentName: '格付け幹部',
+    opponentColor: '#a0a0c0',
+    characters: [{ icon: '🛡️', bg: 'rgba(120,120,150,.5)', name: 'RATING EXEC' }],
+    intro: [
+      { speaker: '格付け幹部', text: '我々の格付けプロセスは透明で、技術的に正当だ。何の問題もない。', color: '#a0a0c0' },
+    ],
+    rounds: [
+      {
+        statement: '我々は当時のデータとモデルで最善を尽くしただけだ。結果論で責めるのは不当だ。',
+        correct: ['C3'],
+        objection: '異議あり！',
+        explanation: '収益が発行体からの手数料に大きく依存している。判断する側が、判断される側から報酬を受け取る構造で、独立した最善を尽くせるのか？',
+        reaction: '収益構造は...分析の質とは別問題だ。',
+        damage: 30,
+      },
+      {
+        statement: '誰も住宅価格の全国的崩落は予測できなかった。我々だけの問題ではない。',
+        correct: ['C1', 'C2'],
+        objection: '異議あり！',
+        explanation: '内部では「house of cards」「cowsでも格付けする」という声が出ていた。知らなかったのではない。知っていて、止められない構造にいた。',
+        reaction: 'あれは...一部の不適切な表現にすぎない...。',
+        damage: 35,
+      },
+      {
+        statement: 'AAAは相対的な安全性を示すもので、絶対的な保証ではない。市場はそれを理解すべきだった。',
+        correct: ['C4', 'B4'],
+        objection: '異議あり！',
+        explanation: 'モデルの前提条件を少し変えるだけでAAAが崩壊する。その脆さを知りながら、ラベルだけが一人歩きすることを許した責任がある。',
+        reaction: '......。',
+        damage: 35,
+      },
+    ],
+    outro: [
+      { speaker: '', text: '知らなかったのではない。知っていて、止められない構造にいた。', color: 'var(--steel3)' },
+    ],
+  });
+}
+
+// --- Battle 2: Securities Player ---
+async function battleSecurities() {
+  await runBattle({
+    id: 'securities',
+    label: '証券化プレイヤー',
+    opponentName: '証券幹部',
+    opponentColor: '#9080b0',
+    characters: [{ icon: '💼', bg: 'rgba(80,60,120,.5)', name: 'SECURITIES EXEC' }],
+    intro: [
+      { speaker: '証券幹部', text: '我々は市場の仕組みの中で、合法的に事業を展開していた。', color: '#9080b0' },
+    ],
+    rounds: [
+      {
+        statement: '市場には需要があった。我々はそれに応えただけだ。',
+        correct: ['E2'],
+        objection: '異議あり！',
+        explanation: '投資家に提示された説明資料は、安全性を過度に印象づけていた。重要な利害関係の記述が不十分だ。需要に応えたのではない。需要を作った。',
+        reaction: '資料は事実に基づいている...。',
+        damage: 30,
+      },
+      {
+        statement: '顧客はプロの機関投資家だ。リスクは自己判断で取るべきものだ。',
+        correct: ['E3'],
+        objection: '異議あり！',
+        explanation: '商品の下落で利益を得るポジションが存在し、その構図が買い手から見えにくくされていた。自己判断に必要な情報が欠けている。',
+        reaction: 'あらゆる市場参加者には...それぞれの思惑がある...。',
+        damage: 35,
+      },
+      {
+        statement: '我々は流動性を供給しただけだ。市場機能の一部に過ぎない。',
+        correct: ['E4', 'E1'],
+        objection: '異議あり！',
+        explanation: 'RMBS選定に、ショート側の意向が影響を持つ構図があった。流動性供給ではない。利害のねじれを内包した設計だ。',
+        reaction: '......。',
+        damage: 35,
+      },
+    ],
+    outro: [
+      { speaker: '主人公', text: '売ったのは商品ではない。"安全だと信じさせる構図"だ。' },
+    ],
+  });
+}
+
+// --- Battle 3: Fuld Part 1 ---
+async function battleFuld1() {
+  await runBattle({
+    id: 'fuld1',
+    label: 'ファルド前半',
+    opponentName: 'ファルド',
+    opponentColor: '#c08060',
+    characters: [{ icon: '🏛️', bg: 'rgba(139,58,26,.4)', name: 'FULD' }],
+    intro: [
+      { speaker: '', text: '暗い取締役会室。背後のガラス窓にニューヨークの夜景。ファルドは着席のまま動かない。', color: 'var(--steel3)' },
+      { speaker: 'ファルド', text: 'ほう...市場記録監査局の調査官が、私に何の用だ？', color: '#c08060' },
+      { speaker: 'ファルド', text: 'リーマンの財務は健全だった。市場が過剰反応した。恐怖が連鎖しただけだ。', color: '#c08060' },
+    ],
+    rounds: [
+      {
+        statement: 'リーマンの財務は健全だった。数字がそれを証明している。',
+        correct: ['D1'],
+        objection: '異議あり！',
+        explanation: 'Repo 105——四半期末に資産を一時的にバランスシートから外し、見かけのレバレッジを下げる処理だ。これは健全化じゃない。数字の見え方を変える操作だ。',
+        reaction: '会計処理は合法だった...！',
+        damage: 30,
+      },
+      {
+        statement: '市場の恐怖が過剰反応した。パニックが連鎖しただけだ。',
+        correct: ['D4'],
+        objection: '異議あり！',
+        explanation: '社内メモが短期資金への過度な依存と流動性リスクを警告している。恐怖は外からだけ来たのではない。脆弱さは内側にあった。',
+        reaction: '一時的な資金繰りに過ぎん...！',
+        damage: 35,
+      },
+      {
+        statement: '会計処理はすべて適法だった。我々は何も違法なことはしていない。',
+        correct: ['D2'],
+        objection: '異議あり！',
+        explanation: '四半期末のみ大量の資産が移動し、翌期初に戻っている。合法性の話にすり替えるな。問われているのは、投資家が見ていた"健全性"が実体だったかどうかだ。',
+        reaction: '......。',
+        damage: 35,
+      },
+    ],
+    outro: [
+      { speaker: 'リオ', text: 'Repo 105は、体を鍛えたんじゃない。写真写りをよくしただけです。', color: '#70b080' },
+      { speaker: '', text: '健全だったのは帳簿の表情だ。実体ではない。', color: 'var(--steel3)' },
+    ],
+  });
+}
+
+// --- Battle 4: Fuld Final ---
+async function battleFuld2() {
+  await runBattle({
+    id: 'fuld2',
+    label: 'ファルド最終戦',
+    opponentName: 'ファルド',
+    opponentColor: '#c08060',
+    characters: [{ icon: '🏛️', bg: 'rgba(139,58,26,.5)', name: 'FULD' }],
+    intro: [
+      { speaker: '', text: '照明が落ちる。背後モニターに時系列が表示される——住宅ローン劣化、証券化拡大、格付け維持、レバレッジ圧力、Repo 105、流動性悪化、崩壊。', color: 'var(--steel3)' },
+      { speaker: 'ファルド', text: '...まだ続けるのか。', color: '#c08060' },
+    ],
+    rounds: [
+      {
+        statement: '我々もAAAを信じていた。格付け会社が保証したものを疑う理由がどこにある？',
+        correct: ['C1', 'C3'],
+        objection: '異議あり！',
+        explanation: '格付け会社の内部ではAAAの脆さが認識されていた。そしてその格付けに依存して、レバレッジを積み上げたのはあなた方だ。',
+        reaction: '我々は...信じる側にいた...。',
+        damage: 25,
+      },
+      {
+        statement: '最悪の事態は過ぎたと考えるのは合理的だった。あの時点で未来は見えなかった。',
+        correct: ['W1'],
+        objection: '異議あり！',
+        explanation: '2008年4月、あなたは株主に向けて「the worst is behind us」と語った。しかし内部では流動性の危機が進行していた。楽観は合理性ではなく、見たい現実を選んだだけだ。',
+        reaction: '...あの時点では...そう判断したまでだ...。',
+        damage: 25,
+      },
+      {
+        statement: '未来は誰にも分からない。予見不可能なことは責められない。',
+        correct: ['D3', 'D4'],
+        objection: '異議あり！',
+        explanation: 'Matthew Leeはバランスシートの不透明さを内部から警告した。流動性懸念メモも存在した。未来が見えなかったのではない。見たくない情報から目を逸らしただけだ。',
+        reaction: '......。',
+        damage: 50,
+      },
+    ],
+    outro: [
+      { speaker: 'ファルド', text: '...君は危機の中にいたことがない。会社を守るとはどういうことか、分かっていない。', color: '#c08060' },
+      { speaker: '主人公', text: '会社を守る？投資家に見せる数字を守っただけだ。信用を守ってはいない。' },
+      { speaker: 'ファルド', text: '市場は恐怖で壊れた。', color: '#c08060' },
+      { speaker: '主人公', text: 'いいや。恐怖は原因じゃない。結果だ。' },
+      { speaker: '主人公', text: '危険を移し替え、見えにくくし、その見え方を信用と呼んだ。その歪みが、最後に恐怖として噴き出しただけだ。' },
+      { speaker: '', text: '予見できなかったのではない。見たくなかっただけだ。', color: 'var(--gold3)' },
+    ],
+  });
+}
+
+// ============================================================
+// TRUTH REVELATION
+// ============================================================
+async function sceneTruth() {
+  await fadeIn(); hideAll();
+  setBg('bg-truth');
+
+  truthScreen.style.display = 'flex';
+  truthScreen.innerHTML = `
+    <div class="truth-label">Truth Revealed &mdash; 真相解明</div>
+    <div class="truth-title">信用設計の崩壊 — 三重構造</div>
+    <div class="layer-viz">
+      <div class="layer-block" id="layer3">
+        <div class="layer-tag">第三層 — 増幅装置</div>
+        <div class="layer-name">高レバレッジと短期資金依存</div>
+      </div>
+      <div class="layer-connector" id="conn2"></div>
+      <div class="layer-block" id="layer2">
+        <div class="layer-tag">第二層 — 変換と権威付け</div>
+        <div class="layer-name">証券化と格付けによる再包装</div>
+      </div>
+      <div class="layer-connector" id="conn1"></div>
+      <div class="layer-block" id="layer1">
+        <div class="layer-tag">第一層 — 起点</div>
+        <div class="layer-name">劣化した住宅ローン</div>
+      </div>
+    </div>
+    <div class="truth-text" id="truthNarrative" style="opacity:0;transition:opacity 1s;">
+      <p>危険は消えていなかった。<span class="highlight">ただ、別の名前を与えられていただけだ。</span></p>
+      <p>返済能力を問わないローンが大量に供給された。それらは証券化によって形を変え、格付けの権威が安全のラベルを貼った。</p>
+      <p>高レバレッジと短期資金依存が損失を致命傷へ増幅し、<span class="highlight">会計上の見せ方が実体把握を遅らせた。</span></p>
+      <p>そして最後は、誰も全体像を見ないまま、<span class="highlight">全員が自分の合理性で押し進めた。</span></p>
+      <p>悪人がいたのではない。<span class="highlight">合理性の積み重ねが、世界を壊した。</span></p>
+    </div>
+    <button class="btn btn-gold" id="truthNextBtn" style="opacity:0;transition:opacity 1s;">監査報告へ</button>
+  `;
+
+  await fadeOut();
+
+  // Animate layers connecting
+  await sleep(800);
+  $('layer1').classList.add('active'); $('conn1').classList.add('active');
+  await sleep(800);
+  $('layer2').classList.add('active'); $('conn2').classList.add('active');
+  await sleep(800);
+  $('layer3').classList.add('active');
+  await sleep(500);
+  $('layer1').classList.add('connected');
+  $('layer2').classList.add('connected');
+  $('layer3').classList.add('connected');
+  await sleep(500);
+
+  $('truthNarrative').style.opacity = '1';
+  await sleep(1000);
+  $('truthNextBtn').style.opacity = '1';
+
+  await new Promise(resolve => { $('truthNextBtn').addEventListener('click', resolve); });
+
+  await sceneEpilogue();
+}
+
+// ============================================================
+// EPILOGUE
+// ============================================================
+async function sceneEpilogue() {
+  await fadeIn(); hideAll();
+  setBg('bg-briefing');
+
+  epilogueScreen.style.display = 'flex';
+  epilogueScreen.innerHTML = `
+    <div class="epilogue-label">Audit Report Filed &mdash; 監査報告完了</div>
+    <div class="epilogue-title">第10話「ウォール街、最後の48時間」&mdash; 調査完了</div>
+    <div class="epilogue-text">
+      <p style="margin-bottom:1em;font-style:italic;color:var(--steel3);">監査報告。</p>
+      <p style="margin-bottom:.6em;">リーマン・ブラザーズ破綻の主因は、単一の損失ではない。</p>
+      <p style="margin-bottom:.3em;padding-left:1em;">第一に、返済能力の低い住宅ローンが大量に供給された。</p>
+      <p style="margin-bottom:.3em;padding-left:1em;">第二に、それらは証券化によって危険が見えにくくなった。</p>
+      <p style="margin-bottom:.3em;padding-left:1em;">第三に、格付けと市場慣行が安全幻想を補強した。</p>
+      <p style="margin-bottom:.3em;padding-left:1em;">第四に、高レバレッジと流動性脆弱性が損失を致命傷へ増幅した。</p>
+      <p style="margin-bottom:.6em;padding-left:1em;">第五に、会計上の見せ方が実体把握を遅らせた。</p>
+      <p style="margin-bottom:1.5em;font-weight:600;color:var(--glass);">結論。これは一社の破綻ではない。<br/>欲望を合理性で包み、危険を安全と呼び、<br/>その見え方を信頼と取り違えた時代の破綻である。</p>
+    </div>
+    <div style="padding:1rem;border:1px solid rgba(200,205,212,.1);border-radius:4px;background:rgba(10,14,20,.6);max-width:450px;width:100%;margin-bottom:1.5rem;">
+      <div style="font-family:var(--font-mono);font-size:.6rem;color:var(--steel3);letter-spacing:.2em;margin-bottom:.8rem;">NEXT CHAPTER PREVIEW</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem;">
+        <span style="padding:.2em .5em;font-size:.7rem;border:1px solid rgba(200,205,212,.15);border-radius:2px;color:var(--steel2);">TARP</span>
+        <span style="padding:.2em .5em;font-size:.7rem;border:1px solid rgba(200,205,212,.15);border-radius:2px;color:var(--steel2);">FRB緊急対応</span>
+        <span style="padding:.2em .5em;font-size:.7rem;border:1px solid rgba(200,205,212,.15);border-radius:2px;color:var(--steel2);">規制改革</span>
+        <span style="padding:.2em .5em;font-size:.7rem;border:1px solid rgba(200,205,212,.15);border-radius:2px;color:var(--steel2);">Dodd-Frank</span>
+      </div>
+      <div style="font-size:.9rem;color:var(--steel);font-style:italic;">Episode 11 — 国家は市場を救えるか</div>
+    </div>
+    <div class="library-links">
+      <a class="library-link" href="../../../horizons/financial-history/lehman/" target="_blank">
+        <span class="library-link-tag">2008</span>
+        <span class="library-link-title">リーマン・ショック &mdash; 信用設計の崩壊</span>
+      </a>
+      <a class="library-link" href="../../../horizons/financial-history/lehman/subprime/" target="_blank">
+        <span class="library-link-tag">SUBPRIME</span>
+        <span class="library-link-title">サブプライムローン &mdash; 危機の起点</span>
+      </a>
+      <a class="library-link" href="../../../horizons/financial-history/lehman/securitization/" target="_blank">
+        <span class="library-link-tag">CDO</span>
+        <span class="library-link-title">証券化 &mdash; リスクの変換と隠蔽</span>
+      </a>
+      <a class="library-link" href="../../../horizons/financial-history/" target="_blank">
+        <span class="library-link-tag">SHELF 05</span>
+        <span class="library-link-title">金融史の書庫 &mdash; メソポタミアからAI革命まで</span>
+      </a>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <button class="btn" id="replayBtn">もう一度プレイ</button>
+      <a class="btn" href="../" style="text-decoration:none;display:inline-flex;align-items:center;">第1話へ</a>
+      <a class="btn" href="../../../" style="text-decoration:none;display:inline-flex;align-items:center;">書斎に戻る</a>
+    </div>
+    <div style="margin-top:2rem;font-family:var(--font-mono);font-size:.55rem;color:var(--steel3);letter-spacing:.2em;opacity:.4;">
+      MARKET ARCHIVE BUREAU &mdash; CHRONOS: FINANCIAL HISTORY<br/>
+      EPISODE 10 COMPLETE
+    </div>
+    <div style="margin-top:1rem;padding:1rem;border-top:1px solid rgba(200,205,212,.05);max-width:600px;">
+      <p style="font-size:.65rem;color:var(--steel3);line-height:1.6;font-family:var(--font-mono);">
+        ※ この章の会話・演出・主人公の発言は創作です。ただし、章の背骨になる史実は、LehmanのRepo 105による公開上のレバレッジ操作、それを問題視する内部記録、Fuldの「worst is behind us」発言、格付け会社の内部メール、ABACUSにおける開示不備、2004年SECルール改正の文脈に基づいています。ABACUSはLehman固有の不正ではなく、同時代の利益相反を示す並行事例として扱っています。
+      </p>
+    </div>
+  `;
+
+  await fadeOut();
+
+  $('replayBtn').addEventListener('click', () => location.reload());
+}
+
+// ============================================================
+// TITLE & START
+// ============================================================
+sceneOpening();
+
+$('startBtn').addEventListener('click', async () => {
+  const titleScreen = $('title-screen');
+  titleScreen.style.opacity = '0';
+  await sleep(1000);
+  titleScreen.style.display = 'none';
+  await sceneBriefing();
+});
+</script>
+</body>
+</html>

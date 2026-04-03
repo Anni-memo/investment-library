@@ -151,6 +151,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+.hero-actions{margin-top:22px;position:relative;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.hero-reader-btn,.hero-pdf-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;font-family:var(--serif,'Cormorant Garamond',serif);font-size:.78rem;font-weight:600;color:#f5ede0;background:transparent;border:1px solid rgba(184,144,10,.45);text-decoration:none;letter-spacing:.04em;transition:all .25s;border-radius:2px;}
+.hero-reader-btn:link,.hero-reader-btn:visited,.hero-pdf-btn:link,.hero-pdf-btn:visited{color:#f5ede0;text-decoration:none;}
+.hero-reader-btn{background:rgba(184,144,10,.12);border-color:rgba(184,144,10,.6);}
+.hero-reader-btn:hover{background:rgba(184,144,10,.25);border-color:#d4aa22;color:#f0cc55;}
+.hero-pdf-btn:hover{background:rgba(184,144,10,.15);border-color:#d4aa22;color:#f0cc55;}
+.hero-reader-btn svg,.hero-pdf-btn svg{opacity:.7;transition:opacity .2s;}
+.hero-reader-btn:hover svg,.hero-pdf-btn:hover svg{opacity:1;}
 </style>
 </head>
 <body>
@@ -171,6 +180,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="hero-lead">
     女王の特許状が生んだ「国策会社」。香辛料貿易の独占から始まり、やがてインド亜大陸を支配する帝国的企業となった。
   </p>
+  <div class="hero-actions">
+    <a class="hero-reader-btn" href="../../../reader/?book=east-india">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      リーダーで読む
+    </a>
+    <a class="hero-pdf-btn" href="../../../assets/pdf/history/east-india.pdf" download>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      PDF
+    </a>
+  </div>
+
 </div>
 
 <main class="article">

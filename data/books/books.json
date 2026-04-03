@@ -5,10 +5,26 @@
     "author": "投資と思考の書斎",
     "shelf": "教養と人間理解",
     "chapters": [
-      { "id": "ch1", "title": "論語とは何か", "file": "analects-ch1.html" },
-      { "id": "ch2", "title": "なぜ二千五百年読み継がれるのか", "file": "analects-ch2.html" },
-      { "id": "ch3", "title": "投資家・経営者への示唆", "file": "analects-ch3.html" },
-      { "id": "ch4", "title": "どこを読むと本質が見えるか", "file": "analects-ch4.html" }
+      {
+        "id": "ch1",
+        "title": "論語とは何か",
+        "file": "analects-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ二千五百年読み継がれるのか",
+        "file": "analects-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資家・経営者への示唆",
+        "file": "analects-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "どこを読むと本質が見えるか",
+        "file": "analects-ch4.html"
+      }
     ]
   },
   {
@@ -17,10 +33,26 @@
     "author": "投資と思考の書斎",
     "shelf": "教養と人間理解",
     "chapters": [
-      { "id": "ch1", "title": "この本は何を扱っているのか", "file": "night-and-fog-ch1.html" },
-      { "id": "ch2", "title": "なぜ読み継がれるのか", "file": "night-and-fog-ch2.html" },
-      { "id": "ch3", "title": "投資家への示唆", "file": "night-and-fog-ch3.html" },
-      { "id": "ch4", "title": "どこを読むと本質が見えるか", "file": "night-and-fog-ch4.html" }
+      {
+        "id": "ch1",
+        "title": "この本は何を扱っているのか",
+        "file": "night-and-fog-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ読み継がれるのか",
+        "file": "night-and-fog-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資家への示唆",
+        "file": "night-and-fog-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "どこを読むと本質が見えるか",
+        "file": "night-and-fog-ch4.html"
+      }
     ]
   },
   {
@@ -29,10 +61,26 @@
     "author": "投資と思考の書斎",
     "shelf": "教養と人間理解",
     "chapters": [
-      { "id": "ch1", "title": "福澤諭吉とは何者か", "file": "fukuzawa-ch1.html" },
-      { "id": "ch2", "title": "なぜ今も語り継がれるのか", "file": "fukuzawa-ch2.html" },
-      { "id": "ch3", "title": "投資家への示唆", "file": "fukuzawa-ch3.html" },
-      { "id": "ch4", "title": "どこを読むと本質が見えるか", "file": "fukuzawa-ch4.html" }
+      {
+        "id": "ch1",
+        "title": "福澤諭吉とは何者か",
+        "file": "fukuzawa-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ今も語り継がれるのか",
+        "file": "fukuzawa-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資家への示唆",
+        "file": "fukuzawa-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "どこを読むと本質が見えるか",
+        "file": "fukuzawa-ch4.html"
+      }
     ]
   },
   {
@@ -41,10 +89,64 @@
     "author": "投資と思考の書斎",
     "shelf": "教養と人間理解",
     "chapters": [
-      { "id": "ch1", "title": "渋沢栄一とは何者か", "file": "shibusawa-ch1.html" },
-      { "id": "ch2", "title": "なぜ今も語り継がれるのか", "file": "shibusawa-ch2.html" },
-      { "id": "ch3", "title": "投資家・経営者への示唆", "file": "shibusawa-ch3.html" },
-      { "id": "ch4", "title": "どこを読むと本質が見えるか", "file": "shibusawa-ch4.html" }
+      {
+        "id": "ch1",
+        "title": "渋沢栄一とは何者か",
+        "file": "shibusawa-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ今も語り継がれるのか",
+        "file": "shibusawa-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資家・経営者への示唆",
+        "file": "shibusawa-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "どこを読むと本質が見えるか",
+        "file": "shibusawa-ch4.html"
+      }
+    ]
+  },
+  {
+    "slug": "tulip-bubble",
+    "title": "チューリップ・バブル — 人類最初の投機バブル",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "tulip-bubble-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "tulip-bubble-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "tulip-bubble-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "tulip-bubble-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "tulip-bubble-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "tulip-bubble-ch6.html"
+      }
     ]
   },
   {
@@ -53,10 +155,1817 @@
     "author": "投資と思考の書斎",
     "shelf": "教養と人間理解",
     "chapters": [
-      { "id": "ch1", "title": "この本は何を扱っているか", "file": "seven-habits-ch1.html" },
-      { "id": "ch2", "title": "なぜ読み継がれるのか", "file": "seven-habits-ch2.html" },
-      { "id": "ch3", "title": "投資家への示唆", "file": "seven-habits-ch3.html" },
-      { "id": "ch4", "title": "どこを読むと本質が見えるか", "file": "seven-habits-ch4.html" }
+      {
+        "id": "ch1",
+        "title": "この本は何を扱っているか",
+        "file": "seven-habits-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ読み継がれるのか",
+        "file": "seven-habits-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資家への示唆",
+        "file": "seven-habits-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "どこを読むと本質が見えるか",
+        "file": "seven-habits-ch4.html"
+      }
+    ]
+  },
+  {
+    "slug": "adam-smith",
+    "title": "アダム・スミスと『国富論』",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 経済学の誕生",
+        "file": "adam-smith-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ書かれたか ── 重商主義への反論",
+        "file": "adam-smith-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 「見えざる手」と分業の発見",
+        "file": "adam-smith-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── 市場経済の思想的DNA",
+        "file": "adam-smith-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 市場は「見えざる手」で動く",
+        "file": "adam-smith-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "adam-smith-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "ai-revolution",
+    "title": "AI革命",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "ChatGPTの衝撃 ── 知的労働の自動化が現実になった",
+        "file": "ai-revolution-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "三つの臨界点が同時に超えられた",
+        "file": "ai-revolution-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "資本の定義が変わり始めている",
+        "file": "ai-revolution-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "過去の産業革命が教えること",
+        "file": "ai-revolution-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "関連用語",
+        "file": "ai-revolution-ch5.html"
+      }
+    ]
+  },
+  {
+    "slug": "amsterdam-exchange",
+    "title": "アムステルダム証券取引所",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 常設の株式取引所の誕生",
+        "file": "amsterdam-exchange-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ生まれたか ── 流動性への欲求",
+        "file": "amsterdam-exchange-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 株式は「売買するもの」になった",
+        "file": "amsterdam-exchange-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── すべての取引所の原型",
+        "file": "amsterdam-exchange-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 流動性の価値を知る",
+        "file": "amsterdam-exchange-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "amsterdam-exchange-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "bank-of-england",
+    "title": "イングランド銀行",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 戦費のために生まれた銀行",
+        "file": "bank-of-england-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ必要だったか ── 国王の財布の限界",
+        "file": "bank-of-england-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 政府と通貨の関係の転換",
+        "file": "bank-of-england-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── 中央銀行という制度",
+        "file": "bank-of-england-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 通貨の本質を理解する",
+        "file": "bank-of-england-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "bank-of-england-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "birth-of-yen",
+    "title": "円の誕生と明治の通貨制度",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "新貨条例（1871年）-- 両・分・朱から円・銭・厘へ",
+        "file": "birth-of-yen-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ十進法を採用したか -- 西洋近代化の文脈",
+        "file": "birth-of-yen-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "渋沢栄一と第一国立銀行",
+        "file": "birth-of-yen-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "国立銀行条例と紙幣乱発の混乱",
+        "file": "birth-of-yen-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "松方デフレと通貨安定",
+        "file": "birth-of-yen-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "何が変わったか",
+        "file": "birth-of-yen-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "今に残っているもの -- 円という通貨の基盤",
+        "file": "birth-of-yen-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "投資家にとっての意味",
+        "file": "birth-of-yen-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "関連用語",
+        "file": "birth-of-yen-ch9.html"
+      }
+    ]
+  },
+  {
+    "slug": "bitcoin",
+    "title": "ビットコイン",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "サトシ・ナカモトの論文とジェネシスブロック",
+        "file": "bitcoin-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜビットコインは生まれたか",
+        "file": "bitcoin-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "「お金に中央管理者は必要か」という問い",
+        "file": "bitcoin-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "デジタルゴールドか、投機的バブルか",
+        "file": "bitcoin-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "関連用語",
+        "file": "bitcoin-ch5.html"
+      }
+    ]
+  },
+  {
+    "slug": "black-monday",
+    "title": "ブラック・マンデー",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "1987年10月19日 ── 一日で22.6%が消えた",
+        "file": "black-monday-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "プログラム取引が「売りの連鎖」を生んだ",
+        "file": "black-monday-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "サーキットブレーカーの誕生",
+        "file": "black-monday-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "アルゴリズムと市場安定 ── 未解決の問い",
+        "file": "black-monday-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "関連用語",
+        "file": "black-monday-ch5.html"
+      }
+    ]
+  },
+  {
+    "slug": "boj",
+    "title": "日本銀行はなぜ必要だったのか",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "国立銀行の紙幣乱発とインフレ",
+        "file": "boj-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "松方正義と中央銀行構想",
+        "file": "boj-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "1882年 日本銀行の設立",
+        "file": "boj-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "日銀の独立性と政治の関係",
+        "file": "boj-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "今に残っているもの",
+        "file": "boj-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "投資家にとっての意味",
+        "file": "boj-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "関連用語",
+        "file": "boj-ch7.html"
+      }
+    ]
+  },
+  {
+    "slug": "bretton-woods",
+    "title": "ブレトンウッズ体制 --- ドル覇権の誕生",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- 新しい世界金融秩序の設計",
+        "file": "bretton-woods-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ必要だったか --- 二度の大戦と大恐慌の教訓",
+        "file": "bretton-woods-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "ケインズ案 vs ホワイト案 --- 二つの構想の対決",
+        "file": "bretton-woods-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "何が変わったか --- ドル覇権と戦後の繁栄",
+        "file": "bretton-woods-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "崩壊への道 --- トリフィンのジレンマ",
+        "file": "bretton-woods-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "bretton-woods-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "bubble",
+    "title": "バブル経済とその崩壊",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "プラザ合意と円高不況（1985年）",
+        "file": "bubble-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "日銀の金融緩和と資産インフレ",
+        "file": "bubble-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "日経平均38,915円 ── 1989年12月29日",
+        "file": "bubble-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "土地神話 ── 「東京の地価でアメリカ全土が買える」",
+        "file": "bubble-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "三重野総裁の利上げとバブル崩壊",
+        "file": "bubble-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "失われた30年の始まり",
+        "file": "bubble-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "不良債権処理と金融システム危機",
+        "file": "bubble-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "何が変わったか",
+        "file": "bubble-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "今に残っているもの ── バブル後遺症とデフレマインド",
+        "file": "bubble-ch9.html"
+      },
+      {
+        "id": "ch10",
+        "title": "投資家にとっての意味 ── バブルの構造とその教訓",
+        "file": "bubble-ch10.html"
+      },
+      {
+        "id": "ch11",
+        "title": "家計にとっての意味 ── 「株は危ない」世代間伝達の起源",
+        "file": "bubble-ch11.html"
+      },
+      {
+        "id": "ch12",
+        "title": "関連用語",
+        "file": "bubble-ch12.html"
+      }
+    ]
+  },
+  {
+    "slug": "corona-shock",
+    "title": "コロナショック — 無制限量的緩和の時代",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "23日間で34%下落 ── 史上最速の弱気相場",
+        "file": "corona-shock-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "パンデミックという「外生ショック」",
+        "file": "corona-shock-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "「無制限」── 中央銀行と政府の歴史的対応",
+        "file": "corona-shock-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "V字回復、ミーム株、そして「すべてのバブル」",
+        "file": "corona-shock-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "政策が市場を決める時代の投資",
+        "file": "corona-shock-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "corona-shock-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "dojima",
+    "title": "堂島米市場と先物の原型",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "堂島米市場とは",
+        "file": "dojima-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "帳合米取引 -- 先物取引の仕組み",
+        "file": "dojima-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "なぜ大阪で生まれたか -- 天下の台所",
+        "file": "dojima-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "シカゴ商品取引所より120年早い先駆性",
+        "file": "dojima-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "ローソク足チャートの起源 -- 本間宗久",
+        "file": "dojima-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "何が変わったか",
+        "file": "dojima-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "今に残っているもの -- デリバティブの本質",
+        "file": "dojima-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "投資家にとっての意味",
+        "file": "dojima-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "関連用語",
+        "file": "dojima-ch9.html"
+      }
+    ]
+  },
+  {
+    "slug": "dotcom-bubble",
+    "title": "ITバブル崩壊 — 技術と投機の分離",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "Nasdaq 5,048 ── 頂点と崩壊",
+        "file": "dotcom-bubble-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "「ニュー・エコノミー」という物語の力",
+        "file": "dotcom-bubble-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "淘汰の後に残ったもの ── 真のインフラ",
+        "file": "dotcom-bubble-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "バブルの構造は繰り返す ── AIブームとの相似",
+        "file": "dotcom-bubble-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "生き残る側に立つために",
+        "file": "dotcom-bubble-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "dotcom-bubble-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "east-india",
+    "title": "イギリス東インド会社 — 国家と資本の融合",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "east-india-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "east-india-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "east-india-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "east-india-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "east-india-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "east-india-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "edo-sankasei",
+    "title": "江戸の三貨制度",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "三貨制度とは: 金・銀・銭の並立",
+        "file": "edo-sankasei-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ3つの通貨が並立したのか",
+        "file": "edo-sankasei-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "両替商の役割 -- 金融インフラとしての存在",
+        "file": "edo-sankasei-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "札差 -- 武士への金融サービス",
+        "file": "edo-sankasei-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "何が変わったか",
+        "file": "edo-sankasei-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "今に残っているもの -- 日本の銀行文化の起源",
+        "file": "edo-sankasei-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "投資家にとっての意味",
+        "file": "edo-sankasei-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "関連用語",
+        "file": "edo-sankasei-ch8.html"
+      }
+    ]
+  },
+  {
+    "slug": "frb",
+    "title": "連邦準備制度（FRB）",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- 1907年パニックとFRBの設立",
+        "file": "frb-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ設立が難航したか --- 中央集権への恐怖",
+        "file": "frb-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "FRBの役割 --- 金融システムの守護者",
+        "file": "frb-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "何が変わったか --- 危機のたびに進化する中央銀行",
+        "file": "frb-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "関連用語",
+        "file": "frb-ch5.html"
+      }
+    ]
+  },
+  {
+    "slug": "friedman",
+    "title": "ミルトン・フリードマン",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- マネタリズムの台頭",
+        "file": "friedman-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜこの思想が生まれたか --- ケインズ体制の矛盾",
+        "file": "friedman-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか --- 政策パラダイムの転換",
+        "file": "friedman-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "遺産 --- 自由と市場への信頼",
+        "file": "friedman-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 --- 2020年代への示唆",
+        "file": "friedman-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "friedman-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "global-crises",
+    "title": "世界の恐慌と金融危機の歴史",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "チューリップ・バブル（1637年）── 史上初の投機バブル",
+        "file": "global-crises-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "南海泡沫事件（1720年）── 国家ぐるみの詐欺的バブル",
+        "file": "global-crises-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "大不況（1873-96年）── 最初のグローバル経済危機",
+        "file": "global-crises-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "世界大恐慌（1929年）── 資本主義最大の危機",
+        "file": "global-crises-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "ブラック・マンデー（1987年）── 一日で22%の暴落",
+        "file": "global-crises-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "アジア通貨危機（1997年）── 新興国の脆弱性",
+        "file": "global-crises-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "LTCM破綻（1998年）── 天才たちの失敗",
+        "file": "global-crises-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "ITバブル崩壊（2000年）── 「ニュー・エコノミー」の幻想",
+        "file": "global-crises-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "リーマン・ショック（2008年）── 金融システムの崩壊",
+        "file": "global-crises-ch9.html"
+      },
+      {
+        "id": "ch10",
+        "title": "コロナショック（2020年）── パンデミックと市場",
+        "file": "global-crises-ch10.html"
+      },
+      {
+        "id": "ch11",
+        "title": "危機に共通する3つのパターン",
+        "file": "global-crises-ch11.html"
+      },
+      {
+        "id": "ch12",
+        "title": "なぜバブルは繰り返されるのか",
+        "file": "global-crises-ch12.html"
+      },
+      {
+        "id": "ch13",
+        "title": "危機の後に何が起きるか ── 規制強化のサイクル",
+        "file": "global-crises-ch13.html"
+      },
+      {
+        "id": "ch14",
+        "title": "何が変わったか",
+        "file": "global-crises-ch14.html"
+      },
+      {
+        "id": "ch15",
+        "title": "投資家にとっての意味 ── 危機は必ず来る。問題は「いつ」ではなく「どう備えるか」",
+        "file": "global-crises-ch15.html"
+      },
+      {
+        "id": "ch16",
+        "title": "家計にとっての意味",
+        "file": "global-crises-ch16.html"
+      },
+      {
+        "id": "ch17",
+        "title": "関連用語",
+        "file": "global-crises-ch17.html"
+      }
+    ]
+  },
+  {
+    "slug": "gold-standard",
+    "title": "金本位制とは何だったのか",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "金本位制の仕組み --- 金とお金の交換保証",
+        "file": "gold-standard-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ金本位制が広まったか",
+        "file": "gold-standard-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "日本の金本位制 --- 1897年採用、1931年離脱",
+        "file": "gold-standard-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "高橋是清の決断 --- 金輸出再禁止と積極財政",
+        "file": "gold-standard-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "ブレトンウッズ体制とニクソン・ショック",
+        "file": "gold-standard-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "金本位制なき世界 --- 法定通貨（フィアット）の時代",
+        "file": "gold-standard-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "何が変わったか",
+        "file": "gold-standard-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "今に残っているもの --- 金が安全資産とされる理由",
+        "file": "gold-standard-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "投資家にとっての意味 --- 通貨の価値は何に裏付けられているか",
+        "file": "gold-standard-ch9.html"
+      },
+      {
+        "id": "ch10",
+        "title": "関連用語",
+        "file": "gold-standard-ch10.html"
+      }
+    ]
+  },
+  {
+    "slug": "great-depression",
+    "title": "世界大恐慌 --- 資本主義最大の危機",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- ウォール街の崩壊と世界への波及",
+        "file": "great-depression-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか --- 過剰投機と制度の脆弱性",
+        "file": "great-depression-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "恐慌の深さ --- 数字が語る壊滅",
+        "file": "great-depression-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "何が変わったか --- 資本主義の再設計",
+        "file": "great-depression-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家への教訓 --- 市場は底なしに見える瞬間がある",
+        "file": "great-depression-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "great-depression-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "greek-banking",
+    "title": "ギリシャの両替商 — 金融仲介の始まり",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "greek-banking-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "greek-banking-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "greek-banking-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "greek-banking-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "greek-banking-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "greek-banking-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "hammurabi",
+    "title": "ハンムラビ法典 — 人類最初の金融規制",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "hammurabi-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "hammurabi-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "hammurabi-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "hammurabi-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "hammurabi-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "hammurabi-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "high-growth",
+    "title": "高度成長と間接金融",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "高度経済成長 --- 1955-73年、年率10%成長",
+        "file": "high-growth-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "間接金融とは --- 銀行融資中心の資金調達",
+        "file": "high-growth-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "メインバンク制の仕組みと功罪",
+        "file": "high-growth-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "護送船団方式",
+        "file": "high-growth-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "なぜ日本は直接金融（株式市場）が弱いのか",
+        "file": "high-growth-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "所得倍増計画と1億総中流",
+        "file": "high-growth-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "何が変わったか",
+        "file": "high-growth-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "今に残っているもの --- 銀行への信頼、株への不信",
+        "file": "high-growth-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "投資家にとっての意味 --- 日本人の現預金志向の構造的起源",
+        "file": "high-growth-ch9.html"
+      },
+      {
+        "id": "ch10",
+        "title": "関連用語",
+        "file": "high-growth-ch10.html"
+      }
+    ]
+  },
+  {
+    "slug": "industrial-revolution",
+    "title": "産業革命",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 生産力の爆発",
+        "file": "industrial-revolution-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜイギリスで起きたか ── 三つの条件の合流",
+        "file": "industrial-revolution-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 経済成長の本質的変化",
+        "file": "industrial-revolution-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── 成長と格差の構造",
+        "file": "industrial-revolution-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 技術革新と資本の力学",
+        "file": "industrial-revolution-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "industrial-revolution-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "jiaozi",
+    "title": "宋の「交子」世界初の紙幣",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "jiaozi-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "jiaozi-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "jiaozi-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "jiaozi-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "jiaozi-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "jiaozi-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "jp-morgan-1907",
+    "title": "JPモルガンの私的救済",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- 1907年銀行家のパニック",
+        "file": "jp-morgan-1907-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか --- 信託会社という規制の盲点",
+        "file": "jp-morgan-1907-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか --- モルガンの私的救済",
+        "file": "jp-morgan-1907-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "遺産 --- 一人の人間に頼る危うさ",
+        "file": "jp-morgan-1907-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家への示唆",
+        "file": "jp-morgan-1907-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "jp-morgan-1907-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "keynes",
+    "title": "ケインズと『一般理論』",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- 経済学の革命",
+        "file": "keynes-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜこの理論が必要だったか --- 古典派の破綻",
+        "file": "keynes-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "核心的な概念 --- 有効需要・乗数効果・流動性の罠",
+        "file": "keynes-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "何が変わったか --- 「大きな政府」の誕生",
+        "file": "keynes-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "批判と限界 --- スタグフレーションの衝撃",
+        "file": "keynes-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "keynes-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "lehman",
+    "title": "リーマン・ショック",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "住宅バブルからリーマン破綻へ",
+        "file": "lehman-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "証券化とレバレッジが生んだ「見えないリスク」",
+        "file": "lehman-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "世界への波及 ── 信用収縮の連鎖",
+        "file": "lehman-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "ドッド＝フランク法と「何でもやる」時代の幕開け",
+        "file": "lehman-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "「100年に1度」は繰り返される",
+        "file": "lehman-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "lehman-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "ltcm",
+    "title": "LTCM破綻 — 天才たちの失敗",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "ドリームチームの誕生と崩壊",
+        "file": "ltcm-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "ロシア危機 ── モデルが想定しなかった「ありえない」事態",
+        "file": "ltcm-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "FRB主導の救済 ── 36億ドルの協調出資",
+        "file": "ltcm-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "金融工学の光と影",
+        "file": "ltcm-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "LTCMが教える5つの教訓",
+        "file": "ltcm-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "ltcm-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "lydia-coin",
+    "title": "リディア王国と世界初の鋳造硬貨",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "lydia-coin-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "lydia-coin-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "lydia-coin-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "lydia-coin-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "lydia-coin-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "lydia-coin-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "markowitz",
+    "title": "マーコウィッツのポートフォリオ理論 — 分散投資の数学的基盤",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "1952年 ── 25歳の大学院生が投資の常識を変えた",
+        "file": "markowitz-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "分散投資はなぜ「効く」のか ── 共分散の魔法",
+        "file": "markowitz-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "投資が「勘と経験」から「科学」になった",
+        "file": "markowitz-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "ノーベル経済学賞 ── 38年後の評価",
+        "file": "markowitz-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "個人投資家への示唆 ── 銘柄選びより資産配分",
+        "file": "markowitz-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "markowitz-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "marx",
+    "title": "マルクスと『資本論』",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 資本主義の「設計図」を暴いた書物",
+        "file": "marx-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ書かれたか ── 産業革命の影",
+        "file": "marx-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 20世紀の世界を二分した思想",
+        "file": "marx-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── 格差論争の原点",
+        "file": "marx-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 資本主義の脆弱性を知る",
+        "file": "marx-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "marx-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "medici",
+    "title": "メディチ銀行 — 近代銀行業の誕生",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "medici-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "medici-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "medici-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "medici-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "medici-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "medici-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "mesopotamia",
+    "title": "メソポタミアの穀物貸付 — 世界最古の「利子」",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "mesopotamia-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "mesopotamia-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "mesopotamia-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "mesopotamia-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "mesopotamia-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "mesopotamia-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "nixon-shock",
+    "title": "ニクソン・ショック --- 金本位制の終焉",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか --- 日曜夜のテレビ演説",
+        "file": "nixon-shock-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか --- アメリカの金が枯渇した",
+        "file": "nixon-shock-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "スミソニアン合意から変動相場制へ",
+        "file": "nixon-shock-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "何が変わったか --- フィアットマネーの時代",
+        "file": "nixon-shock-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 --- 通貨の減価は止まらない",
+        "file": "nixon-shock-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "nixon-shock-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "pacioli",
+    "title": "パチョーリと複式簿記の体系化 — 近代会計の誕生",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "pacioli-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "pacioli-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "pacioli-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "pacioli-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "pacioli-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "pacioli-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "piketty",
+    "title": "ピケティと『21世紀の資本』",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "経済学書が世界的ベストセラーになった",
+        "file": "piketty-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "リーマン後の世界が求めた「説明」",
+        "file": "piketty-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "r > g が意味すること",
+        "file": "piketty-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "格差議論が「感情」から「データ」へ",
+        "file": "piketty-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "「資本を持つ側」に立つことの意味",
+        "file": "piketty-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "piketty-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "shinyen",
+    "title": "戦後の新円切替と金融緊急措置",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "敗戦と超インフレ --- 1945-46年",
+        "file": "shinyen-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "金融緊急措置令 --- 1946年2月",
+        "file": "shinyen-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "預金封鎖の実態",
+        "file": "shinyen-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "財産税の課税 --- 最高税率90%",
+        "file": "shinyen-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "なぜこの措置が必要だったか",
+        "file": "shinyen-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "何が変わったか",
+        "file": "shinyen-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "今に残っているもの --- 資産分散の歴史的根拠",
+        "file": "shinyen-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "投資家にとっての意味",
+        "file": "shinyen-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "関連用語",
+        "file": "shinyen-ch9.html"
+      }
+    ]
+  },
+  {
+    "slug": "south-sea",
+    "title": "南海泡沫事件",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか ── 半年で10倍、そして崩壊",
+        "file": "south-sea-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか ── 政府債務・インサイダー・賄賂の連鎖",
+        "file": "south-sea-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか ── 泡沫会社禁止法の制定",
+        "file": "south-sea-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残るもの ── 「バブル」という言葉の起源",
+        "file": "south-sea-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味 ── 天才でもバブルには勝てない",
+        "file": "south-sea-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "south-sea-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "voc",
+    "title": "オランダ東インド会社 — 世界初の株式会社",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "何が起きたか",
+        "file": "voc-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "なぜ起きたか",
+        "file": "voc-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "何が変わったか",
+        "file": "voc-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "今に残っているもの",
+        "file": "voc-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "投資家にとっての意味",
+        "file": "voc-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "関連用語",
+        "file": "voc-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "what-is-financial-history",
+    "title": "金融史とは何か",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "金融史を学ぶ意味",
+        "file": "what-is-financial-history-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "歴史は繰り返す -- パターン認識としての金融史",
+        "file": "what-is-financial-history-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "金融史の3つの柱: 貨幣・信用・制度",
+        "file": "what-is-financial-history-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "投資家にとっての実用的価値",
+        "file": "what-is-financial-history-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "この書庫の使い方ガイド",
+        "file": "what-is-financial-history-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "この書庫の記事一覧",
+        "file": "what-is-financial-history-ch6.html"
+      }
+    ]
+  },
+  {
+    "slug": "zero-rate",
+    "title": "ゼロ金利と量的緩和の時代",
+    "author": "投資と思考の書斎",
+    "shelf": "金融史",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "ゼロ金利政策（1999年〜）",
+        "file": "zero-rate-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "量的緩和政策（2001年〜）",
+        "file": "zero-rate-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "リーマン・ショック後の世界的QE",
+        "file": "zero-rate-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "黒田バズーカ（2013年 異次元の金融緩和）",
+        "file": "zero-rate-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "YCC（イールドカーブ・コントロール）",
+        "file": "zero-rate-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "マイナス金利（2016年）",
+        "file": "zero-rate-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "出口戦略の難しさ",
+        "file": "zero-rate-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "新NISA（2024年）── 貯蓄から投資への国家的転換",
+        "file": "zero-rate-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "何が変わったか",
+        "file": "zero-rate-ch9.html"
+      },
+      {
+        "id": "ch10",
+        "title": "今に残っているもの ── 中央銀行への依存、財政と金融の融合",
+        "file": "zero-rate-ch10.html"
+      },
+      {
+        "id": "ch11",
+        "title": "投資家にとっての意味 ── 金利のない世界はもう終わりつつある",
+        "file": "zero-rate-ch11.html"
+      },
+      {
+        "id": "ch12",
+        "title": "関連用語",
+        "file": "zero-rate-ch12.html"
+      }
     ]
   }
 ]
