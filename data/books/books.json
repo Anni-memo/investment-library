@@ -1967,5 +1967,58 @@
         "file": "zero-rate-ch12.html"
       }
     ]
+  },
+  {
+    "slug": "obsidian-second-brain",
+    "title": "メモの複利と教養——Obsidianで「第二の脳」を育てる",
+    "author": "投資と思考の書斎",
+    "shelf": "学びと実践",
+    "chapters": [
+      {
+        "id": "ch1",
+        "title": "知識は複利で働く——バフェットとマンガーの読書術",
+        "file": "obsidian-second-brain-ch1.html"
+      },
+      {
+        "id": "ch2",
+        "title": "ルーマンの9万枚——ツェッテルカステンの発明",
+        "file": "obsidian-second-brain-ch2.html"
+      },
+      {
+        "id": "ch3",
+        "title": "3種類のノート——Take Notes! の教え",
+        "file": "obsidian-second-brain-ch3.html"
+      },
+      {
+        "id": "ch4",
+        "title": "メモの複利——なぜリンクが価値を指数関数的に増やすのか",
+        "file": "obsidian-second-brain-ch4.html"
+      },
+      {
+        "id": "ch5",
+        "title": "Obsidianという「第二の脳」",
+        "file": "obsidian-second-brain-ch5.html"
+      },
+      {
+        "id": "ch6",
+        "title": "AIに「脳」を渡す — Obsidian × Claude Code",
+        "file": "obsidian-second-brain-ch6.html"
+      },
+      {
+        "id": "ch7",
+        "title": "環境を設計する——意志より仕組みが勝つ",
+        "file": "obsidian-second-brain-ch7.html"
+      },
+      {
+        "id": "ch8",
+        "title": "始め方——今日からできる3ステップ",
+        "file": "obsidian-second-brain-ch8.html"
+      },
+      {
+        "id": "ch9",
+        "title": "終わりに——人間は計画を立てるのをやめた瞬間、学習を始める",
+        "file": "obsidian-second-brain-ch9.html"
+      }
+    ]
   }
 ]
