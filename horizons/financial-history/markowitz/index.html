@@ -16,6 +16,68 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <title>マーコウィッツのポートフォリオ理論 — 分散投資の数学的基盤｜金融史の書庫｜投資と思考の書斎</title>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "マーコウィッツのポートフォリオ理論 — 分散投資の数学的基盤",
+  "description": "1952年、ハリー・マーコウィッツは分散投資の効果を数学的に証明した。期待リターンを犠牲にせずリスクを低減する「効率的フロンティア」の誕生。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "投資と思考の書斎",
+    "url": "https://anni-memo.github.io/investment-library/"
+  },
+  "datePublished": "2026-03-15",
+  "inLanguage": "ja",
+  "about": [
+    {"@type": "Thing", "name": "ポートフォリオ理論"},
+    {"@type": "Thing", "name": "分散投資"},
+    {"@type": "Thing", "name": "効率的フロンティア"}
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+      {"@type": "ListItem", "position": 2, "name": "金融史の書庫", "item": "https://anni-memo.github.io/investment-library/horizons/financial-history/"},
+      {"@type": "ListItem", "position": 3, "name": "マーコウィッツのポートフォリオ理論"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ポートフォリオ理論とは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1952年にハリー・マーコウィッツが発表した投資理論で、分散投資の効果を数学的に証明しました。異なる値動きをする資産を組み合わせることで、期待リターンを犠牲にせずにリスク（価格変動の振れ幅）を低減できることを示し、1990年にノーベル経済学賞を受賞しました。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "効率的フロンティアとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "同じリスク水準で最大のリターンを得られる（または同じリターンで最小のリスクとなる）ポートフォリオの組み合わせを結んだ曲線です。この曲線上のポートフォリオが「効率的」であり、それ以外の組み合わせは改善の余地があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ポートフォリオ理論は個人投資家にも役立ちますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい、現代の資産運用の基盤です。「卵を一つのカゴに盛るな」という格言を数学で裏付けた理論であり、株式・債券・不動産・海外資産の分散、インデックスファンドの設計、ロボアドバイザーのアルゴリズムなど、すべてマーコウィッツの理論が出発点です。"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
 
@@ -95,6 +157,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+.hero-actions{margin-top:22px;position:relative;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.hero-reader-btn,.hero-pdf-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;font-family:var(--serif,'Cormorant Garamond',serif);font-size:.78rem;font-weight:600;color:#f5ede0;background:transparent;border:1px solid rgba(184,144,10,.45);text-decoration:none;letter-spacing:.04em;transition:all .25s;border-radius:2px;}
+.hero-reader-btn:link,.hero-reader-btn:visited,.hero-pdf-btn:link,.hero-pdf-btn:visited{color:#f5ede0;text-decoration:none;}
+.hero-reader-btn{background:rgba(184,144,10,.12);border-color:rgba(184,144,10,.6);}
+.hero-reader-btn:hover{background:rgba(184,144,10,.25);border-color:#d4aa22;color:#f0cc55;}
+.hero-pdf-btn:hover{background:rgba(184,144,10,.15);border-color:#d4aa22;color:#f0cc55;}
+.hero-reader-btn svg,.hero-pdf-btn svg{opacity:.7;transition:opacity .2s;}
+.hero-reader-btn:hover svg,.hero-pdf-btn:hover svg{opacity:1;}
 </style>
 </head>
 <body>
@@ -118,6 +189,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     「卵をひとつの籠に盛るな」。古くからの格言に、<br>
     ハリー・マーコウィッツは数学的な証明を与えた。
   </p>
+  <div class="hero-actions">
+    <a class="hero-reader-btn" href="../../../reader/?book=markowitz">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      リーダーで読む
+    </a>
+    <a class="hero-pdf-btn" href="../../../assets/pdf/history/markowitz.pdf" download>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      PDF
+    </a>
+  </div>
+
 </div>
 
 <!-- ── ARTICLE ── -->

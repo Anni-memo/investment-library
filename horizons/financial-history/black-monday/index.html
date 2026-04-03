@@ -16,6 +16,68 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <title>ブラック・マンデー — プログラム取引の暴走｜投資と思考の書斎</title>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ブラック・マンデー — プログラム取引の暴走",
+  "description": "1987年10月19日、ダウ平均が1日で22.6%下落。プログラム取引が引き起こした史上最大の暴落とその教訓。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "投資と思考の書斎",
+    "url": "https://anni-memo.github.io/investment-library/"
+  },
+  "datePublished": "2026-03-15",
+  "inLanguage": "ja",
+  "about": [
+    {"@type": "Thing", "name": "ブラック・マンデー"},
+    {"@type": "Thing", "name": "プログラム取引"},
+    {"@type": "Thing", "name": "サーキットブレーカー"}
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+      {"@type": "ListItem", "position": 2, "name": "金融史の書庫", "item": "https://anni-memo.github.io/investment-library/horizons/financial-history/"},
+      {"@type": "ListItem", "position": 3, "name": "ブラック・マンデー"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ブラック・マンデーとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1987年10月19日月曜日に発生した世界同時株安です。ダウ工業株30種平均が1日で508ポイント（22.6%）下落し、1日の下落率としては史上最大の記録です。暴落は香港・オーストラリア・イギリス・日本にも連鎖し、日経平均も翌日に14.9%下落しました。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ブラック・マンデーの原因は何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主な原因は、ポートフォリオ・インシュアランスと呼ばれるプログラム取引です。株価下落時に自動的に先物を売却するヘッジ戦略を多くの機関投資家が同時に採用していたため、株価下落→プログラムが先物売り→現物も売られる→さらにプログラム発動という「売りが売りを呼ぶ」フィードバックループが発生しました。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "サーキットブレーカー制度はなぜ生まれたのですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ブラック・マンデーの教訓から導入されました。一定以上の価格下落が発生した際に取引を一時停止し、パニック売りの連鎖を断ち切るための「冷却期間」を強制的に設ける仕組みです。2020年のコロナ・ショックでも複数回発動しています。"
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
 
@@ -95,6 +157,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+.hero-actions{margin-top:22px;position:relative;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.hero-reader-btn,.hero-pdf-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;font-family:var(--serif,'Cormorant Garamond',serif);font-size:.78rem;font-weight:600;color:#f5ede0;background:transparent;border:1px solid rgba(184,144,10,.45);text-decoration:none;letter-spacing:.04em;transition:all .25s;border-radius:2px;}
+.hero-reader-btn:link,.hero-reader-btn:visited,.hero-pdf-btn:link,.hero-pdf-btn:visited{color:#f5ede0;text-decoration:none;}
+.hero-reader-btn{background:rgba(184,144,10,.12);border-color:rgba(184,144,10,.6);}
+.hero-reader-btn:hover{background:rgba(184,144,10,.25);border-color:#d4aa22;color:#f0cc55;}
+.hero-pdf-btn:hover{background:rgba(184,144,10,.15);border-color:#d4aa22;color:#f0cc55;}
+.hero-reader-btn svg,.hero-pdf-btn svg{opacity:.7;transition:opacity .2s;}
+.hero-reader-btn:hover svg,.hero-pdf-btn:hover svg{opacity:1;}
 </style>
 </head>
 <body>
@@ -118,6 +189,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     1987年10月19日、ダウ平均は1日で22.6%下落した。<br>
     機械が売りを加速させた、史上最大の1日の暴落を読み解く。
   </p>
+  <div class="hero-actions">
+    <a class="hero-reader-btn" href="../../../reader/?book=black-monday">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      リーダーで読む
+    </a>
+    <a class="hero-pdf-btn" href="../../../assets/pdf/history/black-monday.pdf" download>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      PDF
+    </a>
+  </div>
+
 </div>
 
 <!-- ── ARTICLE ── -->

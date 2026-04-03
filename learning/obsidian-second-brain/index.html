@@ -5,26 +5,38 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Obsidianを『もう一つの脳』として設計し、AIと接続する。知識は複利で増える——その仕組みを実践ガイドとして公開。"/>
-<meta property="og:title" content="知識は複利で増える — Obsidian×AIで設計する『もう一つの脳』｜投資と思考の書斎"/>
-<meta property="og:description" content="Obsidianを外部脳として設計し、AI（Claude Code）と接続する実践記録。ツリー構造・運用ルール・知の複利を解説。"/>
+<meta name="description" content="ニクラス・ルーマンの9万枚のカード箱から、Obsidian×AIの第二の脳まで。メモの複利が投資家の思考を変える——ツェッテルカステン実践ガイド。"/>
+<meta property="og:title" content="メモの複利 — Obsidian×AIで築く投資家の第二の脳｜投資と思考の書斎"/>
+<meta property="og:description" content="ルーマンの9万枚のカード箱、バフェットの知識の複利、Obsidian×Claude Codeの実践。メモが複利で増える仕組みを解説。"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://anni-memo.github.io/investment-library/learning/obsidian-second-brain/"/>
 <meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://anni-memo.github.io/investment-library/learning/obsidian-second-brain/"/>
-<title>知識は複利で増える — Obsidian×AIで設計する『もう一つの脳』｜投資と思考の書斎</title>
+<title>メモの複利 — Obsidian×AIで築く投資家の第二の脳｜投資と思考の書斎</title>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "知識は複利で増える — Obsidian×AIで設計する『もう一つの脳』",
-  "description": "Obsidianを外部脳として設計し、AIと接続する実践ガイド。知識の複利効果を最大化する運用術。",
+  "headline": "メモの複利 — Obsidian×AIで築く投資家の第二の脳",
+  "description": "ルーマンのZettelkasten、バフェットの知識の複利、Obsidian×Claude Code。メモが複利で増える仕組みと実践ガイド。",
   "datePublished": "2026-03-31",
+  "dateModified": "2026-04-03",
   "author": {"@type": "Person", "name": "anni_memo"},
-  "publisher": {"@type": "Organization", "name": "投資と思考の書斎"},
-  "url": "https://anni-memo.github.io/investment-library/learning/obsidian-second-brain/"
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/learning/obsidian-second-brain/",
+  "about": [
+    {"@type": "Thing", "name": "Zettelkasten"},
+    {"@type": "Thing", "name": "Obsidian"},
+    {"@type": "Thing", "name": "メモの複利"},
+    {"@type": "Thing", "name": "Second Brain"}
+  ],
+  "citation": [
+    {"@type": "Book", "name": "TAKE NOTES!", "author": "ズーンク・アーレンス"},
+    {"@type": "Book", "name": "Atomic Habits", "author": "James Clear"},
+    {"@type": "Book", "name": "学問のすすめ", "author": "福澤諭吉"}
+  ]
 }
 </script>
 
@@ -41,6 +53,7 @@
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink);scroll-behavior:smooth}
@@ -52,16 +65,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero{background:linear-gradient(160deg,#060404 0%,var(--ink) 30%,#1a1505 60%,#2a1c0a 100%);color:var(--parch);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.12) 0%,transparent 70%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:12px;opacity:.7;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.3rem,4.5vw,2.2rem);font-weight:700;color:var(--parch);position:relative;line-height:1.25;}
-.hero-sub{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-top:10px;opacity:.75;position:relative;}
-.hero-lead{margin-top:24px;position:relative;font-family:var(--serif);font-size:clamp(.85rem,2vw,.98rem);color:var(--parch3);font-style:italic;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
+.hero-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:14px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.4rem,4.5vw,2.4rem);font-weight:700;color:var(--parch);position:relative;line-height:1.25;}
+.hero-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.2em;margin-top:12px;opacity:.75;position:relative;}
+.hero-lead{margin-top:24px;position:relative;font-family:var(--serif);font-size:clamp(.82rem,2vw,.95rem);color:var(--parch3);font-style:italic;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
 
 .container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
 .reading-time{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:40px;text-align:center;opacity:.7;}
+
+/* Tree Map */
+.tree-map-wrap{margin:0 0 56px;padding:28px;background:var(--ink);border:1px solid rgba(184,144,10,.2);overflow-x:auto;}
+.tree-map-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:16px;text-align:center;opacity:.7;}
+.tree-map-svg{display:block;margin:0 auto;max-width:100%;}
 
 .section{margin-bottom:56px;}
 .section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
@@ -111,12 +129,84 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .compound-bar-val{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.48rem;color:var(--gold3);}
 .compound-caption{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.15em;opacity:.7;}
 
+/* Note cards for Zettelkasten */
+.note-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0;}
+.note-card{padding:18px;border:1px solid var(--parch3);position:relative;}
+.note-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.note-card.fleeting{background:rgba(184,144,10,.06);}.note-card.fleeting::before{background:var(--gold3);}
+.note-card.literature{background:rgba(42,74,26,.06);}.note-card.literature::before{background:var(--green2);}
+.note-card.permanent{background:rgba(26,42,74,.06);}.note-card.permanent::before{background:var(--blue2);}
+.note-card-type{font-family:var(--mono);font-size:.46rem;letter-spacing:.15em;margin-bottom:8px;text-transform:uppercase;}
+.note-card.fleeting .note-card-type{color:var(--gold);}
+.note-card.literature .note-card-type{color:var(--green2);}
+.note-card.permanent .note-card-type{color:var(--blue2);}
+.note-card-title{font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.note-card-desc{font-size:.76rem;color:var(--ink3);line-height:1.8;font-weight:300;}
+@media(max-width:600px){.note-cards{grid-template-columns:1fr;}}
+
+/* Timeline */
+.timeline{margin:24px 0;padding-left:24px;border-left:2px solid rgba(184,144,10,.3);}
+.timeline-item{padding:12px 0 12px 20px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parch);}
+.timeline-year{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;}
+.timeline-text{font-size:.82rem;color:var(--ink2);line-height:1.8;font-weight:300;margin-top:4px;}
+
+/* PDF Download */
+.pdf-section{margin:32px 0;padding:24px;background:linear-gradient(135deg,var(--ink) 0%,#2a1c0a 100%);border:1px solid rgba(184,144,10,.2);}
+.pdf-section-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;}
+.pdf-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--parch);text-decoration:none;font-family:var(--jp);font-size:.82rem;transition:all .2s;margin:4px 8px 4px 0;}
+.pdf-btn:hover{background:rgba(184,144,10,.25);border-color:var(--gold3);}
+.pdf-btn-icon{font-size:1.1rem;}
+.pdf-btn-sub{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.1em;}
+
+/* MyNote Floating Widget */
+.mynote-fab{position:fixed;bottom:170px;right:16px;z-index:8999;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a1208,#2d2010);border:1.5px solid rgba(184,144,10,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(26,18,8,.4);transition:all .3s;flex-direction:column;gap:2px;}
+.mynote-fab:hover{border-color:#d4aa22;transform:translateY(-2px);box-shadow:0 6px 28px rgba(26,18,8,.5),0 0 12px rgba(184,144,10,.12);}
+.mynote-fab-streak{font-family:var(--mono);font-size:.42rem;color:var(--gold3);line-height:1;margin-top:-2px;}
+.mynote-panel{position:fixed;bottom:170px;right:68px;z-index:8998;width:320px;max-width:calc(100vw - 80px);max-height:calc(100vh - 200px);background:var(--parch);border:1px solid var(--parch3);box-shadow:0 8px 48px rgba(26,18,8,.35);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(20px) scale(.95);transition:all .3s;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--serif);font-size:.9rem;font-weight:600;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.2rem;cursor:pointer;padding:2px 6px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:130px;width:calc(100vw - 16px);max-height:60vh;}.mynote-fab{bottom:130px;right:8px;}}
+.mynote-streak{font-family:var(--mono);font-size:.65rem;color:var(--gold3);}
+.mynote-progress{padding:8px 14px 0;}
+.mynote-progress-bar{width:100%;height:4px;background:var(--parch4);border-radius:2px;overflow:hidden;}
+.mynote-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold3));border-radius:2px;transition:width .5s ease;}
+.mynote-progress-label{font-family:var(--mono);font-size:.42rem;color:var(--ink3);margin-top:3px;display:flex;justify-content:space-between;}
+.mynote-nav{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 14px;}
+.mynote-nav-btn{background:none;border:1px solid var(--parch4);padding:4px 10px;font-family:var(--mono);font-size:.55rem;color:var(--ink3);cursor:pointer;transition:all .2s;}
+.mynote-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-nav-date{font-family:var(--mono);font-size:.62rem;color:var(--ink);font-weight:600;min-width:120px;text-align:center;}
+.mynote-textarea{width:calc(100% - 28px);margin:0 14px;min-height:120px;font-size:16px;line-height:1.6;padding:12px;border:1px solid var(--parch4);border-radius:6px;resize:none;font-family:var(--jp);background:#fff;color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-textarea:focus{border-color:var(--gold);}
+.mynote-textarea::placeholder{color:var(--parch4);}
+.mynote-status{display:flex;align-items:center;justify-content:space-between;padding:4px 14px 8px;gap:8px;}
+.mynote-saved{font-family:var(--mono);font-size:.46rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-saved.visible{opacity:1;}
+.mynote-wordcount{font-family:var(--mono);font-size:.42rem;color:var(--ink3);}
+.mynote-calendar{padding:0 14px 14px;}
+.mynote-calendar-label{font-family:var(--mono);font-size:.42rem;color:var(--gold);letter-spacing:.12em;margin-bottom:4px;}
+.mynote-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mynote-calendar-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);position:relative;cursor:default;}
+.mynote-calendar-day.has-note{background:var(--gold);opacity:.7;}
+.mynote-calendar-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mynote-calendar-day.future{background:transparent;border:1px solid var(--parch4);}
+.mynote-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-calendar-weekdays span{font-family:var(--mono);font-size:.34rem;color:var(--ink3);text-align:center;}
+
 .next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
 .next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
 .next-link:hover{border-color:var(--gold3);background:var(--parch3);}
 .next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
 .next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
 @media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
 
 .site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
 .footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
@@ -128,56 +218,190 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <body>
 
 <nav class="nav">
-  <a class="nav-back" href="../../">← Library Top</a>
+  <a class="nav-back" href="../../">← 書斎の入口</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../">まなびの時間</a>
   <span class="nav-sep">/</span>
-  <span class="nav-current">Obsidian × AI</span>
+  <span class="nav-current">メモの複利</span>
 </nav>
 
 <div class="hero">
-  <div class="hero-label">KNOWLEDGE INFRASTRUCTURE</div>
-  <h1 class="hero-title">知識は複利で増える<br><span style="font-size:.7em;font-weight:400;opacity:.85;">— Obsidian × AI で設計する「もう一つの脳」</span></h1>
-  <div class="hero-sub">OBSIDIAN AS YOUR SECOND BRAIN FOR AI</div>
-  <p class="hero-lead">人間の脳は忘れる。だから書く。<br>書いたものをAIが読む。するとAIは、あなたの「脳の延長」になる。</p>
+  <div class="hero-label">KNOWLEDGE COMPOUND INTEREST</div>
+  <h1 class="hero-title">メモの複利<br><span style="font-size:.6em;font-weight:400;opacity:.85;">— Obsidian × AI で築く投資家の第二の脳</span></h1>
+  <div class="hero-sub">ZETTELKASTEN &times; OBSIDIAN &times; CLAUDE CODE</div>
+  <p class="hero-lead">9万枚のカードで70冊の本を書いた男がいる。<br>知識は複利で増える——その仕組みを、あなたの手元に。</p>
 </div>
 
 <div class="container">
 
-  <div class="reading-time">READING TIME: APPROX. 12 MIN</div>
+  <div class="reading-time">READING TIME: APPROX. 18 MIN</div>
+
+  <!-- TREE MAP: この記事の位置 -->
+  <div class="tree-map-wrap">
+    <div class="tree-map-label">YOU ARE HERE — この記事の位置</div>
+    <svg class="tree-map-svg" viewBox="0 0 720 520" xmlns="http://www.w3.org/2000/svg" style="font-family:'DM Mono',monospace;">
+      <!-- Root -->
+      <rect x="280" y="10" width="160" height="32" rx="3" fill="#1a1208" stroke="#d4aa22" stroke-width="1"/>
+      <text x="360" y="30" fill="#f5ede0" font-size="9" text-anchor="middle" letter-spacing=".5">投資と思考の書斎</text>
+
+      <!-- Lines from root -->
+      <line x1="360" y1="42" x2="360" y2="60" stroke="#8b6914" stroke-width="1" opacity=".5"/>
+      <line x1="100" y1="60" x2="620" y2="60" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+
+      <!-- Branches -->
+      <!-- はじめに -->
+      <line x1="60" y1="60" x2="60" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="10" y="80" width="100" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="60" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">はじめての方へ</text>
+
+      <!-- 教養と人間理解 -->
+      <line x1="170" y1="60" x2="170" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="115" y="80" width="110" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="170" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">教養と人間理解</text>
+
+      <!-- 思考を広げる -->
+      <line x1="290" y1="60" x2="290" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="235" y="80" width="110" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="290" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">思考を広げる棚</text>
+      <!-- sub: 金融史 -->
+      <line x1="290" y1="104" x2="290" y2="120" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
+      <rect x="248" y="120" width="84" height="18" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
+      <text x="290" y="132" fill="#8b6914" font-size="6" text-anchor="middle">金融史の回廊 (47)</text>
+
+      <!-- 人物録 -->
+      <line x1="400" y1="60" x2="400" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="358" y="80" width="84" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="400" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">人物録 (25)</text>
+
+      <!-- 企業研究 -->
+      <line x1="500" y1="60" x2="500" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="455" y="80" width="90" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="500" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">企業研究 (226)</text>
+
+      <!-- 論考 -->
+      <line x1="600" y1="60" x2="600" y2="80" stroke="#8b6914" stroke-width="1" opacity=".3"/>
+      <rect x="558" y="80" width="84" height="24" rx="2" fill="#2d2010" stroke="#4a3520" stroke-width=".5"/>
+      <text x="600" y="95" fill="#dfc9a8" font-size="7" text-anchor="middle">論考の棚 (13)</text>
+
+      <!-- ===== まなびの時間（ハイライト） ===== -->
+      <line x1="660" y1="60" x2="660" y2="80" stroke="#d4aa22" stroke-width="1.5"/>
+      <rect x="608" y="80" width="104" height="24" rx="2" fill="#2d2010" stroke="#d4aa22" stroke-width="1.5"/>
+      <text x="660" y="95" fill="#d4aa22" font-size="7.5" text-anchor="middle" font-weight="700">まなびの時間</text>
+
+      <!-- Articles under まなびの時間 -->
+      <line x1="660" y1="104" x2="660" y2="130" stroke="#d4aa22" stroke-width="1"/>
+      <line x1="580" y1="130" x2="720" y2="130" stroke="#d4aa22" stroke-width=".5" opacity=".5"/>
+
+      <!-- Claude Code Setup -->
+      <line x1="590" y1="130" x2="590" y2="148" stroke="#8b6914" stroke-width=".5" opacity=".5"/>
+      <rect x="548" y="148" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
+      <text x="590" y="161" fill="#dfc9a8" font-size="5.5" text-anchor="middle">Claude Code Setup</text>
+
+      <!-- Claude Code Memory -->
+      <line x1="660" y1="130" x2="660" y2="148" stroke="#8b6914" stroke-width=".5" opacity=".5"/>
+      <rect x="618" y="148" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
+      <text x="660" y="161" fill="#dfc9a8" font-size="5.5" text-anchor="middle">記憶を設計する</text>
+
+      <!-- Prompt Optimization -->
+      <line x1="590" y1="168" x2="590" y2="186" stroke="#8b6914" stroke-width=".5" opacity=".3"/>
+      <rect x="548" y="186" width="84" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5"/>
+      <text x="590" y="199" fill="#dfc9a8" font-size="5.5" text-anchor="middle">話し方で変わる</text>
+
+      <!-- ★ THIS ARTICLE (highlighted) -->
+      <line x1="660" y1="168" x2="660" y2="186" stroke="#d4aa22" stroke-width="1.5"/>
+      <rect x="610" y="186" width="100" height="24" rx="2" fill="#d4aa22" stroke="#f0cc55" stroke-width="1.5"/>
+      <text x="660" y="200" fill="#1a1208" font-size="6.5" text-anchor="middle" font-weight="700">メモの複利</text>
+      <text x="660" y="208" fill="#4a3520" font-size="4.5" text-anchor="middle">★ YOU ARE HERE</text>
+
+      <!-- Left side: more shelves (compact) -->
+      <!-- 投資原則 -->
+      <line x1="60" y1="60" x2="60" y2="155" stroke="#8b6914" stroke-width=".5" opacity=".15"/>
+      <rect x="10" y="155" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="60" y="168" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">投資原則</text>
+
+      <!-- 朝の実践 -->
+      <rect x="10" y="180" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="60" y="193" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">朝の実践室</text>
+
+      <!-- 人間理解 -->
+      <rect x="10" y="205" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="60" y="218" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">人間理解の棚</text>
+
+      <!-- moat -->
+      <rect x="115" y="155" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="165" y="168" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">競争優位性</text>
+
+      <!-- 業種 -->
+      <rect x="115" y="180" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="165" y="193" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">業種から歩く (16)</text>
+
+      <!-- リスク -->
+      <rect x="115" y="205" width="100" height="20" rx="2" fill="#1a1208" stroke="#4a3520" stroke-width=".5" opacity=".6"/>
+      <text x="165" y="218" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".6">リスクと守り</text>
+
+      <!-- Connection arrows showing knowledge links -->
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4aa22" opacity=".4"/>
+        </marker>
+      </defs>
+      <!-- Link: メモの複利 → 複利の力 -->
+      <path d="M 610 198 C 500 198, 400 170, 290 140" stroke="#d4aa22" stroke-width=".7" fill="none" stroke-dasharray="3,3" opacity=".3" marker-end="url(#arrow)"/>
+      <text x="440" y="162" fill="#d4aa22" font-size="4.5" opacity=".5" transform="rotate(-10,440,162)">複利の概念</text>
+
+      <!-- Link: メモの複利 → 教養 -->
+      <path d="M 610 196 C 450 220, 300 160, 170 104" stroke="#d4aa22" stroke-width=".7" fill="none" stroke-dasharray="3,3" opacity=".3" marker-end="url(#arrow)"/>
+      <text x="370" y="180" fill="#d4aa22" font-size="4.5" opacity=".5" transform="rotate(-20,370,180)">教養×メモ</text>
+
+      <!-- Legend -->
+      <rect x="10" y="260" width="140" height="50" rx="2" fill="none" stroke="#4a3520" stroke-width=".5" opacity=".4"/>
+      <text x="20" y="275" fill="#8b6914" font-size="5" opacity=".6">LEGEND</text>
+      <rect x="20" y="282" width="8" height="8" fill="#d4aa22"/>
+      <text x="32" y="289" fill="#dfc9a8" font-size="5">現在の記事</text>
+      <line x1="20" y1="298" x2="36" y2="298" stroke="#d4aa22" stroke-dasharray="3,3" stroke-width=".7" opacity=".4"/>
+      <text x="40" y="301" fill="#dfc9a8" font-size="5">知識のリンク</text>
+
+      <!-- Stats -->
+      <text x="360" y="260" fill="#8b6914" font-size="6" text-anchor="middle" opacity=".5">430+ 記事 / 37 セクション / 知識は複利で増える</text>
+    </svg>
+  </div>
 
   <!-- 01 -->
   <div class="section">
     <div class="section-num">01</div>
-    <h2 class="section-title">なぜ「知識への投資」は複利になるのか</h2>
+    <h2 class="section-title">知識は複利で働く——バフェットとマンガーの読書術</h2>
     <div class="body-text">
       <p>
-        ウォーレン・バフェットは1日の大半を読書に費やす。チャーリー・マンガーは「私の知る賢い人で、常に読書していない人は一人もいない」と言った。
+        ウォーレン・バフェットは1日の80%を読書に費やす。チャーリー・マンガーは言った——<strong>「私の知る賢い人で、常に読書していない人は一人もいない」</strong>と。
       </p>
       <p>
-        彼らが指しているのは単なる「情報収集」ではない。<strong>知識を蓄積し、接続し、再利用できる仕組み</strong>のことだ。
+        彼らが指しているのは単なる情報収集ではない。知識を蓄積し、接続し、再利用できる仕組みのことだ。バフェットはこう述べている。
+      </p>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        知識は複利のように働く。誰でも実行できるが、ほとんどの人は実行しない。
+      </div>
+      <div class="quote-box-src">— WARREN BUFFETT</div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        マンガーはさらに踏み込み、<strong>「Mental Modelsのラティスワーク（格子構造）」</strong>という概念を提唱した。心理学、経済学、生物学、物理学、歴史——複数の学問領域から核心的な概念を集め、格子状に組み合わせて多角的な判断フレームワークを構築する。
       </p>
       <p>
-        投資における複利の公式を思い出してほしい。
+        この格子構造は、後述するルーマンのカード箱と本質的に同じだ。異なる領域の知識が繋がることで、<strong>単一分野では見えない洞察</strong>が生まれる。
       </p>
     </div>
 
     <div class="key-point">
       <div class="key-point-label">COMPOUND INTEREST OF KNOWLEDGE</div>
       <div class="key-point-text">
-        金融資産の複利: <strong>元本 × (1 + 利率)^年数</strong><br>
-        知識の複利: <strong>既知 × (1 + 新しい接続)^思考回数</strong><br><br>
+        金融資産の複利: <strong>元本 × (1 + 利率)<sup>年数</sup></strong><br>
+        知識の複利: <strong>既知 × (1 + 新しい接続)<sup>思考回数</sup></strong><br><br>
         金融資産と違い、知識は使っても減らない。むしろ使うほど接続が増え、利率そのものが上がる。
       </div>
-    </div>
-
-    <div class="body-text">
-      <p>
-        問題は、人間の脳だけではこの「接続」を管理しきれないことだ。読んだ本の内容を3ヶ月後にどれだけ覚えているだろうか。半年前に調べた企業分析のメモはどこにあるだろうか。
-      </p>
-      <p>
-        <strong>だからこそ「外部脳」が必要になる。</strong>そしてその外部脳にAIを接続すると、驚くべきことが起こる。
-      </p>
     </div>
   </div>
 
@@ -186,55 +410,57 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 02 -->
   <div class="section">
     <div class="section-num">02</div>
-    <h2 class="section-title">Obsidianという「第二の脳」</h2>
+    <h2 class="section-title">ルーマンの9万枚——ツェッテルカステンの発明</h2>
     <div class="body-text">
       <p>
-        Obsidianは、ローカルで動くMarkdownエディタだ。見た目はシンプルだが、本質は「思考のファイルシステム」にある。
+        ニクラス・ルーマン（1927-1998）。ドイツの社会学者。約30年間に<strong>70冊以上の著書</strong>と<strong>400近くの学術論文</strong>を発表した。この驚異的なアウトプットの秘密が、彼が「コミュニケーション・パートナー」と呼んだカード箱——<strong>Zettelkasten（ツェッテルカステン）</strong>だった。
       </p>
       <p>
-        フォルダで分類し、リンクで接続し、タグで横断検索する。紙のノートと違い、<strong>構造を後から変えられる</strong>。最初は走り書きだったメモが、時間をかけて永久保存版の知識に成長する。
-      </p>
-      <p>
-        以下は、実際に運用しているVault（知識庫）の構造だ。プロジェクト名は架空のものに置き換えているが、構造そのものはリアルだ。
+        生涯で約<strong>9万枚のインデックスカード</strong>を蓄積した。各カードには1つのアイデアが書かれ、他のカードへの参照番号が付与されていた。フォルダで分類するのではなく、<strong>カード同士のリンクで有機的なネットワーク</strong>を形成した。
       </p>
     </div>
 
-    <div class="tree-block"><span class="folder">Vault/</span>
-├── <span class="folder">1⃣ 走り書き/</span>              <span class="comment">← 思いついたらすぐここへ</span>
-├── <span class="folder">2⃣ 文献メモ/</span>              <span class="comment">← 読書メモ・書誌情報</span>
-├── <span class="folder">3⃣ 永久保存版/</span>            <span class="comment">← 磨き上げた知識カード</span>
-├── <span class="folder">4⃣ 索引/</span>                  <span class="comment">← MOC（Map of Content）</span>
-├── <span class="folder">5⃣ プロジェクト/</span>          <span class="comment">← 進行中の企画・設計書</span>
-│   ├── <span class="folder">Webサービス「星空」設計/</span>     <span class="comment">← サービスA</span>
-│   ├── <span class="folder">投資Library設計/</span>           <span class="comment">← 知識公開サイト</span>
-│   └── <span class="folder">ゲーム企画/</span>               <span class="comment">← サイドプロジェクト</span>
-├── <span class="folder">6⃣ 添付ファイル/</span>
-├── <span class="folder">7⃣ 保管庫/</span>                <span class="comment">← アーカイブ</span>
-├── <span class="folder">8⃣ デイリーノート/</span>        <span class="comment">← 毎日の記録</span>
-├── <span class="folder">9⃣ マイドキュメント/</span>      <span class="comment">← 個人の重要書類</span>
-│
-├── <span class="folder">🤖 AI連携/</span>                <span class="comment">← AIとの接続層（後述）</span>
-│   ├── <span class="folder">セッション/</span>               <span class="comment">← プロフィール・引継ぎ</span>
-│   ├── <span class="folder">スキルグラフ/</span>             <span class="comment">← AIの能力定義</span>
-│   ├── <span class="folder">活動ログ/</span>                <span class="comment">← 日次・プロジェクト別</span>
-│   ├── <span class="folder">プロジェクト/</span>             <span class="comment">← 設計書の詳細版</span>
-│   └── <span class="folder">設定/</span>                    <span class="comment">← AIツールの設定資料</span>
-│
-├── <span class="folder">📋 コピペ用/</span>              <span class="comment">← よく使うコード片</span>
-└── <span class="folder">公開ノート/</span>                <span class="comment">← 外部公開用コンテンツ</span></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1951</div>
+        <div class="timeline-text">ルーマン、公務員として働きながら読書メモを取り始める。最初は普通のノート。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1960s</div>
+        <div class="timeline-text">カード箱システムに移行。「1枚1アイデア」の原則を確立。番号とリンクで接続を管理。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1968</div>
+        <div class="timeline-text">大学教授に就任。「なぜそれほど速く書けるのか？」と聞かれ、「私が書いているのではない。カード箱が書いている」と答える。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-text">集大成『社会の社会』出版。生涯で70冊以上。カード箱は約9万枚に到達。</div>
+      </div>
+    </div>
 
     <div class="body-text">
       <p>
-        番号付きフォルダは、Zettelkasten（ツェッテルカステン）の思想を借りている。<strong>メモの「成熟度」でフォルダを分ける</strong>のがポイントだ。
+        ルーマンのメソッドには6つの原則がある。
       </p>
     </div>
 
     <div class="key-point">
-      <div class="key-point-label">THE GROWTH PATH OF A NOTE</div>
+      <div class="key-point-label">ZETTELKASTEN — 6 PRINCIPLES</div>
       <div class="key-point-text">
-        <strong>1⃣ 走り書き → 2⃣ 文献メモ → 3⃣ 永久保存版</strong><br><br>
-        最初は雑なメモでいい。何度も参照し、加筆し、リンクを張るうちに、そのメモは「永久保存版」に昇格する。この成長プロセスこそが知識の複利だ。
+        <strong>1. カード1枚につき1アイデア</strong>（アトミックノート）<br>
+        <strong>2. カード1枚で完結する</strong>内容にする<br>
+        <strong>3. 必ず他のカードとリンクする</strong>（孤立したカードは死ぬ）<br>
+        <strong>4. リンクの意味を注釈する</strong>（なぜ繋がるのかを書く）<br>
+        <strong>5. 必ず自分の言葉で書く</strong>（コピペ禁止）<br>
+        <strong>6. 参考文献を残す</strong>
       </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        投資に置き換えてみよう。銘柄分析のメモが、マクロ経済のメモに繋がり、それが行動経済学のメモに繋がる。ある日突然、3つのメモが交差する地点に<strong>新しい投資仮説</strong>が浮かび上がる。これがカード箱の力だ。
+      </p>
     </div>
   </div>
 
@@ -243,16 +469,180 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 03 -->
   <div class="section">
     <div class="section-num">03</div>
+    <h2 class="section-title">3種類のノート——Take Notes! の教え</h2>
+    <div class="body-text">
+      <p>
+        ズーンク・アーレンス著『TAKE NOTES!（How to Take Smart Notes）』は、ルーマンのメソッドを現代向けに体系化した実践ガイドだ。核心的な教えは、<strong>ノートには3つの段階がある</strong>ということ。
+      </p>
+    </div>
+
+    <div class="note-cards">
+      <div class="note-card fleeting">
+        <div class="note-card-type">Fleeting Notes</div>
+        <div class="note-card-title">走り書き</div>
+        <div class="note-card-desc">思いついた瞬間にメモする。1-2日以内に永久ノートに昇格させるか、捨てる。後で整理するための一時置き場。</div>
+      </div>
+      <div class="note-card literature">
+        <div class="note-card-type">Literature Notes</div>
+        <div class="note-card-title">文献メモ</div>
+        <div class="note-card-desc">読書中に<strong>自分の言葉で</strong>要点をメモする。引用は極力控え、自分の理解で再構成する。出典を必ず記録。</div>
+      </div>
+      <div class="note-card permanent">
+        <div class="note-card-type">Permanent Notes</div>
+        <div class="note-card-title">永久保存版</div>
+        <div class="note-card-desc">1枚1アイデアの原則で丁寧に書き直す。既存のノートとのリンクを必ず作る。<strong>これがカード箱の本体</strong>。</div>
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        アーレンスの最も重要な主張は、<strong>「書くことは考えることである」</strong>ということだ。書く前に考えるのではない。書きながら考える。
+      </p>
+      <p>
+        自分の言葉でメモを書き直す——この行為こそが理解を深める。McDaniel & Donnelly (1995) の研究が示す通り、<strong>情報を自分の言葉で説明するように促す条件は、記憶保持を促進する</strong>。コピー&ペーストでは複利は回らない。
+      </p>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        メモは「思考し整理するため」に取る。理解しなければ覚えることはできない。脳は不要な情報を排除する合理的な機能を持つ。だからこそ、思考を整理し構造を理解することが知識定着に不可欠だ。
+      </div>
+      <div class="quote-box-src">— 「メモの複利と教養」ノートより</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2 class="section-title">メモの複利——なぜリンクが価値を指数関数的に増やすのか</h2>
+    <div class="body-text">
+      <p>
+        ノート間のリンクが増えるほど、予期しない発見が増える。これは金融における複利と同じ構造を持つ。
+      </p>
+    </div>
+
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">SIMPLE INTEREST — 単利のメモ</div>
+        <div class="comparison-text">
+          メモを書く → フォルダに放り込む<br>
+          書いたら終わり<br>
+          二度と読み返さない<br><br>
+          = 単利。元本は増えない。
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">COMPOUND INTEREST — 複利のメモ</div>
+        <div class="comparison-text">
+          メモを書く → 既存メモにリンクする<br>
+          過去の思考と新しい思考が反応<br>
+          リンクが増えるほど発見が加速<br><br>
+          = 複利。接続のたびに利率が上がる。
+        </div>
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        この仕組みの核心を、福澤諭吉は150年前に見抜いていた。
+      </p>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        大事なことは、自分の行動を正しくし、熱心に勉強し、広く知識を得て、それぞれの社会的役割にふさわしい知識や人間性を備えることだ。
+      </div>
+      <div class="quote-box-src">— 福澤諭吉『学問のすすめ』</div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        メモ同士を繋げる行為は、<strong>社会の中の異なる要素の中に同じ構造を発見する</strong>行為でもある。渋沢栄一の「論語と算盤」が道徳と利益の両立を説いたように、投資の複利の概念と学習の複利の概念は、根底で同じ構造を持っている。
+      </p>
+      <p>
+        現代の脳科学研究は、この直感を裏付けている。<strong>脳はつながりのある情報を多く持つほど、新しい情報を古い情報に結びつけることができ、より多くを記憶できる。</strong>メモ同士をリンクで繋げることは、脳のシナプスを人工的に拡張する行為なのだ。
+      </p>
+      <p>
+        そしてこのプロセスには名前がある。新しい知識が既存の知識に意味のある形で繋がり、理解が深まっていくサイクル——哲学者ガダマーはこれを<strong>「解釈学的循環」</strong>と呼んだ。
+      </p>
+    </div>
+
+    <div class="compound-visual">
+      <div class="compound-row">
+        <div class="compound-bar" style="height:15px;"><div class="compound-bar-label">10枚</div><div class="compound-bar-val">45</div></div>
+        <div class="compound-bar" style="height:30px;"><div class="compound-bar-label">50枚</div><div class="compound-bar-val">1,225</div></div>
+        <div class="compound-bar" style="height:55px;"><div class="compound-bar-label">100枚</div><div class="compound-bar-val">4,950</div></div>
+        <div class="compound-bar" style="height:85px;"><div class="compound-bar-label">500枚</div><div class="compound-bar-val">124,750</div></div>
+        <div class="compound-bar" style="height:115px;"><div class="compound-bar-label">1,000枚</div><div class="compound-bar-val">499,500</div></div>
+      </div>
+      <div class="compound-caption">POTENTIAL LINKS — n(n-1)/2 — ノート数と潜在的リンク数</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2 class="section-title">Obsidianという「第二の脳」</h2>
+    <div class="body-text">
+      <p>
+        ルーマンの時代、カード箱は物理的な木の箱だった。現代にはObsidianがある。
+      </p>
+      <p>
+        Obsidianは、ローカルで動くMarkdownエディタだ。見た目はシンプルだが、本質は<strong>「思考のファイルシステム」</strong>にある。バックリンクでノート間を接続し、グラフビューで知識のネットワークを可視化する。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">WHY OBSIDIAN FOR INVESTORS</div>
+      <div class="key-point-text">
+        <strong>1. ローカルファースト</strong> — データは自分のPC上。投資メモのような機密情報に最適<br>
+        <strong>2. Markdownベース</strong> — プレーンテキスト。10年後でも読める。ベンダーロックインなし<br>
+        <strong>3. バックリンク + グラフビュー</strong> — ノート間の関係性が可視化され、思考の接続を発見<br>
+        <strong>4. 2,000+プラグイン</strong> — コミュニティによる無限の拡張<br>
+        <strong>5. 無料</strong> — 個人利用は完全無料
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        以下は、ツェッテルカステンの3段階をObsidianで実現する構造だ。
+      </p>
+    </div>
+
+    <div class="tree-block"><span class="folder">Vault/</span>
+├── <span class="folder">1⃣ 走り書き/</span>              <span class="comment">← Fleeting Notes（思いつき）</span>
+├── <span class="folder">2⃣ 文献メモ/</span>              <span class="comment">← Literature Notes（読書メモ）</span>
+├── <span class="folder">3⃣ 永久保存版/</span>            <span class="comment">← Permanent Notes（磨き上げた知識）</span>
+├── <span class="folder">4⃣ 索引/</span>                  <span class="comment">← MOC（Map of Content）</span>
+├── <span class="folder">5⃣ プロジェクト/</span>          <span class="comment">← 進行中の企画・設計書</span>
+├── <span class="folder">6⃣ 添付ファイル/</span>
+├── <span class="folder">7⃣ 保管庫/</span>                <span class="comment">← アーカイブ</span>
+├── <span class="folder">8⃣ デイリーノート/</span>        <span class="comment">← 毎日の記録</span>
+└── <span class="folder">🤖 AI連携/</span>                <span class="comment">← AIとの接続層（次章で解説）</span></div>
+
+    <div class="body-text">
+      <p>
+        番号付きフォルダはメモの「成熟度」で分けている。<strong>走り書き → 文献メモ → 永久保存版</strong>。この成長プロセスそのものが知識の複利だ。
+      </p>
+      <p>
+        重要なのは、フォルダは「仮置き場」に過ぎないということだ。本当の構造は、ノート間のリンクが作る。秩序が整いすぎると学習の妨げになる——Carey (2014) が示したこの事実を、Obsidianのリンク機能が解決する。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="section-num">06</div>
     <h2 class="section-title">AIに「脳」を渡す — Obsidian × Claude Code</h2>
     <div class="body-text">
       <p>
-        ここからが本題だ。Obsidianで蓄積した知識を、AIの「外部記憶」として接続する。
-      </p>
-      <p>
-        通常のAIチャットでは、毎回ゼロからの会話になる。「私は投資家で、こういうプロジェクトをやっていて、こういう方針で......」と毎回説明するのは非現実的だ。
-      </p>
-      <p>
-        しかし、Obsidianに<strong>AIが読める形で知識を構造化しておく</strong>と、状況は一変する。
+        ここからが、2026年の最前線だ。Obsidianで蓄積した知識を、AIの「外部記憶」として接続する。
       </p>
     </div>
 
@@ -262,8 +652,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div class="comparison-text">
           「昨日の続きをお願い」<br>
           → AI「何の話でしょうか？」<br><br>
-          「あのプロジェクトの方針に沿って」<br>
-          → AI「方針を教えてください」<br><br>
           毎回、文脈の再構築に10分。
         </div>
       </div>
@@ -272,8 +660,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div class="comparison-text">
           「昨日の続きをお願い」<br>
           → AI「引継ぎメモによると、残タスクは3件ですね」<br><br>
-          「方針に沿って進めて」<br>
-          → AI「設計書を確認しました。この方向で進めます」<br><br>
           文脈の再構築は0秒。
         </div>
       </div>
@@ -281,28 +667,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
     <div class="body-text">
       <p>
-        これは魔法ではない。仕組みはシンプルだ。
-      </p>
-      <p>
-        <strong>AIが起動するたびに、Obsidianの特定のフォルダを読みに行くように設定する。</strong>そこにプロフィール、進行中の作業、過去のフィードバックが整理されていれば、AIはあたかも「昨日の続き」から始められる。
-      </p>
-    </div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- 04 -->
-  <div class="section">
-    <div class="section-num">04</div>
-    <h2 class="section-title">実践：AI連携フォルダの設計</h2>
-    <div class="body-text">
-      <p>
-        AI連携のために設けた専用フォルダの中身を公開する。
+        仕組みはシンプルだ。<strong>AIが起動するたびに、Obsidianの特定のフォルダを読みに行く。</strong>そこにプロフィール、進行中の作業、過去のフィードバックが整理されていれば、AIは「昨日の続き」から始められる。
       </p>
     </div>
 
     <div class="tree-block"><span class="folder">🤖 AI連携/</span>
-│
 ├── <span class="folder">セッション/</span>
 │   ├── プロフィール.md          <span class="comment">← 「私は誰か」をAIに伝える</span>
 │   ├── インプット.md            <span class="comment">← スマホから貼る未処理メモ</span>
@@ -312,67 +681,40 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 │   ├── INDEX.md                <span class="comment">← AIの能力マップ</span>
 │   ├── <span class="folder">skill/</span>                  <span class="comment">← できること定義</span>
 │   ├── <span class="folder">rule/</span>                   <span class="comment">← 行動ルール</span>
-│   ├── <span class="folder">workflow/</span>               <span class="comment">← 手順テンプレート</span>
-│   ├── <span class="folder">project/</span>               <span class="comment">← プロジェクト文脈</span>
-│   └── <span class="folder">hub/</span>                    <span class="comment">← 知識の交差点</span>
+│   └── <span class="folder">project/</span>               <span class="comment">← プロジェクト文脈</span>
 │
 ├── <span class="folder">活動ログ/</span>
-│   ├── <span class="folder">日次/</span>                   <span class="comment">← YYYY-MM-DD.md</span>
-│   └── <span class="folder">プロジェクト別/</span>         <span class="comment">← 長期の変遷記録</span>
+│   └── <span class="folder">日次/</span>                   <span class="comment">← YYYY-MM-DD.md</span>
 │
-├── <span class="folder">プロジェクト/</span>
-│   ├── サービス「星空」設計/     <span class="comment">← UI設計・通知ロジック</span>
-│   ├── 投資Library設計/         <span class="comment">← コンテンツ設計書</span>
-│   └── ゲーム企画/              <span class="comment">← 企画書・プロトタイプ</span>
-│
-└── <span class="folder">設定/</span>
-    ├── マスター設定.md          <span class="comment">← 全体の設定方針</span>
-    ├── セキュリティ設定.md      <span class="comment">← APIキー管理ポリシー</span>
-    └── スキルマップ.md          <span class="comment">← 導入済みスキル一覧</span></div>
+└── <span class="folder">運用/</span>                       <span class="comment">← 運用原則・設定</span></div>
 
     <div class="layer-card">
       <div class="layer-card-title">プロフィール.md <span class="layer-card-tag">MOST IMPORTANT</span></div>
       <div class="layer-card-desc">
-        AIに「あなたが誰か」を伝えるファイル。名前・居住地・職業・目標・技術スキルを書く。これがあるだけで、AIの回答の精度は劇的に変わる。シニアエンジニアと初心者では、同じ質問への回答が変わるべきだからだ。
+        AIに「あなたが誰か」を伝えるファイル。職業・目標・技術スキルを書く。これがあるだけで、AIの回答精度は劇的に変わる。シニア投資家と初心者では、同じ質問への回答が変わるべきだからだ。
       </div>
     </div>
 
     <div class="layer-card">
       <div class="layer-card-title">作業引継ぎ.md <span class="layer-card-tag">SESSION BRIDGE</span></div>
       <div class="layer-card-desc">
-        AIとの会話が終わるたびに更新する。残タスク・次回確認事項・環境情報を記録。次回起動時にこのファイルを読むことで、AIは「昨日の自分」を思い出す。
+        AIとの会話が終わるたびに更新する。残タスク・次回確認事項を記録。次回起動時にこのファイルを読むことで、AIは「昨日の自分」を思い出す。
       </div>
     </div>
 
     <div class="layer-card">
       <div class="layer-card-title">スキルグラフ/ <span class="layer-card-tag">AI CAPABILITY MAP</span></div>
       <div class="layer-card-desc">
-        AIが「何ができるか」の定義。例えば「X投稿を生成するワークフロー」「投資分析記事の書き方」をテンプレートとして保存しておくと、AIは毎回ゼロから考えずに済む。人間でいう「仕事のマニュアル」。
+        AIが「何ができるか」の定義。ワークフローをテンプレートとして保存しておくと、AIは毎回ゼロから考えずに済む。人間でいう「仕事のマニュアル」。
       </div>
     </div>
-  </div>
 
-  <hr class="divider"/>
-
-  <!-- 05 -->
-  <div class="section">
-    <div class="section-num">05</div>
-    <h2 class="section-title">知識の複利が回り始める瞬間</h2>
     <div class="body-text">
       <p>
-        この仕組みを1ヶ月運用すると、ある変化に気づく。
+        この接続を1ヶ月運用すると、ある変化に気づく。最初の1週間は整備の手間がかかる。しかし2週目から、AIが過去の文脈を踏まえた提案をし始める。3週目にはAIが自発的にメモリを更新し始める。
       </p>
       <p>
-        最初の1週間は「AIに読ませるノートを整備する」手間がかかる。プロフィールを書き、引継ぎファイルのフォーマットを決め、ルールを調整する。
-      </p>
-      <p>
-        しかし2週目から、<strong>AIが過去の文脈を踏まえた提案をし始める。</strong>
-      </p>
-      <p>
-        3週目には、AIが自発的にメモリを更新し始める。「この情報は重要なので記録しておきますか？」と提案してくる。
-      </p>
-      <p>
-        1ヶ月後。あなたはこう気づく——<strong>「これは使い捨てのチャットボットではなく、育てた相棒だ」</strong>と。
+        1ヶ月後、あなたはこう気づく——<strong>「これは使い捨てのチャットボットではなく、育てた相棒だ」</strong>と。
       </p>
     </div>
 
@@ -386,68 +728,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
       <div class="compound-caption">COMPOUND GROWTH OF AI × KNOWLEDGE</div>
     </div>
-
-    <div class="body-text">
-      <p>
-        複利が効くポイントは3つある。
-      </p>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">1. 文脈の蓄積 <span class="layer-card-tag">CONTEXT ACCUMULATION</span></div>
-      <div class="layer-card-desc">
-        過去の決定理由が記録に残る。「なぜこの設計にしたのか」を3ヶ月後の自分が——そしてAIが——即座に参照できる。
-      </div>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">2. フィードバックの定着 <span class="layer-card-tag">FEEDBACK LOOP</span></div>
-      <div class="layer-card-desc">
-        「この書き方はやめて」「この提案は良かった」。一度伝えたフィードバックが記録され、二度と同じ指摘をする必要がなくなる。AIの行動品質が上がり続ける。
-      </div>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">3. 知識の接続 <span class="layer-card-tag">KNOWLEDGE LINKING</span></div>
-      <div class="layer-card-desc">
-        投資で学んだ「複利」の概念が、プロジェクト管理の「習慣化」に接続される。Obsidianのリンク機能で異分野の知識がつながり、AIがその接続を活用して新しい視点を提示する。
-      </div>
-    </div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- 06 -->
-  <div class="section">
-    <div class="section-num">06</div>
-    <h2 class="section-title">「3箇所保存」の鉄則 — 知識を失わない仕組み</h2>
-    <div class="body-text">
-      <p>
-        外部脳を運用する上で、最も恐ろしいのは<strong>データの消失</strong>だ。
-      </p>
-      <p>
-        この運用では、重要な変更は必ず3箇所に同時保存するルールを設けている。
-      </p>
-    </div>
-
-    <div class="code-block">保存先1: AIの設定ファイル         ← AIが直接読む場所
-保存先2: クラウドバックアップ      ← 災害・故障対策
-保存先3: Obsidian Vault           ← 人間が読む場所</div>
-
-    <div class="body-text">
-      <p>
-        これは投資でいう<strong>分散投資</strong>と同じ発想だ。一箇所に集中させない。PCが壊れても、クラウドがダウンしても、どこかに残っている。
-      </p>
-      <p>
-        そしてこの「3箇所保存」のルール自体も、AIの行動規則として記録されている。つまり<strong>AIが自動的にバックアップを作る</strong>。人間が忘れても、仕組みが守ってくれる。
-      </p>
-    </div>
-
-    <div class="quote-box">
-      <div class="quote-box-text">
-        「仕組みは意志より強い」——これは投資にも、知識管理にも、等しく当てはまる。
-      </div>
-    </div>
   </div>
 
   <hr class="divider"/>
@@ -455,41 +735,56 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 07 -->
   <div class="section">
     <div class="section-num">07</div>
-    <h2 class="section-title">始め方 — 今日からできる3ステップ</h2>
+    <h2 class="section-title">環境を設計する——意志より仕組みが勝つ</h2>
     <div class="body-text">
       <p>
-        完璧な構造をいきなり作る必要はない。以下の3つだけで始められる。
+        大成功を収めた人物を研究した論文によると、成功とは強い意志力と抵抗に打ち勝つ力の産物ではなく、<strong>最初から抵抗を発生させない賢い仕事環境の成果</strong>であることが、繰り返し示されている（Neal et al., 2012）。
+      </p>
+      <p>
+        これは投資にも、知識管理にも、等しく当てはまる。「毎日メモを書こう」と意志に頼るのではなく、<strong>メモを取りたくなるような環境を設計する</strong>。
       </p>
     </div>
 
-    <div class="layer-card">
-      <div class="layer-card-title">Step 1. Obsidianをインストールする <span class="layer-card-tag">5 MIN</span></div>
-      <div class="layer-card-desc">
-        <a href="https://obsidian.md" style="color:var(--gold2);" target="_blank">obsidian.md</a> から無料ダウンロード。Vaultを1つ作り、フォルダを3つだけ用意する：「走り書き」「プロジェクト」「永久保存版」。
-      </div>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">Step 2. 「プロフィール.md」を書く <span class="layer-card-tag">10 MIN</span></div>
-      <div class="layer-card-desc">
-        自分が誰で、何を目指していて、どんなスキルを持っているかを1ページにまとめる。これだけでAIの応答精度は劇的に上がる。
-      </div>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">Step 3. AIの設定に「読み込み先」を追加 <span class="layer-card-tag">5 MIN</span></div>
-      <div class="layer-card-desc">
-        Claude Codeなら <span class="code-inline">CLAUDE.md</span> に「セッション開始時にプロフィール.mdを読む」と書くだけ。たった1行の設定で、AIはあなたを知った状態で会話を始める。
+    <div class="key-point">
+      <div class="key-point-label">ENVIRONMENT DESIGN</div>
+      <div class="key-point-text">
+        <strong>意志を使わなくて済むような環境を構築することが、成功への始まりになる。</strong><br><br>
+        意味があり目的が定まっている作業は、常に意志を必要としない。仕事そのものにやりがいがあってこそ、やる気を自力で維持できる（DePasque and Tricomi, 2015）。
       </div>
     </div>
 
     <div class="body-text">
       <p>
-        ここから先は、使いながら育てればいい。走り書きフォルダにメモを放り込み、良いものを永久保存版に昇格させ、AIとの会話で得た知見を記録し続ける。
+        具体的にはこうだ。
       </p>
-      <p>
-        <strong>3ヶ月後、あなたのVaultは「もう一つの脳」になっている。</strong>
-      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">1. 開いた瞬間に書ける状態 <span class="layer-card-tag">ZERO FRICTION</span></div>
+      <div class="layer-card-desc">
+        Obsidianを起動したら、デイリーノートが自動で開く設定にする。「どこに書こう」と迷う時間をゼロにする。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">2. 完璧を求めない <span class="layer-card-tag">PROGRESS OVER PERFECTION</span></div>
+      <div class="layer-card-desc">
+        走り書きフォルダに雑に書く。後で磨けばいい。メモは途中でやめて別の学習に移っても構わない。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">3. リンクを貼る習慣 <span class="layer-card-tag">LINK AS THINKING</span></div>
+      <div class="layer-card-desc">
+        リンクを貼る行為そのものが思考の一部。「このメモは何と繋がるか？」と問うだけで、理解が一段深まる。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">4. 「3箇所保存」の鉄則 <span class="layer-card-tag">DISTRIBUTED BACKUP</span></div>
+      <div class="layer-card-desc">
+        重要な変更は必ず3箇所に同時保存する。AIの設定ファイル、クラウドバックアップ、Obsidian Vault。投資でいう分散投資と同じ発想だ。
+      </div>
     </div>
   </div>
 
@@ -498,22 +793,54 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 08 -->
   <div class="section">
     <div class="section-num">08</div>
-    <h2 class="section-title">終わりに — 知識への投資が最もリターンが高い</h2>
+    <h2 class="section-title">始め方——今日からできる3ステップ</h2>
+    <div class="body-text">
+      <p>完璧な構造は要らない。以下の3つだけで始められる。</p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Step 1. Obsidianをインストールする <span class="layer-card-tag">5 MIN</span></div>
+      <div class="layer-card-desc">
+        <a href="https://obsidian.md" style="color:var(--gold2);" target="_blank">obsidian.md</a> から無料ダウンロード。Vaultを1つ作り、フォルダを3つだけ用意：「走り書き」「プロジェクト」「永久保存版」。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Step 2. 今日学んだことを1枚書く <span class="layer-card-tag">10 MIN</span></div>
+      <div class="layer-card-desc">
+        何でもいい。今日読んだ記事、考えたこと、気になった銘柄。<strong>自分の言葉で</strong>1枚書く。これがあなたの最初の「永久保存版」候補だ。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Step 3. 明日、もう1枚書いてリンクする <span class="layer-card-tag">5 MIN</span></div>
+      <div class="layer-card-desc">
+        2枚目を書いたら、1枚目との接続を考える。<span class="code-inline">[[メモのタイトル]]</span>でリンクを貼る。この瞬間、あなたのカード箱は「ネットワーク」になる。複利の1日目だ。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 09 -->
+  <div class="section">
+    <div class="section-num">09</div>
+    <h2 class="section-title">終わりに——人間は計画を立てるのをやめた瞬間、学習を始める</h2>
     <div class="body-text">
       <p>
-        ベンジャミン・フランクリンは言った。<strong>「知識への投資は、最良の利息を生む」</strong>と。
+        学びの目的は、物事の道理をつかみ、人としての使命を知ることだ。
       </p>
       <p>
-        この言葉が発された18世紀には、外部脳もAIも存在しなかった。しかしフランクリン自身、膨大なメモと手紙を体系的に整理する人だった。彼なりの「Obsidian」を持っていたのだ。
+        そもそも学びは人間の営みとしてごく自然なこと。学びは好奇心であり、好奇心は前頭前野の働きであり、前頭前野の育みこそが人生である。
       </p>
       <p>
-        現代の私たちには、フランクリンが夢にも思わなかったツールがある。構造化されたノートを書けば、AIがそれを理解し、活用し、提案してくれる。知識の複利効果は、テクノロジーによって加速している。
+        ルーマンは9万枚のカードで人類の知的遺産を残した。バフェットは読書の複利で世界一の投資家になった。福澤諭吉は学問の力で国を変えようとした。
       </p>
       <p>
-        株式投資で最も重要なのは「市場にいること」——つまり長期で居続けることだ。知識への投資も同じ。<strong>今日書いた1枚のメモが、3年後のあなたの判断を変える。</strong>
+        あなたのカード箱は、まだ空かもしれない。しかし今日書く1枚が、3年後のあなたの判断を変える。
       </p>
       <p>
-        Obsidianを開こう。最初の1枚を書こう。それが、複利の1日目になる。
+        <strong>Obsidianを開こう。最初の1枚を書こう。それが、複利の1日目になる。</strong>
       </p>
     </div>
 
@@ -525,7 +852,74 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
-  <!-- ナビ -->
+  <!-- Reader / PDF Buttons -->
+  <div style="max-width:700px;margin:32px auto;display:flex;gap:12px;flex-wrap:wrap;">
+    <a target="_blank" href="../../reader/?book=obsidian-second-brain" style="flex:1;min-width:200px;display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(135deg,#1a1208 0%,#2d2010 100%);border:1px solid rgba(139,105,20,.25);text-decoration:none;transition:all .2s;">
+      <span style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:1.8rem;color:#d4aa22;flex-shrink:0;">&#128214;</span>
+      <div>
+        <div style="font-family:'Noto Serif JP',serif;font-size:.82rem;font-weight:500;color:#f5ede0;">読書モードで読む</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.46rem;color:#d4aa22;letter-spacing:.1em;">BOOK READER</div>
+      </div>
+      <span style="margin-left:auto;color:#d4aa22;font-size:.9rem;">&#8594;</span>
+    </a>
+    <a target="_blank" href="../../assets/pdf/learning/memo-compound-summary.pdf" style="flex:1;min-width:200px;display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(135deg,#1a1208 0%,#2d2010 100%);border:1px solid rgba(139,105,20,.25);text-decoration:none;transition:all .2s;">
+      <span style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:1.8rem;color:#d4aa22;flex-shrink:0;">&#128196;</span>
+      <div>
+        <div style="font-family:'Noto Serif JP',serif;font-size:.82rem;font-weight:500;color:#f5ede0;">PDFで読む</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.46rem;color:#d4aa22;letter-spacing:.1em;">A4 SUMMARY + WORKSHEET</div>
+      </div>
+      <span style="margin-left:auto;color:#d4aa22;font-size:.9rem;">&#8595;</span>
+    </a>
+  </div>
+
+  <!-- PDF Download -->
+  <div class="pdf-section">
+    <div class="pdf-section-label">PDF DOWNLOAD</div>
+    <a class="pdf-btn" href="../../assets/pdf/learning/memo-compound-summary.pdf" target="_blank">
+      <span class="pdf-btn-icon">&#128214;</span>
+      <span>
+        メモの複利サマリー<br>
+        <span class="pdf-btn-sub">A4 — 1 PAGE</span>
+      </span>
+    </a>
+    <a class="pdf-btn" href="../../assets/pdf/learning/zettelkasten-worksheet.pdf" target="_blank">
+      <span class="pdf-btn-icon">&#128221;</span>
+      <span>
+        ツェッテルカステン実践ワークシート<br>
+        <span class="pdf-btn-sub">A4 — 1 PAGE</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- Reference -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>ズーンク・アーレンス (2017)『TAKE NOTES! — メモで、あなただけのアウトプットが自然にできるようになる』日経BP</li>
+      <li>福澤諭吉『学問のすすめ』現代語訳</li>
+      <li>Cascio, C. N. et al. (2016). Self-affirmation activates brain systems. <em>Social Cognitive and Affective Neuroscience</em>. PMC4814782</li>
+      <li>McDaniel, M. A. & Donnelly, C. M. (1995). Learning with analogy and elaborative interrogation. <em>Journal of Educational Psychology</em></li>
+      <li>Stein, B. S. et al. (1984). Elaboration and knowledge acquisition. <em>Memory & Cognition</em></li>
+      <li>Carey, B. (2014). <em>How We Learn: The Surprising Truth</em>. Random House</li>
+      <li>Neal, D. T. et al. (2012). How do habits guide behavior? <em>Current Directions in Psychological Science</em></li>
+      <li>DePasque, S. & Tricomi, E. (2015). Effects of intrinsic motivation on feedback processing. <em>NeuroImage</em></li>
+      <li>Gadamer, H.-G. (2004). <em>Truth and Method</em>. Continuum (Original 1960)</li>
+      <li>Oppenheimer, D. M. (2006). Consequences of erudite vernacular. <em>Applied Cognitive Psychology</em></li>
+      <li>Schmidt, J. (2015). Niklas Luhmann's Card Index. <em>Universität Bielefeld</em></li>
+    </ul>
+  </div>
+
+  <!-- Graph View -->
+  <div class="section" style="margin-top:48px;">
+    <div class="section-num">GRAPH VIEW</div>
+    <h2 class="section-title">知識のネットワーク — この記事のつながり</h2>
+    <div class="body-text"><p>Obsidianのグラフビューのように、この記事と関連する知識のつながりを可視化。ノードをドラッグして動かせます。</p></div>
+    <div id="graphContainer" style="background:#1a1208;border:1px solid rgba(184,144,10,.2);margin:20px 0;position:relative;overflow:hidden;border-radius:2px;">
+      <canvas id="graphCanvas" style="display:block;width:100%;cursor:grab;"></canvas>
+    </div>
+  </div>
+
+  <!-- Navigation Links -->
   <div class="next-links">
     <a class="next-link" href="../claude-code-memory/">
       <div class="next-link-label">RELATED</div>
@@ -539,15 +933,248 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 </div>
 
+<!-- Floating MyNote Widget -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#d4aa22" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+  <span class="mynote-fab-streak" id="fabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">My Note</span>
+    <span class="mynote-streak" id="streakDisplay"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-progress">
+    <div class="mynote-progress-bar"><div class="mynote-progress-fill" id="progressFill"></div></div>
+    <div class="mynote-progress-label">
+      <span id="progressLabel">0 / 66日</span>
+      <span style="opacity:.5;">習慣化チャレンジ</span>
+    </div>
+  </div>
+  <div class="mynote-nav">
+    <button class="mynote-nav-btn" id="prevDay">&larr;</button>
+    <div class="mynote-nav-date" id="currentDate"></div>
+    <button class="mynote-nav-btn" id="nextDay">&rarr;</button>
+  </div>
+  <textarea class="mynote-textarea" id="noteTextarea" placeholder="今日の気づき、学んだこと..."></textarea>
+  <div class="mynote-status">
+    <div class="mynote-saved" id="savedIndicator">&#10003; 保存済み</div>
+    <div class="mynote-wordcount" id="wordCount">0 文字</div>
+  </div>
+  <div class="mynote-calendar">
+    <div class="mynote-calendar-label" id="calendarLabel"></div>
+    <div class="mynote-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+    <div class="mynote-calendar-grid" id="calendarGrid"></div>
+  </div>
+</div>
+
 <footer class="site-footer">
   <nav class="footer-nav">
-    <a href="../../">Library Top</a>
+    <a href="../../">書斎の入口</a>
     <a href="../">まなびの時間</a>
-    <a href="../../horizons/">視座と背景知識</a>
-    <a href="../../classics/">古典と思想</a>
+    <a href="../../horizons/">思考を広げる</a>
+    <a href="../../classics/">教養と人間理解</a>
+    <a href="../../people/">人物録</a>
   </nav>
   <div class="footer-copy">&copy; 2026 投資と思考の書斎</div>
 </footer>
 
+<script>
+/* === MyNote: Floating panel + Graph View === */
+(function(){
+  /* --- MyNote --- */
+  var STORAGE_PREFIX='myNote_';
+  var today=new Date();
+  var currentViewDate=new Date(today);
+  var saveTimer=null;
+  var fab=document.getElementById('mynoteFab');
+  var panel=document.getElementById('mynotePanel');
+
+  function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function formatDate(d){var days=['日','月','火','水','木','金','土'];return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日（'+days[d.getDay()]+'）';}
+  function getNoteData(d){try{var x=localStorage.getItem(STORAGE_PREFIX+dateKey(d));return x?JSON.parse(x):null;}catch(e){return null;}}
+  function saveNoteData(d,text){if(!text.trim()){localStorage.removeItem(STORAGE_PREFIX+dateKey(d));return;}localStorage.setItem(STORAGE_PREFIX+dateKey(d),JSON.stringify({text:text,savedAt:new Date().toISOString(),chars:text.length}));}
+
+  function calcStreak(){var s=0,d=new Date(today);if(!getNoteData(d))d.setDate(d.getDate()-1);while(true){var n=getNoteData(d);if(n&&n.text&&n.text.trim().length>0){s++;d.setDate(d.getDate()-1);}else break;}return s;}
+  function calcChallengeDays(){var c=0;for(var i=0;i<200;i++){var dd=new Date(today);dd.setDate(dd.getDate()-i);if(getNoteData(dd))c++;}return Math.min(c,66);}
+
+  function updateUI(){
+    document.getElementById('currentDate').textContent=formatDate(currentViewDate);
+    var note=getNoteData(currentViewDate);
+    document.getElementById('noteTextarea').value=note?note.text:'';
+    var count=note?note.text.length:0;
+    document.getElementById('wordCount').textContent=count+' 文字';
+    var streak=calcStreak();
+    document.getElementById('streakDisplay').textContent=streak>0?'\uD83D\uDD25 '+streak+'日連続':'';
+    document.getElementById('fabStreak').textContent=streak>0?'\uD83D\uDD25'+streak:'';
+    var days=calcChallengeDays();
+    document.getElementById('progressFill').style.width=Math.round(days/66*100)+'%';
+    document.getElementById('progressLabel').textContent=days+' / 66日';
+    var isToday=dateKey(currentViewDate)===dateKey(today);
+    document.getElementById('nextDay').style.opacity=isToday?'.3':'1';
+    document.getElementById('nextDay').disabled=isToday;
+    renderCalendar();
+  }
+  function showSaved(){var el=document.getElementById('savedIndicator');var now=new Date();el.textContent='\u2713 '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');el.classList.add('visible');setTimeout(function(){el.classList.remove('visible');},2500);}
+  function renderCalendar(){var grid=document.getElementById('calendarGrid');grid.innerHTML='';var year=currentViewDate.getFullYear(),month=currentViewDate.getMonth();document.getElementById('calendarLabel').textContent=year+'年'+(month+1)+'月';var startDay=(new Date(year,month,1).getDay()+6)%7;var dim=new Date(year,month+1,0).getDate();for(var i=0;i<startDay;i++){var b=document.createElement('div');b.className='mynote-calendar-day';b.style.cssText='background:transparent;border:none;';grid.appendChild(b);}for(var d=1;d<=dim;d++){var cell=document.createElement('div');var cd=new Date(year,month,d);var isFuture=cd>today;var hasNote=!isFuture&&getNoteData(cd);var isT=dateKey(cd)===dateKey(today);cell.className='mynote-calendar-day'+(hasNote?' has-note':'')+(isFuture?' future':'')+(isT&&hasNote?' today':'');grid.appendChild(cell);}}
+
+  fab.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))updateUI();});
+  document.getElementById('mynoteClose').addEventListener('click',function(){panel.classList.remove('open');});
+  document.getElementById('noteTextarea').addEventListener('input',function(){var text=this.value;document.getElementById('wordCount').textContent=text.length+' 文字';clearTimeout(saveTimer);saveTimer=setTimeout(function(){saveNoteData(currentViewDate,text);showSaved();updateUI();},500);this.style.height='auto';this.style.height=Math.max(120,this.scrollHeight)+'px';});
+  document.getElementById('prevDay').addEventListener('click',function(){currentViewDate.setDate(currentViewDate.getDate()-1);updateUI();});
+  document.getElementById('nextDay').addEventListener('click',function(){if(dateKey(currentViewDate)!==dateKey(today)){currentViewDate.setDate(currentViewDate.getDate()+1);updateUI();}});
+  updateUI();
+
+  /* === Graph View: Canvas-based interactive knowledge graph === */
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var W,H,dpr=window.devicePixelRatio||1;
+
+  var nodes=[
+    {id:'self',label:'メモの複利',x:0,y:0,r:22,color:'#d4aa22',fixed:false,cat:'self'},
+    {id:'zettel',label:'Zettelkasten',x:-120,y:-80,r:16,color:'#b8900a',cat:'concept'},
+    {id:'buffett',label:'バフェットの読書',x:130,y:-60,r:14,color:'#5a8a3a',cat:'person'},
+    {id:'munger',label:'マンガーの格子構造',x:100,y:60,r:14,color:'#5a8a3a',cat:'person'},
+    {id:'obsidian',label:'Obsidian',x:-80,y:80,r:16,color:'#8b6914',cat:'tool'},
+    {id:'claude',label:'Claude Code',x:-160,y:30,r:14,color:'#8b6914',cat:'tool'},
+    {id:'compound',label:'複利の力',x:160,y:-130,r:13,color:'#c05020',cat:'article'},
+    {id:'habits',label:'7つの習慣',x:-30,y:-140,r:13,color:'#c05020',cat:'article'},
+    {id:'morning',label:'モーニングメソッド',x:-180,y:-40,r:13,color:'#c05020',cat:'article'},
+    {id:'fukuzawa',label:'福澤諭吉',x:50,y:140,r:12,color:'#5a8a3a',cat:'person'},
+    {id:'luhmann',label:'ルーマン',x:-140,y:-130,r:14,color:'#5a8a3a',cat:'person'},
+    {id:'takenotes',label:'Take Notes!',x:-60,y:-100,r:12,color:'#2a3d6a',cat:'book'},
+    {id:'atomichabits',label:'Atomic Habits',x:30,y:-100,r:12,color:'#2a3d6a',cat:'book'},
+    {id:'memory',label:'記憶を設計する',x:-200,y:90,r:12,color:'#c05020',cat:'article'},
+    {id:'mental',label:'メンタルモデル',x:180,y:20,r:12,color:'#c05020',cat:'article'},
+    {id:'gadamer',label:'解釈学的循環',x:0,y:100,r:11,color:'#2a3d6a',cat:'concept'},
+  ];
+  var edges=[
+    {from:'self',to:'zettel'},{from:'self',to:'buffett'},{from:'self',to:'munger'},
+    {from:'self',to:'obsidian'},{from:'self',to:'claude'},{from:'self',to:'compound'},
+    {from:'self',to:'fukuzawa'},{from:'self',to:'gadamer'},
+    {from:'zettel',to:'luhmann'},{from:'zettel',to:'takenotes'},{from:'zettel',to:'obsidian'},
+    {from:'buffett',to:'compound'},{from:'munger',to:'mental'},{from:'munger',to:'buffett'},
+    {from:'obsidian',to:'claude'},{from:'obsidian',to:'memory'},
+    {from:'habits',to:'self'},{from:'morning',to:'self'},
+    {from:'takenotes',to:'luhmann'},{from:'atomichabits',to:'habits'},
+    {from:'fukuzawa',to:'gadamer'},{from:'compound',to:'munger'},
+  ];
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=Math.max(380,Math.min(500,W*0.6));
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    /* Center nodes */
+    nodes.forEach(function(n){n.px=W/2+n.x;n.py=H/2+n.y;n.vx=0;n.vy=0;});
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();draw();});
+
+  /* Physics */
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=200/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.01;a.vy-=fy*0.01;}
+        if(!b.dragging){b.vx+=fx*0.01;b.vy+=fy*0.01;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=nodes.find(function(n){return n.id===e.from;});
+      var b=nodes.find(function(n){return n.id===e.to;});
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=100;
+      var force=(dist-target)*0.003;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      /* Gravity toward center */
+      n.vx+=(W/2-n.px)*0.0003;
+      n.vy+=(H/2-n.py)*0.0003;
+      /* Damping */
+      n.vx*=0.92;n.vy*=0.92;
+      n.px+=n.vx;n.py+=n.vy;
+      /* Bounds */
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    /* Edges */
+    edges.forEach(function(e){
+      var a=nodes.find(function(n){return n.id===e.from;});
+      var b=nodes.find(function(n){return n.id===e.to;});
+      if(!a||!b)return;
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle='rgba(184,144,10,0.15)';ctx.lineWidth=1;ctx.stroke();
+    });
+    /* Nodes */
+    nodes.forEach(function(n){
+      /* Glow for center */
+      if(n.cat==='self'){
+        ctx.beginPath();ctx.arc(n.px,n.py,n.r+8,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,n.r,n.px,n.py,n.r+8);
+        g.addColorStop(0,'rgba(212,170,34,0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+      /* Node circle */
+      ctx.beginPath();ctx.arc(n.px,n.py,n.r,0,Math.PI*2);
+      ctx.fillStyle=n.hover?'#f0cc55':n.color;ctx.globalAlpha=n.cat==='self'?1:0.7;ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=n.hover?'#f0cc55':'rgba(245,237,224,0.3)';ctx.lineWidth=n.hover?2:1;ctx.stroke();
+      /* Label */
+      ctx.font=(n.cat==='self'?'bold ':'')+Math.max(9,n.r*0.6)+'px "Noto Serif JP",serif';
+      ctx.fillStyle='#f5ede0';ctx.textAlign='center';ctx.textBaseline='middle';
+      /* Measure & shrink if needed */
+      var fs=Math.max(9,n.r*0.6);
+      while(ctx.measureText(n.label).width>n.r*2.8&&fs>6){fs-=0.5;ctx.font=(n.cat==='self'?'bold ':'')+fs+'px "Noto Serif JP",serif';}
+      ctx.fillText(n.label,n.px,n.py+n.r+12);
+    });
+    /* Legend */
+    var cats=[{label:'この記事',color:'#d4aa22'},{label:'概念',color:'#b8900a'},{label:'人物',color:'#5a8a3a'},{label:'書籍',color:'#2a3d6a'},{label:'記事',color:'#c05020'},{label:'ツール',color:'#8b6914'}];
+    ctx.font='9px "DM Mono",monospace';ctx.textAlign='left';
+    cats.forEach(function(c,i){
+      var lx=12,ly=H-10-((cats.length-1-i)*16);
+      ctx.beginPath();ctx.arc(lx,ly,4,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.7;ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='#8b6914';ctx.fillText(c.label,lx+10,ly+3);
+    });
+  }
+
+  /* Drag interaction */
+  var dragNode=null,hoverNode=null;
+  function getNodeAt(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];var dx=x-n.px,dy=y-n.py;if(dx*dx+dy*dy<(n.r+6)*(n.r+6))return n;}return null;}
+  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+
+  canvas.addEventListener('mousedown',function(e){var p=getXY(e);dragNode=getNodeAt(p.x,p.y);if(dragNode){dragNode.dragging=true;canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mousemove',function(e){var p=getXY(e);if(dragNode){dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;}else{var h=getNodeAt(p.x,p.y);nodes.forEach(function(n){n.hover=false;});if(h){h.hover=true;canvas.style.cursor='pointer';}else{canvas.style.cursor='grab';}}});
+  canvas.addEventListener('mouseup',function(){if(dragNode)dragNode.dragging=false;dragNode=null;canvas.style.cursor='grab';});
+  canvas.addEventListener('mouseleave',function(){if(dragNode)dragNode.dragging=false;dragNode=null;nodes.forEach(function(n){n.hover=false;});});
+  /* Touch */
+  canvas.addEventListener('touchstart',function(e){var p=getXY(e);dragNode=getNodeAt(p.x,p.y);if(dragNode){dragNode.dragging=true;e.preventDefault();}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){if(dragNode){var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;e.preventDefault();}},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragNode)dragNode.dragging=false;dragNode=null;});
+
+  /* Animation loop */
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  loop();
+})();
+</script>
+
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
 </body>
 </html>
