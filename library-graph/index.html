@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="投資と思考の書斎の全ページを鳥瞰するナレッジグラフ。記事同士のつながりを視覚的に探索できます。"/>
+<meta property="og:title" content="書庫の鳥瞰図｜投資と思考の書斎"/>
+<meta property="og:description" content="全ページのつながりを視覚的に探索するナレッジグラフ"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/library-graph/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/library-graph/"/>
+<title>書庫の鳥瞰図｜投資と思考の書斎</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#0c0a06;}
+body{font-family:var(--jp);color:var(--parch);}
+
+/* ── Nav ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(12,10,6,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:10px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  border-bottom:1px solid rgba(184,144,10,.2);}
+.nav a{font-family:var(--mono);font-size:.6rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav a:hover{color:var(--gold4);}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem;}
+.nav-current{font-family:var(--mono);font-size:.6rem;color:var(--parch4);letter-spacing:.06em;}
+
+/* ── Title overlay ── */
+.title-overlay{position:fixed;top:48px;left:0;right:0;z-index:50;pointer-events:none;
+  text-align:center;padding:16px 20px 0;}
+.title-main{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;
+  color:var(--parch);text-shadow:0 2px 20px rgba(0,0,0,.6);opacity:.7;}
+.title-sub{font-family:var(--jp);font-size:.7rem;color:var(--parch4);margin-top:4px;opacity:.5;
+  text-shadow:0 1px 8px rgba(0,0,0,.5);}
+
+/* ── Canvas ── */
+#graphCanvas{display:block;width:100%;height:100%;cursor:grab;position:fixed;top:0;left:0;}
+
+/* ── Tooltip ── */
+.graph-tooltip{position:fixed;z-index:200;background:rgba(13,11,6,.94);
+  border:1px solid rgba(184,144,10,.3);padding:10px 14px;pointer-events:none;
+  opacity:0;transition:opacity .15s;max-width:260px;backdrop-filter:blur(6px);}
+.graph-tooltip-title{font-family:var(--jp);font-size:.8rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.12em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.64rem;color:var(--parch3);margin-top:4px;line-height:1.6;}
+.graph-tooltip-hint{font-family:var(--mono);font-size:.38rem;color:rgba(212,170,34,.4);margin-top:6px;letter-spacing:.1em;}
+
+/* ── Legend ── */
+.legend{position:fixed;bottom:16px;left:16px;z-index:100;display:flex;flex-direction:column;gap:5px;}
+.legend-item{display:flex;align-items:center;gap:6px;opacity:.6;}
+.legend-dot{width:8px;height:8px;border-radius:50%;}
+.legend-label{font-family:var(--mono);font-size:.44rem;color:var(--parch4);letter-spacing:.08em;}
+
+/* ── Controls ── */
+.controls{position:fixed;bottom:16px;right:16px;z-index:100;display:flex;gap:6px;}
+.ctrl-btn{background:rgba(26,18,8,.8);border:1px solid rgba(184,144,10,.2);color:var(--gold3);
+  font-family:var(--mono);font-size:.52rem;padding:6px 12px;cursor:pointer;letter-spacing:.08em;
+  transition:all .2s;}
+.ctrl-btn:hover{border-color:var(--gold3);background:rgba(26,18,8,.95);}
+.ctrl-btn.active{background:rgba(184,144,10,.15);border-color:var(--gold3);}
+
+/* ── Filter bar ── */
+.filter-bar{position:fixed;top:48px;right:16px;z-index:100;display:flex;gap:4px;flex-wrap:wrap;
+  max-width:320px;justify-content:flex-end;padding-top:10px;}
+.filter-chip{font-family:var(--mono);font-size:.44rem;padding:3px 8px;
+  border:1px solid rgba(184,144,10,.15);color:var(--parch4);cursor:pointer;
+  transition:all .2s;opacity:.5;letter-spacing:.06em;}
+.filter-chip:hover{opacity:.8;border-color:rgba(184,144,10,.35);}
+.filter-chip.active{opacity:1;border-color:var(--gold3);color:var(--gold3);background:rgba(184,144,10,.1);}
+
+@media(max-width:640px){
+  .filter-bar{top:auto;bottom:48px;right:8px;left:8px;max-width:100%;justify-content:center;}
+  .legend{bottom:90px;left:8px;}
+  .controls{bottom:48px;right:auto;left:50%;transform:translateX(-50%);}
+  .title-overlay{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../">書斎トップ</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">書庫の鳥瞰図</span>
+</nav>
+
+<div class="title-overlay">
+  <div class="title-main">書庫の鳥瞰図</div>
+  <div class="title-sub">全ページのつながりを視覚的に探索する</div>
+</div>
+
+<canvas id="graphCanvas"></canvas>
+
+<div class="graph-tooltip" id="tooltip">
+  <div class="graph-tooltip-title" id="ttTitle"></div>
+  <div class="graph-tooltip-cat" id="ttCat"></div>
+  <div class="graph-tooltip-desc" id="ttDesc"></div>
+  <div class="graph-tooltip-hint" id="ttHint"></div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="filter-bar" id="filterBar"></div>
+
+<div class="controls">
+  <button class="ctrl-btn" id="btnReset" title="位置リセット">RESET</button>
+  <button class="ctrl-btn" id="btnLabels" title="ラベル表示切替">LABELS</button>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ===== Category config ===== */
+var CATS = {
+  principles: {label:'投資原則',  color:'#d4aa22',sort:0},
+  concepts:   {label:'概念・moat', color:'#b8900a',sort:1},
+  horizons:   {label:'思考を広げる',color:'#4888d0',sort:2},
+  human:      {label:'人間理解',   color:'#c05020',sort:3},
+  industries: {label:'業種分析',   color:'#5a8a3a',sort:4},
+  hajimete:   {label:'はじめて',   color:'#7ab05a',sort:5},
+  'life-shelf':{label:'人生の書架',color:'#8b5a3a',sort:6},
+  practice:   {label:'実践',       color:'#6a4a8a',sort:7},
+  tools:      {label:'ツール',     color:'#4a6a8a',sort:8},
+  guide:      {label:'ガイド',     color:'#7ab05a',sort:9},
+  section:    {label:'セクション', color:'#8b6914',sort:10},
+  people:     {label:'人物録',     color:'#3d6828',sort:11},
+  history:    {label:'金融史',     color:'#2a3d6a',sort:12},
+  companies:  {label:'企業研究',   color:'#6a3a2a',sort:13}
+};
+
+/* ===== Node & Edge definitions ===== */
+/* Built from articles.json + major section pages + people + financial history */
+var nodes = [];
+var edges = [];
+var nodeMap = {};
+var nextId = 0;
+
+function addNode(id, label, cat, url, desc, weight){
+  if(nodeMap[id]) return;
+  var c = CATS[cat] || CATS.section;
+  var n = {id:id, label:label, cat:cat, url:url||null, desc:desc||'',
+    color:c.color, r:Math.max(6, Math.min(22, 8 + (weight||0)*2)),
+    x:0, y:0, px:0, py:0, vx:0, vy:0, hover:false, dragging:false, visible:true};
+  nodes.push(n);
+  nodeMap[id] = n;
+}
+
+function addEdge(from, to){
+  if(!nodeMap[from] || !nodeMap[to]) return;
+  edges.push({from:from, to:to});
+}
+
+/* --- Hub nodes (sections) --- */
+addNode('hub-top',      '投資と思考の書斎','section','../',          'トップページ', 7);
+addNode('hub-principles','投資原則',      'principles','../principles/','8つの基本原則', 5);
+addNode('hub-moat',      'moat',          'concepts','../moat/',      '永続的競争優位性', 5);
+addNode('hub-fcf',       'FCF',           'concepts','../fcf/',       'フリーキャッシュフロー', 5);
+addNode('hub-horizons',  '思考を広げる',  'horizons','../horizons/',  '文明・哲学・歴史', 5);
+addNode('hub-human',     '人間理解',      'human','../human/',        '認知バイアス・投資心理', 4);
+addNode('hub-industries','業種分析',      'industries','../industries/','14業種の構造', 4);
+addNode('hub-hajimete',  'はじめての方へ','hajimete','../hajimete/',  'この書斎の歩き方', 4);
+addNode('hub-people',    '人物録',        'people','../people/',      '今をつくる人々', 4);
+addNode('hub-history',   '金融史の書庫',  'history','../horizons/financial-history/','メソポタミアからAI革命まで', 4);
+addNode('hub-companies', '企業研究室',    'companies','../companies/','100社超の分析', 4);
+addNode('hub-life',      '人生の書架',    'life-shelf','../life-shelf/','古典・伝記・原則', 4);
+addNode('hub-morning',   'モーニングメソッド','practice','../morning-method/','SAVERSで朝を変える', 3);
+addNode('hub-nisa',      'NISAの始め方',  'guide','../nisa/',        '全8章のeラーニング', 3);
+addNode('hub-start',     '資産形成入門',  'guide','../start-here/',  '投資を始める前の土台', 3);
+addNode('hub-etf',       'ETF・投信',     'guide','../etf-funds/',   '積立・分散・低コスト', 3);
+addNode('hub-dividend',  '配当',          'guide','../dividends/',   '配当利回りと減配リスク', 3);
+addNode('hub-ideco',     'iDeCo',         'guide','../ideco/',       '税制メリットと引出制約', 3);
+addNode('hub-taxes',     '税金と口座',    'guide','../taxes/',       '配当課税・売却益・口座', 3);
+addNode('hub-risk',      'リスクと守り',  'guide','../risk-defense/','暴落・分散・生活防衛', 3);
+addNode('hub-thinkers',  '思索の回廊',    'section','../thinkers/',  'バフェット・マンガー・アウレリウス', 3);
+addNode('hub-classics',  '古典と先人',    'section','../classics/',  '時を超える知恵', 3);
+addNode('hub-glossary',  '用語集',        'tools','../glossary/',    '50語以上の投資用語', 2);
+addNode('hub-bookguide', '読む・聴く案内室','tools','../book-guide/','書籍ガイド', 2);
+addNode('hub-learning',  'まなびの時間',  'tools','../learning/',    'クイズ・算数・読解', 2);
+
+/* --- Article nodes --- */
+/* Principles */
+addNode('diversification','分散投資',       'principles','../principles/diversification/','集中と分散のバランス',2);
+addNode('circle',         '能力の輪',       'principles','../principles/circle-of-competence/','バフェットの自己認識',2);
+addNode('mr-market',      'ミスター・マーケット','principles','../principles/mr-market/','グレアムの寓話',2);
+addNode('long-term-math', '複利の数学',     'principles','../principles/long-term-math/','72の法則',2);
+addNode('stop-loss',      '損切りの技術',   'principles','../principles/stop-loss/','ストップロス',1);
+
+/* moat */
+addNode('network',        'ネットワーク効果','concepts','../moat/network-effects/','VISA・Meta・Amazon',2);
+addNode('switching',      'スイッチングコスト','concepts','../moat/switching-costs/','ロックイン効果',2);
+addNode('brand',          'ブランド力',      'concepts','../moat/brand-power/','コカ・コーラの堀',2);
+addNode('scale',          '規模の経済',      'concepts','../moat/economies-of-scale/','コスト優位性',1);
+addNode('intangible',     '無形資産',        'concepts','../moat/intangible-assets/','特許・規制・moat',1);
+addNode('fcf-intro',      'FCF入門',         'concepts','../fcf/intro/','営業CF−設備投資',2);
+addNode('analysis',       '企業分析テンプレート','tools','../analysis-template/','実践テンプレート',2);
+
+/* Horizons */
+addNode('civilization',   '文明と投資',      'horizons','../horizons/civilization/','歴史を学ぶ意味',2);
+addNode('capitalism',     '資本主義',        'horizons','../horizons/capitalism/','スミスからマンガーまで',2);
+addNode('compound',       '複利の力',        'horizons','../horizons/compound-interest/','雪だるまの本質',3);
+addNode('value-invest',   'バリュー投資の本質','horizons','../horizons/value-investing-essence/','内在価値とは何か',2);
+addNode('behavioral',     '行動経済学',      'horizons','../horizons/behavioral-economics/','6つの認知バイアス',2);
+addNode('money-history',  'お金の歴史',      'horizons','../horizons/money-history/','物々交換から仮想通貨',2);
+addNode('ochiai',         '落合陽一',        'horizons','../horizons/ochiai-yoichi/','テクノロジーと社会変革',1);
+addNode('safety-margin',  '安全マージン',    'horizons','../horizons/safety-margin/','グレアムの哲学',2);
+addNode('mental-models',  'メンタルモデル',  'horizons','../horizons/mental-models/','マンガーの思考法',3);
+addNode('nietzsche',      'ニーチェと投資',  'horizons','../horizons/nietzsche/','逆張りの哲学',1);
+addNode('zen',            '禅と投資',        'horizons','../horizons/zen/','忍耐と東洋思想',1);
+addNode('bubble-history', 'バブルの歴史',    'horizons','../horizons/bubble-history/','チューリップからリーマン',2);
+addNode('stoicism',       'ストア哲学',      'horizons','../horizons/stoicism/','エピクテトスの知恵',2);
+addNode('evo-psych',      '進化心理学',      'horizons','../horizons/evolutionary-psychology/','群集心理の根源',1);
+addNode('tech-civ',       'テクノロジーと文明','horizons','../horizons/technology-civilization/','AI・エネルギー',1);
+
+/* Human */
+addNode('fomo',           'FOMO',            'human','../human/fomo/','取り残される恐怖',2);
+addNode('loss-aversion',  '損失回避',        'human','../human/loss-aversion/','なぜ損切りできない',2);
+addNode('anchoring',      'アンカリング',    'human','../human/anchoring/','最初の数字に囚われる',1);
+addNode('sunk-cost',      'サンクコスト',    'human','../human/sunk-cost/','埋没費用の罠',1);
+addNode('confirm-bias',   '確証バイアス',    'human','../human/confirmation-bias/','都合の良い情報だけ見る',1);
+addNode('overconfidence',  '過信バイアス',   'human','../human/overconfidence-bias/','ダニング＝クルーガー',1);
+
+/* Industries */
+addNode('it-telecom',     '情報通信業',      'industries','../industries/it-telecom/','SaaS・通信キャリア',2);
+addNode('cybozu-kintone', 'サイボウズとKintone','industries','../industries/cybozu-kintone/','SaaS企業のmoat',1);
+addNode('japan-sectors',  '日本株セクター',  'industries','../industries/japan-sectors/','14業種マップ',2);
+
+/* Hajimete */
+addNode('stock-basics',   '株式投資とは',    'hajimete','../hajimete/stock-basics/','投資の根本',2);
+addNode('returns',        '配当とキャピタルゲイン','hajimete','../hajimete/returns/','2つのリターン',1);
+addNode('index-investing','インデックス投資','hajimete','../hajimete/index-investing/','パッシブ運用',2);
+addNode('per-pbr',        'PER・PBR',        'hajimete','../hajimete/per-pbr/','株価指標入門',1);
+
+/* Life-shelf */
+addNode('morning-practice','朝の実践室',     'life-shelf','../morning-practice/','アファメーション・習慣',2);
+addNode('seven-habits',   '7つの習慣',       'life-shelf','../life-shelf/seven-habits/','コヴィーの原則',2);
+addNode('meditations',    '自省録',          'life-shelf','../life-shelf/meditations/','アウレリウスの知恵',2);
+addNode('atomic-habits',  'Atomic Habits',   'life-shelf','../morning-practice/atomic-habits/','複利で伸びる習慣',2);
+addNode('night-reading',  '夜の読書室',      'life-shelf','../night-reading/','リラックスと内省',1);
+addNode('marcus',         'マルクス・アウレリウス','life-shelf','../life-shelf/marcus-aurelius/','ローマ皇帝の哲学',2);
+
+/* People (selected) */
+addNode('p-tanaka',       '田中渓',          'people','../people/tanaka-kei/','投資・習慣・身体の実践者',1);
+addNode('p-bnf',          'BNF',             'people','../people/bnf/','個人投資家の輪郭',1);
+addNode('p-inamori',      '稲盛和夫',        'people','../people/inamori-kazuo/','京セラ・KDDI・JAL',2);
+addNode('p-taleb',        'タレブ',          'people','../people/taleb/','不確実性の思想家',2);
+addNode('p-seneca',       'セネカ',          'people','../people/seneca/','時間は最大の資産',2);
+addNode('p-drucker',      'ドラッカー',      'people','../people/drucker/','マネジメントの父',1);
+addNode('p-bezos',        'ベゾス',          'people','../people/bezos/','Day 1の哲学',1);
+addNode('p-nadella',      'ナデラ',          'people','../people/nadella/','成長マインドセット',1);
+addNode('p-yanai',        '柳井正',          'people','../people/yanai/','ファーストリテイリング',1);
+addNode('p-epictetus',    'エピクテトス',    'people','../people/epictetus/','ストア哲学の実践者',1);
+addNode('p-naval',        'Naval Ravikant',  'people','../people/naval/','富と幸福のアルゴリズム',1);
+addNode('p-adam-grant',   'アダム・グラント','people','../people/adam-grant/','GIVE & TAKE',1);
+
+/* Financial History (selected) */
+addNode('h-tulip',        'チューリップ・バブル','history','../horizons/financial-history/tulip-bubble/','1637年オランダ',1);
+addNode('h-south-sea',    '南海泡沫事件',    'history','../horizons/financial-history/south-sea/','1720年イギリス',1);
+addNode('h-voc',          'VOC',             'history','../horizons/financial-history/voc/','世界初の株式会社',2);
+addNode('h-bubble',       '日本のバブル経済','history','../horizons/financial-history/bubble/','1980年代の狂騒',2);
+addNode('h-dotcom',       'ドットコム・バブル','history','../horizons/financial-history/dotcom-bubble/','2000年のIT熱狂',1);
+addNode('h-black-monday', 'ブラック・マンデー','history','../horizons/financial-history/black-monday/','1987年の暴落',1);
+
+/* ===== Edges ===== */
+/* Hub connections */
+addEdge('hub-top','hub-principles');addEdge('hub-top','hub-moat');addEdge('hub-top','hub-fcf');
+addEdge('hub-top','hub-horizons');addEdge('hub-top','hub-human');addEdge('hub-top','hub-industries');
+addEdge('hub-top','hub-hajimete');addEdge('hub-top','hub-people');addEdge('hub-top','hub-history');
+addEdge('hub-top','hub-companies');addEdge('hub-top','hub-life');addEdge('hub-top','hub-morning');
+addEdge('hub-top','hub-nisa');addEdge('hub-top','hub-start');addEdge('hub-top','hub-etf');
+addEdge('hub-top','hub-dividend');addEdge('hub-top','hub-ideco');addEdge('hub-top','hub-taxes');
+addEdge('hub-top','hub-risk');addEdge('hub-top','hub-thinkers');addEdge('hub-top','hub-classics');
+addEdge('hub-top','hub-glossary');addEdge('hub-top','hub-bookguide');addEdge('hub-top','hub-learning');
+
+/* Principles cluster */
+addEdge('hub-principles','diversification');addEdge('hub-principles','circle');
+addEdge('hub-principles','mr-market');addEdge('hub-principles','long-term-math');
+addEdge('hub-principles','stop-loss');
+
+/* moat cluster */
+addEdge('hub-moat','network');addEdge('hub-moat','switching');addEdge('hub-moat','brand');
+addEdge('hub-moat','scale');addEdge('hub-moat','intangible');
+addEdge('hub-fcf','fcf-intro');addEdge('hub-fcf','analysis');
+
+/* Horizons cluster */
+addEdge('hub-horizons','civilization');addEdge('hub-horizons','capitalism');
+addEdge('hub-horizons','compound');addEdge('hub-horizons','value-invest');
+addEdge('hub-horizons','behavioral');addEdge('hub-horizons','money-history');
+addEdge('hub-horizons','ochiai');addEdge('hub-horizons','safety-margin');
+addEdge('hub-horizons','mental-models');addEdge('hub-horizons','nietzsche');
+addEdge('hub-horizons','zen');addEdge('hub-horizons','bubble-history');
+addEdge('hub-horizons','stoicism');addEdge('hub-horizons','evo-psych');
+addEdge('hub-horizons','tech-civ');
+
+/* Human cluster */
+addEdge('hub-human','fomo');addEdge('hub-human','loss-aversion');
+addEdge('hub-human','anchoring');addEdge('hub-human','sunk-cost');
+addEdge('hub-human','confirm-bias');addEdge('hub-human','overconfidence');
+
+/* Industries cluster */
+addEdge('hub-industries','it-telecom');addEdge('hub-industries','cybozu-kintone');
+addEdge('hub-industries','japan-sectors');addEdge('it-telecom','cybozu-kintone');
+
+/* Hajimete cluster */
+addEdge('hub-hajimete','stock-basics');addEdge('hub-hajimete','returns');
+addEdge('hub-hajimete','index-investing');addEdge('hub-hajimete','per-pbr');
+
+/* Life-shelf cluster */
+addEdge('hub-life','seven-habits');addEdge('hub-life','meditations');
+addEdge('hub-life','night-reading');addEdge('hub-life','marcus');
+addEdge('hub-morning','morning-practice');addEdge('hub-morning','atomic-habits');
+addEdge('morning-practice','atomic-habits');
+
+/* People cluster */
+addEdge('hub-people','p-tanaka');addEdge('hub-people','p-bnf');
+addEdge('hub-people','p-inamori');addEdge('hub-people','p-taleb');
+addEdge('hub-people','p-seneca');addEdge('hub-people','p-drucker');
+addEdge('hub-people','p-bezos');addEdge('hub-people','p-nadella');
+addEdge('hub-people','p-yanai');addEdge('hub-people','p-epictetus');
+addEdge('hub-people','p-naval');addEdge('hub-people','p-adam-grant');
+
+/* Financial History cluster */
+addEdge('hub-history','h-tulip');addEdge('hub-history','h-south-sea');
+addEdge('hub-history','h-voc');addEdge('hub-history','h-bubble');
+addEdge('hub-history','h-dotcom');addEdge('hub-history','h-black-monday');
+
+/* Cross-cluster connections (knowledge links) */
+addEdge('compound','long-term-math');       /* 複利 ↔ 72の法則 */
+addEdge('value-invest','mr-market');         /* バリュー投資 ↔ ミスターマーケット */
+addEdge('value-invest','safety-margin');     /* バリュー投資 ↔ 安全マージン */
+addEdge('behavioral','fomo');               /* 行動経済学 ↔ FOMO */
+addEdge('behavioral','loss-aversion');       /* 行動経済学 ↔ 損失回避 */
+addEdge('behavioral','anchoring');           /* 行動経済学 ↔ アンカリング */
+addEdge('behavioral','confirm-bias');        /* 行動経済学 ↔ 確証バイアス */
+addEdge('mental-models','circle');           /* メンタルモデル ↔ 能力の輪 */
+addEdge('mental-models','compound');         /* メンタルモデル ↔ 複利の力 */
+addEdge('stoicism','meditations');           /* ストア哲学 ↔ 自省録 */
+addEdge('stoicism','marcus');               /* ストア哲学 ↔ アウレリウス */
+addEdge('stoicism','p-epictetus');           /* ストア哲学 ↔ エピクテトス */
+addEdge('stoicism','p-seneca');             /* ストア哲学 ↔ セネカ */
+addEdge('p-inamori','hub-companies');        /* 稲盛 ↔ 企業研究 */
+addEdge('p-taleb','bubble-history');         /* タレブ ↔ バブルの歴史 */
+addEdge('p-taleb','hub-risk');              /* タレブ ↔ リスクと守り */
+addEdge('bubble-history','h-tulip');         /* バブルの歴史 ↔ チューリップ */
+addEdge('bubble-history','h-south-sea');     /* バブルの歴史 ↔ 南海泡沫 */
+addEdge('bubble-history','h-bubble');        /* バブルの歴史 ↔ 日本バブル */
+addEdge('bubble-history','h-dotcom');        /* バブルの歴史 ↔ ドットコム */
+addEdge('money-history','h-voc');           /* お金の歴史 ↔ VOC */
+addEdge('money-history','capitalism');       /* お金の歴史 ↔ 資本主義 */
+addEdge('civilization','capitalism');         /* 文明 ↔ 資本主義 */
+addEdge('civilization','money-history');      /* 文明 ↔ お金の歴史 */
+addEdge('nietzsche','evo-psych');            /* ニーチェ ↔ 進化心理学 */
+addEdge('zen','p-seneca');                  /* 禅 ↔ セネカ */
+addEdge('seven-habits','circle');            /* 7つの習慣 ↔ 能力の輪 */
+addEdge('atomic-habits','compound');         /* Atomic Habits ↔ 複利の力 */
+addEdge('stop-loss','loss-aversion');        /* 損切り ↔ 損失回避 */
+addEdge('stop-loss','sunk-cost');           /* 損切り ↔ サンクコスト */
+addEdge('sunk-cost','loss-aversion');        /* サンクコスト ↔ 損失回避 */
+addEdge('network','cybozu-kintone');        /* ネットワーク効果 ↔ サイボウズ */
+addEdge('switching','cybozu-kintone');       /* スイッチングコスト ↔ サイボウズ */
+addEdge('stock-basics','returns');           /* 株式投資 ↔ リターン */
+addEdge('index-investing','hub-etf');        /* インデックス ↔ ETF */
+addEdge('returns','hub-dividend');           /* リターン ↔ 配当 */
+addEdge('p-bezos','network');               /* ベゾス ↔ ネットワーク効果 */
+addEdge('p-nadella','tech-civ');            /* ナデラ ↔ テクノロジー */
+addEdge('p-yanai','brand');                 /* 柳井 ↔ ブランド力 */
+addEdge('overconfidence','evo-psych');       /* 過信 ↔ 進化心理学 */
+addEdge('evo-psych','fomo');                /* 進化心理学 ↔ FOMO */
+addEdge('hub-nisa','hub-start');            /* NISA ↔ 資産形成 */
+addEdge('hub-start','hub-etf');             /* 資産形成 ↔ ETF */
+addEdge('hub-start','hub-ideco');           /* 資産形成 ↔ iDeCo */
+addEdge('hub-taxes','hub-nisa');            /* 税金 ↔ NISA */
+addEdge('hub-risk','stop-loss');            /* リスク管理 ↔ 損切り */
+addEdge('hub-risk','diversification');       /* リスク管理 ↔ 分散投資 */
+addEdge('hub-morning','p-tanaka');           /* モーニング ↔ 田中渓 */
+addEdge('p-naval','compound');              /* Naval ↔ 複利 */
+
+/* ===== Build connection map ===== */
+var connMap = {};
+nodes.forEach(function(n){ connMap[n.id] = []; });
+edges.forEach(function(e){
+  if(connMap[e.from]) connMap[e.from].push(e.to);
+  if(connMap[e.to]) connMap[e.to].push(e.from);
+});
+
+/* ===== Canvas setup ===== */
+var canvas = document.getElementById('graphCanvas');
+var ctx = canvas.getContext('2d');
+var dpr = window.devicePixelRatio || 1;
+var W, H;
+var tooltip = document.getElementById('tooltip');
+var ttTitle = document.getElementById('ttTitle');
+var ttCat = document.getElementById('ttCat');
+var ttDesc = document.getElementById('ttDesc');
+var ttHint = document.getElementById('ttHint');
+
+/* Camera (pan & zoom) */
+var cam = {x:0, y:0, zoom:1};
+var showAllLabels = false;
+var activeFilter = null;
+
+function resize(){
+  W = window.innerWidth;
+  H = window.innerHeight;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+/* ===== Initial layout: cluster by category ===== */
+function initLayout(){
+  var catGroups = {};
+  nodes.forEach(function(n){
+    if(!catGroups[n.cat]) catGroups[n.cat] = [];
+    catGroups[n.cat].push(n);
+  });
+  var catKeys = Object.keys(catGroups);
+  var angleStep = (Math.PI * 2) / catKeys.length;
+  var hubRadius = Math.min(W, H) * 0.28;
+
+  catKeys.forEach(function(cat, ci){
+    var angle = angleStep * ci - Math.PI / 2;
+    var cx = W/2 + Math.cos(angle) * hubRadius;
+    var cy = H/2 + Math.sin(angle) * hubRadius;
+    var group = catGroups[cat];
+    group.forEach(function(n, ni){
+      var spread = Math.min(90, 25 + group.length * 5);
+      var ga = (Math.PI * 2 / group.length) * ni;
+      var gr = spread * (0.4 + Math.random() * 0.6);
+      n.x = cx + Math.cos(ga) * gr;
+      n.y = cy + Math.sin(ga) * gr;
+      n.px = n.x; n.py = n.y;
+    });
+  });
+
+  /* Center hub-top */
+  if(nodeMap['hub-top']){
+    nodeMap['hub-top'].px = W/2;
+    nodeMap['hub-top'].py = H/2;
+    nodeMap['hub-top'].x = W/2;
+    nodeMap['hub-top'].y = H/2;
+  }
+}
+
+/* ===== Physics ===== */
+function simulate(){
+  var N = nodes.length;
+  for(var i = 0; i < N; i++){
+    var a = nodes[i];
+    if(!a.visible) continue;
+    for(var j = i + 1; j < N; j++){
+      var b = nodes[j];
+      if(!b.visible) continue;
+      var dx = b.px - a.px, dy = b.py - a.py;
+      var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+      var repulse = 300 / (dist * dist) * 50;
+      var fx = dx / dist * repulse, fy = dy / dist * repulse;
+      if(!a.dragging){ a.vx -= fx * 0.005; a.vy -= fy * 0.005; }
+      if(!b.dragging){ b.vx += fx * 0.005; b.vy += fy * 0.005; }
+    }
+  }
+
+  edges.forEach(function(e){
+    var a = nodeMap[e.from], b = nodeMap[e.to];
+    if(!a || !b || !a.visible || !b.visible) return;
+    var dx = b.px - a.px, dy = b.py - a.py;
+    var dist = Math.sqrt(dx*dx + dy*dy) || 1;
+    var target = 70 + (a.r + b.r);
+    var force = (dist - target) * 0.002;
+    var fx = dx/dist*force, fy = dy/dist*force;
+    if(!a.dragging){ a.vx += fx; a.vy += fy; }
+    if(!b.dragging){ b.vx -= fx; b.vy -= fy; }
+  });
+
+  nodes.forEach(function(n){
+    if(n.dragging || !n.visible) return;
+    n.vx += (W/2 - n.px) * 0.00008;
+    n.vy += (H/2 - n.py) * 0.00008;
+    n.vx *= 0.92; n.vy *= 0.92;
+    n.px += n.vx; n.py += n.vy;
+  });
+}
+
+/* ===== Coordinate transforms ===== */
+function toScreen(wx, wy){
+  return {x: (wx - cam.x) * cam.zoom + W/2, y: (wy - cam.y) * cam.zoom + H/2};
+}
+function toWorld(sx, sy){
+  return {x: (sx - W/2) / cam.zoom + cam.x, y: (sy - H/2) / cam.zoom + cam.y};
+}
+
+/* ===== Draw ===== */
+function draw(){
+  ctx.clearRect(0, 0, W, H);
+
+  /* Background gradient */
+  var bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
+  bg.addColorStop(0, '#12100a');
+  bg.addColorStop(1, '#080604');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  /* Hovered node */
+  var hovId = null, hovConns = {};
+  nodes.forEach(function(n){ if(n.hover) hovId = n.id; });
+  if(hovId){
+    hovConns[hovId] = true;
+    if(connMap[hovId]) connMap[hovId].forEach(function(id){ hovConns[id] = true; });
+  }
+
+  /* Edges */
+  edges.forEach(function(e){
+    var a = nodeMap[e.from], b = nodeMap[e.to];
+    if(!a || !b || !a.visible || !b.visible) return;
+    var sa = toScreen(a.px, a.py), sb = toScreen(b.px, b.py);
+    var isHl = hovId && hovConns[e.from] && hovConns[e.to];
+    ctx.beginPath();
+    ctx.moveTo(sa.x, sa.y); ctx.lineTo(sb.x, sb.y);
+    ctx.strokeStyle = isHl ? 'rgba(212,170,34,0.5)' : 'rgba(139,105,20,0.08)';
+    ctx.lineWidth = isHl ? 1.8 * cam.zoom : 0.6 * cam.zoom;
+    ctx.stroke();
+  });
+
+  /* Nodes */
+  nodes.forEach(function(n){
+    if(!n.visible) return;
+    var s = toScreen(n.px, n.py);
+    var isHov = n.hover;
+    var dimmed = hovId && !hovConns[n.id];
+    var drawR = (isHov ? n.r * 1.2 : n.r) * cam.zoom;
+
+    /* Glow */
+    if((n.id === 'hub-top' || isHov) && !dimmed){
+      ctx.beginPath(); ctx.arc(s.x, s.y, drawR + 12 * cam.zoom, 0, Math.PI*2);
+      var g = ctx.createRadialGradient(s.x, s.y, drawR, s.x, s.y, drawR + 12*cam.zoom);
+      g.addColorStop(0, 'rgba(212,170,34,0.25)'); g.addColorStop(1, 'transparent');
+      ctx.fillStyle = g; ctx.fill();
+    }
+
+    /* Circle */
+    ctx.beginPath(); ctx.arc(s.x, s.y, drawR, 0, Math.PI*2);
+    ctx.fillStyle = isHov ? '#f0cc55' : n.color;
+    ctx.globalAlpha = dimmed ? 0.15 : (n.id === 'hub-top' ? 1 : (isHov ? 0.95 : 0.7));
+    ctx.fill(); ctx.globalAlpha = 1;
+    ctx.strokeStyle = isHov ? 'rgba(240,204,85,0.6)' : 'rgba(245,237,224,0.12)';
+    ctx.lineWidth = (isHov ? 1.5 : 0.5) * cam.zoom;
+    if(!dimmed) ctx.stroke();
+
+    /* Label */
+    var showLabel = showAllLabels || isHov || (hovId && hovConns[n.id]) || n.r >= 14;
+    if(showLabel && !dimmed && cam.zoom > 0.4){
+      var fs = Math.max(7, Math.min(13, n.r * 0.6)) * cam.zoom;
+      ctx.font = (n.r >= 14 ? '600 ' : '300 ') + fs + 'px "Noto Serif JP",serif';
+      ctx.fillStyle = isHov ? '#f0cc55' : 'rgba(245,237,224,0.75)';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(n.label, s.x, s.y + drawR + 8 * cam.zoom);
+    }
+  });
+}
+
+/* ===== Animation loop ===== */
+function loop(){
+  simulate();
+  draw();
+  requestAnimationFrame(loop);
+}
+
+/* ===== Interaction ===== */
+var dragNode = null, isPanning = false;
+var lastMouse = {x:0, y:0}, dragDist = 0;
+
+function getNodeAt(sx, sy){
+  var w = toWorld(sx, sy);
+  for(var i = nodes.length-1; i >= 0; i--){
+    var n = nodes[i];
+    if(!n.visible) continue;
+    var dx = w.x - n.px, dy = w.y - n.py;
+    var hitR = n.r + 6;
+    if(dx*dx + dy*dy < hitR*hitR) return n;
+  }
+  return null;
+}
+
+function showTooltipAt(n, sx, sy){
+  ttTitle.textContent = n.label;
+  ttCat.textContent = (CATS[n.cat] || {label:n.cat}).label;
+  ttDesc.textContent = n.desc;
+  ttHint.textContent = n.url ? 'CLICK TO OPEN' : '';
+  var tx = sx + 18, ty = sy - 12;
+  if(tx + 260 > W) tx = sx - 270;
+  if(ty < 0) ty = sy + 18;
+  tooltip.style.left = tx + 'px'; tooltip.style.top = ty + 'px'; tooltip.style.opacity = '1';
+}
+function hideTooltip(){ tooltip.style.opacity = '0'; }
+
+canvas.addEventListener('mousedown', function(e){
+  var p = {x:e.clientX, y:e.clientY};
+  lastMouse = p; dragDist = 0;
+  dragNode = getNodeAt(p.x, p.y);
+  if(dragNode){ dragNode.dragging = true; canvas.style.cursor = 'grabbing'; }
+  else { isPanning = true; canvas.style.cursor = 'move'; }
+});
+
+canvas.addEventListener('mousemove', function(e){
+  var p = {x:e.clientX, y:e.clientY};
+  if(dragNode){
+    var w = toWorld(p.x, p.y);
+    dragNode.px = w.x; dragNode.py = w.y; dragNode.vx = 0; dragNode.vy = 0;
+    dragDist += Math.abs(p.x - lastMouse.x) + Math.abs(p.y - lastMouse.y);
+    lastMouse = p;
+  } else if(isPanning){
+    cam.x -= (p.x - lastMouse.x) / cam.zoom;
+    cam.y -= (p.y - lastMouse.y) / cam.zoom;
+    lastMouse = p;
+  } else {
+    var h = getNodeAt(p.x, p.y);
+    nodes.forEach(function(n){ n.hover = false; });
+    if(h){ h.hover = true; canvas.style.cursor = h.url ? 'pointer' : 'grab'; showTooltipAt(h, p.x, p.y); }
+    else { canvas.style.cursor = 'grab'; hideTooltip(); }
+  }
+});
+
+canvas.addEventListener('mouseup', function(){
+  if(dragNode){
+    dragNode.dragging = false;
+    if(dragDist < 5 && dragNode.url) window.location.href = dragNode.url;
+    dragNode = null;
+  }
+  isPanning = false;
+  canvas.style.cursor = 'grab';
+});
+
+canvas.addEventListener('mouseleave', function(){
+  if(dragNode) dragNode.dragging = false;
+  dragNode = null; isPanning = false;
+  nodes.forEach(function(n){ n.hover = false; }); hideTooltip();
+});
+
+/* Zoom */
+canvas.addEventListener('wheel', function(e){
+  e.preventDefault();
+  var factor = e.deltaY > 0 ? 0.92 : 1.08;
+  cam.zoom = Math.max(0.2, Math.min(4, cam.zoom * factor));
+}, {passive:false});
+
+/* Touch */
+var touchStartTime = 0, pinchDist0 = 0;
+canvas.addEventListener('touchstart', function(e){
+  if(e.touches.length === 2){
+    var dx = e.touches[0].clientX - e.touches[1].clientX;
+    var dy = e.touches[0].clientY - e.touches[1].clientY;
+    pinchDist0 = Math.sqrt(dx*dx + dy*dy);
+    return;
+  }
+  var t = e.touches[0];
+  lastMouse = {x:t.clientX, y:t.clientY}; dragDist = 0;
+  dragNode = getNodeAt(t.clientX, t.clientY);
+  if(dragNode){ dragNode.dragging = true; touchStartTime = Date.now(); e.preventDefault(); }
+  else { isPanning = true; }
+}, {passive:false});
+
+canvas.addEventListener('touchmove', function(e){
+  if(e.touches.length === 2){
+    var dx = e.touches[0].clientX - e.touches[1].clientX;
+    var dy = e.touches[0].clientY - e.touches[1].clientY;
+    var dist = Math.sqrt(dx*dx + dy*dy);
+    if(pinchDist0 > 0){
+      cam.zoom = Math.max(0.2, Math.min(4, cam.zoom * (dist / pinchDist0)));
+      pinchDist0 = dist;
+    }
+    e.preventDefault(); return;
+  }
+  var t = e.touches[0];
+  var p = {x:t.clientX, y:t.clientY};
+  if(dragNode){
+    var w = toWorld(p.x, p.y);
+    dragNode.px = w.x; dragNode.py = w.y; dragNode.vx = 0; dragNode.vy = 0;
+    dragDist += Math.abs(p.x - lastMouse.x) + Math.abs(p.y - lastMouse.y);
+    lastMouse = p; e.preventDefault();
+  } else if(isPanning){
+    cam.x -= (p.x - lastMouse.x) / cam.zoom;
+    cam.y -= (p.y - lastMouse.y) / cam.zoom;
+    lastMouse = p; e.preventDefault();
+  }
+}, {passive:false});
+
+canvas.addEventListener('touchend', function(){
+  if(dragNode){
+    dragNode.dragging = false;
+    if(dragDist < 8 && dragNode.url) window.location.href = dragNode.url;
+    dragNode = null;
+  }
+  isPanning = false; pinchDist0 = 0;
+});
+
+/* ===== Legend ===== */
+function buildLegend(){
+  var legendEl = document.getElementById('legend');
+  var usedCats = {};
+  nodes.forEach(function(n){ usedCats[n.cat] = true; });
+  var sorted = Object.keys(usedCats).sort(function(a,b){
+    return ((CATS[a]||{sort:99}).sort) - ((CATS[b]||{sort:99}).sort);
+  });
+  legendEl.innerHTML = sorted.map(function(cat){
+    var c = CATS[cat] || {label:cat, color:'#888'};
+    return '<div class="legend-item"><div class="legend-dot" style="background:'+c.color+'"></div><div class="legend-label">'+c.label+'</div></div>';
+  }).join('');
+}
+
+/* ===== Filter chips ===== */
+function buildFilters(){
+  var bar = document.getElementById('filterBar');
+  var usedCats = {};
+  nodes.forEach(function(n){ usedCats[n.cat] = true; });
+  var sorted = Object.keys(usedCats).sort(function(a,b){
+    return ((CATS[a]||{sort:99}).sort) - ((CATS[b]||{sort:99}).sort);
+  });
+  bar.innerHTML = '<div class="filter-chip active" data-cat="all">ALL</div>' +
+    sorted.map(function(cat){
+      var c = CATS[cat] || {label:cat};
+      return '<div class="filter-chip" data-cat="'+cat+'">'+c.label+'</div>';
+    }).join('');
+
+  bar.addEventListener('click', function(e){
+    var chip = e.target.closest('.filter-chip');
+    if(!chip) return;
+    var cat = chip.getAttribute('data-cat');
+    bar.querySelectorAll('.filter-chip').forEach(function(c){ c.classList.remove('active'); });
+    chip.classList.add('active');
+
+    if(cat === 'all'){
+      activeFilter = null;
+      nodes.forEach(function(n){ n.visible = true; });
+    } else {
+      activeFilter = cat;
+      nodes.forEach(function(n){
+        /* Show nodes of this category + hub-top + directly connected */
+        n.visible = (n.cat === cat || n.id === 'hub-top');
+      });
+      /* Also show connected nodes */
+      nodes.forEach(function(n){
+        if(!n.visible) return;
+        if(connMap[n.id]) connMap[n.id].forEach(function(id){
+          if(nodeMap[id]) nodeMap[id].visible = true;
+        });
+      });
+    }
+  });
+}
+
+/* ===== Controls ===== */
+document.getElementById('btnReset').addEventListener('click', function(){
+  cam = {x:0, y:0, zoom:1};
+  initLayout();
+});
+document.getElementById('btnLabels').addEventListener('click', function(){
+  showAllLabels = !showAllLabels;
+  this.classList.toggle('active', showAllLabels);
+});
+
+/* ===== Init ===== */
+resize();
+initLayout();
+cam.x = W/2; cam.y = H/2;
+buildLegend();
+buildFilters();
+window.addEventListener('resize', function(){ resize(); });
+loop();
+
+})();
+</script>
+
+<link rel="stylesheet" href="../shared.css"/>
+</body>
+</html>

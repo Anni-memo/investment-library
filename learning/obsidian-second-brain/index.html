@@ -65,8 +65,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-.hero{background:linear-gradient(160deg,#060404 0%,var(--ink) 30%,#1a1505 60%,#2a1c0a 100%);color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero{background:url('../../assets/hero-poster.jpg') center/cover no-repeat;color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.45) 0%,rgba(10,8,4,.25) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.55) 100%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
 
 /* Hero 3-column layout */
@@ -87,7 +87,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .cockpit-right{display:flex;flex-direction:column;gap:14px;min-width:0;}
 
 /* Graph View */
-.graph-card{background:#0d0f14;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
 .graph-card canvas{display:block;width:100%;cursor:grab;}
 .graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
 .graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
