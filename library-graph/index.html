@@ -404,6 +404,10 @@ var canvas = document.getElementById('graphCanvas');
 var ctx = canvas.getContext('2d');
 var dpr = window.devicePixelRatio || 1;
 var W, H;
+var bgImg = new Image();
+bgImg.src = '../assets/graph-bg.jpg';
+var bgReady = false;
+bgImg.onload = function(){ bgReady = true; };
 var tooltip = document.getElementById('tooltip');
 var ttTitle = document.getElementById('ttTitle');
 var ttCat = document.getElementById('ttCat');
@@ -511,12 +515,23 @@ function toWorld(sx, sy){
 function draw(){
   ctx.clearRect(0, 0, W, H);
 
-  /* Background gradient — 深い藍 × 金の光 */
+  /* Background: photo + overlay */
+  if(bgReady){
+    var imgRatio = bgImg.width / bgImg.height;
+    var canRatio = W / H;
+    var sw, sh, sx, sy;
+    if(canRatio > imgRatio){ sw = bgImg.width; sh = sw / canRatio; sx = 0; sy = (bgImg.height - sh) / 2; }
+    else{ sh = bgImg.height; sw = sh * canRatio; sy = 0; sx = (bgImg.width - sw) / 2; }
+    ctx.globalAlpha = 0.3;
+    ctx.drawImage(bgImg, sx, sy, sw, sh, 0, 0, W, H);
+    ctx.globalAlpha = 1.0;
+  }
+  /* Dark overlay for readability */
   var bg = ctx.createRadialGradient(W/2, H*0.3, 0, W/2, H/2, Math.max(W,H)*0.8);
-  bg.addColorStop(0, '#0a1628');
-  bg.addColorStop(0.4, '#0d1f3c');
-  bg.addColorStop(0.7, '#081430');
-  bg.addColorStop(1, '#040a18');
+  bg.addColorStop(0, 'rgba(10,22,40,0.55)');
+  bg.addColorStop(0.4, 'rgba(13,31,60,0.6)');
+  bg.addColorStop(0.7, 'rgba(8,20,48,0.7)');
+  bg.addColorStop(1, 'rgba(4,10,24,0.8)');
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
   /* Golden nebula */
@@ -524,11 +539,6 @@ function draw(){
   gn1.addColorStop(0, 'rgba(184,144,10,0.06)');
   gn1.addColorStop(1, 'transparent');
   ctx.fillStyle = gn1;
-  ctx.fillRect(0, 0, W, H);
-  var gn2 = ctx.createRadialGradient(W*0.7, H*0.6, 0, W*0.7, H*0.6, W*0.35);
-  gn2.addColorStop(0, 'rgba(100,140,220,0.04)');
-  gn2.addColorStop(1, 'transparent');
-  ctx.fillStyle = gn2;
   ctx.fillRect(0, 0, W, H);
 
   /* Stars (seeded for consistency) */
