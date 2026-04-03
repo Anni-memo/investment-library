@@ -28,12 +28,7 @@
   --mono:'DM Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;overflow:hidden;background:#0c0a06;}
-body::after{content:'';position:fixed;inset:0;z-index:-1;
-  background:url('../assets/hero-poster.jpg') center/cover no-repeat fixed;opacity:.35;}
-body::before{content:'';position:fixed;inset:0;z-index:0;
-  background:linear-gradient(180deg,rgba(10,8,4,.7) 0%,rgba(10,8,4,.5) 40%,rgba(10,8,4,.6) 70%,rgba(10,8,4,.8) 100%);
-  pointer-events:none;}
+html,body{height:100%;overflow:hidden;background:#040a18;}
 body{font-family:var(--jp);color:var(--parch);}
 
 /* ── Nav ── */
@@ -516,12 +511,37 @@ function toWorld(sx, sy){
 function draw(){
   ctx.clearRect(0, 0, W, H);
 
-  /* Background gradient */
-  var bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
-  bg.addColorStop(0, '#12100a');
-  bg.addColorStop(1, '#080604');
+  /* Background gradient — 深い藍 × 金の光 */
+  var bg = ctx.createRadialGradient(W/2, H*0.3, 0, W/2, H/2, Math.max(W,H)*0.8);
+  bg.addColorStop(0, '#0a1628');
+  bg.addColorStop(0.4, '#0d1f3c');
+  bg.addColorStop(0.7, '#081430');
+  bg.addColorStop(1, '#040a18');
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, W, H);
+  /* Golden nebula */
+  var gn1 = ctx.createRadialGradient(W*0.3, H*0.4, 0, W*0.3, H*0.4, W*0.4);
+  gn1.addColorStop(0, 'rgba(184,144,10,0.06)');
+  gn1.addColorStop(1, 'transparent');
+  ctx.fillStyle = gn1;
+  ctx.fillRect(0, 0, W, H);
+  var gn2 = ctx.createRadialGradient(W*0.7, H*0.6, 0, W*0.7, H*0.6, W*0.35);
+  gn2.addColorStop(0, 'rgba(100,140,220,0.04)');
+  gn2.addColorStop(1, 'transparent');
+  ctx.fillStyle = gn2;
+  ctx.fillRect(0, 0, W, H);
+
+  /* Stars (seeded for consistency) */
+  if(!window._stars){
+    window._stars=[];
+    for(var si=0;si<80;si++){
+      window._stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.3,a:Math.random()*0.3+0.1});
+    }
+  }
+  window._stars.forEach(function(st){
+    ctx.beginPath();ctx.arc(st.x*W,st.y*H,st.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(200,210,240,'+st.a+')';ctx.fill();
+  });
 
   /* Hovered node */
   var hovId = null, hovConns = {};
