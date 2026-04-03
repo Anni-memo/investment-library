@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>メモの複利サマリー</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+@page{size:A4;margin:0;}
+body{width:210mm;height:297mm;font-family:'Noto Serif JP',serif;background:#f5ede0;color:#1a1208;position:relative;overflow:hidden;}
+
+/* Background texture */
+body::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4mm,rgba(139,105,20,.03) 4mm,rgba(139,105,20,.03) 4.5mm);pointer-events:none;}
+
+/* Header */
+.header{background:linear-gradient(160deg,#1a1208 0%,#2d2010 100%);color:#f5ede0;padding:18mm 20mm 14mm;position:relative;}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#d4aa22,transparent);}
+.header-label{font-family:'DM Mono',monospace;font-size:7pt;color:#d4aa22;letter-spacing:3pt;margin-bottom:4mm;}
+.header-title{font-size:22pt;font-weight:700;line-height:1.3;margin-bottom:3mm;}
+.header-sub{font-size:9pt;color:#dfc9a8;font-weight:300;line-height:1.7;}
+
+/* Main content */
+.content{padding:10mm 20mm;}
+
+/* Section */
+.section{margin-bottom:8mm;}
+.section-num{font-family:'DM Mono',monospace;font-size:7pt;color:#8b6914;letter-spacing:2pt;margin-bottom:2mm;}
+.section-title{font-size:12pt;font-weight:700;margin-bottom:3mm;color:#1a1208;border-bottom:1px solid rgba(139,105,20,.2);padding-bottom:2mm;}
+.section-body{font-size:8.5pt;line-height:2;color:#2d2010;font-weight:300;}
+.section-body strong{font-weight:600;color:#1a1208;}
+
+/* Key formula */
+.formula{background:#1a1208;color:#f5ede0;padding:5mm 6mm;margin:4mm 0;font-family:'DM Mono',monospace;font-size:8pt;line-height:1.8;border-left:3px solid #d4aa22;}
+
+/* 3 cards */
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm;margin:4mm 0;}
+.card{padding:4mm;border:1px solid rgba(139,105,20,.3);background:rgba(139,105,20,.04);}
+.card-type{font-family:'DM Mono',monospace;font-size:6pt;color:#8b6914;letter-spacing:1pt;margin-bottom:1.5mm;}
+.card-title{font-size:9pt;font-weight:700;margin-bottom:1.5mm;color:#1a1208;}
+.card-desc{font-size:7pt;color:#4a3520;line-height:1.7;font-weight:300;}
+
+/* Quote */
+.quote{border-left:3px solid #d4aa22;padding:3mm 5mm;margin:4mm 0;background:#efe4d0;}
+.quote-text{font-size:8.5pt;color:#2d2010;line-height:1.8;font-style:italic;font-weight:300;}
+.quote-src{font-family:'DM Mono',monospace;font-size:6pt;color:#8b6914;margin-top:1.5mm;}
+
+/* Principles list */
+.principles{list-style:none;padding:0;margin:3mm 0;}
+.principles li{font-size:8pt;line-height:1.8;padding:1.5mm 0 1.5mm 5mm;position:relative;color:#2d2010;font-weight:300;}
+.principles li::before{content:'—';position:absolute;left:0;color:#8b6914;font-family:'DM Mono',monospace;}
+.principles li strong{font-weight:600;color:#1a1208;}
+
+/* Footer */
+.footer{position:absolute;bottom:0;left:0;right:0;background:#1a1208;color:#dfc9a8;padding:4mm 20mm;display:flex;justify-content:space-between;align-items:center;}
+.footer-title{font-size:7pt;color:#d4aa22;font-weight:500;}
+.footer-url{font-family:'DM Mono',monospace;font-size:6pt;color:#8b6914;letter-spacing:.5pt;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">KNOWLEDGE COMPOUND INTEREST</div>
+  <div class="header-title">メモの複利</div>
+  <div class="header-sub">ルーマンの9万枚のカード箱、バフェットの知識の複利、Obsidian×AIの第二の脳。<br>知識は使っても減らない。むしろ使うほど接続が増え、利率そのものが上がる。</div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-num">01 COMPOUND FORMULA</div>
+    <div class="formula">金融資産の複利: 元本 × (1 + 利率)^年数
+知識の複利:     既知 × (1 + 新しい接続)^思考回数
+
+単利のメモ = 書いてフォルダに放り込む → 二度と読み返さない
+複利のメモ = 書いて既存メモにリンク → 過去の思考と化学反応 → 発見が加速</div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">02 ZETTELKASTEN — 6 PRINCIPLES</div>
+    <div class="section-body">
+      <p>ニクラス・ルーマン。70冊以上の著書、400近くの論文。秘密は9万枚のカード箱。</p>
+    </div>
+    <ul class="principles">
+      <li><strong>1枚1アイデア</strong>（アトミックノート）</li>
+      <li><strong>1枚で完結する</strong>内容にする</li>
+      <li><strong>必ず他のカードとリンク</strong>する（孤立したカードは死ぬ）</li>
+      <li><strong>リンクの意味を注釈</strong>する（なぜ繋がるのか）</li>
+      <li><strong>必ず自分の言葉で書く</strong>（コピペ禁止）</li>
+      <li><strong>参考文献を残す</strong></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">03 THREE TYPES OF NOTES</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-type">FLEETING</div>
+        <div class="card-title">走り書き</div>
+        <div class="card-desc">思いついた瞬間にメモ。1-2日以内に永久ノートに昇格か破棄。</div>
+      </div>
+      <div class="card">
+        <div class="card-type">LITERATURE</div>
+        <div class="card-title">文献メモ</div>
+        <div class="card-desc">読書中に自分の言葉で要点をメモ。引用は控え、理解で再構成。</div>
+      </div>
+      <div class="card">
+        <div class="card-type">PERMANENT</div>
+        <div class="card-title">永久保存版</div>
+        <div class="card-desc">1枚1アイデアで丁寧に書き直す。既存ノートとリンク必須。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">04 KEY INSIGHTS</div>
+    <div class="quote">
+      <div class="quote-text">知識は複利のように働く。誰でも実行できるが、ほとんどの人は実行しない。</div>
+      <div class="quote-src">— WARREN BUFFETT</div>
+    </div>
+    <ul class="principles">
+      <li><strong>メモ同士を繋げる</strong> = 社会の異なる要素に同じ構造を発見する行為</li>
+      <li><strong>脳はつながりが多いほど</strong>新しい情報を古い情報に結びつけ、多くを記憶できる</li>
+      <li><strong>環境設計 > 意志力</strong>: 意志を使わず目的に向かえる環境を構築する</li>
+      <li><strong>書くことは考えること</strong>: 書く前に考えるのではなく、書きながら考える</li>
+      <li><strong>解釈学的循環</strong>: 既存知識に新知識が繋がり、理解が螺旋状に深まる</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">05 START TODAY</div>
+    <ul class="principles">
+      <li><strong>Step 1</strong> — Obsidianをインストール。フォルダ3つ：走り書き、プロジェクト、永久保存版</li>
+      <li><strong>Step 2</strong> — 今日学んだことを「自分の言葉で」1枚書く</li>
+      <li><strong>Step 3</strong> — 明日もう1枚書いて、昨日のメモにリンクする。複利の1日目。</li>
+    </ul>
+    <div class="quote">
+      <div class="quote-text">An investment in knowledge pays the best interest.</div>
+      <div class="quote-src">— BENJAMIN FRANKLIN</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div class="footer-url">anni-memo.github.io/investment-library/learning/obsidian-second-brain/</div>
+</div>
+
+</body>
+</html>
