@@ -1117,7 +1117,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       if(!a||!b)return;
       var isHighlight=hovId&&(hovConns[e.from]&&hovConns[e.to]);
       ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
-      var defaultAlpha=isMobile?'rgba(139,105,20,0.75)':'rgba(139,105,20,0.12)';
+      var defaultAlpha=isMobile?'rgba(212,170,34,0.4)':'rgba(139,105,20,0.12)';
       ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':defaultAlpha;
       ctx.lineWidth=isHighlight?1.5:(isMobile?1:0.8);
       ctx.stroke();
