@@ -132,6 +132,399 @@
   border-color: #3a2a18 !important;
 }
 
+/* ── ダークモード: 記事共通テキスト ── */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-title a {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .section-body {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .section-body p {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .section-body ul li {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .section-body a {
+  color: #f5d870 !important;
+  border-bottom-color: rgba(245,216,112,.3) !important;
+}
+[data-theme="dark"] .section-body a:hover {
+  border-bottom-color: #f5d870 !important;
+}
+[data-theme="dark"] .section-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .section-num {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: 本文・段落汎用 ── */
+[data-theme="dark"] .body-text,
+[data-theme="dark"] .intro-text,
+[data-theme="dark"] .intro-body,
+[data-theme="dark"] .intro-concept {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .intro-text p,
+[data-theme="dark"] .intro-body p {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: コールアウト・引用 ── */
+[data-theme="dark"] .callout {
+  background: #221a0e !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .callout-text {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .quote-box {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: 区切り線 ── */
+[data-theme="dark"] .divider,
+[data-theme="dark"] hr.divider {
+  border-top-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: further（関連リンク）セクション ── */
+[data-theme="dark"] .further {
+  background: #1a1208 !important;
+  border-top-color: #3a2a18 !important;
+}
+[data-theme="dark"] .further-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  border-left-color: rgba(212,170,34,.3) !important;
+}
+[data-theme="dark"] .further-link:hover {
+  background: #2d2010 !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .further-link-arrow {
+  color: #f5d870 !important;
+}
+
+/* ── ダークモード: moatカード ── */
+[data-theme="dark"] .moat-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  border-top-color: #d4aa22 !important;
+}
+[data-theme="dark"] .moat-title,
+[data-theme="dark"] .moat-name {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .moat-body,
+[data-theme="dark"] .moat-sub {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .moat-num {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .moat-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .moat-score-num {
+  color: #7ab05a !important;
+}
+[data-theme="dark"] .moat-dot.off {
+  background: #3a2a18 !important;
+}
+
+/* ── ダークモード: 質問ブロック ── */
+[data-theme="dark"] .questions-block {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .questions-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .questions-list li {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: 注意ブロック ── */
+[data-theme="dark"] .caution-block {
+  background: rgba(139,58,26,.12) !important;
+  border-color: rgba(192,80,32,.25) !important;
+}
+[data-theme="dark"] .caution-title {
+  color: #e07040 !important;
+}
+[data-theme="dark"] .caution-body {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: サマリーブロック ── */
+[data-theme="dark"] .summary {
+  background: linear-gradient(135deg, #0e0a04 0%, #1a1208 100%) !important;
+  border-color: rgba(212,170,34,.2) !important;
+}
+
+/* ── ダークモード: メトリクスカード ── */
+[data-theme="dark"] .metric-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .metric-value {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .metric-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .metric-unit,
+[data-theme="dark"] .metric-note {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: チャート ── */
+[data-theme="dark"] .chart-wrap {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .chart-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .chart-note {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: TOC（目次） ── */
+[data-theme="dark"] .toc {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .toc-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .toc-list a {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .toc-list a:hover {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: IRリンク・関連リンク ── */
+[data-theme="dark"] .ir-link,
+[data-theme="dark"] .related-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .ir-link:hover,
+[data-theme="dark"] .related-item:hover {
+  background: #2d2010 !important;
+}
+[data-theme="dark"] .ir-tag,
+[data-theme="dark"] .related-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .ir-name,
+[data-theme="dark"] .related-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .ir-note {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .related-header {
+  color: #e8dcc8 !important;
+  border-bottom-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-section .related-tag {
+  background: rgba(212,170,34,.08) !important;
+  border-color: rgba(212,170,34,.18) !important;
+}
+
+/* ── ダークモード: パスリスト ── */
+[data-theme="dark"] .path-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .path-item:hover {
+  background: #2d2010 !important;
+}
+[data-theme="dark"] .path-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .path-why {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: レイヤーカード ── */
+[data-theme="dark"] .layer-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .layer-card-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .layer-card-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .layer-card-desc {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: キーポイント ── */
+[data-theme="dark"] .key-point {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .key-point-text {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: コンセプトカード ── */
+[data-theme="dark"] .concept-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: チェック・警告ブロック ── */
+[data-theme="dark"] .check-block {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .warning-block {
+  background: rgba(139,58,26,.1) !important;
+  border-color: rgba(192,80,32,.2) !important;
+}
+
+/* ── ダークモード: エディトリアル ── */
+[data-theme="dark"] .editorial-box {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .editorial-label {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: 人物カード ── */
+[data-theme="dark"] .person-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: COMING SOON マーカー ── */
+[data-theme="dark"] .coming-marker {
+  background: #2d2010 !important;
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: フッター ── */
+[data-theme="dark"] .footer {
+  background: #0e0a04 !important;
+  color: #b0a088 !important;
+  border-top-color: rgba(212,170,34,.2) !important;
+}
+[data-theme="dark"] .footer-title {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .footer a {
+  color: #d4aa22 !important;
+}
+
+/* ── ダークモード: 読了時間 ── */
+[data-theme="dark"] .reading-time {
+  color: #d4aa22 !important;
+}
+
+/* ── ダークモード: フィルターバー・ピル ── */
+[data-theme="dark"] .filter-bar {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .filter-pills button,
+[data-theme="dark"] .filter-pill {
+  color: #b0a088 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .filter-pills button.active,
+[data-theme="dark"] .filter-pill.active {
+  color: #f5d870 !important;
+  border-color: #d4aa22 !important;
+}
+
+/* ── ダークモード: 業種名・値 ── */
+[data-theme="dark"] .ind-name {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .ind-row-value {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: 検索UI ── */
+[data-theme="dark"] .search-input {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .search-input::placeholder {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .search-results {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .search-result-item {
+  border-bottom-color: #3a2a18 !important;
+}
+[data-theme="dark"] .search-result-item:hover {
+  background: #221a0e !important;
+}
+[data-theme="dark"] .search-result-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .search-result-desc {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: 結論・コンクルージョン ── */
+[data-theme="dark"] .conclusion {
+  background: linear-gradient(135deg, #0e0a04 0%, #1a1208 100%) !important;
+}
+
+/* ── ダークモード: Other Shelves ── */
+[data-theme="dark"] .other-shelves {
+  background: #1a1208 !important;
+}
+[data-theme="dark"] .other-shelf-link {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .other-shelf-link:hover {
+  background: #2d2010 !important;
+  border-color: #d4aa22 !important;
+  color: #f5d870 !important;
+}
+
+/* ── ダークモード: 汎用テキスト色上書き ── */
+[data-theme="dark"] [class*="-title"]:not(.hero-title):not(.footer-title):not(.ai-chat-title) {
+  color: #e8dcc8;
+}
+[data-theme="dark"] [class*="-desc"],
+[data-theme="dark"] [class*="-body"]:not(.section-body) {
+  color: #d4c8b0;
+}
+[data-theme="dark"] [class*="-tag"]:not(.hero-tag) {
+  color: #d4aa22;
+}
+
 /* ── ダークモード切替ボタン ── */
 .dark-mode-toggle {
   position: fixed;
