@@ -79,6 +79,59 @@
   border-color: #3a2a18;
 }
 
+/* ── ダークモード: インラインスタイル色の上書き ── */
+[data-theme="dark"] .footer {
+  color: var(--ink2) !important;
+}
+[data-theme="dark"] [style*="color:#2d2010"],
+[data-theme="dark"] [style*="color: #2d2010"] {
+  color: var(--ink) !important;
+}
+[data-theme="dark"] [style*="color:#4a3520"],
+[data-theme="dark"] [style*="color: #4a3520"] {
+  color: var(--ink2) !important;
+}
+[data-theme="dark"] [style*="color:#1a1208"],
+[data-theme="dark"] [style*="color: #1a1208"] {
+  color: var(--ink) !important;
+}
+[data-theme="dark"] [style*="color:#dfc9a8"],
+[data-theme="dark"] [style*="color: #dfc9a8"] {
+  color: var(--ink2) !important;
+}
+[data-theme="dark"] [style*="color:#8b6914"],
+[data-theme="dark"] [style*="color: #8b6914"] {
+  color: var(--gold3) !important;
+}
+[data-theme="dark"] [style*="color:#b8900a"],
+[data-theme="dark"] [style*="color: #b8900a"] {
+  color: var(--gold2) !important;
+}
+[data-theme="dark"] [style*="color:#5a9a78"],
+[data-theme="dark"] [style*="color: #5a9a78"] {
+  color: #7cc89a !important;
+}
+[data-theme="dark"] [style*="color:rgba(223,201,168"] {
+  color: var(--ink3) !important;
+}
+[data-theme="dark"] [style*="background:#efe4d0"],
+[data-theme="dark"] [style*="background: #efe4d0"],
+[data-theme="dark"] [style*="background:#f5ede0"],
+[data-theme="dark"] [style*="background: #f5ede0"] {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] [style*="background:#e8d8be"],
+[data-theme="dark"] [style*="background: #e8d8be"] {
+  background: #2d2010 !important;
+}
+[data-theme="dark"] [style*="border-color:#e8d8be"],
+[data-theme="dark"] [style*="border-color: #e8d8be"],
+[data-theme="dark"] [style*="border:1px solid #e8d8be"],
+[data-theme="dark"] [style*="border-bottom:1px solid #e8d8be"] {
+  border-color: #3a2a18 !important;
+}
+
 /* ── ダークモード切替ボタン ── */
 .dark-mode-toggle {
   position: fixed;
