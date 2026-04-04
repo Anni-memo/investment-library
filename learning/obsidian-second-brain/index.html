@@ -121,11 +121,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* Quick Actions Card in Hero */
 .qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
-.qa-card-label{font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
 .quick-actions-v{display:flex;flex-direction:column;gap:6px;}
-.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.52rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
 .qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
-.qa-btn-v .qa-icon{font-size:.7rem;flex-shrink:0;}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
 
 /* Navigation Cockpit below hero */
 .nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -139,7 +139,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
 .ct-item a:hover{color:var(--gold);}
 .ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
-.ct-children{padding-left:20px;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
 .ct-root{opacity:.7;}
 .ct-sibling{opacity:.55;}
 .ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
@@ -1107,13 +1111,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     }
 
     /* Edges */
+    var isMobile='ontouchstart' in window;
     edges.forEach(function(e){
       var a=findNode(e.from),b=findNode(e.to);
       if(!a||!b)return;
       var isHighlight=hovId&&(hovConns[e.from]&&hovConns[e.to]);
       ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
-      ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':'rgba(139,105,20,0.12)';
-      ctx.lineWidth=isHighlight?1.5:0.8;
+      var defaultAlpha=isMobile?'rgba(139,105,20,0.35)':'rgba(139,105,20,0.12)';
+      ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':defaultAlpha;
+      ctx.lineWidth=isHighlight?1.5:(isMobile?1:0.8);
       ctx.stroke();
     });
 
@@ -1230,7 +1236,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   canvas.addEventListener('touchend',function(){
     if(dragNode){
       dragNode.dragging=false;
-      if(dragDist<5&&dragNode.url){window.location.href=dragNode.url;}
+      if(dragDist<5){
+        if(dragNode.url){window.location.href=dragNode.url;}
+        else{
+          /* Tap without drag: toggle hover to show edges */
+          var wasHov=dragNode.hover;
+          nodes.forEach(function(n){n.hover=false;});
+          if(!wasHov){dragNode.hover=true;showTooltip(dragNode,dragNode.px,dragNode.py);}
+          else{hideTooltip();}
+        }
+      }
       dragNode=null;
     }
   });
