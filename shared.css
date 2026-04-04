@@ -3,19 +3,19 @@
    ダークモード・検索・目次・共有・読了時間・印刷
    ══════════════════════════════════════════════ */
 
-/* ── ダークモード変数 ── */
+/* ── ダークモード変数（!importantでページ内:rootの上書きを防止） ── */
 [data-theme="dark"] {
-  --ink:    #e8dcc8;
-  --ink2:   #d4c8b0;
-  --ink3:   #b0a088;
-  --parch:  #1a1208;
-  --parch2: #221a0e;
-  --parch3: #2d2010;
-  --parch4: #3a2a18;
-  --gold:   #d4aa22;
-  --gold2:  #f0cc55;
-  --gold3:  #f5d870;
-  --gold4:  #ffe99a;
+  --ink:    #e8dcc8 !important;
+  --ink2:   #d4c8b0 !important;
+  --ink3:   #b0a088 !important;
+  --parch:  #1a1208 !important;
+  --parch2: #221a0e !important;
+  --parch3: #2d2010 !important;
+  --parch4: #3a2a18 !important;
+  --gold:   #d4aa22 !important;
+  --gold2:  #f0cc55 !important;
+  --gold3:  #f5d870 !important;
+  --gold4:  #ffe99a !important;
 }
 [data-theme="dark"] body {
   background: #1a1208;
@@ -26,6 +26,136 @@
 }
 [data-theme="dark"] .hero {
   background: linear-gradient(160deg, #0e0a04 0%, #1a1208 40%, #2a1c0a 100%) !important;
+}
+/* ── ダークモード: ヒーロー内テキスト（元々ダーク背景で--parchをテキスト色に使用） ── */
+[data-theme="dark"] .hero-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-lead,
+[data-theme="dark"] .hero-sub,
+[data-theme="dark"] .hero-verdict {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .hero-name {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-name-en,
+[data-theme="dark"] .hero-code {
+  color: #a0a0e0 !important;
+}
+[data-theme="dark"] .hero-tag {
+  color: #c0c0ee !important;
+  border-color: rgba(140,140,220,.4) !important;
+}
+[data-theme="dark"] .hero-shelf,
+[data-theme="dark"] .hero-ornament,
+[data-theme="dark"] .hero-label {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .hero-tagline {
+  color: #f5d870 !important;
+}
+/* ── ダークモード: ナビゲーション ── */
+[data-theme="dark"] .nav-current {
+  color: #b0a088 !important;
+}
+/* ── ダークモード: ガイドセクション（トップページ・元々ダーク背景） ── */
+[data-theme="dark"] .guide-q {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .guide-sub {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .guide-btn {
+  color: #d4c8b0 !important;
+  border-color: rgba(212,170,34,.15) !important;
+}
+[data-theme="dark"] .guide-btn:hover {
+  color: #f5d870 !important;
+  border-color: rgba(212,170,34,.35) !important;
+}
+[data-theme="dark"] .guide-btn-icon {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .guide-back {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .guide-micro input {
+  color: #f5ede0 !important;
+  border-color: rgba(212,170,34,.12) !important;
+}
+/* ── ダークモード: ルームカード（元々ダーク背景） ── */
+[data-theme="dark"] .room-card-name {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .room-card-sub {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .room-map-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .room-map-sub {
+  color: #b0a088 !important;
+}
+/* ── ダークモード: シェアセクション ── */
+[data-theme="dark"] .share-section {
+  background: #1a1208 !important;
+  border-top-color: #3a2a18 !important;
+}
+[data-theme="dark"] .share-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .share-x-btn {
+  background: #2d2010 !important;
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .share-x-btn:hover {
+  background: #d4aa22 !important;
+  color: #1a1208 !important;
+}
+/* ── ダークモード: 関連ページ ── */
+[data-theme="dark"] .related-pages {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-pages-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .related-page-link {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-page-link:hover {
+  background: #2d2010 !important;
+  border-color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-page-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-page-title {
+  color: #e8dcc8 !important;
+}
+/* ── ダークモード: 結論・コンクルージョン（元々ダーク背景） ── */
+[data-theme="dark"] .conclusion-text {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .conclusion-text strong {
+  color: #ffe99a !important;
+}
+/* ── ダークモード: related（企業ページ等・元々ダーク背景） ── */
+[data-theme="dark"] .related {
+  background: #0e0a04 !important;
+}
+[data-theme="dark"] .related-link {
+  background: rgba(255,255,255,.04) !important;
+  border-color: rgba(212,170,34,.18) !important;
+}
+[data-theme="dark"] .related-link:hover {
+  background: rgba(255,255,255,.07) !important;
+  border-color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-title {
+  color: #e8dcc8 !important;
 }
 [data-theme="dark"] .book-card,
 [data-theme="dark"] .investor-card,
