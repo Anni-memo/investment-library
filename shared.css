@@ -3,19 +3,19 @@
    ダークモード・検索・目次・共有・読了時間・印刷
    ══════════════════════════════════════════════ */
 
-/* ── ダークモード変数（!importantでページ内:rootの上書きを防止） ── */
+/* ── ダークモード変数（JS側でinline style importantとして注入。ここはフォールバック） ── */
 [data-theme="dark"] {
-  --ink:    #e8dcc8 !important;
-  --ink2:   #d4c8b0 !important;
-  --ink3:   #b0a088 !important;
-  --parch:  #1a1208 !important;
-  --parch2: #221a0e !important;
-  --parch3: #2d2010 !important;
-  --parch4: #3a2a18 !important;
-  --gold:   #d4aa22 !important;
-  --gold2:  #f0cc55 !important;
-  --gold3:  #f5d870 !important;
-  --gold4:  #ffe99a !important;
+  --ink:    #e8dcc8;
+  --ink2:   #d4c8b0;
+  --ink3:   #b0a088;
+  --parch:  #1a1208;
+  --parch2: #221a0e;
+  --parch3: #2d2010;
+  --parch4: #3a2a18;
+  --gold:   #d4aa22;
+  --gold2:  #f0cc55;
+  --gold3:  #f5d870;
+  --gold4:  #ffe99a;
 }
 [data-theme="dark"] body {
   background: #1a1208;
