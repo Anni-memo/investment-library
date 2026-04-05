@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="日本を代表する200社超を業種別ツリーで一望する企業連想マップ。気になる業種を開いて、企業分析ページへ。"/>
+<meta property="og:title" content="企業連想｜投資と思考の書斎"/>
+<meta property="og:description" content="17業種・200社超を業種別ツリーで一望。気になる企業の分析ページへ直行。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/company-map/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/company-map/"/>
+<title>企業連想｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "企業連想",
+  "description": "日本を代表する200社超を業種別ツリーで一望する企業連想マップ。",
+  "url": "https://anni-memo.github.io/investment-library/company-map/",
+  "isPartOf": {"@type": "WebSite", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+    {"@type": "ListItem", "position": 2, "name": "企業連想"}
+  ]}
+}
+</script>
+
+<link rel="stylesheet" href="../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
+.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
+
+/* ── STATS ── */
+.stats{display:flex;justify-content:center;gap:32px;margin-top:24px;position:relative;}
+.stat{text-align:center;}
+.stat-num{font-family:var(--mono);font-size:1.4rem;color:var(--gold3);font-weight:700;}
+.stat-label{font-family:var(--mono);font-size:.5rem;color:var(--parch4);letter-spacing:.12em;margin-top:2px;opacity:.7;}
+
+/* ── CONTENT ── */
+.content{max-width:760px;margin:0 auto;padding:48px 24px 12px;}
+
+/* ── COMPANY TREE ── */
+.tree{margin-top:8px;}
+.tree-branch{margin-bottom:2px;}
+.tree-toggle{
+  display:flex;align-items:center;gap:10px;width:100%;
+  padding:14px 20px;background:var(--parch2);border:1px solid var(--parch4);
+  border-left:3px solid var(--gold2);cursor:pointer;transition:all .2s;
+  font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);
+}
+.tree-toggle:hover{background:var(--parch3);border-left-color:var(--gold3);}
+.tree-toggle::before{
+  content:'';display:inline-block;width:0;height:0;
+  border-left:5px solid var(--gold2);border-top:4px solid transparent;border-bottom:4px solid transparent;
+  transition:transform .2s;flex-shrink:0;
+}
+.tree-branch.open .tree-toggle::before{transform:rotate(90deg);}
+.tree-count{font-family:var(--mono);font-size:.55rem;color:var(--gold);opacity:.7;letter-spacing:.06em;margin-left:auto;}
+.tree-leaves{
+  display:none;padding:0 0 0 22px;
+  border-left:3px solid rgba(184,144,10,.15);margin-left:0;
+}
+.tree-branch.open .tree-leaves{display:block;}
+.tree-leaf{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;border-bottom:1px solid var(--parch3);
+  text-decoration:none;color:inherit;transition:all .15s;
+}
+.tree-leaf:last-child{border-bottom:none;}
+.tree-leaf:hover{background:var(--parch2);padding-left:22px;}
+.tree-leaf-line{width:12px;height:1px;background:var(--parch4);flex-shrink:0;}
+.tree-leaf-name{font-family:var(--serif);font-size:.86rem;color:var(--ink);font-weight:500;}
+.tree-leaf-code{font-family:var(--mono);font-size:.5rem;color:var(--gold);opacity:.6;letter-spacing:.06em;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">企業連想</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">COMPANY MAP · 企業連想</div>
+  <h1 class="hero-title">企業連想</h1>
+  <p class="hero-lead">日本を代表する企業を、業種別のツリーで一望する。<br>気になる業種を開いて、企業の分析ページへ。</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="totalCompanies">0</div><div class="stat-label">COMPANIES</div></div>
+    <div class="stat"><div class="stat-num" id="totalIndustries">0</div><div class="stat-label">INDUSTRIES</div></div>
+  </div>
+</div>
+
+<!-- ── TREE ── -->
+<main class="content">
+  <div class="tree" id="companyTree"></div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../hajimete/">初めての方へ</a> ·
+    <a href="../start-here/">はじめての資産形成</a> ·
+    <a href="../companies/">企業分析</a> ·
+    <a href="../moat/">moat</a> ·
+    <a href="../industries/">業種分析</a> ·
+    <a href="../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:8px;font-size:.6rem;opacity:.5;">&copy; 投資と思考の書斎</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+<script src="companies.js"></script>
+<script>
+(function(){
+const el=document.getElementById('companyTree');
+let total=0;
+COMPANY_TREE.forEach(([cat,list])=>{
+  total+=list.length;
+  const b=document.createElement('div');b.className='tree-branch';
+  b.innerHTML='<div class="tree-toggle">'+cat+'<span class="tree-count">'+list.length+'社</span></div><div class="tree-leaves">'+list.map(function(x){return '<a class="tree-leaf" href="../companies/'+x[0]+'/"><span class="tree-leaf-line"></span><span class="tree-leaf-name">'+x[1]+'</span><span class="tree-leaf-code">'+x[2]+'</span></a>';}).join('')+'</div>';
+  b.querySelector('.tree-toggle').onclick=function(){b.classList.toggle('open');};
+  el.appendChild(b);
+});
+document.getElementById('totalCompanies').textContent=total;
+document.getElementById('totalIndustries').textContent=COMPANY_TREE.length;
+})();
+</script>
+<script src="../shared.js"></script>
+<script src="../ai-assistant.js"></script>
+<script src="../mynote.js"></script>
+</body>
+</html>
