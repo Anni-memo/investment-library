@@ -24,10 +24,22 @@
 [data-theme="dark"] html {
   background: #0e0a04;
 }
-[data-theme="dark"] .hero {
+[data-theme="dark"] .hero:not(.hero--home) {
   background: linear-gradient(160deg, rgba(14,10,4,.75) 0%, rgba(26,18,8,.65) 40%, rgba(42,28,10,.75) 100%),
               url('assets/hero-dark.jpg') center/cover no-repeat !important;
   color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero--home {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero--home .hero-video-wrap,
+[data-theme="dark"] .hero--home .hero-video-fallback {
+  background: url('assets/hero-dark.jpg') center/cover no-repeat !important;
+  opacity: 1 !important;
+}
+[data-theme="dark"] .hero--home .hero-video,
+[data-theme="dark"] .hero--home .hero-video-overlay {
+  display: none !important;
 }
 /* ── ダークモード: ヒーロー内テキスト（元々ダーク背景で--parchをテキスト色に使用） ── */
 [data-theme="dark"] .hero-title,
