@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIエージェントはサイボウズのチームワーク理念を殺すか。コスト構造を職種別に解剖し、AI時代のSaaS企業の生存条件を分析する。"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/research/cybozu-investment/"/>
 <title>AIエージェントはチームを殺すか——サイボウズの人件費と「チームワーク」哲学の存続 | 投資ライブラリ</title>
-<meta name="description" content="「AIエージェントがあれば一人で会社が動く」という言説が広がる中、サイボウズの最大コストである人件費はAIで圧縮されるか。そして「チームワークあふれる社会」という企業理念は時代遅れになるのか。">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"AIエージェントはチームを殺すか",
+  "datePublished":"2026-03-28",
+  "author":{"@type":"Person","name":"anni_memo"},
+  "publisher":{"@type":"Organization","name":"投資と思考の書斎"},
+  "about":["サイボウズ","AIエージェント","SaaS"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+JP:wght@400;600&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) -->
@@ -238,10 +250,40 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
   </div>
 </div>
 
+<!-- ── NAV COCKPIT ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">LOCATION</div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">📚</span><a href="../../">書斎の入口</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">📂</span><a href="../">論考の棚</a><span class="ct-count">14</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">📄</span><span>AIエージェントはチームを殺すか</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-moat/">サイボウズ moat解剖</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-saas-future/">kintoneは生き残るか</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-verdict/">投資判断：サイボウズを買うか、売るか</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">⏱ 約15分</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">TABLE OF CONTENTS</div>
+    <ol class="toc-list">
+      <li><span class="toc-num">00</span><a href="#sec-brief">THIS ESSAY IN BRIEF</a></li>
+      <li><span class="toc-num">01</span><a href="#sec-cost">コスト構造の解剖</a></li>
+      <li><span class="toc-num">02</span><a href="#sec-ai">人件費とAI圧縮</a></li>
+      <li><span class="toc-num">03</span><a href="#sec-solo">一人で会社が動く世界</a></li>
+      <li><span class="toc-num">04</span><a href="#sec-teamwork">チームワークあふれる社会</a></li>
+    </ol>
+  </div>
+</div>
+
 <!-- SUMMARY -->
 <div class="summary-wrap">
   <div class="summary-inner">
-    <h2>THIS ESSAY IN BRIEF</h2>
+    <h2 id="sec-brief">THIS ESSAY IN BRIEF</h2>
     <p class="summary-text">
       SNSには「AIエージェントがあれば一人で会社が動く」という投稿が溢れる。実際、2026年のAIエージェントは単純なタスクを超え、コード生成・顧客対応・データ分析・プレゼン作成を並行して実行する。この流れはサイボウズに2つの問いを突きつける——（1）サイボウズ自身の販管費（人件費58%）はAIで圧縮されるか、（2）サイボウズが支援する「チームワーク」そのものが不要になるとき、企業理念とビジネスモデルは成立するか。
     </p>
@@ -258,7 +300,7 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
 <div class="section">
   <div class="container">
     <div class="section-label">SECTION 01</div>
-    <h2>サイボウズのコスト構造——販管費に何が隠れているか</h2>
+    <h2 id="sec-cost">サイボウズのコスト構造——販管費に何が隠れているか</h2>
 
     <p>
       サイボウズは典型的なSaaS型コスト構造を持つ。売上総利益率は約80%と高水準だが、売上高販管費率も70%超と高く、結果として営業利益率は10〜15%に抑えられる。このコスト構造の最大の塊が人件費だ。
@@ -366,7 +408,7 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
 <div class="section">
   <div class="container">
     <div class="section-label">SECTION 02</div>
-    <h2>人件費のどこをAIは圧縮できるか——職種別解剖</h2>
+    <h2 id="sec-ai">人件費のどこをAIは圧縮できるか——職種別解剖</h2>
 
     <p>
       「AIエージェントが仕事を奪う」という言説は正確ではない。正確には「AIエージェントが特定の仕事を代替し、他の仕事を変容させ、新しい仕事を生む」だ。サイボウズの職種別に、AIエージェントによる圧縮可能性を解剖する。
@@ -460,7 +502,7 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
 <div class="section">
   <div class="container">
     <div class="section-label">SECTION 03</div>
-    <h2>「AIエージェントがあれば一人で会社が動く」——この仮説の実態</h2>
+    <h2 id="sec-solo">「AIエージェントがあれば一人で会社が動く」——この仮説の実態</h2>
 
     <p>
       2026年、SNSには毎日のように「AIエージェントに全部任せて自分は1時間だけ働いている」「一人でSaaS事業を立ち上げた」「5人分の仕事をAIにやらせている」という投稿が流れる。これは誇張か、それとも現実か。
@@ -549,7 +591,7 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
 <div class="section">
   <div class="container">
     <div class="section-label">SECTION 04</div>
-    <h2>「チームワークあふれる社会」——この理念はAI時代に成立するか</h2>
+    <h2 id="sec-teamwork">「チームワークあふれる社会」——この理念はAI時代に成立するか</h2>
 
     <p>
       サイボウズの企業理念は「チームワークあふれる社会を作る」だ。この理念は2000年代に策定され、20年以上一貫して会社の行動原理になってきた。しかし今、この理念の根幹が問われている。
