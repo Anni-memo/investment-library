@@ -57,10 +57,32 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .hero-tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:20px;position:relative;}
 .hero-tag{font-family:var(--mono);font-size:.5rem;padding:3px 10px;border:1px solid rgba(90,138,58,.4);color:var(--green4);letter-spacing:.1em;}
 .hero-verdict{
-  margin-top:28px;position:relative;
+  margin-top:0;position:relative;
   font-family:var(--serif);font-size:clamp(.88rem,2vw,1rem);
   color:var(--parch3);font-style:italic;line-height:1.9;
-  max-width:540px;margin-left:auto;margin-right:auto;
+  max-width:none;text-align:left;
+}
+.hero-bottom{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  margin-top:28px;position:relative;max-width:700px;
+  margin-left:auto;margin-right:auto;
+}
+.hero-bottom .hero-pdf-btn{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:7px;
+  padding:11px 24px;font-family:var(--mono);font-size:.6rem;font-weight:600;
+  color:var(--green4);border:1px solid rgba(90,138,58,.4);
+  letter-spacing:.12em;text-decoration:none;transition:all .25s;
+  border-radius:2px;white-space:nowrap;background:transparent;
+}
+.hero-bottom .hero-pdf-btn:hover{
+  border-color:rgba(90,138,58,.7);background:rgba(90,138,58,.1);
+  color:var(--green5,#b8e6a0);
+}
+.hero-bottom .hero-pdf-btn svg{opacity:.7;transition:opacity .2s;}
+.hero-bottom .hero-pdf-btn:hover svg{opacity:1;}
+@media(max-width:600px){
+  .hero-bottom{flex-direction:column;gap:18px;}
+  .hero-verdict{text-align:center;}
 }
 
 /* ── CONTAINER ── */
@@ -166,10 +188,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <span class="hero-tag">無借金経営</span>
     <span class="hero-tag">グローバルニッチ</span>
   </div>
-  <p class="hero-verdict">
-    世界中の工場ラインに深く組み込まれた、静かなるインフラ企業。<br>
-    直販で顧客課題に食い込む仕組みが、参入を阻む。
-  </p>
+  <div class="hero-bottom">
+    <p class="hero-verdict">
+      世界中の工場ラインに深く組み込まれた、静かなるインフラ企業。<br>
+      直販で顧客課題に食い込む仕組みが、参入を阻む。
+    </p>
+    <a class="hero-pdf-btn" href="../../assets/pdf/keyence-integrated-report.pdf" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+      INTEGRATED REPORT
+    </a>
+  </div>
 </div>
 
 <!-- ── MAIN ── -->
@@ -676,5 +704,6 @@ window.addEventListener('scroll',()=>{
 </script>
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
 </body>
 </html>
