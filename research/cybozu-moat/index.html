@@ -14,7 +14,20 @@
 <meta property="og:title" content="サイボウズ moat解剖｜論考の棚"/>
 <meta property="og:description" content="kintone・Garoon・サイボウズOffice——製品全体像と財務5年データ、450社パートナーエコシステム、離職率28%→4%の経営哲学まで。PER12.7倍に沈んだ今、長期投資家として何を見るか。"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="description" content="サイボウズの8つのmoatを解剖。財務指標・製品エコシステム・パートナー網・経営哲学——kintone/Garoonを支える競争優位の構造。"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/research/cybozu-moat/"/>
 <title>サイボウズ moat解剖｜論考の棚</title>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"サイボウズ moat解剖",
+  "datePublished":"2026-03-28",
+  "author":{"@type":"Person","name":"anni_memo"},
+  "publisher":{"@type":"Organization","name":"投資と思考の書斎"},
+  "about":["サイボウズ","moat分析","SaaS"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
 <style>
@@ -230,6 +243,33 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px;}
 .footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.65;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
 .footer-copy{font-family:var(--mono);font-size:.46rem;color:var(--parch4);opacity:.35;letter-spacing:.12em;}
+
+/* ── NAV COCKPIT ── */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}.ct-item a:hover{color:var(--gold);}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}.ct-sibling{opacity:.55;}.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.ct-count{font-family:var(--mono);font-size:.42rem;color:var(--ink3);opacity:.5;margin-left:6px;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{grid-template-columns:1fr;gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
 </style>
 <link rel="stylesheet" href="../../shared.css"/>
 </head>
@@ -265,6 +305,39 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 
+<!-- ── NAV COCKPIT ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">LOCATION</div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">📚</span><a href="../../">書斎の入口</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">📂</span><a href="../">論考の棚</a><span class="ct-count">14</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">📄</span><span>サイボウズ moat解剖</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-investment/">AIエージェントはチームを殺すか</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-saas-future/">kintoneは生き残るか</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-verdict/">投資判断：サイボウズを買うか、売るか</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">⏱ 約20分</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">TABLE OF CONTENTS</div>
+    <ol class="toc-list">
+      <li><span class="toc-num">00</span><a href="#sec-metrics">財務・事業 主要指標</a></li>
+      <li><span class="toc-num">01</span><a href="#sec-who">サイボウズとは何者か</a></li>
+      <li><span class="toc-num">02</span><a href="#sec-products">製品エコシステム全体図</a></li>
+      <li><span class="toc-num">03</span><a href="#sec-finance">財務の深掘り</a></li>
+      <li><span class="toc-num">04</span><a href="#sec-competitors">競合比較マップ</a></li>
+      <li><span class="toc-num">05</span><a href="#sec-moat">5大 moat 解剖</a></li>
+      <li><span class="toc-num">06</span><a href="#sec-partners">パートナーエコシステム</a></li>
+      <li><span class="toc-num">07</span><a href="#sec-philosophy">経営哲学という競争優位</a></li>
+    </ol>
+  </div>
+</div>
+
 <!-- SUMMARY -->
 <div class="summary-wrap">
   <div class="summary-inner">
@@ -283,7 +356,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="article-inner">
 
     <!-- KEY METRICS -->
-    <div class="section-title">
+    <div class="section-title" id="sec-metrics">
       <span>KEY METRICS</span>
       財務・事業 主要指標（2025年12月期）
     </div>
@@ -331,7 +404,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 01: 会社概要 -->
-    <div class="section-title">
+    <div class="section-title" id="sec-who">
       <span>SECTION 01</span>
       サイボウズとは何者か——青野慶久という経営者
     </div>
@@ -403,7 +476,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 02: 製品全体像 -->
-    <div class="section-title">
+    <div class="section-title" id="sec-products">
       <span>SECTION 02</span>
       製品エコシステム全体図——4製品の役割と数字
     </div>
@@ -506,7 +579,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 03: 財務深掘り -->
-    <div class="section-title">
+    <div class="section-title" id="sec-finance">
       <span>SECTION 03</span>
       財務の深掘り——5年間で何が変わったか
     </div>
@@ -608,7 +681,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 04: 競合比較 -->
-    <div class="section-title">
+    <div class="section-title" id="sec-competitors">
       <span>SECTION 04</span>
       競合比較マップ——kintoneはどこと戦っているか
     </div>
@@ -691,7 +764,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 05: 5大moat -->
-    <div class="section-title">
+    <div class="section-title" id="sec-moat">
       <span>SECTION 05</span>
       5大 moat 解剖——どこが本当に強いか
     </div>
@@ -831,7 +904,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 06: パートナーエコシステム詳細 -->
-    <div class="section-title">
+    <div class="section-title" id="sec-partners">
       <span>SECTION 06</span>
       パートナーエコシステムの解剖——なぜ外資は複製できないか
     </div>
@@ -855,7 +928,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
 
     <!-- SECTION 07: 経営哲学 -->
-    <div class="section-title">
+    <div class="section-title" id="sec-philosophy">
       <span>SECTION 07</span>
       経営哲学という競争優位——「公明正大」の徹底
     </div>
@@ -1007,5 +1080,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
 </body>
 </html>

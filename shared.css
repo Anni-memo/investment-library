@@ -3,7 +3,7 @@
    ダークモード・検索・目次・共有・読了時間・印刷
    ══════════════════════════════════════════════ */
 
-/* ── ダークモード変数 ── */
+/* ── ダークモード変数（JS側でinline style importantとして注入。ここはフォールバック） ── */
 [data-theme="dark"] {
   --ink:    #e8dcc8;
   --ink2:   #d4c8b0;
@@ -25,7 +25,138 @@
   background: #0e0a04;
 }
 [data-theme="dark"] .hero {
-  background: linear-gradient(160deg, #0e0a04 0%, #1a1208 40%, #2a1c0a 100%) !important;
+  background: linear-gradient(160deg, rgba(14,10,4,.55) 0%, rgba(26,18,8,.45) 40%, rgba(42,28,10,.55) 100%),
+              url('assets/hero-dark.jpg') center/cover no-repeat !important;
+}
+/* ── ダークモード: ヒーロー内テキスト（元々ダーク背景で--parchをテキスト色に使用） ── */
+[data-theme="dark"] .hero-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-lead,
+[data-theme="dark"] .hero-sub,
+[data-theme="dark"] .hero-verdict {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .hero-name {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-name-en,
+[data-theme="dark"] .hero-code {
+  color: #a0a0e0 !important;
+}
+[data-theme="dark"] .hero-tag {
+  color: #c0c0ee !important;
+  border-color: rgba(140,140,220,.4) !important;
+}
+[data-theme="dark"] .hero-shelf,
+[data-theme="dark"] .hero-ornament,
+[data-theme="dark"] .hero-label {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .hero-tagline {
+  color: #f5d870 !important;
+}
+/* ── ダークモード: ナビゲーション ── */
+[data-theme="dark"] .nav-current {
+  color: #b0a088 !important;
+}
+/* ── ダークモード: ガイドセクション（トップページ・元々ダーク背景） ── */
+[data-theme="dark"] .guide-q {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .guide-sub {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .guide-btn {
+  color: #d4c8b0 !important;
+  border-color: rgba(212,170,34,.15) !important;
+}
+[data-theme="dark"] .guide-btn:hover {
+  color: #f5d870 !important;
+  border-color: rgba(212,170,34,.35) !important;
+}
+[data-theme="dark"] .guide-btn-icon {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .guide-back {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .guide-micro input {
+  color: #f5ede0 !important;
+  border-color: rgba(212,170,34,.12) !important;
+}
+/* ── ダークモード: ルームカード（元々ダーク背景） ── */
+[data-theme="dark"] .room-card-name {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .room-card-sub {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .room-map-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .room-map-sub {
+  color: #b0a088 !important;
+}
+/* ── ダークモード: シェアセクション ── */
+[data-theme="dark"] .share-section {
+  background: #1a1208 !important;
+  border-top-color: #3a2a18 !important;
+}
+[data-theme="dark"] .share-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .share-x-btn {
+  background: #2d2010 !important;
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .share-x-btn:hover {
+  background: #d4aa22 !important;
+  color: #1a1208 !important;
+}
+/* ── ダークモード: 関連ページ ── */
+[data-theme="dark"] .related-pages {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-pages-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .related-page-link {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-page-link:hover {
+  background: #2d2010 !important;
+  border-color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-page-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-page-title {
+  color: #e8dcc8 !important;
+}
+/* ── ダークモード: 結論・コンクルージョン（元々ダーク背景） ── */
+[data-theme="dark"] .conclusion-text {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .conclusion-text strong {
+  color: #ffe99a !important;
+}
+/* ── ダークモード: related（企業ページ等・元々ダーク背景） ── */
+[data-theme="dark"] .related {
+  background: #0e0a04 !important;
+}
+[data-theme="dark"] .related-link {
+  background: rgba(255,255,255,.04) !important;
+  border-color: rgba(212,170,34,.18) !important;
+}
+[data-theme="dark"] .related-link:hover {
+  background: rgba(255,255,255,.07) !important;
+  border-color: #d4aa22 !important;
+}
+[data-theme="dark"] .related-title {
+  color: #e8dcc8 !important;
 }
 [data-theme="dark"] .book-card,
 [data-theme="dark"] .investor-card,
@@ -130,6 +261,399 @@
 [data-theme="dark"] [style*="border:1px solid #e8d8be"],
 [data-theme="dark"] [style*="border-bottom:1px solid #e8d8be"] {
   border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: 記事共通テキスト ── */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-title a {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .section-body {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .section-body p {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .section-body ul li {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .section-body a {
+  color: #f5d870 !important;
+  border-bottom-color: rgba(245,216,112,.3) !important;
+}
+[data-theme="dark"] .section-body a:hover {
+  border-bottom-color: #f5d870 !important;
+}
+[data-theme="dark"] .section-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .section-num {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: 本文・段落汎用 ── */
+[data-theme="dark"] .body-text,
+[data-theme="dark"] .intro-text,
+[data-theme="dark"] .intro-body,
+[data-theme="dark"] .intro-concept {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .intro-text p,
+[data-theme="dark"] .intro-body p {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: コールアウト・引用 ── */
+[data-theme="dark"] .callout {
+  background: #221a0e !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .callout-text {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .quote-box {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: 区切り線 ── */
+[data-theme="dark"] .divider,
+[data-theme="dark"] hr.divider {
+  border-top-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: further（関連リンク）セクション ── */
+[data-theme="dark"] .further {
+  background: #1a1208 !important;
+  border-top-color: #3a2a18 !important;
+}
+[data-theme="dark"] .further-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  border-left-color: rgba(212,170,34,.3) !important;
+}
+[data-theme="dark"] .further-link:hover {
+  background: #2d2010 !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .further-link-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .further-link-arrow {
+  color: #f5d870 !important;
+}
+
+/* ── ダークモード: moatカード ── */
+[data-theme="dark"] .moat-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  border-top-color: #d4aa22 !important;
+}
+[data-theme="dark"] .moat-title,
+[data-theme="dark"] .moat-name {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .moat-body,
+[data-theme="dark"] .moat-sub {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .moat-num {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .moat-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .moat-score-num {
+  color: #7ab05a !important;
+}
+[data-theme="dark"] .moat-dot.off {
+  background: #3a2a18 !important;
+}
+
+/* ── ダークモード: 質問ブロック ── */
+[data-theme="dark"] .questions-block {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .questions-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .questions-list li {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: 注意ブロック ── */
+[data-theme="dark"] .caution-block {
+  background: rgba(139,58,26,.12) !important;
+  border-color: rgba(192,80,32,.25) !important;
+}
+[data-theme="dark"] .caution-title {
+  color: #e07040 !important;
+}
+[data-theme="dark"] .caution-body {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: サマリーブロック ── */
+[data-theme="dark"] .summary {
+  background: linear-gradient(135deg, #0e0a04 0%, #1a1208 100%) !important;
+  border-color: rgba(212,170,34,.2) !important;
+}
+
+/* ── ダークモード: メトリクスカード ── */
+[data-theme="dark"] .metric-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .metric-value {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .metric-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .metric-unit,
+[data-theme="dark"] .metric-note {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: チャート ── */
+[data-theme="dark"] .chart-wrap {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .chart-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .chart-note {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: TOC（目次） ── */
+[data-theme="dark"] .toc {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .toc-label {
+  color: #f0cc55 !important;
+}
+[data-theme="dark"] .toc-list a {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .toc-list a:hover {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: IRリンク・関連リンク ── */
+[data-theme="dark"] .ir-link,
+[data-theme="dark"] .related-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .ir-link:hover,
+[data-theme="dark"] .related-item:hover {
+  background: #2d2010 !important;
+}
+[data-theme="dark"] .ir-tag,
+[data-theme="dark"] .related-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .ir-name,
+[data-theme="dark"] .related-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .ir-note {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .related-header {
+  color: #e8dcc8 !important;
+  border-bottom-color: #3a2a18 !important;
+}
+[data-theme="dark"] .related-section .related-tag {
+  background: rgba(212,170,34,.08) !important;
+  border-color: rgba(212,170,34,.18) !important;
+}
+
+/* ── ダークモード: パスリスト ── */
+[data-theme="dark"] .path-item {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .path-item:hover {
+  background: #2d2010 !important;
+}
+[data-theme="dark"] .path-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .path-why {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: レイヤーカード ── */
+[data-theme="dark"] .layer-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .layer-card-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .layer-card-tag {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .layer-card-desc {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: キーポイント ── */
+[data-theme="dark"] .key-point {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .key-point-text {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: コンセプトカード ── */
+[data-theme="dark"] .concept-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: チェック・警告ブロック ── */
+[data-theme="dark"] .check-block {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .warning-block {
+  background: rgba(139,58,26,.1) !important;
+  border-color: rgba(192,80,32,.2) !important;
+}
+
+/* ── ダークモード: エディトリアル ── */
+[data-theme="dark"] .editorial-box {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .editorial-label {
+  color: #f0cc55 !important;
+}
+
+/* ── ダークモード: 人物カード ── */
+[data-theme="dark"] .person-card {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+
+/* ── ダークモード: COMING SOON マーカー ── */
+[data-theme="dark"] .coming-marker {
+  background: #2d2010 !important;
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: フッター ── */
+[data-theme="dark"] .footer {
+  background: #0e0a04 !important;
+  color: #b0a088 !important;
+  border-top-color: rgba(212,170,34,.2) !important;
+}
+[data-theme="dark"] .footer-title {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .footer a {
+  color: #d4aa22 !important;
+}
+
+/* ── ダークモード: 読了時間 ── */
+[data-theme="dark"] .reading-time {
+  color: #d4aa22 !important;
+}
+
+/* ── ダークモード: フィルターバー・ピル ── */
+[data-theme="dark"] .filter-bar {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .filter-pills button,
+[data-theme="dark"] .filter-pill {
+  color: #b0a088 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .filter-pills button.active,
+[data-theme="dark"] .filter-pill.active {
+  color: #f5d870 !important;
+  border-color: #d4aa22 !important;
+}
+
+/* ── ダークモード: 業種名・値 ── */
+[data-theme="dark"] .ind-name {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .ind-row-value {
+  color: #d4c8b0 !important;
+}
+
+/* ── ダークモード: 検索UI ── */
+[data-theme="dark"] .search-input {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .search-input::placeholder {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .search-results {
+  background: #1a1208 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .search-result-item {
+  border-bottom-color: #3a2a18 !important;
+}
+[data-theme="dark"] .search-result-item:hover {
+  background: #221a0e !important;
+}
+[data-theme="dark"] .search-result-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .search-result-desc {
+  color: #b0a088 !important;
+}
+
+/* ── ダークモード: 結論・コンクルージョン ── */
+[data-theme="dark"] .conclusion {
+  background: linear-gradient(135deg, #0e0a04 0%, #1a1208 100%) !important;
+}
+
+/* ── ダークモード: Other Shelves ── */
+[data-theme="dark"] .other-shelves {
+  background: #1a1208 !important;
+}
+[data-theme="dark"] .other-shelf-link {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .other-shelf-link:hover {
+  background: #2d2010 !important;
+  border-color: #d4aa22 !important;
+  color: #f5d870 !important;
+}
+
+/* ── ダークモード: 汎用テキスト色上書き ── */
+[data-theme="dark"] [class*="-title"]:not(.hero-title):not(.footer-title):not(.ai-chat-title) {
+  color: #e8dcc8;
+}
+[data-theme="dark"] [class*="-desc"],
+[data-theme="dark"] [class*="-body"]:not(.section-body) {
+  color: #d4c8b0;
+}
+[data-theme="dark"] [class*="-tag"]:not(.hero-tag) {
+  color: #d4aa22;
 }
 
 /* ── ダークモード切替ボタン ── */
@@ -460,6 +984,407 @@
 }
 @media print {
   .hero-actions { display: none !important; }
+}
+
+/* ── ベンチマークテンプレート ダークモード対応 ── */
+[data-theme="dark"] .qa-card {
+  background: rgba(212,170,34,.08);
+  border-color: rgba(212,170,34,.25);
+}
+[data-theme="dark"] .qa-card-label {
+  color: rgba(245,216,112,.6);
+}
+[data-theme="dark"] .qa-btn-v {
+  background: rgba(212,170,34,.1);
+  border-color: rgba(212,170,34,.3);
+  color: #e8dcc8;
+}
+[data-theme="dark"] .qa-btn-v:hover {
+  background: rgba(212,170,34,.2);
+  border-color: #f5d870;
+  color: #ffe99a;
+}
+[data-theme="dark"] .graph-card {
+  border-color: rgba(212,170,34,.25);
+}
+[data-theme="dark"] .nav-cockpit .cockpit-panel {
+  background: #221a0e;
+  border-color: #3a2a18;
+}
+[data-theme="dark"] .cockpit-label {
+  color: #d4aa22;
+}
+[data-theme="dark"] .cockpit-label::after {
+  background: #3a2a18;
+}
+[data-theme="dark"] .cockpit-tree .ct-item a {
+  color: #b0a088;
+}
+[data-theme="dark"] .cockpit-tree .ct-item a:hover {
+  color: #f5d870;
+}
+[data-theme="dark"] .ct-current {
+  background: rgba(212,170,34,.12);
+  border-left-color: #d4aa22;
+}
+[data-theme="dark"] .ct-current span:not(.ct-icon) {
+  color: #f0cc55;
+}
+[data-theme="dark"] .ct-children::before {
+  background: rgba(212,170,34,.25);
+}
+[data-theme="dark"] .ct-children .ct-item::before {
+  background: rgba(212,170,34,.35);
+}
+[data-theme="dark"] .cockpit-reading {
+  color: #d4aa22;
+  border-top-color: #3a2a18;
+}
+[data-theme="dark"] .toc-list a {
+  color: #d4c8b0;
+}
+[data-theme="dark"] .toc-list a:hover {
+  color: #f5d870;
+  background: rgba(212,170,34,.06);
+}
+[data-theme="dark"] .toc-list li {
+  border-bottom-color: rgba(212,170,34,.08);
+}
+[data-theme="dark"] .comparison-card.before {
+  background: rgba(192,80,32,.1);
+  border-color: rgba(192,80,32,.3);
+}
+[data-theme="dark"] .comparison-card.after {
+  background: rgba(90,138,58,.1);
+  border-color: rgba(90,138,58,.3);
+}
+[data-theme="dark"] .comparison-text {
+  color: #d4c8b0;
+}
+[data-theme="dark"] .note-card {
+  border-color: #3a2a18;
+}
+[data-theme="dark"] .note-card.fleeting {
+  background: rgba(212,170,34,.08);
+  border-color: rgba(212,170,34,.25);
+}
+[data-theme="dark"] .note-card.literature {
+  background: rgba(90,138,58,.08);
+  border-color: rgba(90,138,58,.25);
+}
+[data-theme="dark"] .note-card.permanent {
+  background: rgba(42,61,106,.1);
+  border-color: rgba(42,61,106,.3);
+}
+[data-theme="dark"] .note-card-title {
+  color: #e8dcc8;
+}
+[data-theme="dark"] .note-card-desc {
+  color: #b0a088;
+}
+[data-theme="dark"] .timeline {
+  border-left-color: #3a2a18;
+}
+[data-theme="dark"] .timeline-item::before {
+  background: #d4aa22;
+  border-color: #1a1208;
+}
+[data-theme="dark"] .timeline-text {
+  color: #d4c8b0;
+}
+[data-theme="dark"] .pdf-section {
+  background: linear-gradient(135deg, #1a1208 0%, #2a1c0a 100%);
+  border-color: rgba(212,170,34,.3);
+}
+[data-theme="dark"] .pdf-btn {
+  background: rgba(212,170,34,.15);
+  border-color: rgba(212,170,34,.35);
+  color: #e8dcc8;
+}
+[data-theme="dark"] .pdf-btn:hover {
+  background: rgba(212,170,34,.25);
+  border-color: #f5d870;
+}
+[data-theme="dark"] .next-link {
+  background: #221a0e;
+  border-color: #3a2a18;
+}
+[data-theme="dark"] .next-link:hover {
+  border-color: #d4aa22;
+  background: #2d2010;
+}
+[data-theme="dark"] .next-link-title {
+  color: #e8dcc8;
+}
+[data-theme="dark"] .ref-section {
+  border-top-color: #3a2a18;
+}
+[data-theme="dark"] .ref-list li {
+  color: #b0a088;
+}
+[data-theme="dark"] .site-footer {
+  background: #0d0a04;
+  border-top-color: rgba(212,170,34,.2);
+}
+[data-theme="dark"] .mynote-fab-paper {
+  background: linear-gradient(135deg, #2d2010 0%, #221a0e 100%);
+  border-color: #3a2a18;
+}
+[data-theme="dark"] .mynote-fab-paper::before {
+  background: linear-gradient(135deg, #3a2a18 50%, #221a0e 50%);
+}
+[data-theme="dark"] .mynote-fab-lines span {
+  background: #3a2a18;
+}
+[data-theme="dark"] .mynote-panel {
+  background: #1a1208;
+  border-color: #3a2a18;
+}
+[data-theme="dark"] .mynote-panel-body {
+  background-image: repeating-linear-gradient(transparent, transparent 27px, #2d2010 27px, #2d2010 28px);
+}
+[data-theme="dark"] .mynote-panel-body textarea,
+[data-theme="dark"] .mynote-panel textarea {
+  color: #e8dcc8 !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .mynote-card-nav-btn {
+  border-color: #3a2a18;
+  color: #b0a088;
+}
+[data-theme="dark"] .mynote-card-nav-btn:hover {
+  border-color: #d4aa22;
+  color: #d4aa22;
+}
+
+/* ── ベンチマークテンプレート ダークモード対応（追加） ── */
+
+/* ヒーロー内テキスト: 背景が暗い画像なのでダークモードでも明るい色を維持 */
+[data-theme="dark"] .hero {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .hero-sub {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .hero-lead {
+  color: #dfc9a8 !important;
+}
+[data-theme="dark"] .hero-label {
+  color: #f5d870 !important;
+}
+
+/* ナビバー */
+[data-theme="dark"] .nav-back {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .nav-back:hover {
+  color: #ffe99a !important;
+}
+[data-theme="dark"] .nav-sep {
+  color: rgba(245,216,112,.4) !important;
+}
+[data-theme="dark"] .nav-current {
+  color: #e8dcc8 !important;
+}
+
+/* グラフカード */
+[data-theme="dark"] .graph-card-label {
+  color: rgba(245,216,112,.5) !important;
+}
+[data-theme="dark"] .graph-tooltip-title {
+  color: #f5ede0 !important;
+}
+[data-theme="dark"] .graph-tooltip-cat {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .graph-tooltip-desc {
+  color: #e8dcc8 !important;
+}
+
+/* コックピット */
+[data-theme="dark"] .cockpit-panel {
+  background: #221a0e !important;
+  border-color: #3a2a18 !important;
+}
+[data-theme="dark"] .cockpit-sublabel {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .ct-children .ct-item::before {
+  background: rgba(212,170,34,.35) !important;
+}
+[data-theme="dark"] .ct-children .ct-item:last-child::after {
+  background: #221a0e !important;
+}
+[data-theme="dark"] .ct-count {
+  color: #d4aa22 !important;
+}
+
+/* セクション・本文 */
+[data-theme="dark"] .section-num {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .section-title {
+  color: #e8dcc8 !important;
+  border-bottom-color: #3a2a18 !important;
+}
+[data-theme="dark"] .body-text {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .body-text strong {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .divider {
+  border-top-color: #3a2a18 !important;
+}
+
+/* 引用ボックス */
+[data-theme="dark"] .quote-box {
+  background: #221a0e !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .quote-box-text {
+  color: #d4c8b0 !important;
+}
+[data-theme="dark"] .quote-box-src {
+  color: #d4aa22 !important;
+}
+
+/* キーポイント */
+[data-theme="dark"] .key-point {
+  border-color: rgba(212,170,34,.4) !important;
+  background: linear-gradient(135deg, rgba(212,170,34,.08) 0%, transparent 100%) !important;
+}
+[data-theme="dark"] .key-point-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .key-point-label::after {
+  background: #3a2a18 !important;
+}
+[data-theme="dark"] .key-point-text {
+  color: #d4c8b0 !important;
+}
+
+/* 比較カード */
+[data-theme="dark"] .comparison-label {
+  color: inherit !important;
+}
+[data-theme="dark"] .comparison-card.before .comparison-label {
+  color: #e07050 !important;
+}
+[data-theme="dark"] .comparison-card.after .comparison-label {
+  color: #7ab858 !important;
+}
+
+/* タイムライン */
+[data-theme="dark"] .timeline-year {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .timeline-item::before {
+  border-color: #1a1208 !important;
+}
+
+/* ノートカードタイプ */
+[data-theme="dark"] .note-card-type {
+  color: inherit !important;
+}
+
+/* レイヤーカード */
+[data-theme="dark"] .layer-card {
+  background: #221a0e !important;
+  border-left-color: #d4aa22 !important;
+}
+[data-theme="dark"] .layer-card-title {
+  color: #e8dcc8 !important;
+}
+[data-theme="dark"] .layer-card-tag {
+  color: #d4aa22 !important;
+  background: rgba(212,170,34,.12) !important;
+}
+[data-theme="dark"] .layer-card-desc {
+  color: #d4c8b0 !important;
+}
+
+/* 複利ビジュアル（既に暗背景のためテキスト色を維持） */
+[data-theme="dark"] .compound-visual {
+  background: #0d0a04 !important;
+}
+[data-theme="dark"] .compound-bar-label {
+  color: #dfc9a8 !important;
+}
+[data-theme="dark"] .compound-bar-val {
+  color: #ffe99a !important;
+}
+[data-theme="dark"] .compound-caption {
+  color: #dfc9a8 !important;
+}
+
+/* PDFセクション */
+[data-theme="dark"] .pdf-section-label {
+  color: #f5d870 !important;
+}
+
+/* 次の記事リンク */
+[data-theme="dark"] .next-link-label {
+  color: #d4aa22 !important;
+}
+
+/* 参考文献 */
+[data-theme="dark"] .ref-label {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .ref-list li::before {
+  color: #d4aa22 !important;
+}
+
+/* フッター */
+[data-theme="dark"] .footer-nav a {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .footer-copy {
+  color: #dfc9a8 !important;
+}
+
+/* MyNote追加 */
+[data-theme="dark"] .mynote-panel-header {
+  background: #0d0a04 !important;
+  border-bottom: 1px solid rgba(212,170,34,.2) !important;
+}
+[data-theme="dark"] .mynote-panel-title {
+  color: #f5d870 !important;
+}
+[data-theme="dark"] .mynote-panel-close {
+  color: #f0cc55 !important;
+  font-weight: 700 !important;
+}
+[data-theme="dark"] .mynote-panel-close:hover {
+  color: #ffe99a !important;
+}
+[data-theme="dark"] .mynote-card-date {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .mynote-card-saved {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .mynote-card-wordcount {
+  color: #b0a088 !important;
+}
+[data-theme="dark"] .mynote-card-status {
+  border-top-color: #3a2a18 !important;
+}
+[data-theme="dark"] .mynote-fab-text {
+  color: #d4aa22 !important;
+}
+[data-theme="dark"] .mynote-fab-streak {
+  background: #f5d870 !important;
+  color: #1a1208 !important;
+}
+
+/* TOCリスト補完 */
+[data-theme="dark"] .toc-num {
+  color: #d4aa22 !important;
 }
 
 /* ── 印刷用スタイル ── */

@@ -8,11 +8,25 @@
 'use strict';
 
 // ── ダークモード ──
+var DARK_VARS = {
+  '--ink':'#e8dcc8','--ink2':'#d4c8b0','--ink3':'#b0a088',
+  '--parch':'#1a1208','--parch2':'#221a0e','--parch3':'#2d2010','--parch4':'#3a2a18',
+  '--gold':'#d4aa22','--gold2':'#f0cc55','--gold3':'#f5d870','--gold4':'#ffe99a'
+};
+function applyDarkVars(){
+  var s = document.documentElement.style;
+  for(var k in DARK_VARS) s.setProperty(k, DARK_VARS[k], 'important');
+}
+function removeDarkVars(){
+  var s = document.documentElement.style;
+  for(var k in DARK_VARS) s.removeProperty(k);
+}
 function initDarkMode(){
   var saved = localStorage.getItem('theme');
   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   if(saved === 'dark' || (!saved && prefersDark)){
     document.documentElement.setAttribute('data-theme','dark');
+    applyDarkVars();
   }
   // 既存ボタンがあれば削除（SPA再実行対策）
   var existing = document.querySelector('.dark-mode-toggle');
@@ -27,9 +41,11 @@ function initDarkMode(){
     var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if(isDark){
       document.documentElement.removeAttribute('data-theme');
+      removeDarkVars();
       localStorage.setItem('theme','light');
     } else {
       document.documentElement.setAttribute('data-theme','dark');
+      applyDarkVars();
       localStorage.setItem('theme','dark');
     }
     updateDarkBtn(btn);
