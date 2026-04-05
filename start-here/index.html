@@ -107,6 +107,39 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .path-why{font-size:.76rem;color:var(--ink3);line-height:1.7;font-weight:300;}
 .path-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;padding-top:3px;opacity:.7;}
 
+/* ── COMPANY TREE ── */
+.tree{margin-top:16px;}
+.tree-branch{margin-bottom:2px;}
+.tree-toggle{
+  display:flex;align-items:center;gap:10px;width:100%;
+  padding:13px 18px;background:var(--parch2);border:1px solid var(--parch4);
+  border-left:3px solid var(--gold2);cursor:pointer;transition:all .2s;
+  font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--ink);
+}
+.tree-toggle:hover{background:var(--parch3);border-left-color:var(--gold3);}
+.tree-toggle::before{
+  content:'';display:inline-block;width:0;height:0;
+  border-left:5px solid var(--gold2);border-top:4px solid transparent;border-bottom:4px solid transparent;
+  transition:transform .2s;flex-shrink:0;
+}
+.tree-branch.open .tree-toggle::before{transform:rotate(90deg);}
+.tree-count{font-family:var(--mono);font-size:.55rem;color:var(--gold);opacity:.7;letter-spacing:.06em;margin-left:auto;}
+.tree-leaves{
+  display:none;padding:0 0 0 22px;
+  border-left:3px solid rgba(184,144,10,.15);margin-left:0;
+}
+.tree-branch.open .tree-leaves{display:block;}
+.tree-leaf{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 16px;border-bottom:1px solid var(--parch3);
+  text-decoration:none;color:inherit;transition:all .15s;
+}
+.tree-leaf:last-child{border-bottom:none;}
+.tree-leaf:hover{background:var(--parch2);padding-left:22px;}
+.tree-leaf-line{width:12px;height:1px;background:var(--parch4);flex-shrink:0;}
+.tree-leaf-name{font-family:var(--serif);font-size:.84rem;color:var(--ink);font-weight:500;}
+.tree-leaf-code{font-family:var(--mono);font-size:.5rem;color:var(--gold);opacity:.6;letter-spacing:.06em;}
+
 /* ── FURTHER READING ── */
 .further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
 .further-inner{max-width:680px;margin:0 auto;}
@@ -254,6 +287,19 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 
+<!-- ── 企業連想ツリー ── -->
+<div class="article" style="padding-top:0;">
+  <hr class="divider"/>
+  <div class="article-section">
+    <div class="section-label">COMPANY MAP</div>
+    <h2 class="section-title">企業連想 — 業種から企業を眺める</h2>
+    <div class="section-body">
+      <p>日本を代表する企業を、業種別のツリーで一望する。気になる業種を開いて、企業ページへ進んでみよう。</p>
+    </div>
+    <div class="tree" id="companyTree"></div>
+  </div>
+</div>
+
 <!-- ── FURTHER READING ── -->
 <div class="further">
   <div class="further-inner">
@@ -298,6 +344,152 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 window.addEventListener('scroll',()=>{
   document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
 });
+</script>
+<script>
+(function(){
+const T=[
+["電気機器・電子部品",[
+["keyence","キーエンス","6861"],["hitachi","日立製作所","6501"],["sony","ソニーグループ","6758"],
+["fanuc","ファナック","6954"],["kyocera","京セラ","6971"],["nidec","ニデック","6594"],
+["omron","オムロン","6645"],["murata","村田製作所","6981"],["tdk","TDK","6762"],
+["tokyo-electron","東京エレクトロン","8035"],["advantest","アドバンテスト","6857"],
+["renesas","ルネサスエレクトロニクス","6723"],["rohm","ローム","6963"],
+["panasonic","パナソニックHD","6752"],["canon","キヤノン","7751"],
+["nikon","ニコン","7731"],["hoya","HOYA","7741"],["olympus","オリンパス","7733"],
+["taiyo-yuden","太陽誘電","6976"],["screen","SCREEN HD","7735"],
+["casio","カシオ計算機","6952"],["sharp","シャープ","6753"],
+["yaskawa","安川電機","6506"],["yokogawa","横河電機","6841"],
+["terumo","テルモ","4543"],["nintendo","任天堂","7974"],["yamaha","ヤマハ","7951"]
+]],
+["情報通信",[
+["ntt","日本電信電話","9432"],["kddi","KDDI","9433"],["softbank","ソフトバンクG","9984"],
+["fujitsu","富士通","6702"],["nttdata","NTTデータG","9613"],["recruit","リクルートHD","6098"],
+["cybozu","サイボウズ","4776"],["z-holdings","LINEヤフー","4689"],
+["rakuten","楽天グループ","4755"],["internet-initiative","IIJ","3774"],
+["trend-micro","トレンドマイクロ","4704"],["obic","オービック","4684"],
+["scsk","SCSK","9719"],["otsuka-corp","大塚商会","4768"],
+["nomura-research","野村総合研究所","4307"]
+]],
+["自動車・輸送用機器",[
+["toyota","トヨタ自動車","7203"],["honda","本田技研工業","7267"],
+["denso","デンソー","6902"],["aisin","アイシン","7259"],
+["toyotaind","豊田自動織機","6201"],["subaru","SUBARU","7270"],
+["suzuki","スズキ","7269"],["mazda","マツダ","7261"],
+["nissan","日産自動車","7201"],["isuzu","いすゞ自動車","7202"],
+["yamaha-motor","ヤマハ発動機","7272"],["koito","小糸製作所","7276"],
+["mitsubishi-motors","三菱自動車","7211"],["shimano","シマノ","7309"],
+["bridgestone","ブリヂストン","5108"]
+]],
+["銀行・証券・金融",[
+["mufg","三菱UFJFG","8306"],["smfg","三井住友FG","8316"],
+["mizuho","みずほFG","8411"],["resona","りそなHD","8308"],
+["concordia","コンコルディアFG","7186"],["chiba-bank","千葉銀行","8331"],
+["fukuoka-financial","ふくおかFG","8354"],["smtrust","三井住友トラストHD","8309"],
+["nomura","野村HD","8604"],["daiwa-securities","大和証券G","8601"],
+["sbi","SBI HD","8473"],["orix","オリックス","8591"]
+]],
+["保険",[
+["tokiomarine","東京海上HD","8766"],["msad","MS&AD","8725"],
+["sompo","SOMPO HD","8630"],["daiichi-life","第一生命HD","8750"],
+["td-holdings","T&D HD","8795"]
+]],
+["商社・卸売",[
+["itochu","伊藤忠商事","8001"],["misho","三菱商事","8058"],
+["mitsui-bussan","三井物産","8031"],["marubeni","丸紅","8002"],
+["sumitomo-shoji","住友商事","8053"],["ms-ci","ミスミG本社","9962"],
+["monotaro","MonotaRO","3064"]
+]],
+["医薬品",[
+["takeda","武田薬品工業","4502"],["daiichi-sankyo","第一三共","4568"],
+["chugai","中外製薬","4519"],["eisai","エーザイ","4523"],
+["shionogi","塩野義製薬","4507"],["astellas","アステラス製薬","4503"],
+["ono-pharma","小野薬品工業","4528"],["otsuka","大塚HD","4578"]
+]],
+["化学・素材",[
+["shinEtsu","信越化学工業","4063"],["mitsubishi-chem","三菱ケミカルG","4188"],
+["asahi-kasei","旭化成","3407"],["fujifilm","富士フイルムHD","4901"],
+["nippon-paint","日本ペイントHD","4612"],["kao","花王","4452"],
+["toray","東レ","3402"],["daicel","ダイセル","4202"],
+["mitsui-chem","三井化学","4183"],["sekisui-chem","積水化学","4204"],
+["shiseido","資生堂","4911"],["lion","ライオン","4912"],
+["unicharm","ユニ・チャーム","8113"],["nitto-denko","日東電工","6988"],
+["tosoh","東ソー","4042"],["ube","UBE","4208"],
+["sumitomo-chem","住友化学","4005"]
+]],
+["食品・飲料",[
+["ajinomoto","味の素","2802"],["kikkoman","キッコーマン","2801"],
+["nissin","日清食品HD","2897"],["meiji","明治HD","2269"],
+["kirin","キリンHD","2503"],["asahi-group","アサヒグループHD","2502"],
+["sapporo","サッポロHD","2501"],["suntory-bev","サントリーBF","2587"],
+["yakult","ヤクルト本社","2267"],["nippon-ham","日本ハム","2282"],
+["maruha-nichiro","マルハニチロ","1333"],["nichirei","ニチレイ","2871"],
+["toyo-suisan","東洋水産","2875"]
+]],
+["機械",[
+["komatsu","コマツ","6301"],["smc","SMC","6273"],["daikin","ダイキン工業","6367"],
+["dmgmori","DMG森精機","6141"],["kubota","クボタ","6326"],
+["makita","マキタ","6586"],["amada","アマダ","6113"],
+["hitachi-construction","日立建機","6305"],["nabtesco","ナブテスコ","6268"],
+["miura","三浦工業","6005"],["kawasaki-heavy","川崎重工業","7012"],
+["ihi","IHI","7013"],["mitsubishi-heavy","三菱重工業","7011"],
+["nsk","日本精工","6471"],["sumitomo-heavy","住友重機械","6302"],
+["brother","ブラザー工業","6448"],["disco","ディスコ","6146"]
+]],
+["建設・住宅",[
+["taisei","大成建設","1801"],["obayashi","大林組","1802"],
+["shimizu","清水建設","1803"],["kajima","鹿島建設","1812"],
+["daiwa-house","大和ハウス工業","1925"],["sekisui-house","積水ハウス","1928"],
+["haseko","長谷工コーポレーション","1808"],["jgc","日揮HD","1963"]
+]],
+["不動産",[
+["mitsui-fudosan","三井不動産","8801"],["mitsubishi-jisho","三菱地所","8802"],
+["sumitomo-fudosan","住友不動産","8830"],["hulic","ヒューリック","3003"],
+["tokyu-fudosan","東急不動産HD","3289"]
+]],
+["小売",[
+["fastretailing","ファーストリテイリング","9983"],["seven-i","セブン&アイ","3382"],
+["aeon","イオン","8267"],["nitori","ニトリHD","9843"],
+["pan-pacific","パン・パシフィック","7532"],["ryohin-keikaku","良品計画","7453"],
+["isetan-mitsukoshi","三越伊勢丹HD","3099"],["zozo","ZOZO","3092"],
+["marui","丸井グループ","8252"],["takashimaya","高島屋","8233"]
+]],
+["運輸・物流",[
+["jr-east","JR東日本","9020"],["jr-central","JR東海","9022"],
+["jr-west","JR西日本","9021"],["ana","ANA HD","9202"],
+["jal","日本航空","9201"],["nippon-yusen","日本郵船","9101"],
+["mitsui-osk","商船三井","9104"],["kawasaki-kisen","川崎汽船","9107"],
+["yamato","ヤマトHD","9064"],["tokyu","東急","9005"],
+["hankyu-hanshin","阪急阪神HD","9042"],["kintetsu","近鉄G HD","9041"]
+]],
+["電力・ガス・エネルギー",[
+["tepco","東京電力HD","9501"],["kansai-elec","関西電力","9503"],
+["chubu-elec","中部電力","9502"],["kyushu-elec","九州電力","9508"],
+["tokyo-gas","東京ガス","9531"],["osaka-gas","大阪ガス","9532"],
+["eneos","ENEOS HD","5020"],["inpex","INPEX","1605"],
+["idemitsu","出光興産","5019"],["j-power","電源開発","9513"]
+]],
+["サービス・エンタメ",[
+["dentsu","電通グループ","4324"],["cyberagent","サイバーエージェント","4751"],
+["persol","パーソルHD","2181"],["benesse","ベネッセHD","9783"],
+["capcom","カプコン","9697"],["konami","コナミG","9766"],
+["bandai-namco","バンダイナムコHD","7832"],["square-enix","スクウェア・エニックスHD","9684"],
+["nexon","ネクソン","3659"],["koei-tecmo","コーエーテクモHD","3635"],
+["dai-nippon-printing","大日本印刷","7912"],["toppan","TOPPAN HD","7911"]
+]],
+["鉄鋼・非鉄金属",[
+["nippon-steel","日本製鉄","5401"],["jfe","JFE HD","5411"],
+["kobe-steel","神戸製鋼所","5406"],["furukawa-elec","古河電気工業","5801"],
+["sumitomo-elec","住友電気工業","5802"],["sumitomo-metal-mining","住友金属鉱山","5713"]
+]]
+];
+const el=document.getElementById('companyTree');
+T.forEach(([cat,list])=>{
+  const b=document.createElement('div');b.className='tree-branch';
+  b.innerHTML=`<div class="tree-toggle">${cat}<span class="tree-count">${list.length}社</span></div><div class="tree-leaves">${list.map(([s,n,c])=>`<a class="tree-leaf" href="../companies/${s}/"><span class="tree-leaf-line"></span><span class="tree-leaf-name">${n}</span><span class="tree-leaf-code">${c}</span></a>`).join('')}</div>`;
+  b.querySelector('.tree-toggle').onclick=()=>b.classList.toggle('open');
+  el.appendChild(b);
+});
+})();
 </script>
 <script src="../shared.js"></script>
 <script src="../ai-assistant.js"></script>
