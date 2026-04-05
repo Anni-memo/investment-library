@@ -509,6 +509,15 @@ body::before{
     <h1 class="hero-title" style="position:relative;z-index:4;pointer-events:none;">投資と思考の書斎</h1>
   </div>
 
+  <!-- FOUNDATION / PERSONAL CONSTITUTION -->
+  <div style="background:linear-gradient(135deg,rgba(18,12,6,.65) 0%,rgba(42,30,14,.6) 50%,rgba(24,16,8,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(212,170,34,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+    <a href="foundation/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
+      <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">個人憲法を書く</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">脳科学・習慣設計・朝の実践——投資判断の土台を築く</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:rgba(212,170,34,.5);letter-spacing:.1em;margin-top:10px;">PERSONAL CONSTITUTION &rarr;</div>
+    </a>
+  </div>
+
   <!-- MORNING METHOD -->
   <div id="morningSection" style="background:linear-gradient(135deg,rgba(10,18,16,.65) 0%,rgba(26,42,34,.6) 50%,rgba(14,24,16,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
     <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
@@ -591,6 +600,7 @@ body::before{
 <div class="other-shelves">
   <div class="other-shelves-label">OTHER ROOMS</div>
   <div class="other-shelves-grid">
+    <a class="other-shelf-link" href="foundation/">個人憲法</a>
     <a class="other-shelf-link" href="hajimete/">初めての方へ</a>
     <a class="other-shelf-link" href="principles/">投資原則</a>
     <a class="other-shelf-link" href="moat/">moat</a>
@@ -667,6 +677,12 @@ window.addEventListener('scroll',function(){
 
 // ── SEARCH ──
 var SEARCH_DATA = [
+  {title:"個人憲法",url:"foundation/",desc:"脳科学・習慣設計・朝の実践——投資判断の土台を築く個人憲法セクション",cat:"FOUNDATION"},
+  {title:"なぜ個人憲法が必要か",url:"foundation/why-constitution/",desc:"判断基準の根っこを言語化する意味と効果",cat:"FOUNDATION"},
+  {title:"脳科学が教える判断と習慣の仕組み",url:"foundation/brain-science/",desc:"前頭前野・扁桃体・ドーパミン——脳の構造から投資判断を理解する",cat:"FOUNDATION"},
+  {title:"個人憲法の書き方",url:"foundation/how-to-create/",desc:"価値観の棚卸しから行動原則の言語化まで5ステップ",cat:"FOUNDATION"},
+  {title:"投資戦略を個人憲法に組み込む",url:"foundation/strategy/",desc:"感情に流されない判断基準を自分の言葉で定義する",cat:"FOUNDATION"},
+  {title:"朝の実践で個人憲法を体に刻む",url:"foundation/morning-practice/",desc:"SAVERSメソッドで毎朝憲法を更新し続ける仕組み",cat:"FOUNDATION"},
   {title:"私の投資原則",url:"principles/",desc:"永続的競争優位性・資本配分・財務・経営者の質——8つの基本原則",cat:"PRINCIPLES"},
   {title:"永続的競争優位性（moat）をどう見るか",url:"moat/",desc:"ネットワーク効果・スイッチングコスト・コスト優位——競争優位の6類型",cat:"MOAT"},
   {title:"FCFとは何か",url:"fcf/",desc:"フリーキャッシュフローの意味・計算方法・投資での使い方",cat:"FCF"},
@@ -1027,6 +1043,7 @@ var SEARCH_DATA = [
 <script src="onboarding.js"></script>
 <script src="shared.js"></script>
 <script src="ai-assistant.js"></script>
+<script src="mynote.js"></script>
 <script src="presence.js"></script>
 <!-- npc-widget.js 削除済み（AI FABに統合） -->
 <script src="enhancements.js"></script>
