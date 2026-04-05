@@ -220,6 +220,33 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
   .hero{padding:48px 16px 40px;}
   .section{padding:40px 0;}
 }
+
+/* ── NAV COCKPIT ── */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid #d8d0c0;padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:'DM Mono',monospace;font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:#d8d0c0;}
+.cockpit-tree{font-family:'DM Mono',monospace;font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--muted);text-decoration:none;transition:color .15s;}.ct-item a:hover{color:var(--gold);}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}.ct-sibling{opacity:.55;}.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.ct-count{font-family:'DM Mono',monospace;font-size:.42rem;color:var(--muted);opacity:.5;margin-left:6px;}
+.cockpit-reading{font-family:'DM Mono',monospace;font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid #d8d0c0;}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:'Noto Serif JP',serif;font-size:.76rem;color:var(--ink);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:'DM Mono',monospace;font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{grid-template-columns:1fr;gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
 </style>
 <link rel="stylesheet" href="../../shared.css"/>
 </head>
@@ -844,5 +871,6 @@ nav{background:var(--ink);padding:14px 32px;display:flex;align-items:center;just
 
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
 </body>
 </html>
