@@ -119,6 +119,40 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
 .further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
 
+/* ── SITE TREE ── */
+.site-tree{background:var(--ink);border-bottom:2px solid rgba(184,144,10,.2);padding:24px 24px 28px;}
+.site-tree-inner{max-width:760px;margin:0 auto;}
+.site-tree-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;opacity:.7;}
+.st-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;}
+.st-cat{padding:0;}
+.st-cat-title{
+  font-family:var(--serif);font-size:.82rem;font-weight:700;
+  color:var(--parch);padding:10px 14px;cursor:pointer;
+  display:flex;align-items:center;gap:8px;transition:color .2s;
+  border-left:2px solid rgba(184,144,10,.3);
+}
+.st-cat-title:hover{color:var(--gold4);}
+.st-cat-title::before{
+  content:'';display:inline-block;width:0;height:0;
+  border-left:4px solid var(--gold2);border-top:3px solid transparent;border-bottom:3px solid transparent;
+  transition:transform .2s;flex-shrink:0;
+}
+.st-cat.open .st-cat-title::before{transform:rotate(90deg);}
+.st-cat-sub{font-family:var(--mono);font-size:.45rem;color:var(--gold);opacity:.5;letter-spacing:.08em;margin-left:auto;}
+.st-links{display:none;padding:0 0 8px 20px;}
+.st-cat.open .st-links{display:block;}
+.st-link{
+  display:block;padding:5px 12px;
+  font-family:var(--jp);font-size:.72rem;color:var(--parch4);
+  text-decoration:none;transition:all .15s;
+  border-left:1px solid rgba(184,144,10,.12);
+}
+.st-link:hover{color:var(--gold4);padding-left:16px;border-left-color:var(--gold3);}
+.st-link.current{color:var(--gold3);font-weight:600;}
+@media(max-width:480px){
+  .st-cats{grid-template-columns:1fr 1fr;}
+}
+
 /* ── FOOTER ── */
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
 .footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
@@ -144,6 +178,64 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="hero-shelf">ASSET BUILDING · はじめての資産形成</div>
   <h1 class="hero-title">はじめての資産形成</h1>
   <p class="hero-lead">投資を始める前に、土台となる考え方を整える部屋です。</p>
+</div>
+
+<!-- ── SITE TREE ── -->
+<div class="site-tree">
+  <div class="site-tree-inner">
+    <div class="site-tree-label">LIBRARY MAP</div>
+    <div class="st-cats">
+
+      <div class="st-cat open">
+        <div class="st-cat-title" onclick="this.parentElement.classList.toggle('open')">資産形成<span class="st-cat-sub">ASSET</span></div>
+        <div class="st-links">
+          <a class="st-link current" href="../start-here/">はじめての資産形成</a>
+          <a class="st-link" href="../etf-funds/">ETF・投資信託</a>
+          <a class="st-link" href="../dividends/">配当と還元</a>
+          <a class="st-link" href="../ideco/">NISA・iDeCo・老後資産</a>
+          <a class="st-link" href="../taxes/">税金と口座</a>
+          <a class="st-link" href="../risk-defense/">守りとリスク管理</a>
+          <a class="st-link" href="../start-here/real-estate/">不動産投資</a>
+        </div>
+      </div>
+
+      <div class="st-cat">
+        <div class="st-cat-title" onclick="this.parentElement.classList.toggle('open')">知の武装<span class="st-cat-sub">ANALYSIS</span></div>
+        <div class="st-links">
+          <a class="st-link" href="../company-map/">企業連想</a>
+          <a class="st-link" href="../moat/">競争優位性</a>
+          <a class="st-link" href="../fcf/">FCF分析</a>
+          <a class="st-link" href="../companies/">企業分析</a>
+          <a class="st-link" href="../industries/">業種分析</a>
+          <a class="st-link" href="../principles/">投資原則</a>
+          <a class="st-link" href="../glossary/">用語集</a>
+        </div>
+      </div>
+
+      <div class="st-cat">
+        <div class="st-cat-title" onclick="this.parentElement.classList.toggle('open')">生き方の設計<span class="st-cat-sub">LIFE</span></div>
+        <div class="st-links">
+          <a class="st-link" href="../morning-method/">モーニングメソッド</a>
+          <a class="st-link" href="../foundation/">個人憲法</a>
+          <a class="st-link" href="../reading-routes/">読書ルート</a>
+          <a class="st-link" href="../smart-home/">スマートホーム</a>
+        </div>
+      </div>
+
+      <div class="st-cat">
+        <div class="st-cat-title" onclick="this.parentElement.classList.toggle('open')">思考の書架<span class="st-cat-sub">THINK</span></div>
+        <div class="st-links">
+          <a class="st-link" href="../horizons/">思考を広げる</a>
+          <a class="st-link" href="../classics/">古典の部屋</a>
+          <a class="st-link" href="../people/">人物録</a>
+          <a class="st-link" href="../human/">投資家の心理</a>
+          <a class="st-link" href="../thinkers/">思想家たち</a>
+          <a class="st-link" href="../library-graph/">書庫の鳥瞰図</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ── ARTICLE ── -->
