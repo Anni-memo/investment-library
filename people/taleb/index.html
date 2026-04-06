@@ -5,31 +5,31 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="ナシーム・ニコラス・タレブ——ブラック・スワン、反脆弱性、身銭を切れ。不確実性の本質を見抜く思想が、長期投資家の判断基準をどう変えるか。"/>
-<meta property="og:title" content="ナシーム・タレブ｜不確実性を味方にする思想家｜人物録"/>
-<meta property="og:description" content="ブラック・スワン、反脆弱性、身銭を切れ。不確実性の本質を見抜く思想が、長期投資家の判断基準をどう変えるか。"/>
+<meta name="description" content="ナシーム・ニコラス・タレブ――レバノン内戦を生き延びた少年が、不確実性の本質を解き明かすまで。ブラック・スワン、反脆弱性、身銭を切れ。投資家が学ぶべきタレブの思想を体系的に辿る。"/>
+<meta property="og:title" content="ナシーム・タレブ――不確実性を味方につける思想家｜投資と思考の書斎"/>
+<meta property="og:description" content="レバノン内戦、ブラックマンデー、ブラック・スワン。不確実性の本質を見抜き、反脆弱性という概念を生んだ思想家の軌跡。"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://anni-memo.github.io/investment-library/people/taleb/"/>
 <meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://anni-memo.github.io/investment-library/people/taleb/"/>
-<title>ナシーム・タレブ｜不確実性を味方にする思想家｜人物録｜投資と思考の書斎</title>
-
+<title>ナシーム・タレブ――不確実性を味方につける思想家｜投資と思考の書斎</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "ナシーム・タレブ｜不確実性を味方にする思想家",
-  "description": "ナシーム・ニコラス・タレブ——ブラック・スワン、反脆弱性、身銭を切れ。不確実性の本質を見抜く思想が、長期投資家の判断基準をどう変えるか。",
+  "headline": "ナシーム・タレブ――不確実性を味方につける思想家",
+  "description": "レバノン内戦を生き延びた少年が、不確実性の本質を解き明かすまで。ブラック・スワン、反脆弱性、身銭を切れ。投資家が学ぶべきタレブの思想を体系的に辿る。",
   "author": {"@type": "Person", "name": "anni_memo"},
   "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
-  "datePublished": "2026-03-29",
+  "datePublished": "2026-04-06",
   "inLanguage": "ja",
   "about": [
     {"@type": "Person", "name": "Nassim Nicholas Taleb"},
     {"@type": "Thing", "name": "ブラック・スワン理論"},
     {"@type": "Thing", "name": "反脆弱性"},
-    {"@type": "Thing", "name": "不確実性"}
+    {"@type": "Thing", "name": "テールリスク"}
   ],
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -50,8 +50,7 @@
 :root{
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
-  --accent:#2a3848;--accent2:#3a5068;--accent3:#6a8aa0;
-  --slate:#2a2a3a;--slate2:#3a3a4a;--slate3:#6a6a7a;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -62,102 +61,45 @@ html{background:var(--ink);scroll-behavior:smooth}
 body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
 
-.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(106,138,160,.25);flex-wrap:wrap;}
-.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--accent3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
-.nav-back:hover{color:#8aacca}
-.nav-sep{color:rgba(58,80,104,.4);font-size:.7rem}
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-/* -- HERO -- */
+/* ── HERO ── */
 .hero{
-  background:linear-gradient(160deg,#0a0e12 0%,var(--accent) 40%,#0e1820 100%);
-  color:var(--parch);padding:64px 24px 56px;text-align:center;
-  position:relative;overflow:hidden;border-bottom:3px solid var(--accent3);
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
 }
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(106,138,160,.08) 0%,transparent 70%);}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent3),transparent);}
-.hero-shelf{font-family:var(--mono);font-size:.56rem;color:var(--slate3);letter-spacing:.28em;margin-bottom:10px;opacity:.75;position:relative;}
-.hero-name-en{font-family:var(--mono);font-size:.7rem;color:var(--accent3);letter-spacing:.4em;margin-bottom:18px;opacity:.5;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);position:relative;margin-bottom:18px;}
-.hero-oneliner{font-family:var(--jp);font-size:clamp(.82rem,2vw,.95rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;opacity:.85;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
 
-/* -- ARTICLE -- */
+/* ── ARTICLE ── */
 .article{max-width:700px;margin:0 auto;padding:0 24px 12px;}
-.article-section{margin-bottom:40px;}
-.section-label{font-family:var(--mono);font-size:.52rem;color:var(--accent2);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
 .section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
 .section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
 .section-body p{margin-bottom:1.4em;}
 .section-body p:last-child{margin-bottom:0;}
 .section-body strong{color:var(--ink);font-weight:600;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'---';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
 
-.pull-quote{border-left:3px solid var(--accent2);background:var(--parch2);padding:22px 24px;margin:28px 0;position:relative;}
-.pull-quote::before{content:'\201C';position:absolute;top:-8px;left:14px;font-family:var(--serif);font-size:4rem;color:var(--accent3);opacity:.2;line-height:1;}
-.pull-quote-text{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--ink);line-height:1.75;}
-.pull-quote-source{font-family:var(--mono);font-size:.5rem;color:var(--accent2);letter-spacing:.1em;margin-top:10px;}
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
 
-/* -- CONCEPT BOX -- */
-.concept-box{
-  background:linear-gradient(135deg,#0a0e12 0%,var(--accent) 100%);
-  color:var(--parch);padding:28px 24px;margin:28px 0;
-  border:1px solid rgba(106,138,160,.25);
-}
-.concept-box-label{font-family:var(--mono);font-size:.5rem;color:var(--accent3);letter-spacing:.18em;margin-bottom:12px;opacity:.9;}
-.concept-box-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:#8aacca;margin-bottom:10px;}
-.concept-box-body{font-size:.84rem;color:var(--parch3);line-height:1.95;font-weight:300;}
-
-/* -- NOTE BOX -- */
-.note-box{background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--accent3);padding:24px;margin:32px 0;}
-.note-box-label{font-family:var(--mono);font-size:.5rem;color:var(--slate3);letter-spacing:.15em;margin-bottom:10px;}
-.note-box-body{font-size:.84rem;color:var(--ink3);line-height:1.9;font-weight:300;}
-
-/* -- INCERTO LIST -- */
-.incerto-list{margin:24px 0;}
-.incerto-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--parch3);}
-.incerto-item:last-child{border-bottom:none;}
-.incerto-year{font-family:var(--mono);font-size:.72rem;color:var(--accent2);flex-shrink:0;width:50px;padding-top:2px;letter-spacing:.04em;}
-.incerto-content{flex:1;}
-.incerto-title-en{font-family:var(--serif);font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.4;}
-.incerto-title-jp{font-size:.78rem;color:var(--ink3);margin-top:2px;}
-
-/* -- FIRST THREE -- */
-.first-three{background:var(--parch2);border:1px solid var(--parch4);padding:28px 24px;margin:36px 0;}
-.first-three-label{font-family:var(--mono);font-size:.52rem;color:var(--accent2);letter-spacing:.14em;margin-bottom:16px;}
-.first-three-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--parch3);}
-.first-three-item:last-child{border-bottom:none;}
-.first-three-num{font-family:var(--mono);font-size:.7rem;color:var(--accent2);flex-shrink:0;padding-top:2px;letter-spacing:.08em;}
-.first-three-content{flex:1;}
-.first-three-title{font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
-.first-three-desc{font-size:.78rem;color:var(--ink3);line-height:1.7;}
-
-/* -- RELATED -- */
-.related-people{margin:36px 0;}
-.related-people-grid{display:grid;grid-template-columns:1fr;gap:2px;}
-@media(min-width:520px){.related-people-grid{grid-template-columns:repeat(2,1fr);}}
-.related-person{display:block;padding:14px 16px;background:var(--parch2);border:1px solid var(--parch4);text-decoration:none;transition:all .18s;}
-.related-person:hover{background:var(--parch3);border-color:var(--accent3);}
-.related-person-tag{font-family:var(--mono);font-size:.48rem;color:var(--accent2);letter-spacing:.12em;margin-bottom:4px;}
-.related-person-name{font-family:var(--serif);font-size:.86rem;font-weight:600;color:var(--ink);}
-.related-person-desc{font-size:.7rem;color:var(--ink3);margin-top:3px;}
-
-.divider{border:none;border-top:1px solid var(--parch4);margin:48px 0;}
-
-.next-reads{background:var(--ink2);border-top:1px solid rgba(58,80,104,.2);padding:36px 24px;}
-.next-reads-inner{max-width:700px;margin:0 auto;}
-.next-label{font-family:var(--mono);font-size:.52rem;color:var(--accent3);letter-spacing:.14em;margin-bottom:16px;opacity:.8;}
-.next-links{display:flex;flex-direction:column;gap:2px;}
-.next-link{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(58,80,104,.25);text-decoration:none;transition:all .18s;}
-.next-link:hover{border-color:var(--accent2);background:rgba(255,255,255,.07);}
-.next-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--accent3);letter-spacing:.1em;width:100px;flex-shrink:0;}
-.next-link-title{font-family:var(--serif);font-size:.9rem;color:var(--parch);font-weight:500;}
-
-.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(58,80,104,.25);}
-.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--accent3);margin-bottom:8px;letter-spacing:.06em}
-.footer a{color:var(--accent3);text-decoration:none}
-
-.scroll-top{position:fixed;bottom:80px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(58,80,104,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--accent3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
-.scroll-top.visible{opacity:1;pointer-events:all}
-.scroll-top:hover{background:var(--accent2);color:var(--parch)}
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
 
 /* ── INTRO 2-COL ── */
 .intro-2col{max-width:960px;margin:0 auto;padding:48px 24px 12px;display:grid;grid-template-columns:1fr;gap:36px;}
@@ -167,22 +109,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 @media(min-width:768px){.intro-right{order:0;}}
 
 /* ── VIDEO CARD ── */
-.video-card{background:var(--ink);border:1px solid rgba(106,138,160,.15);overflow:hidden;}
-.video-card-label{font-family:var(--mono);font-size:.48rem;color:var(--accent3);letter-spacing:.16em;padding:14px 16px 0;opacity:.8;}
-.video-thumb{position:relative;width:100%;aspect-ratio:16/9;cursor:pointer;overflow:hidden;background:#0a0e12;}
+.video-card{background:var(--ink);border:1px solid rgba(139,105,20,.15);overflow:hidden;}
+.video-card-label{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.16em;padding:14px 16px 0;opacity:.8;}
+.video-thumb{position:relative;width:100%;aspect-ratio:16/9;cursor:pointer;overflow:hidden;background:#0a0c10;}
 .video-thumb img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s;}
 .video-thumb:hover img{opacity:1;}
 .video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-.video-play-btn{width:52px;height:52px;background:rgba(26,18,8,.7);border:1px solid rgba(106,138,160,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.video-thumb:hover .video-play-btn{background:rgba(26,18,8,.85);border-color:var(--accent3);}
+.video-play-btn{width:52px;height:52px;background:rgba(26,18,8,.7);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.video-thumb:hover .video-play-btn{background:rgba(26,18,8,.85);border-color:var(--gold3);}
 .video-play-icon{width:0;height:0;border-left:16px solid var(--gold3);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:3px;}
 .video-card-body{padding:14px 16px 16px;}
 .video-card-title{font-family:var(--serif);font-size:.88rem;font-weight:600;color:var(--parch);margin-bottom:6px;line-height:1.4;}
 .video-card-desc{font-size:.72rem;color:var(--parch4);line-height:1.7;margin-bottom:12px;font-weight:300;}
 .video-card-actions{display:flex;gap:6px;flex-wrap:wrap;}
 .video-btn{font-family:var(--mono);font-size:.6rem;padding:6px 14px;text-decoration:none;letter-spacing:.06em;transition:all .15s;cursor:pointer;border:none;}
-.video-btn-primary{background:rgba(106,138,160,.15);color:var(--accent3);border:1px solid rgba(106,138,160,.25);}
-.video-btn-primary:hover{background:rgba(106,138,160,.25);border-color:var(--accent3);}
+.video-btn-primary{background:rgba(139,105,20,.15);color:var(--gold3);border:1px solid rgba(139,105,20,.25);}
+.video-btn-primary:hover{background:rgba(139,105,20,.25);border-color:var(--gold3);}
 .video-btn-secondary{background:transparent;color:var(--parch4);border:1px solid rgba(223,201,168,.15);}
 .video-btn-secondary:hover{border-color:var(--parch4);color:var(--parch);}
 
@@ -193,10 +135,77 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .modal-close{position:absolute;top:-40px;right:0;font-family:var(--mono);font-size:.7rem;color:var(--parch4);cursor:pointer;background:none;border:1px solid rgba(223,201,168,.2);padding:6px 14px;letter-spacing:.08em;transition:all .15s;}
 .modal-close:hover{color:var(--parch);border-color:var(--parch4);}
 .modal-video{width:100%;aspect-ratio:16/9;border:none;}
+
+/* ── CONCEPT BOX ── */
+.concept-box{
+  background:linear-gradient(135deg,#0a0c10 0%,#1a1208 100%);
+  color:var(--parch);padding:28px 24px;margin:28px 0;
+  border:1px solid rgba(139,105,20,.25);
+}
+.concept-box-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.18em;margin-bottom:12px;opacity:.9;}
+.concept-box-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--gold4);margin-bottom:10px;}
+.concept-box-body{font-size:.84rem;color:var(--parch3);line-height:1.95;font-weight:300;}
+
+/* ── NOTE BOX ── */
+.note-box{background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--gold3);padding:24px;margin:32px 0;}
+.note-box-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:10px;}
+.note-box-body{font-size:.84rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* ── INCERTO LIST ── */
+.incerto-list{margin:24px 0;}
+.incerto-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid var(--parch3);}
+.incerto-item:last-child{border-bottom:none;}
+.incerto-year{font-family:var(--mono);font-size:.72rem;color:var(--gold);flex-shrink:0;width:50px;padding-top:2px;letter-spacing:.04em;}
+.incerto-content{flex:1;}
+.incerto-title-en{font-family:var(--serif);font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.4;}
+.incerto-title-jp{font-size:.78rem;color:var(--ink3);margin-top:2px;}
+
+/* ── FIRST THREE ── */
+.first-three{background:var(--parch2);border:1px solid var(--parch4);padding:28px 24px;margin:36px 0;}
+.first-three-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.14em;margin-bottom:16px;}
+.first-three-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--parch3);}
+.first-three-item:last-child{border-bottom:none;}
+.first-three-num{font-family:var(--mono);font-size:.7rem;color:var(--gold);flex-shrink:0;padding-top:2px;letter-spacing:.08em;}
+.first-three-content{flex:1;}
+.first-three-title{font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.first-three-desc{font-size:.78rem;color:var(--ink3);line-height:1.7;}
+
+/* ── RELATED ── */
+.related-people{margin:36px 0;}
+.related-people-grid{display:grid;grid-template-columns:1fr;gap:2px;}
+@media(min-width:520px){.related-people-grid{grid-template-columns:repeat(2,1fr);}}
+.related-person{display:block;padding:14px 16px;background:var(--parch2);border:1px solid var(--parch4);text-decoration:none;transition:all .18s;}
+.related-person:hover{background:var(--parch3);border-color:var(--gold3);}
+.related-person-tag{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.12em;margin-bottom:4px;}
+.related-person-name{font-family:var(--serif);font-size:.86rem;font-weight:600;color:var(--ink);}
+.related-person-desc{font-size:.7rem;color:var(--ink3);margin-top:3px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:80px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
 </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav class="nav">
   <a class="nav-back" href="../../">書斎の入口</a>
   <span class="nav-sep">/</span>
@@ -205,42 +214,51 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <span class="nav-current">ナシーム・タレブ</span>
 </nav>
 
-<!-- -- HERO -- -->
+<!-- ── HERO ── -->
 <div class="hero">
-  <div class="hero-shelf">PEOPLE · WISDOM & THOUGHT</div>
-  <div class="hero-name-en">NASSIM NICHOLAS TALEB</div>
-  <h1 class="hero-title">ナシーム・ニコラス・タレブ</h1>
-  <p class="hero-oneliner">
-    不確実性を排除するのではなく、味方にする。<br>
-    オプショントレーダーから思想家へ——その知の射程。
+  <div class="hero-shelf">SHELF 03 --- 人物録</div>
+  <div class="hero-ornament">ANTIFRAGILITY</div>
+  <h1 class="hero-title">ナシーム・タレブ<br>不確実性を味方につける思想家</h1>
+  <p class="hero-lead">
+    世界は予測できない。<br>
+    しかし、予測できないことを前提に設計することはできる。<br>
+    レバノン内戦を生き延び、ブラックマンデーで財を成し、<br>
+    四冊の著作で不確実性の哲学を体系化した。<br>
+    タレブはその原理を、身体と知性の両方で証明してきた。
   </p>
 </div>
 
 <!-- ── 人物録の語り部 ── -->
 <div style="max-width:560px;margin:20px auto;padding:0 24px;">
-  <div style="background:linear-gradient(135deg,#0a0e12 0%,#2a3848 100%);border:1px solid rgba(106,138,160,.12);padding:18px 20px;">
-    <div style="font-family:'DM Mono',monospace;font-size:.44rem;color:#6a8aa0;letter-spacing:.18em;margin-bottom:6px;opacity:.6;">NARRATOR · AI</div>
+  <div style="background:linear-gradient(135deg,#0a0c10 0%,#1a1208 100%);border:1px solid rgba(139,105,20,.12);padding:18px 20px;">
+    <div style="font-family:'DM Mono',monospace;font-size:.44rem;color:var(--gold3);letter-spacing:.18em;margin-bottom:6px;opacity:.6;">NARRATOR &middot; AI</div>
     <div id="narratorMsg" style="font-family:'Noto Serif JP',serif;font-size:.82rem;color:#f5ede0;line-height:1.8;margin-bottom:12px;font-weight:300;"></div>
     <div id="narratorOptions" style="display:flex;flex-wrap:wrap;gap:4px;"></div>
   </div>
 </div>
 
-<!-- -- INTRO 2-COL -- -->
+<!-- ── INTRO 2-COL ── -->
 <div class="intro-2col">
   <div class="intro-left">
     <div class="article-section" style="margin-bottom:0;">
-      <div class="section-label">01 · WHO IS NASSIM TALEB</div>
-      <h2 class="section-title">この人は何者か</h2>
+      <div class="section-label">01 --- ORIGINS</div>
+      <h2 class="section-title">レバノン内戦を生き延びた少年</h2>
       <div class="section-body">
-        <p>
-          ナシーム・ニコラス・タレブ。1960年、レバノン・アミオン生まれ。ギリシャ正教の家系に育ち、レバノン内戦を経験した少年期が、後の思想の原点となる。ウォートン・スクールでMBAを取得し、パリ大学（ドフィーヌ校）で確率論の博士号を得た。
-        </p>
-        <p>
-          ウォール街でおよそ20年間、オプショントレーダーとして活動した。市場の最前線で「極端な事象」が起きる瞬間を何度も目撃し、その経験が五部作<strong>Incerto</strong>シリーズの土台になった。現在はニューヨーク大学タンドン工学部の特別教授を務め、確率論・リスク工学を講じている。
-        </p>
-        <p>
-          タレブの仕事は、金融の枠に収まらない。哲学、認識論、意思決定理論、古典文学——複数の領域を横断しながら、一貫して問い続けていることがある。<strong>人間は、自分が知らないことについて、どれほど無知であるか</strong>。
-        </p>
+        <p>1960年、レバノンのアミューンに生まれたナシーム・ニコラス・タレブは、ギリシャ正教の知識人家庭で育った。祖父と曾祖父はレバノンの副首相を務めた名家である。</p>
+        <p>しかし1975年、タレブが15歳のとき、レバノン内戦が勃発した。</p>
+        <p>中東のパリと呼ばれたベイルートは一夜にして戦場に変わり、タレブの家族は社会的地位と財産の大部分を失った。繁栄と教養の世界は瓦礫の下に消え、少年タレブは「安定とは何か」という根源的な疑問に直面した。</p>
+        <p>この経験が、タレブの思想の根幹を形づくった。安定は幻想である。秩序は突然崩壊する。</p>
+        <p>そして、人間は「まさか」の出来事を過小評価する生き物である。</p>
+        <p>内戦の混乱を経てフランスへ渡り、パリ大学で理学士を取得した。その後アメリカに移り、ペンシルベニア大学ウォートン・スクールでMBAを取得。</p>
+        <p>学問の世界に入る前に、彼はまず市場という実験場に向かった。理論より先に実践を選んだこの判断が、後の「スキン・イン・ザ・ゲーム」の思想を予告していた。</p>
+        <p>タレブは後年、この少年期の経験を繰り返し参照する。レバノンでは、誰もが「内戦は起きない」と信じていた。ベイルートは繁栄しており、多宗教共存の模範とされていた。</p>
+        <p>しかし「起きない」と信じられていたことが起き、社会は数週間で崩壊した。専門家の予測は無力であり、安定という物語は脆かった。タレブの家族が属していた知識人階層も、この変化を予見できなかった。知識は保護にならなかった。</p>
+        <p>この原体験が、タレブに一つの確信を与えた。最も重要なリスクは、予測の枠外にある。そして人間は、自分が知らないことの大きさを、構造的に過小評価する。</p>
+        <p>タレブはこの構造的な盲点を、後に「ルドニック（ludic）の誤謬」と名づけた。サイコロのように確率が計算可能なゲームの世界と、本質的に予測不能な現実世界を混同する過ちである。カジノのルーレットと金融市場の決定的な違いは、前者ではルールと確率が既知であるのに対し、後者ではルールそのものが変化しうるという点にある。</p>
+      </div>
+
+      <div class="callout">
+        <p class="callout-text">タレブの思想は書斎から生まれたのではない。<br>内戦という「ブラック・スワン」を10代で体験した少年の、<br>生存者としての直感から始まっている。</p>
       </div>
     </div>
   </div>
@@ -248,11 +266,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="video-card">
       <div class="video-card-label">FIRST WATCH</div>
       <div class="video-thumb" onclick="openModal()">
-        <img src="https://img.youtube.com/vi/S3REdLZ8Xis/hqdefault.jpg" alt="Taleb – Antifragile at Google"/>
+        <img src="https://img.youtube.com/vi/S3REdLZ8Xis/hqdefault.jpg" alt="Taleb -- Antifragile at Google"/>
         <div class="video-play"><div class="video-play-btn"><div class="video-play-icon"></div></div></div>
       </div>
       <div class="video-card-body">
-        <div class="video-card-title">反脆弱性——混乱から恩恵を受ける思想</div>
+        <div class="video-card-title">反脆弱性――混乱から恩恵を受ける思想</div>
         <div class="video-card-desc">タレブがGoogleで「Antifragile」を語った講演。この人物の思考法を掴む最初の一本。</div>
         <div class="video-card-actions">
           <button class="video-btn video-btn-primary" onclick="openModal()">動画を見る</button>
@@ -261,134 +279,308 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
     </div>
     <div style="margin-top:10px;font-family:var(--mono);font-size:.5rem;letter-spacing:.08em;">
-      <span style="color:var(--accent2);opacity:.7;">RELATED IN THIS LIBRARY</span>
-      <a href="../" style="color:var(--accent3);text-decoration:none;margin-left:6px;">人物録トップ →</a>
+      <span style="color:var(--gold);opacity:.7;">RELATED IN THIS LIBRARY</span>
+      <a href="../" style="color:var(--gold3);text-decoration:none;margin-left:6px;">人物録トップ &rarr;</a>
     </div>
   </div>
 </div>
 
-<!-- -- MODAL -- -->
+<!-- ── MODAL ── -->
 <div class="modal-overlay" id="videoModal" onclick="closeModal(event)">
   <div class="modal-content">
-    <button class="modal-close" onclick="closeModal(event)">CLOSE ✕</button>
+    <button class="modal-close" onclick="closeModal(event)">CLOSE &#10005;</button>
     <iframe class="modal-video" id="modalIframe" src="" allowfullscreen></iframe>
   </div>
 </div>
 
-<!-- -- ARTICLE -- -->
+<!-- ── ARTICLE ── -->
+<!--
+  ナシーム・ニコラス・タレブ（Nassim Nicholas Taleb, 1960-）
+  レバノン系アメリカ人の数理統計学者・哲学者・元トレーダー。
+  「インケルト（Incerto）」シリーズの著者。
+  不確実性、確率、認識論に関する独自の思想体系を構築。
+  ニューヨーク大学タンドン工学部リスク工学特任教授。
+-->
 <main class="article">
 
   <hr class="divider" style="margin-top:0;"/>
 
-  <!-- S2 WHY READ NOW -->
+  <!-- ── 02 トレーダーとしての経験 ── -->
+  <!-- 1980年代~2000年代のウォール街での実務経験 -->
   <div class="article-section">
-    <div class="section-label">02 · WHY READ NOW</div>
-    <h2 class="section-title">なぜ今この人を読む価値があるか</h2>
+    <div class="section-label">02 --- TRADER</div>
+    <h2 class="section-title">トレーダーとしての経験</h2>
     <div class="section-body">
-      <p>
-        パンデミック、地政学リスクの連鎖、AIによる産業構造の変容——2020年代の投資環境は、予測モデルの限界を繰り返し露呈させている。「想定外」という言葉が常態化した時代に、タレブの思想はむしろ実務的な意味を増している。
-      </p>
-      <p>
-        タレブが一貫して批判してきたのは、<strong>予測できるという過信</strong>そのものだ。正規分布に基づくリスク管理、過去のデータから未来を推定する統計モデル——これらが根本的に見落としているものを、彼は「ブラック・スワン」という比喩で可視化した。
-      </p>
-      <p>
-        長期投資家にとって重要なのは、タレブが単なる警鐘ではなく、不確実性のもとで<strong>どう行動すべきか</strong>まで踏み込んでいることだ。バーベル戦略、オプション的な構え、冗長性の確保——具体的な判断の枠組みを提示している点で、彼の仕事は「読み物」ではなく「道具」になりうる。
-      </p>
+      <p>タレブはウォール街でオプション・トレーダーとしてキャリアを始めた。</p>
+      <p>クレディ・スイス・ファースト・ボストン、UBS、バンカーズ・トラスト、BNPパリバなど複数の金融機関でデリバティブ取引に従事した。</p>
+      <p>オプションの非線形的な性質――損失は限定的だが利益は理論上無限――に、タレブは自分の世界観との深い共鳴を感じた。予測不能な世界で合理的に行動するための道具がここにあった。</p>
+      <p>彼の取引スタイルは独特だった。日常的には小さな損失を受け入れながら、極端な事象――テールイベント――が起きたときに大きな利益を得るポジションを取り続けた。</p>
+      <p>同僚のトレーダーたちが毎日の収益に一喜一憂する中、タレブは大半の日を損失で終え、それでも平然としていた。周囲からは「負け続けるトレーダー」に見えていたかもしれない。</p>
+      <p>1987年10月19日、ブラックマンデー。ダウ工業株平均は一日で22.6%下落した。</p>
+      <p>当時の常識では「あり得ない」とされた暴落である。タレブはアウト・オブ・ザ・マネーのプットオプションを大量に保有しており、この日に巨額の利益を手にした。</p>
+      <p>この経験は単なる金銭的成功ではなかった。市場が「あり得ない」と見なしていた事象が現実に起き、その「あり得なさ」に賭けていた者だけが報われた。</p>
+      <p>正規分布に基づくモデルでは、この日の暴落が起きる確率は宇宙の年齢の数十倍の期間に一度とされた。しかしそれは起きた。タレブにとって、これはレバノン内戦の教訓を市場で再確認した瞬間だった。</p>
+      <p>その後も彼は自らのファンド「エンピリカ・キャピタル」を設立し、テールリスクに特化した運用を続けた。</p>
+      <p>後に設立したユニバーサ・インベストメンツでは、弟子のマーク・スピッツナーゲルとともにテールヘッジ戦略を洗練させた。ユニバーサは2020年のCOVID-19ショック時に3,600%以上のリターンを記録し、タレブの戦略が再び実証された。</p>
+      <p>この戦略の本質は、日々の「小さな出血」を受け入れることにある。オプションのプレミアムを払い続け、大半の日は損を出す。しかし市場が大きく動いたとき――その頻度は低いが影響は甚大である――一度の利益が数年分の損失を補って余りある。</p>
+      <p>これは心理的に極めて困難な戦略である。人間の脳は、毎日の小さな損失に強く反応するように設計されている。</p>
+      <p>「いつか報われる」という信念を、日々の損失の中で維持し続けることは、知的な理解だけでは不十分であり、深い確信を必要とする。タレブの場合、その確信はレバノン内戦の記憶に根ざしていた。「あり得ないこと」は起きる――この確信だけが、日々の損失に耐える力を与えた。</p>
+      <p>多くのトレーダーが「勝率」を追求する中で、タレブは「勝つときの大きさ」を追求した。</p>
+      <p>この非対称性――失うものは小さく、得るものは大きい――こそが、後の著作で展開される「反脆弱性」の実践的な原型である。理論は後から来た。最初にあったのは、市場での経験だった。</p>
+    </div>
 
-      <div class="pull-quote">
-        <div class="pull-quote-text">
-          The Black Swan is not about prediction. It is about the structure of the world—and our blindness to it.
-        </div>
-        <div class="pull-quote-source">— Nassim Nicholas Taleb, The Black Swan</div>
-      </div>
+    <div class="callout">
+      <p class="callout-text">勝率ではなく、勝ったときの規模で考える。<br>99回の小さな負けと、1回の決定的な勝ち。<br>タレブのトレーディングは、この非対称性の上に成り立っていた。</p>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- S3 CORE IDEAS -->
+  <!-- ── 03 「まぐれ」 ── -->
   <div class="article-section">
-    <div class="section-label">03 · CORE IDEAS</div>
-    <h2 class="section-title">思想の核</h2>
+    <div class="section-label">03 --- FOOLED BY RANDOMNESS</div>
+    <h2 class="section-title">「まぐれ」――ランダム性と成功の錯覚</h2>
     <div class="section-body">
-      <p>
-        タレブの思想は、五部作Incertoを通じて段階的に展開されている。その中核をなす三つの概念を整理する。
-      </p>
+      <p>2001年に出版された『まぐれ――投資家はなぜ、運を実力と勘違いするのか』（原題：Fooled by Randomness）は、タレブの思想を世に知らしめた最初の著作である。この本は後に「インケルト（不確実性についての哲学的考察）」と総称される5巻シリーズの第一巻となった。</p>
+      <p>この本の核心は明快だ。人間は、ランダムな結果に因果関係を見出してしまう。</p>
+      <p>成功した投資家が「自分の分析力のおかげだ」と信じるとき、その成功のうちどれだけが単なる偶然――まぐれ――であるかを、本人は正しく判定できない。</p>
+      <p>タレブは生存者バイアスの問題を鮮烈に描いた。市場には無数のトレーダーがいる。ランダムに取引しても、一定数は偶然に成功する。しかし我々が目にするのは生き残った者だけであり、退場した多数は歴史から消える。消えた者たちの声は聞こえない。データに残らない。分析の対象にならない。</p>
+      <p>成功者のインタビューを読んで「彼の戦略を真似よう」と考えるとき、我々は同じ戦略で失敗した無数の人間を見落としている。タレブはこれを「墓場にいる者は証言しない（silent evidence）」と表現した。書店に並ぶ「成功の秘訣」の本は、この構造的なバイアスの産物である。</p>
+      <p>この指摘は投資の世界だけでなく、経営、科学、日常の意思決定にまで射程が及ぶ。我々は常に、結果から原因を逆算する誤りを犯している。</p>
+      <p>『まぐれ』の影響は広範に及んだ。ヘッジファンド業界では、タレブの指摘を受けてトラックレコードの統計的有意性を問い直す動きが生まれた。3年間の好成績は統計的に意味があるのか。5年間ではどうか。ランダムウォークでも一定の確率で生じる成績パターンと、真の投資能力を区別するには、どれほどのデータが必要か。</p>
+      <p>タレブの答えは挑発的だった。「ほとんどの場合、区別は不可能である。」</p>
+      <p>投資成績の大部分はノイズであり、シグナルを分離するには数十年のデータが必要だが、その間に市場の構造自体が変わってしまう。この認識は不快だが、知的に誠実である。そしてこの誠実さこそが、『まぐれ』を単なる投資書ではなく、認識論の書として際立たせた。</p>
+      <p>タレブはさらに、「代替歴史（alternative history）」という思考法を提示した。これはモンテカルロ・シミュレーションの哲学的な応用である。</p>
+      <p>ある投資家が大きな利益を出したとする。しかし歴史がわずかに違っていれば――別のニュースが流れていれば、中央銀行の判断が異なっていれば――同じ戦略が破滅的な結果をもたらしていた可能性がある。現実に起きた歴史は、起こりえた無数の歴史のうちの一つにすぎない。</p>
+      <p>成功した投資判断を評価するとき、結果だけを見るのではなく、その判断がもたらしえた全ての可能な結果の分布を考えるべきだ。</p>
+      <p>これがタレブの言う「確率的思考」の核心である。結果ではなくプロセスを、実績ではなく判断の質を評価する。</p>
+      <p>『まぐれ』はまた、感情と合理性の関係についても興味深い視点を提供した。タレブは、自分自身がポートフォリオの含み損に感情的に反応することを認めた上で、それを「克服すべき弱さ」ではなく「管理すべき人間の性質」と捉えた。理性で感情を抑え込むのではなく、感情が暴走しにくい環境を設計すること――たとえばポートフォリオの評価頻度を減らすこと――が現実的な対処だと彼は論じた。</p>
+      <p>タレブは「歯医者の診療室」という比喩を使った。毎秒ポートフォリオの値動きを見ている投資家は、歯科治療中に鏡で自分の口の中を見ている患者に似ている。情報が増えるほど不安が増し、本来不要な行動（治療の中断、ポジションの売却）を取りたくなる。</p>
+      <p>情報の遮断は、特定の状況では合理的な選択である。これは直感に反する主張だ。現代社会は「情報は多いほどよい」という前提で動いている。しかしタレブは、投資家にとって情報の質と量は異なる問題であり、ノイズの多い情報はシグナルを曇らせると論じた。日次の株価チェックをやめ、四半期に一度の確認に切り替えるだけで、行動の質は劇的に改善しうる。</p>
+    </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin:24px 0 12px;">ブラック・スワン</h3>
-      <p>
-        極端に稀で、事前には予測不能だが、発生すると巨大な影響をもたらす事象。そして事後的には「予測できたはずだ」と合理化される。タレブはこの三つの性質を持つ事象を「ブラック・スワン」と名づけた。
-      </p>
-      <p>
-        重要なのは、ブラック・スワンが「起きるかもしれない」ではなく、<strong>「必ず起きるが、いつ・どのように起きるかは誰にもわからない」</strong>という認識だ。問題は事象そのものではなく、それに対する人間の認知の構造にある。
-      </p>
+    <div class="callout">
+      <p class="callout-text">成功は実力の証拠にならない。<br>失敗もまた、無能の証拠にならない。<br>ランダム性が支配する領域では、結果から能力を推定すること自体が危うい。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── 04 「ブラック・スワン」 ── -->
+  <div class="article-section">
+    <div class="section-label">04 --- THE BLACK SWAN</div>
+    <h2 class="section-title">「ブラック・スワン」――予測不能な極端事象</h2>
+    <div class="section-body">
+      <p>2007年に出版された『ブラック・スワン――不確実性とリスクの本質』（原題：The Black Swan: The Impact of the Highly Improbable）は、タレブの名を世界的なものにした。36言語に翻訳され、世界中で300万部以上を売り上げた。出版の翌年にリーマン・ショックが起き、この本の予言的な性格が広く認知された。</p>
+      <p>ブラック・スワンとは、次の三つの特徴を持つ事象を指す。</p>
+      <ul>
+        <li>予測不能であること――事前に予測されていない</li>
+        <li>甚大な影響を持つこと――社会や経済に極端なインパクトを与える</li>
+        <li>事後的に説明可能であること――起きた後に「なるほど、こうだったのか」と説明される</li>
+      </ul>
+      <p>タレブは、現代の金融リスク管理が正規分布（ガウス分布）に依存していることを痛烈に批判した。正規分布は「極端な事象はほとんど起きない」という前提を持つ。</p>
+      <p>しかし現実の市場は、正規分布が予測する頻度をはるかに超えて、極端な変動を繰り返す。20世紀の株式市場において、正規分布モデルでは「10万年に一度」とされる変動が、数十年に一度の頻度で発生している。モデルと現実のこの乖離は、無視するにはあまりにも大きい。</p>
+      <p>彼はこの問題を「七面鳥の寓話」で説明した。農場の七面鳥は、毎日餌をもらい、1000日間の経験から「明日も餌がもらえる」と確信する。しかし1001日目――感謝祭の前日――に屠殺される。</p>
+      <p>過去のデータからの外挿は、構造的な変化を捉えられない。そして構造的な変化こそが、最も大きなインパクトをもたらす。七面鳥の確信は、屠殺の直前に最大化する。これは投資家にとって不穏な教訓だ。安定した市場への信頼が最も強まったとき、崩壊のリスクが最も高いかもしれない。</p>
+      <p>金融工学のモデルが「過去のデータに基づいてリスクを計算する」とき、それは七面鳥と同じ推論をしている。タレブはこれを「知の傲慢」と呼んだ。知っていることの自信が、知らないことの巨大さを覆い隠す。人類は自然科学では謙虚さを学んできたが、社会科学と金融の領域では、まだその教訓を十分に内面化していない。</p>
+      <p>タレブは「ブラック・スワン」の中で、ポジティブなブラック・スワンとネガティブなブラック・スワンを区別した。インターネットの登場、ペニシリンの発見、Googleの創業――これらはポジティブなブラック・スワンである。一方、戦争、パンデミック、金融危機はネガティブなブラック・スワンだ。</p>
+      <p>投資家にとっての戦略的含意は明確だ。ネガティブなブラック・スワンに耐える構造を作りつつ、ポジティブなブラック・スワンの恩恵を受けられるポジションを取ること。これがバーベル戦略の本質的な動機でもある。</p>
+      <p>リーマン・ショック、COVID-19パンデミック、地政学的危機。歴史を動かしてきた事象の多くは、ブラック・スワンの特徴を備えている。</p>
+      <p>タレブが特に強調したのは、三番目の特徴――事後的な説明可能性――の危険性である。ブラック・スワンが起きた後、専門家たちは必ず「なぜこれが起きたのか」を説明する。その説明は合理的に聞こえる。しかしその同じ専門家が、事前にこの事象を予測していたわけではない。</p>
+      <p>事後的な説明は、人間の理解欲求を満たす。しかしそれは同時に、「次のブラック・スワンも予測できるはずだ」という危険な錯覚を生む。</p>
+      <p>タレブは警告する。我々が学ぶべきは「なぜ起きたか」ではなく「なぜ予測できなかったか」である。</p>
+      <p>「ブラック・スワン」という言葉自体は、かつてヨーロッパ人が「白鳥はすべて白い」と信じていたことに由来する。何千羽もの白い白鳥を観察してきた経験は、「すべての白鳥は白い」という命題を強化し続けた。しかしオーストラリアで一羽の黒い白鳥が発見された瞬間、その命題は崩壊した。どれほど多くの確認事例を積み重ねても、一つの反証がすべてを覆す。帰納法の根本的な限界がここにある。</p>
+      <p>この認識論的な洞察は、哲学者カール・ポパーの反証可能性の概念に直接接続する。タレブはポパーを繰り返し参照し、科学的知識すらも「まだ反証されていない仮説」にすぎないと強調した。金融の世界でこの謙虚さを持つことは、実務上、防御的なポートフォリオ設計への動機づけとなる。</p>
+      <p>タレブはまた、「エピステミック・アロガンス（認識論的傲慢）」という概念を導入した。人間は自分の知識の範囲を過大評価し、不確実性の幅を過小評価する。</p>
+      <p>専門家であればあるほど、この傾向は強まる。経済予測、株価予測、選挙予測――あらゆる領域で、専門家の自信と予測精度の間には、驚くべきギャップがある。タレブはフィリップ・テトロックの研究を引用し、専門家の予測精度がランダムな推測とほとんど変わらないことを示した。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">一万日の安定は、安全の証拠にならない。<br>七面鳥にとって最も安全だった日は、屠殺の前日だった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── 05 「反脆弱性」 ── -->
+  <div class="article-section">
+    <div class="section-label">05 --- ANTIFRAGILE</div>
+    <h2 class="section-title">「反脆弱性」――不確実性から利益を得る</h2>
+    <div class="section-body">
+      <p>2012年に出版された『反脆弱性――不確実な世界を生き延びる唯一の考え方』（原題：Antifragile: Things That Gain from Disorder）は、タレブの思想の集大成とも言える著作である。</p>
+      <p>タレブはここで、既存の哲学や科学が見落としていた概念を提示した。世の中のものは三つのカテゴリに分けられる。これは単純な分類だが、その含意は深い。</p>
+      <ul>
+        <li>脆い（fragile）――ストレスによって壊れる。ガラスのコップ、過度にレバレッジをかけた企業</li>
+        <li>頑健（robust）――ストレスに耐える。石、国債のような安全資産</li>
+        <li>反脆い（antifragile）――ストレスによってむしろ強くなる。筋肉、進化、一部の起業家</li>
+      </ul>
+      <p>既存の言語には「脆さの反対」を表す単語がなかった。「頑健」は衝撃に耐えるだけであり、衝撃から利益を得るわけではない。</p>
+      <p>タレブは「antifragile（反脆い）」という新語を造り、この概念の空白を埋めた。言語に欠けている概念は、思考からも欠落しやすい。名前を与えることで、初めてその概念について明確に考えられるようになる。</p>
 
       <div class="concept-box">
         <div class="concept-box-label">CORE CONCEPT</div>
         <div class="concept-box-title">反脆弱性（Antifragility）</div>
         <div class="concept-box-body">
-          脆いもの（Fragile）はストレスで壊れる。頑健なもの（Robust）はストレスに耐える。だが、タレブが提示した第三のカテゴリーがある——ストレスや変動にさらされることで、<strong>むしろ強くなるもの</strong>。それが反脆弱性だ。筋肉は負荷をかけることで成長する。免疫系は病原体に触れることで強化される。同じ構造が、投資ポートフォリオにも、キャリアにも、社会制度にも存在する。タレブはこの概念を、不確実性への最も根本的な対処法として位置づけた。
+          脆いもの（Fragile）はストレスで壊れる。頑健なもの（Robust）はストレスに耐える。だが、タレブが提示した第三のカテゴリーがある――ストレスや変動にさらされることで、<strong>むしろ強くなるもの</strong>。それが反脆弱性だ。筋肉は負荷をかけることで成長する。免疫系は病原体に触れることで強化される。同じ構造が、投資ポートフォリオにも、キャリアにも、社会制度にも存在する。タレブはこの概念を、不確実性への最も根本的な対処法として位置づけた。
         </div>
       </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin:24px 0 12px;">Skin in the Game</h3>
-      <p>
-        意思決定者は、自らの決定の結果を引き受けるべきである——この原則をタレブは「身銭を切る」と表現した。リスクを他者に転嫁しながら利益だけを得る構造（彼の言葉では「他人の皮膚でゲームをする」）は、倫理的に問題があるだけでなく、システムの脆弱性そのものだとタレブは論じる。
-      </p>
-      <p>
-        この思想は投資の文脈では明快だ。自社株を持たない経営者の判断、手数料で生きるアナリストの推奨、損失を税金で補填される金融機関——Skin in the Gameの欠如は、リスクの非対称性を生み、システム全体を脆くする。
-      </p>
+      <p>従来のリスク管理は「壊れないようにする」（頑健性）を目指してきた。</p>
+      <p>しかしタレブは、不確実性を排除するのではなく、不確実性から利益を得る設計を提唱した。これは発想の根本的な転換である。守りから攻めへ。排除から活用へ。</p>
+      <p>ここから導かれるのが「バーベル戦略」である。バーベル（鉄アレイ）の両端に重りがあり、中央が細い形状に由来する名称だ。</p>
+      <p>ポートフォリオの大部分（85-90%）を極めて安全な資産に配分し、残りの小部分（10-15%）を極めてリスクの高い資産に配分する。中間のリスクは避ける。</p>
+      <p>この戦略では、最悪の場合でも損失は限定される（安全資産が守る）。しかし極端な上昇が起きたときには、ハイリスク部分が大きな利益をもたらす。損失は有限、利益は無限――これが反脆弱性の本質である。</p>
+      <p>タレブはこの原理を古代の知恵から読み取った。セネカは「賢者は運命に備えるが、運命を恐れない」と述べた。</p>
+      <p>ストア哲学者たちは最悪の事態を想定し（premeditatio malorum）、それでも生きられることを確認した上で行動した。バーベル戦略はこのストア的態度の金融的表現と言える。</p>
+      <p>最悪の事態を明確にし、それを限定し、残りの部分で積極的にリスクを取る。この二段構えの姿勢が、不確実性の中で合理的に行動するための基盤となる。</p>
+      <p>タレブは「中程度のリスク」こそが最も危険だと警告した。中間のリスクは、リターンが限定的でありながら、ブラック・スワンに対して脆弱だからである。</p>
+      <p>社債の格付けがAAAからジャンクに転落する過程、安全と思われていた不動産投資の崩壊――これらは「中間のリスク」が「極端なリスク」に変貌した事例だ。安全に見えるものほど、隠れたリスクを持っていることがある。</p>
+      <p>反脆弱性の考え方は、個人の生活にも適用される。タレブ自身、健康法においてもこの原理を実践している。規則正しい運動ではなく、強度にランダム性を持たせたトレーニング。食事も同様に、断食と饗宴を交互にする。</p>
+      <p>身体は一定のストレスにさらされることで強くなる――これは筋肉が負荷によって成長する原理と同じだ。骨は荷重がかかることで密度を増し、免疫系は病原体への曝露によって強化される。自然界は反脆弱性の例で溢れている。</p>
+      <p>投資においても同じことが言える。過度に安定を求めるポートフォリオは、逆説的に脆い。適度な変動に耐えられる構造こそが、真の安定を生む。日本企業でいえば、一時的な業績悪化を経て事業構造を転換した企業は、ずっと安定していた企業よりもしばしば強くなっている。ストレスは壊滅さえしなければ、強化のための情報を提供する。</p>
+      <p>タレブはこの原理を「ポスト・トラウマティック・グロース（心的外傷後成長）」とも関連づけた。心理学では、困難な経験の後に人間がそれ以前より精神的に強くなる現象が知られている。</p>
+      <p>個人も、組織も、市場も、適切な規模のストレスによって成長する。重要なのは「適切な規模」であり、致命的でないことが条件だ。致命的なストレスは破壊をもたらすだけだが、適度なストレスは適応と進化を促す。この閾値の見極めが、反脆弱性を実践する上での核心的な課題である。</p>
+      <p>反脆弱性の概念は、タレブの他の著作の主張を統合するメタ理論として機能する。</p>
+      <ul>
+        <li>ランダム性を理解する――『まぐれ』</li>
+        <li>極端な事象に備える――『ブラック・スワン』</li>
+        <li>リスクを自ら負う――『身銭を切れ』</li>
+        <li>不確実性から利益を得る――『反脆弱性』</li>
+      </ul>
+      <p>四冊は別々の問いに答えているが、一つの思想体系を形成している。</p>
+      <p>タレブはこれを「インケルト（Incerto＝不確実性）」シリーズと名づけた。ラテン語の語源は、まさに「知られていないこと」を意味する。知らないことを知ること――これが、全四巻を貫く主題である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">不確実性を避けるのではなく、不確実性を味方につける。<br>反脆弱性とは、混乱や変動によって、むしろ強くなる性質のことだ。</p>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- S4 INVESTMENT LENS -->
+  <!-- ── 06 「身銭を切れ」 ── -->
   <div class="article-section">
-    <div class="section-label">04 · INVESTMENT LENS</div>
-    <h2 class="section-title">投資家がタレブから学ぶこと</h2>
+    <div class="section-label">06 --- SKIN IN THE GAME</div>
+    <h2 class="section-title">「身銭を切れ」――スキン・イン・ザ・ゲーム</h2>
     <div class="section-body">
-      <p>
-        タレブの思想を投資判断に接続するとき、二つの実践的な枠組みが浮かび上がる。
-      </p>
+      <p>2018年の『身銭を切れ――「リスクを生きる」人だけが知る人生の本質』（原題：Skin in the Game）は、タレブの「インケルト」シリーズの完結編である。前3作が不確実性の「認知」を扱ったとすれば、この本は不確実性の「倫理」を扱っている。</p>
+      <p>この本の主張は根源的だ。助言する者は、自らもリスクを負うべきである。リスクを負わずに他者に助言する者――タレブが「IYI（Intellectual Yet Idiot）」と呼ぶ知識人層――の言葉は信頼に値しない。</p>
+      <p>IYIとは、一流大学を卒業し、正しい用語を使い、適切な会合に出席し、しかし実世界での判断を繰り返し誤る人々を指す。彼らは複雑なモデルを構築するが、そのモデルが破綻しても個人的な代償を払わない。タレブにとって、2008年の金融危機はIYIの集合的な失敗の結果だった。</p>
+      <p>タレブは非対称リスクの問題を指摘した。金融危機の前、多くの銀行家やリスク管理者は、成功すれば巨額のボーナスを受け取り、失敗すれば納税者が損失を負担する構造の中にいた。</p>
+      <p>利益は私的、損失は公的。この非対称性がシステム全体を脆くする。タレブはこれを「ボブ・ルービンの取引」と名付けた――元財務長官の名にちなみ、利益を享受しつつ損失を転嫁するメカニズムを批判した。この構造は金融に限らない。官僚が規制を設計し、その規制の結果を市民が引き受ける。コンサルタントが戦略を提案し、その失敗の責任を経営者が負う。リスクの所在と意思決定権の所在がずれるとき、システムは必ず歪む。</p>
+      <p>投資の文脈では、ファンドマネージャーが自分の資金をファンドに投じているかどうかが、信頼の重要な指標になる。バフェットの資産の大部分がバークシャー・ハサウェイの株式であること――これはスキン・イン・ザ・ゲームの典型例である。</p>
+      <p>逆に、自社の株式をほとんど持たない経営者、成功報酬だけを受け取りリスクを投資家に転嫁するファンドマネージャー――これらは「逆スキン・イン・ザ・ゲーム」であり、システミックな脆弱性の源泉となる。</p>
+      <p>タレブ自身も、自らの理論に基づいて資産を運用している。理論を語るだけでなく、身銭を切っている。この一貫性が、彼の思想に独特の重みを与えている。</p>
+      <p>スキン・イン・ザ・ゲームの概念は、古代から存在する知恵でもある。</p>
+      <p>ハンムラビ法典には、建物が崩壊して住人が死んだ場合、建築家も死刑に処すという規定がある。これは設計者にスキン・イン・ザ・ゲームを課すことで、安全性への動機を保証する仕組みだ。約3800年前の法律が、現代の金融規制よりもインセンティブ設計において優れている――タレブはこの逆説を好んで指摘する。</p>
+      <p>現代の金融システムは、この古代の知恵を失った。意思決定者がリスクを負わず、その結果を他者が引き受ける構造――タレブはこれを「倫理的に破綻したシステム」と断じた。投資においても、助言者が自らのポジションを持っているかどうかは、その助言の信頼性を判断する最も基本的な基準である。</p>
+      <p>タレブはまた、スキン・イン・ザ・ゲームが「知識のフィルター」として機能すると論じた。実際にリスクを負って行動する者だけが、現実の複雑さを学ぶ。教室や研究室から世界を観察するだけでは、致命的な盲点が残る。理論は現実を単純化し、その単純化がリスクを隠蔽する。</p>
+      <p>この主張は、投資における「実績」の評価にも直結する。10年間のトラックレコードを持つファンドマネージャーと、理論的に正しいポートフォリオを提案するアカデミアの研究者。タレブは前者をはるかに重視する。</p>
+      <p>なぜなら前者は、自分の判断の結果を自分自身で引き受けてきたからだ。理論は反証されるまで正しく見えるが、実践は日々の市場によって検証される。知識は「知ること」だけでは完成しない。リスクを負って行動し、結果を引き受けることで初めて、知識は血肉となる。</p>
+    </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin:24px 0 12px;">バーベル戦略</h3>
-      <p>
-        ポートフォリオの大部分（85〜90%）を極めて安全な資産に置き、残りの小さな部分（10〜15%）を極めてリスクの高い資産に振り向ける。中間のリスク帯——「まあまあ安全」に見えるもの——は避ける。
-      </p>
-      <p>
-        この戦略の本質は、<strong>最大損失を限定しながら、上振れの可能性を確保する</strong>ことにある。安全な側は生存を保証し、リスクの高い側はブラック・スワン的な好機を捕捉する。中間を避けるのは、そこが「見かけほど安全でない」からだ。
-      </p>
+    <div class="callout">
+      <p class="callout-text">助言する者が自らリスクを負わないなら、<br>その助言には構造的な欠陥がある。<br>身銭を切ることは、知識の前提条件である。</p>
+    </div>
+  </div>
 
-      <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--ink);margin:24px 0 12px;">オプション的思考</h3>
-      <p>
-        タレブがトレーダー時代に身体で覚えた原則がある。<strong>損失は限定的だが、利益は理論上無限大になりうる構造を選ぶ</strong>。これはオプション取引の非対称性そのものだが、投資判断全般に応用できる。
-      </p>
-      <p>
-        具体的には——失敗しても失うのは投資額だけだが、成功すれば何倍にもなりうるポジション。新興企業への小さな出資、未知の市場への試験的な参入、新しいスキルの習得。いずれも「下方は限定、上方は開かれている」構造を持つ。
-      </p>
+  <hr class="divider"/>
 
-      <div class="pull-quote">
-        <div class="pull-quote-text">
-          Wind extinguishes a candle and energizes fire. You want to be the fire and wish for the wind.
-        </div>
-        <div class="pull-quote-source">— Nassim Nicholas Taleb, Antifragile</div>
-      </div>
+  <!-- ── 07 タレブの投資への示唆 ── -->
+  <div class="article-section">
+    <div class="section-label">07 --- IMPLICATIONS FOR INVESTORS</div>
+    <h2 class="section-title">タレブの投資への示唆</h2>
+    <div class="section-body">
+      <p>タレブは特定の銘柄分析や投資タイミングを語る投資家ではない。彼が提供するのは、投資の前提そのものを再検討するための枠組みである。</p>
+      <p>彼の著作群――『まぐれ』『ブラック・スワン』『反脆弱性』『身銭を切れ』――を通じて一貫するのは、不確実性との付き合い方を根本から問い直す姿勢だ。</p>
+      <p>以下は、タレブの思想から投資家が引き出せる実践的な示唆である。これらは個別の技法ではなく、投資に対する姿勢そのものを形成する原則だ。</p>
+
+      <p><strong>テールリスクへの備え。</strong>ポートフォリオは「通常の変動」ではなく「極端な事象」に耐えられるかで評価すべきだ。</p>
+      <p>過去のボラティリティから将来のリスクを推定する方法は、七面鳥の推論と同じ構造的欠陥を持つ。「過去に起きなかったから将来も起きない」という推論は、最も危険な思い込みの一つである。</p>
+
+      <p><strong>ファットテールの認識。</strong>市場のリターン分布は正規分布ではない。極端な上昇と極端な下落は、正規分布が予測するよりはるかに頻繁に起きる。リスク管理モデルが正規分布を前提としているなら、そのモデルは現実を過小評価している。</p>
+      <p>タレブはこれを「メディオクリスタンとエクストリミスタンの区別」と呼んだ。身長のような正規分布に従う世界（メディオクリスタン）と、資産や株価のような極端値が全体を支配する世界（エクストリミスタン）を混同してはならない。</p>
+
+      <p><strong>バーベル戦略の応用。</strong>資産の大部分を極めて安全な場所に置き、小部分で大きなアップサイドを狙う。中間のリスク――「そこそこ安全で、そこそこリターンがある」という領域――を避ける。</p>
+      <p>具体的には、資産の85-90%を短期国債や現金等価物に、残りの10-15%をベンチャーキャピタル的な高リスク投資に振り分ける。このとき、中間部分――社債、バランスファンド、中程度のレバレッジ――を意図的に排除する。</p>
+
+      <p><strong>オプション性を持つ。</strong>下振れが限定され、上振れが無限であるポジションを好む。これは金融のオプションだけでなく、キャリア、事業、学習においても適用できる原理だ。</p>
+      <p>読書は典型的なオプション性を持つ行為である――投資する時間は限定的だが、一冊の本がもたらす知的リターンには上限がない。タレブが広範な読書家であることは偶然ではない。</p>
+
+      <p><strong>予測しない。</strong>将来を予測しようとするのではなく、どんな将来が来ても壊れない（あるいは利益を得る）構造を設計する。</p>
+      <p>タレブは「予測が当たるかどうか」ではなく「予測が外れたとき何が起きるか」を重視する。正しい問いは「来年の株価はいくらか」ではなく「株価が50%下落しても私は生存できるか」である。</p>
+
+      <p><strong>冗長性を持つ。</strong>効率性の追求は、脆弱性の増加と表裏一体である。余分な現金、余分な時間、余分な選択肢――これらは「無駄」に見えるが、ブラック・スワンが訪れたときに生存を左右する。</p>
+      <p>タレブは冗長性を「見えない保険」と呼ぶ。人間の身体には二つの腎臓がある。日常的には一つで十分だが、もう一つは冗長性として機能している。この「無駄」が、危機的状況での生存を保証する。</p>
+
+      <p><strong>小さく失敗する。</strong>大きな失敗を一度するより、小さな失敗を何度もする方がよい。小さな失敗は学習をもたらし、システムを強くする。大きな失敗は、学習の機会すら奪う。</p>
+      <p>致命的でない失敗を積極的に許容するポートフォリオ設計が、長期的な生存確率を高める。シリコンバレーの「早く失敗せよ（fail fast）」の文化は、この原理の応用である。</p>
+
+      <p><strong>生存を最優先する。</strong>タレブの全ての主張の根底にあるのは、この原則だ。どれほど優れた戦略も、ゲームから退場させられたら意味がない。</p>
+      <p>ポートフォリオが一度でも壊滅的な損失を被れば、その後どれほど市場が回復しても、回復に参加できない。生存可能性を犠牲にしてリターンを追求する行為は、合理的ではない。タレブはこれを「吸収壁（absorbing barrier）」と表現した――破産はゲームの終わりであり、ゲームに復帰する手段は存在しない。</p>
 
       <div class="note-box">
         <div class="note-box-label">PRACTICAL NOTE</div>
         <div class="note-box-body">
-          タレブ自身は個別銘柄の推奨をほとんど行わない。彼が提供しているのは銘柄選定の技法ではなく、ポートフォリオ全体の「構え方」——不確実性に対する姿勢そのものの設計だ。個々の投資判断に直接適用するというより、判断の前提となる思考の枠組みとして読むのが適切だろう。
+          タレブ自身は個別銘柄の推奨をほとんど行わない。彼が提供しているのは銘柄選定の技法ではなく、ポートフォリオ全体の「構え方」――不確実性に対する姿勢そのものの設計だ。個々の投資判断に直接適用するというより、判断の前提となる思考の枠組みとして読むのが適切だろう。
         </div>
       </div>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">重要なのは「何が起きるか」を予測することではない。<br>「何が起きても生き残れるか」を設計することだ。</p>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- S5 START HERE -->
+  <!-- ── 08 批判と評価 ── -->
   <div class="article-section">
-    <div class="section-label">05 · START HERE</div>
+    <div class="section-label">08 --- CRITICISM AND LEGACY</div>
+    <h2 class="section-title">批判と評価</h2>
+    <div class="section-body">
+      <p>タレブは学術界との関係において、つねに論争的な存在である。彼は学者であると同時に学界のアウトサイダーであり、その立場の曖昧さが批判と賞賛の両方を生んできた。</p>
+      <p>彼は経済学者やリスク管理の専門家を痛烈に批判してきた。VaR（バリュー・アット・リスク）を提唱する金融工学者たちを「詐欺師」と呼び、ノーベル経済学賞の権威に疑問を投げかけた。</p>
+      <p>特にマイロン・ショールズやロバート・マートンに対する批判は激しく、LTCM（ロングターム・キャピタル・マネジメント）の破綻を「学術的傲慢の帰結」として繰り返し引用した。ノーベル経済学賞受賞者が設計したリスクモデルが、現実の市場で壊滅的に失敗した――タレブにとって、これほど雄弁な実例はなかった。</p>
+      <p>2008年の金融危機は、彼の批判の多くが正しかったことを示した。</p>
+      <p>危機後、タレブは「私が正しかった」と主張するだけでなく、金融規制のあり方について具体的な提言を行った。銀行のボーナス構造の改革、システミックリスクの内部化、金融機関の規模制限――これらの提案は部分的に規制改革に反映された。ドッド＝フランク法の背景思想には、タレブの批判と重なる部分が少なくない。</p>
+      <p>一方で、彼の論法に対する批判もある。</p>
+      <ul>
+        <li>攻撃的な修辞――学術的な議論に人格攻撃を混ぜる傾向がある。SNS上での論争は特に激しく、相手の学歴や職歴を攻撃材料にすることもある</li>
+        <li>過度の一般化――金融市場の知見を、すべての領域に拡張しすぎるという指摘。医療やテクノロジーの領域では、タレブの枠組みがそのまま適用できるかどうかは議論の余地がある</li>
+        <li>バーベル戦略の実践性――極端なポジションを長期間維持するコストを過小評価しているとの批判。テールヘッジファンドの多くは、平時の持続的な損失に耐えきれず閉鎖されている</li>
+        <li>後知恵バイアス――危機の後に「私は予見していた」と主張する構造は、彼自身が批判する叙述バイアスと類似しているとの指摘</li>
+        <li>選択的引用――自説に都合の良い歴史的事例を選び、反証となりうる事例を無視する傾向があるとの学術的批判</li>
+      </ul>
+      <p>これらの批判には一定の妥当性がある。タレブ自身が指摘する「叙述の誤謬」――出来事を都合よく物語に仕立てる傾向――は、彼自身の著述にも見られるとの指摘は的を射ている。</p>
+      <p>しかし、完璧な思想家は存在しない。タレブの思想を受け入れる際には、彼の主張の核心――不確実性への敬意と、テールリスクへの備え――と、修辞的な誇張を区別する眼が求められる。思想家の人格的な弱点を理由にその思想を全否定することもまた、一種の論理的誤りである。</p>
+      <p>しかし、タレブの貢献は否定しがたい。彼は「不確実性は排除すべき敵ではなく、付き合い方を学ぶべき現実である」という認識を広めた。</p>
+      <p>テールリスクへの意識、正規分布の限界への理解、スキン・イン・ザ・ゲームの重要性――これらは今日、投資の世界で広く共有される知見となっている。2008年以降、金融機関のリスク管理部門がテールリスクを議論するとき、タレブの名前が出ないことはほとんどない。</p>
+      <p>タレブはニューヨーク大学タンドン工学部でリスク工学の特任教授を務めながら、実務家として、思想家として、そして論争者として、不確実性の本質を問い続けている。</p>
+      <p>数学的にはファットテール分布の理論研究を進め、実務的にはテールヘッジ戦略の洗練に関わり、文化的にはSNSでの活発な発信を通じて広く影響力を行使している。</p>
+      <p>タレブの影響は投資の世界を超えて広がっている。医療分野では過剰治療への警告として、都市計画ではレジリエンス設計の思想として、テクノロジー分野ではシステム設計の原則として、反脆弱性の概念が援用されている。Netflixが開発した「カオスモンキー」――本番環境で意図的にサーバーを停止させ、システムの回復力を試す手法――は、反脆弱性の技術的実装とも言える。</p>
+      <p>個人投資家にとってのタレブの最大の贈り物は、おそらく「知的謙虚さ」の根拠を与えたことだろう。自分が知らないことの巨大さを認識し、その無知に備える。専門家の自信を鵜呑みにせず、しかし専門知識そのものは否定しない。確率と不確実性の違いを理解し、予測できるものと予測できないものを区別する。</p>
+      <p>タレブの著書は難解な数学的議論と軽妙なエッセイが交互に現れる独特のスタイルで書かれている。古代ローマの哲人セネカを繰り返し引用し、ストア哲学との接点を探る。</p>
+      <p>彼にとって投資哲学と人生哲学は分離できないものであり、不確実性との付き合い方は、投資だけでなく生き方そのものの問題なのだ。</p>
+      <p>タレブは今も、SNS上で論争を繰り広げ、学術論文を発表し、デッドリフトの記録をツイートする。その破天荒な人物像の背後には、一貫した問い――「知らないことを知っているか」――が流れている。</p>
+      <p>この問いは、二千年以上前にソクラテスが投げかけたものと同じだ。タレブの独自性は、その古い問いを現代の金融市場に持ち込み、実践的な行動原則に翻訳したことにある。</p>
+      <p>不確実性は恐怖の対象ではなく、正しく理解すれば力の源泉になる。</p>
+      <p>それが、内戦を生き延びた少年が半世紀をかけて証明してきた命題である。</p>
+      <p>彼の思想の核心は、逆説的に聞こえるかもしれないが、本質的には楽観的だ。世界は予測できない。しかし、予測できないことを前提に設計すれば、不確実性そのものが味方になる。</p>
+      <p>現代社会はますます複雑化し、相互接続性が高まっている。一国の金融危機がグローバルに波及し、一つのウイルスが世界経済を停止させる。サプライチェーンの効率化は、同時にサプライチェーンの脆弱化でもある。</p>
+      <p>こうした世界においてタレブの思想は、出版時よりもさらに切実な意味を持つ。壊れない仕組みを超えて、混乱の中で成長する仕組みを――それがタレブの遺した最も重要な問いかけである。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">タレブは学者ではなく、純粋な実務家でもない。<br>内戦を生き延び、市場で身銭を切り、理論を著した。<br>その三位一体が、彼の思想に独自の説得力を与えている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── START HERE ── -->
+  <div class="article-section">
+    <div class="section-label">09 --- START HERE</div>
     <h2 class="section-title">まず触れるべき3つ</h2>
     <div class="section-body">
       <p>
@@ -419,27 +611,27 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <div class="first-three-num">03</div>
         <div class="first-three-content">
           <div class="first-three-title">Skin in the Game（身銭を切れ）2018</div>
-          <div class="first-three-desc">経営者、アナリスト、ファンドマネージャー——誰がリスクを本当に負っているかを見極める視点。投資先の評価基準として、財務指標だけでなく「当事者がどれだけ身銭を切っているか」を加える思考法。</div>
+          <div class="first-three-desc">経営者、アナリスト、ファンドマネージャー――誰がリスクを本当に負っているかを見極める視点。投資先の評価基準として、財務指標だけでなく「当事者がどれだけ身銭を切っているか」を加える思考法。</div>
         </div>
       </div>
     </div>
 
     <div class="note-box" style="margin-top:24px;">
-      <div class="note-box-label">INCERTO SERIES — COMPLETE LIST</div>
+      <div class="note-box-label">INCERTO SERIES --- COMPLETE LIST</div>
       <div class="note-box-body">
         <div class="incerto-list">
           <div class="incerto-item">
             <div class="incerto-year">2001</div>
             <div class="incerto-content">
               <div class="incerto-title-en">Fooled by Randomness</div>
-              <div class="incerto-title-jp">邦題：まぐれ——投資家はなぜ、運を実力と勘違いするのか</div>
+              <div class="incerto-title-jp">邦題：まぐれ――投資家はなぜ、運を実力と勘違いするのか</div>
             </div>
           </div>
           <div class="incerto-item">
             <div class="incerto-year">2007</div>
             <div class="incerto-content">
               <div class="incerto-title-en">The Black Swan</div>
-              <div class="incerto-title-jp">邦題：ブラック・スワン——不確実性とリスクの本質</div>
+              <div class="incerto-title-jp">邦題：ブラック・スワン――不確実性とリスクの本質</div>
             </div>
           </div>
           <div class="incerto-item">
@@ -453,14 +645,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
             <div class="incerto-year">2012</div>
             <div class="incerto-content">
               <div class="incerto-title-en">Antifragile</div>
-              <div class="incerto-title-jp">邦題：反脆弱性——不確実な世界を生き延びる唯一の考え方</div>
+              <div class="incerto-title-jp">邦題：反脆弱性――不確実な世界を生き延びる唯一の考え方</div>
             </div>
           </div>
           <div class="incerto-item">
             <div class="incerto-year">2018</div>
             <div class="incerto-content">
               <div class="incerto-title-en">Skin in the Game</div>
-              <div class="incerto-title-jp">邦題：身銭を切れ——「リスクを生きる」人だけが知っている人生の本質</div>
+              <div class="incerto-title-jp">邦題：身銭を切れ――「リスクを生きる」人だけが知っている人生の本質</div>
             </div>
           </div>
         </div>
@@ -470,9 +662,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
-  <!-- S6 RELATED -->
+  <!-- ── RELATED ── -->
   <div class="article-section">
-    <div class="section-label">06 · RELATED</div>
+    <div class="section-label">10 --- RELATED</div>
     <h2 class="section-title">関連人物・関連記事</h2>
 
     <div class="related-people">
@@ -481,6 +673,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <div class="related-person-tag">PEOPLE</div>
           <div class="related-person-name">BNF</div>
           <div class="related-person-desc">市場の異変の中で現れた個人投資家</div>
+        </a>
+        <a class="related-person" href="../kahneman/">
+          <div class="related-person-tag">PEOPLE</div>
+          <div class="related-person-name">ダニエル・カーネマン</div>
+          <div class="related-person-desc">人間の判断を科学にした男</div>
         </a>
         <a class="related-person" href="../../life-shelf/marcus-aurelius/">
           <div class="related-person-tag">LIFE SHELF</div>
@@ -491,6 +688,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <div class="related-person-tag">PRINCIPLES</div>
           <div class="related-person-name">投資原則</div>
           <div class="related-person-desc">判断基準を育てるための思考法</div>
+        </a>
+        <a class="related-person" href="../inamori-kazuo/">
+          <div class="related-person-tag">PEOPLE</div>
+          <div class="related-person-name">稲盛和夫</div>
+          <div class="related-person-desc">経営と哲学を統合した実践者</div>
         </a>
         <a class="related-person" href="../">
           <div class="related-person-tag">INDEX</div>
@@ -503,48 +705,60 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 </main>
 
-<!-- -- NEXT READS -- -->
-<div class="next-reads">
-  <div class="next-reads-inner">
-    <div class="next-label">関連する棚を歩く</div>
-    <div class="next-links">
-      <a class="next-link" href="../">
-        <span class="next-link-tag">PEOPLE</span>
-        <span class="next-link-title">人物録</span>
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">タレブの思想を読んだら、物語が判断を歪める仕組み、失敗の歴史、そして投資の原則へ。不確実性との付き合い方を多角的に深める。</p>
+    <div class="further-links">
+      <a class="further-link" href="../../human/narrative-bias/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">ナラティブ・バイアス：物語が判断を歪めるとき</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
-      <a class="next-link" href="../bnf/">
-        <span class="next-link-tag">PEOPLE</span>
-        <span class="next-link-title">BNF｜公開資料から静かに辿る、ある個人投資家の輪郭</span>
+      <a class="further-link" href="../../horizons/history-of-failures/">
+        <span class="further-link-tag">思考を広げる</span>
+        <span class="further-link-title">失敗の歴史が教えてくれること</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
-      <a class="next-link" href="../../principles/">
-        <span class="next-link-tag">PRINCIPLES</span>
-        <span class="next-link-title">私の投資原則</span>
+      <a class="further-link" href="../../principles/">
+        <span class="further-link-tag">原則</span>
+        <span class="further-link-title">私の投資原則</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
-      <a class="next-link" href="../inamori-kazuo/">
-        <span class="next-link-tag">PEOPLE</span>
-        <span class="next-link-title">稲盛和夫｜経営と哲学を統合した実践者</span>
+      <a class="further-link" href="../kahneman/">
+        <span class="further-link-tag">人物録</span>
+        <span class="further-link-title">ダニエル・カーネマン：人間の判断を科学にした男</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../../human/loss-aversion/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">なぜ人は短期の損失に強く反応するのか</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
     </div>
   </div>
 </div>
 
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>
   <div>
-    <a href="../../">書斎の入口</a> ·
-    <a href="../../hajimete/">初めての方へ</a> ·
-    <a href="../../principles/">投資原則</a> ·
-    <a href="../">人物録</a> ·
-    <a href="../../industries/">業種から歩く</a>
+    <a href="../../">書斎の入口</a> &middot;
+    <a href="../../hajimete/">初めての方へ</a> &middot;
+    <a href="../../principles/">投資原則</a> &middot;
+    <a href="../">人物録</a> &middot;
+    <a href="../../industries/">業種から歩く</a> &middot;
+    <a href="../../horizons/">思考を広げる</a>
   </div>
   <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
   <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
 </footer>
 
-<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</div>
 
 <script>
-window.addEventListener('scroll',()=>{
+window.addEventListener('scroll',function(){
   document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
 });
 function openModal(){
@@ -597,10 +811,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){var m=docum
     opts.innerHTML='';
     list.forEach(function(item){
       var btn=document.createElement('div');
-      btn.style.cssText='padding:7px 12px;font-family:"Noto Serif JP",serif;font-size:.72rem;color:#dfc9a8;background:rgba(255,255,255,.03);border:1px solid rgba(106,138,160,.08);cursor:pointer;transition:all .15s;';
+      btn.style.cssText='padding:7px 12px;font-family:"Noto Serif JP",serif;font-size:.72rem;color:#dfc9a8;background:rgba(255,255,255,.03);border:1px solid rgba(139,105,20,.08);cursor:pointer;transition:all .15s;';
       btn.textContent=item.label;
-      btn.onmouseover=function(){this.style.borderColor='rgba(106,138,160,.3)';this.style.color='#6a8aa0';};
-      btn.onmouseout=function(){this.style.borderColor='rgba(106,138,160,.08)';this.style.color='#dfc9a8';};
+      btn.onmouseover=function(){this.style.borderColor='rgba(139,105,20,.3)';this.style.color='#d4aa22';};
+      btn.onmouseout=function(){this.style.borderColor='rgba(139,105,20,.08)';this.style.color='#dfc9a8';};
       btn.onclick=item.action;
       opts.appendChild(btn);
     });

@@ -4,7 +4,7 @@
   "description": "銘柄の正解ではなく、判断基準を育てる場所。Munger・Buffett・Fisherの思想に学び、投資を入口に文明・歴史・資本・人間理解へ歩いていく静かな知の図書館。",
   "language": "ja",
   "license": "CC BY 4.0",
-  "lastUpdated": "2026-03-28",
+  "lastUpdated": "2026-04-06",
   "articles": [
     {
       "title": "私の投資原則",
@@ -756,6 +756,238 @@
       "category": "life-shelf",
       "tags": ["書籍", "Amazon", "Kindle", "Audible"],
       "dateAdded": "2026-03-28"
+    },
+    {
+      "title": "アジア通貨危機――「奇跡」が崩壊した1997年",
+      "url": "/investment-library/horizons/asian-financial-crisis/",
+      "description": "アジアの「経済の奇跡」が一夜にして崩壊した1997年。通貨危機の構造と教訓。",
+      "category": "horizons",
+      "tags": ["アジア通貨危機", "1997年", "金融史"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "ドットコムバブル――「ニューエコノミー」という幻想と真実",
+      "url": "/investment-library/horizons/dotcom-bubble/",
+      "description": "2000年のIT熱狂とその崩壊。ニューエコノミーの幻想と真実を検証する。",
+      "category": "horizons",
+      "tags": ["ドットコムバブル", "ITバブル", "金融史"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "ニクソン・ショック――金とドルの切断が変えた世界",
+      "url": "/investment-library/horizons/nixon-shock/",
+      "description": "1971年、金とドルの兌換停止が世界経済の秩序を根底から変えた。",
+      "category": "horizons",
+      "tags": ["ニクソン・ショック", "金本位制", "為替"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "金利のある世界へ――30年のデフレが終わるとき投資はどう変わるか",
+      "url": "/investment-library/horizons/end-of-deflation/",
+      "description": "30年続いたデフレの終焉と金利のある世界で投資はどう変わるか。",
+      "category": "horizons",
+      "tags": ["デフレ", "金利", "日本経済", "インフレ"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "地政学リスクとは何か――防衛費8.8兆円時代の構造理解",
+      "url": "/investment-library/horizons/geopolitical-risk/",
+      "description": "地政学リスクの構造と投資への影響。防衛費拡大時代の構造理解。",
+      "category": "horizons",
+      "tags": ["地政学", "リスク", "防衛"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "投資の失敗から学ぶ――チューリップからLTCMまで、繰り返される構造",
+      "url": "/investment-library/horizons/history-of-failures/",
+      "description": "歴史的な投資の失敗事例を検証し、繰り返される構造を学ぶ。",
+      "category": "horizons",
+      "tags": ["投資の失敗", "LTCM", "バブル", "教訓"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "東証PBR1倍要請の本質――日本企業に何が起きているか",
+      "url": "/investment-library/horizons/tse-pbr-reform/",
+      "description": "東証のPBR1倍要請が日本企業にもたらす構造変化を解説。",
+      "category": "horizons",
+      "tags": ["東証", "PBR", "企業改革", "資本効率"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "円安と日本株――プラザ合意から現在までの為替と企業の関係",
+      "url": "/investment-library/horizons/yen-history/",
+      "description": "プラザ合意から現在まで、為替と日本企業の関係を通時的に考察。",
+      "category": "horizons",
+      "tags": ["円安", "為替", "プラザ合意", "日本株"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "ベンジャミン・グレアム――バリュー投資の父が遺した知恵",
+      "url": "/investment-library/people/benjamin-graham/",
+      "description": "安全マージン、ミスター・マーケット。バリュー投資の創始者の生涯と思想。",
+      "category": "people",
+      "tags": ["グレアム", "バリュー投資", "安全マージン"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "ピーター・リンチ――「自分の知っているものに投資せよ」",
+      "url": "/investment-library/people/peter-lynch/",
+      "description": "マゼランファンドを率いた伝説のファンドマネージャーの投資哲学。",
+      "category": "people",
+      "tags": ["ピーター・リンチ", "マゼランファンド", "成長株"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "フィリップ・フィッシャー――成長株投資の先駆者",
+      "url": "/investment-library/people/philip-fisher/",
+      "description": "成長株投資の先駆者。15の要点と「噂話投資法」の生みの親。",
+      "category": "people",
+      "tags": ["フィッシャー", "成長株投資", "15の要点"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "バフェット後のバークシャー――アベル新CEOと変わらない原則",
+      "url": "/investment-library/people/buffett-succession/",
+      "description": "バフェット引退後のバークシャー・ハサウェイ。グレッグ・アベルと変わらない原則。",
+      "category": "people",
+      "tags": ["バフェット", "後継者", "バークシャー", "アベル"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ勝ち続けるのか――ニデック（日本電産）の強さの構造分析",
+      "url": "/investment-library/research/nidec-moat/",
+      "description": "世界シェアNo.1モーター企業ニデックの競争優位性を構造的に分析。",
+      "category": "research",
+      "tags": ["ニデック", "日本電産", "moat", "企業分析"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ勝ち続けるのか――任天堂の強さの構造分析",
+      "url": "/investment-library/research/nintendo-moat/",
+      "description": "任天堂のIPとハードウェアの独自戦略を構造的に分析。",
+      "category": "research",
+      "tags": ["任天堂", "moat", "IP", "企業分析"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ勝ち続けるのか――信越化学の強さの構造分析",
+      "url": "/investment-library/research/shinetsu-moat/",
+      "description": "塩ビ・シリコンウエハー世界首位。信越化学の圧倒的な競争優位を分析。",
+      "category": "research",
+      "tags": ["信越化学", "moat", "化学", "企業分析"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ勝ち続けるのか――トヨタの強さの構造分析",
+      "url": "/investment-library/research/toyota-moat/",
+      "description": "トヨタ生産方式とグローバル供給網。トヨタの構造的な強さを分析。",
+      "category": "research",
+      "tags": ["トヨタ", "moat", "TPS", "企業分析"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ人は高値で買い、安値で売るのか――投資と心理バイアスの全体図",
+      "url": "/investment-library/human/bias-overview/",
+      "description": "投資判断を歪める心理バイアスの全体像を俯瞰する。",
+      "category": "human",
+      "tags": ["バイアス", "行動経済学", "投資心理"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "好業績の企業はすべてが素晴らしく見える――ハロー効果と企業評価",
+      "url": "/investment-library/human/halo-effect/",
+      "description": "一つの良い印象が全体の評価を引き上げるハロー効果と投資判断。",
+      "category": "human",
+      "tags": ["ハロー効果", "認知バイアス", "企業評価"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜ人は「物語」に騙されるのか――ナラティブバイアスと投資",
+      "url": "/investment-library/human/narrative-bias/",
+      "description": "物語に引き込まれる人間の性質と投資判断への影響。",
+      "category": "human",
+      "tags": ["ナラティブバイアス", "物語", "認知バイアス"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "成功者だけを見ていないか――生存者バイアスと投資判断",
+      "url": "/investment-library/human/survivorship-bias/",
+      "description": "成功事例だけに注目する生存者バイアスの罠と対処法。",
+      "category": "human",
+      "tags": ["生存者バイアス", "認知バイアス", "投資判断"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "複利の力――お金・知識・習慣が雪だるまになる原理",
+      "url": "/investment-library/principles/compound-philosophy/",
+      "description": "複利の力をお金だけでなく知識と習慣に適用する哲学。",
+      "category": "principles",
+      "tags": ["複利", "習慣", "投資原則"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "逆張りの哲学――群衆と反対に歩く勇気と知恵",
+      "url": "/investment-library/principles/contrarian-philosophy/",
+      "description": "逆張り投資の本質。群衆心理に逆らうための哲学と実践。",
+      "category": "principles",
+      "tags": ["逆張り", "コントラリアン", "投資原則"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "安全域（Margin of Safety）――投資における最も重要な3文字",
+      "url": "/investment-library/principles/margin-of-safety/",
+      "description": "グレアムが提唱した安全マージンの概念を体系的に解説。",
+      "category": "principles",
+      "tags": ["安全マージン", "グレアム", "バリュー投資"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "日本の配当貴族はなぜ少ないのか――日米配当文化の違い",
+      "url": "/investment-library/dividends/dividend-aristocrats/",
+      "description": "25年以上連続増配する「配当貴族」。日米の配当文化の違いを考察。",
+      "category": "dividends",
+      "tags": ["配当貴族", "連続増配", "日米比較"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "配当とは何か――企業がお金を返す理由の歴史と哲学",
+      "url": "/investment-library/dividends/dividend-philosophy/",
+      "description": "配当の起源から現代まで。企業が株主に利益を還元する理由の歴史と哲学。",
+      "category": "dividends",
+      "tags": ["配当", "歴史", "投資哲学"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "なぜインデックス投資が機能するのか――ボーグルとファーマの革命",
+      "url": "/investment-library/etf-funds/index-investing-philosophy/",
+      "description": "インデックス投資の理論的背景。ボーグルとファーマの革命。",
+      "category": "etf-funds",
+      "tags": ["インデックス投資", "ボーグル", "効率的市場仮説"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "iDeCo大改正2026――国はなぜ老後資産形成を税制優遇するのか",
+      "url": "/investment-library/ideco/ideco-reform-2026/",
+      "description": "2026年iDeCo改正の全容と、国が老後資産形成を税制優遇する理由。",
+      "category": "ideco",
+      "tags": ["iDeCo", "制度改正", "2026年", "税制"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "新NISAの本当の意味――英国ISAから日本の非課税制度の歴史",
+      "url": "/investment-library/nisa/nisa-philosophy/",
+      "description": "英国ISAをモデルに誕生した日本のNISA制度の歴史と本当の意味。",
+      "category": "nisa",
+      "tags": ["NISA", "ISA", "非課税", "制度史"],
+      "dateAdded": "2026-04-06"
+    },
+    {
+      "title": "Claude Code マスター",
+      "url": "/investment-library/learning/claude-code-master/",
+      "description": "Claude Codeを使いこなすための実践ガイド。",
+      "category": "learning",
+      "tags": ["Claude Code", "AI", "ツール"],
+      "dateAdded": "2026-04-06"
     }
   ]
 }
