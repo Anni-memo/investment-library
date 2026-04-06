@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="なぜインデックス投資が機能するのか。ファーマの効率的市場仮説からボーグルのバンガード500設立まで、インデックス革命の歴史と原理を解説。SPIVAスコアカードが示す事実と、日本のインデックス投資環境。"/>
+<meta property="og:title" content="なぜインデックス投資が機能するのか――ボーグルとファーマの革命｜投資と思考の書斎"/>
+<meta property="og:description" content="「アメリカに投資する非国民」と嘲笑されたインデックスファンド。その革命はいかにして個人投資家の常識を変えたのか。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/etf-funds/index-investing-philosophy/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/etf-funds/index-investing-philosophy/"/>
+<title>なぜインデックス投資が機能するのか――ボーグルとファーマの革命｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "なぜインデックス投資が機能するのか――ボーグルとファーマの革命",
+  "description": "ファーマの効率的市場仮説からボーグルのバンガード500設立まで、インデックス革命の歴史と原理。SPIVAスコアカードが示す事実と日本のインデックス投資環境。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "インデックス投資"}, {"@type": "Thing", "name": "効率的市場仮説"}, {"@type": "Thing", "name": "ジョン・ボーグル"}, {"@type": "Thing", "name": "ETF"}]
+}
+</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">投信・ETFの棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">なぜインデックス投資が機能するのか</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF — 投信・ETFを理解する</div>
+  <div class="hero-ornament">THE INDEX REVOLUTION</div>
+  <h1 class="hero-title">なぜインデックス投資が機能するのか<br>――ボーグルとファーマの革命</h1>
+  <p class="hero-lead">
+    「アメリカに投資する非国民のファンド」と嘲笑された発明が、<br>
+    半世紀を経て個人投資家の最強の武器になった。その構造を読み解く。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- ── SECTION 1: 定義と歴史 ── -->
+  <div class="article-section">
+    <div class="section-label">WHAT IS INDEX INVESTING</div>
+    <h2 class="section-title">インデックス投資とは何か——「平均」を選ぶという革命</h2>
+    <div class="section-body">
+      <p>インデックス投資とは、市場全体の動きに連動する指数（インデックス）に沿って分散投資する手法である。S&P 500、TOPIX、MSCI ACWIといった指数をそのまま保有し、個別銘柄の選別を行わない。</p>
+      <p>一見すると「平均を目指す」という消極的な戦略に見える。しかしこの「平均」は、プロの大多数が長期的に超えられない水準であることが、データによって繰り返し証明されてきた。</p>
+      <p>驚くべきことに、この発想が世に出たとき、投資業界は嘲笑した。1976年、ジョン・ボーグルが世界初の個人向けインデックスファンドを設立したとき、ウォール街はそれを「ボーグルの愚行」と呼んだ。フィデリティのエドワード・ジョンソン3世は「大多数の投資家が平均で満足するなんて信じられない」と語った。</p>
+      <p>しかし歴史は、嘲笑した側が間違っていたことを証明した。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 2: ファーマの効率的市場仮説 ── -->
+  <div class="article-section">
+    <div class="section-label">THE THEORETICAL FOUNDATION</div>
+    <h2 class="section-title">ファーマの効率的市場仮説——市場は情報を即座に織り込む</h2>
+    <div class="section-body">
+      <p>インデックス投資の理論的基盤は、1965年にユージン・ファーマが提唱した効率的市場仮説（Efficient Market Hypothesis）に遡る。</p>
+      <p>ファーマの主張はシンプルだった。市場には無数の参加者がおり、利用可能な情報はほぼ瞬時に株価に反映される。したがって、公開情報に基づいて「割安な銘柄」を見つけ出すことは、体系的には不可能である。</p>
+      <p>この仮説には3つの段階がある。</p>
+      <ul>
+        <li>ウィーク型——過去の値動きから将来を予測できない。チャート分析は無効</li>
+        <li>セミストロング型——公開情報はすべて株価に織り込まれている。ファンダメンタル分析も市場平均を超える武器にならない</li>
+        <li>ストロング型——インサイダー情報さえも株価に反映されている（これは現実的には成立しないとされる）</li>
+      </ul>
+      <p>ファーマはこの研究により2013年にノーベル経済学賞を受賞した。市場が「完全に」効率的かどうかは議論が続くが、「十分に」効率的であることは、半世紀以上のデータが裏付けている。そして「十分に効率的な市場」では、コストの高いアクティブ運用が構造的に不利になる。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">市場が完全に効率的である必要はない。<br>アクティブ運用のコストを上回るほどの非効率が<br>体系的に存在しなければ、インデックスが勝つ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 3: ボーグルの革命 ── -->
+  <div class="article-section">
+    <div class="section-label">BOGLE'S REVOLUTION</div>
+    <h2 class="section-title">ジョン・ボーグルの革命——個人投資家に力を</h2>
+    <div class="section-body">
+      <p>理論を現実の投資商品に変えたのが、ジョン・C・ボーグルである。</p>
+      <p>1974年、ボーグルはバンガード・グループを設立した。その哲学は明確だった——ファンドは投資家のために存在すべきであり、運用会社の利益のためではない。バンガードは業界で唯一、ファンド保有者がオーナーとなる相互会社型（mutual ownership）の構造を採用した。</p>
+      <p>1976年8月31日、ボーグルは世界初の個人向けインデックスファンド「First Index Investment Trust」（現Vanguard 500 Index Fund）を設立した。初回の募集額はわずか1,100万ドル。目標額の1億ドルに遠く及ばなかった。</p>
+      <p>ウォール街は嘲笑した。「アメリカに投資する非国民のファンド」「向上心のないファンド」。業界にとって、市場平均を目指すことは敗北を認めることに等しかった。</p>
+      <p>しかしボーグルは揺るがなかった。彼の論理は数学的に明快だった。</p>
+      <ul>
+        <li>投資家全体のリターンは、コスト控除前では市場リターンと等しい</li>
+        <li>コストを差し引くと、投資家全体の平均リターンは市場を下回る</li>
+        <li>したがって、コストを最小化するインデックスファンドが、長期的には大多数のアクティブファンドに勝つ</li>
+      </ul>
+      <p>この「コストが重要」という主張は、当初は異端だった。しかし50年の実績が、ボーグルの正しさを証明した。2024年末時点で、バンガードの運用資産は約10兆ドルを超えている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 4: SPIVAスコアカード ── -->
+  <div class="article-section">
+    <div class="section-label">THE SPIVA SCORECARD</div>
+    <h2 class="section-title">なぜアクティブファンドの大多数が負けるのか</h2>
+    <div class="section-body">
+      <p>ボーグルの主張を最も強力に裏付けるのが、S&P Dow Jones Indicesが定期的に発行するSPIVA（S&P Indices Versus Active）スコアカードである。</p>
+      <p>SPIVAは、アクティブファンドがベンチマーク指数に対してどの程度の成績を残しているかを、生存バイアスを除去した上で集計する。その結果は一貫している。</p>
+      <ul>
+        <li>米国大型株ファンド——15年間でS&P 500に負けた割合は約88%（2024年末データ）</li>
+        <li>米国中型株ファンド——15年間で指数に負けた割合は約90%</li>
+        <li>日本株ファンド——10年間でS&P/TOPIX 150に負けた割合は約80%</li>
+        <li>新興国株ファンド——15年間で指数に負けた割合は約90%以上</li>
+      </ul>
+      <p>重要なのは、これが1年や2年の話ではないことだ。期間が長くなるほど、アクティブファンドの敗北率は上昇する。短期では腕の良いマネージャーが勝つことはある。しかし15年、20年と時間が経つにつれ、コストの重みが複利的に効いてくる。</p>
+      <p>さらに、今年勝ったファンドが来年も勝つとは限らない。SPIVAの持続性データによれば、上位25%に入ったファンドが翌年も上位25%を維持する確率は、ほぼランダムと変わらない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">15年で約9割のプロが指数に負ける。<br>これは「プロが無能」なのではない。<br>コスト控除後に市場を上回り続けることが、<br>構造的にきわめて困難だという事実を示している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 5: 4つの利点 ── -->
+  <div class="article-section">
+    <div class="section-label">FOUR ADVANTAGES</div>
+    <h2 class="section-title">インデックス投資の4つの構造的利点</h2>
+    <div class="section-body">
+      <p>インデックス投資が機能する理由は、単に「コストが安い」だけではない。4つの構造的な利点が複合的に作用している。</p>
+
+      <p><strong>1. コストの圧倒的な低さ</strong></p>
+      <p>アクティブファンドの信託報酬は年0.5%〜1.5%が一般的だが、インデックスファンドは年0.03%〜0.15%程度である。この差は一見小さいが、30年間の複利で計算すると運用成果に20%以上の差を生む。ボーグルが「コストの暴政」と呼んだ現象だ。</p>
+
+      <p><strong>2. 圧倒的な分散効果</strong></p>
+      <p>S&P 500なら500銘柄、全世界株式なら8,000銘柄以上に一度に投資できる。個別銘柄リスクが実質的にゼロになり、残るのは市場全体のリスク（システマティック・リスク）のみとなる。これは長期的にリターンとして報われるリスクである。</p>
+
+      <p><strong>3. 完全な透明性</strong></p>
+      <p>インデックスファンドの保有銘柄は公開されている指数の構成銘柄そのものであり、ブラックボックスがない。運用者の判断による予期せぬポジション変更もない。投資家は自分が何を保有しているかを常に把握できる。</p>
+
+      <p><strong>4. 税効率の高さ</strong></p>
+      <p>インデックスファンドは銘柄の入れ替えが最小限であるため、課税対象となる売買益の発生が少ない。アクティブファンドが頻繁な売買で課税イベントを生むのに対し、インデックスファンドは「買って保有する」構造が税の繰り延べ効果を生む。日本の新NISAとの組み合わせでは、この利点がさらに増幅される。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 6: 批判と限界 ── -->
+  <div class="article-section">
+    <div class="section-label">CRITICISMS AND LIMITS</div>
+    <h2 class="section-title">批判と限界——インデックス投資は万能ではない</h2>
+    <div class="section-body">
+      <p>インデックス投資への批判も存在する。知的誠実さのために、その限界を正面から見つめておく。</p>
+
+      <p><strong>「市場が効率的ならバブルは起きないはず」</strong></p>
+      <p>正当な指摘である。2000年のITバブル、2008年のリーマンショック、2021年のミーム株騒動。市場は明らかに非効率な価格をつけることがある。しかし問題は、バブルを「事前に」識別し、「適切なタイミングで」行動できるかどうかだ。事後的にバブルを指摘することは容易だが、リアルタイムでそれを利益に変えることは、プロですら困難を極める。</p>
+
+      <p><strong>「全員がインデックスに移行したらどうなるか」</strong></p>
+      <p>いわゆる「インデックス投資のパラドックス」である。全員がインデックス投資に移行すれば、誰も個別銘柄の価値を分析しなくなり、市場の価格発見機能が失われる。理論上はその通りだが、現実にはアクティブ運用が完全に消滅することはない。非効率が生まれれば、それを利用するアクティブ投資家が必ず現れる。市場は自己修正のメカニズムを内蔵している。</p>
+
+      <p><strong>「時価総額加重は割高な銘柄ほど多く買う」</strong></p>
+      <p>時価総額加重型のインデックスは、値上がりした銘柄のウェイトが自動的に上がる。これはモメンタムに乗る利点がある反面、バブル期には割高な銘柄を多く保有するリスクも伴う。2024年末のS&P 500ではマグニフィセント7が指数の約30%を占めており、集中リスクが指摘されている。</p>
+
+      <p><strong>「下落相場では市場と一緒に沈む」</strong></p>
+      <p>インデックス投資はダウンサイドプロテクションを持たない。2008年のリーマンショックではS&P 500が約50%下落し、インデックス投資家もその全額を被った。ただし、そこで売らなかった投資家は、その後の回復で損失を取り戻し、さらに大きなリターンを得ている。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">インデックス投資の最大のリスクは市場の暴落ではない。<br>暴落時に売ってしまう投資家自身の行動である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 7: 日本のインデックス投資環境 ── -->
+  <div class="article-section">
+    <div class="section-label">INDEX INVESTING IN JAPAN</div>
+    <h2 class="section-title">日本のインデックス投資環境——新NISAが変えた風景</h2>
+    <div class="section-body">
+      <p>日本のインデックス投資環境は、この10年で劇的に改善した。</p>
+      <p>その中心にあるのが三菱UFJアセットマネジメントの「eMAXIS Slim」シリーズである。全世界株式（オール・カントリー）の信託報酬は年0.05775%（2024年改定後）。これは世界的に見ても最低水準であり、米国のバンガードVTと比較しても遜色がない。</p>
+      <p>日本のインデックス投資環境を支える要素を整理する。</p>
+      <ul>
+        <li>eMAXIS Slimシリーズ——全世界株式、S&P 500、先進国株式など、主要インデックスを超低コストで提供</li>
+        <li>新NISA（2024年開始）——つみたて投資枠120万円+成長投資枠240万円、年間最大360万円が非課税。生涯投資枠1,800万円</li>
+        <li>iDeCo——掛金が全額所得控除。インデックスファンドとの相性が極めて良い</li>
+        <li>ネット証券の手数料競争——SBI証券、楽天証券を中心に、投信の購入手数料は実質無料化</li>
+      </ul>
+      <p>特に新NISAとインデックス投資の組み合わせは強力だ。インデックスファンドの税効率の高さに加え、NISAの非課税メリットが掛け合わされる。eMAXIS Slim全世界株式をNISAで20年間積み立てた場合、課税口座と比較して数百万円の差が生まれる試算もある。</p>
+      <p>ボーグルが1976年に始めた革命は、半世紀を経て日本の個人投資家にも届いた。「平均を買う」というシンプルな戦略が、かつてないほど実行しやすい環境が整っている。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">インデックス投資の本質は「謙虚さ」にある。<br>市場を出し抜こうとするのではなく、市場の成長に乗る。<br>ボーグルの言葉を借りれば、<br>「干し草の山から針を探すな。干し草の山を買え。」</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">インデックスの原理を知ったら、投資原則と人物録、そして他のETF記事を並べて読む。</p>
+    <div class="further-links">
+      <a class="further-link" href="../../principles/">
+        <span class="further-link-tag">原則</span>
+        <span class="further-link-title">原則の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../people/">
+        <span class="further-link-tag">人物録</span>
+        <span class="further-link-title">人物録の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">投信・ETF</span>
+        <span class="further-link-title">投信・ETFの棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+</body>
+</html>
