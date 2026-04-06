@@ -10,38 +10,52 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="優待投資の魅力と注意点。配当との違いを整理し、投資判断としての優待を考える。"/>
-<meta property="og:title" content="株主優待はどう考えるか｜投資と思考の書斎"/>
-<meta property="og:description" content="優待投資の魅力と注意点。配当との違いを整理し、投資判断としての優待を考える。"/>
+<meta name="description" content="株主優待はなぜ日本にしか存在しないのか。実施企業1,521社の現状、海外の配当・自社株買い中心の還元との比較、優待の経済学と投資家としての視点を整理する。"/>
+<meta property="og:title" content="株主優待はなぜ日本にしかないのか――海外還元との比較｜投資と思考の書斎"/>
+<meta property="og:description" content="株主優待は日本固有の制度である。なぜ海外には存在しないのか。配当・自社株買い中心の米国型還元と比較し、優待の経済学を考える。"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://anni-memo.github.io/investment-library/dividends/shareholder-benefits/"/>
 <meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://anni-memo.github.io/investment-library/dividends/shareholder-benefits/"/>
-<title>株主優待はどう考えるか｜投資と思考の書斎</title>
+<title>株主優待はなぜ日本にしかないのか――海外還元との比較｜投資と思考の書斎</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "株主優待はどう考えるか",
-  "description": "優待投資の魅力と注意点。配当との違いを整理し、投資判断としての優待を考える。",
-  "url": "https://anni-memo.github.io/investment-library/dividends/shareholder-benefits/",
-  "isPartOf": {"@type": "WebSite", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "headline": "株主優待はなぜ日本にしかないのか――海外還元との比較",
+  "description": "株主優待は日本固有の制度である。実施企業1,521社の現状、海外の配当・自社株買い中心の還元との比較、優待の経済学と投資家としての視点。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "株主優待"}, {"@type": "Thing", "name": "株主還元"}, {"@type": "Thing", "name": "配当"}],
   "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
     {"@type": "ListItem", "position": 2, "name": "配当の部屋", "item": "https://anni-memo.github.io/investment-library/dividends/"},
-    {"@type": "ListItem", "position": 3, "name": "株主優待はどう考えるか"}
+    {"@type": "ListItem", "position": 3, "name": "株主優待はなぜ日本にしかないのか"}
   ]}
 }
 </script>
+
 <link rel="stylesheet" href="../../shared.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
 <style>
 :root{
-  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
-  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
-  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --ink:#1a1208;
+  --ink2:#2d2010;
+  --ink3:#4a3520;
+  --parch:#f5ede0;
+  --parch2:#efe4d0;
+  --parch3:#e8d8be;
+  --parch4:#dfc9a8;
+  --gold:#8b6914;
+  --gold2:#b8900a;
+  --gold3:#d4aa22;
+  --gold4:#f0cc55;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -49,122 +63,504 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink);scroll-behavior:smooth}
-body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
-.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}
-.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+body{
+  font-family:var(--jp);
+  background:var(--parch);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:1000;
+  opacity:.5;
+}
+
+/* ── NAV ── */
+.nav{
+  background:var(--ink);
+  padding:12px 24px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border-bottom:1px solid rgba(184,144,10,.25);
+  flex-wrap:wrap;
+}
+.nav-back{
+  font-family:var(--mono);
+  font-size:.62rem;
+  color:var(--gold3);
+  text-decoration:none;
+  letter-spacing:.08em;
+  transition:color .2s;
+}
 .nav-back:hover{color:var(--gold4)}
 .nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
-.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
-.hero{
-  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);
-  color:var(--parch);padding:60px 24px 52px;text-align:center;
-  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+.nav-current{
+  font-family:var(--mono);
+  font-size:.62rem;
+  color:var(--parch4);
+  letter-spacing:.06em;
 }
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
-.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
-.article{max-width:680px;margin:0 auto;padding:56px 24px 40px;}
-.article-section{margin-bottom:48px;}
-.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
-.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
-.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);
+  padding:60px 24px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold3),transparent);
+}
+.hero-shelf{
+  font-family:var(--mono);
+  font-size:.58rem;
+  color:var(--gold3);
+  letter-spacing:.28em;
+  margin-bottom:12px;
+  opacity:.65;
+  position:relative;
+}
+.hero-ornament{
+  font-family:var(--mono);
+  font-size:.7rem;
+  color:var(--gold3);
+  letter-spacing:.35em;
+  margin-bottom:18px;
+  opacity:.7;
+  position:relative;
+}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(1.5rem,4.5vw,2.6rem);
+  font-weight:700;
+  line-height:1.25;
+  color:var(--parch);
+  text-shadow:0 2px 24px rgba(180,130,20,.12);
+  position:relative;
+  margin-bottom:20px;
+}
+.hero-lead{
+  font-family:var(--serif);
+  font-size:clamp(.9rem,2.2vw,1.05rem);
+  color:var(--parch3);
+  font-weight:300;
+  line-height:2;
+  position:relative;
+  max-width:580px;
+  margin:0 auto;
+}
+
+/* ── ARTICLE ── */
+.article{
+  max-width:700px;
+  margin:0 auto;
+  padding:56px 24px 12px;
+}
+.article-section{margin-bottom:52px;}
+.section-label{
+  font-family:var(--mono);
+  font-size:.52rem;
+  color:var(--gold);
+  letter-spacing:.2em;
+  margin-bottom:14px;
+  opacity:.75;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:18px;
+  line-height:1.35;
+}
+.section-body{
+  font-size:.9rem;
+  color:var(--ink2);
+  line-height:2.1;
+  font-weight:300;
+}
 .section-body p{margin-bottom:1.4em;}
 .section-body p:last-child{margin-bottom:0;}
-.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
-.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
-.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 48px;}
-.article-nav{display:flex;justify-content:space-between;align-items:center;padding-top:40px;border-top:1px solid var(--parch4);margin-top:48px;flex-wrap:wrap;gap:12px;}
-.article-nav a{font-family:var(--mono);font-size:.7rem;color:var(--gold);text-decoration:none;letter-spacing:.08em;padding:10px 20px;border:1px solid var(--parch4);transition:all .2s;}
-.article-nav a:hover{border-color:var(--gold2);background:var(--parch2);}
-.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
-.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.section-body ul{
+  list-style:none;
+  padding-left:0;
+  margin:1.2em 0;
+}
+.section-body ul li{
+  padding:.3em 0 .3em 1.2em;
+  position:relative;
+  font-size:.88rem;
+  color:var(--ink3);
+  line-height:1.8;
+}
+.section-body ul li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:var(--gold);
+  font-family:var(--mono);
+}
+
+/* ── CALLOUT ── */
+.callout{
+  border-left:3px solid var(--gold2);
+  padding:18px 22px;
+  margin:32px 0;
+  background:var(--parch2);
+}
+.callout-text{
+  font-family:var(--serif);
+  font-size:1.0rem;
+  color:var(--ink);
+  line-height:1.85;
+  font-weight:500;
+}
+
+/* ── DIVIDER ── */
+.divider{
+  border:none;
+  border-top:1px solid var(--parch4);
+  margin:0 0 52px;
+}
+
+/* ── FURTHER READING ── */
+.further{
+  background:var(--parch2);
+  border-top:1px solid var(--parch4);
+  padding:44px 24px;
+}
+.further-inner{
+  max-width:700px;
+  margin:0 auto;
+}
+.further-label{
+  font-family:var(--mono);
+  font-size:.52rem;
+  color:var(--gold);
+  letter-spacing:.16em;
+  margin-bottom:8px;
+  opacity:.8;
+}
+.further-reason{
+  font-size:.78rem;
+  color:var(--ink3);
+  line-height:1.7;
+  margin-bottom:20px;
+  font-weight:300;
+}
+.further-links{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.further-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px 16px;
+  background:var(--parch);
+  border:1px solid var(--parch4);
+  border-left:2px solid rgba(139,105,20,.3);
+  text-decoration:none;
+  color:inherit;
+  transition:all .18s;
+}
+.further-link:hover{
+  border-left-color:var(--gold2);
+  background:var(--parch3);
+}
+.further-link-tag{
+  font-family:var(--mono);
+  font-size:.5rem;
+  color:var(--gold);
+  letter-spacing:.1em;
+  flex-shrink:0;
+  width:80px;
+}
+.further-link-title{
+  font-family:var(--serif);
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--ink);
+  flex:1;
+}
+.further-link-arrow{
+  color:var(--gold3);
+  font-size:.85rem;
+  flex-shrink:0;
+}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--ink);
+  color:var(--parch4);
+  padding:28px 24px;
+  text-align:center;
+  font-size:.68rem;
+  line-height:1.9;
+  border-top:2px solid rgba(139,105,20,.25);
+}
+.footer-title{
+  font-family:var(--serif);
+  font-size:1.1rem;
+  color:var(--gold3);
+  margin-bottom:8px;
+  letter-spacing:.06em;
+}
 .footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  z-index:100;
+  width:40px;
+  height:40px;
+  background:var(--ink);
+  border:1px solid rgba(139,105,20,.25);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:1rem;
+  color:var(--gold3);
+  box-shadow:var(--shadow);
+  transition:all .2s;
+  opacity:0;
+  pointer-events:none;
+}
+.scroll-top.visible{
+  opacity:1;
+  pointer-events:all;
+}
+.scroll-top:hover{
+  background:var(--gold2);
+  color:var(--ink);
+}
 </style>
 </head>
 <body>
+
+<!-- ── NAV ── -->
 <nav class="nav">
   <a class="nav-back" href="../../">書斎の入口</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../">配当の部屋</a>
   <span class="nav-sep">/</span>
-  <span class="nav-current">株主優待はどう考えるか</span>
+  <span class="nav-current">株主優待はなぜ日本にしかないのか</span>
 </nav>
+
+<!-- ── HERO ── -->
 <div class="hero">
   <div class="hero-shelf">DIVIDENDS · 配当の部屋</div>
-  <h1 class="hero-title">株主優待はどう考えるか</h1>
-  <p class="hero-lead">優待投資の魅力と注意点。配当との違いを整理し、投資判断としての優待を考える。</p>
+  <div class="hero-ornament">THE UNIQUENESS OF SHAREHOLDER PERKS</div>
+  <h1 class="hero-title">株主優待はなぜ日本にしかないのか<br>――海外還元との比較</h1>
+  <p class="hero-lead">
+    世界中で株式市場は存在する。しかし「株主優待」という制度は、<br>
+    ほぼ日本にしかない。なぜ日本だけなのか。そして、それは投資家にとって何を意味するのか。
+  </p>
 </div>
+
+<!-- ── ARTICLE ── -->
 <main class="article">
 
-  <section class="article-section">
-    <div class="section-label">SECTION 01</div>
-    <h2 class="section-title">株主優待という日本独自の制度</h2>
+  <!-- Section 1: 株主優待とは -->
+  <div class="article-section">
+    <div class="section-label">WHAT IS SHAREHOLDER PERKS</div>
+    <h2 class="section-title">株主優待とは何か</h2>
     <div class="section-body">
-      <p>株主優待は、企業が株主に対して自社製品や割引券、食事券などを贈る制度です。配当金とは別に提供されるもので、日本の上場企業の約4割が何らかの株主優待を実施しています。</p>
-      <p>海外ではほとんど見られないこの制度は、日本の個人投資家文化と深く結びついています。企業側にとっては、個人株主の数を増やし、長期保有を促す効果があります。株主にとっては、投資をしながら生活に役立つ特典を受け取れるという楽しみがあります。</p>
-      <p>優待の内容は企業によってさまざまです。飲食チェーンの食事券、鉄道会社の乗車券、日用品メーカーの自社製品詰め合わせ、テーマパークの入場券など。自分がよく利用するサービスの優待があれば、実質的な投資リターンを高めることができます。</p>
+      <p>株主優待とは、企業が一定数以上の株式を保有する株主に対して、自社製品・サービス・割引券・食事券・カタログギフトなどを贈る制度である。配当金とは別に提供される、いわば「現物での株主還元」だ。</p>
+      <p>飲食チェーンの食事券、鉄道会社の乗車券、化粧品メーカーの自社製品セット、テーマパークの入場券。その内容は多岐にわたり、個人投資家にとっては「投資しながら生活が豊かになる」という実感を与える仕組みになっている。</p>
+      <p>優待を受け取るには、通常「権利確定日」に株主名簿に記載されている必要がある。多くの企業は3月末や9月末を権利確定日としており、その直前に株価が上昇し、直後に下落する「優待タダ取り」の動きが市場では恒例となっている。</p>
+      <p>法的な位置づけとしては、株主優待は会社法で義務づけられた制度ではない。あくまで企業の任意による施策であり、内容の変更や廃止も取締役会の決議で可能だ。配当金が株主総会の決議事項であるのに対し、優待はより柔軟に運用できる。この「任意性」が、優待制度の特徴であり、同時にリスクでもある。</p>
     </div>
-  </section>
-
-  <hr class="divider"/>
-
-  <section class="article-section">
-    <div class="section-label">SECTION 02</div>
-    <h2 class="section-title">優待利回りの考え方</h2>
-    <div class="section-body">
-      <p>優待利回りは、「優待品の金額換算値 ÷ 投資金額 × 100」で計算します。たとえば、株価2,000円の企業を100株（20万円）購入し、年間3,000円相当の優待品を受け取れるなら、優待利回りは1.5%です。</p>
-      <p>配当利回りと優待利回りを合わせた「総合利回り」で比較されることもあります。配当利回り2.5% + 優待利回り1.5% = 総合利回り4.0%、というような見方です。</p>
-      <p>ただし、優待利回りはあくまで「目安」です。優待品の金額換算は人によって異なりますし、自分が使わない優待であれば実質的な価値はゼロに近くなります。「自分にとって本当に価値があるか」という視点で考えることが大切です。</p>
-    </div>
-  </section>
-
-  <hr class="divider"/>
-
-  <section class="article-section">
-    <div class="section-label">SECTION 03</div>
-    <h2 class="section-title">優待目当ての投資に潜むリスク</h2>
-    <div class="section-body">
-      <p>優待が魅力的だからという理由だけで株を購入すると、思わぬリスクを抱えることがあります。最も大きなリスクは「優待廃止」です。企業の方針変更やコスト削減により、突然優待が廃止されることは珍しくありません。</p>
-      <p>優待廃止が発表されると、優待目当てで保有していた投資家が一斉に売却し、株価が大きく下がることがあります。年間3,000円の優待を楽しんでいたのに、株価が10万円下がっては本末転倒です。</p>
-      <p>また、優待品に魅力を感じるあまり、企業の業績や財務状況を十分に確認せずに投資してしまうケースも見られます。優待は投資の「付加価値」であって、投資判断の「主軸」にすべきものではありません。まず企業としての健全性を確認し、そのうえで優待を楽しむという順番が大切です。</p>
-    </div>
-  </section>
-
-  <hr class="divider"/>
-
-  <section class="article-section">
-    <div class="section-label">SECTION 04</div>
-    <h2 class="section-title">優待から配当へ、変わるトレンド</h2>
-    <div class="section-body">
-      <p>近年、株主優待を廃止して、その分を配当金の増額に充てる企業が増えています。この背景には、東京証券取引所が求める「資本効率の改善」や、海外投資家への配慮があります。</p>
-      <p>海外の機関投資家にとって、日本の食事券や自社製品は使い道がありません。同じコストをかけるなら、すべての株主に平等に届く配当金のほうが合理的だという考え方です。実際、オリックスやJT（日本たばこ産業）など、知名度の高い企業が優待廃止を発表しています。</p>
-      <p>この流れは、日本の株式市場がより「国際標準」に近づいていることの表れでもあります。優待投資を楽しむこと自体は悪いことではありませんが、今後は優待制度が縮小していく可能性があることも頭に入れておくと良いでしょう。</p>
-    </div>
-  </section>
-
-  <div class="callout">
-    <div class="callout-text">優待は「おまけ」として楽しむもの。投資判断の主軸にはしない。</div>
   </div>
 
-  <nav class="article-nav">
-    <a href="../drip-power/">← 配当再投資の力</a>
-    <a href="../">配当の部屋に戻る →</a>
-  </nav>
+  <hr class="divider"/>
+
+  <!-- Section 2: 実施企業数 -->
+  <div class="article-section">
+    <div class="section-label">CURRENT LANDSCAPE</div>
+    <h2 class="section-title">実施企業数1,521社——過去最高を記録する現状</h2>
+    <div class="section-body">
+      <p>大和インベスター・リレーションズの調査によれば、2024年10月時点で株主優待を実施する上場企業は1,521社。これは調査開始以来の過去最高である。上場企業全体の約37%にあたる。</p>
+      <p>ただし、この数字には重要な文脈がある。実施企業数は増加しているが、一方で優待を廃止する企業も毎年一定数存在する。2023年度は約80社が優待を新設・拡充した一方、約60社が廃止・縮小した。つまり、総数は増えているが、中身は常に入れ替わっている。</p>
+      <p>優待の人気ジャンルは食料品・飲食券がトップで、全体の約3割を占める。次いでQUOカードなどの金券類、自社製品・サービス、買い物割引券と続く。近年はカタログギフトやポイント付与など、汎用性の高い優待が増加傾向にある。</p>
+      <p>注目すべきは、優待の「質」が変わりつつあることだ。かつては一律の自社製品送付が中心だったが、現在は保有株数や保有期間に応じて段階的に優待内容がグレードアップする「長期保有優遇制度」を導入する企業が急増している。</p>
+      <p>業種別に見ると、小売・外食が優待実施率でトップを走る。イオン、すかいらーく、マクドナルド、吉野家——こうした企業の優待は個人投資家の間で「定番」とされ、優待目当ての投資入門としても知られている。一方、金融やIT、BtoB企業では優待を実施しない企業が多い。自社の製品やサービスを個人の日常生活で活用しにくい業種では、優待の設計自体が難しいからだ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 3: なぜ日本固有なのか -->
+  <div class="article-section">
+    <div class="section-label">WHY ONLY IN JAPAN</div>
+    <h2 class="section-title">なぜ日本固有なのか——個人株主への忠誠心醸成と文化的背景</h2>
+    <div class="section-body">
+      <p>世界の株式市場を見渡しても、日本のような体系的な株主優待制度を持つ国はほとんどない。なぜ日本だけにこの制度が根づいたのか。その背景には、経済的な合理性だけでは説明できない文化的要因がある。</p>
+      <p>第一に、日本の株式市場における個人株主の位置づけがある。日本企業はバブル崩壊後、安定株主の確保に苦心してきた。持ち合い株式の解消が進む中、「物言わぬ安定株主」として個人投資家を囲い込む手段が必要だった。優待は、少額投資家に「この会社の株を持っていてよかった」と感じさせる、感情に訴える還元策として機能した。</p>
+      <p>第二に、日本の贈答文化との親和性がある。お中元・お歳暮に代表される「モノを贈る」文化が根強い日本では、企業から株主への「贈り物」という形式は自然に受け入れられた。現金での還元より、心のこもった品物を贈る方が「関係性の構築」にふさわしいという感覚が、企業側にも株主側にも共有されている。</p>
+      <p>第三に、「株主＝消費者」という構図がある。日本企業の多くはBtoC事業を展開しており、株主がそのまま顧客でもある。優待を通じて自社製品を体験してもらうことは、マーケティングとしても合理的だった。株主還元と販促を同時に達成できる、日本のBtoC企業ならではの発想である。</p>
+      <p>第四に、制度の「連鎖効果」がある。ある企業が優待を始めると、同業他社も追随する。個人株主数の比較において「あの会社は優待があるのに、うちにはない」という状況は、IR（投資家向け広報）上の競争劣位になるからだ。こうして優待制度は業界内で連鎖的に広がり、日本の株式市場に深く根を張ることになった。</p>
+      <p>歴史的には、株主優待の起源は1899年（明治32年）の東武鉄道にまで遡るとされる。鉄道会社が株主に無料乗車券を配布したのが始まりだ。以来120年以上、日本の株式市場とともに優待制度は進化してきた。この歴史の厚みも、他国が簡単には模倣できない理由の一つだろう。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">株主優待は「合理的な制度設計」であると同時に、<br>日本の贈答文化・安定株主志向・個人投資家重視が交差する<br>文化的産物でもある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 4: 海外の株主還元との比較 -->
+  <div class="article-section">
+    <div class="section-label">GLOBAL COMPARISON</div>
+    <h2 class="section-title">海外の株主還元との比較——米国は配当・自社株買い中心</h2>
+    <div class="section-body">
+      <p>米国の株主還元は、配当金と自社株買いの二本柱で構成される。S&P 500企業の2023年の株主還元総額は約1.4兆ドル（配当約5,900億ドル＋自社株買い約7,900億ドル）に達した。優待に相当する制度は存在しない。</p>
+      <p>なぜ米国に株主優待がないのか。最大の理由は「株主平等の原則」が厳格に適用されているからだ。米国では、すべての株主が保有比率に応じて平等に還元を受けるべきという考え方が強い。100株の株主と10万株の株主が同じ優待品を受け取る日本の制度は、米国の基準では不公平とみなされる。</p>
+      <p>米国企業が自社株買いを好む理由も明確だ。自社株買いは一株当たり利益（EPS）を向上させ、株価を押し上げる効果がある。配当と異なり、株主は売却のタイミングを自分で選べるため、課税の繰り延べも可能になる。経営者にとっても、ストックオプションの価値を高める効果がある。</p>
+      <p>欧州では、配当重視の傾向が強い。英国やスイスの大型株は安定的な高配当で知られ、年金基金などの機関投資家がインカムゲインを重視する投資文化が根づいている。ドイツやフランスでも、株主還元の主軸は配当金であり、優待に類する制度は一般的ではない。</p>
+      <p>アジアでは、韓国や台湾にも株主優待に近い制度を持つ企業が少数ながら存在する。しかし、日本ほど制度化・体系化されておらず、市場全体の投資文化として定着しているわけではない。</p>
+      <p>この比較から浮かび上がるのは、株主還元の「正解」は一つではないということだ。米国型の自社株買い＋配当が合理的に見えるが、それは機関投資家中心の市場構造を前提としている。個人株主が市場の重要な担い手である日本では、優待という独自の還元方法にも一定の合理性がある。重要なのは、どの方法が「正しい」かではなく、自分が投資する企業がどの方法を採用しており、それが自分の投資戦略と整合しているかどうかだ。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 5: 優待の経済学 -->
+  <div class="article-section">
+    <div class="section-label">ECONOMICS OF PERKS</div>
+    <h2 class="section-title">優待の経済学——機関投資家には不利、個人投資家へのインセンティブ設計</h2>
+    <div class="section-body">
+      <p>株主優待の経済学を冷静に分析すると、構造的な非効率が見えてくる。</p>
+      <p>まず、機関投資家にとって優待はほぼ無価値だ。数百万株を保有するファンドが100株保有と同じ食事券を受け取っても意味がない。むしろ、優待に使われるコストが配当に回されれば、保有比率に応じた還元を受けられる。海外の機関投資家が日本企業に優待廃止を求める背景がここにある。</p>
+      <p>次に、優待には「逆進性」がある。多くの優待は最低投資単位（100株）で最も利回りが高くなるように設計されている。投資金額が大きくなるほど優待利回りは低下する。これは小口投資家を優遇する設計だが、裏を返せば大口投資家にとっては非効率な還元方法だ。</p>
+      <p>企業側のコスト構造も重要である。優待品の調達・梱包・発送には相当なコストがかかる。仮に1万人の株主に2,000円相当の優待品を送る場合、優待品の原価に加えて梱包費・送料・事務コストが上乗せされる。同じ金額を配当で支払う場合と比べると、株主に届く実質的な価値は目減りする。</p>
+      <p>それでも企業が優待を続ける理由は、個人株主の「行動経済学的な反応」にある。人は現金よりもモノに対して感情的な愛着を持ちやすい。2,000円の配当増額より、2,000円相当の自社製品のほうが「嬉しい」と感じる人が多い。この感情的な満足度の差が、企業にとっての優待の価値を生んでいる。</p>
+      <p>税制面でも違いがある。配当金には源泉徴収（所得税15.315%＋住民税5%）が課されるが、優待品は原則として「雑所得」に分類される。年間の雑所得が20万円以下であれば確定申告不要のケースが多く、実質的に非課税で受け取れる個人株主も少なくない。この税制上のメリットも、優待が個人投資家に支持される隠れた要因だ。</p>
+      <p>もう一つ見落とされがちなのは、優待の「スイッチングコスト効果」だ。優待を受け取っている株主は、その企業の株を売りにくくなる。「優待がなくなるのがもったいない」という心理が売却を抑制する。これは企業にとって、配当では得られない株主ロックイン効果である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">優待は経済的には非効率である。<br>しかし、感情に訴える力は強い。<br>この非効率を「コスト」と見るか「投資」と見るかが、企業戦略の分岐点になる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 6: 長期保有条件の広がり -->
+  <div class="article-section">
+    <div class="section-label">LONG-TERM HOLDING TREND</div>
+    <h2 class="section-title">長期保有条件の広がり——「持ち続ける株主」への転換</h2>
+    <div class="section-body">
+      <p>近年、株主優待の設計に大きな変化が起きている。「長期保有条件」の導入だ。</p>
+      <p>従来の優待は、権利確定日に株主名簿に記載されていれば自動的に受け取れた。しかし現在、多くの企業が「1年以上」「3年以上」の継続保有を条件とするか、長期保有者に優待内容をグレードアップする制度を導入している。</p>
+      <p>この背景には、「優待タダ取り」の問題がある。権利確定日直前に株を買い、権利落ち後すぐに売却する短期的な投資行動は、企業が意図する「安定株主の確保」とは真逆だ。長期保有条件は、こうした短期売買を抑制し、本当に企業を応援してくれる株主を選別する仕組みとして機能する。</p>
+      <p>たとえば、ある食品メーカーは通常の優待品に加えて、3年以上保有の株主には限定商品を追加する。あるサービス企業は、保有期間1年未満の株主には優待を提供せず、1年以上で通常優待、3年以上で倍額の優待を提供する。</p>
+      <p>この流れは、優待制度の「進化」とも言える。単なるバラマキ型の還元から、企業と株主の長期的な関係を構築するための戦略的なツールへと変わりつつある。長期保有を前提とした優待設計は、結果として株主の売却抑制にもつながり、株価の安定にも寄与する。</p>
+      <p>一方で、東京証券取引所が推進する「資本コスト経営」の流れの中で、優待制度を見直す企業も出てきている。PBR（株価純資産倍率）1倍割れの企業に対して、東証は「資本効率の改善」を求めている。その文脈では、すべての株主に公平に還元できる配当や自社株買いが「正攻法」とされ、優待は見直しの対象になりやすい。オリックス、JT、マルハニチロなど、知名度の高い企業が優待を廃止し、その分を配当に上乗せする動きは、この潮流の表れだ。</p>
+      <p>しかし同時に、新規に優待を導入する企業も後を絶たない。特に地方の中小型株では、優待が個人投資家の注目を集め、流動性の向上や株主数の増加に直結するため、IR戦略としての価値が大きい。優待制度は「廃止と新設」が同時に進む、ダイナミックな転換期にある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 7: 投資家としての視点 -->
+  <div class="article-section">
+    <div class="section-label">THE INVESTOR'S PERSPECTIVE</div>
+    <h2 class="section-title">投資家としての視点——優待利回りだけで判断する危険</h2>
+    <div class="section-body">
+      <p>優待利回りが高い銘柄には、注意が必要だ。</p>
+      <p>優待利回りが異常に高い場合、それは株価が大幅に下落した結果であることが多い。つまり、企業の業績が悪化し、株価が下がったことで相対的に優待利回りが上がっているにすぎない。高い優待利回りに飛びつくことは、業績悪化企業の株を買うことと同義かもしれない。</p>
+      <p>さらに、業績が悪化すれば優待は廃止される。「優待利回り5%」に魅力を感じて投資したのに、半年後に優待が廃止され、さらに株価も下落する——という事態は、優待投資でもっとも典型的な失敗パターンだ。</p>
+      <p>優待を投資判断に組み込む場合、以下の視点が欠かせない。</p>
+      <ul>
+        <li>まず企業の収益力・財務健全性を評価する。優待はあくまで「付加価値」であり、判断の主軸ではない</li>
+        <li>優待のコスト負担が企業にとって持続可能かどうかを確認する。売上高に対する優待総額の比率が高すぎないか</li>
+        <li>自分が本当にその優待品を使うかどうかを考える。使わない優待は実質利回りゼロである</li>
+        <li>優待廃止のリスクを常に想定しておく。優待がなくなっても保有し続けたい企業かどうかが、本質的な判断基準になる</li>
+      </ul>
+      <p>バフェットの言葉を借りるなら、「素晴らしい企業をまずまずの価格で買う」ことが投資の基本だ。優待の魅力に引っ張られて「まずまずの企業を素晴らしい優待で買う」のは、順序が逆である。</p>
+      <p>優待を「楽しむ」ことと「依存する」ことは違う。良い企業に投資した結果として優待を受け取るのは、投資の副産物として素晴らしい体験だ。しかし、優待を受け取るために良くない企業に投資するのは、年間数千円の優待品のために数万円〜数十万円の含み損を抱えるリスクを負うことに等しい。</p>
+      <p>株主優待は、日本の株式市場が生んだ独自の文化である。その文化を理解し、楽しみつつも、投資判断の本質を見失わない。それが、優待と上手に付き合う投資家の姿勢だろう。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">問いの本質はこうだ——<br>「もし優待が明日廃止されても、この株を持ち続けるか？」<br>Yesと答えられるなら、その優待は純粋なボーナスである。</p>
+    </div>
+  </div>
+
 </main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">優待を理解した次は、配当の本質と自社株買いの構造を並べて読む。還元の全体像が見えてくる。</p>
+    <div class="further-links">
+      <a class="further-link" href="../dividend-philosophy/">
+        <span class="further-link-tag">配当</span>
+        <span class="further-link-title">なぜ配当が出るのか——配当の哲学</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../dividend-aristocrats/">
+        <span class="further-link-tag">配当</span>
+        <span class="further-link-title">配当貴族という思想——25年以上増配し続ける企業</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../research/buyback-anatomy/">
+        <span class="further-link-tag">リサーチ</span>
+        <span class="further-link-title">自社株買いの解剖学</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>
   <div>
     <a href="../../">書斎の入口</a> ·
     <a href="../../hajimete/">初めての方へ</a> ·
     <a href="../../principles/">投資原則</a> ·
-    <a href="../../industries/">業種分析</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
     <a href="../../horizons/">思考を広げる</a>
   </div>
   <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
 </footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
 <script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
 </body>
 </html>
