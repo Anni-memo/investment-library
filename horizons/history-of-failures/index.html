@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="チューリップ・バブルから南海泡沫事件、1929年大暴落、日本バブル、LTCM崩壊、リーマン・ショックまで。400年にわたる金融危機に共通する3つの構造を読み解く。"/>
+<meta property="og:title" content="投資の失敗から学ぶ――チューリップからLTCMまで、繰り返される構造｜投資と思考の書斎"/>
+<meta property="og:description" content="400年にわたる金融危機の歴史。レバレッジ・群集心理・「今回は違う」――繰り返される3つの構造を読み解く。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/horizons/history-of-failures/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/horizons/history-of-failures/"/>
+<title>投資の失敗から学ぶ――チューリップからLTCMまで、繰り返される構造｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "投資の失敗から学ぶ――チューリップからLTCMまで、繰り返される構造",
+  "description": "400年にわたる金融危機の歴史。レバレッジ・群集心理・「今回は違う」――繰り返される3つの構造を読み解く。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "金融史"}, {"@type": "Thing", "name": "バブル"}, {"@type": "Thing", "name": "市場の失敗"}]
+}
+</script>
+
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">金融史の棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">投資の失敗から学ぶ</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF — 思考を広げる</div>
+  <div class="hero-ornament">ANATOMY OF MARKET FAILURES</div>
+  <h1 class="hero-title">投資の失敗から学ぶ<br>チューリップからLTCMまで、<br>繰り返される構造</h1>
+  <p class="hero-lead">
+    バブルと崩壊は、400年にわたって同じ構造で繰り返されてきた。<br>
+    歴史を知ることは、次の危機への備えになる。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- ── SECTION 1: なぜ失敗は繰り返されるのか ── -->
+  <div class="article-section">
+    <div class="section-label">WHY FAILURES REPEAT</div>
+    <h2 class="section-title">なぜ失敗は繰り返されるのか</h2>
+    <div class="section-body">
+      <p>金融市場の歴史は、失敗の歴史でもある。</p>
+      <p>チューリップ・バブル（1637年）から数えて、約400年。その間に起きた大小の危機は、驚くほど似た構造を持っている。新しい技術や制度が登場し、「今回は以前とは違う」という確信が広がり、価格が実体から乖離し、やがて崩壊する。</p>
+      <p>ガルブレイスは著書の中でこう書いた。「金融における記憶は、せいぜい20年しかもたない」。つまり、前回の危機を経験した世代が引退するころ、次の世代が同じ過ちを繰り返す。</p>
+      <p>これは知性の問題ではない。人間の認知構造そのものが、バブルを生みやすいようにできている。だからこそ、歴史を知ることには意味がある。パターンを知っていれば、少なくとも「これは見たことがある構造だ」と立ち止まることができる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 2: チューリップ・バブル ── -->
+  <div class="article-section">
+    <div class="section-label">TULIP MANIA — 1637</div>
+    <h2 class="section-title">チューリップ・バブル（1637年）</h2>
+    <div class="section-body">
+      <p>記録に残る最初の投機バブルは、17世紀のオランダで起きた。</p>
+      <p>チューリップは当時のオランダで富と地位の象徴であり、特に希少な品種は高値で取引されていた。やがて投機的な先物取引が始まり、球根の価格は天文学的な水準にまで上昇した。ピーク時には、1つの球根がアムステルダムの運河沿いの邸宅1軒分に相当する価格で売買された。</p>
+      <p>しかし1637年2月、ハールレムでの競売で買い手がつかなかったことをきっかけに、市場は一夜にして崩壊した。球根の価格は数週間でピークの1%以下にまで暴落した。</p>
+      <p>このバブルが示した教訓は明快である。実体的な価値を生まない資産であっても、「まだ上がる」という期待だけで価格は際限なく膨張しうる。そして、期待が途切れた瞬間に、その価格は消滅する。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">バブルの本質は、価格の上昇そのものではない。<br>「価格の上昇が、さらなる上昇の根拠になる」という循環論法が成立する状態である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 3: 南海泡沫事件 ── -->
+  <div class="article-section">
+    <div class="section-label">SOUTH SEA BUBBLE — 1720</div>
+    <h2 class="section-title">南海泡沫事件（1720年）</h2>
+    <div class="section-body">
+      <p>18世紀初頭のイギリスで起きた南海泡沫事件は、政府・企業・投資家が一体となってバブルを膨張させた最初の大規模な事例である。</p>
+      <p>南海会社はイギリス政府の債務を引き受ける見返りに、南米との貿易独占権を付与された。実際の貿易収益はほとんどなかったが、会社は政治的なコネクションと巧みな宣伝により株価を釣り上げた。1720年初頭に128ポンドだった株価は、同年6月に1,050ポンドに達した。</p>
+      <p>ニュートンもこの熱狂に巻き込まれた一人である。一度は利益を確定して撤退したが、周囲がさらに儲けるのを見て再び参入し、最終的に2万ポンド（現在の価値で数億円）を失った。彼は後にこう語ったとされる。「天体の動きは計算できるが、人間の狂気は計算できない」。</p>
+      <p>南海泡沫事件は、知性が投機の免疫にならないことを示した。また、制度的な信用（政府の関与、独占権の付与）がバブルの信頼性を高め、崩壊時の被害を拡大させることも明らかにした。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 4: 1929年大暴落 ── -->
+  <div class="article-section">
+    <div class="section-label">THE GREAT CRASH — 1929</div>
+    <h2 class="section-title">1929年大暴落</h2>
+    <div class="section-body">
+      <p>1920年代のアメリカは「狂騒の20年代」と呼ばれ、経済は急成長を遂げていた。</p>
+      <p>自動車、ラジオ、電化製品といった新技術が普及し、「新しい時代」への楽観が広がった。株式市場に参入する一般市民が急増し、証拠金取引（マージン取引）により、手持ち資金の10倍もの株式を購入することが可能だった。</p>
+      <p>1929年9月、ダウ工業株平均は381ドルの最高値をつけた。しかし10月24日（暗黒の木曜日）から売りが殺到し、10月29日（暗黒の火曜日）には1日で約12%の下落を記録した。マージンコール（追加証拠金の要求）が連鎖的な売りを引き起こし、パニックは制御不能となった。</p>
+      <p>ダウ平均は1932年7月に41ドルまで下落し、ピークから約89%の暴落となった。1929年の水準を回復するまでに25年を要した。</p>
+      <p>この暴落は、レバレッジの危険性を歴史に刻んだ。借金で膨らんだポジションは、上昇時には利益を倍増させるが、下落時には破滅を加速させる。そしてその連鎖は、個人の問題を超えてシステム全体を巻き込む。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">レバレッジは「晴れの日の傘」である。<br>必要のないときに大きな恩恵をもたらし、<br>本当に必要なときには存在しない。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 5: 日本バブル ── -->
+  <div class="article-section">
+    <div class="section-label">JAPAN'S BUBBLE — 1989</div>
+    <h2 class="section-title">日本バブル（1989年）</h2>
+    <div class="section-body">
+      <p>1980年代後半の日本は、世界経済における奇跡とみなされていた。</p>
+      <p>プラザ合意（1985年）後の急激な円高に対処するため、日銀は大幅な金融緩和を実施した。低金利環境の下で余剰資金が不動産と株式に流れ込み、資産価格は実体経済とかけ離れた水準にまで上昇した。</p>
+      <p>1989年末、日経平均株価は38,957円の史上最高値を記録した。東京の皇居周辺の土地の評価額がカリフォルニア州全体の不動産価格に匹敵するという試算まで存在した。銀行は土地を担保にさらなる融資を行い、その資金がまた不動産に向かうという循環が形成された。</p>
+      <p>1990年初頭から株価は急落を始め、不動産市場もそれに続いた。日経平均は2003年に7,603円まで下落し、ピークから約80%の暴落となった。バブル崩壊後の日本は「失われた10年」（のちに20年、30年と延長された）に突入し、デフレと経済停滞が長期間続いた。</p>
+      <p>日本バブルが示したのは、バブル崩壊の影響は一時的な暴落にとどまらないということである。資産デフレ、不良債権、企業と個人の過剰債務は、経済全体を何十年にもわたって蝕みうる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 6: LTCM崩壊 ── -->
+  <div class="article-section">
+    <div class="section-label">LTCM COLLAPSE — 1998</div>
+    <h2 class="section-title">LTCM崩壊（1998年）</h2>
+    <div class="section-body">
+      <p>ロングターム・キャピタル・マネジメント（LTCM）は、ノーベル経済学賞受賞者を含む天才集団が運営するヘッジファンドだった。</p>
+      <p>彼らの戦略は、債券市場における微小な価格差を利用した裁定取引である。個々の取引の利益率は極めて小さいため、それを意味のあるリターンにするために巨大なレバレッジを使った。ピーク時の資産は約50億ドルだったが、レバレッジを含めたポジションは1,250億ドル以上、デリバティブのノーショナル額は1兆ドルを超えていた。</p>
+      <p>1998年8月、ロシア政府が債務のデフォルトを宣言した。これは彼らのモデルが「起こりえない」と想定していた事象だった。市場は流動性を失い、通常なら収束するはずの価格差が拡大し続けた。LTCMは数週間で資本の大半を失った。</p>
+      <p>その破綻規模があまりに大きかったため、ニューヨーク連邦準備銀行が主導して14の金融機関による36億ドルの救済が組織された。一つのファンドの失敗が、金融システム全体を脅かしたのである。</p>
+      <p>LTCMの崩壊が教えたのは、数学的な精緻さは不確実性への免疫にならないということである。モデルは過去のデータに基づいて構築されるが、市場は過去にないことを起こす。そしてレバレッジは、その「想定外」を致命的にする。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">LTCMの天才たちが犯した最大の誤りは、<br>「自分たちのモデルが想定しない事象は起こらない」と<br>信じたことだった。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 7: リーマン・ショック ── -->
+  <div class="article-section">
+    <div class="section-label">LEHMAN BROTHERS — 2008</div>
+    <h2 class="section-title">リーマン・ショック（2008年）</h2>
+    <div class="section-body">
+      <p>2008年の金融危機は、過去の教訓がいかに忘れられるかを改めて示した。</p>
+      <p>2000年代前半、アメリカの住宅市場は「住宅価格は下がらない」という信念のもとで膨張を続けていた。サブプライムローン（信用力の低い借り手への住宅ローン）は証券化され、複雑な金融商品として世界中の金融機関に販売された。格付け機関はそれらにAAA（最高評価）を与え、リスクは「分散されている」と説明された。</p>
+      <p>しかし実態は、リスクが分散されたのではなく、見えなくなっていたにすぎなかった。2006年後半から住宅価格が下落を始めると、サブプライムローンの延滞率が急上昇し、証券化商品の価値が連鎖的に崩壊した。</p>
+      <p>2008年9月15日、リーマン・ブラザーズが破綻。これを引き金に世界の金融システムが凍結した。信用市場は機能を停止し、株式市場は世界同時に暴落した。S&P 500は2007年10月のピークから2009年3月の底値まで約57%下落した。</p>
+      <p>各国政府は大規模な財政出動と金融緩和で対処したが、「大不況（Great Recession）」と呼ばれる深刻な景気後退を防ぐことはできなかった。世界中で数千万人が職を失い、住宅を失った。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 8: 共通する3つの構造 ── -->
+  <div class="article-section">
+    <div class="section-label">THREE STRUCTURES</div>
+    <h2 class="section-title">共通する3つの構造</h2>
+    <div class="section-body">
+      <p>400年の歴史を俯瞰すると、すべての大きな金融危機に共通する3つの構造が浮かび上がる。</p>
+
+      <p><strong>1. レバレッジ（過剰な借入）</strong></p>
+      <p>1929年のマージン取引、日本バブルの土地担保融資、LTCMの25倍のレバレッジ、リーマン前の住宅ローン証券化。すべての危機において、レバレッジが上昇局面では利益を増幅させ、下落局面では損失を致命的にした。バフェットが繰り返し警告するように、レバレッジは「裸で泳いでいる者を、潮が引いたときに露わにする」装置である。</p>
+
+      <p><strong>2. 群集心理（ハーディング）</strong></p>
+      <p>人間は社会的な動物であり、周囲と同じ行動をとることに安心を感じる。チューリップに投機した17世紀のオランダ市民も、サブプライムローンを販売した21世紀の銀行員も、根底にある心理は同じである。「みんながやっているのだから、正しいはずだ」。この集団的な確信が、個人の合理的な判断を押し流す。そして皮肉なことに、群集が最も確信を持つ瞬間が、バブルのピークと一致する。</p>
+
+      <p><strong>3. 「今回は違う」（This Time Is Different）</strong></p>
+      <p>ラインハートとロゴフが著書で指摘したように、これは金融史で最も危険な4語である。1920年代には「新時代の経済」、1980年代の日本では「日本型経営の優位性」、2000年代には「住宅価格は全国的に下落したことがない」。それぞれの時代に、過去の危機とは異なる理由が用意された。しかし結果は常に同じだった。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">バブルの最も確かなサインは、<br>「今回は以前のバブルとは根本的に違う」という言説が<br>広く受け入れられることである。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── SECTION 9: 投資家への教訓 ── -->
+  <div class="article-section">
+    <div class="section-label">LESSONS FOR INVESTORS</div>
+    <h2 class="section-title">投資家への教訓</h2>
+    <div class="section-body">
+      <p>金融史を学ぶことの目的は、未来を予測することではない。パターンを認識し、自分自身の判断に謙虚さを持つことである。</p>
+      <ul>
+        <li>レバレッジを制限する。借入による投資は、上昇相場では天才に見えるが、下落相場では生存を脅かす。安全余裕（margin of safety）を常に確保する</li>
+        <li>群衆から離れる勇気を持つ。全員が熱狂しているとき、少なくとも「なぜこれほど確信が強いのか」と問うことが重要である</li>
+        <li>「今回は違う」に警戒する。新しい技術や制度は確かに存在するが、人間の心理は変わらない。構造的な要因（レバレッジ、群集心理）が同じなら、結果も同じになりうる</li>
+        <li>自分の理解を超えた投資を避ける。LTCMの崩壊は、複雑さそのものがリスクであることを示した。自分が完全に理解できないものに資金を投じない</li>
+        <li>歴史を継続的に学ぶ。ガルブレイスが言う「20年の記憶」を超えるためには、意識的に歴史に触れ続ける必要がある</li>
+      </ul>
+      <p>マンガーはこう語った。「歴史の教訓を学ぶのに、自分で経験する必要はない。他人の災厄から学ぶ方が、はるかに望ましい」。</p>
+      <p>400年の金融史が繰り返し示しているのは、市場の失敗は外部の衝撃ではなく、人間の内部——レバレッジへの誘惑、群れに従う本能、そして「自分だけは例外だ」という信念——から生まれるということである。この構造を知ることが、長期投資家の最も基本的な防御線になる。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">投資における最大のリスクは、暴落そのものではない。<br>暴落が繰り返されるという歴史的事実を忘れることである。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">失敗の構造を知ったら、人間の認知バイアスを並べて読む。そして、原則として身につける。</p>
+    <div class="further-links">
+      <a class="further-link" href="../../human/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">人間の認知を知る</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../principles/">
+        <span class="further-link-tag">原則</span>
+        <span class="further-link-title">私の投資原則</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">金融史</span>
+        <span class="further-link-title">思考を広げる</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+</body>
+</html>
