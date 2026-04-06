@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Claude Codeの全機能を俯瞰する。スラッシュコマンド・メモリ・MCP・エージェント——AIと共に歩く開発者のための完全ガイド。"/>
+<meta property="og:title" content="Claude Code マスター｜投資と思考の書斎"/>
+<meta property="og:description" content="Claude Codeの全機能を俯瞰する。コマンド・メモリ・MCP・エージェント。AIと共に歩く開発者のための完全ガイド。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/learning/claude-code-master/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/learning/claude-code-master/"/>
+<title>Claude Code マスター｜投資と思考の書斎</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Code マスター — AIと共に歩く開発者のための完全ガイド",
+  "description": "Claude Codeの全機能を俯瞰する。スラッシュコマンド・メモリ・MCP・エージェント。",
+  "datePublished": "2026-04-06",
+  "dateModified": "2026-04-06",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/learning/claude-code-master/"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --purple:#4a2a6a;--purple2:#6a3d8a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* NAV */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,#0a0a14 0%,#101428 45%,#1a1040 100%);
+  color:var(--parch);padding:52px 24px 44px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--purple2);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(106,61,138,.12) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple2),transparent);}
+.hero-code{font-family:var(--mono);font-size:.6rem;color:var(--purple2);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-name{font-family:var(--serif);font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:var(--parch);position:relative;line-height:1;}
+.hero-name-en{font-family:var(--mono);font-size:.65rem;color:rgba(180,160,220,.6);letter-spacing:.2em;margin-top:8px;position:relative;}
+.hero-tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:20px;position:relative;}
+.hero-tag{font-family:var(--mono);font-size:.5rem;padding:3px 10px;border:1px solid rgba(106,61,138,.5);color:rgba(180,160,220,.8);letter-spacing:.1em;}
+
+.hero-bottom{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  margin-top:28px;position:relative;max-width:700px;
+  margin-left:auto;margin-right:auto;
+}
+.hero-verdict{
+  position:relative;font-family:var(--serif);font-size:clamp(.88rem,2vw,1rem);
+  color:var(--parch3);font-style:italic;line-height:1.9;text-align:left;
+}
+.hero-pdf-wrap{flex-shrink:0;text-align:center;}
+.hero-pdf-btn{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:7px;
+  padding:11px 24px;font-family:var(--mono);font-size:.6rem;font-weight:600;
+  color:rgba(180,160,220,.9);border:1px solid rgba(106,61,138,.5);
+  letter-spacing:.12em;text-decoration:none;transition:all .25s;
+  border-radius:2px;white-space:nowrap;background:transparent;
+}
+.hero-pdf-btn:hover{border-color:rgba(106,61,138,.8);background:rgba(106,61,138,.12);color:#d4c0f0;}
+.hero-pdf-btn svg{opacity:.7;transition:opacity .2s;}
+.hero-pdf-btn:hover svg{opacity:1;}
+.hero-pdf-desc{
+  display:block;margin-top:8px;font-family:var(--serif);
+  font-size:.65rem;color:var(--parch4);line-height:1.6;
+  letter-spacing:.02em;opacity:.7;
+}
+@media(max-width:600px){
+  .hero-bottom{flex-direction:column;gap:18px;}
+  .hero-verdict{text-align:center;}
+}
+
+/* GRAPH SECTION */
+.graph-section{background:var(--ink);padding:40px 24px;border-bottom:1px solid rgba(184,144,10,.15);}
+.graph-inner{max-width:900px;margin:0 auto;}
+.graph-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:12px;text-align:center;opacity:.6;}
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:220px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+.graph-legend{display:flex;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap;}
+.graph-legend-item{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:.5rem;color:var(--parch4);letter-spacing:.06em;}
+.graph-legend-dot{width:8px;height:8px;border-radius:50%;}
+
+/* CONTAINER */
+.container{max-width:820px;margin:0 auto;padding:48px 24px 0;}
+
+/* ARTICLE / SECTIONS */
+.article{max-width:680px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:56px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
+
+/* PATH LIST */
+.path-list{display:flex;flex-direction:column;gap:2px;margin-top:4px;}
+.path-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:18px 20px;
+  background:var(--parch2);border:1px solid var(--parch4);
+  border-left:2px solid rgba(139,105,20,.3);
+  text-decoration:none;color:inherit;transition:all .18s;
+}
+.path-item:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.path-num{font-family:var(--mono);font-size:.54rem;color:var(--gold);flex-shrink:0;padding-top:3px;width:22px;letter-spacing:.06em;}
+.path-body{flex:1;}
+.path-title{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.path-why{font-size:.76rem;color:var(--ink3);line-height:1.7;font-weight:300;}
+.path-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;padding-top:3px;opacity:.7;}
+
+/* COMMAND TABLE */
+.cmd-table{width:100%;border-collapse:collapse;margin:16px 0;}
+.cmd-table th{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;text-align:left;padding:8px 12px;border-bottom:2px solid var(--gold);background:var(--parch2);}
+.cmd-table td{padding:8px 12px;border-bottom:1px solid var(--parch3);font-size:.82rem;color:var(--ink2);font-weight:300;}
+.cmd-table td:first-child{font-family:var(--mono);font-size:.78rem;color:var(--ink);font-weight:500;white-space:nowrap;}
+.cmd-table .freq{font-family:var(--mono);font-size:.62rem;text-align:center;}
+.freq-high{color:#c05020;font-weight:600;}
+.freq-mid{color:var(--gold2);font-weight:500;}
+.freq-low{color:var(--parch4);}
+
+/* FURTHER */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:680px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:72px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* FOOTER */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* SCROLL TOP */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../obsidian-second-brain/">思考を広げる</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">Claude Code マスター</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-code">ANTHROPIC CLI &middot; AI-POWERED DEVELOPMENT</div>
+  <h1 class="hero-name">Claude Code マスター</h1>
+  <div class="hero-name-en">The Complete Guide to Claude Code</div>
+  <div class="hero-tags">
+    <span class="hero-tag">SLASH COMMANDS</span>
+    <span class="hero-tag">MEMORY</span>
+    <span class="hero-tag">MCP</span>
+    <span class="hero-tag">AGENTS</span>
+    <span class="hero-tag">HOOKS</span>
+    <span class="hero-tag">SKILLS</span>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-verdict">
+      ターミナルに住むAIが、コードを読み、書き、考える。<br>
+      Claude Codeの全機能を一望する地図。
+    </div>
+    <div class="hero-pdf-wrap">
+      <a class="hero-pdf-btn" href="../../assets/pdf/claude-code-cheatsheet.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="18" x2="12" y2="12"/>
+          <polyline points="9 15 12 18 15 15"/>
+        </svg>
+        1枚レポート PDF
+      </a>
+      <span class="hero-pdf-desc">全コマンド・Tips・ショートカットを<br>A4 1枚に凝縮</span>
+    </div>
+  </div>
+</div>
+
+<!-- GRAPH VIEW -->
+<div class="graph-section">
+  <div class="graph-inner">
+    <div class="graph-label">CLAUDE CODE KNOWLEDGE GRAPH</div>
+    <div class="graph-card">
+      <div class="graph-card-label">FEATURE MAP</div>
+      <canvas id="graphCanvas"></canvas>
+      <div class="graph-tooltip" id="graphTooltip">
+        <div class="graph-tooltip-title" id="ttTitle"></div>
+        <div class="graph-tooltip-cat" id="ttCat"></div>
+        <div class="graph-tooltip-desc" id="ttDesc"></div>
+      </div>
+    </div>
+    <div class="graph-legend">
+      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#9b59b6"></span>コア</div>
+      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#d4aa22"></span>コマンド</div>
+      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#3d6828"></span>機能</div>
+      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#2a3d6a"></span>ツール</div>
+      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#c05020"></span>記事</div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE -->
+<main class="article">
+
+  <!-- 1. Claude Codeとは -->
+  <div class="article-section">
+    <div class="section-label">OVERVIEW</div>
+    <h2 class="section-title">Claude Codeとは何か</h2>
+    <div class="section-body">
+      <p>Claude Codeは、Anthropicが開発した<strong>ターミナルネイティブのAI開発ツール</strong>である。IDEの中ではなく、ターミナルの中でコードを読み、書き、実行し、思考する。</p>
+      <p>従来のコード補完とは根本的に異なる。ファイルシステム全体を理解し、gitを操作し、テストを走らせ、外部サービスと連携する——開発者の「もう一人の自分」として機能する。</p>
+    </div>
+    <div class="callout">
+      <p class="callout-text">重要なのは「AIに何を書かせるか」ではない。AIとどう思考を交わし、どう判断を積み上げるか——Claude Codeは、その対話の場である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 2. 学習パス -->
+  <div class="article-section">
+    <div class="section-label">LEARNING PATH</div>
+    <h2 class="section-title">どこから始めるか</h2>
+    <div class="section-body">
+      <p>Claude Codeには多くの機能があるが、学ぶ順番がある。基礎 → 日常操作 → 記憶 → 拡張 の流れで進むと、道具が自分の手に馴染む。</p>
+    </div>
+    <div class="path-list">
+      <a class="path-item" href="../claude-code-setup/">
+        <span class="path-num">01</span>
+        <div class="path-body">
+          <div class="path-title">セットアップと初期設定</div>
+          <div class="path-why">インストール・CLAUDE.md作成・権限設定。すべてはここから始まる。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="#commands">
+        <span class="path-num">02</span>
+        <div class="path-body">
+          <div class="path-title">スラッシュコマンド</div>
+          <div class="path-why">日常的に使う /clear, /compact, /model, /plan。まずこの7つを覚える。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="../claude-code-memory/">
+        <span class="path-num">03</span>
+        <div class="path-body">
+          <div class="path-title">メモリ管理</div>
+          <div class="path-why">CLAUDE.mdとauto memory。セッションを超えてAIが文脈を保持する仕組み。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="../prompt-optimization/">
+        <span class="path-num">04</span>
+        <div class="path-body">
+          <div class="path-title">プロンプト最適化</div>
+          <div class="path-why">AIへの指示を研ぎ澄ます技法。曖昧さを排し、期待動作を明確にする。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="#mcp">
+        <span class="path-num">05</span>
+        <div class="path-body">
+          <div class="path-title">MCP連携</div>
+          <div class="path-why">Slack・Gmail・Notion・Todoist——外部サービスとの接続で能力が拡張される。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="../obsidian-second-brain/">
+        <span class="path-num">06</span>
+        <div class="path-body">
+          <div class="path-title">メモの複利</div>
+          <div class="path-why">Obsidian &times; Claude Codeで知識を指数関数的に積み上げる実践。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 3. コマンド一覧 -->
+  <div class="article-section" id="commands">
+    <div class="section-label">SLASH COMMANDS</div>
+    <h2 class="section-title">毎日使うコマンド</h2>
+    <div class="section-body">
+      <p>50以上あるスラッシュコマンドの中から、<strong>使用頻度の高い順</strong>に整理した。まず上位7つを体に覚えさせること。</p>
+    </div>
+    <table class="cmd-table">
+      <thead><tr><th>COMMAND</th><th>DESCRIPTION</th><th>FREQ</th></tr></thead>
+      <tbody>
+        <tr><td>/clear</td><td>会話履歴をクリアしてリセット。/reset, /new も同義</td><td class="freq freq-high">&#9733;</td></tr>
+        <tr><td>/compact</td><td>会話を圧縮してトークン節約。引数で焦点を指定可能</td><td class="freq freq-high">&#9733;</td></tr>
+        <tr><td>/config</td><td>設定画面を開く（テーマ・モデル・権限）</td><td class="freq freq-high">&#9733;</td></tr>
+        <tr><td>/model</td><td>AIモデルを切替（opus / sonnet / haiku）</td><td class="freq freq-high">&#9733;</td></tr>
+        <tr><td>/resume</td><td>前回のセッションを再開。/continue も同義</td><td class="freq freq-high">&#9733;</td></tr>
+        <tr><td>/plan</td><td>プランモードに入り、実装前に設計する</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/fast</td><td>高速モード切替（同モデルで出力速度UP）</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/diff</td><td>未コミット変更やターン毎の差分を表示</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/mcp</td><td>MCPサーバー接続管理・OAuth認証</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/memory</td><td>CLAUDE.mdメモリの編集・確認</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/cost</td><td>トークン使用量・コスト表示</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/rewind</td><td>会話・コード変更を前の状態に戻す</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/effort</td><td>思考レベル設定（low / medium / high / max）</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/btw</td><td>サイド質問（会話履歴に残らない一時的な問い）</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/agents</td><td>サブエージェント設定管理</td><td class="freq freq-mid">&#9733;</td></tr>
+        <tr><td>/copy</td><td>最後の回答をクリップボードにコピー</td><td class="freq freq-low">&#9733;</td></tr>
+        <tr><td>/export</td><td>会話をテキストファイルに出力</td><td class="freq freq-low">&#9733;</td></tr>
+        <tr><td>/status</td><td>バージョン・モデル・接続状態を表示</td><td class="freq freq-low">&#9733;</td></tr>
+        <tr><td>/doctor</td><td>インストール・設定の診断</td><td class="freq freq-low">&#9733;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 4. キーボードショートカット -->
+  <div class="article-section">
+    <div class="section-label">SHORTCUTS &amp; TIPS</div>
+    <h2 class="section-title">手が覚える操作</h2>
+    <table class="cmd-table">
+      <thead><tr><th>SHORTCUT</th><th>ACTION</th></tr></thead>
+      <tbody>
+        <tr><td>Esc</td><td>生成中断</td></tr>
+        <tr><td>&uarr; キー</td><td>前の入力を呼び出し</td></tr>
+        <tr><td>Shift+Tab</td><td>ファイル添付</td></tr>
+        <tr><td>! コマンド</td><td>シェルコマンドを直接実行</td></tr>
+        <tr><td>@ ファイル名</td><td>ファイルをコンテキストに追加</td></tr>
+        <tr><td>Tab</td><td>入力中の補完</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 5. MCP -->
+  <div class="article-section" id="mcp">
+    <div class="section-label">MODEL CONTEXT PROTOCOL</div>
+    <h2 class="section-title">MCPで広がる世界</h2>
+    <div class="section-body">
+      <p><strong>MCP（Model Context Protocol）</strong>は、Claude Codeを外部サービスと接続する仕組みである。Slack・Gmail・Googleカレンダー・Todoist・Notion——日常のツールがすべてAIの手の届く範囲に入る。</p>
+      <p><code>/mcp</code> コマンドで接続状態を確認し、<code>settings.json</code> で新しいサーバーを追加する。一度設定すれば、自然言語で「Slackの#generalに投稿して」と指示するだけで実行される。</p>
+    </div>
+    <div class="callout">
+      <p class="callout-text">MCPは「AIができることの境界線」を書き換える。ファイルシステムの外に手が届くようになった瞬間、AIとの協働は質的に変わる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 6. メモリ -->
+  <div class="article-section">
+    <div class="section-label">MEMORY SYSTEM</div>
+    <h2 class="section-title">記憶のアーキテクチャ</h2>
+    <div class="section-body">
+      <p>Claude Codeには3層のメモリがある：</p>
+      <p><strong>CLAUDE.md</strong> — プロジェクト固有のルールと文脈。gitに含めてチームで共有できる。</p>
+      <p><strong>Auto Memory</strong> — 会話から自動的に学習した事実・好み・フィードバック。~/.claude/projects/に保存。</p>
+      <p><strong>Session Context</strong> — 現在の会話の中で蓄積される一時的な文脈。/compact で圧縮管理する。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FURTHER READING -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">RELATED ARTICLES</div>
+    <p class="further-reason">この記事に関連する棚の本。Claude Codeの理解を深める3冊。</p>
+    <div class="further-links">
+      <a class="further-link" href="../claude-code-setup/">
+        <span class="further-link-tag">導入</span>
+        <span class="further-link-title">Claude Code セットアップガイド</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../claude-code-memory/">
+        <span class="further-link-tag">記憶</span>
+        <span class="further-link-title">Claude Code メモリ管理</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../prompt-optimization/">
+        <span class="further-link-tag">技法</span>
+        <span class="further-link-title">プロンプト最適化</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../obsidian-second-brain/">
+        <span class="further-link-tag">思考</span>
+        <span class="further-link-title">メモの複利 — Obsidian &times; AI</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> &middot;
+    <a href="../../hajimete/">初めての方へ</a> &middot;
+    <a href="../../principles/">投資原則</a> &middot;
+    <a href="../../industries/">業種から歩く</a> &middot;
+    <a href="../../horizons/">思考を広げる</a> &middot;
+    <a href="../../people/">人物録</a>
+  </div>
+  <div style="margin-top:8px;">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:4px;opacity:.6;">このサイトの内容は情報提供を目的としており、投資助言ではありません。投資は自己責任でお願いします。</div>
+</footer>
+
+<!-- SCROLL TOP -->
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
+<!-- GRAPH SCRIPT -->
+<script>
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  var ctx=canvas.getContext('2d');
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var dpr=window.devicePixelRatio||1;
+  var W,H;
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=Math.max(320,W*0.45);
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){n.px=W/2+n.x;n.py=H/2+n.y;});
+  }
+
+  var nodes=[
+    {id:'core',label:'Claude Code',x:0,y:0,r:26,color:'#9b59b6',cat:'core',url:null,desc:'Anthropic CLI - ターミナルネイティブAI'},
+    // Commands
+    {id:'clear',label:'/clear',x:-160,y:-90,r:13,color:'#d4aa22',cat:'command',url:null,desc:'会話リセット'},
+    {id:'compact',label:'/compact',x:-100,y:-130,r:14,color:'#d4aa22',cat:'command',url:null,desc:'トークン圧縮'},
+    {id:'config',label:'/config',x:-40,y:-140,r:13,color:'#d4aa22',cat:'command',url:null,desc:'設定画面'},
+    {id:'plan',label:'/plan',x:60,y:-130,r:14,color:'#d4aa22',cat:'command',url:null,desc:'プランモード'},
+    {id:'model',label:'/model',x:130,y:-100,r:13,color:'#d4aa22',cat:'command',url:null,desc:'モデル切替'},
+    {id:'mcp_cmd',label:'/mcp',x:170,y:-40,r:12,color:'#d4aa22',cat:'command',url:null,desc:'MCP管理'},
+    // Features
+    {id:'memory',label:'メモリ',x:-140,y:30,r:16,color:'#3d6828',cat:'feature',url:'../claude-code-memory/',desc:'CLAUDE.md + Auto Memory'},
+    {id:'agents',label:'エージェント',x:-170,y:100,r:14,color:'#3d6828',cat:'feature',url:null,desc:'サブエージェント並行処理'},
+    {id:'skills',label:'スキル',x:-90,y:120,r:12,color:'#3d6828',cat:'feature',url:null,desc:'拡張可能なスキルセット'},
+    {id:'hooks',label:'フック',x:0,y:140,r:11,color:'#3d6828',cat:'feature',url:null,desc:'ツールイベント自動実行'},
+    {id:'mcp_feat',label:'MCP',x:100,y:110,r:16,color:'#3d6828',cat:'feature',url:null,desc:'Model Context Protocol'},
+    // Tools
+    {id:'obsidian',label:'Obsidian',x:170,y:60,r:14,color:'#2a3d6a',cat:'tool',url:'../obsidian-second-brain/',desc:'第二の脳'},
+    {id:'github',label:'GitHub',x:180,y:120,r:13,color:'#2a3d6a',cat:'tool',url:null,desc:'リポジトリ・PR・Issues'},
+    {id:'slack',label:'Slack',x:140,y:160,r:12,color:'#2a3d6a',cat:'tool',url:null,desc:'チームコミュニケーション'},
+    // Articles
+    {id:'art_setup',label:'セットアップ',x:-60,y:60,r:12,color:'#c05020',cat:'article',url:'../claude-code-setup/',desc:'導入と初期設定ガイド'},
+    {id:'art_prompt',label:'プロンプト',x:50,y:70,r:12,color:'#c05020',cat:'article',url:'../prompt-optimization/',desc:'プロンプト最適化技法'},
+    {id:'art_memo',label:'メモの複利',x:-20,y:-60,r:13,color:'#c05020',cat:'article',url:'../obsidian-second-brain/',desc:'知識の複利を回す実践'}
+  ];
+
+  var edges=[
+    {from:'core',to:'clear'},{from:'core',to:'compact'},{from:'core',to:'config'},
+    {from:'core',to:'plan'},{from:'core',to:'model'},{from:'core',to:'mcp_cmd'},
+    {from:'core',to:'memory'},{from:'core',to:'agents'},{from:'core',to:'mcp_feat'},
+    {from:'core',to:'art_setup'},{from:'core',to:'art_prompt'},{from:'core',to:'art_memo'},
+    {from:'memory',to:'art_setup'},{from:'memory',to:'obsidian'},
+    {from:'mcp_feat',to:'slack'},{from:'mcp_feat',to:'github'},{from:'mcp_feat',to:'mcp_cmd'},
+    {from:'agents',to:'skills'},{from:'agents',to:'hooks'},
+    {from:'obsidian',to:'art_memo'},{from:'skills',to:'hooks'},
+    {from:'art_prompt',to:'plan'},{from:'art_memo',to:'compact'}
+  ];
+
+  // Build connection map
+  var connMap={};
+  edges.forEach(function(e){
+    if(!connMap[e.from])connMap[e.from]=[];
+    if(!connMap[e.to])connMap[e.to]=[];
+    connMap[e.from].push(e.to);
+    connMap[e.to].push(e.from);
+  });
+
+  var defaultLabels={core:true};
+  if(connMap.core)connMap.core.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  // Init positions
+  nodes.forEach(function(n){n.px=0;n.py=0;n.vx=0;n.vy=0;n.hover=false;n.dragging=false;});
+
+  resize();
+  window.addEventListener('resize',resize);
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=90;
+      var force=(dist-target)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+    });
+  }
+
+  var hovId=null,hovConns={};
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Edges
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var hl=hovId&&hovConns[e.from]&&hovConns[e.to];
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(155,89,182,0.5)':'rgba(139,105,20,0.12)';
+      ctx.lineWidth=hl?1.5:0.8;ctx.stroke();
+    });
+    // Nodes
+    nodes.forEach(function(n){
+      var isHov=n.hover;
+      var drawR=isHov?n.r*1.15:n.r;
+      if(n.id==='core'||isHov){
+        ctx.beginPath();ctx.arc(n.px,n.py,drawR+10,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,drawR,n.px,n.py,drawR+10);
+        var gc=n.id==='core'?'155,89,182':'184,144,10';
+        g.addColorStop(0,'rgba('+gc+',0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+      ctx.beginPath();ctx.arc(n.px,n.py,drawR,0,Math.PI*2);
+      ctx.fillStyle=isHov?'#f0cc55':n.color;
+      ctx.globalAlpha=n.id==='core'?1:(isHov?0.9:0.65);
+      ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=isHov?'rgba(240,204,85,0.6)':'rgba(245,237,224,0.15)';
+      ctx.lineWidth=isHov?1.5:0.7;ctx.stroke();
+      var showLabel=defaultLabels[n.id]||isHov||(hovId&&hovConns[n.id]);
+      if(showLabel){
+        var fs=Math.max(8,n.r*0.55);
+        ctx.font=(n.id==='core'?'600 ':'300 ')+fs+'px "Noto Serif JP",serif';
+        ctx.fillStyle=isHov?'#f0cc55':'rgba(245,237,224,0.75)';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(n.label,n.px,n.py+drawR+11);
+      }
+    });
+  }
+
+  function getXY(e){
+    var r=canvas.getBoundingClientRect();
+    var t=e.touches?e.touches[0]||e.changedTouches[0]:e;
+    return{x:t.clientX-r.left,y:t.clientY-r.top};
+  }
+  function getNodeAt(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i],dx=x-n.px,dy=y-n.py;
+      if(dx*dx+dy*dy<(n.r+8)*(n.r+8))return n;
+    }return null;
+  }
+  function showTooltip(n,mx,my){
+    ttTitle.textContent=n.label;
+    ttCat.textContent=n.cat;
+    ttDesc.textContent=n.desc;
+    var tx=mx+15,ty=my-10;
+    if(tx+220>W)tx=mx-225;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';tooltip.style.opacity='1';
+    hovId=n.id;hovConns={};hovConns[n.id]=true;
+    if(connMap[n.id])connMap[n.id].forEach(function(cid){hovConns[cid]=true;});
+  }
+  function hideTooltip(){tooltip.style.opacity='0';hovId=null;hovConns={};}
+
+  var dragNode=null,dragStartX=0,dragStartY=0,dragDist=0;
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragNode){dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);dragStartX=p.x;dragStartY=p.y;
+    }else{
+      var h=getNodeAt(p.x,p.y);
+      nodes.forEach(function(n){n.hover=false;});
+      if(h){h.hover=true;canvas.style.cursor=h.url?'pointer':'grab';showTooltip(h,p.x,p.y);}
+      else{canvas.style.cursor='grab';hideTooltip();}
+    }
+  });
+  canvas.addEventListener('mouseup',function(){
+    if(dragNode){dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url)window.location.href=dragNode.url;
+      dragNode=null;}canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    if(dragNode){dragNode.dragging=false;dragNode=null;}
+    nodes.forEach(function(n){n.hover=false;});hideTooltip();
+  });
+  // Touch
+  canvas.addEventListener('touchstart',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(dragNode){var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);dragStartX=p.x;dragStartY=p.y;e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragNode){dragNode.dragging=false;
+      if(dragDist<5){if(dragNode.url)window.location.href=dragNode.url;
+        else{var was=dragNode.hover;nodes.forEach(function(n){n.hover=false;});
+          if(!was){dragNode.hover=true;showTooltip(dragNode,dragNode.px,dragNode.py);}else hideTooltip();}}
+      dragNode=null;}
+  });
+
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  loop();
+})();
+
+// Scroll top button
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('scrollTop');
+  if(window.scrollY>300)btn.classList.add('visible');else btn.classList.remove('visible');
+});
+</script>
+
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+</body>
+</html>
