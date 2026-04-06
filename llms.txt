@@ -21,6 +21,28 @@
 - /fcf/intro/ — FCF入門：営業CF・設備投資・FCF利回り
 - /analysis-template/ — 企業分析テンプレート
 - /principles/diversification/ — 分散投資と集中投資のバランス
+- /principles/compound-philosophy/ — 複利の力（お金・知識・習慣の雪だるま）
+- /principles/contrarian-philosophy/ — 逆張りの哲学
+- /principles/margin-of-safety/ — 安全域（Margin of Safety）
+
+### 論考・企業構造分析（Research）
+- /research/nidec-moat/ — ニデック（日本電産）の構造分析
+- /research/nintendo-moat/ — 任天堂の構造分析
+- /research/shinetsu-moat/ — 信越化学の構造分析
+- /research/toyota-moat/ — トヨタの構造分析
+
+### 配当（Dividends）
+- /dividends/dividend-aristocrats/ — 日本の配当貴族（日米配当文化の違い）
+- /dividends/dividend-philosophy/ — 配当の歴史と哲学
+
+### ETF・投信（ETF & Funds）
+- /etf-funds/index-investing-philosophy/ — インデックス投資の哲学（ボーグルとファーマ）
+
+### iDeCo
+- /ideco/ideco-reform-2026/ — iDeCo大改正2026
+
+### NISA
+- /nisa/nisa-philosophy/ — 新NISAの本当の意味（英国ISAからの歴史）
 
 ### 業種分析（Industry Analysis）
 - /industries/ — 業種一覧（14業種の構造マップ）
@@ -39,10 +61,22 @@
 - /horizons/ochiai-yoichi/ — 落合陽一と投資的思考
 - /horizons/safety-margin/ — 安全マージンの哲学
 - /horizons/mental-models/ — マンガーのメンタルモデル入門
+- /horizons/asian-financial-crisis/ — アジア通貨危機（1997年）
+- /horizons/dotcom-bubble/ — ドットコムバブル
+- /horizons/nixon-shock/ — ニクソン・ショック
+- /horizons/end-of-deflation/ — 金利のある世界へ（30年のデフレ終焉）
+- /horizons/geopolitical-risk/ — 地政学リスクとは何か
+- /horizons/history-of-failures/ — 投資の失敗から学ぶ
+- /horizons/tse-pbr-reform/ — 東証PBR1倍要請の本質
+- /horizons/yen-history/ — 円安と日本株（プラザ合意から現在）
 
 ### 投資心理（Investor Psychology）
 - /human/fomo/ — FOMO（取り残される恐怖）
 - /human/loss-aversion/ — 損失回避バイアス
+- /human/bias-overview/ — 投資と心理バイアスの全体図
+- /human/halo-effect/ — ハロー効果と企業評価
+- /human/narrative-bias/ — ナラティブバイアスと投資
+- /human/survivorship-bias/ — 生存者バイアスと投資判断
 
 ### 週刊深読み（Weekly Deep Dive）
 - /news/weekly/ — 週刊深読みトップ（週に一本の深掘り解説）
@@ -55,6 +89,10 @@
 - /people/inamori-kazuo/ — 稲盛和夫｜利他と規律で三つの企業を築いた経営者
 - /people/taleb/ — ナシーム・タレブ｜不確実性を味方にする思想家
 - /people/seneca/ — セネカ｜時間を最大の資産と見なした哲学者
+- /people/benjamin-graham/ — ベンジャミン・グレアム｜バリュー投資の父
+- /people/peter-lynch/ — ピーター・リンチ｜自分の知っているものに投資せよ
+- /people/philip-fisher/ — フィリップ・フィッシャー｜成長株投資の先駆者
+- /people/buffett-succession/ — バフェット後のバークシャー｜アベル新CEOと変わらない原則
 
 ### 思考の案内人たち（Thinkers）
 - /thinkers/ — 偉人の思想をレンズとして判断を照らす（バフェット・マンガー・フィッシャー・アウレリウス・フランクル・論語・渋沢栄一・福澤諭吉・フランクリン）
@@ -64,6 +102,7 @@
 
 ### Claude Code実践ガイド
 - /learning/claude-code-memory/ — Claude Codeに記憶を設計する — AIを育つ相棒にする5層メモリ構造
+- /learning/claude-code-master/ — Claude Code マスター
 
 ### ガイド
 - /hajimete/ — この書斎の歩き方（初めての方へ）

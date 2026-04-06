@@ -143,7 +143,9 @@ var CATS = {
   people:     {label:'人物録',     color:'#3d6828',sort:11},
   history:    {label:'金融史',     color:'#2a3d6a',sort:12},
   companies:  {label:'企業研究',   color:'#8b3a1a',sort:13},
-  foundation: {label:'個人憲法',   color:'#d4aa22',sort:14}
+  foundation: {label:'個人憲法',   color:'#d4aa22',sort:14},
+  research:   {label:'論考',       color:'#6a5a2a',sort:15},
+  dividends:  {label:'配当',       color:'#4a6a3a',sort:16}
 };
 
 /* ===== Node & Edge definitions ===== */
@@ -286,6 +288,54 @@ addNode('h-bubble',       '日本のバブル経済','history','../horizons/fina
 addNode('h-dotcom',       'ドットコム・バブル','history','../horizons/financial-history/dotcom-bubble/','2000年のIT熱狂',1);
 addNode('h-black-monday', 'ブラック・マンデー','history','../horizons/financial-history/black-monday/','1987年の暴落',1);
 
+/* Horizons (new articles) */
+addNode('asian-crisis',   'アジア通貨危機',      'horizons','../horizons/asian-financial-crisis/','「奇跡」が崩壊した1997年',1);
+addNode('nixon-shock',    'ニクソン・ショック',   'horizons','../horizons/nixon-shock/','金とドルの切断が変えた世界',1);
+addNode('end-deflation',  '金利のある世界へ',     'horizons','../horizons/end-of-deflation/','30年のデフレが終わるとき',2);
+addNode('geopolitical',   '地政学リスク',         'horizons','../horizons/geopolitical-risk/','防衛費8.8兆円時代の構造理解',1);
+addNode('hist-failures',  '投資の失敗から学ぶ',   'horizons','../horizons/history-of-failures/','チューリップからLTCMまで',2);
+addNode('tse-pbr',        '東証PBR1倍要請',       'horizons','../horizons/tse-pbr-reform/','日本企業に何が起きているか',2);
+addNode('yen-history',    '円安と日本株',         'horizons','../horizons/yen-history/','プラザ合意から現在まで',1);
+
+/* People (new articles) */
+addNode('p-graham',       'ベンジャミン・グレアム','people','../people/benjamin-graham/','バリュー投資の父',3);
+addNode('p-lynch',        'ピーター・リンチ',     'people','../people/peter-lynch/','自分の知っているものに投資せよ',2);
+addNode('p-fisher',       'フィリップ・フィッシャー','people','../people/philip-fisher/','成長株投資の先駆者',2);
+addNode('p-buffett-succ', 'バフェット後のバークシャー','people','../people/buffett-succession/','アベル新CEOと変わらない原則',2);
+
+/* Research (moat analysis) */
+addNode('r-nidec',        'ニデックの構造分析',   'research','../research/nidec-moat/','日本電産の強さの構造',1);
+addNode('r-nintendo',     '任天堂の構造分析',     'research','../research/nintendo-moat/','任天堂の強さの構造',1);
+addNode('r-shinetsu',     '信越化学の構造分析',   'research','../research/shinetsu-moat/','信越化学の強さの構造',1);
+addNode('r-toyota',       'トヨタの構造分析',     'research','../research/toyota-moat/','トヨタの強さの構造',1);
+
+/* Human (new articles) */
+addNode('bias-overview',  '投資と心理バイアスの全体図','human','../human/bias-overview/','なぜ高値で買い安値で売るのか',2);
+addNode('halo-effect',    'ハロー効果',           'human','../human/halo-effect/','好業績企業はすべて素晴らしく見える',1);
+addNode('narrative-bias', 'ナラティブバイアス',   'human','../human/narrative-bias/','なぜ「物語」に騙されるのか',1);
+addNode('survivorship',   '生存者バイアス',       'human','../human/survivorship-bias/','成功者だけを見ていないか',1);
+
+/* Principles (new articles) */
+addNode('compound-phil',  '複利の哲学',           'principles','../principles/compound-philosophy/','お金・知識・習慣の雪だるま',2);
+addNode('contrarian',     '逆張りの哲学',         'principles','../principles/contrarian-philosophy/','群衆と反対に歩く勇気と知恵',2);
+addNode('margin-safety',  '安全域',               'principles','../principles/margin-of-safety/','投資における最も重要な3文字',2);
+
+/* Dividends (new articles) */
+addNode('div-aristocrats','日本の配当貴族',       'dividends','../dividends/dividend-aristocrats/','日米配当文化の違い',1);
+addNode('div-philosophy', '配当の歴史と哲学',     'dividends','../dividends/dividend-philosophy/','企業がお金を返す理由',2);
+
+/* ETF (new article) */
+addNode('index-phil',     'インデックス投資の哲学','guide','../etf-funds/index-investing-philosophy/','ボーグルとファーマの革命',2);
+
+/* iDeCo (new article) */
+addNode('ideco-reform',   'iDeCo大改正2026',      'guide','../ideco/ideco-reform-2026/','国はなぜ老後資産形成を優遇するか',1);
+
+/* NISA (new article) */
+addNode('nisa-phil',      '新NISAの本当の意味',   'guide','../nisa/nisa-philosophy/','英国ISAから日本の非課税制度',2);
+
+/* Learning (new article) */
+addNode('cc-master',      'Claude Code マスター', 'tools','../learning/claude-code-master/','AI活用の実践ガイド',1);
+
 /* ===== Edges ===== */
 /* Hub connections */
 addEdge('hub-top','hub-principles');addEdge('hub-top','hub-moat');addEdge('hub-top','hub-fcf');
@@ -410,6 +460,82 @@ addEdge('hub-risk','stop-loss');            /* リスク管理 ↔ 損切り */
 addEdge('hub-risk','diversification');       /* リスク管理 ↔ 分散投資 */
 addEdge('hub-morning','p-tanaka');           /* モーニング ↔ 田中渓 */
 addEdge('p-naval','compound');              /* Naval ↔ 複利 */
+
+/* New Horizons cluster edges */
+addEdge('hub-horizons','asian-crisis');     /* 思考を広げる ↔ アジア通貨危機 */
+addEdge('hub-horizons','nixon-shock');      /* 思考を広げる ↔ ニクソン・ショック */
+addEdge('hub-horizons','end-deflation');    /* 思考を広げる ↔ 金利のある世界へ */
+addEdge('hub-horizons','geopolitical');     /* 思考を広げる ↔ 地政学リスク */
+addEdge('hub-horizons','hist-failures');    /* 思考を広げる ↔ 投資の失敗から学ぶ */
+addEdge('hub-horizons','tse-pbr');          /* 思考を広げる ↔ 東証PBR1倍要請 */
+addEdge('hub-horizons','yen-history');      /* 思考を広げる ↔ 円安と日本株 */
+
+/* New People cluster edges */
+addEdge('hub-people','p-graham');           /* 人物録 ↔ グレアム */
+addEdge('hub-people','p-lynch');            /* 人物録 ↔ リンチ */
+addEdge('hub-people','p-fisher');           /* 人物録 ↔ フィッシャー */
+addEdge('hub-people','p-buffett-succ');     /* 人物録 ↔ バフェット後継 */
+
+/* Research cluster edges */
+addEdge('hub-companies','r-nidec');         /* 企業研究 ↔ ニデック */
+addEdge('hub-companies','r-nintendo');      /* 企業研究 ↔ 任天堂 */
+addEdge('hub-companies','r-shinetsu');      /* 企業研究 ↔ 信越化学 */
+addEdge('hub-companies','r-toyota');        /* 企業研究 ↔ トヨタ */
+addEdge('hub-moat','r-nidec');             /* moat ↔ ニデック */
+addEdge('hub-moat','r-nintendo');          /* moat ↔ 任天堂 */
+addEdge('hub-moat','r-shinetsu');          /* moat ↔ 信越化学 */
+addEdge('hub-moat','r-toyota');            /* moat ↔ トヨタ */
+
+/* New Human cluster edges */
+addEdge('hub-human','bias-overview');       /* 人間理解 ↔ バイアス全体図 */
+addEdge('hub-human','halo-effect');         /* 人間理解 ↔ ハロー効果 */
+addEdge('hub-human','narrative-bias');      /* 人間理解 ↔ ナラティブバイアス */
+addEdge('hub-human','survivorship');        /* 人間理解 ↔ 生存者バイアス */
+addEdge('bias-overview','fomo');            /* バイアス全体図 ↔ FOMO */
+addEdge('bias-overview','loss-aversion');   /* バイアス全体図 ↔ 損失回避 */
+addEdge('bias-overview','halo-effect');     /* バイアス全体図 ↔ ハロー効果 */
+addEdge('bias-overview','narrative-bias');  /* バイアス全体図 ↔ ナラティブバイアス */
+addEdge('bias-overview','survivorship');    /* バイアス全体図 ↔ 生存者バイアス */
+
+/* New Principles cluster edges */
+addEdge('hub-principles','compound-phil');  /* 投資原則 ↔ 複利の哲学 */
+addEdge('hub-principles','contrarian');     /* 投資原則 ↔ 逆張りの哲学 */
+addEdge('hub-principles','margin-safety');  /* 投資原則 ↔ 安全域 */
+addEdge('compound-phil','compound');        /* 複利の哲学 ↔ 複利の力 */
+addEdge('margin-safety','safety-margin');   /* 安全域 ↔ 安全マージン */
+addEdge('margin-safety','value-invest');    /* 安全域 ↔ バリュー投資 */
+addEdge('margin-safety','p-graham');        /* 安全域 ↔ グレアム */
+addEdge('contrarian','behavioral');         /* 逆張り ↔ 行動経済学 */
+
+/* New Dividends cluster edges */
+addEdge('hub-dividend','div-aristocrats');  /* 配当 ↔ 配当貴族 */
+addEdge('hub-dividend','div-philosophy');   /* 配当 ↔ 配当の哲学 */
+
+/* New Guide edges */
+addEdge('hub-etf','index-phil');            /* ETF ↔ インデックス投資の哲学 */
+addEdge('index-phil','index-investing');    /* インデックス哲学 ↔ インデックス投資 */
+addEdge('hub-ideco','ideco-reform');        /* iDeCo ↔ iDeCo改正 */
+addEdge('hub-nisa','nisa-phil');            /* NISA ↔ 新NISAの意味 */
+
+/* Learning edge */
+addEdge('hub-learning','cc-master');        /* まなび ↔ Claude Code マスター */
+
+/* Cross-cluster connections (new) */
+addEdge('p-graham','value-invest');         /* グレアム ↔ バリュー投資 */
+addEdge('p-graham','mr-market');            /* グレアム ↔ ミスターマーケット */
+addEdge('p-fisher','hub-moat');             /* フィッシャー ↔ moat */
+addEdge('p-lynch','hub-companies');         /* リンチ ↔ 企業研究 */
+addEdge('p-buffett-succ','hub-companies');  /* バフェット後継 ↔ 企業研究 */
+addEdge('hist-failures','bubble-history');  /* 投資の失敗 ↔ バブルの歴史 */
+addEdge('hist-failures','h-tulip');         /* 投資の失敗 ↔ チューリップ */
+addEdge('asian-crisis','h-bubble');         /* アジア通貨危機 ↔ 日本バブル */
+addEdge('nixon-shock','money-history');     /* ニクソン ↔ お金の歴史 */
+addEdge('nixon-shock','yen-history');       /* ニクソン ↔ 円安と日本株 */
+addEdge('end-deflation','yen-history');     /* 金利の世界 ↔ 円安 */
+addEdge('tse-pbr','hub-companies');         /* 東証PBR ↔ 企業研究 */
+addEdge('narrative-bias','p-taleb');        /* ナラティブ ↔ タレブ */
+addEdge('survivorship','behavioral');       /* 生存者バイアス ↔ 行動経済学 */
+addEdge('nisa-phil','ideco-reform');        /* 新NISA ↔ iDeCo改正 */
 
 /* ===== Build connection map ===== */
 var connMap = {};

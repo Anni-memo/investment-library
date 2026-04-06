@@ -573,6 +573,7 @@ body::before{
     <a class="other-shelf-link" href="people/">人物録</a>
     <a class="other-shelf-link" href="thinkers/">思索の回廊</a>
     <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
+    <a class="other-shelf-link" href="research/">論考の書庫</a>
     <a class="other-shelf-link" href="start-here/real-estate/">不動産投資</a>
     <a class="other-shelf-link" href="library-map-classic/">書庫マップ（クラシック）</a>
     <a class="other-shelf-link" href="library-graph/" style="border-color:rgba(184,144,10,.25);color:var(--gold3);opacity:.8;">書庫の鳥瞰図</a>
@@ -602,6 +603,7 @@ body::before{
     <a href="night-reading/">夜の読書室</a> ·
     <a href="book-guide/">読む・聴く案内室</a> ·
     <a href="smart-home/">今日の書斎</a> ·
+    <a href="research/">論考の書庫</a> ·
     <a href="learning/">まなびの時間</a> ·
     <a href="nisa/">NISAの始め方</a> ·
     <a href="start-here/">資産形成入門</a> ·
@@ -680,7 +682,36 @@ var SEARCH_DATA = [
   {title:"配当の部屋",url:"dividends/",desc:"配当の仕組み、利回りの見方、減配リスクを静かに学ぶ",cat:"DIVIDENDS"},
   {title:"NISA・iDeCo・老後資産の部屋",url:"ideco/",desc:"税制メリットと引き出し制約を理解しながら老後資産を考える",cat:"iDeCo"},
   {title:"税金と口座の部屋",url:"taxes/",desc:"配当課税、売却益、NISA、口座の違いを整理する",cat:"TAXES"},
-  {title:"リスクと守りの部屋",url:"risk-defense/",desc:"暴落・分散・生活防衛資金など、続けるための守りを整える",cat:"RISK DEFENSE"}
+  {title:"リスクと守りの部屋",url:"risk-defense/",desc:"暴落・分散・生活防衛資金など、続けるための守りを整える",cat:"RISK DEFENSE"},
+  {title:"アジア通貨危機",url:"horizons/asian-financial-crisis/",desc:"「奇跡」が崩壊した1997年。通貨危機の構造と教訓",cat:"HORIZONS"},
+  {title:"ドットコムバブル",url:"horizons/dotcom-bubble/",desc:"「ニューエコノミー」という幻想と真実",cat:"HORIZONS"},
+  {title:"ニクソン・ショック",url:"horizons/nixon-shock/",desc:"金とドルの切断が変えた世界",cat:"HORIZONS"},
+  {title:"金利のある世界へ",url:"horizons/end-of-deflation/",desc:"30年のデフレが終わるとき投資はどう変わるか",cat:"HORIZONS"},
+  {title:"地政学リスクとは何か",url:"horizons/geopolitical-risk/",desc:"防衛費8.8兆円時代の構造理解",cat:"HORIZONS"},
+  {title:"投資の失敗から学ぶ",url:"horizons/history-of-failures/",desc:"チューリップからLTCMまで繰り返される構造",cat:"HORIZONS"},
+  {title:"東証PBR1倍要請の本質",url:"horizons/tse-pbr-reform/",desc:"日本企業に何が起きているか",cat:"HORIZONS"},
+  {title:"円安と日本株",url:"horizons/yen-history/",desc:"プラザ合意から現在までの為替と企業の関係",cat:"HORIZONS"},
+  {title:"ベンジャミン・グレアム",url:"people/benjamin-graham/",desc:"バリュー投資の父が遺した知恵",cat:"PEOPLE"},
+  {title:"ピーター・リンチ",url:"people/peter-lynch/",desc:"「自分の知っているものに投資せよ」",cat:"PEOPLE"},
+  {title:"フィリップ・フィッシャー",url:"people/philip-fisher/",desc:"成長株投資の先駆者",cat:"PEOPLE"},
+  {title:"バフェット後のバークシャー",url:"people/buffett-succession/",desc:"アベル新CEOと変わらない原則",cat:"PEOPLE"},
+  {title:"ニデックの構造分析",url:"research/nidec-moat/",desc:"なぜ勝ち続けるのか——日本電産の強さ",cat:"RESEARCH"},
+  {title:"任天堂の構造分析",url:"research/nintendo-moat/",desc:"なぜ勝ち続けるのか——任天堂の強さ",cat:"RESEARCH"},
+  {title:"信越化学の構造分析",url:"research/shinetsu-moat/",desc:"なぜ勝ち続けるのか——信越化学の強さ",cat:"RESEARCH"},
+  {title:"トヨタの構造分析",url:"research/toyota-moat/",desc:"なぜ勝ち続けるのか——トヨタの強さ",cat:"RESEARCH"},
+  {title:"投資と心理バイアスの全体図",url:"human/bias-overview/",desc:"なぜ人は高値で買い安値で売るのか",cat:"HUMAN"},
+  {title:"ハロー効果と企業評価",url:"human/halo-effect/",desc:"好業績の企業はすべてが素晴らしく見える",cat:"HUMAN"},
+  {title:"ナラティブバイアスと投資",url:"human/narrative-bias/",desc:"なぜ人は「物語」に騙されるのか",cat:"HUMAN"},
+  {title:"生存者バイアスと投資判断",url:"human/survivorship-bias/",desc:"成功者だけを見ていないか",cat:"HUMAN"},
+  {title:"複利の哲学",url:"principles/compound-philosophy/",desc:"お金・知識・習慣が雪だるまになる原理",cat:"PRINCIPLES"},
+  {title:"逆張りの哲学",url:"principles/contrarian-philosophy/",desc:"群衆と反対に歩く勇気と知恵",cat:"PRINCIPLES"},
+  {title:"安全域（Margin of Safety）",url:"principles/margin-of-safety/",desc:"投資における最も重要な3文字",cat:"PRINCIPLES"},
+  {title:"日本の配当貴族",url:"dividends/dividend-aristocrats/",desc:"日米配当文化の違い",cat:"DIVIDENDS"},
+  {title:"配当の歴史と哲学",url:"dividends/dividend-philosophy/",desc:"企業がお金を返す理由の歴史と哲学",cat:"DIVIDENDS"},
+  {title:"インデックス投資の哲学",url:"etf-funds/index-investing-philosophy/",desc:"ボーグルとファーマの革命",cat:"ETF & FUNDS"},
+  {title:"iDeCo大改正2026",url:"ideco/ideco-reform-2026/",desc:"国はなぜ老後資産形成を税制優遇するのか",cat:"iDeCo"},
+  {title:"新NISAの本当の意味",url:"nisa/nisa-philosophy/",desc:"英国ISAから日本の非課税制度の歴史",cat:"NISA"},
+  {title:"Claude Code マスター",url:"learning/claude-code-master/",desc:"AI活用の実践ガイド",cat:"LEARNING"}
 ];
 
 (function(){
