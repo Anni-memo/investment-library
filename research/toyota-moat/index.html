@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="トヨタ自動車の競争優位（経済的堀）を構造的に分析。TPS、スケールの経済、ブランド、系列サプライチェーン、全方位戦略の5つの堀を解剖する。"/>
+<meta property="og:title" content="なぜ勝ち続けるのか――トヨタの強さの構造分析｜投資と思考の書斎"/>
+<meta property="og:description" content="世界販売台数1,000万台超、時価総額日本最大。トヨタの強さは偶然ではない。5つの堀を構造的に読み解く。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/research/toyota-moat/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/research/toyota-moat/"/>
+<title>なぜ勝ち続けるのか――トヨタの強さの構造分析｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "なぜ勝ち続けるのか――トヨタの強さの構造分析",
+  "description": "トヨタ自動車の競争優位（経済的堀）を構造的に分析。TPS、スケール、ブランド、系列、全方位戦略の5つの堀を解剖する。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "トヨタ自動車"}, {"@type": "Thing", "name": "経済的堀"}, {"@type": "Thing", "name": "競争優位"}]
+}
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">論考の棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">なぜ勝ち続けるのか――トヨタの強さの構造分析</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-ornament">WHY THEY KEEP WINNING</div>
+  <h1 class="hero-title">なぜ勝ち続けるのか――<br>トヨタの強さの構造分析</h1>
+  <p class="hero-lead"><em>企業の「堀」を解剖する</em></p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- ── Section 1: トヨタの異常な規模 ── -->
+  <div class="article-section">
+    <div class="section-label">SCALE OF DOMINANCE</div>
+    <h2 class="section-title">トヨタの異常な規模</h2>
+    <div class="section-body">
+      <p>トヨタ自動車は、世界で年間1,000万台を超える車両を販売する。この数字は、フォルクスワーゲングループと世界首位を争う水準であり、日本の自動車メーカーとしては圧倒的な規模である。</p>
+      <p>時価総額は日本最大。国内のあらゆる企業を押さえ、日本経済の象徴としての地位を維持し続けている。従業員数はグループ全体で37万人を超え、関連する部品メーカー・販売店まで含めれば、トヨタを中心とした経済圏は数百万人の雇用に関わる。</p>
+      <p>しかし、規模が大きいことそのものは、競争優位の説明にはならない。問題は、なぜこの規模を維持し、拡大し続けることができるのか、である。</p>
+      <p>その答えは、トヨタが長い時間をかけて築いてきた構造的な「堀」にある。一つひとつは目立たないかもしれないが、それらが重なり合い、競合が容易には模倣できない厚い防御壁を形成している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 2: トヨタ生産方式（TPS） ── -->
+  <div class="article-section">
+    <div class="section-label">TOYOTA PRODUCTION SYSTEM</div>
+    <h2 class="section-title">トヨタ生産方式（TPS）――模倣されても追いつけない仕組み</h2>
+    <div class="section-body">
+      <p>トヨタの競争力の根幹は、トヨタ生産方式（TPS: Toyota Production System）にある。大野耐一が体系化したこの生産哲学は、単なるマニュアルではない。組織全体に染み込んだ思考の様式である。</p>
+      <p>TPSの核となる概念は四つある。</p>
+      <ul>
+        <li>ジャスト・イン・タイム（JIT）――必要なものを、必要なときに、必要な量だけ作る。在庫を最小化し、ムダを排除する</li>
+        <li>カイゼン――現場の一人ひとりが、日常的に改善を積み重ねる。大きな革命ではなく、小さな改善の累積が競争力を生む</li>
+        <li>アンドン――異常が発生したら、ラインを止める。問題を隠さず、その場で解決する文化</li>
+        <li>自工程完結――各工程が品質を保証する。後工程に不良を流さない。検査に頼るのではなく、工程そのものが品質を作り込む</li>
+      </ul>
+      <p>これらの概念は、書籍やセミナーを通じて世界中に広まった。多くの企業がTPSを学び、導入を試みた。しかし、トヨタと同等の効果を再現できた企業はほとんどない。</p>
+      <p>その理由は、TPSが単なる技法ではなく、数十年かけて醸成された組織文化だからである。マニュアルを読めばわかるが、実行し続けるには組織全体の価値観が必要になる。これこそが、模倣困難な競争優位の本質である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">トヨタ生産方式は公開されている。<br>しかし「知っている」と「実行し続けられる」の間には、<br>数十年の組織文化という堀が横たわっている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 3: 5つの堀 ── -->
+  <div class="article-section">
+    <div class="section-label">FIVE MOATS</div>
+    <h2 class="section-title">トヨタを守る5つの堀</h2>
+    <div class="section-body">
+
+      <p><strong>堀 1：スケールの経済――部品共通化とTNGA</strong></p>
+      <p>年間1,000万台という生産規模は、部品の調達コストにおいて圧倒的な交渉力をもたらす。さらにトヨタは、TNGA（Toyota New Global Architecture）というプラットフォーム戦略により、車種を超えた部品の共通化を進めている。</p>
+      <p>エンジン、トランスミッション、シャシーといった基幹部品を複数車種で共有することで、開発コストと製造コストの両方を削減する。新車種の開発においても、ゼロから設計する必要がない。この効率性は、規模が小さいメーカーには構造的に真似できない。</p>
+
+      <p><strong>堀 2：スイッチングコスト――販売店ネットワークとアフターサービス</strong></p>
+      <p>トヨタは日本国内に約5,000店の販売拠点を持つ。これは他の国内メーカーを大きく上回る数字である。顧客はトヨタの販売店で車を購入し、点検を受け、保険に加入し、次の車もそこで買い替える。</p>
+      <p>この販売店ネットワークは、単なる販売チャネルではない。顧客との長期的な関係を維持する仕組みであり、他メーカーへの乗り換えを心理的にも実務的にもコストの高いものにしている。海外市場でも、アフターサービスの充実度がトヨタ車の強みとなっている。部品の入手しやすさ、修理のしやすさは、特に新興国市場で決定的な差別化要因である。</p>
+
+      <p><strong>堀 3：ブランド――信頼性とリセールバリュー</strong></p>
+      <p>「トヨタは壊れない」。この評判は、数十年にわたる品質の積み重ねによって築かれた。J.D. Powerの品質調査でトヨタとレクサスは常に上位に位置し、中古車市場でのリセールバリューも高い。</p>
+      <p>リセールバリューの高さは、新車購入時の実質的なコストを下げる効果がある。「トヨタ車は値段が落ちにくい」という認識そのものが、次のトヨタ車を選ぶ理由になる。このブランドの循環構造は、広告費だけでは作れない。長い時間と一貫した品質によってのみ構築される堀である。</p>
+
+      <p><strong>堀 4：サプライチェーンの堀――系列とデンソー・アイシン</strong></p>
+      <p>トヨタは、デンソー、アイシン、豊田自動織機といったグループ企業との緊密な関係を持つ。これはかつての「系列」と呼ばれた日本独特のサプライチェーン構造の名残であり、現在も実質的に機能している。</p>
+      <p>デンソーは自動車部品メーカーとして世界第2位の規模を持ち、エレクトロニクス、熱機器、パワートレインなどの分野でトヨタに高品質な部品を供給する。アイシンはトランスミッションの世界的なリーダーである。これらの企業との長期的な協力関係は、品質・コスト・納期のすべてにおいて競合他社にはない安定性を提供する。</p>
+
+      <p><strong>堀 5：全方位戦略――HEV・BEV・FCEV・水素エンジン</strong></p>
+      <p>自動車業界がEVシフトで揺れる中、トヨタは「全方位戦略」を掲げている。ハイブリッド（HEV）、プラグインハイブリッド（PHEV）、バッテリーEV（BEV）、燃料電池車（FCEV）、そして水素エンジン。あらゆるパワートレインの選択肢を並行して開発する。</p>
+      <p>この戦略は、短期的にはリソースの分散と見える。しかし長期的には、どの技術が主流になっても対応できるオプション価値を持つ。世界各地域で異なるエネルギー事情、インフラ整備の進捗、規制環境に対して、柔軟に製品を提供できる体制を構築している。</p>
+      <p>特にハイブリッド技術では、1997年の初代プリウス以来、27年以上の蓄積がある。モーターとエンジンの協調制御、バッテリーマネジメントにおけるノウハウは、新規参入者が数年で追いつける領域ではない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">5つの堀は独立して存在するのではない。<br>スケールがコストを下げ、品質がブランドを支え、<br>ブランドが販売を支え、販売がスケールを生む。<br>この循環構造こそが、トヨタの堀の本質である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 4: 数字で見るトヨタ ── -->
+  <div class="article-section">
+    <div class="section-label">BY THE NUMBERS</div>
+    <h2 class="section-title">数字で見るトヨタ</h2>
+    <div class="section-body">
+      <p>トヨタの財務は、その堀の厚さを数字で裏付ける。</p>
+      <ul>
+        <li>連結売上高：約45兆円――日本企業として最大、世界の自動車メーカーでも最大級</li>
+        <li>営業利益：約5兆円――自動車メーカーとして異例の利益水準。営業利益率は約11%に達する</li>
+        <li>研究開発費：約1.2兆円――全方位戦略を支える技術投資。日本企業で最大の研究開発費</li>
+        <li>フリーキャッシュフロー：潤沢な現金創出力が、景気後退期にも投資を継続する余力を与える</li>
+      </ul>
+      <p>注目すべきは、これらの数字が一時的なものではないことだ。トヨタは好不況を問わず、安定的に利益を生み出してきた。リーマンショック時には一時的に赤字に転落したが、他の多くのメーカーが政府の救済を必要としたのに対し、トヨタは自力で回復した。</p>
+      <p>営業利益率が二桁に達することは、自動車業界では極めて稀である。この利益率は、TPSによるコスト管理、スケールの経済、ブランドによる価格競争力の三つが重なることで実現されている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 5: リスク要因 ── -->
+  <div class="article-section">
+    <div class="section-label">RISK FACTORS</div>
+    <h2 class="section-title">堀を脅かすリスク要因</h2>
+    <div class="section-body">
+      <p>どれほど厚い堀も、永遠に安泰ではない。トヨタが直面するリスクを正直に見ておく必要がある。</p>
+
+      <p><strong>EV移行の不確実性</strong></p>
+      <p>世界がバッテリーEVに急速に移行した場合、トヨタのハイブリッド技術の優位性は相対的に低下する。テスラ、BYDといったEV専業・EV先行メーカーとの競争が激化する可能性がある。ただし、2025年時点ではEV移行のペースが当初の予測より緩やかであり、ハイブリッドの需要は堅調である。</p>
+
+      <p><strong>中国市場</strong></p>
+      <p>中国は世界最大の自動車市場であるが、BYDをはじめとする中国メーカーの台頭により、トヨタを含む外資メーカーのシェアは低下傾向にある。中国市場での競争力維持は、トヨタにとって重要な課題である。</p>
+
+      <p><strong>為替感応度</strong></p>
+      <p>トヨタは売上の大部分を海外で稼ぐ。円高は利益を直接的に圧迫する。1円の円高で営業利益が約500億円変動するとされ、為替はトヨタの業績を左右する最大の外部要因のひとつである。</p>
+
+      <p><strong>労働力と人口動態</strong></p>
+      <p>日本国内の生産拠点は、少子高齢化による労働力不足の影響を受ける。自動化の推進で対応しているが、製造業としての人材確保は中長期的な課題である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">堀の分析とは、強さだけを並べることではない。<br>その堀がどのような条件で崩れうるかを<br>冷静に見積もることが、投資家としての仕事である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 6: 投資家としての視点 ── -->
+  <div class="article-section">
+    <div class="section-label">INVESTOR'S PERSPECTIVE</div>
+    <h2 class="section-title">投資家としての視点</h2>
+    <div class="section-body">
+      <p>トヨタの堀は、一つの技術や一つの製品に依存していない。生産システム、スケール、ブランド、サプライチェーン、技術戦略という複数の層が重なり合い、互いを強化し合う構造になっている。</p>
+      <p>バフェットが好む「堀の広い企業」とは、まさにこのような構造を持つ企業を指す。単一の堀は時間とともに浸食されうるが、複数の堀が相互に補強し合う構造は、容易には崩れない。</p>
+      <p>ただし、トヨタに投資するかどうかは、堀の質だけでは決まらない。堀がいかに厚くても、価格が高すぎれば投資のリターンは低くなる。堀の分析は投資判断の入口であり、出口ではない。</p>
+      <p>重要なのは、この構造分析を通じて「トヨタの強さがどこから来ているのか」を理解することだ。そして、その構造が今後も維持されるかどうかを、自分の頭で判断すること。企業を見る目を養うこと自体が、長期投資家にとって最も価値のある資産である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">堀の分析は、買うか買わないかの判断ではない。<br>企業の強さの構造を理解する訓練であり、<br>その訓練の蓄積が、投資家の判断力そのものになる。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">トヨタの堀を読んだら、異なる業種の堀と比較してみる。そして、堀の見方そのものを体系的に学ぶ。</p>
+    <div class="further-links">
+      <a class="further-link" href="../keyence-moat/">
+        <span class="further-link-tag">企業分析</span>
+        <span class="further-link-title">キーエンスの堀を解剖する</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../tsmc-ecosystem-moat/">
+        <span class="further-link-tag">企業分析</span>
+        <span class="further-link-title">TSMCのエコシステム・モート</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../moat/">
+        <span class="further-link-tag">競争優位</span>
+        <span class="further-link-title">経済的堀の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+</body>
+</html>

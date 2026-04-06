@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="ナラティブバイアスが投資判断を歪めるメカニズムを解説。人間の脳は因果関係のストーリーを自動生成する。タレブ『ブラック・スワン』とカーネマンのSystem 1から学ぶ、物語に騙されない投資思考。"/>
+<meta property="og:title" content="なぜ人は「物語」に騙されるのか――ナラティブバイアスと投資｜投資と思考の書斎"/>
+<meta property="og:description" content="人間の脳は因果関係のストーリーを自動生成する。その物語が投資判断を歪めるメカニズムと対処法。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/human/narrative-bias/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/human/narrative-bias/"/>
+<title>なぜ人は「物語」に騙されるのか――ナラティブバイアスと投資｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "なぜ人は「物語」に騙されるのか――ナラティブバイアスと投資",
+  "description": "ナラティブバイアスが投資判断を歪めるメカニズム。タレブとカーネマンの知見から学ぶ、物語に騙されない投資思考。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "ナラティブバイアス"}, {"@type": "Thing", "name": "行動ファイナンス"}, {"@type": "Thing", "name": "認知バイアス"}]
+}
+</script>
+
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">人間理解の棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">なぜ人は「物語」に騙されるのか</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF 02 — 人間の認知を知る</div>
+  <div class="hero-ornament">THE NARRATIVE FALLACY</div>
+  <h1 class="hero-title">なぜ人は「物語」に騙されるのか<br>――ナラティブバイアスと投資</h1>
+  <p class="hero-lead">
+    人間の脳は、ランダムな出来事にも因果関係を見出し、<br>
+    美しいストーリーを自動で紡ぎ出す。<br>
+    その物語こそが、投資判断を最も静かに歪める力である。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- ── Section 1: 人間は物語を求める生き物 ── -->
+  <div class="article-section">
+    <div class="section-label">THE STORYTELLING BRAIN</div>
+    <h2 class="section-title">人間は物語を求める生き物</h2>
+    <div class="section-body">
+      <p>人間の脳は、情報をバラバラに処理するようにはできていない。</p>
+      <p>目の前に起きた出来事を、脳は自動的に「なぜそれが起きたのか」という因果関係のストーリーに変換する。朝、電車が遅れた。会社に遅刻した。上司に怒られた。この三つの出来事は、たまたま同じ日に起きただけかもしれない。しかし脳は即座に「電車が遅れたせいで遅刻し、怒られた」という一本の物語を構築する。</p>
+      <p>この機能は進化の産物である。サバンナで生き残るためには、「茂みが揺れた→捕食者がいる→逃げろ」という因果の連鎖を瞬時に構築する能力が不可欠だった。情報を個別に分析している余裕はない。物語として処理するほうが、速く、効率的だった。</p>
+      <p>問題は、この自動処理が現代においても止まらないことにある。株価の変動、企業の業績、経済指標。脳はそれらを個別のデータとして冷静に評価するのではなく、常に「なぜそうなったのか」という物語に編み上げようとする。</p>
+      <p>そして、物語が完成した瞬間、人はそれを「理解した」と感じる。理解したという感覚は心地よい。だからこそ、物語は疑われにくい。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 2: ナラティブバイアスの定義 ── -->
+  <div class="article-section">
+    <div class="section-label">DEFINITION</div>
+    <h2 class="section-title">ナラティブバイアスとは何か</h2>
+    <div class="section-body">
+      <p>ナラティブバイアスとは、ランダムな事象や複雑な現実を、筋の通った物語として解釈しようとする認知の傾向である。</p>
+      <p>ナシーム・ニコラス・タレブは著書『ブラック・スワン』の中で、これを「ナラティブの誤謬（Narrative Fallacy）」と名づけた。人間は過去の出来事を振り返るとき、実際にはランダムだった事象にも因果関係を見出し、あたかも必然であったかのように再構成する。後から見れば、すべてが「そうなるべくしてなった」ように見える。</p>
+      <p>ダニエル・カーネマンは、この傾向をSystem 1（速い思考）の特性として説明した。System 1は自動的に、労力をかけずに、因果関係のパターンを生成する。それは意識的な分析（System 2）を経ていない。つまり、物語は「考えた結果」ではなく、「考える前に」生まれている。</p>
+      <p>このバイアスが厄介なのは、物語の説得力と事実の正確さが無関係だからである。筋が通っていて、感情的に納得できる物語ほど、人はそれを信じやすい。しかし、筋が通っているかどうかと、それが真実かどうかは、まったく別の問題である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">物語が美しいほど、疑うことが難しくなる。<br>しかし、説得力と正確さは別のものである。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 3: 投資における具体例 ── -->
+  <div class="article-section">
+    <div class="section-label">IN PRACTICE</div>
+    <h2 class="section-title">投資における具体例</h2>
+    <div class="section-body">
+      <p>ナラティブバイアスは、投資の世界で日常的に作動している。</p>
+
+      <p><strong>「AIが世界を変える、だからAI株は必ず上がる」</strong></p>
+      <p>この論理は、物語としては完璧に聞こえる。しかし、技術が世界を変えることと、その技術に関連する株が上がることは、論理的に直結しない。インターネットは確かに世界を変えたが、2000年のドットコムバブルで多くのインターネット企業の株は暴落した。技術の正しさと投資リターンの間には、バリュエーション、競争環境、収益化のタイムラインという複数の変数が介在する。しかし物語はそれらを飛び越える。</p>
+
+      <p><strong>決算発表後の「後付け解説」</strong></p>
+      <p>企業の決算が発表され、株価が動く。メディアはすぐに「なぜ上がったのか」「なぜ下がったのか」を解説する。しかし、多くの場合、その解説は結果を見てから構築された物語にすぎない。同じ決算内容でも、株価が上がれば「市場は成長性を評価した」と書かれ、下がれば「利益率の低下を嫌気した」と書かれる。先に結果があり、後から物語が作られる。</p>
+
+      <p><strong>「経営者のビジョン」への過度な信頼</strong></p>
+      <p>カリスマ的な経営者が語る壮大なビジョンは、強力な物語を形成する。その物語に魅了されると、実際の財務データやバリュエーションの検証がおろそかになる。物語が数字に先行し、数字が物語を補強するために選択的に引用される。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 4: 企業IRとナラティブ ── -->
+  <div class="article-section">
+    <div class="section-label">NARRATIVE & NUMBERS</div>
+    <h2 class="section-title">企業IRとナラティブ――成長ストーリーの魅力と罠</h2>
+    <div class="section-body">
+      <p>企業のIR（投資家向け広報）は、本質的にナラティブの構築である。</p>
+      <p>優れた企業は、自社の事業を「物語」として投資家に伝える。市場の課題、自社の解決策、成長の道筋。この三要素が揃った成長ストーリーは、投資家の心を動かす。そしてそれ自体は、正当なコミュニケーションである。</p>
+      <p>問題は、投資家がその物語を「分析の代替」にしてしまうときに生まれる。</p>
+      <p>ニューヨーク大学のアスワス・ダモダラン教授は、著書『Narrative and Numbers（ナラティブ＆ナンバーズ）』で、投資における物語と数字の関係を整理した。ダモダランの主張の核心は、物語は数字に変換されなければ投資判断に使えない、ということである。</p>
+      <p>「この企業はヘルスケアのDXを推進している」という物語は、それ自体では投資判断にならない。その物語を、市場規模の推定、シェア獲得のペース、利益率の見通し、必要な投資額という数字に変換して初めて、妥当性を検証できる。</p>
+
+      <ul>
+        <li>物語だけの投資家は、夢に賭けている</li>
+        <li>数字だけの投資家は、文脈を見失っている</li>
+        <li>物語を数字に変換できる投資家が、最も正確な判断に近づく</li>
+      </ul>
+
+      <p>成長ストーリーに惹かれたとき、問うべきは「この物語は本当か」ではない。「この物語を数字に変換すると、どのような前提が必要か」である。その前提が現実的かどうかを検証することが、ナラティブの罠を避ける方法になる。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">物語を信じるのではなく、物語を数字に変換せよ。<br>そしてその数字の前提を疑え。<br>――アスワス・ダモダランの教え</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 5: 歴史上のナラティブ ── -->
+  <div class="article-section">
+    <div class="section-label">LESSONS FROM HISTORY</div>
+    <h2 class="section-title">歴史を動かしたナラティブ</h2>
+    <div class="section-body">
+      <p>歴史上の大きなバブルの背後には、常に強力なナラティブがあった。</p>
+
+      <p><strong>ドットコムバブル――「ニューエコノミー」の物語</strong></p>
+      <p>1990年代後半、「インターネットが経済の構造を根本的に変える。従来の企業価値評価は通用しない。利益が出ていなくても、ユーザー数の成長があれば企業価値は上がり続ける」という物語が市場を支配した。</p>
+      <p>この物語のうち、「インターネットが経済を変える」という部分は正しかった。しかし、「だから利益が出ていない企業の株も上がり続ける」という飛躍は、物語の力によって正当化されていたにすぎない。2000年にバブルが崩壊したとき、NASDAQ総合指数は78%下落した。物語が正しかったとしても、投資リターンが保証されるわけではない。</p>
+
+      <p><strong>日本バブル――「土地神話」の物語</strong></p>
+      <p>「日本の土地は狭い。人口は増え続ける。だから地価は永遠に上がる」。1980年代の日本を支配したこの物語は、不動産価格と株価の歴史的な高騰を正当化した。東京23区の地価でアメリカ全土が買えるとまで言われた。</p>
+      <p>この物語の説得力は、30年以上にわたる地価上昇の実績によって補強されていた。過去のデータが物語を裏づけ、物語がさらなる投資を呼び、投資が価格を押し上げ、上がった価格が物語を再確認する。この自己強化のループが、バブルの本質である。</p>
+      <p>そして1991年以降、地価は長期にわたって下落し続けた。「永遠に上がる」という物語は、永遠ではなかった。</p>
+
+      <p><strong>共通する構造</strong></p>
+      <p>どちらのケースでも、物語自体には一定の合理性があった。しかし、物語が正しいことと、その物語に基づく投資が成功することは、まったく別の問題である。物語の正しさがバリュエーションの妥当性を保証しない。この区別を忘れたとき、ナラティブバイアスは最大の被害をもたらす。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── Section 6: 対処法 ── -->
+  <div class="article-section">
+    <div class="section-label">THE INVESTOR'S PRACTICE</div>
+    <h2 class="section-title">物語に騙されないための対処法</h2>
+    <div class="section-body">
+      <p>ナラティブバイアスを「持たない人間になる」ことはできない。脳の自動機能である以上、物語は必ず生まれる。できることは、物語が生まれた後に、それを検証する手続きを持つことである。</p>
+
+      <p><strong>数字で検証する習慣</strong></p>
+      <p>「この企業は素晴らしい成長ストーリーを持っている」と感じたら、その物語を具体的な数字に変換する。売上成長率は何%を前提としているか。その成長率が実現するための市場規模は十分か。利益率はどのように推移する想定か。現在のバリュエーションは、その数字を前提としたとき妥当か。物語を数字に変換する作業は、物語の「美しさ」から距離を取るための最も有効な手段である。</p>
+
+      <p><strong>逆ナラティブを意図的に考える</strong></p>
+      <p>ある銘柄に対してポジティブな物語が頭の中にあるとき、意図的に逆の物語を構築してみる。「この企業が失敗するとしたら、どのようなストーリーが考えられるか」。成長が止まるシナリオ、競争に負けるシナリオ、規制によって事業モデルが崩れるシナリオ。逆の物語を考える行為は、元の物語の前提を浮かび上がらせる。</p>
+
+      <p><strong>チェックリストを使う</strong></p>
+      <p>投資判断の前に、以下の問いを確認する習慣を持つ。</p>
+      <ul>
+        <li>自分は今、「物語」に反応しているか、「数字」に反応しているか</li>
+        <li>この物語の前提が崩れるとしたら、何が起きるときか</li>
+        <li>この物語は、結果を見てから後付けで作られたものではないか</li>
+        <li>物語を取り除いても、この投資判断は変わらないか</li>
+        <li>同じ物語を信じている人が多すぎないか（コンセンサスの罠）</li>
+      </ul>
+
+      <p>ナラティブバイアスの対処は、物語を拒絶することではない。物語は思考の道具として有用である。問題は、物語を結論にしてしまうことにある。物語は仮説として扱い、数字で検証し、逆の可能性を常に残しておく。この手続きを習慣にすることが、ナラティブの力と適切に付き合う方法である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">物語を拒絶するのではなく、物語を仮説として扱え。<br>仮説は検証するものであり、信じるものではない。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">物語の罠を知ったら、バイアスの全体像を俯瞰し、確証バイアスとの相互作用を理解する。そして、投資の原則に立ち返る。</p>
+    <div class="further-links">
+      <a class="further-link" href="../bias-overview/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">認知バイアスの全体図</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../confirmation-bias/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">確証バイアス：都合のいい情報だけを集める脳</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../principles/">
+        <span class="further-link-tag">原則</span>
+        <span class="further-link-title">私の投資原則</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+</body>
+</html>
