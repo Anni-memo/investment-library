@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VYPK32EB6B');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta property="og:title" content="キーエンスのmoat解剖——なぜ営業利益率51%なのか｜論考の棚"/>
-<meta property="og:description" content="直販×ファブレス×コンサルティング営業——キーエンスの営業利益率51%を支える5つの構造的moatを解剖する。競合比較・フライホイール構造・リスク分析。"/>
+<meta name="description" content="キーエンスはなぜ営業利益率55%を維持できるのか。ファブレス×直販×コンサル営業の三位一体モデルと、5つのmoat要因を解剖する。"/>
+<meta property="og:title" content="キーエンスのmoat解剖――なぜ営業利益率55%なのか｜投資と思考の書斎"/>
+<meta property="og:description" content="ファブレス×直販×コンサル営業の三位一体が生む、異常な収益性の構造を解剖する。"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://anni-memo.github.io/investment-library/research/keyence-moat/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="description" content="直販×ファブレス×コンサルティング営業——キーエンスの営業利益率51%を支える5つの構造的moatを解剖する。競合比較・フライホイール構造・リスク分析。"/>
 <link rel="canonical" href="https://anni-memo.github.io/investment-library/research/keyence-moat/"/>
-<title>キーエンスのmoat解剖——なぜ営業利益率51%なのか｜論考の棚</title>
-
+<title>キーエンスのmoat解剖――なぜ営業利益率55%なのか｜投資と思考の書斎</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "キーエンスのmoat解剖——なぜ営業利益率51%なのか",
-  "description": "直販×ファブレス×コンサルティング営業——キーエンスの営業利益率51%を支える5つの構造的moatを解剖する。",
-  "datePublished": "2026-04-05",
-  "dateModified": "2026-04-05",
+  "headline": "キーエンスのmoat解剖――なぜ営業利益率55%なのか",
+  "description": "キーエンスのファブレス×直販×コンサル営業モデルと5つのmoat要因を解剖する。",
   "author": {"@type": "Person", "name": "anni_memo"},
   "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
-  "url": "https://anni-memo.github.io/investment-library/research/keyence-moat/",
-  "about": [
-    {"@type": "Thing", "name": "キーエンス"},
-    {"@type": "Thing", "name": "moat分析"},
-    {"@type": "Thing", "name": "FA"}
-  ]
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "キーエンス"}, {"@type": "Thing", "name": "経済的堀"}, {"@type": "Thing", "name": "競争優位性"}]
 }
 </script>
 
+<link rel="stylesheet" href="../../shared.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
 <style>
 :root{
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
   --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
-  --rust:#8b3a1a;--rust2:#c05020;
-  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
-  --blue:#1a2a4a;--blue2:#2a3d6a;--blue3:#3a5a8a;
-  --key:#1a3050;--key2:#2a4a6a;--key3:#3a6a8a;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -69,206 +55,74 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 /* ── HERO ── */
 .hero{
-  background:linear-gradient(165deg,#04080e 0%,#0a1520 30%,#0e1a28 60%,#081018 100%);
-  color:var(--parch);padding:64px 24px 52px;
-  position:relative;overflow:hidden;
-  border-bottom:3px solid rgba(42,90,138,.6);
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
 }
-.hero::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 65% 45% at 50% 0%,rgba(42,106,138,.1) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 30% at 10% 100%,rgba(26,58,90,.06) 0%,transparent 50%);
-}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(58,106,138,.6),transparent);}
-.hero-inner{max-width:780px;margin:0 auto;}
-.hero-breadcrumb{font-family:var(--mono);font-size:.5rem;color:rgba(122,160,200,.55);letter-spacing:.18em;margin-bottom:20px;}
-.hero-label{font-family:var(--mono);font-size:.52rem;color:rgba(100,150,200,.7);letter-spacing:.28em;margin-bottom:14px;}
-.hero-title{
-  font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.8rem);
-  font-weight:700;color:var(--parch);line-height:1.15;
-  margin-bottom:14px;
-}
-.hero-subtitle{
-  font-family:var(--serif);font-style:italic;
-  font-size:clamp(.82rem,2vw,.96rem);
-  color:rgba(200,210,225,.7);line-height:1.9;margin-bottom:28px;
-}
-.hero-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
-.hero-date{font-family:var(--mono);font-size:.52rem;color:rgba(122,160,200,.6);letter-spacing:.08em;}
-.hero-tag{font-family:var(--mono);font-size:.44rem;padding:3px 10px;border:1px solid rgba(58,90,138,.45);color:rgba(122,160,200,.8);letter-spacing:.08em;}
-.hero-tag.green{border-color:rgba(61,104,40,.45);color:rgba(90,138,58,.9);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
 
-/* ── NAV COCKPIT ── */
-.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-@media(max-width:960px){.nav-cockpit{grid-template-columns:1fr;padding:12px 24px 0;}}
-.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
-.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
-.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
-.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
-.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
-.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
-.ct-item a:hover{color:var(--gold);}
-.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
-.ct-children{padding-left:20px;position:relative;}
-.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
-.ct-children .ct-item{position:relative;}
-.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
-.ct-root{opacity:.7;}
-.ct-sibling{opacity:.55;}
-.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
-.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
-.cockpit-reading{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-top:10px;opacity:.7;}
-.toc-list{list-style:none;font-family:var(--mono);font-size:.72rem;}
-.toc-list li{padding:4px 0;}
-.toc-list a{color:var(--ink3);text-decoration:none;transition:color .15s;}
-.toc-list a:hover{color:var(--gold);}
-.toc-num{color:var(--gold);margin-right:8px;font-size:.6rem;}
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
 
-/* ── SUMMARY ── */
-.summary-wrap{background:var(--parch);border-bottom:1px solid var(--parch4);padding:0 24px;}
-.summary-inner{max-width:780px;margin:0 auto;padding:36px 0;}
-.summary-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.22em;margin-bottom:16px;opacity:.7;}
-.summary-text{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.02rem);color:var(--ink2);line-height:2.1;font-weight:300;border-left:3px solid var(--gold2);padding-left:18px;}
-.summary-text strong{color:var(--ink);font-weight:600;}
+/* ── DATA TABLE ── */
+.data-table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:.82rem;}
+.data-table th{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.12em;text-align:left;padding:8px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--parch3);color:var(--ink2);font-weight:300;}
+.data-table td:first-child{font-weight:500;color:var(--ink);}
+.data-table tr:last-child td{border-bottom:none;}
 
-/* ── KPI TABLE ── */
-.kpi-wrap{background:var(--parch2);border-bottom:2px solid var(--parch4);padding:0 24px;}
-.kpi-inner{max-width:780px;margin:0 auto;padding:32px 0;}
-.kpi-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.22em;margin-bottom:16px;opacity:.7;}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-@media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
-.kpi-card{background:var(--parch);border:1px solid var(--parch3);padding:16px;text-align:center;}
-.kpi-value{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.kpi-value.accent{color:var(--key3);}
-.kpi-unit{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;}
-.kpi-desc{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.1em;margin-top:8px;opacity:.7;}
-
-/* ── ARTICLE BODY ── */
-.article-wrap{padding:0 24px;}
-.article-inner{max-width:780px;margin:0 auto;padding:56px 0 80px;}
-
-/* ── MOAT SECTION ── */
-.moat-section{margin-bottom:56px;}
-.moat-header{
-  display:flex;align-items:flex-start;gap:16px;
-  background:var(--parch2);border:1px solid var(--parch3);
-  border-left:4px solid var(--key3);
-  padding:22px 24px;margin-bottom:0;
-}
-.moat-num{
-  font-family:var(--mono);font-size:1.1rem;font-weight:700;
-  color:var(--key3);min-width:44px;text-align:center;flex-shrink:0;
-}
-.moat-head-body{flex:1;}
-.moat-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.moat-subtitle{font-family:var(--mono);font-size:.5rem;color:var(--ink3);letter-spacing:.08em;}
-.moat-body{
-  background:var(--parch);border:1px solid var(--parch3);border-top:none;
-  border-left:4px solid transparent;
-  padding:24px 24px 24px 84px;
-}
-@media(max-width:600px){.moat-body{padding:20px 16px;}}
-.moat-text{font-size:.83rem;color:var(--ink2);line-height:2.05;font-weight:300;}
-.moat-text strong{color:var(--ink);font-weight:600;}
-.moat-text em{color:var(--key3);font-style:normal;font-weight:600;}
-
-.moat-keypoints{margin-top:18px;display:flex;flex-direction:column;gap:6px;}
-.moat-kp{
-  display:flex;align-items:flex-start;gap:10px;
-  background:var(--parch2);border-left:2px solid var(--key3);
-  padding:8px 12px;font-size:.75rem;color:var(--ink3);line-height:1.7;
-}
-.moat-kp-icon{flex-shrink:0;font-size:.8rem;margin-top:1px;}
-.moat-kp strong{color:var(--ink);font-weight:600;}
-
-/* ── COMPARISON TABLE ── */
-.comp-table-wrap{margin:32px 0;}
-.comp-table{width:100%;border-collapse:collapse;}
-.comp-table th{font-family:var(--mono);font-size:.48rem;color:var(--ink3);letter-spacing:.12em;padding:8px 12px;border-bottom:2px solid var(--parch4);text-align:left;background:var(--parch3);}
-.comp-table td{padding:10px 12px;border-bottom:1px solid var(--parch3);font-size:.78rem;color:var(--ink2);vertical-align:middle;}
-.comp-table tr:hover td{background:var(--parch3);}
-.comp-table .highlight{font-weight:700;color:var(--ink);}
-.comp-table .company{font-family:var(--serif);font-weight:700;font-size:.88rem;color:var(--ink);}
-
-/* ── FLYWHEEL ── */
-.flywheel-wrap{
-  background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);
-  border:1px solid rgba(184,144,10,.2);
-  padding:32px 28px;margin:40px 0;
-}
-.flywheel-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.22em;margin-bottom:20px;opacity:.75;}
-.flywheel-steps{display:flex;flex-direction:column;gap:0;}
-.flywheel-step{
-  display:flex;align-items:center;gap:14px;
-  padding:10px 0;
-}
-.flywheel-arrow{font-family:var(--mono);font-size:.7rem;color:var(--gold3);opacity:.6;min-width:20px;text-align:center;}
-.flywheel-text{font-family:var(--serif);font-size:.88rem;color:var(--parch3);line-height:1.6;font-weight:300;}
-.flywheel-text strong{color:var(--parch);font-weight:500;}
-
-/* ── RISK SECTION ── */
-.risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
-@media(max-width:600px){.risk-grid{grid-template-columns:1fr;}}
-.risk-card{background:var(--parch2);border:1px solid var(--parch3);border-left:3px solid var(--rust);padding:18px 20px;}
-.risk-card-label{font-family:var(--mono);font-size:.48rem;color:var(--rust);letter-spacing:.14em;margin-bottom:8px;opacity:.8;}
-.risk-card-text{font-size:.78rem;color:var(--ink3);line-height:1.8;font-weight:300;}
-.risk-card-text strong{color:var(--ink);font-weight:600;}
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
 
 /* ── DIVIDER ── */
-.article-divider{
-  display:flex;align-items:center;gap:16px;
-  margin:0 0 48px;
-  font-family:var(--mono);font-size:.44rem;color:var(--ink3);
-  letter-spacing:.2em;opacity:.4;
-}
-.article-divider::before,.article-divider::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
 
-/* ── CLOSING NOTE ── */
-.closing-note{
-  background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);
-  border:1px solid rgba(184,144,10,.2);
-  padding:28px 28px;margin-top:0;
-}
-.closing-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.22em;margin-bottom:14px;opacity:.75;}
-.closing-text{font-family:var(--serif);font-size:.88rem;color:var(--parch3);line-height:2.1;font-weight:300;}
-.closing-text strong{color:var(--parch);font-weight:500;}
-
-/* ── REFERENCES ── */
-.references-wrap{margin-top:48px;border:1px solid var(--parch4);background:var(--parch2);}
-.references-header{padding:16px 24px;border-bottom:1px solid var(--parch4);display:flex;align-items:center;gap:12px;}
-.references-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.22em;opacity:.7;}
-.references-body{padding:20px 24px;}
-.ref-group{margin-bottom:20px;}
-.ref-group:last-child{margin-bottom:0;}
-.ref-group-title{font-family:var(--mono);font-size:.46rem;color:var(--ink3);letter-spacing:.14em;margin-bottom:10px;opacity:.6;padding-bottom:5px;border-bottom:1px solid var(--parch4);}
-.ref-list{display:flex;flex-direction:column;gap:6px;}
-.ref-item{display:flex;align-items:flex-start;gap:10px;font-size:.73rem;color:var(--ink2);line-height:1.6;}
-.ref-num{font-family:var(--mono);font-size:.46rem;color:var(--gold);min-width:20px;flex-shrink:0;padding-top:2px;opacity:.7;}
-.ref-item a{color:var(--blue3);text-decoration:none;word-break:break-all;}
-.ref-item a:hover{color:var(--blue2);text-decoration:underline;}
-.ref-disclaimer{margin-top:16px;padding:10px 14px;background:var(--parch3);border-left:3px solid var(--parch4);font-family:var(--mono);font-size:.44rem;color:var(--ink3);line-height:1.8;letter-spacing:.03em;opacity:.75;}
-
-/* ── BACK LINK ── */
-.back-link-wrap{margin-top:48px;text-align:center;}
-.back-link{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border:1px solid rgba(184,144,10,.35);font-family:var(--mono);font-size:.56rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;transition:all .2s;}
-.back-link:hover{background:rgba(184,144,10,.08);border-color:var(--gold2);}
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
 
 /* ── FOOTER ── */
-.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;border-top:1px solid rgba(184,144,10,.2);}
-.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px;}
-.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.65;transition:opacity .2s;}
-.footer-nav a:hover{opacity:1}
-.footer-copy{font-family:var(--mono);font-size:.46rem;color:var(--parch4);opacity:.35;letter-spacing:.12em;}
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
 </style>
-<link rel="stylesheet" href="../../shared.css"/>
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav class="nav">
-  <a class="nav-back" href="../../">← Library Top</a>
+  <a class="nav-back" href="../../">書斎の入口</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../">論考の棚</a>
   <span class="nav-sep">/</span>
@@ -277,424 +131,324 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-breadcrumb">THE RESEARCH SHELF · ESSAY 14</div>
-    <div class="hero-label">FACTORY AUTOMATION · MOAT ANALYSIS</div>
-    <h1 class="hero-title">キーエンスのmoat解剖</h1>
-    <p class="hero-subtitle">
-      直販×ファブレス×コンサルティング営業——<br>
-      営業利益率51%を生む「模倣不可能なシステム」を読む
-    </p>
-    <div class="hero-meta">
-      <span class="hero-date">2026.04.05</span>
-      <span class="hero-tag green">moat分析</span>
-      <span class="hero-tag">FA</span>
-      <span class="hero-tag">6861</span>
-    </div>
-  </div>
+  <div class="hero-ornament">KEYENCE MOAT ANATOMY</div>
+  <h1 class="hero-title">キーエンスのmoat解剖<br>――なぜ営業利益率55%なのか</h1>
+  <p class="hero-lead">
+    製造業でありながら工場を持たない。<br>
+    代理店を使わず、すべて直販。<br>
+    この構造が、日本で最も利益率の高い企業を生んだ。
+  </p>
 </div>
 
-<!-- ── NAV COCKPIT ── -->
-<div class="nav-cockpit">
-  <div class="cockpit-panel">
-    <div class="cockpit-label">LOCATION</div>
-    <div class="cockpit-tree">
-      <div class="ct-item ct-root"><span class="ct-icon">📚</span><a href="../../">書斎の入口</a></div>
-      <div class="ct-children">
-        <div class="ct-item ct-folder"><span class="ct-icon">📂</span><a href="../">論考の棚</a><span class="ct-count">14</span></div>
-        <div class="ct-children">
-          <div class="ct-item ct-current"><span class="ct-icon">📄</span><span>キーエンスのmoat解剖</span></div>
-          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../tsmc-ecosystem-moat/">TSMCエコシステムのmoat解剖</a></div>
-          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../ohsho-moat/">餃子の王将 moat解剖</a></div>
-          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../cybozu-moat/">サイボウズ moat解剖</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="cockpit-reading">⏱ 約15分</div>
-  </div>
-  <div class="cockpit-panel">
-    <div class="cockpit-label">TABLE OF CONTENTS</div>
-    <ol class="toc-list">
-      <li><span class="toc-num">00</span><a href="#premise">前提</a></li>
-      <li><span class="toc-num">01</span><a href="#moat-direct">直販モデルによる情報優位</a></li>
-      <li><span class="toc-num">02</span><a href="#moat-fabless">ファブレスによる資本効率</a></li>
-      <li><span class="toc-num">03</span><a href="#moat-product">製品開発スピードと付加価値</a></li>
-      <li><span class="toc-num">04</span><a href="#moat-human">人的資本の圧倒的生産性</a></li>
-      <li><span class="toc-num">05</span><a href="#moat-switching">スイッチングコスト</a></li>
-      <li><span class="toc-num">06</span><a href="#comparison">競合比較</a></li>
-      <li><span class="toc-num">07</span><a href="#flywheel">フライホイール構造</a></li>
-      <li><span class="toc-num">08</span><a href="#risks">リスクと課題</a></li>
-    </ol>
-  </div>
-</div>
+<!-- ── ARTICLE ── -->
+<main class="article">
 
-<!-- ── SUMMARY ── -->
-<div class="summary-wrap" id="premise">
-  <div class="summary-inner">
-    <div class="summary-label">PREMISE — この記事の前提</div>
-    <p class="summary-text">
-      キーエンス（6861）はFA（ファクトリーオートメーション）用センサ・測定器・画像処理システムの企画・開発・販売企業。
-      1974年創業、本社大阪。<strong>営業利益率は11期連続50%超</strong>、2025年3月期に売上1兆円を突破した。<br><br>
-      本稿では、この異常な利益率を支える5つの構造的moatを解剖する。
-      個別の要素ではなく、<strong>それらが相互に強化し合う「システム」</strong>として機能している点に注目する。
-    </p>
-  </div>
-</div>
-
-<!-- ── KPI ── -->
-<div class="kpi-wrap" id="kpi">
-  <div class="kpi-inner">
-    <div class="kpi-label">KEY METRICS — 2025年3月期</div>
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-value accent">51.9<span style="font-size:.7em">%</span></div>
-        <div class="kpi-unit">OPERATING MARGIN</div>
-        <div class="kpi-desc">営業利益率</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value">1兆591<span style="font-size:.6em">億</span></div>
-        <div class="kpi-unit">REVENUE</div>
-        <div class="kpi-desc">売上高（初の1兆円超）</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value accent">2,039<span style="font-size:.6em">万</span></div>
-        <div class="kpi-unit">AVG. SALARY</div>
-        <div class="kpi-desc">平均年収</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-value">64.8<span style="font-size:.7em">%</span></div>
-        <div class="kpi-unit">OVERSEAS RATIO</div>
-        <div class="kpi-desc">海外売上比率</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── ARTICLE BODY ── -->
-<div class="article-wrap">
-<div class="article-inner">
-
-  <!-- MOAT 1 -->
-  <div class="moat-section" id="moat-direct">
-    <div class="moat-header">
-      <div class="moat-num">#1</div>
-      <div class="moat-head-body">
-        <div class="moat-title">直販モデルによる情報優位</div>
-        <div class="moat-subtitle">DIRECT SALES · INFORMATION ADVANTAGE</div>
-      </div>
-    </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        キーエンスは<strong>代理店・販社を一切使わない</strong>。46カ国以上、約300拠点で、キーエンスの営業担当者が直接顧客の生産ラインに出向く。<br><br>
-        これは単なる販売チャネルの選択ではない。<strong>顧客の潜在ニーズがダイレクトに開発部門へ流れる情報パイプライン</strong>である。代理店を経由すれば二次情報になってしまう現場の声が、鮮度を保ったまま製品企画に反映される。<br><br>
-        さらに、代理店マージンが不要なため粗利率が向上し、競合の価格競争に巻き込まれにくい。「モノを売る営業」ではなく<em>「課題を解決する営業」</em>——即日デモ機貸出、翌日出荷という圧倒的なスピードがそれを支える。
-      </p>
-      <div class="moat-keypoints">
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>顧客の生の課題情報</strong>が開発部門へダイレクトに流れるフィードバックループ</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>代理店マージン不要</strong>で粗利率が構造的に高い</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>コンサルティング型営業</strong>で価格ではなく価値で勝負</div></div>
-      </div>
+  <!-- ── INTRODUCTION ── -->
+  <div class="article-section">
+    <div class="section-label">INTRODUCTION</div>
+    <h2 class="section-title">異常な収益性の正体</h2>
+    <div class="section-body">
+      <p>キーエンス（6861）は、日本の上場企業の中で最も不思議な存在のひとつである。</p>
+      <p>営業利益率は55%前後。製造業の平均が5〜8%であることを考えれば、これは桁違いの数字だ。時価総額は日本企業トップクラスの約16兆円（2025年時点）。トヨタ、ソニーグループに次ぐ規模でありながら、従業員数はわずか約1万人に過ぎない。</p>
+      <p>センサー、計測器、画像処理システム——扱う製品は地味である。一般消費者がキーエンスの製品に触れることはほぼない。にもかかわらず、この企業は驚異的な利益を生み出し続けている。</p>
+      <p>なぜこれほどの収益性が可能なのか。そしてそれは、持続可能なmoat（経済的堀）に裏打ちされたものなのか。この論考では、キーエンスの利益構造を分解し、5つのmoat要因を特定する。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- MOAT 2 -->
-  <div class="moat-section" id="moat-fabless">
-    <div class="moat-header">
-      <div class="moat-num">#2</div>
-      <div class="moat-head-body">
-        <div class="moat-title">ファブレスによる資本効率</div>
-        <div class="moat-subtitle">FABLESS · CAPITAL EFFICIENCY</div>
-      </div>
+  <!-- ── BUSINESS MODEL ── -->
+  <div class="article-section">
+    <div class="section-label">BUSINESS MODEL</div>
+    <h2 class="section-title">ファブレス×直販×コンサル営業の三位一体</h2>
+    <div class="section-body">
+      <p>キーエンスのビジネスモデルは、三つの要素が一体となって機能している。どれか一つを取り出しても、この収益性は説明できない。</p>
+
+      <p><strong>ファブレス（工場を持たない）。</strong>キーエンスは製品の企画・開発・設計に特化し、製造は外部の協力工場に委託する。設備投資のリスクを負わないため、固定費が極めて低い。売上が変動しても利益率が大きく崩れにくい構造になっている。</p>
+
+      <p><strong>直販（代理店を使わない）。</strong>営業はすべて自社の社員が行う。代理店マージンが発生しないだけでなく、顧客の課題やニーズを直接吸い上げることができる。このデータが、次の製品開発の原資になる。</p>
+
+      <p><strong>コンサル営業（売るのではなく、解決する）。</strong>キーエンスの営業担当者は、製品を売るのではなく、顧客の製造ラインの課題を分析し、解決策を提案する。「この計測器を導入すれば、不良率がX%下がり、年間Y万円のコスト削減になる」という提案ができるから、顧客は価格ではなく価値で判断する。</p>
     </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        キーエンスは自社工場を持たない。製造は外部の協力会社に委託する。<br><br>
-        ただし、<strong>サプライヤーが競合になるリスクを徹底排除</strong>している。原材料をキーエンスが一括購入し部品メーカーへ送付、完成部品を回収して組立メーカーへ送る——分断型の委託方式だ。組立メーカーは部品供給元を知らず、部品メーカーは最終製品を知らない。<br><br>
-        <strong>売上原価率は約20%、粗利率は約80%</strong>。工場の設備投資が不要なため固定資産が極めて少なく、R&Dと営業に集中投資できる。設備投資サイクルに振り回されず、<em>自己資本比率は約95%、実質無借金</em>。
-      </p>
-      <div class="moat-keypoints">
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>分断型委託方式</strong>で知的財産の流出を防止</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>粗利率80%</strong>——工場を持つ競合には構造的に到達不可能な水準</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>自己資本比率95%</strong>、景気循環に対する耐性が高い</div></div>
-      </div>
+
+    <div class="callout">
+      <p class="callout-text">三位一体の構造が重要なのは、それぞれが互いを強化するからだ。<br>ファブレスだから開発に集中でき、直販だから顧客の声が直接届き、<br>コンサル営業だから価格競争に巻き込まれない。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- MOAT 3 -->
-  <div class="moat-section" id="moat-product">
-    <div class="moat-header">
-      <div class="moat-num">#3</div>
-      <div class="moat-head-body">
-        <div class="moat-title">製品開発スピードと付加価値</div>
-        <div class="moat-subtitle">PRODUCT INNOVATION · WORLD-FIRST 70%</div>
-      </div>
-    </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        <strong>新商品の約70%が「世界初」「業界初」</strong>——この数字がキーエンスの製品開発力を端的に示している。<br><br>
-        直販モデル（#1）から得られる顧客の生の課題情報が、この異常な開発打率を可能にする。新製品売上が全体の約30%を占め、常に高付加価値の新製品で粗利を押し上げる構造だ。<br><br>
-        R&D費は売上比約2.3%と一見低い。しかしファブレスモデルのため、<em>開発の「量」ではなく「質」に集中</em>できる。製造に伴う設備開発・工程改善にリソースを割く必要がなく、純粋に「顧客が求める機能」の開発だけに投資している。
-      </p>
-      <div class="moat-keypoints">
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>世界初・業界初70%</strong>——直販から得た顧客ニーズが開発の原動力</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>新製品比率30%</strong>で粗利率を常に高水準に維持</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>R&D費2.3%</strong>でも質的に高いのはファブレスの恩恵</div></div>
-      </div>
+  <!-- ── MOAT 1: SWITCHING COST ── -->
+  <div class="article-section">
+    <div class="section-label">MOAT 01 — SWITCHING COST</div>
+    <h2 class="section-title">製造ラインに組み込まれた計測器は、簡単には交換できない</h2>
+    <div class="section-body">
+      <p>キーエンスの最も強力なmoatは、スイッチングコストである。</p>
+      <p>工場の製造ラインに組み込まれたセンサーや計測器は、単なる部品ではない。それは品質管理システムの一部であり、前後の工程と連携し、データベースと接続し、検査基準のパラメータが精密に設定されている。</p>
+      <p>計測器を別のメーカーに切り替えるとき、発生するコストは製品代金だけではない。</p>
+      <ul>
+        <li>ラインの停止による生産ロス（数時間〜数日）</li>
+        <li>新しい機器のキャリブレーション（校正作業）</li>
+        <li>検査基準の再設定とバリデーション</li>
+        <li>オペレーターの再教育</li>
+        <li>品質保証部門への変更申請と承認プロセス</li>
+      </ul>
+      <p>自動車メーカーのように品質基準が厳しい顧客ほど、このスイッチングコストは大きくなる。一度キーエンスの製品がラインに入れば、よほどの理由がない限り交換されない。これが、安定した収益の基盤になっている。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- MOAT 4 -->
-  <div class="moat-section" id="moat-human">
-    <div class="moat-header">
-      <div class="moat-num">#4</div>
-      <div class="moat-head-body">
-        <div class="moat-title">人的資本の圧倒的生産性</div>
-        <div class="moat-subtitle">HUMAN CAPITAL · PRODUCTIVITY</div>
-      </div>
+  <!-- ── MOAT 2: DATA MOAT ── -->
+  <div class="article-section">
+    <div class="section-label">MOAT 02 — DATA MOAT</div>
+    <h2 class="section-title">直販が生む「顧客課題のデータベース」</h2>
+    <div class="section-body">
+      <p>キーエンスが代理店を使わない理由は、マージンの節約だけではない。本質的な価値は、顧客との直接接点から得られるデータにある。</p>
+      <p>約5,500人の営業担当者が、毎日顧客の工場を訪問し、製造現場の課題を聞き取る。「この工程で不良品が出る」「この検査に時間がかかる」「この計測が不安定」——こうした声が、日々データベースに蓄積される。</p>
+      <p>キーエンスの新製品の約7割は「世界初」または「業界初」とされる。これは天才的な技術者がいるからではなく、顧客が何に困っているかを誰よりも正確に把握しているからだ。</p>
+      <p>競合他社が同じ製品を作ることはできる。しかし、数十年にわたって蓄積された「製造現場の課題データベース」を複製することはできない。これは時間とともに価値が増す、典型的な無形資産のmoatである。</p>
     </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        <strong>従業員一人当たり営業利益は約3,900万円</strong>。オムロンの20倍以上。この数字は日本の製造業において異次元の水準だ。<br><br>
-        「最小の資本と人で、最大の付加価値をあげる」——キーエンスの経営哲学はここに集約される。<strong>平均年収2,039万円、平均年齢34.8歳</strong>。営業利益の一定割合を賞与として社員に還元する仕組みがあり、高い報酬が高い生産性を維持する好循環を生んでいる。<br><br>
-        業務の徹底した数値化、無駄な会議・根回しの排除、「時間チャージ」の意識——<em>すべてが1分あたりの付加価値を最大化する方向に設計されている</em>。2025年3月末の従業員数は前年比25名減の12,261名。ヘッドカウント拡大より一人当たり生産性を重視する経営姿勢が鮮明だ。
-      </p>
-      <div class="moat-keypoints">
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>一人当たり営業利益3,900万円</strong>——オムロンの20倍超</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>高報酬→高生産性の好循環</strong>が組織能力として定着</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>従業員数は減少</strong>しても業績は成長——少数精鋭モデルの証左</div></div>
-      </div>
+
+    <div class="callout">
+      <p class="callout-text">直販モデルは、コストではなく資産である。<br>毎日の営業活動が、競合には見えない情報の堀を深くしていく。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- MOAT 5 -->
-  <div class="moat-section" id="moat-switching">
-    <div class="moat-header">
-      <div class="moat-num">#5</div>
-      <div class="moat-head-body">
-        <div class="moat-title">スイッチングコスト</div>
-        <div class="moat-subtitle">SWITCHING COSTS · LOCK-IN</div>
-      </div>
-    </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        キーエンス製品は<strong>顧客の生産ラインに深く組み込まれる</strong>。センサ、計測器、画像処理システム——これらは生産プロセスの「目」と「神経」であり、簡単には入れ替えられない。<br><br>
-        加えて、コンサルティング型営業が顧客の現場課題を深く理解した上で最適な構成を提案するため、<em>製品だけでなく「知識」もロックインされる</em>。他社製品に切り替えようとすれば、ライン停止・再設定・再検証のコストが発生する。<br><br>
-        これは代理店経由では実現できない、直販モデルの隠れた効果でもある。
-      </p>
-      <div class="moat-keypoints">
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>生産ラインの「目と神経」</strong>——入れ替えコストが構造的に高い</div></div>
-        <div class="moat-kp"><span class="moat-kp-icon">◆</span><div><strong>製品+知識のロックイン</strong>——コンサル営業による深い関与</div></div>
-      </div>
+  <!-- ── MOAT 3: FABLESS PROFIT STRUCTURE ── -->
+  <div class="article-section">
+    <div class="section-label">MOAT 03 — FABLESS ADVANTAGE</div>
+    <h2 class="section-title">工場を持たない利益構造</h2>
+    <div class="section-body">
+      <p>キーエンスの粗利率は約80%を超える。これはソフトウェア企業並みの数字であり、製造業としては異例である。</p>
+      <p>ファブレスモデルの利点は、単に固定費が低いことだけではない。</p>
+      <ul>
+        <li>景気後退時に工場の稼働率低下を心配する必要がない</li>
+        <li>技術の進歩に合わせて、最適な製造パートナーを選択できる</li>
+        <li>開発・設計に経営資源を集中投下できる</li>
+        <li>設備投資の減価償却負担がないため、利益のキャッシュ転換率が高い</li>
+      </ul>
+      <p>重要なのは、ファブレスであること自体がmoatではないという点だ。ファブレスモデルは誰でも採用できる。しかし、ファブレスでありながら製品の品質と納期を維持するための協力工場ネットワークと品質管理体制は、長年かけて構築されたものであり、簡単には模倣できない。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- COMPARISON -->
-  <div class="moat-section" id="comparison">
-    <div class="moat-header">
-      <div class="moat-num">06</div>
-      <div class="moat-head-body">
-        <div class="moat-title">競合比較——営業利益率</div>
-        <div class="moat-subtitle">PEER COMPARISON · OPERATING MARGIN</div>
-      </div>
-    </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        FA業界の主要企業と営業利益率を比較すると、キーエンスの構造的優位が数字で鮮明になる。<strong>2位SMCの約2倍、オムロンの約8倍</strong>。
-      </p>
-      <div class="comp-table-wrap">
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th>企業</th>
-              <th>営業利益率</th>
-              <th>モデル</th>
-              <th>備考</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="company highlight">キーエンス</td>
-              <td class="highlight">51.9%</td>
-              <td>直販・ファブレス</td>
-              <td>2025年3月期</td>
-            </tr>
-            <tr>
-              <td class="company">SMC</td>
-              <td>約25%</td>
-              <td>代理店・自社工場</td>
-              <td>2026年3月期予想</td>
-            </tr>
-            <tr>
-              <td class="company">ファナック</td>
-              <td>約21.5%</td>
-              <td>代理店・自社工場</td>
-              <td>2025年度予想</td>
-            </tr>
-            <tr>
-              <td class="company">コグネックス</td>
-              <td>13〜21%</td>
-              <td>代理店・ファブレス</td>
-              <td>四半期変動あり</td>
-            </tr>
-            <tr>
-              <td class="company">オムロン</td>
-              <td>約6.7%</td>
-              <td>代理店・自社工場</td>
-              <td>2025年3月期</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="moat-text">
-        この差はビジネスモデルの構造的な違いに起因する。<strong>直販＋ファブレス</strong>の組み合わせは、代理店販売＋自社工場保有のオムロンとは真逆のアプローチだ。コグネックスはファブレスだが代理店販売であり、直販の情報優位がない分、利益率はキーエンスに大きく劣る。
-      </p>
+  <!-- ── MOAT 4: BRAND & TRUST ── -->
+  <div class="article-section">
+    <div class="section-label">MOAT 04 — BRAND &amp; TRUST</div>
+    <h2 class="section-title">「キーエンスに相談すれば解決する」</h2>
+    <div class="section-body">
+      <p>B2B企業において、ブランドの価値は消費財とは異なる形で現れる。</p>
+      <p>製造現場のエンジニアの間で、キーエンスは「困ったときに相談すれば、翌日にはデモ機を持ってくる会社」として認識されている。即日出荷の体制と、営業担当者の技術知識の深さが、この評判を支えている。</p>
+      <p>この信頼は、購買決定のプロセスに直接影響する。製造ラインの問題が発生したとき、エンジニアが最初に連絡する先がキーエンスであれば、競合他社は比較検討のテーブルにすら載らない可能性がある。</p>
+      <p>BtoB市場では、「検討リストに入るかどうか」が勝負の大半を決める。キーエンスのブランドは、この検討リストの最上位に位置することで、見えない参入障壁として機能している。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- FLYWHEEL -->
-  <div class="moat-section" id="flywheel">
-    <div class="moat-header">
-      <div class="moat-num">07</div>
-      <div class="moat-head-body">
-        <div class="moat-title">フライホイール構造</div>
-        <div class="moat-subtitle">FLYWHEEL · SELF-REINFORCING SYSTEM</div>
-      </div>
+  <!-- ── MOAT 5: TALENT SYSTEM ── -->
+  <div class="article-section">
+    <div class="section-label">MOAT 05 — TALENT FLYWHEEL</div>
+    <h2 class="section-title">高給→優秀人材→高い生産性の好循環</h2>
+    <div class="section-body">
+      <p>キーエンスの平均年収は約2,200万円（2024年有価証券報告書）。日本の上場企業の中でトップクラスである。</p>
+      <p>高い報酬は、優秀な人材を引きつける。優秀な人材は、高い生産性を生む。高い生産性は、高い利益率を生む。高い利益率は、高い報酬を可能にする。この好循環が、キーエンスの人材moatの核心である。</p>
+      <p>ただし、これは単に「給料が高い」という話ではない。キーエンスの組織運営には独自の特徴がある。</p>
+      <ul>
+        <li>成果に対する報酬連動が明確（営業利益の一定割合が賞与原資）</li>
+        <li>「時間チャージ」の概念——1時間あたりの付加価値を全社員が意識する</li>
+        <li>徹底した合理主義——無駄な会議、無駄な出張、無駄な資料作成を排除する文化</li>
+        <li>若手への権限委譲が早く、年功序列の要素が薄い</li>
+      </ul>
+      <p>この文化は外部から模倣しにくい。高い給料を払うことはできても、組織全体の生産性文化を一朝一夕で再現することはできないからだ。</p>
     </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        キーエンスのmoatは<strong>単一の要因ではなく、複数の構造的優位が相互に強化し合う「システム」として機能</strong>している。これが最大の特徴であり、模倣が極めて困難な理由でもある。
-      </p>
 
-      <div class="flywheel-wrap">
-        <div class="flywheel-label">THE KEYENCE FLYWHEEL</div>
-        <div class="flywheel-steps">
-          <div class="flywheel-step"><span class="flywheel-arrow">→</span><span class="flywheel-text"><strong>直販営業</strong>が顧客の生産現場に入り込む</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↓</span><span class="flywheel-text">顧客の<strong>潜在ニーズ</strong>を直接把握する</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↓</span><span class="flywheel-text">ニーズが開発部門へ流れ、<strong>世界初・業界初の製品</strong>が生まれる</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↓</span><span class="flywheel-text">高付加価値製品で<strong>プレミアム価格</strong>を維持する</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↓</span><span class="flywheel-text"><strong>高利益率</strong>が高い報酬を可能にする</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↓</span><span class="flywheel-text">高報酬が<strong>優秀人材</strong>を惹きつけ、高生産性を維持する</span></div>
-          <div class="flywheel-step"><span class="flywheel-arrow">↻</span><span class="flywheel-text">さらなる利益が<strong>直販への再投資</strong>を可能にする（ループ）</span></div>
-        </div>
-      </div>
-
-      <p class="moat-text">
-        個別要素（直販、ファブレス等）は理論上コピー可能だ。しかし、<em>これらを同時に高いレベルで運用し続ける組織能力</em>こそが真のmoatである。50年かけて築いたシステムは、明日から真似できるものではない。
-      </p>
+    <div class="callout">
+      <p class="callout-text">企業文化は、最も模倣困難なmoatのひとつである。<br>キーエンスの場合、「付加価値の最大化」という思想が<br>採用・評価・日常業務のすべてに浸透している。</p>
     </div>
   </div>
 
-  <div class="article-divider">· · ·</div>
+  <hr class="divider"/>
 
-  <!-- RISKS -->
-  <div class="moat-section" id="risks">
-    <div class="moat-header">
-      <div class="moat-num">08</div>
-      <div class="moat-head-body">
-        <div class="moat-title">リスクと課題</div>
-        <div class="moat-subtitle">RISKS · MOAT EROSION FACTORS</div>
-      </div>
-    </div>
-    <div class="moat-body">
-      <p class="moat-text">
-        どれほど堅固なmoatにも侵食リスクはある。キーエンスの場合、以下の4つの構造的リスクを注視すべきだ。
-      </p>
-      <div class="risk-grid">
-        <div class="risk-card">
-          <div class="risk-card-label">MACRO RISK</div>
-          <div class="risk-card-text"><strong>FA市場の景気循環性</strong>。設備投資の冷え込み期には受注減。海外売上64.8%のため為替変動・関税政策の影響も大きい。</div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-card-label">COMPETITION RISK</div>
-          <div class="risk-card-text"><strong>AI搭載マシンビジョン</strong>でコグネックスが追い上げ。中国ローカルFAメーカーの台頭。センサ技術のコモディティ化リスク。</div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-card-label">TALENT RISK</div>
-          <div class="risk-card-text"><strong>少数精鋭モデルの限界</strong>。2025年に従業員数が4年ぶり減少。高プレッシャー型文化の持続性と、採用競争力の維持が課題。</div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-card-label">VALUATION RISK</div>
-          <div class="risk-card-text"><strong>PER40〜50倍</strong>の高水準が常態化。成長鈍化時の株価調整リスクが大きい。期待が織り込まれた株価水準。</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- ── NUMBERS ── -->
+  <div class="article-section">
+    <div class="section-label">BY THE NUMBERS</div>
+    <h2 class="section-title">数字で見るキーエンス</h2>
+    <div class="section-body">
+      <p>キーエンスの異常性は、数字を並べると一層鮮明になる。</p>
 
-  <!-- CLOSING -->
-  <div class="closing-note">
-    <div class="closing-label">CURATOR'S NOTE</div>
-    <p class="closing-text">
-      キーエンスの営業利益率51%は、単なる高収益企業の話ではない。<br><br>
-      <strong>直販→情報優位→世界初の製品→プレミアム価格→高報酬→優秀人材→さらなる直販投資</strong>——このフライホイールが50年かけて自己強化を続けた結果だ。<br><br>
-      個別のピースをコピーすることは可能だが、システム全体を再現することは不可能に近い。バフェットが商社株に見出した「理解しやすく、持続的な競争優位」の日本版がここにある。<br><br>
-      <strong>ただし、PER40〜50倍の株価は「このシステムが永続する」ことを前提としている。</strong>
-      AI・ソフトウェア主導の自動化が進む時代に、ハードウェアの直販コンサルティングモデルが同じ効力を持ち続けるかどうか——それが長期投資家として問うべき本質的な問いだ。
-    </p>
-  </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>METRIC</th>
+            <th>VALUE</th>
+            <th>NOTE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>売上高（2024年3月期）</td>
+            <td>約9,673億円</td>
+            <td>前年比+4.5%</td>
+          </tr>
+          <tr>
+            <td>営業利益率</td>
+            <td>54.1%</td>
+            <td>製造業平均の約7〜10倍</td>
+          </tr>
+          <tr>
+            <td>粗利率</td>
+            <td>約82%</td>
+            <td>ソフトウェア企業並み</td>
+          </tr>
+          <tr>
+            <td>時価総額</td>
+            <td>約16兆円</td>
+            <td>日本企業トップ5圏内</td>
+          </tr>
+          <tr>
+            <td>従業員数</td>
+            <td>約12,300人</td>
+            <td>連結ベース</td>
+          </tr>
+          <tr>
+            <td>1人当たり営業利益</td>
+            <td>約4,250万円</td>
+            <td>日本製造業で突出</td>
+          </tr>
+          <tr>
+            <td>平均年収</td>
+            <td>約2,200万円</td>
+            <td>上場企業トップクラス</td>
+          </tr>
+          <tr>
+            <td>海外売上比率</td>
+            <td>約60%</td>
+            <td>年々上昇傾向</td>
+          </tr>
+          <tr>
+            <td>自己資本比率</td>
+            <td>約94%</td>
+            <td>実質無借金</td>
+          </tr>
+        </tbody>
+      </table>
 
-  <!-- REFERENCES -->
-  <div class="references-wrap">
-    <div class="references-header">
-      <div class="references-label">REFERENCES</div>
-    </div>
-    <div class="references-body">
-      <div class="ref-group">
-        <div class="ref-group-title">企業公開情報</div>
-        <div class="ref-list">
-          <div class="ref-item"><span class="ref-num">[1]</span><div><strong>キーエンス</strong> — 2025年3月期決算短信<br><a href="https://www.keyence.co.jp/pdf/EarningsRelease_202504_ja.pdf" target="_blank" rel="noopener">https://www.keyence.co.jp/pdf/EarningsRelease_202504_ja.pdf</a></div></div>
-          <div class="ref-item"><span class="ref-num">[2]</span><div><strong>キーエンス</strong> — 企業の強み（公式）<br><a href="https://www.keyence.co.jp/support/strength/" target="_blank" rel="noopener">https://www.keyence.co.jp/support/strength/</a></div></div>
-          <div class="ref-item"><span class="ref-num">[3]</span><div><strong>キーエンスソフトウェア</strong> — ビジネスモデル<br><a href="https://www.keyence-soft.co.jp/group/businessmodel/" target="_blank" rel="noopener">https://www.keyence-soft.co.jp/group/businessmodel/</a></div></div>
-        </div>
-      </div>
-      <div class="ref-group">
-        <div class="ref-group-title">分析・報道</div>
-        <div class="ref-list">
-          <div class="ref-item"><span class="ref-num">[4]</span><div><strong>オートメーション新聞</strong> — 初の1兆円超え<br><a href="https://www.automation-news.jp/2025/05/92911/" target="_blank" rel="noopener">https://www.automation-news.jp/2025/05/92911/</a></div></div>
-          <div class="ref-item"><span class="ref-num">[5]</span><div><strong>JBpress</strong> — キーエンスとオムロン営業体制の違い<br><a href="https://jbpress.ismedia.jp/articles/-/86676" target="_blank" rel="noopener">https://jbpress.ismedia.jp/articles/-/86676</a></div></div>
-          <div class="ref-item"><span class="ref-num">[6]</span><div><strong>日経新聞</strong> — キーエンス純利益8%増<br><a href="https://www.nikkei.com/article/DGXZQOUF10DP30Q5A410C2000000/" target="_blank" rel="noopener">https://www.nikkei.com/article/DGXZQOUF10DP30Q5A410C2000000/</a></div></div>
-          <div class="ref-item"><span class="ref-num">[7]</span><div><strong>Hennessy Funds</strong> — Keyence Company Spotlight<br><a href="https://www.hennessyfunds.com/insights/company-spotlight-keyence" target="_blank" rel="noopener">https://www.hennessyfunds.com/insights/company-spotlight-keyence</a></div></div>
-          <div class="ref-item"><span class="ref-num">[8]</span><div><strong>KOTORA JOURNAL</strong> — 日本一の平均年収の理由<br><a href="https://www.kotora.jp/c/71645-2/" target="_blank" rel="noopener">https://www.kotora.jp/c/71645-2/</a></div></div>
-        </div>
-      </div>
-      <div class="ref-disclaimer">
-        本記事のmoat評価は著者の独自分析・見解であり、投資勧誘を目的とするものではありません。
-        投資判断はご自身の責任において行ってください。各数値は上記出典および各社公開資料に基づきます。
-      </div>
+      <p>特に注目すべきは、従業員1人当たりの営業利益である。約4,250万円という数字は、トヨタ（約200万円）やソニー（約500万円）と比べても桁違いだ。これは、ファブレス・直販・高付加価値製品という三要素が生む構造的な帰結である。</p>
+
+      <p>営業利益率の推移を見ると、過去10年間で50〜55%のレンジを維持しており、大きな変動がない。これは一時的な好況ではなく、構造的な優位性であることを示唆している。</p>
     </div>
   </div>
 
-  <div class="back-link-wrap">
-    <a class="back-link" href="../">← 論考の棚に戻る</a>
+  <hr class="divider"/>
+
+  <!-- ── RISKS ── -->
+  <div class="article-section">
+    <div class="section-label">RISK FACTORS</div>
+    <h2 class="section-title">リスク要因を見逃さない</h2>
+    <div class="section-body">
+      <p>moatが深いことと、リスクがないことは別の話である。キーエンスにも、投資家が注視すべきリスクは存在する。</p>
+
+      <p><strong>海外比率の上昇と為替感応度。</strong>海外売上比率が60%を超え、円安は追い風、円高は逆風となる。為替が10円動けば、営業利益に数百億円規模の影響が出る。構造的に優れた企業であっても、為替の影響は利益変動の主因になりうる。</p>
+
+      <p><strong>中国市場のリスク。</strong>中国は重要な成長市場だが、地政学リスク、規制強化、国産化推進の流れがある。中国の計測器メーカーが技術力を高めれば、価格面での競争が激しくなる可能性がある。</p>
+
+      <p><strong>創業者の影響と後継。</strong>創業者の滝崎武光氏は経営の第一線からは退いているが、大株主として影響力を持つ。創業者の哲学がどこまで組織に内在化されているかは、長期的な論点である。</p>
+
+      <p><strong>成長の天井。</strong>キーエンスの主力市場であるFA（ファクトリーオートメーション）市場は巨大だが、無限ではない。売上が1兆円を超えた後も同じ成長率を維持できるかは、新規領域への展開力にかかっている。</p>
+
+      <p><strong>人材採用の持続性。</strong>高い年収で優秀な人材を集める戦略は、転職市場が変化し、ワークライフバランスの価値観が強まる中で、以前ほど有効ではなくなる可能性がある。</p>
+    </div>
   </div>
 
-</div>
+  <hr class="divider"/>
+
+  <!-- ── INVESTOR'S VIEW ── -->
+  <div class="article-section">
+    <div class="section-label">INVESTOR'S PERSPECTIVE</div>
+    <h2 class="section-title">投資家としてどう見るか</h2>
+    <div class="section-body">
+      <p>キーエンスのmoatは本物である。スイッチングコスト、データの堀、ファブレス構造、ブランド、人材システム——これら5つが重層的に機能し、競合の参入を困難にしている。</p>
+
+      <p>しかし、moatが深いことと、今が買い時であることは、まったく別の問題だ。</p>
+
+      <p>キーエンスは常に「高い」と言われる銘柄である。PER（株価収益率）は概ね40〜50倍のレンジで推移しており、日本の製造業平均（15〜20倍）の2倍以上だ。この高いバリュエーションが正当化されるかは、今後の成長率にかかっている。</p>
+
+      <p>成長余地として注目すべきは以下の領域である。</p>
+      <ul>
+        <li>海外市場の深耕——特にアジア新興国の工場自動化需要</li>
+        <li>ソフトウェア・データ分析領域への拡張</li>
+        <li>ロボットビジョン、3D計測など新しい技術領域</li>
+        <li>医療・食品・製薬など規制産業への浸透</li>
+      </ul>
+
+      <p>長期投資家にとって最も重要な問いは、「この企業のmoatは10年後も維持されているか」である。キーエンスの場合、5つのmoat要因のうち、スイッチングコストとデータの堀は時間とともに強化される性質を持つ。これは、長期保有に適した構造的特徴だ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">優れた企業を見つけることと、適切な価格で買うことは、<br>投資の異なるステップである。<br>キーエンスのmoatは深い。しかし、価格は常にmoatの深さに見合っているとは限らない。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">キーエンスのmoatを理解したら、別の堀の形も見てみる。そして、moatの本質とは何かを考える。</p>
+    <div class="further-links">
+      <a class="further-link" href="../tsmc-ecosystem-moat/">
+        <span class="further-link-tag">RESEARCH</span>
+        <span class="further-link-title">TSMCエコシステムのmoat解剖</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../moat/">
+        <span class="further-link-tag">競争優位</span>
+        <span class="further-link-title">経済的堀の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../companies/">
+        <span class="further-link-tag">企業分析</span>
+        <span class="further-link-title">企業分析の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- ── FOOTER ── -->
-<footer class="site-footer">
-  <div class="footer-nav">
-    <a href="../../">Library Top</a>
-    <a href="../">論考の棚</a>
-    <a href="../../companies/">企業分析</a>
-    <a href="../../news/">News Curation</a>
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
   </div>
-  <div class="footer-copy">© 2026 投資と思考の書斎 · The Research Shelf</div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
 </footer>
 
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-VYPK32EB6B');
+</script>
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
-<script src="../../mynote.js"></script>
 </body>
 </html>

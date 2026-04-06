@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="投資における6つの主要な心理バイアスを体系的に解説。損失回避、FOMO、アンカリング、確証バイアス、サンクコスト、過信バイアス。カーネマンとトヴェルスキーのプロスペクト理論から学ぶ、自分を守るための全体図。"/>
+<meta property="og:title" content="なぜ人は高値で買い、安値で売るのか――投資と心理バイアスの全体図｜投資と思考の書斎"/>
+<meta property="og:description" content="投資の最大の敵は市場ではなく自分自身。6つの主要バイアスの全体図と、自分を守る3つの原則。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/human/bias-overview/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/human/bias-overview/"/>
+<title>なぜ人は高値で買い、安値で売るのか――投資と心理バイアスの全体図｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "なぜ人は高値で買い、安値で売るのか――投資と心理バイアスの全体図",
+  "description": "投資における6つの主要な心理バイアスを体系的に解説。カーネマンとトヴェルスキーのプロスペクト理論から学ぶ、自分を守るための全体図。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "行動ファイナンス"}, {"@type": "Thing", "name": "認知バイアス"}, {"@type": "Thing", "name": "プロスペクト理論"}, {"@type": "Thing", "name": "投資心理"}]
+}
+</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'---';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+.section-body a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(139,105,20,.3);transition:border-color .2s;}
+.section-body a:hover{border-bottom-color:var(--gold2);}
+
+/* ── BIAS CARD ── */
+.bias-grid{margin:28px 0;display:flex;flex-direction:column;gap:2px;}
+.bias-card{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid rgba(139,105,20,.35);text-decoration:none;color:inherit;transition:all .18s;}
+.bias-card:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.bias-card-number{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:24px;padding-top:3px;opacity:.7;}
+.bias-card-content{flex:1;}
+.bias-card-title{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.bias-card-en{font-family:var(--mono);font-size:.55rem;color:var(--gold);letter-spacing:.08em;margin-bottom:6px;opacity:.65;}
+.bias-card-desc{font-size:.82rem;color:var(--ink3);line-height:1.75;font-weight:300;}
+.bias-card-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;align-self:center;}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
+</style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">人間理解の棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">投資と心理バイアスの全体図</span>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-shelf">SHELF 02 --- 人間の認知を知る</div>
+  <div class="hero-ornament">THE MAP OF COGNITIVE BIASES</div>
+  <h1 class="hero-title">なぜ人は高値で買い、<br>安値で売るのか</h1>
+  <p class="hero-lead">
+    投資の最大の敵は、市場でも経済でもない。<br>
+    自分自身の脳である。その地図を、ここに広げる。
+  </p>
+</div>
+
+<!-- ── ARTICLE ── -->
+<main class="article">
+
+  <!-- Section 1: 冒頭 -->
+  <div class="article-section">
+    <div class="section-label">THE REAL ENEMY</div>
+    <h2 class="section-title">投資の最大の敵は、自分自身である</h2>
+    <div class="section-body">
+      <p>ほとんどの投資家は、市場が暴落したときに売り、市場が過熱したときに買う。冷静に考えれば逆のことをすべきだと分かっているのに、実際にはそうできない。</p>
+      <p>なぜか。知識が足りないからではない。人間の脳が、投資に不向きな設計になっているからだ。</p>
+      <p>行動ファイナンスという学問分野は、この問題に正面から取り組んできた。1979年にダニエル・カーネマンとエイモス・トヴェルスキーが発表したプロスペクト理論（Kahneman & Tversky, 1979）は、人間の意思決定が合理的経済人モデルとは大きく異なることを実証した。その後、リチャード・セイラーは行動経済学を投資の世界に応用し（Thaler, 1985）、ロバート・シラーはバブルの形成メカニズムに心理的要因が深く関与していることを示した（Shiller, 2000）。</p>
+      <p>この記事は、投資家が直面する主要な心理バイアスの全体図を描く。個別のバイアスを深く理解するための入口であり、「人間理解の棚」を歩くための地図である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 2: バイアスの全体図 -->
+  <div class="article-section">
+    <div class="section-label">THE SIX BIASES</div>
+    <h2 class="section-title">6つの主要バイアス――投資判断を歪める認知の罠</h2>
+    <div class="section-body">
+      <p>投資における心理バイアスは数十種類が知られているが、特に投資判断に強い影響を与えるものを6つに絞り込んだ。これらは互いに独立しているのではなく、しばしば連鎖し、増幅し合う。</p>
+    </div>
+
+    <div class="bias-grid">
+      <a class="bias-card" href="../loss-aversion/">
+        <span class="bias-card-number">01</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">損失回避バイアス</div>
+          <div class="bias-card-en">LOSS AVERSION</div>
+          <div class="bias-card-desc">同じ金額でも、失う痛みは得る喜びの約2倍。含み損の銘柄を売れない、下落時に恐怖で投げ売りする——損失回避は投資家の最も基本的な認知の罠である。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+      <a class="bias-card" href="../fomo/">
+        <span class="bias-card-number">02</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">FOMO（取り残される恐怖）</div>
+          <div class="bias-card-en">FEAR OF MISSING OUT</div>
+          <div class="bias-card-desc">周囲が利益を得ているのに自分だけ取り残される不安。バブルの終盤に高値で買い、最も大きな損失を被る原因となる。SNS時代に加速する集団心理の罠。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+      <a class="bias-card" href="../anchoring/">
+        <span class="bias-card-number">03</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">アンカリング効果</div>
+          <div class="bias-card-en">ANCHORING BIAS</div>
+          <div class="bias-card-desc">最初に見た数字に判断が引きずられる。買値、過去の高値、アナリストの目標株価——無関係な数字が、売買判断の基準点になってしまう。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+      <a class="bias-card" href="../confirmation-bias/">
+        <span class="bias-card-number">04</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">確証バイアス</div>
+          <div class="bias-card-en">CONFIRMATION BIAS</div>
+          <div class="bias-card-desc">自分の信じていることを裏付ける情報ばかり集め、反証を無視する。保有銘柄に都合のいいニュースだけを読み、リスクシグナルを見落とす原因となる。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+      <a class="bias-card" href="../sunk-cost/">
+        <span class="bias-card-number">05</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">サンクコストの誤謬</div>
+          <div class="bias-card-en">SUNK COST FALLACY</div>
+          <div class="bias-card-desc">すでに支払ったコストに引きずられて、将来の判断を誤る。「ここまで持ったのだから」という思考が、損切りのタイミングを逃させる。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+      <a class="bias-card" href="../overconfidence-bias/">
+        <span class="bias-card-number">06</span>
+        <div class="bias-card-content">
+          <div class="bias-card-title">過信バイアス</div>
+          <div class="bias-card-en">OVERCONFIDENCE BIAS</div>
+          <div class="bias-card-desc">自分の判断力や知識を過大評価する。過度な売買頻度、集中投資、リスクの過小評価——成功体験が次の失敗の種になる。</div>
+        </div>
+        <span class="bias-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 3: カーネマンとトヴェルスキーの革命 -->
+  <div class="article-section">
+    <div class="section-label">THE REVOLUTION</div>
+    <h2 class="section-title">カーネマンとトヴェルスキーの革命――プロスペクト理論</h2>
+    <div class="section-body">
+      <p>1979年、二人のイスラエル人心理学者が経済学の根本を揺るがす論文を発表した。ダニエル・カーネマンとエイモス・トヴェルスキーによる「Prospect Theory: An Analysis of Decision under Risk」である。</p>
+      <p>それまでの経済学は「期待効用理論」に基づいていた。人間は確率と期待値を正確に計算し、最も合理的な選択をする、という前提だ。しかしカーネマンとトヴェルスキーは、実験を通じて人間の意思決定に3つの系統的な偏りがあることを示した。</p>
+      <ul>
+        <li>参照点依存性――人は絶対的な水準ではなく、ある基準点からの変化で判断する。同じ資産額でも、増えた状態からの下落と、減った状態からの回復では、まったく異なる感情が生まれる</li>
+        <li>損失回避性――利得と損失の心理的重みは非対称で、損失の痛みは利得の喜びの約2倍。これが投資家を「利益は早く確定し、損失は先延ばしにする」行動に駆り立てる</li>
+        <li>確率加重――人は小さな確率を過大評価し、大きな確率を過小評価する。宝くじを買う行動と、保険に入る行動の両方を説明できる</li>
+      </ul>
+      <p>この理論は、2002年にカーネマンがノーベル経済学賞を受賞する根拠となった（トヴェルスキーは1996年に逝去）。そして投資の世界に「行動ファイナンス」という新しい分野を切り開いた。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">プロスペクト理論の核心は単純だ。<br>人間は「合理的に最適な判断」をするのではなく、<br>「損失を避ける方向に偏った判断」をする。<br>これは欠陥ではなく、生存のための設計である。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 4: バイアスが連鎖するメカニズム -->
+  <div class="article-section">
+    <div class="section-label">THE CHAIN REACTION</div>
+    <h2 class="section-title">バイアスは連鎖する――バブルと暴落のメカニズム</h2>
+    <div class="section-body">
+      <p>バイアスは単独で作用するのではない。バブルの形成と崩壊のプロセスでは、複数のバイアスが同時に発動し、互いを増幅させる。</p>
+      <p>バブルの上昇局面を考えよう。まず、過信バイアスが投資家に「自分は市場の流れを読めている」と思わせる。次にFOMOが「乗り遅れたくない」という焦りを生む。確証バイアスが、上昇を正当化するニュースばかりを集めさせる。アンカリングが、上昇し続ける株価を「新しい適正水準」として脳に刻む。</p>
+      <p>そしてバブルが崩壊するとき。損失回避が「これ以上の損失に耐えられない」というパニックを引き起こす。サンクコストの誤謬が、一部の投資家を「ここまで持ったのだから」と引き留める。FOMOが今度は逆方向に作用し、「みんなが売っている、自分も売らなければ」という集団的恐怖を増幅する。</p>
+      <p>シラーが『Irrational Exuberance』（2000）で示したように、バブルは「狂った個人」が作るのではない。正常な認知バイアスを持つ、正常な人間の集団が作るのだ。1990年代のドットコムバブル、2008年のリーマンショック、そして暗号資産の急騰と暴落——いずれも同じメカニズムが作用している。</p>
+      <p>セイラーの研究（Thaler, 1999）は、投資家が損益を評価する頻度が高いほど、損失回避の影響が強くなることを示した。これを「近視眼的損失回避（myopic loss aversion）」と呼ぶ。ポートフォリオを毎日確認する投資家は、年に一度確認する投資家よりも、リスク回避的な判断をしやすい。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">バブルは「愚かな人々」が作るのではない。<br>正常な認知バイアスを持つ、正常な人間の集合が作る。<br>だからこそ、歴史は繰り返す。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 5: 自分を守る3つの原則 -->
+  <div class="article-section">
+    <div class="section-label">THREE PRINCIPLES</div>
+    <h2 class="section-title">自分を守る3つの原則</h2>
+    <div class="section-body">
+      <p>バイアスは消せない。しかし、バイアスが判断を歪める経路を遮断することはできる。そのための3つの原則がある。</p>
+
+      <p><strong>原則1：投資ルールを事前に決める</strong></p>
+      <p>感情が動いてからルールを作るのでは遅い。市場が平穏なときに、売買の基準を文書化しておく。「株価が取得原価から30%下落したら損切りする」「PERが業界平均の2倍を超えたら追加購入しない」——具体的な数値を含むルールが、感情的な判断を防ぐ防波堤になる。</p>
+      <p>バフェットが「投資の第一のルールは損をしないこと、第二のルールは第一のルールを忘れないこと」と言ったのは、ルールの存在そのものが重要だからだ。</p>
+
+      <p><strong>原則2：売買日誌をつける</strong></p>
+      <p>すべての売買について、「なぜ買ったのか」「なぜ売ったのか」「そのとき何を感じていたか」を記録する。これは単なる記録ではない。自分の判断パターンを客観的に観察するためのツールだ。</p>
+      <p>数ヶ月後に読み返すと、恐怖で売った銘柄がその後回復していたり、興奮で買った銘柄が下落していたりする。この経験の蓄積が、バイアスへの耐性を少しずつ高める。</p>
+
+      <p><strong>原則3：判断前チェックリストを使う</strong></p>
+      <p>航空業界ではパイロットがチェックリストを使う。それは、パイロットの能力が低いからではない。人間の認知には限界があり、ストレス下では重要な手順を飛ばしやすいからだ。</p>
+      <p>投資も同じである。売買の前に確認すべき項目をチェックリスト化する。「この判断は事前のルールに基づいているか？」「反対の意見を十分に検討したか？」「今の感情状態は冷静か？」——たった3つの質問でも、衝動的な判断を防ぐ効果がある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 6: 「知っている」と「できる」の違い -->
+  <div class="article-section">
+    <div class="section-label">KNOWING VS DOING</div>
+    <h2 class="section-title">「知っている」と「できる」の違い</h2>
+    <div class="section-body">
+      <p>ここまで読んで、「自分はバイアスを理解したから大丈夫だ」と思ったなら、それ自体が過信バイアスの発動である。</p>
+      <p>バイアスの最も厄介な性質は、知識だけでは克服できないことだ。錯視の仕組みを知っていても、目の前の線が歪んで見える現象は消えない。同じように、損失回避のメカニズムを完璧に理解していても、含み損を抱えたときの胃の痛みは消えない。</p>
+      <p>だからこそ、システムが必要なのだ。個人の意志力や知識に頼るのではなく、バイアスが発動しても判断が歪まない仕組みを作る。事前のルール、売買日誌、チェックリスト——これらは知識を行動に変換する装置である。</p>
+      <p>マンガーはこう言った。「自分が何を知らないかを知ることは、優れた知識を持つことよりも有用である。」バイアスを知ることのゴールは、バイアスを消すことではない。バイアスと共存しながら、長期的に合理的な判断を積み重ねるためのシステムを構築することだ。</p>
+      <p>この「人間理解の棚」に並ぶ記事は、そのシステム構築のための部品である。一つひとつのバイアスを深く理解し、自分の投資行動の中にその影を見つけ、対処の仕組みを組み込む。完璧を目指すのではなく、少しずつ、確実に。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">バイアスを「知っている」だけでは不十分だ。<br>知識を行動に変換する仕組み——システムを持つこと。<br>それが、長期投資家の本当の武器になる。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">全体図を眺めたら、まずは損失回避から。そして、認識を原則として体系化する。</p>
+    <div class="further-links">
+      <a class="further-link" href="../loss-aversion/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">なぜ人は短期の損失に強く反応するのか——損失回避バイアス</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../fomo/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">人はなぜ熱狂の高値で買ってしまうのか——FOMO</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../anchoring/">
+        <span class="further-link-tag">人間理解</span>
+        <span class="further-link-title">最初の数字に縛られる脳——アンカリング効果</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../principles/">
+        <span class="further-link-tag">原則</span>
+        <span class="further-link-title">私の投資原則</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+</body>
+</html>
