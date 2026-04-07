@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="コア・サテライト戦略の実践ガイド。80%のインデックス投資と20%の個別株から始め、経験に応じて集中投資へ移行する。パレートの法則を投資と人生に活かす私の投資思想。"/>
@@ -17,6 +19,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png"/>
 <link rel="icon" href="../../favicon.ico"/>
 <title>サテライト戦略――私が最も推奨する投資の考え方｜投資と思考の書斎</title>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,19 +34,16 @@
 }
 </script>
 
-<!-- GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
-
-<link rel="stylesheet" href="../../shared.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
-
 <style>
 :root{
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
   --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -54,42 +54,168 @@ html{background:var(--ink);scroll-behavior:smooth}
 body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
 
-/* -- NAV -- */
-.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
-.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
-.nav-back:hover{color:var(--gold4)}
-.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-/* -- HERO -- */
-.hero{
-  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);
-  color:var(--parch);padding:60px 24px 52px;text-align:center;
-  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
-}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero{background:url('../../assets/hero-poster.jpg') center/cover no-repeat;color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.45) 0%,rgba(10,8,4,.25) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.55) 100%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
-.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
 
-/* -- ARTICLE -- */
-.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
-.article-section{margin-bottom:52px;}
-.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
-.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
-.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
-.section-body p{margin-bottom:1.4em;}
-.section-body p:last-child{margin-bottom:0;}
-.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
-.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
-.section-body ul li::before{content:'\2014';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+/* Hero 3-column layout */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
 
-/* -- CALLOUT -- */
-.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
-.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
 
-/* -- STAGE -- */
+.container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
+
+/* Quick Actions in hero */
+.cockpit-right{display:flex;flex-direction:column;gap:14px;min-width:0;}
+
+/* Graph View */
+.graph-card{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Vault Tree */
+.vault-tree{background:#16130e;border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.vault-tree-label{font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.vault-tree-content{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.vt-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;position:relative;}
+.vt-item a{color:var(--parch3);text-decoration:none;transition:color .15s;}
+.vt-item a:hover{color:var(--gold3);}
+.vt-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.vt-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.vt-children{padding-left:20px;}
+.vt-root{opacity:.7;}
+.vt-sibling{opacity:.6;}
+.vt-sibling:hover{opacity:1;background:rgba(184,144,10,.06);}
+.vt-active{background:rgba(212,170,34,.1);border-left:2px solid var(--gold3);padding-left:4px;}
+.vt-active span:not(.vt-icon){color:var(--gold3);font-weight:500;}
+.vt-meta{font-family:var(--mono);font-size:.42rem;color:rgba(184,144,10,.35);letter-spacing:.1em;margin-top:10px;text-align:right;}
+
+/* Quick Actions */
+.quick-actions{display:flex;gap:4px;margin-top:8px;}
+.qa-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;padding:6px 4px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.5rem;transition:all .15s;border-radius:3px;white-space:nowrap;}
+.qa-btn:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-icon{font-size:.7rem;}
+
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* Navigation Cockpit below hero */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Floating My Note FAB + Panel ===== */
+.mynote-fab{position:fixed;bottom:90px;right:42px;z-index:8999;width:66px;height:72px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
+.mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px 2px 2px 2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
+.mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
+.mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
+.mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:18px;width:50px;height:56px;}}
+
+/* Panel */
+.mynote-panel{position:fixed;bottom:90px;right:116px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.1rem;cursor:pointer;padding:2px 6px;transition:color .2s;}
+.mynote-panel-close:hover{color:var(--gold4);}
+.mynote-panel-body{background:repeating-linear-gradient(to bottom,transparent,transparent 27px,rgba(184,144,10,.08) 27px,rgba(184,144,10,.08) 28px);padding:12px 14px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:72px;width:calc(100vw - 16px);max-height:55vh;}}
+
+.mynote-card-streak{font-family:var(--mono);font-size:.55rem;color:var(--gold3);}
+.mynote-card-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px;}
+.mynote-card-nav-btn{background:none;border:1px solid var(--parch4);padding:3px 10px;font-family:var(--mono);font-size:.5rem;color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;}
+.mynote-card-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-card-nav-date{font-family:var(--mono);font-size:.58rem;color:var(--ink);font-weight:600;min-width:110px;text-align:center;}
+.mynote-panel textarea{width:100%;min-height:100px;font-size:16px;line-height:1.7;padding:10px;border:1px solid var(--parch4);border-radius:4px;resize:none;font-family:var(--jp);background:rgba(255,255,255,.5);color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-panel textarea:focus{border-color:var(--gold);}
+.mynote-panel textarea::placeholder{color:var(--parch4);font-size:.78rem;}
+.mynote-card-status{display:flex;align-items:center;justify-content:space-between;padding:6px 0 0;gap:8px;}
+.mynote-card-saved{font-family:var(--mono);font-size:.44rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+
+/* ========== End Cockpit ========== */
+
+.section{margin-bottom:56px;}
+.section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
+.section-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+.body-text{font-size:.88rem;color:var(--ink2);line-height:2.15;font-weight:300;}
+.body-text p{margin-bottom:1.3em;}.body-text p:last-child{margin-bottom:0;}
+.body-text strong{font-weight:600;color:var(--ink);}
+.body-text ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.body-text ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.86rem;color:var(--ink3);line-height:1.9;}
+.body-text ul li::before{content:'\2014';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+.quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
+.quote-box-text{font-size:.88rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
+.quote-box-src{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;margin-top:10px;}
+
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
+.key-point-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.8;display:flex;align-items:center;gap:8px;}
+.key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.key-point-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.key-point-text strong{font-weight:600;color:var(--ink);}
+
+/* Stage Cards (unique to this page) */
 .stage{
   background:var(--parch2);border:1px solid var(--parch4);
   border-radius:2px;padding:24px 22px;margin:24px 0;
@@ -108,10 +234,9 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .stage-ratio-core{background:var(--ink);color:var(--gold3);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;}
 .stage-ratio-sat{background:var(--gold2);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;font-weight:600;}
 
-/* -- DIVIDER -- */
-.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
 
-/* -- FURTHER READING -- */
+/* Further Reading */
 .further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
 .further-inner{max-width:700px;margin:0 auto;}
 .further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
@@ -123,46 +248,142 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
 .further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
 
-/* -- FOOTER -- */
-.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
-.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em;}
-.footer a{color:var(--gold3);text-decoration:none;}
+/* Footer */
+.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.7;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
+.footer-copy{font-family:var(--mono);font-size:.48rem;color:var(--parch4);opacity:.4;letter-spacing:.1em;}
 
-/* -- SCROLL TOP -- */
+/* Scroll Top */
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
 </style>
+<link rel="stylesheet" href="../../shared.css"/>
 </head>
 <body>
 
-<!-- -- NAV -- -->
 <nav class="nav">
-  <a class="nav-back" href="../../">書斎の入口</a>
+  <a class="nav-back" href="../../">&larr; 書斎の入口</a>
   <span class="nav-sep">/</span>
-  <a class="nav-back" href="../../start-here/">はじめての資産形成</a>
+  <a class="nav-back" href="../">はじめての資産形成</a>
   <span class="nav-sep">/</span>
   <span class="nav-current">サテライト戦略</span>
 </nav>
 
-<!-- -- HERO -- -->
 <div class="hero">
-  <div class="hero-ornament">CORE-SATELLITE STRATEGY</div>
-  <h1 class="hero-title">サテライト戦略――<br>私が最も推奨する投資の考え方</h1>
-  <p class="hero-lead">
-    80%の安定と、20%の挑戦。<br>
-    投資も人生も、この比率から始まる。
-  </p>
+  <div class="hero-3col">
+    <!-- Left: Graph View -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title + Lead -->
+    <div class="hero-col-center">
+      <div class="hero-label">CORE-SATELLITE STRATEGY</div>
+      <h1 class="hero-title">サテライト戦略<br><span style="font-size:.6em;font-weight:400;opacity:.85;">&#x2015;&#x2015; 私が最も推奨する投資の考え方</span></h1>
+      <div class="hero-sub">CORE-SATELLITE STRATEGY</div>
+      <p class="hero-lead">80%の安定と、20%の挑戦。<br>投資も人生も、この比率から始まる。</p>
+    </div>
+
+    <!-- Right: Quick Start -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="../../principles/per-multiple/"><span class="qa-icon">&#128200;</span> PERを読む</a>
+          <a class="qa-btn-v" href="../../principles/contrarian-philosophy/"><span class="qa-icon">&#129504;</span> 逆張りの哲学</a>
+          <a class="qa-btn-v" href="../../principles/compound-philosophy/"><span class="qa-icon">&#128176;</span> 複利の哲学</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- -- ARTICLE -- -->
-<main class="article">
+<!-- Navigation Cockpit: Tree + TOC -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">はじめての資産形成</a><span class="ct-count">5</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../index-investing/">インデックス投資</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../stock-basics/">個別株基礎</a></div>
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>サテライト戦略</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../../principles/diversification/">集中と分散</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../../principles/">投資原則</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 15 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec01"><span class="toc-num">01</span>組み合わせるという選択肢</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>自分の得意なところに投資する</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>だからこそ、20%の挑戦が要る</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>成長に応じた比率の変化</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>パレートの法則</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>20%が人生に色を入れる</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>今日から始めるサテライト戦略</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>自分の手札を活かす</a></li>
+      <li><a href="#sec09"><span class="toc-num">09</span>わらしべ長者</a></li>
+      <li><a href="#sec10"><span class="toc-num">10</span>実践ステップ</a></li>
+    </ol>
+  </div>
+</div>
 
-  <!-- Section 1: 組み合わせるという選択肢 -->
-  <div class="article-section">
-    <div class="section-label">THE STARTING POINT</div>
+<!-- Floating My Note FAB + Panel -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">NOTE</div>
+  </div>
+  <span class="mynote-fab-streak" id="mcFabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&#9664;</button>
+      <div class="mynote-card-nav-date" id="mcDate">今日</div>
+      <button class="mynote-card-nav-btn" id="mcNext">&#9654;</button>
+    </div>
+    <textarea id="mcTextarea" placeholder="このページから、1枚書く"></textarea>
+    <div class="mynote-card-status">
+      <div class="mynote-card-saved" id="mcSaved">&#10003; 保存済み</div>
+      <div class="mynote-card-wordcount" id="mcWordcount">0 文字</div>
+    </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label" id="mcCalLabel"></div>
+      <div class="mynote-card-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01: 組み合わせるという選択肢 -->
+  <div class="section" id="sec01">
+    <div class="section-num">01</div>
     <h2 class="section-title">組み合わせるという選択肢</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>個別株と投資信託は、どちらか一方しか選べないわけではない。両方を組み合わせる「コア・サテライト戦略」という考え方がある。</p>
 
       <p><strong>コア（核）</strong>として、資産の大部分をインデックス型の投資信託で運用する。全世界株式やS&P500に連動するファンドを毎月積み立てることで、安定的な資産の土台を作る。</p>
@@ -186,18 +407,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">これが私が最も推奨する投資の考え方だ。<br>コア・サテライト戦略。<br>そして、この比率は固定ではない。成長とともに変わっていく。</p>
+    <div class="key-point">
+      <div class="key-point-label">CORE CONCEPT</div>
+      <div class="key-point-text">
+        これが私が最も推奨する投資の考え方だ。<br>コア・サテライト戦略。<br>そして、この比率は固定ではない。<strong>成長とともに変わっていく。</strong>
+      </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section 2: 自分の得意なところから始める -->
-  <div class="article-section">
-    <div class="section-label">CIRCLE OF COMPETENCE</div>
+  <!-- 02: 自分の得意なところに投資する -->
+  <div class="section" id="sec02">
+    <div class="section-num">02</div>
     <h2 class="section-title">自分の得意なところに投資する</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>サテライトで個別株を始めるとき、最初に選ぶべきは「話題の銘柄」ではない。<strong>自分が詳しい業界の企業</strong>だ。</p>
 
       <p>たとえば、自分は不動産業界に詳しかった。だからそこに関連する企業から投資を始めた。不動産の考え方だと、どれくらい利益があるか、どれくらいのリスクがあるかがイメージしやすいのだ。そして保険業界や金融業界もイメージがしやすかった。自分の関連する業界に関しては、数字の意味が肌感覚でわかる。</p>
@@ -205,21 +429,23 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p>バフェットはこう言っている。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">"Risk comes from not knowing what you're doing."<br>（リスクとは、自分が何をしているかわからないときに生じる。）<br><span style="font-size:.75rem;color:var(--ink3);font-weight:300;">―― Warren Buffett, Columbia Business School, 1993</span></p>
+    <div class="quote-box">
+      <div class="quote-box-text">"Risk comes from not knowing what you're doing."<br>（リスクとは、自分が何をしているかわからないときに生じる。）</div>
+      <div class="quote-box-src">— WARREN BUFFETT, Columbia Business School, 1993</div>
     </div>
 
-    <div class="section-body">
+    <div class="body-text">
       <p>自分が何をしているかわからないとき、それが最もリスクの高い状態だ。逆に言えば、自分がよく知っている領域で投資するとき、リスクは格段に下がる。</p>
 
       <p>バフェットとマンガーは、この考え方を「能力の輪（Circle of Competence）」と呼んでいる。バフェットは株主への手紙でこう書いた。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">"You only have to be able to evaluate companies within your circle of competence. The size of that circle is not very important; knowing its boundaries, however, is vital."<br>（自分の能力の輪の中にある企業を評価できればいい。その輪の大きさは重要ではない。しかし、その境界を知ることは極めて重要だ。）<br><span style="font-size:.75rem;color:var(--ink3);font-weight:300;">―― Warren Buffett, Berkshire Hathaway Annual Letter, 1996</span></p>
+    <div class="quote-box">
+      <div class="quote-box-text">"You only have to be able to evaluate companies within your circle of competence. The size of that circle is not very important; knowing its boundaries, however, is vital."<br>（自分の能力の輪の中にある企業を評価できればいい。その輪の大きさは重要ではない。しかし、その境界を知ることは極めて重要だ。）</div>
+      <div class="quote-box-src">— WARREN BUFFETT, Berkshire Hathaway Annual Letter, 1996</div>
     </div>
 
-    <div class="section-body">
+    <div class="body-text">
       <p>マンガーも同じことを別の角度から言っている。<strong>"Knowing what you don't know is more useful than being brilliant."</strong>（自分が何を知らないかを知ることは、頭が良いことより有用だ。）</p>
 
       <p>二人とも、自分の知っている範囲から逸脱せず、その領域を守っている。わからないものには投資しない。テクノロジー株の波に乗り遅れても、理解できないものには手を出さない。その規律を何十年も貫いてきた。</p>
@@ -228,11 +454,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
-  <!-- Section 3: だからこそ20%の挑戦 -->
-  <div class="article-section">
-    <div class="section-label">WHY 20% MATTERS</div>
+  <!-- 03: だからこそ20%の挑戦 -->
+  <div class="section" id="sec03">
+    <div class="section-num">03</div>
     <h2 class="section-title">だからこそ、20%の挑戦が要る</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>しかし、同じことをし続けるのは、人間にとって非常に難しい。</p>
 
       <p>人間の脳は、行動するためにできている。じっとしていられないようにプログラムされている。新しい刺激を求め、未知の領域に足を踏み入れたくなる。それは弱さではなく、人間の本質だ。</p>
@@ -248,18 +474,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p>能力の輪の中で80%を守り、20%で輪の外側を探索する。探索の結果、新しい領域が理解できるようになれば、能力の輪そのものが広がる。そうして投資家としても、人間としても、少しずつ成長していく。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">80%は能力の輪の中で守り、<br>20%は輪の外側を探索する。<br>その繰り返しが、投資家としての進化であり、<br>人生を豊かにする設計である。</p>
+    <div class="key-point">
+      <div class="key-point-label">80/20 EXPLORATION</div>
+      <div class="key-point-text">
+        80%は能力の輪の中で守り、<br>20%は輪の外側を探索する。<br>その繰り返しが、<strong>投資家としての進化であり、人生を豊かにする設計である。</strong>
+      </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section 4: 成長に応じた比率の変化 -->
-  <div class="article-section">
-    <div class="section-label">EVOLUTION</div>
-    <h2 class="section-title">成長に応じた比率の変化――初心者から上級者へ</h2>
-    <div class="section-body">
+  <!-- 04: 成長に応じた比率の変化 -->
+  <div class="section" id="sec04">
+    <div class="section-num">04</div>
+    <h2 class="section-title">成長に応じた比率の変化&#x2015;&#x2015;初心者から上級者へ</h2>
+    <div class="body-text">
       <p>コア・サテライト戦略の美しさは、自分の成長に合わせて比率を変えられることにある。</p>
 
       <p>初心者は80:20から始める。これは正しい。知識も経験も少ない段階で、資産の大部分をインデックスに預けておくことは、合理的な防御だ。</p>
@@ -297,22 +526,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       </div>
     </div>
 
-    <div class="section-body">
+    <div class="body-text">
       <p>重要なのは、この移行を<strong>焦らない</strong>ことだ。80:20で3年、50:50で3年、それくらいの時間軸で考える。急いで集中投資に移行して大損するくらいなら、インデックスで堅実に増やしながら、自分のペースで学んだほうがいい。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">投資家としての成長は、比率の変化に表れる。<br>80:20 → 50:50 → 20:80。<br>この道筋を、自分のペースで歩くことが大事だ。</p>
+    <div class="quote-box">
+      <div class="quote-box-text">投資家としての成長は、比率の変化に表れる。<br>80:20 &rarr; 50:50 &rarr; 20:80。<br>この道筋を、自分のペースで歩くことが大事だ。</div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section 3: パレートの法則 -->
-  <div class="article-section">
-    <div class="section-label">THE PARETO PRINCIPLE</div>
+  <!-- 05: パレートの法則 -->
+  <div class="section" id="sec05">
+    <div class="section-num">05</div>
     <h2 class="section-title">パレートの法則を投資と人生に活かす</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>80:20という比率には、もうひとつ深い意味がある。パレートの法則だ。</p>
 
       <p>イタリアの経済学者ヴィルフレド・パレートが発見したこの法則は、「成果の80%は、全体の20%の要因から生まれる」というものだ。売上の80%は上位20%の顧客から、バグの80%は上位20%のコードから。この法則は、あらゆる場面に現れる。</p>
@@ -326,18 +555,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p>投資で言えば、80%のコアはそのまま積み立てを続け、20%のサテライトを現在の自分の思想に合わせてコントロールする。新しい銘柄を試す、セクターを入れ替える、投資仮説を検証する。この20%が、投資家としての成長エンジンになる。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">80%を守り、20%を動かす。<br>この比率が、安定と成長を両立させる。</p>
+    <div class="key-point">
+      <div class="key-point-label">THE PARETO PRINCIPLE</div>
+      <div class="key-point-text">
+        <strong>80%を守り、20%を動かす。</strong><br>この比率が、安定と成長を両立させる。
+      </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section 4: 人生に色を入れる -->
-  <div class="article-section">
-    <div class="section-label">LIFE DESIGN</div>
+  <!-- 06: 20%が人生に色を入れる -->
+  <div class="section" id="sec06">
+    <div class="section-num">06</div>
     <h2 class="section-title">20%が人生に色を入れる</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>この80:20の思想は、投資の話にとどまらない。</p>
 
       <p>人生において、80%を安定させつつ、20%は新しいことやリスクのあることに取り組んでいく。そうすることで、人生に色が入り、刺激が生まれ、より豊かな人生を体験することができる。</p>
@@ -351,24 +583,24 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p>この20%から、人生を変える発見が生まれる。投資で言えば、この20%のサテライトから、自分だけの投資哲学が形成されていく。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">80%を低空飛行で維持しつつも、20%は新しいことやリスクのあることに取り組んでいく。<br>そうすることで、人生に色、刺激が入り、<br>より豊かな人生を体験することができる。<br><br>それを投資にも活かして取り組んでほしい。</p>
+    <div class="quote-box">
+      <div class="quote-box-text">80%を低空飛行で維持しつつも、20%は新しいことやリスクのあることに取り組んでいく。<br>そうすることで、人生に色、刺激が入り、<br>より豊かな人生を体験することができる。<br><br>それを投資にも活かして取り組んでほしい。</div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section 5: 実践のステップ -->
-  <div class="article-section">
-    <div class="section-label">PRACTICAL STEPS</div>
+  <!-- 07: 今日から始めるサテライト戦略 -->
+  <div class="section" id="sec07">
+    <div class="section-num">07</div>
     <h2 class="section-title">今日から始めるサテライト戦略</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>サテライト戦略を始めるのに、特別な知識は要らない。必要なのは、この3つのステップだけだ。</p>
 
       <ul>
-        <li><strong>Step 1: コアを決める</strong> — 全世界株式またはS&P500のインデックスファンドを選び、毎月定額で積み立てる。これが80%の土台になる</li>
-        <li><strong>Step 2: サテライトを選ぶ</strong> — 残りの20%で、自分が興味を持った企業の株を買ってみる。最初は1銘柄でいい。「なぜこの企業を選んだか」を書き留めておく</li>
-        <li><strong>Step 3: 振り返る</strong> — 3ヶ月ごとに、コアとサテライトの成績を比較する。サテライトが負けても落ち込む必要はない。その経験こそが、投資家としての資産になる</li>
+        <li><strong>Step 1: コアを決める</strong> &#x2014; 全世界株式またはS&P500のインデックスファンドを選び、毎月定額で積み立てる。これが80%の土台になる</li>
+        <li><strong>Step 2: サテライトを選ぶ</strong> &#x2014; 残りの20%で、自分が興味を持った企業の株を買ってみる。最初は1銘柄でいい。「なぜこの企業を選んだか」を書き留めておく</li>
+        <li><strong>Step 3: 振り返る</strong> &#x2014; 3ヶ月ごとに、コアとサテライトの成績を比較する。サテライトが負けても落ち込む必要はない。その経験こそが、投資家としての資産になる</li>
       </ul>
 
       <p>そして、学びが深まるにつれて、少しずつサテライトの比率を上げていく。自分の成長に合わせて、自分自身の思想に合わせて、この比率をコントロールしていく。それがサテライト戦略の本質だ。</p>
@@ -377,11 +609,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
-  <!-- Section: 自分の手札を活かす -->
-  <div class="article-section">
-    <div class="section-label">YOUR ADVANTAGE</div>
+  <!-- 08: 自分の手札を活かす -->
+  <div class="section" id="sec08">
+    <div class="section-num">08</div>
     <h2 class="section-title">自分の手札（アドバンテージ）を最大限に活かす</h2>
-    <div class="section-body">
+    <div class="body-text">
       <p>たとえばあなたが美容系の仕事をしていたとしよう。その場合、美容に関しては普通の人より詳しいはずだ。どのブランドが本物で、どの成分が効いて、どの企業が伸びそうか。業界の空気を、肌感覚で知っている。</p>
 
       <p>だからそれを何らかのビジネスに活かせないか、精一杯考え続ける。投資でも同じだ。美容業界に詳しいなら、化粧品メーカーや美容関連企業の決算を読むとき、他の投資家には見えない景色が見えるはずだ。</p>
@@ -395,18 +627,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p><strong>まず自分の棚卸をする。</strong>自分は他の人と比べて、何を持っているか。何に優れているか。どんな経験があるか。それを徹底的に洗い出し、最大限に活かす方法を考える。</p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">自分の手札を知ること。<br>それが、投資でも人生でも、最初の一歩だ。</p>
+    <div class="quote-box">
+      <div class="quote-box-text">自分の手札を知ること。<br>それが、投資でも人生でも、最初の一歩だ。</div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section: わらしべ長者 -->
-  <div class="article-section">
-    <div class="section-label">COMPOUNDING LIFE</div>
-    <h2 class="section-title">わらしべ長者――富は交換で育つ</h2>
-    <div class="section-body">
+  <!-- 09: わらしべ長者 -->
+  <div class="section" id="sec09">
+    <div class="section-num">09</div>
+    <h2 class="section-title">わらしべ長者&#x2015;&#x2015;富は交換で育つ</h2>
+    <div class="body-text">
       <p>富を増やしたければ、自分の手札を「わらしべ長者」として交換していく。</p>
 
       <p>自分の得意なことで価値を生み出す。その価値を、それを必要としている人に渡す。自分は対価として富を得る。そして、その得た富を新しい何かと交換する。</p>
@@ -424,55 +656,58 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <p>自分の手札を棚卸しし、得意なことで富を生み出し、それをわらしべ長者のように交換し続ける。そのサイクルを、できるだけ早く、できるだけ多く回す。<strong>それが人生を豊かにする複利の設計だ。</strong></p>
     </div>
 
-    <div class="callout">
-      <p class="callout-text">成長も、富も、複利で捉える。<br>自分の手札を活かし、交換し、育てる。<br>そのサイクルを早く始めるほど、人生は豊かになる。</p>
+    <div class="quote-box">
+      <div class="quote-box-text">成長も、富も、複利で捉える。<br>自分の手札を活かし、交換し、育てる。<br>そのサイクルを早く始めるほど、人生は豊かになる。</div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- Section: NEXT STEP CTAs -->
-  <div class="article-section">
+  <!-- 10: NEXT STEP CTAs -->
+  <div class="section" id="sec10">
+    <div class="section-num">10</div>
+    <h2 class="section-title">次のステップへ</h2>
+
     <a href="../../principles/per-multiple/" style="text-decoration:none;display:block;">
       <div style="border:3px solid var(--gold2);background:linear-gradient(135deg,var(--ink) 0%,#2a1c08 100%);padding:32px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;top:-20px;right:-10px;font-size:8rem;opacity:.04;color:var(--gold3);line-height:1;pointer-events:none;">NEXT</div>
         <div style="font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;opacity:.8;">NEXT STEP</div>
         <div style="font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--parch);margin-bottom:14px;line-height:1.4;">次に、PER（株価収益率）の考え方を学ぶと、<br>さらに安全で間違いが少なくなる。</div>
-        <div style="font-size:.88rem;color:var(--parch3);line-height:2;font-weight:300;margin-bottom:18px;">自分がまだ知らないこと、他の人が見落としていること。そこにこそ<strong style="color:var(--gold4);">α（超過収益）</strong>は存在する。PERという指標の裏に隠れた投資家の期待と歪みを読み解く方法を、次の記事で解説する。</div>
-        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">PERを読む――マルチプルの中に隠れた期待と歪み →</div>
+        <div style="font-size:.88rem;color:var(--parch3);line-height:2;font-weight:300;margin-bottom:18px;">自分がまだ知らないこと、他の人が見落としていること。そこにこそ<strong style="color:var(--gold4);">&#x03B1;（超過収益）</strong>は存在する。PERという指標の裏に隠れた投資家の期待と歪みを読み解く方法を、次の記事で解説する。</div>
+        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">PERを読む&#x2015;&#x2015;マルチプルの中に隠れた期待と歪み &rarr;</div>
       </div>
     </a>
-  </div>
 
-  <!-- CTA: 逆張りの哲学 -->
-  <div class="article-section" style="margin-top:20px;">
+    <!-- CTA: 逆張りの哲学 -->
+    <div style="margin-top:20px;">
     <a href="../../principles/contrarian-philosophy/" style="text-decoration:none;display:block;">
       <div style="border:3px solid var(--gold2);background:linear-gradient(135deg,#0a0c10 0%,#121520 100%);padding:32px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;top:-20px;right:-10px;font-size:8rem;opacity:.04;color:var(--gold3);line-height:1;pointer-events:none;">NEXT</div>
         <div style="font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;opacity:.8;">DEEP DIVE</div>
         <div style="font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--parch);margin-bottom:14px;line-height:1.4;">人と同じことをしていては、<br>超過収益は得られない。</div>
-        <div style="font-size:.88rem;color:var(--parch3);line-height:2;font-weight:300;margin-bottom:18px;">バフェット、テンプルトン、ソロス――群衆と反対に歩いた投資家たちの知恵。なぜ群集は間違えるのか。逆張りが機能する条件とは何か。</div>
-        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">逆張りの哲学――群衆と反対に歩く勇気と知恵 →</div>
+        <div style="font-size:.88rem;color:var(--parch3);line-height:2;font-weight:300;margin-bottom:18px;">バフェット、テンプルトン、ソロス&#x2015;&#x2015;群衆と反対に歩いた投資家たちの知恵。なぜ群集は間違えるのか。逆張りが機能する条件とは何か。</div>
+        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">逆張りの哲学&#x2015;&#x2015;群衆と反対に歩く勇気と知恵 &rarr;</div>
       </div>
     </a>
-  </div>
+    </div>
 
-  <!-- CTA: 複利の哲学 -->
-  <div class="article-section" style="margin-top:20px;">
+    <!-- CTA: 複利の哲学 -->
+    <div style="margin-top:20px;">
     <a href="../../principles/compound-philosophy/" style="text-decoration:none;display:block;">
       <div style="border:3px solid var(--gold2);background:linear-gradient(135deg,var(--ink) 0%,#1a1a08 100%);padding:32px 28px;position:relative;overflow:hidden;">
         <div style="position:absolute;top:-20px;right:-10px;font-size:8rem;opacity:.04;color:var(--gold3);line-height:1;pointer-events:none;">NEXT</div>
         <div style="font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;opacity:.8;">COMPOUND</div>
         <div style="font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--parch);margin-bottom:14px;line-height:1.4;">知識も、富も、習慣も、<br>すべては複利で育つ。</div>
         <div style="font-size:.88rem;color:var(--parch3);line-height:2;font-weight:300;margin-bottom:18px;">お金の複利だけではない。メモの複利、習慣の複利、人間関係の複利。バフェットが「人生最高の投資は自己投資だ」と語った、その本質を探る。</div>
-        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">複利の哲学――お金・知識・習慣が雪だるまになる原理 →</div>
+        <div style="display:inline-block;background:var(--gold2);color:var(--ink);padding:10px 28px;font-family:var(--jp);font-size:.82rem;font-weight:600;letter-spacing:.06em;transition:all .2s;">複利の哲学&#x2015;&#x2015;お金・知識・習慣が雪だるまになる原理 &rarr;</div>
       </div>
     </a>
+    </div>
   </div>
 
-</main>
+</div>
 
-<!-- -- FURTHER READING -- -->
+<!-- FURTHER READING -->
 <div class="further">
   <div class="further-inner">
     <div class="further-label">FURTHER READING</div>
@@ -481,55 +716,376 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <a class="further-link" href="../index-investing/">
         <span class="further-link-tag">入門</span>
         <span class="further-link-title">インデックス投資入門：なぜ市場全体を買うのか</span>
-        <span class="further-link-arrow">→</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
       <a class="further-link" href="../stock-basics/">
         <span class="further-link-tag">入門</span>
         <span class="further-link-title">個別株投資の基礎</span>
-        <span class="further-link-arrow">→</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
       <a class="further-link" href="../../principles/">
         <span class="further-link-tag">投資原則</span>
         <span class="further-link-title">私の投資原則</span>
-        <span class="further-link-arrow">→</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
       <a class="further-link" href="../../principles/compound-philosophy/">
         <span class="further-link-tag">投資原則</span>
         <span class="further-link-title">複利の哲学：お金・知識・習慣が雪だるまになる原理</span>
-        <span class="further-link-arrow">→</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
       <a class="further-link" href="../../principles/diversification/">
         <span class="further-link-tag">投資原則</span>
         <span class="further-link-title">集中と分散のバランス</span>
-        <span class="further-link-arrow">→</span>
+        <span class="further-link-arrow">&rarr;</span>
       </a>
     </div>
   </div>
 </div>
 
-<footer class="footer">
-  <div class="footer-title">投資と思考の書斎</div>
-  <div>
-    <a href="../../">書斎の入口</a> ·
-    <a href="../../hajimete/">初めての方へ</a> ·
-    <a href="../../principles/">投資原則</a> ·
-    <a href="../../industries/">業種から歩く</a> ·
-    <a href="../../horizons/">思考を広げる</a> ·
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="../../">書斎の入口</a>
+    <a href="../">はじめての資産形成</a>
+    <a href="../../principles/">投資原則</a>
+    <a href="../../industries/">業種から歩く</a>
+    <a href="../../horizons/">思考を広げる</a>
     <a href="../../people/">人物録</a>
-  </div>
-  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
-  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+  </nav>
+  <div class="footer-copy">&copy; 2026 投資と思考の書斎</div>
 </footer>
 
-<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-<script src="../../shared.js"></script>
-<script src="../../ai-assistant.js"></script>
-<script src="../../mynote.js"></script>
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
 <script>
-window.addEventListener('scroll',()=>{
+/* ===== Knowledge Graph (Canvas API) ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var W,H;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+
+  var catLabels={self:'この記事',concept:'概念',person:'人物',tool:'ツール',article:'記事',principle:'投資原則'};
+
+  var nodes=[
+    {id:'self',label:'サテライト戦略',x:0,y:0,r:24,color:'#d4aa22',cat:'self',url:null,desc:'この記事'},
+    {id:'per',label:'PERを読む',x:-130,y:-70,r:16,color:'#c05020',cat:'article',url:'../../principles/per-multiple/',desc:'マルチプルの中に隠れた期待と歪み'},
+    {id:'contrarian',label:'逆張りの哲学',x:140,y:-50,r:16,color:'#c05020',cat:'article',url:'../../principles/contrarian-philosophy/',desc:'群衆と反対に歩く勇気と知恵'},
+    {id:'compound',label:'複利の哲学',x:110,y:60,r:16,color:'#c05020',cat:'article',url:'../../principles/compound-philosophy/',desc:'お金・知識・習慣が雪だるまになる原理'},
+    {id:'index',label:'インデックス投資',x:-90,y:80,r:14,color:'#8b6914',cat:'article',url:'../index-investing/',desc:'なぜ市場全体を買うのか'},
+    {id:'stock',label:'個別株基礎',x:-170,y:20,r:14,color:'#8b6914',cat:'article',url:'../stock-basics/',desc:'個別株投資の基礎'},
+    {id:'diversification',label:'集中と分散',x:170,y:-120,r:13,color:'#c05020',cat:'principle',url:'../../principles/diversification/',desc:'集中と分散のバランス'},
+    {id:'principles',label:'投資原則',x:-30,y:-130,r:13,color:'#3d6828',cat:'principle',url:'../../principles/',desc:'私の投資原則'}
+  ];
+
+  var edges=[
+    {from:'self',to:'per'},{from:'self',to:'contrarian'},{from:'self',to:'compound'},
+    {from:'self',to:'index'},{from:'self',to:'stock'},{from:'self',to:'diversification'},
+    {from:'self',to:'principles'},
+    {from:'per',to:'contrarian'},{from:'compound',to:'diversification'},
+    {from:'index',to:'stock'},{from:'stock',to:'per'},
+    {from:'principles',to:'contrarian'},{from:'principles',to:'compound'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;
+    H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();});
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=90;
+      var force=(dist-target)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var hovId=null;
+    var hovConns={};
+    nodes.forEach(function(n){if(n.hover){hovId=n.id;}});
+    if(hovId){
+      hovConns[hovId]=true;
+      if(connMap[hovId])connMap[hovId].forEach(function(id){hovConns[id]=true;});
+    }
+
+    var isMobile='ontouchstart' in window;
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var isHighlight=hovId&&(hovConns[e.from]&&hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      var defaultAlpha=isMobile?'rgba(212,170,34,0.4)':'rgba(139,105,20,0.12)';
+      ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':defaultAlpha;
+      ctx.lineWidth=isHighlight?1.5:(isMobile?1:0.8);
+      ctx.stroke();
+    });
+
+    nodes.forEach(function(n){
+      var isHov=n.hover;
+      var drawR=isHov?n.r*1.15:n.r;
+      if(n.cat==='self'||isHov){
+        ctx.beginPath();ctx.arc(n.px,n.py,drawR+10,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,drawR,n.px,n.py,drawR+10);
+        var gc=n.cat==='self'?'212,170,34':'184,144,10';
+        g.addColorStop(0,'rgba('+gc+',0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+      ctx.beginPath();ctx.arc(n.px,n.py,drawR,0,Math.PI*2);
+      ctx.fillStyle=isHov?'#f0cc55':n.color;
+      ctx.globalAlpha=n.cat==='self'?1:(isHov?0.9:0.65);
+      ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=isHov?'rgba(240,204,85,0.6)':'rgba(245,237,224,0.15)';
+      ctx.lineWidth=isHov?1.5:0.7;ctx.stroke();
+
+      var showLabel=defaultLabels[n.id]||isHov||(hovId&&hovConns[n.id]);
+      if(showLabel){
+        var fs=Math.max(8,n.r*0.55);
+        ctx.font=(n.cat==='self'?'600 ':'300 ')+fs+'px "Noto Serif JP",serif';
+        ctx.fillStyle=isHov?'#f0cc55':'rgba(245,237,224,0.75)';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(n.label,n.px,n.py+drawR+11);
+      }
+    });
+
+    var cats=[{label:'この記事',color:'#d4aa22'},{label:'記事',color:'#c05020'},{label:'入門',color:'#8b6914'},{label:'投資原則',color:'#3d6828'}];
+    ctx.font='8px "DM Mono",monospace';ctx.textAlign='left';
+    cats.forEach(function(c,i){
+      var lx=10,ly=H-8-((cats.length-1-i)*14);
+      ctx.beginPath();ctx.arc(lx,ly,3.5,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.6;ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='rgba(139,105,20,0.5)';ctx.fillText(c.label,lx+9,ly+3);
+    });
+  }
+
+  var dragNode=null,dragStartX=0,dragStartY=0,dragDist=0;
+
+  function getNodeAt(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];var dx=x-n.px,dy=y-n.py;
+      if(dx*dx+dy*dy<(n.r+8)*(n.r+8))return n;
+    }return null;
+  }
+  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+
+  function showTooltip(n,cx,cy){
+    ttTitle.textContent=n.label;
+    ttCat.textContent=catLabels[n.cat]||n.cat;
+    ttDesc.textContent=n.desc||'';
+    var rect=canvas.parentElement.getBoundingClientRect();
+    var tx=cx+16,ty=cy-10;
+    if(tx+200>rect.width)tx=cx-200;
+    if(ty<0)ty=cy+16;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';tooltip.style.opacity='1';
+  }
+  function hideTooltip(){tooltip.style.opacity='0';}
+
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragNode){
+      dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;
+    }else{
+      var h=getNodeAt(p.x,p.y);
+      nodes.forEach(function(n){n.hover=false;});
+      if(h){h.hover=true;canvas.style.cursor=h.url?'pointer':'grab';showTooltip(h,p.x,p.y);}
+      else{canvas.style.cursor='grab';hideTooltip();}
+    }
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url){window.location.href=dragNode.url;}
+      dragNode=null;
+    }
+    canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    if(dragNode)dragNode.dragging=false;dragNode=null;
+    nodes.forEach(function(n){n.hover=false;});hideTooltip();
+  });
+
+  var touchStartTime=0;
+  canvas.addEventListener('touchstart',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;touchStartTime=Date.now();e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(dragNode){
+      var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;e.preventDefault();
+    }
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5){
+        if(dragNode.url){window.location.href=dragNode.url;}
+        else{
+          var wasHov=dragNode.hover;
+          nodes.forEach(function(n){n.hover=false;});
+          if(!wasHov){dragNode.hover=true;showTooltip(dragNode,dragNode.px,dragNode.py);}
+          else{hideTooltip();}
+        }
+      }
+      dragNode=null;
+    }
+  });
+
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  loop();
+})();
+
+/* ===== My Note Card (localStorage) ===== */
+(function(){
+  var STORAGE_PREFIX='myNote_';
+  var today=new Date();
+  var currentViewDate=new Date(today);
+  var saveTimer=null;
+
+  function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function formatDate(d){var days=['日','月','火','水','木','金','土'];return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日（'+days[d.getDay()]+'）';}
+  function getNoteData(d){try{var x=localStorage.getItem(STORAGE_PREFIX+dateKey(d));return x?JSON.parse(x):null;}catch(e){return null;}}
+  function saveNoteData(d,text){if(!text.trim()){localStorage.removeItem(STORAGE_PREFIX+dateKey(d));return;}localStorage.setItem(STORAGE_PREFIX+dateKey(d),JSON.stringify({text:text,savedAt:new Date().toISOString(),chars:text.length}));}
+
+  function calcStreak(){var s=0,d=new Date(today);if(!getNoteData(d))d.setDate(d.getDate()-1);while(true){var n=getNoteData(d);if(n&&n.text&&n.text.trim().length>0){s++;d.setDate(d.getDate()-1);}else break;}return s;}
+  function calcChallengeDays(){var c=0;for(var i=0;i<200;i++){var dd=new Date(today);dd.setDate(dd.getDate()-i);if(getNoteData(dd))c++;}return Math.min(c,66);}
+
+  function updateUI(){
+    document.getElementById('mcDate').textContent=formatDate(currentViewDate);
+    var note=getNoteData(currentViewDate);
+    document.getElementById('mcTextarea').value=note?note.text:'';
+    var count=note?note.text.length:0;
+    document.getElementById('mcWordcount').textContent=count+' 文字';
+    var streak=calcStreak();
+    var streakEl=document.getElementById('mcStreak');if(streakEl)streakEl.textContent=streak>0?'\uD83D\uDD25 '+streak+'日連続':'';
+    var fabStreakEl=document.getElementById('mcFabStreak');if(fabStreakEl)fabStreakEl.textContent=streak>0?'\uD83D\uDD25'+streak:'';
+    var days=calcChallengeDays();
+    var pfEl=document.getElementById('mcProgressFill');if(pfEl)pfEl.style.width=Math.round(days/66*100)+'%';
+    var plEl=document.getElementById('mcProgressLabel');if(plEl)plEl.textContent=days+' / 66日';
+    var isToday=dateKey(currentViewDate)===dateKey(today);
+    document.getElementById('mcNext').style.opacity=isToday?'.3':'1';
+    document.getElementById('mcNext').disabled=isToday;
+    renderCalendar();
+  }
+
+  function showSaved(){
+    var el=document.getElementById('mcSaved');
+    var now=new Date();
+    el.textContent='\u2713 '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+    el.classList.add('visible');
+    setTimeout(function(){el.classList.remove('visible');},2500);
+  }
+
+  function renderCalendar(){
+    var grid=document.getElementById('mcCalGrid');grid.innerHTML='';
+    var year=currentViewDate.getFullYear(),month=currentViewDate.getMonth();
+    document.getElementById('mcCalLabel').textContent=year+'年'+(month+1)+'月';
+    var startDay=(new Date(year,month,1).getDay()+6)%7;
+    var dim=new Date(year,month+1,0).getDate();
+    for(var i=0;i<startDay;i++){var b=document.createElement('div');b.className='mc-day';b.style.cssText='background:transparent;border:none;';grid.appendChild(b);}
+    for(var d=1;d<=dim;d++){
+      var cell=document.createElement('div');
+      var cd=new Date(year,month,d);
+      var isFuture=cd>today;
+      var hasNote=!isFuture&&getNoteData(cd);
+      var isT=dateKey(cd)===dateKey(today);
+      cell.className='mc-day'+(hasNote?' has-note':'')+(isFuture?' future':'')+(isT&&hasNote?' today':'');
+      grid.appendChild(cell);
+    }
+  }
+
+  var ta=document.getElementById('mcTextarea');
+  ta.addEventListener('input',function(){
+    var text=this.value;
+    document.getElementById('mcWordcount').textContent=text.length+' 文字';
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){saveNoteData(currentViewDate,text);showSaved();updateUI();},500);
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
+
+  document.getElementById('mcPrev').addEventListener('click',function(){currentViewDate.setDate(currentViewDate.getDate()-1);updateUI();});
+  document.getElementById('mcNext').addEventListener('click',function(){if(dateKey(currentViewDate)!==dateKey(today)){currentViewDate.setDate(currentViewDate.getDate()+1);updateUI();}});
+
+  var fab=document.getElementById('mynoteFab');
+  var panel=document.getElementById('mynotePanel');
+  if(fab&&panel){
+    fab.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))updateUI();});
+    document.getElementById('mynoteClose').addEventListener('click',function(){panel.classList.remove('open');});
+  }
+
+  updateUI();
+})();
+</script>
+
+<script>
+window.addEventListener('scroll',function(){
   document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 200);
 });
 if('serviceWorker' in navigator){navigator.serviceWorker.register('../../sw.js');}
 </script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
 </body>
 </html>
