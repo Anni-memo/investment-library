@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="PER（株価収益率）を単なる数字ではなく、投資家の期待値として読み解く方法。マルチプルの拡大・縮小の構造、業界平均との比較、セグメント分析、そしてα（超過収益）の源泉を考える。"/>
+<meta property="og:title" content="PERを読む――マルチプルの中に隠れた期待と歪み｜投資と思考の書斎"/>
+<meta property="og:description" content="PER14倍は割安か？単体の数字ではなく、業界平均・成長期待・セグメントの付加価値から読み解く。みんなが正しいと思っているところにαはない。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/principles/per-multiple/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資と思考の書斎"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/principles/per-multiple/"/>
+<title>PERを読む――マルチプルの中に隠れた期待と歪み｜投資と思考の書斎</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "PERを読む――マルチプルの中に隠れた期待と歪み",
+  "description": "PER（株価収益率）を単なる倍率ではなく、投資家の成長期待として読み解く方法。マルチプルの拡大・縮小、業界比較、セグメント分析、αの源泉。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-08",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "PER"}, {"@type": "Thing", "name": "株価収益率"}, {"@type": "Thing", "name": "マルチプル"}]
+}
+</script>
+
+<!-- GA -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* -- NAV -- */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* -- HERO -- */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:60px 24px 52px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* -- ARTICLE -- */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'\2014';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* -- CALLOUT -- */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* -- DIVIDER -- */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* -- FURTHER READING -- */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* -- FOOTER -- */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em;}
+.footer a{color:var(--gold3);text-decoration:none;}
+
+/* -- SCROLL TOP -- */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- -- NAV -- -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">原則の棚</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">PERを読む――マルチプルの中に隠れた期待と歪み</span>
+</nav>
+
+<!-- -- HERO -- -->
+<div class="hero">
+  <div class="hero-ornament">READING THE MULTIPLE</div>
+  <h1 class="hero-title">PERを読む――<br>マルチプルの中に隠れた期待と歪み</h1>
+  <p class="hero-lead">
+    PER14倍は割安か？<br>
+    その問いに、数字だけでは答えられない。<br>
+    マルチプルとは、投資家の期待値そのものである。
+  </p>
+</div>
+
+<!-- -- ARTICLE -- -->
+<main class="article">
+
+  <!-- Section 1 -->
+  <div class="article-section">
+    <div class="section-label">WHAT IS PER</div>
+    <h2 class="section-title">PERとは何か――株価に対する収益力</h2>
+    <div class="section-body">
+      <p>PER（Price Earnings Ratio / 株価収益率）は、株価を1株あたり純利益（EPS）で割った値である。「今の株価は、利益の何年分か」を示す。</p>
+
+      <p>PER14倍を見て「割安」と即断する人は多い。しかしそれは、単体の数字を眺めているだけだ。PERは「株価に対する収益力」を表す指標であり、その数字が意味を持つのは、比較対象と文脈が揃ったときに限られる。</p>
+
+      <p>まず確認すべきは、そのPERが<strong>業界平均に対して高いのか、低いのか</strong>だ。同じPER14倍でも、業界平均が10倍なら割高であり、平均が20倍なら割安である。PERは絶対値ではなく、相対的な位置で読む指標だ。</p>
+
+      <p>次に見るべきは、その企業に<strong>付加価値のある事業（セグメント）やプロダクトがあるかどうか</strong>。独自の技術、圧倒的な市場シェア、スイッチングコストの高い製品――こうした要素があれば、PERは上方に評価される。逆に、コモディティ化した事業しか持たない企業は、利益が出ていてもPERは低く留まる。</p>
+
+      <p>さらに、<strong>ネガティブな要素</strong>も確認する。訴訟リスク、規制強化、経営者の交代、主要顧客の離脱——こうした要因があれば、PERは下方に圧力を受ける。</p>
+
+      <p>PERは、これらのプラス要因とマイナス要因で<strong>加減算される</strong>。単体の数字だけを見ても、何も分からない。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">PER14倍という数字に意味はない。<br>「なぜ14倍なのか」を読み解くことに、すべての意味がある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 2 -->
+  <div class="article-section">
+    <div class="section-label">MULTIPLE EXPANSION</div>
+    <h2 class="section-title">マルチプルの拡大――投資家の期待が乗る瞬間</h2>
+    <div class="section-body">
+      <p>基本的に、成長するとみられている企業のPERは10を超える。そこに投資家の成長期待が反映される。これが<strong>マルチプルの拡大</strong>である。</p>
+
+      <p>マルチプルとは、PERやPBR、EV/EBITDAなどの評価倍率の総称だ。企業の利益や資産に対して、市場がどれだけの「プレミアム」を乗せているかを示す。</p>
+
+      <p>たとえば、ある企業のEPSが100円で株価が1,400円ならPER14倍。しかし市場がこの企業の成長率を年20%と見込めば、1年後のEPSは120円になる。すると「来期ベース」のPERは約11.7倍となり、成長を織り込むと実はそれほど割高ではない。</p>
+
+      <p>逆に、成長が鈍化すると見込まれれば、たとえ今の利益が好調でもマルチプルは縮小する。PER20倍だった銘柄が、成長期待の剥落でPER12倍に沈む。利益が変わらなくても、株価は40%下落する。</p>
+
+      <p>マルチプルの拡大と縮小は、<strong>利益の変動よりも株価への影響が大きい</strong>ことがある。利益が横ばいでも、期待が変われば株価は大きく動く。だからこそ、PERの「水準」だけでなく、PERの「方向」を読むことが重要になる。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">株価 = EPS × PER。<br>利益だけでなく、投資家の期待（マルチプル）が株価を動かす。<br>どちらが変化しているかを見極めることが、投資判断の精度を決める。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 3 -->
+  <div class="article-section">
+    <div class="section-label">READING THE GAP</div>
+    <h2 class="section-title">期待に対して割安か――自分だけが見えているものはあるか</h2>
+    <div class="section-body">
+      <p>PERを読む上で最も大事な問いはこれだ。</p>
+
+      <p><strong>「現在のマルチプル（PER）、および株価は、投資家の成長期待に対して割安なのか？」</strong></p>
+
+      <p>そして、もうひとつ。</p>
+
+      <p><strong>「自分は他の投資家に対して、認識できているビジョンは有利なのか？」</strong></p>
+
+      <p>この二つの問いに答えるためには、PERという入口から、決算書の中に入っていく必要がある。売上の内訳をセグメント別に見る。利益率の推移を追う。設備投資の意図を読む。経営者の発言を過去と照合する。</p>
+
+      <p>たとえば、市場がPER12倍と評価している企業がある。業界平均は15倍。一見すると割安だ。しかし「なぜ市場はこの企業を低く評価しているのか」を考える必要がある。もし主力事業の成長鈍化が原因なら、それは妥当な評価かもしれない。しかし、市場が見落としている新規事業や、まだ評価されていないセグメントの成長ポテンシャルがあるなら、そこにギャップ（歪み）がある。</p>
+
+      <p>このギャップを見つけることこそが、投資における<strong>エッジ（優位性）</strong>である。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">PERから始まり、決算書へ。決算書から、市場が見落としている事実へ。<br>その道筋を辿れるかどうかが、投資家としての差になる。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 4 -->
+  <div class="article-section">
+    <div class="section-label">WHERE ALPHA LIVES</div>
+    <h2 class="section-title">人が怖がっている場所に、利益がある</h2>
+    <div class="section-body">
+      <p>ここで、逆張りの哲学とPERの読み方が交差する。</p>
+
+      <p>人が知らない情報。人が怖がっている状況。そういったところに利益はある。他人がすることと逆のことをするということは、こういうことだ。</p>
+
+      <p>市場全体が悲観に傾いたとき、優良企業のPERは不当に低くなる。業績は堅調なのに、センチメントだけで売り込まれる。そのとき、決算書を読み、事業の実態を理解している投資家だけが、「これは期待に対して割安だ」と判断できる。</p>
+
+      <p>逆に、市場が楽観に酔っているとき、成長ストーリーだけでPER50倍、60倍に評価される銘柄が出てくる。そのとき、冷静にセグメント分析をすれば、「この成長率でこのマルチプルは正当化できない」と気づける。</p>
+
+      <p>つまり、<strong>みんなが正しいと思っているところにα（超過収益）はない</strong>。</p>
+
+      <p>αは、コンセンサスと現実の間に隠れている。PERという数字を入口にして、その裏にある期待と現実のギャップを見つけること。それが、PERを「読む」ということである。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">みんなが正しいと思っているところにα（超過収益）はない。<br>人が怖がっている場所、人が知らない情報。<br>そこにこそ、合理的な投資家の利益がある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- Section 5 -->
+  <div class="article-section">
+    <div class="section-label">PRACTICAL CHECKLIST</div>
+    <h2 class="section-title">PERを読むためのチェックリスト</h2>
+    <div class="section-body">
+      <p>PERを見たとき、以下の手順で読み解く習慣をつけると、判断ミスが減る。</p>
+
+      <ul>
+        <li><strong>業界平均PERとの比較</strong> — 同業他社のPERレンジを確認し、対象企業の位置を把握する</li>
+        <li><strong>成長率との整合性</strong> — PEGレシオ（PER / 利益成長率）で成長に対する割安度を測る</li>
+        <li><strong>セグメント別の付加価値</strong> — 高利益率のセグメントがあるか、それは持続可能か</li>
+        <li><strong>ネガティブ要因の確認</strong> — 訴訟、規制、競合参入、経営リスクなど</li>
+        <li><strong>マルチプルの方向</strong> — 過去3年のPER推移を見て、拡大中か縮小中か</li>
+        <li><strong>市場の期待 vs 自分の見立て</strong> — コンセンサス予想と自分の分析にギャップがあるか</li>
+        <li><strong>なぜこの水準なのか</strong> — 数字の背景にある「理由」を言語化できるか</li>
+      </ul>
+
+      <p>最後の「なぜこの水準なのか」を自分の言葉で説明できないなら、そのPERはまだ読めていない。数字を見ているだけであって、読んではいない。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- -- FURTHER READING -- -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">FURTHER READING</div>
+    <p class="further-reason">PERの読み方を理解したら、次はキャッシュフローと逆張りの哲学へ。</p>
+    <div class="further-links">
+      <a class="further-link" href="../../fcf/">
+        <span class="further-link-tag">財務分析</span>
+        <span class="further-link-title">FCFとは何か</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../contrarian-philosophy/">
+        <span class="further-link-tag">投資原則</span>
+        <span class="further-link-title">逆張りの哲学：群衆と反対に歩く勇気と知恵</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../margin-of-safety/">
+        <span class="further-link-tag">投資原則</span>
+        <span class="further-link-title">安全域の原則：投資における最も重要な3文字</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../">
+        <span class="further-link-tag">投資原則</span>
+        <span class="further-link-title">私の投資原則</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資と思考の書斎</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a> ·
+    <a href="../../people/">人物録</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 200);
+});
+</script>
+</body>
+</html>
