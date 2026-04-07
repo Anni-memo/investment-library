@@ -124,35 +124,35 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
 
 /* ── SITE TREE ── */
-.site-tree{background:var(--ink);border-bottom:2px solid rgba(184,144,10,.2);padding:24px 24px 28px;}
+.site-tree{background:#1a1208;border-bottom:2px solid rgba(184,144,10,.2);padding:24px 24px 28px;}
 .site-tree-inner{max-width:760px;margin:0 auto;}
-.site-tree-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;opacity:.7;}
+.site-tree-label{font-family:var(--mono);font-size:.5rem;color:#d4aa22;letter-spacing:.2em;margin-bottom:14px;opacity:.7;}
 .st-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;}
 .st-cat{padding:0;}
 .st-cat-title{
   font-family:var(--serif);font-size:.82rem;font-weight:700;
-  color:var(--parch);padding:10px 14px;cursor:pointer;
+  color:#f5ede0;padding:10px 14px;cursor:pointer;
   display:flex;align-items:center;gap:8px;transition:color .2s;
   border-left:2px solid rgba(184,144,10,.3);
 }
-.st-cat-title:hover{color:var(--gold4);}
+.st-cat-title:hover{color:#f0cc55;}
 .st-cat-title::before{
   content:'';display:inline-block;width:0;height:0;
-  border-left:4px solid var(--gold2);border-top:3px solid transparent;border-bottom:3px solid transparent;
+  border-left:4px solid #b8900a;border-top:3px solid transparent;border-bottom:3px solid transparent;
   transition:transform .2s;flex-shrink:0;
 }
 .st-cat.open .st-cat-title::before{transform:rotate(90deg);}
-.st-cat-sub{font-family:var(--mono);font-size:.45rem;color:var(--gold);opacity:.5;letter-spacing:.08em;margin-left:auto;}
+.st-cat-sub{font-family:var(--mono);font-size:.45rem;color:#8b6914;opacity:.5;letter-spacing:.08em;margin-left:auto;}
 .st-links{display:none;padding:0 0 8px 20px;}
 .st-cat.open .st-links{display:block;}
 .st-link{
   display:block;padding:5px 12px;
-  font-family:var(--jp);font-size:.72rem;color:var(--parch4);
+  font-family:var(--jp);font-size:.72rem;color:#dfc9a8;
   text-decoration:none;transition:all .15s;
   border-left:1px solid rgba(184,144,10,.12);
 }
-.st-link:hover{color:var(--gold4);padding-left:16px;border-left-color:var(--gold3);}
-.st-link.current{color:var(--gold3);font-weight:600;}
+.st-link:hover{color:#f0cc55;padding-left:16px;border-left-color:#d4aa22;}
+.st-link.current{color:#d4aa22;font-weight:600;}
 @media(max-width:480px){
   .st-cats{grid-template-columns:1fr 1fr;}
 }
@@ -378,12 +378,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <!-- ── APP INSTALL ── -->
 <div id="pwa-install-section" style="display:none;max-width:700px;margin:0 auto;padding:32px 24px 0;">
-  <div style="background:linear-gradient(135deg,var(--ink) 0%,#2a1c08 100%);border:1px solid rgba(139,105,20,.3);border-radius:2px;padding:28px 24px;text-align:center;">
+  <div style="background:linear-gradient(135deg,#1a1208 0%,#2a1c08 100%);border:1px solid rgba(139,105,20,.3);border-radius:2px;padding:28px 24px;text-align:center;">
     <div style="font-size:1.6rem;margin-bottom:10px;">📚</div>
-    <div style="font-family:var(--serif);font-size:1.1rem;color:var(--parch);font-weight:600;margin-bottom:8px;">アプリに追加する</div>
-    <p style="font-size:.78rem;color:var(--parch4);line-height:1.7;margin-bottom:18px;">ホーム画面に追加すると、いつでもすぐに書斎にアクセスできます。</p>
-    <button id="pwa-install-btn" style="background:var(--gold2);color:var(--ink);border:none;padding:12px 32px;font-family:var(--jp);font-size:.85rem;font-weight:600;cursor:pointer;letter-spacing:.06em;transition:all .2s;">アプリに追加</button>
-    <div id="pwa-install-guide" style="display:none;margin-top:14px;font-size:.75rem;color:var(--parch4);line-height:1.8;"></div>
+    <div style="font-family:var(--serif);font-size:1.1rem;color:#f5ede0;font-weight:600;margin-bottom:8px;">アプリに追加する</div>
+    <p style="font-size:.78rem;color:#dfc9a8;line-height:1.7;margin-bottom:18px;">ホーム画面に追加すると、いつでもすぐに書斎にアクセスできます。</p>
+    <button id="pwa-install-btn" style="background:#b8900a;color:#1a1208;border:none;padding:12px 32px;font-family:var(--jp);font-size:.85rem;font-weight:600;cursor:pointer;letter-spacing:.06em;transition:all .2s;">アプリに追加</button>
+    <div id="pwa-install-guide" style="display:none;margin-top:14px;font-size:.75rem;color:#dfc9a8;line-height:1.8;"></div>
   </div>
 </div>
 
