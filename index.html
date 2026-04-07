@@ -12,6 +12,10 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#1a1208"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="icon" href="favicon.ico"/>
 <meta name="description" content="Munger・Buffett・Fisherの投資哲学を体系的に学べる無料のオンライン図書館。moat（競争優位性）・FCF（フリーキャッシュフロー）・投資原則・業種分析・行動経済学・メンタルモデルまで、長期投資家の判断基準を育てる。"/>
 <meta property="og:title" content="投資と思考の書斎｜長期投資のライブラリ"/>
 <meta property="og:description" content="Munger・Buffett・Fisherの投資哲学を体系的に学べる無料の知の図書館。moat・FCF・投資原則・業種分析・メンタルモデルを網羅。"/>
@@ -749,6 +753,6 @@ var SEARCH_DATA = [
 <!-- npc-widget.js 削除済み（AI FABに統合） -->
 <script src="enhancements.js"></script>
 <!-- library-map.js は CSS Grid 書庫マップに移行済み -->
-
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
 </body>
 </html>
