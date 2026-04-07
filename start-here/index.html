@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VYPK32EB6B');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <link rel="manifest" href="../manifest.json"/>
@@ -40,15 +34,16 @@
 }
 </script>
 
-<link rel="stylesheet" href="../shared.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
-
 <style>
 :root{
   --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
   --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
   --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
@@ -59,40 +54,136 @@ html{background:var(--ink);scroll-behavior:smooth}
 body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
 
-/* ── NAV ── */
-.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);}
-.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
-.nav-back:hover{color:var(--gold4)}
-.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);
-  color:var(--parch);padding:60px 24px 52px;text-align:center;
-  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
-}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero{background:url('../assets/hero-poster.jpg') center/cover no-repeat;color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.45) 0%,rgba(10,8,4,.25) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.55) 100%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.9rem);font-weight:700;line-height:1.2;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}
-.hero-lead{font-size:.9rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:520px;margin:0 auto;}
 
-/* ── ARTICLE ── */
-.article{max-width:680px;margin:0 auto;padding:56px 24px 12px;}
+/* Hero 3-column layout */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
 
-.article-section{margin-bottom:56px;}
-.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}
-.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
-.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
-.section-body p{margin-bottom:1.4em;}
-.section-body p:last-child{margin-bottom:0;}
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
 
-/* ── CALLOUT ── */
-.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:28px 0;background:var(--parch2);}
-.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+.container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
 
-/* ── DIVIDER ── */
+/* Graph View */
+.graph-card{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* Navigation Cockpit below hero */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Floating My Note FAB + Panel ===== */
+.mynote-fab{position:fixed;bottom:90px;right:42px;z-index:8999;width:66px;height:72px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
+.mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px 2px 2px 2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
+.mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
+.mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
+.mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:18px;width:50px;height:56px;}}
+
+/* Panel */
+.mynote-panel{position:fixed;bottom:90px;right:116px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.1rem;cursor:pointer;padding:2px 6px;transition:color .2s;}
+.mynote-panel-close:hover{color:var(--gold4);}
+.mynote-panel-body{background:repeating-linear-gradient(to bottom,transparent,transparent 27px,rgba(184,144,10,.08) 27px,rgba(184,144,10,.08) 28px);padding:12px 14px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:72px;width:calc(100vw - 16px);max-height:55vh;}}
+
+.mynote-card-streak{font-family:var(--mono);font-size:.55rem;color:var(--gold3);}
+.mynote-card-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px;}
+.mynote-card-nav-btn{background:none;border:1px solid var(--parch4);padding:3px 10px;font-family:var(--mono);font-size:.5rem;color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;}
+.mynote-card-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-card-nav-date{font-family:var(--mono);font-size:.58rem;color:var(--ink);font-weight:600;min-width:110px;text-align:center;}
+.mynote-panel textarea{width:100%;min-height:100px;font-size:16px;line-height:1.7;padding:10px;border:1px solid var(--parch4);border-radius:4px;resize:none;font-family:var(--jp);background:rgba(255,255,255,.5);color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-panel textarea:focus{border-color:var(--gold);}
+.mynote-panel textarea::placeholder{color:var(--parch4);font-size:.78rem;}
+.mynote-card-status{display:flex;align-items:center;justify-content:space-between;padding:6px 0 0;gap:8px;}
+.mynote-card-saved{font-family:var(--mono);font-size:.44rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+
+/* ========== Article Sections ========== */
+.section{margin-bottom:56px;}
+.section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
+.section-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+.body-text{font-size:.88rem;color:var(--ink2);line-height:2.15;font-weight:300;}
+.body-text p{margin-bottom:1.3em;}.body-text p:last-child{margin-bottom:0;}
+.body-text strong{font-weight:600;color:var(--ink);}
+
+.quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
+.quote-box-text{font-size:.88rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
+.quote-box-src{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;margin-top:10px;}
+
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
+.key-point-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.8;display:flex;align-items:center;gap:8px;}
+.key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.key-point-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.key-point-text strong{font-weight:600;color:var(--ink);}
+
 .divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
 
 /* ── PATH LIST ── */
@@ -157,31 +248,259 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .st-cats{grid-template-columns:1fr 1fr;}
 }
 
-/* ── FOOTER ── */
-.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
-.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
-.footer a{color:var(--gold3);text-decoration:none}
+/* ── SITE FOOTER ── */
+.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:0;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.7;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
+.footer-copy{font-family:var(--mono);font-size:.48rem;color:var(--parch4);opacity:.4;letter-spacing:.1em;}
 
 /* ── SCROLL TO TOP ── */
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
 </style>
+<link rel="stylesheet" href="../shared.css"/>
 </head>
 <body>
 
 <!-- ── NAV ── -->
 <nav class="nav">
-  <a class="nav-back" href="../">書斎の入口</a>
+  <a class="nav-back" href="../">&#8592; 書斎の入口</a>
   <span class="nav-sep">/</span>
   <span class="nav-current">はじめての資産形成</span>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- ── HERO (3-column) ── -->
 <div class="hero">
-  <div class="hero-shelf">ASSET BUILDING · はじめての資産形成</div>
-  <h1 class="hero-title">はじめての資産形成</h1>
-  <p class="hero-lead">投資を始める前に、土台となる考え方を整える部屋です。</p>
+  <div class="hero-3col">
+    <!-- Left: Graph View -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title + Lead -->
+    <div class="hero-col-center">
+      <div class="hero-label">ASSET BUILDING FOR BEGINNERS</div>
+      <h1 class="hero-title">はじめての資産形成</h1>
+      <div class="hero-sub">ASSET BUILDING &middot; &#12399;&#12376;&#12417;&#12390;&#12398;&#36039;&#29987;&#24418;&#25104;</div>
+      <p class="hero-lead">投資を始める前に、土台となる考え方を整える部屋です。<br>商品を選ぶ前に、地図を持つ。</p>
+    </div>
+
+    <!-- Right: Quick Start -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="../hajimete/satellite-strategy/"><span class="qa-icon">&#128640;</span> サテライト戦略</a>
+          <a class="qa-btn-v" href="where-to-start/"><span class="qa-icon">&#128204;</span> まず何から始めればいいか</a>
+          <a class="qa-btn-v" href="../principles/"><span class="qa-icon">&#128218;</span> 投資原則</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Navigation Cockpit: Tree + TOC ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../">書斎の入口</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>はじめての資産形成</span></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../hajimete/satellite-strategy/">サテライト戦略</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../etf-funds/">ETF・投資信託</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../dividends/">配当と還元</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../ideco/">NISA・iDeCo・老後資産</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../taxes/">税金と口座</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../risk-defense/">守りとリスク管理</a></div>
+        <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="real-estate/">不動産投資</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec-about"><span class="toc-num">&#9671;</span>この部屋について</a></li>
+      <li><a href="#sec-first"><span class="toc-num">&#9671;</span>ここから始める</a></li>
+      <li><a href="#sec-articles"><span class="toc-num">01-05</span>5つの問いに答える</a></li>
+      <li><a href="#sec-realestate"><span class="toc-num">&#9671;</span>不動産という資産形成</a></li>
+      <li><a href="#sec-next"><span class="toc-num">&#8594;</span>次に進む部屋</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- Floating My Note FAB + Panel -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">NOTE</div>
+  </div>
+  <span class="mynote-fab-streak" id="mcFabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&#9664;</button>
+      <div class="mynote-card-nav-date" id="mcDate">今日</div>
+      <button class="mynote-card-nav-btn" id="mcNext">&#9654;</button>
+    </div>
+    <textarea id="mcTextarea" placeholder="このページから、1枚書く"></textarea>
+    <div class="mynote-card-status">
+      <div class="mynote-card-saved" id="mcSaved">&#10003; 保存済み</div>
+      <div class="mynote-card-wordcount" id="mcWordcount">0 文字</div>
+    </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label" id="mcCalLabel"></div>
+      <div class="mynote-card-calendar-weekdays"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalGrid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ARTICLE ── -->
+<div class="container">
+
+  <!-- この部屋について -->
+  <div class="section" id="sec-about">
+    <div class="section-num">ABOUT THIS ROOM</div>
+    <h2 class="section-title">商品を選ぶ前に、地図を持つ</h2>
+    <div class="body-text">
+      <p>投資は、商品を覚えることから始まるのではない。まずは「なぜ投資をするのか」「どこにお金を置くのか」「何が違うのか」を静かに整理することから始まる。</p>
+      <p>この部屋では、NISAやiDeCoや個別株に進む前に、最初に持っておきたい考え方を5つの記事で整理している。</p>
+    </div>
+    <div class="quote-box">
+      <p class="quote-box-text">急ぐ必要はない。ここで整理した判断の地図は、このあと歩くすべての部屋で使える。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 最初の一歩 -->
+  <div class="section" id="sec-first">
+    <div class="section-num">FIRST STEP</div>
+    <h2 class="section-title">ここから始める</h2>
+    <div class="path-list">
+      <a class="path-item" href="where-to-start/">
+        <span class="path-num">&mdash;</span>
+        <div class="path-body">
+          <div class="path-title">まず何から始めればいいか</div>
+          <div class="path-why">NISA？投資信託？個別株？——迷ったとき、最初にすべきことは何か。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 記事一覧 -->
+  <div class="section" id="sec-articles">
+    <div class="section-num">01 &mdash; 05</div>
+    <h2 class="section-title">5つの問いに答える</h2>
+    <div class="path-list">
+      <a class="path-item" href="what-is-investing/">
+        <span class="path-num">01</span>
+        <div class="path-body">
+          <div class="path-title">投資は何のためにするのか</div>
+          <div class="path-why">資産を育てる意味を、根本から考える。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="emergency-fund/">
+        <span class="path-num">02</span>
+        <div class="path-body">
+          <div class="path-title">生活防衛資金とは何か</div>
+          <div class="path-why">投資の前に整える、暮らしの安全圏。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="nisa-ideco-taxable/">
+        <span class="path-num">03</span>
+        <div class="path-body">
+          <div class="path-title">NISA・iDeCo・課税口座の違い</div>
+          <div class="path-why">3つの器の特徴を、一目で整理する。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="stocks-vs-funds/">
+        <span class="path-num">04</span>
+        <div class="path-body">
+          <div class="path-title">個別株と投資信託の違い</div>
+          <div class="path-why">自分で選ぶか、まとめて持つか。それぞれの特徴と向き不向き。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+      <a class="path-item" href="where-to-start/">
+        <span class="path-num">05</span>
+        <div class="path-body">
+          <div class="path-title">まず何から始めればいいか</div>
+          <div class="path-why">迷ったときに立ち戻る、最初の判断基準。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 不動産 -->
+  <div class="section" id="sec-realestate">
+    <div class="section-num">REAL ESTATE</div>
+    <h2 class="section-title">不動産という資産形成</h2>
+    <div class="body-text">
+      <p>株式やインデックスファンドだけが資産形成ではない。不動産投資の基本、ヤドカリ投資、賃貸vs持ち家の判断軸を整理する部屋。</p>
+    </div>
+    <div class="path-list">
+      <a class="path-item" href="real-estate/">
+        <span class="path-num">&rarr;</span>
+        <div class="path-body">
+          <div class="path-title">不動産投資の入口</div>
+          <div class="path-why">3つの投資型、利回りの読み方、初心者が守るべき原則。ヤドカリ投資・賃貸vs持ち家も。</div>
+        </div>
+        <span class="path-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FURTHER READING ── -->
+<div class="further" id="sec-next">
+  <div class="further-inner">
+    <div class="further-label">次に進む部屋</div>
+    <p class="further-reason">土台ができたら、具体的な資産形成の方法を学ぶ部屋へ。</p>
+    <div class="further-links">
+      <a class="further-link" href="../etf-funds/">
+        <span class="further-link-tag">ETF・投信</span>
+        <span class="further-link-title">ETF・投資信託の部屋</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../dividends/">
+        <span class="further-link-tag">配当</span>
+        <span class="further-link-title">配当の部屋</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+      <a class="further-link" href="../ideco/">
+        <span class="further-link-tag">iDeCo</span>
+        <span class="further-link-title">iDeCoと老後資産の部屋</span>
+        <span class="further-link-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 <!-- ── SITE TREE ── -->
@@ -200,7 +519,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <a class="st-link" href="../ideco/">NISA・iDeCo・老後資産</a>
           <a class="st-link" href="../taxes/">税金と口座</a>
           <a class="st-link" href="../risk-defense/">守りとリスク管理</a>
-          <a class="st-link" href="../start-here/real-estate/">不動産投資</a>
+          <a class="st-link" href="real-estate/">不動産投資</a>
         </div>
       </div>
 
@@ -243,143 +562,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 
-<!-- ── ARTICLE ── -->
-<main class="article">
-
-  <!-- この部屋について -->
-  <div class="article-section">
-    <div class="section-label">この部屋について</div>
-    <h2 class="section-title">商品を選ぶ前に、地図を持つ</h2>
-    <div class="section-body">
-      <p>投資は、商品を覚えることから始まるのではない。まずは「なぜ投資をするのか」「どこにお金を置くのか」「何が違うのか」を静かに整理することから始まる。</p>
-      <p>この部屋では、NISAやiDeCoや個別株に進む前に、最初に持っておきたい考え方を5つの記事で整理している。</p>
-    </div>
-    <div class="callout">
-      <p class="callout-text">急ぐ必要はない。ここで整理した判断の地図は、このあと歩くすべての部屋で使える。</p>
-    </div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- 最初の一歩 -->
-  <div class="article-section">
-    <div class="section-label">最初の一歩</div>
-    <h2 class="section-title">ここから始める</h2>
-    <div class="path-list">
-      <a class="path-item" href="where-to-start/">
-        <span class="path-num">—</span>
-        <div class="path-body">
-          <div class="path-title">まず何から始めればいいか</div>
-          <div class="path-why">NISA？投資信託？個別株？——迷ったとき、最初にすべきことは何か。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-    </div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- 記事一覧 -->
-  <div class="article-section">
-    <div class="section-label">この部屋の記事</div>
-    <h2 class="section-title">5つの問いに答える</h2>
-    <div class="path-list">
-      <a class="path-item" href="what-is-investing/">
-        <span class="path-num">01</span>
-        <div class="path-body">
-          <div class="path-title">投資は何のためにするのか</div>
-          <div class="path-why">資産を育てる意味を、根本から考える。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-      <a class="path-item" href="emergency-fund/">
-        <span class="path-num">02</span>
-        <div class="path-body">
-          <div class="path-title">生活防衛資金とは何か</div>
-          <div class="path-why">投資の前に整える、暮らしの安全圏。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-      <a class="path-item" href="nisa-ideco-taxable/">
-        <span class="path-num">03</span>
-        <div class="path-body">
-          <div class="path-title">NISA・iDeCo・課税口座の違い</div>
-          <div class="path-why">3つの器の特徴を、一目で整理する。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-      <a class="path-item" href="stocks-vs-funds/">
-        <span class="path-num">04</span>
-        <div class="path-body">
-          <div class="path-title">個別株と投資信託の違い</div>
-          <div class="path-why">自分で選ぶか、まとめて持つか。それぞれの特徴と向き不向き。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-      <a class="path-item" href="where-to-start/">
-        <span class="path-num">05</span>
-        <div class="path-body">
-          <div class="path-title">まず何から始めればいいか</div>
-          <div class="path-why">迷ったときに立ち戻る、最初の判断基準。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-    </div>
-  </div>
-
-</main>
-
-<!-- ── REAL ESTATE ── -->
-<div class="article" style="padding-top:0;">
-  <hr class="divider"/>
-  <div class="article-section">
-    <div class="section-label">もうひとつの選択肢</div>
-    <h2 class="section-title">不動産という資産形成</h2>
-    <div class="section-body">
-      <p>株式やインデックスファンドだけが資産形成ではない。不動産投資の基本、ヤドカリ投資、賃貸vs持ち家の判断軸を整理する部屋。</p>
-    </div>
-    <div class="path-list">
-      <a class="path-item" href="real-estate/">
-        <span class="path-num">→</span>
-        <div class="path-body">
-          <div class="path-title">不動産投資の入口</div>
-          <div class="path-why">3つの投資型、利回りの読み方、初心者が守るべき原則。ヤドカリ投資・賃貸vs持ち家も。</div>
-        </div>
-        <span class="path-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- ── FURTHER READING ── -->
-<div class="further">
-  <div class="further-inner">
-    <div class="further-label">次に進む部屋</div>
-    <p class="further-reason">土台ができたら、具体的な資産形成の方法を学ぶ部屋へ。</p>
-    <div class="further-links">
-      <a class="further-link" href="../etf-funds/">
-        <span class="further-link-tag">ETF・投信</span>
-        <span class="further-link-title">ETF・投資信託の部屋</span>
-        <span class="further-link-arrow">→</span>
-      </a>
-      <a class="further-link" href="../dividends/">
-        <span class="further-link-tag">配当</span>
-        <span class="further-link-title">配当の部屋</span>
-        <span class="further-link-arrow">→</span>
-      </a>
-      <a class="further-link" href="../ideco/">
-        <span class="further-link-tag">iDeCo</span>
-        <span class="further-link-title">iDeCoと老後資産の部屋</span>
-        <span class="further-link-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</div>
-
 <!-- ── APP INSTALL ── -->
 <div id="pwa-install-section" style="display:none;max-width:700px;margin:0 auto;padding:32px 24px 0;">
   <div style="background:linear-gradient(135deg,#1a1208 0%,#2a1c08 100%);border:1px solid rgba(139,105,20,.3);border-radius:2px;padding:28px 24px;text-align:center;">
-    <div style="font-size:1.6rem;margin-bottom:10px;">📚</div>
+    <div style="font-size:1.6rem;margin-bottom:10px;">&#128218;</div>
     <div style="font-family:var(--serif);font-size:1.1rem;color:#f5ede0;font-weight:600;margin-bottom:8px;">アプリに追加する</div>
     <p style="font-size:.78rem;color:#dfc9a8;line-height:1.7;margin-bottom:18px;">ホーム画面に追加すると、いつでもすぐに書斎にアクセスできます。</p>
     <button id="pwa-install-btn" style="background:#b8900a;color:#1a1208;border:none;padding:12px 32px;font-family:var(--jp);font-size:.85rem;font-weight:600;cursor:pointer;letter-spacing:.06em;transition:all .2s;">アプリに追加</button>
@@ -394,7 +580,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   var guide = document.getElementById('pwa-install-guide');
   var deferredPrompt = null;
 
-  // Already installed (standalone) → hide
+  // Already installed (standalone) -> hide
   if(window.matchMedia('(display-mode:standalone)').matches) return;
 
   section.style.display = 'block';
@@ -406,14 +592,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   btn.addEventListener('click', function(){
     if(deferredPrompt){
-      // Chrome/Edge: native prompt
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then(function(r){
         if(r.outcome === 'accepted') section.style.display = 'none';
         deferredPrompt = null;
       });
     } else {
-      // Safari/Firefox: show manual guide
       var ua = navigator.userAgent;
       if(/iPhone|iPad/.test(ua)){
         guide.innerHTML = '1. 画面下の <b>共有ボタン（□↑）</b> をタップ<br>2. <b>「ホーム画面に追加」</b> を選択';
@@ -429,25 +613,351 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </script>
 
 <!-- ── FOOTER ── -->
-<footer class="footer">
-  <div class="footer-title">投資と思考の書斎</div>
-  <div>
-    <a href="../hajimete/">初めての方へ</a> ·
-    <a href="../principles/">投資原則</a> ·
-    <a href="../moat/">moat</a> ·
-    <a href="../fcf/">FCF</a> ·
-    <a href="../industries/">業種分析</a> ·
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="../">書斎の入口</a>
+    <a href="../hajimete/">初めての方へ</a>
+    <a href="../principles/">投資原則</a>
+    <a href="../moat/">moat</a>
+    <a href="../fcf/">FCF</a>
+    <a href="../industries/">業種分析</a>
     <a href="../horizons/">思考を広げる</a>
-  </div>
-  <div style="margin-top:8px;font-size:.6rem;opacity:.5;">© 投資と思考の書斎</div>
+  </nav>
+  <div class="footer-copy">&copy; 2026 投資と思考の書斎</div>
 </footer>
 
-<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+
 <script>
-window.addEventListener('scroll',()=>{
+/* ===== Knowledge Graph (Canvas API) ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var W,H;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+
+  var catLabels={self:'この記事',room:'部屋',article:'記事',concept:'概念'};
+
+  var nodes=[
+    {id:'self',label:'はじめての資産形成',x:0,y:0,r:24,color:'#d4aa22',cat:'self',url:null,desc:'この部屋'},
+    {id:'satellite',label:'サテライト戦略',x:-140,y:-60,r:16,color:'#8b6914',cat:'article',url:'../hajimete/satellite-strategy/',desc:'コア＋サテライトの実践'},
+    {id:'index',label:'インデックス投資',x:130,y:-80,r:15,color:'#8b6914',cat:'concept',url:'../etf-funds/',desc:'ETF・投資信託の基礎'},
+    {id:'stocks',label:'個別株基礎',x:150,y:40,r:14,color:'#8b6914',cat:'article',url:'stocks-vs-funds/',desc:'個別株と投信の違い'},
+    {id:'nisa',label:'NISA/iDeCo',x:-100,y:80,r:15,color:'#3d6828',cat:'room',url:'../ideco/',desc:'税制優遇の器'},
+    {id:'realestate',label:'不動産',x:60,y:120,r:14,color:'#3d6828',cat:'room',url:'real-estate/',desc:'不動産投資の入口'},
+    {id:'principles',label:'投資原則',x:-170,y:20,r:16,color:'#c05020',cat:'article',url:'../principles/',desc:'投資の判断軸'},
+    {id:'fcf',label:'FCF',x:180,y:-20,r:13,color:'#c05020',cat:'article',url:'../fcf/',desc:'フリーキャッシュフロー分析'}
+  ];
+
+  var edges=[
+    {from:'self',to:'satellite'},{from:'self',to:'index'},{from:'self',to:'stocks'},
+    {from:'self',to:'nisa'},{from:'self',to:'realestate'},{from:'self',to:'principles'},
+    {from:'self',to:'fcf'},
+    {from:'satellite',to:'index'},{from:'index',to:'stocks'},
+    {from:'nisa',to:'index'},{from:'principles',to:'fcf'},
+    {from:'stocks',to:'fcf'},{from:'satellite',to:'principles'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;
+    H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();});
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var target=90;
+      var force=(dist-target)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+
+    var hovId=null;
+    var hovConns={};
+    nodes.forEach(function(n){if(n.hover){hovId=n.id;}});
+    if(hovId){
+      hovConns[hovId]=true;
+      if(connMap[hovId])connMap[hovId].forEach(function(id){hovConns[id]=true;});
+    }
+
+    var isMobile='ontouchstart' in window;
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var isHighlight=hovId&&(hovConns[e.from]&&hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      var defaultAlpha=isMobile?'rgba(212,170,34,0.4)':'rgba(139,105,20,0.12)';
+      ctx.strokeStyle=isHighlight?'rgba(212,170,34,0.5)':defaultAlpha;
+      ctx.lineWidth=isHighlight?1.5:(isMobile?1:0.8);
+      ctx.stroke();
+    });
+
+    nodes.forEach(function(n){
+      var isHov=n.hover;
+      var drawR=isHov?n.r*1.15:n.r;
+
+      if(n.cat==='self'||isHov){
+        ctx.beginPath();ctx.arc(n.px,n.py,drawR+10,0,Math.PI*2);
+        var g=ctx.createRadialGradient(n.px,n.py,drawR,n.px,n.py,drawR+10);
+        var gc=n.cat==='self'?'212,170,34':'184,144,10';
+        g.addColorStop(0,'rgba('+gc+',0.2)');g.addColorStop(1,'transparent');
+        ctx.fillStyle=g;ctx.fill();
+      }
+
+      ctx.beginPath();ctx.arc(n.px,n.py,drawR,0,Math.PI*2);
+      ctx.fillStyle=isHov?'#f0cc55':n.color;
+      ctx.globalAlpha=n.cat==='self'?1:(isHov?0.9:0.65);
+      ctx.fill();ctx.globalAlpha=1;
+      ctx.strokeStyle=isHov?'rgba(240,204,85,0.6)':'rgba(245,237,224,0.15)';
+      ctx.lineWidth=isHov?1.5:0.7;ctx.stroke();
+
+      var showLabel=defaultLabels[n.id]||isHov||(hovId&&hovConns[n.id]);
+      if(showLabel){
+        var fs=Math.max(8,n.r*0.55);
+        ctx.font=(n.cat==='self'?'600 ':'300 ')+fs+'px "Noto Serif JP",serif';
+        ctx.fillStyle=isHov?'#f0cc55':'rgba(245,237,224,0.75)';
+        ctx.textAlign='center';ctx.textBaseline='middle';
+        ctx.fillText(n.label,n.px,n.py+drawR+11);
+      }
+    });
+
+    var cats=[{label:'この部屋',color:'#d4aa22'},{label:'部屋',color:'#3d6828'},{label:'記事',color:'#c05020'},{label:'概念',color:'#8b6914'}];
+    ctx.font='8px "DM Mono",monospace';ctx.textAlign='left';
+    cats.forEach(function(c,i){
+      var lx=10,ly=H-8-((cats.length-1-i)*14);
+      ctx.beginPath();ctx.arc(lx,ly,3.5,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.6;ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='rgba(139,105,20,0.5)';ctx.fillText(c.label,lx+9,ly+3);
+    });
+  }
+
+  var dragNode=null,dragStartX=0,dragStartY=0,dragDist=0;
+
+  function getNodeAt(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];var dx=x-n.px,dy=y-n.py;
+      if(dx*dx+dy*dy<(n.r+8)*(n.r+8))return n;
+    }return null;
+  }
+  function getXY(e){var r=canvas.getBoundingClientRect();var t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top};}
+
+  function showTooltip(n,cx,cy){
+    ttTitle.textContent=n.label;
+    ttCat.textContent=catLabels[n.cat]||n.cat;
+    ttDesc.textContent=n.desc||'';
+    var rect=canvas.parentElement.getBoundingClientRect();
+    var tx=cx+16,ty=cy-10;
+    if(tx+200>rect.width)tx=cx-200;
+    if(ty<0)ty=cy+16;
+    tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';tooltip.style.opacity='1';
+  }
+  function hideTooltip(){tooltip.style.opacity='0';}
+
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragNode){
+      dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;
+    }else{
+      var h=getNodeAt(p.x,p.y);
+      nodes.forEach(function(n){n.hover=false;});
+      if(h){h.hover=true;canvas.style.cursor=h.url?'pointer':'grab';showTooltip(h,p.x,p.y);}
+      else{canvas.style.cursor='grab';hideTooltip();}
+    }
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5&&dragNode.url){window.location.href=dragNode.url;}
+      dragNode=null;
+    }
+    canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('mouseleave',function(){
+    if(dragNode)dragNode.dragging=false;dragNode=null;
+    nodes.forEach(function(n){n.hover=false;});hideTooltip();
+  });
+
+  var touchStartTime=0;
+  canvas.addEventListener('touchstart',function(e){
+    var p=getXY(e);dragNode=getNodeAt(p.x,p.y);
+    if(dragNode){dragNode.dragging=true;dragStartX=p.x;dragStartY=p.y;dragDist=0;touchStartTime=Date.now();e.preventDefault();}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    if(dragNode){
+      var p=getXY(e);dragNode.px=p.x;dragNode.py=p.y;dragNode.vx=0;dragNode.vy=0;
+      dragDist+=Math.abs(p.x-dragStartX)+Math.abs(p.y-dragStartY);
+      dragStartX=p.x;dragStartY=p.y;e.preventDefault();
+    }
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragNode){
+      dragNode.dragging=false;
+      if(dragDist<5){
+        if(dragNode.url){window.location.href=dragNode.url;}
+        else{
+          var wasHov=dragNode.hover;
+          nodes.forEach(function(n){n.hover=false;});
+          if(!wasHov){dragNode.hover=true;showTooltip(dragNode,dragNode.px,dragNode.py);}
+          else{hideTooltip();}
+        }
+      }
+      dragNode=null;
+    }
+  });
+
+  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  loop();
+})();
+
+/* ===== Scroll Top ===== */
+window.addEventListener('scroll',function(){
   document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
 });
+
+/* ===== My Note Card (localStorage) ===== */
+(function(){
+  var STORAGE_PREFIX='myNote_';
+  var today=new Date();
+  var currentViewDate=new Date(today);
+  var saveTimer=null;
+
+  function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function formatDate(d){var days=['日','月','火','水','木','金','土'];return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日（'+days[d.getDay()]+'）';}
+  function getNoteData(d){try{var x=localStorage.getItem(STORAGE_PREFIX+dateKey(d));return x?JSON.parse(x):null;}catch(e){return null;}}
+  function saveNoteData(d,text){if(!text.trim()){localStorage.removeItem(STORAGE_PREFIX+dateKey(d));return;}localStorage.setItem(STORAGE_PREFIX+dateKey(d),JSON.stringify({text:text,savedAt:new Date().toISOString(),chars:text.length}));}
+
+  function calcStreak(){var s=0,d=new Date(today);if(!getNoteData(d))d.setDate(d.getDate()-1);while(true){var n=getNoteData(d);if(n&&n.text&&n.text.trim().length>0){s++;d.setDate(d.getDate()-1);}else break;}return s;}
+  function calcChallengeDays(){var c=0;for(var i=0;i<200;i++){var dd=new Date(today);dd.setDate(dd.getDate()-i);if(getNoteData(dd))c++;}return Math.min(c,66);}
+
+  function updateUI(){
+    document.getElementById('mcDate').textContent=formatDate(currentViewDate);
+    var note=getNoteData(currentViewDate);
+    document.getElementById('mcTextarea').value=note?note.text:'';
+    var count=note?note.text.length:0;
+    document.getElementById('mcWordcount').textContent=count+' 文字';
+    var streak=calcStreak();
+    var streakEl=document.getElementById('mcStreak');if(streakEl)streakEl.textContent=streak>0?'\uD83D\uDD25 '+streak+'日連続':'';
+    var fabStreakEl=document.getElementById('mcFabStreak');if(fabStreakEl)fabStreakEl.textContent=streak>0?'\uD83D\uDD25'+streak:'';
+    var days=calcChallengeDays();
+    var pfEl=document.getElementById('mcProgressFill');if(pfEl)pfEl.style.width=Math.round(days/66*100)+'%';
+    var plEl=document.getElementById('mcProgressLabel');if(plEl)plEl.textContent=days+' / 66日';
+    var isToday=dateKey(currentViewDate)===dateKey(today);
+    document.getElementById('mcNext').style.opacity=isToday?'.3':'1';
+    document.getElementById('mcNext').disabled=isToday;
+    renderCalendar();
+  }
+
+  function showSaved(){
+    var el=document.getElementById('mcSaved');
+    var now=new Date();
+    el.textContent='\u2713 '+now.getHours()+':'+String(now.getMinutes()).padStart(2,'0');
+    el.classList.add('visible');
+    setTimeout(function(){el.classList.remove('visible');},2500);
+  }
+
+  function renderCalendar(){
+    var grid=document.getElementById('mcCalGrid');grid.innerHTML='';
+    var year=currentViewDate.getFullYear(),month=currentViewDate.getMonth();
+    document.getElementById('mcCalLabel').textContent=year+'年'+(month+1)+'月';
+    var startDay=(new Date(year,month,1).getDay()+6)%7;
+    var dim=new Date(year,month+1,0).getDate();
+    for(var i=0;i<startDay;i++){var b=document.createElement('div');b.className='mc-day';b.style.cssText='background:transparent;border:none;';grid.appendChild(b);}
+    for(var d=1;d<=dim;d++){
+      var cell=document.createElement('div');
+      var cd=new Date(year,month,d);
+      var isFuture=cd>today;
+      var hasNote=!isFuture&&getNoteData(cd);
+      var isT=dateKey(cd)===dateKey(today);
+      cell.className='mc-day'+(hasNote?' has-note':'')+(isFuture?' future':'')+(isT&&hasNote?' today':'');
+      grid.appendChild(cell);
+    }
+  }
+
+  var ta=document.getElementById('mcTextarea');
+  ta.addEventListener('input',function(){
+    var text=this.value;
+    document.getElementById('mcWordcount').textContent=text.length+' 文字';
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){saveNoteData(currentViewDate,text);showSaved();updateUI();},500);
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
+
+  document.getElementById('mcPrev').addEventListener('click',function(){currentViewDate.setDate(currentViewDate.getDate()-1);updateUI();});
+  document.getElementById('mcNext').addEventListener('click',function(){if(dateKey(currentViewDate)!==dateKey(today)){currentViewDate.setDate(currentViewDate.getDate()+1);updateUI();}});
+
+  var fab=document.getElementById('mynoteFab');
+  var panel=document.getElementById('mynotePanel');
+  if(fab&&panel){
+    fab.addEventListener('click',function(){panel.classList.toggle('open');if(panel.classList.contains('open'))updateUI();});
+    document.getElementById('mynoteClose').addEventListener('click',function(){panel.classList.remove('open');});
+  }
+
+  updateUI();
+})();
 </script>
+
 <script src="../shared.js"></script>
 <script src="../ai-assistant.js"></script>
 <script src="../mynote.js"></script>
