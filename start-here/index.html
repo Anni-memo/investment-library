@@ -11,6 +11,10 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link rel="manifest" href="../manifest.json"/>
+<meta name="theme-color" content="#1a1208"/>
+<link rel="apple-touch-icon" href="../apple-touch-icon.png"/>
+<link rel="icon" href="../favicon.ico"/>
 <meta name="description" content="投資を始める前に、土台となる考え方を整える部屋。NISAやiDeCoや個別株に進む前に、最初に持っておきたい考え方を5つの記事で整理する。"/>
 <meta property="og:title" content="はじめての資産形成｜投資と思考の書斎"/>
 <meta property="og:description" content="投資を始める前に、土台となる考え方を整える部屋です。商品を選ぶ前に、地図を持つ。"/>
@@ -371,6 +375,58 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 </div>
 
+<!-- ── APP INSTALL ── -->
+<div id="pwa-install-section" style="display:none;max-width:700px;margin:0 auto;padding:32px 24px 0;">
+  <div style="background:linear-gradient(135deg,var(--ink) 0%,#2a1c08 100%);border:1px solid rgba(139,105,20,.3);border-radius:2px;padding:28px 24px;text-align:center;">
+    <div style="font-size:1.6rem;margin-bottom:10px;">📚</div>
+    <div style="font-family:var(--serif);font-size:1.1rem;color:var(--parch);font-weight:600;margin-bottom:8px;">アプリに追加する</div>
+    <p style="font-size:.78rem;color:var(--parch4);line-height:1.7;margin-bottom:18px;">ホーム画面に追加すると、いつでもすぐに書斎にアクセスできます。</p>
+    <button id="pwa-install-btn" style="background:var(--gold2);color:var(--ink);border:none;padding:12px 32px;font-family:var(--jp);font-size:.85rem;font-weight:600;cursor:pointer;letter-spacing:.06em;transition:all .2s;">アプリに追加</button>
+    <div id="pwa-install-guide" style="display:none;margin-top:14px;font-size:.75rem;color:var(--parch4);line-height:1.8;"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var section = document.getElementById('pwa-install-section');
+  var btn = document.getElementById('pwa-install-btn');
+  var guide = document.getElementById('pwa-install-guide');
+  var deferredPrompt = null;
+
+  // Already installed (standalone) → hide
+  if(window.matchMedia('(display-mode:standalone)').matches) return;
+
+  section.style.display = 'block';
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  btn.addEventListener('click', function(){
+    if(deferredPrompt){
+      // Chrome/Edge: native prompt
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(r){
+        if(r.outcome === 'accepted') section.style.display = 'none';
+        deferredPrompt = null;
+      });
+    } else {
+      // Safari/Firefox: show manual guide
+      var ua = navigator.userAgent;
+      if(/iPhone|iPad/.test(ua)){
+        guide.innerHTML = '1. 画面下の <b>共有ボタン（□↑）</b> をタップ<br>2. <b>「ホーム画面に追加」</b> を選択';
+      } else if(/Android/.test(ua)){
+        guide.innerHTML = '1. ブラウザの <b>メニュー（⋮）</b> をタップ<br>2. <b>「ホーム画面に追加」</b> を選択';
+      } else {
+        guide.innerHTML = 'ブラウザのメニューから <b>「アプリをインストール」</b> または <b>「ホーム画面に追加」</b> を選択してください。';
+      }
+      guide.style.display = 'block';
+    }
+  });
+})();
+</script>
+
 <!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-title">投資と思考の書斎</div>
@@ -394,5 +450,6 @@ window.addEventListener('scroll',()=>{
 <script src="../shared.js"></script>
 <script src="../ai-assistant.js"></script>
 <script src="../mynote.js"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js');}</script>
 </body>
 </html>
