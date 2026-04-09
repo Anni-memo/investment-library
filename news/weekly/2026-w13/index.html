@@ -27,11 +27,17 @@
   "headline": "「SaaSの死」とAIエージェント時代 — ソフトウェア企業の堀は崩れるのか",
   "description": "OpenAI議長ブレット・テイラーが警告する「SaaSの死」。AIエージェントがソフトウェア企業の堀をどう崩すのか、長期投資家の視点で構造を読み解く。",
   "datePublished": "2026-03-29",
+  "dateModified": "2026-04-09",
   "author": {"@type": "Person", "name": "anni_memo"},
-  "publisher": {"@type": "Organization", "name": "投資と思考の書斎"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
   "url": "https://anni-memo.github.io/investment-library/news/weekly/2026-w13/",
   "isPartOf": {"@type": "WebSite", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
-  "keywords": ["SaaS", "AIエージェント", "moat", "ソフトウェア産業", "長期投資"]
+  "keywords": ["SaaS", "AIエージェント", "moat", "ソフトウェア産業", "長期投資"],
+  "about": [
+    {"@type": "Thing", "name": "SaaS"},
+    {"@type": "Thing", "name": "AI Agent"},
+    {"@type": "Thing", "name": "Economic Moat"}
+  ]
 }
 </script>
 
@@ -60,70 +66,88 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-.hero{
-  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);
-  color:var(--parch);padding:52px 24px 44px;text-align:center;
-  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
-}
+/* ===== Hero 3-column ===== */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-week{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:8px;opacity:.7;position:relative;}
-.hero-date{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:12px;opacity:.8;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.3rem,4.5vw,2.2rem);font-weight:700;color:var(--parch);position:relative;line-height:1.25;}
-.hero-sub{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-top:10px;opacity:.75;position:relative;}
-.hero-lead{margin-top:24px;position:relative;font-family:var(--serif);font-size:clamp(.85rem,2vw,.98rem);color:var(--parch3);font-style:italic;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
-.hero-tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:20px;position:relative;}
-.hero-tag{font-family:var(--mono);font-size:.5rem;padding:3px 10px;border:1px solid rgba(184,144,10,.35);color:var(--gold3);letter-spacing:.1em;}
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-week{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:6px;opacity:.7;position:relative;}
+.hero-date{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.8;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
+.hero-tags{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:14px;position:relative;}
+.hero-tag{font-family:var(--mono);font-size:.46rem;padding:3px 8px;border:1px solid rgba(184,144,10,.35);color:var(--gold3);letter-spacing:.08em;}
 
+/* Graph View */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* ===== Navigation Cockpit ===== */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Disclaimer ===== */
 .disclaimer{background:#1e1408;border-bottom:1px solid rgba(184,144,10,.15);padding:0 24px;}
 .disclaimer-inner{max-width:820px;margin:0 auto;padding:12px 0;display:flex;align-items:flex-start;gap:10px;}
 .disclaimer-icon{font-size:.85rem;flex-shrink:0;margin-top:1px;opacity:.6;}
 .disclaimer-text{font-family:var(--mono);font-size:.48rem;color:rgba(200,180,140,.5);line-height:1.9;letter-spacing:.04em;}
 
+/* ===== Main Content ===== */
 .container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
-.reading-time{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:16px;text-align:center;opacity:.7;}
-
-/* ── TOC ── */
-.toc{
-  border:1px solid var(--parch4);background:var(--parch2);
-  padding:24px 28px;margin-bottom:48px;
-}
-.toc-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
-.toc-list{list-style:none;counter-reset:toc;}
-.toc-list li{counter-increment:toc;}
-.toc-list li a{
-  display:flex;align-items:baseline;gap:10px;
-  font-size:.82rem;color:var(--ink2);text-decoration:none;
-  padding:6px 0;border-bottom:1px solid rgba(223,201,168,.4);
-  transition:color .2s;font-weight:300;line-height:1.6;
-}
-.toc-list li a:hover{color:var(--gold);}
-.toc-list li a::before{
-  content:counter(toc,decimal-leading-zero);
-  font-family:var(--mono);font-size:.52rem;color:var(--gold);
-  letter-spacing:.1em;min-width:22px;opacity:.7;
-}
-
 .section{margin-bottom:56px;}
 .section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
 .section-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
 .body-text{font-size:.88rem;color:var(--ink2);line-height:2.15;font-weight:300;}
-.body-text p{margin-bottom:1.3em;}
-.body-text p:last-child{margin-bottom:0;}
+.body-text p{margin-bottom:1.3em;}.body-text p:last-child{margin-bottom:0;}
 .body-text strong{font-weight:600;color:var(--ink);}
 
-.quote-box{
-  border-left:4px solid var(--gold);padding:20px 24px;
-  background:var(--parch2);margin:28px 0;
-}
+.quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
 .quote-box-text{font-size:.88rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
 .quote-box-source{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.1em;margin-top:10px;opacity:.7;}
 
-.key-point{
-  margin:28px 0;border:1px solid rgba(139,105,20,.4);
-  background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));
-  padding:20px 22px;
-}
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
 .key-point-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.8;display:flex;align-items:center;gap:8px;}
 .key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
 .key-point-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
@@ -131,66 +155,57 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 .source-box{margin-top:14px;padding:12px 16px;background:var(--parch3);border-left:2px solid rgba(139,105,20,.4);}
 .source-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.16em;margin-bottom:6px;opacity:.7;}
-.source-link{font-family:var(--mono);font-size:.5rem;color:var(--blue2);text-decoration:none;line-height:2.1;display:block;}
-.source-link:hover{color:var(--gold2);text-decoration:underline;}
+.source-link{font-family:var(--mono);font-size:.5rem;color:var(--blue2);text-decoration:none;line-height:2.1;display:block;}.source-link:hover{color:var(--gold2);text-decoration:underline;}
 
 .keyword-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
 .keyword{font-family:var(--mono);font-size:.48rem;padding:3px 10px;background:rgba(139,105,20,.1);color:var(--gold);border:1px solid rgba(139,105,20,.3);letter-spacing:.08em;}
 
-/* ── Data Table ── */
 .data-table-wrap{margin:28px 0;overflow-x:auto;}
-.data-table{
-  width:100%;border-collapse:collapse;font-size:.78rem;
-}
-.data-table th{
-  font-family:var(--mono);font-size:.48rem;color:var(--gold);
-  letter-spacing:.12em;text-align:left;padding:10px 14px;
-  border-bottom:2px solid var(--gold);background:rgba(139,105,20,.06);
-  font-weight:500;
-}
-.data-table td{
-  padding:10px 14px;border-bottom:1px solid var(--parch3);
-  color:var(--ink2);font-weight:300;line-height:1.7;vertical-align:top;
-}
+.data-table{width:100%;border-collapse:collapse;font-size:.78rem;}
+.data-table th{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.12em;text-align:left;padding:10px 14px;border-bottom:2px solid var(--gold);background:rgba(139,105,20,.06);font-weight:500;}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--parch3);color:var(--ink2);font-weight:300;line-height:1.7;vertical-align:top;}
 .data-table tr:hover td{background:rgba(139,105,20,.04);}
 .data-table .company-name{font-weight:500;color:var(--ink);}
 .data-table .tag-safe{color:var(--green2);font-weight:500;}
 .data-table .tag-risk{color:var(--rust);font-weight:500;}
 .data-table .tag-neutral{color:var(--ink3);font-weight:500;}
 
-/* ── Timeline ── */
 .timeline{margin:28px 0;padding-left:24px;border-left:2px solid var(--parch4);}
 .timeline-item{margin-bottom:20px;position:relative;}
-.timeline-item::before{
-  content:'';position:absolute;left:-29px;top:6px;
-  width:10px;height:10px;border-radius:50%;
-  background:var(--gold);border:2px solid var(--parch);
-}
+.timeline-item::before{content:'';position:absolute;left:-29px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parch);}
 .timeline-era{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.15em;margin-bottom:4px;opacity:.7;}
 .timeline-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
 .timeline-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
 
-/* ── Divider ── */
 .divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
 
-/* ── Related ── */
+.conclusion{border-top:2px solid var(--gold);padding-top:40px;margin-top:64px;margin-bottom:64px;}
+.conclusion-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;opacity:.7;}
+.conclusion-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+
+/* Ref Section */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+
+/* Related */
 .related{margin:48px 0;padding:28px;background:var(--parch2);border:1px solid var(--parch3);}
 .related-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:16px;opacity:.75;}
 .related-list{display:flex;flex-direction:column;gap:3px;}
-.related-item{
-  display:flex;align-items:center;gap:12px;padding:10px 14px;
-  background:var(--parch);border:1px solid var(--parch3);
-  text-decoration:none;color:var(--ink);transition:all .2s;
-}
+.related-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--parch);border:1px solid var(--parch3);text-decoration:none;color:var(--ink);transition:all .2s;}
 .related-item:hover{border-color:var(--gold);transform:translateX(3px);}
 .related-item-icon{font-family:var(--mono);font-size:.5rem;color:var(--gold);opacity:.6;}
 .related-item-text{font-size:.82rem;color:var(--ink2);font-weight:300;}
 
-.conclusion{
-  border-top:2px solid var(--gold);padding-top:40px;margin-top:64px;margin-bottom:64px;
-}
-.conclusion-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:16px;opacity:.7;}
-.conclusion-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+/* Next Links */
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
+.next-link:hover{border-color:var(--gold3);background:var(--parch3);}
+.next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
 
 .nav-links{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--parch4);margin-bottom:80px;flex-wrap:wrap;gap:12px;}
 .nav-link{font-family:var(--mono);font-size:.55rem;color:var(--gold);text-decoration:none;letter-spacing:.1em;border:1px solid rgba(139,105,20,.3);padding:8px 16px;transition:all .2s;}
@@ -207,97 +222,128 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <body>
 
 <nav class="nav">
-  <a class="nav-back" href="../../../">← Library Top</a>
+  <a class="nav-back" href="../../../">&#8592; 書斎の入口</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../../">News</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../">Weekly</a>
   <span class="nav-sep">/</span>
-  <span class="nav-current">W13 — SaaSの死</span>
+  <span class="nav-current">W13 &#8212; SaaS&#12398;&#27515;</span>
 </nav>
 
+<!-- ===== HERO (3-column) ===== -->
 <div class="hero">
-  <div class="hero-week">WEEKLY DEEP DIVE — WEEK 13</div>
-  <div class="hero-date">2026 · MARCH · 29</div>
-  <h1 class="hero-title">「SaaSの死」とAIエージェント時代<br><span style="font-size:.7em;font-weight:400;opacity:.85;">— ソフトウェア企業の堀は崩れるのか</span></h1>
-  <div class="hero-sub">LONG-TERM INVESTOR'S DEEP DIVE</div>
-  <p class="hero-lead">OpenAI議長ブレット・テイラーが「SaaSは死ぬ」と警告した。<br>AIエージェントはソフトウェア企業の競争優位をどう書き換えるのか。</p>
-  <div class="hero-tags">
-    <span class="hero-tag">SaaS</span>
-    <span class="hero-tag">AIエージェント</span>
-    <span class="hero-tag">moat</span>
-    <span class="hero-tag">ソフトウェア産業</span>
-    <span class="hero-tag">スイッチングコスト</span>
-  </div>
-</div>
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">CONCEPT MAP</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
 
-<div class="disclaimer">
-  <div class="disclaimer-inner">
-    <div class="disclaimer-icon">📌</div>
-    <div class="disclaimer-text">
-      この記事は各出典の公開情報をもとに、長期投資家の視点で独自に分析・考察した解説記事です。
-      引用部分の著作権は各出典に帰属します。特定銘柄の売買推奨ではありません。投資判断は自己責任でお願いします。
+    <!-- Center: Title -->
+    <div class="hero-col-center">
+      <div class="hero-week">WEEKLY DEEP DIVE &#8212; WEEK 13</div>
+      <div class="hero-date">2026 &#183; MARCH &#183; 29</div>
+      <h1 class="hero-title">&#12300;SaaS&#12398;&#27515;&#12301;&#12392;AI&#12456;&#12540;&#12472;&#12455;&#12531;&#12488;&#26178;&#20195;<br><span style="font-size:.6em;font-weight:400;opacity:.85;">&#8212; &#12477;&#12501;&#12488;&#12454;&#12455;&#12450;&#20225;&#26989;&#12398;&#22528;&#12399;&#23849;&#12428;&#12427;&#12398;&#12363;</span></h1>
+      <div class="hero-sub">LONG-TERM INVESTOR'S DEEP DIVE</div>
+      <p class="hero-lead">OpenAI&#35696;&#38263;&#12502;&#12524;&#12483;&#12488;&#12539;&#12486;&#12452;&#12521;&#12540;&#12364;&#12300;SaaS&#12399;&#27515;&#12396;&#12301;&#12392;&#35686;&#21578;&#12375;&#12383;&#12290;<br>AI&#12456;&#12540;&#12472;&#12455;&#12531;&#12488;&#12399;&#12477;&#12501;&#12488;&#12454;&#12455;&#12450;&#20225;&#26989;&#12398;&#31478;&#20105;&#20778;&#20301;&#12434;&#12393;&#12358;&#26360;&#12365;&#25563;&#12360;&#12427;&#12398;&#12363;&#12290;</p>
+      <div class="hero-tags">
+        <span class="hero-tag">SaaS</span>
+        <span class="hero-tag">AI&#12456;&#12540;&#12472;&#12455;&#12531;&#12488;</span>
+        <span class="hero-tag">moat</span>
+        <span class="hero-tag">&#12477;&#12501;&#12488;&#12454;&#12455;&#12450;&#29987;&#26989;</span>
+        <span class="hero-tag">&#12473;&#12452;&#12483;&#12481;&#12531;&#12464;&#12467;&#12473;&#12488;</span>
+      </div>
+    </div>
+
+    <!-- Right: Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#s1"><span class="qa-icon">&#9889;</span> &#12486;&#12452;&#12521;&#12540;&#12398;&#35686;&#21578;</a>
+          <a class="qa-btn-v" href="#s4"><span class="qa-icon">&#128274;</span> 3&#12388;&#12398;&#38450;&#22721;&#23849;&#22730;</a>
+          <a class="qa-btn-v" href="#s6"><span class="qa-icon">&#127471;&#127477;</span> &#26085;&#26412;SaaS&#37528;&#26564;&#12510;&#12483;&#12503;</a>
+          <a class="qa-btn-v" href="#s8"><span class="qa-icon">&#128218;</span> &#32080;&#35542;</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <div class="disclaimer-icon">&#128204;</div>
+    <div class="disclaimer-text">
+      &#12371;&#12398;&#35352;&#20107;&#12399;&#21508;&#20986;&#20856;&#12398;&#20844;&#38283;&#24773;&#22577;&#12434;&#12418;&#12392;&#12395;&#12289;&#38263;&#26399;&#25237;&#36039;&#23478;&#12398;&#35222;&#28857;&#12391;&#29420;&#33258;&#12395;&#20998;&#26512;&#12539;&#32771;&#23519;&#12375;&#12383;&#35299;&#35500;&#35352;&#20107;&#12391;&#12377;&#12290;
+      &#24341;&#29992;&#37096;&#20998;&#12398;&#33879;&#20316;&#27177;&#12399;&#21508;&#20986;&#20856;&#12395;&#24112;&#23646;&#12375;&#12414;&#12377;&#12290;&#29305;&#23450;&#37528;&#26564;&#12398;&#22770;&#36023;&#25512;&#22888;&#12391;&#12399;&#12354;&#12426;&#12414;&#12379;&#12435;&#12290;&#25237;&#36039;&#21028;&#26029;&#12399;&#33258;&#24049;&#36012;&#20219;&#12391;&#12362;&#39000;&#12356;&#12375;&#12414;&#12377;&#12290;
+    </div>
+  </div>
+</div>
 
-  <div class="reading-time">READING TIME: APPROX. 12 MIN</div>
-
-  <!-- TOC -->
-  <div class="toc">
-    <div class="toc-label">CONTENTS</div>
+<!-- ===== Navigation Cockpit ===== -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">&#29694;&#22312;&#22320; <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../../">&#25237;&#36039;&#12392;&#24605;&#32771;&#12398;&#26360;&#25998;</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../../">News</a></div>
+        <div class="ct-children">
+          <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">&#36913;&#21002;&#28145;&#35501;&#12415;</a></div>
+          <div class="ct-children">
+            <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>W13 &#8212; SaaS&#12398;&#27515;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 12 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">&#30446;&#27425; <span class="cockpit-sublabel">CONTENTS</span></div>
     <ol class="toc-list">
-      <li><a href="#s1">テイラーの警告 —「対応できない企業は苦境に立つ」</a></li>
-      <li><a href="#s2">SaaSの堀はなぜ強かったのか</a></li>
-      <li><a href="#s3">歴史的パターン — 技術シフトは堀を2度壊した</a></li>
-      <li><a href="#s4">AIエージェントが崩す3つの防壁</a></li>
-      <li><a href="#s5">グローバルSaaS市場 — 数字が語る転換点</a></li>
-      <li><a href="#s6">日本のSaaS銘柄マップ — 守れる企業と危うい企業</a></li>
-      <li><a href="#s7">マンガーなら何を見るか</a></li>
-      <li><a href="#s8">結論 — 堀を持っているか、ではなく「堀を更新できるか」</a></li>
+      <li><a href="#s1"><span class="toc-num">01</span>&#12486;&#12452;&#12521;&#12540;&#12398;&#35686;&#21578;</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span>SaaS&#12398;&#22528;&#12399;&#12394;&#12380;&#24375;&#12363;&#12387;&#12383;&#12398;&#12363;</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span>&#27508;&#21490;&#30340;&#12497;&#12479;&#12540;&#12531;</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span>AI&#12364;&#23849;&#12377;3&#12388;&#12398;&#38450;&#22721;</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span>&#12464;&#12525;&#12540;&#12496;&#12523;SaaS&#24066;&#22580;</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span>&#26085;&#26412;SaaS&#37528;&#26564;&#12510;&#12483;&#12503;</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span>&#12510;&#12531;&#12460;&#12540;&#12394;&#12425;&#20309;&#12434;&#35211;&#12427;&#12363;</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span>&#32080;&#35542;</a></li>
     </ol>
   </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
 
   <!-- 01 テイラーの警告 -->
   <div class="section" id="s1">
     <div class="section-num">01 / 08</div>
-    <h2 class="section-title">テイラーの警告 —「対応できない企業は苦境に立つ」</h2>
+    <h2 class="section-title">テイラーの警告 &#8212;「対応できない企業は苦境に立つ」</h2>
     <div class="body-text">
-      <p>
-        OpenAI議長であり、元Salesforce共同CEOでもあるブレット・テイラーは、
-        2026年に入ってから繰り返し「従来型SaaSの終焉」について語っている。
-        その主張の核心はこうだ。
-      </p>
+      <p>OpenAI議長であり、元Salesforce共同CEOでもあるブレット・テイラーは、2026年に入ってから繰り返し「従来型SaaSの終焉」について語っている。その主張の核心はこうだ。</p>
     </div>
     <div class="quote-box">
-      <div class="quote-box-text">
-        「AIエージェントがワークフローそのものを実行できるようになれば、
-        人間がソフトウェアのUIを操作する必要がなくなる。
-        対応できないSaaS企業は苦境に立たされるだろう」
-      </div>
-      <div class="quote-box-source">— ブレット・テイラー（OpenAI議長 / Sierra AI CEO）、日経新聞インタビュー等より要旨</div>
+      <div class="quote-box-text">「AIエージェントがワークフローそのものを実行できるようになれば、人間がソフトウェアのUIを操作する必要がなくなる。対応できないSaaS企業は苦境に立たされるだろう」</div>
+      <div class="quote-box-source">&#8212; ブレット・テイラー（OpenAI議長 / Sierra AI CEO）、日経新聞インタビュー等より要旨</div>
     </div>
     <div class="body-text">
-      <p>
-        テイラーのキャリアを追うと、この発言の重みがわかる。
-        彼はGoogleマップの共同開発者としてキャリアをスタートし、
-        Facebookのプラットフォーム担当CTOを経て、
-        2016年にSalesforceに合流。2021年に共同CEOに就任した。
-        SaaSビジネスの頂点を知り尽くした人物だ。
-      </p>
-      <p>
-        その彼が2024年にSalesforceを退任し、AIエージェント企業Sierra AIを創業した。
-        まさに「SaaSを壊す側」に自ら移った。
-        これは単なるポジショントークではない。
-        SaaSの内側を知り尽くした人物が、自分のキャリアを賭けて示した構造変化の方向性だ。
-      </p>
+      <p>テイラーのキャリアを追うと、この発言の重みがわかる。彼はGoogleマップの共同開発者としてキャリアをスタートし、FacebookのプラットフォームCTOを経て、2016年にSalesforceに合流。2021年に共同CEOに就任した。SaaSビジネスの頂点を知り尽くした人物だ。</p>
+      <p>その彼が2024年にSalesforceを退任し、AIエージェント企業Sierra AIを創業した。まさに「SaaSを壊す側」に自ら移った。これは単なるポジショントークではない。SaaSの内側を知り尽くした人物が、自分のキャリアを賭けて示した構造変化の方向性だ。</p>
     </div>
     <div class="source-box">
-      <div class="source-label">出典 · SOURCE</div>
-      <a class="source-link" href="https://www.nikkei.com/" target="_blank" rel="noopener">▸ 日本経済新聞 —「SaaSの死」対応できない企業は苦境に（OpenAI議長テイラー氏）</a>
-      <a class="source-link" href="https://sierra.ai/" target="_blank" rel="noopener">▸ Sierra AI — 公式サイト（テイラーが共同創業したAIエージェント企業）</a>
+      <div class="source-label">出典 &#183; SOURCE</div>
+      <a class="source-link" href="https://www.nikkei.com/" target="_blank" rel="noopener">&#9656; 日本経済新聞 &#8212;「SaaSの死」対応できない企業は苦境に（OpenAI議長テイラー氏）</a>
+      <a class="source-link" href="https://sierra.ai/" target="_blank" rel="noopener">&#9656; Sierra AI &#8212; 公式サイト（テイラーが共同創業したAIエージェント企業）</a>
     </div>
   </div>
 
@@ -308,39 +354,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="section-num">02 / 08</div>
     <h2 class="section-title">SaaSの堀はなぜ強かったのか</h2>
     <div class="body-text">
-      <p>
-        SaaSビジネスモデルが20年以上にわたって投資家に愛された理由は明確だ。
-        それは「一度導入されたら抜けにくい」という構造的な堀を3重に持っていたからだ。
-      </p>
-      <p>
-        <strong>第一の堀：スイッチングコスト。</strong>
-        一度SaaSツールを導入すると、社員はそのUIに慣れ、業務フローがツール前提で設計される。
-        蓄積されたデータの移行コストも高い。
-        Salesforceの顧客が他のCRMに移行するには、平均で6〜18ヶ月のプロジェクトが必要だと言われる。
-        この「面倒さ」こそがSaaSの堀だった。
-      </p>
-      <p>
-        <strong>第二の堀：ネットワーク効果。</strong>
-        Slack、Teams、Salesforceのようなツールは、社内の利用者が増えるほど価値が高まる。
-        取引先とも同じプラットフォームでつながれば、エコシステム全体がロックインされる。
-        一企業の判断だけでは離脱できない。
-      </p>
-      <p>
-        <strong>第三の堀：リカーリング収益の予測可能性。</strong>
-        月額・年額のサブスクリプション課金が生む安定キャッシュフローは、
-        ウォール街が最も評価する収益構造だった。
-        「NRR（Net Revenue Retention）が130%を超えるSaaS企業」は、
-        既存顧客だけで前年比30%成長する計算になる。
-        この指標がSaaS企業の高バリュエーションを正当化してきた。
-      </p>
+      <p>SaaSビジネスモデルが20年以上にわたって投資家に愛された理由は明確だ。それは「一度導入されたら抜けにくい」という構造的な堀を3重に持っていたからだ。</p>
+      <p><strong>第一の堀：スイッチングコスト。</strong>一度SaaSツールを導入すると、社員はそのUIに慣れ、業務フローがツール前提で設計される。蓄積されたデータの移行コストも高い。Salesforceの顧客が他のCRMに移行するには、平均で6&#12316;18ヶ月のプロジェクトが必要だと言われる。この「面倒さ」こそがSaaSの堀だった。</p>
+      <p><strong>第二の堀：ネットワーク効果。</strong>Slack、Teams、Salesforceのようなツールは、社内の利用者が増えるほど価値が高まる。取引先とも同じプラットフォームでつながれば、エコシステム全体がロックインされる。一企業の判断だけでは離脱できない。</p>
+      <p><strong>第三の堀：リカーリング収益の予測可能性。</strong>月額・年額のサブスクリプション課金が生む安定キャッシュフローは、ウォール街が最も評価する収益構造だった。「NRR（Net Revenue Retention）が130%を超えるSaaS企業」は、既存顧客だけで前年比30%成長する計算になる。この指標がSaaS企業の高バリュエーションを正当化してきた。</p>
     </div>
     <div class="key-point">
       <div class="key-point-label">STRUCTURAL INSIGHT</div>
-      <div class="key-point-text">
-        SaaSの本質は「ソフトウェアをサービスとして売る」ことではない。
-        <strong>「ワークフローの中に自社を組み込み、スイッチングコストという堀を築く」</strong>ことだ。
-        テイラーの警告は、まさにこの「組み込まれる前提」が崩れ始めていることを指している。
-      </div>
+      <div class="key-point-text">SaaSの本質は「ソフトウェアをサービスとして売る」ことではない。<strong>「ワークフローの中に自社を組み込み、スイッチングコストという堀を築く」</strong>ことだ。テイラーの警告は、まさにこの「組み込まれる前提」が崩れ始めていることを指している。</div>
     </div>
   </div>
 
@@ -349,53 +370,30 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 03 歴史的パターン -->
   <div class="section" id="s3">
     <div class="section-num">03 / 08</div>
-    <h2 class="section-title">歴史的パターン — 技術シフトは堀を2度壊した</h2>
+    <h2 class="section-title">歴史的パターン &#8212; 技術シフトは堀を2度壊した</h2>
     <div class="body-text">
-      <p>
-        ソフトウェア産業の歴史を振り返ると、技術パラダイムの転換が既存企業の堀を破壊した事例が少なくとも2回ある。
-        今回の「SaaSの死」は、3度目の構造転換になり得る。
-      </p>
+      <p>ソフトウェア産業の歴史を振り返ると、技術パラダイムの転換が既存企業の堀を破壊した事例が少なくとも2回ある。今回の「SaaSの死」は、3度目の構造転換になり得る。</p>
     </div>
-
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-era">1990s — 2000s</div>
-        <div class="timeline-title">第1波：メインフレーム → クライアント・サーバー</div>
-        <div class="timeline-desc">
-          IBM・DECが支配したメインフレーム時代は、MicrosoftとOracleの台頭で終わった。
-          「巨大な中央コンピュータ」の堀は、安価なPCの普及で無力化された。
-          IBMは生き残ったが、メインフレーム売上は10分の1以下に縮小した。
-        </div>
+        <div class="timeline-era">1990s &#8212; 2000s</div>
+        <div class="timeline-title">第1波：メインフレーム &#8594; クライアント・サーバー</div>
+        <div class="timeline-desc">IBM・DECが支配したメインフレーム時代は、MicrosoftとOracleの台頭で終わった。「巨大な中央コンピュータ」の堀は、安価なPCの普及で無力化された。IBMは生き残ったが、メインフレーム売上は10分の1以下に縮小した。</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-era">2006 — 2020s</div>
-        <div class="timeline-title">第2波：オンプレミス → クラウド（SaaS）</div>
-        <div class="timeline-desc">
-          AWS（2006年開始）がインフラを民主化し、Salesforce・Workdayがクラウドで攻めた。
-          オンプレミス型ソフトのライセンス売り切りモデルが崩壊。
-          Oracleは時価総額で長期低迷し、AdobeはSaaS転換（2013年）で復活した。
-          「対応した者」と「しなかった者」の明暗が分かれた。
-        </div>
+        <div class="timeline-era">2006 &#8212; 2020s</div>
+        <div class="timeline-title">第2波：オンプレミス &#8594; クラウド（SaaS）</div>
+        <div class="timeline-desc">AWS（2006年開始）がインフラを民主化し、Salesforce・Workdayがクラウドで攻めた。オンプレミス型ソフトのライセンス売り切りモデルが崩壊。Oracleは時価総額で長期低迷し、AdobeはSaaS転換（2013年）で復活した。「対応した者」と「しなかった者」の明暗が分かれた。</div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-era">2024 — ?</div>
-        <div class="timeline-title">第3波：SaaS → AIエージェント？</div>
-        <div class="timeline-desc">
-          AIエージェントが人間のソフトウェア操作を代替し始めている。
-          テイラーの警告は、まさにこの第3波の到来を告げている。
-          過去2回と同様、「対応できる企業」と「できない企業」の分岐が起きるだろう。
-        </div>
+        <div class="timeline-era">2024 &#8212; ?</div>
+        <div class="timeline-title">第3波：SaaS &#8594; AIエージェント？</div>
+        <div class="timeline-desc">AIエージェントが人間のソフトウェア操作を代替し始めている。テイラーの警告は、まさにこの第3波の到来を告げている。過去2回と同様、「対応できる企業」と「できない企業」の分岐が起きるだろう。</div>
       </div>
     </div>
-
     <div class="key-point">
       <div class="key-point-label">HISTORICAL PATTERN</div>
-      <div class="key-point-text">
-        過去2回の教訓は明確だ。
-        <strong>技術パラダイムの転換で既存の堀は確実に弱まるが、すべての企業が滅ぶわけではない。</strong>
-        AdobeがSaaS転換で復活したように、「自ら堀を更新した企業」は次の時代の勝者になった。
-        問われるのは堀の有無ではなく、経営者の適応能力だ。
-      </div>
+      <div class="key-point-text">過去2回の教訓は明確だ。<strong>技術パラダイムの転換で既存の堀は確実に弱まるが、すべての企業が滅ぶわけではない。</strong>AdobeがSaaS転換で復活したように、「自ら堀を更新した企業」は次の時代の勝者になった。問われるのは堀の有無ではなく、経営者の適応能力だ。</div>
     </div>
   </div>
 
@@ -406,41 +404,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="section-num">04 / 08</div>
     <h2 class="section-title">AIエージェントが崩す3つの防壁</h2>
     <div class="body-text">
-      <p>
-        では、AIエージェントはSaaSの堀をどのように侵食するのか。
-        3つの構造的な変化が同時に進行している。
-      </p>
-      <p>
-        <strong>防壁1：UIの無力化。</strong>
-        SaaSの「使いやすいインターフェース」は、人間が操作することを前提に設計されている。
-        Salesforceのダッシュボード、freeeの仕訳画面、Slackのチャンネル一覧。
-        AIエージェントはこれらのUIを経由せず、APIを直接叩くか、自然言語で指示を受けてタスクを完了する。
-        美しいダッシュボードに費やされた開発コストは、人間が見なければ沈没費用になる。
-      </p>
-      <p>
-        <strong>防壁2：ワークフローの再構成。</strong>
-        従来の業務フローを考えてみよう。
-        「Slackで依頼を受ける → Salesforceで顧客データを確認 → Googleスプレッドシートで分析 → Notionにレポートを書く」。
-        4つのSaaSを横断する4ステップだ。
-        AIエージェントなら「この顧客の状況をまとめて」の一言で完了する。
-        <strong>中間のSaaSツールが「通過点」でしかないなら、その存在意義は薄れる。</strong>
-      </p>
-      <p>
-        <strong>防壁3：データの解放。</strong>
-        SaaS最大の堀であった「データのロックイン」が弱まりつつある。
-        AIはデータフォーマットの変換を瞬時に行い、
-        あるSaaSに蓄積されたデータを別のシステムに移行するコストを劇的に下げている。
-        さらにMCP（Model Context Protocol）のような標準規格が登場し、
-        AIエージェントが複数のデータソースにシームレスにアクセスできる基盤が整いつつある。
-      </p>
+      <p>では、AIエージェントはSaaSの堀をどのように侵食するのか。3つの構造的な変化が同時に進行している。</p>
+      <p><strong>防壁1：UIの無力化。</strong>SaaSの「使いやすいインターフェース」は、人間が操作することを前提に設計されている。Salesforceのダッシュボード、freeeの仕訳画面、Slackのチャンネル一覧。AIエージェントはこれらのUIを経由せず、APIを直接叩くか、自然言語で指示を受けてタスクを完了する。美しいダッシュボードに費やされた開発コストは、人間が見なければ沈没費用になる。</p>
+      <p><strong>防壁2：ワークフローの再構成。</strong>従来の業務フローを考えてみよう。「Slackで依頼を受ける &#8594; Salesforceで顧客データを確認 &#8594; Googleスプレッドシートで分析 &#8594; Notionにレポートを書く」。4つのSaaSを横断する4ステップだ。AIエージェントなら「この顧客の状況をまとめて」の一言で完了する。<strong>中間のSaaSツールが「通過点」でしかないなら、その存在意義は薄れる。</strong></p>
+      <p><strong>防壁3：データの解放。</strong>SaaS最大の堀であった「データのロックイン」が弱まりつつある。AIはデータフォーマットの変換を瞬時に行い、あるSaaSに蓄積されたデータを別のシステムに移行するコストを劇的に下げている。さらにMCP（Model Context Protocol）のような標準規格が登場し、AIエージェントが複数のデータソースにシームレスにアクセスできる基盤が整いつつある。</p>
     </div>
     <div class="key-point">
       <div class="key-point-label">DISRUPTION MAP</div>
-      <div class="key-point-text">
-        この3つの侵食は同時に進む。
-        <strong>UI投資 → 無駄に。ワークフロー分断 → 統合に。データロック → 解放に。</strong>
-        SaaS企業が築いてきた堀のすべてが、AIエージェントの「統合力」によって同時に攻撃されている。
-      </div>
+      <div class="key-point-text">この3つの侵食は同時に進む。<strong>UI投資 &#8594; 無駄に。ワークフロー分断 &#8594; 統合に。データロック &#8594; 解放に。</strong>SaaS企業が築いてきた堀のすべてが、AIエージェントの「統合力」によって同時に攻撃されている。</div>
     </div>
   </div>
 
@@ -449,38 +420,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 05 グローバルSaaS市場 -->
   <div class="section" id="s5">
     <div class="section-num">05 / 08</div>
-    <h2 class="section-title">グローバルSaaS市場 — 数字が語る転換点</h2>
+    <h2 class="section-title">グローバルSaaS市場 &#8212; 数字が語る転換点</h2>
     <div class="body-text">
-      <p>
-        グローバルSaaS市場は2025年時点で約3,000億ドル規模に達している。
-        しかし、その成長の「質」が変わり始めている。
-      </p>
-      <p>
-        <strong>バリュエーションの収縮。</strong>
-        2021年のピーク時、高成長SaaS企業はEV/売上高で30〜50倍の評価を受けていた。
-        2026年現在、同じ企業群の中央値は8〜12倍に低下している。
-        市場は「SaaSの成長プレミアム」に疑問を持ち始めている。
-      </p>
-      <p>
-        <strong>AI投資の急増。</strong>
-        一方でAI関連のスタートアップへのベンチャー投資は2025年に約1,000億ドルを超えた。
-        その多くが「既存SaaSを代替するAIエージェント」の開発に向かっている。
-        OpenAI、Anthropic、Google DeepMindだけでなく、
-        テイラーのSierra AI、Adept AI、Cognitionなど、
-        「業務ワークフローをAIで置き換える」ことを明確に掲げる企業が急増している。
-      </p>
-      <p>
-        <strong>既存SaaS企業のAI対応。</strong>
-        Salesforceは「Einstein GPT」「Agentforce」を、
-        MicrosoftはCopilotを急速に展開し、AIエージェント機能を自社製品に組み込んでいる。
-        これは防衛行動だ。
-        自社がAIで強化されなければ、外部のAIエージェントに顧客を奪われるという危機感がある。
-      </p>
+      <p>グローバルSaaS市場は2025年時点で約3,000億ドル規模に達している。しかし、その成長の「質」が変わり始めている。</p>
+      <p><strong>バリュエーションの収縮。</strong>2021年のピーク時、高成長SaaS企業はEV/売上高で30&#12316;50倍の評価を受けていた。2026年現在、同じ企業群の中央値は8&#12316;12倍に低下している。市場は「SaaSの成長プレミアム」に疑問を持ち始めている。</p>
+      <p><strong>AI投資の急増。</strong>一方でAI関連のスタートアップへのベンチャー投資は2025年に約1,000億ドルを超えた。その多くが「既存SaaSを代替するAIエージェント」の開発に向かっている。OpenAI、Anthropic、Google DeepMindだけでなく、テイラーのSierra AI、Adept AI、Cognitionなど、「業務ワークフローをAIで置き換える」ことを明確に掲げる企業が急増している。</p>
+      <p><strong>既存SaaS企業のAI対応。</strong>Salesforceは「Einstein GPT」「Agentforce」を、MicrosoftはCopilotを急速に展開し、AIエージェント機能を自社製品に組み込んでいる。これは防衛行動だ。自社がAIで強化されなければ、外部のAIエージェントに顧客を奪われるという危機感がある。</p>
     </div>
     <div class="source-box">
-      <div class="source-label">出典 · SOURCE</div>
-      <a class="source-link" href="https://www.gartner.com/" target="_blank" rel="noopener">▸ Gartner — 世界SaaS市場規模予測（2025-2028）</a>
-      <a class="source-link" href="https://pitchbook.com/" target="_blank" rel="noopener">▸ PitchBook — AI/ML ベンチャー投資トレンド 2025</a>
+      <div class="source-label">出典 &#183; SOURCE</div>
+      <a class="source-link" href="https://www.gartner.com/" target="_blank" rel="noopener">&#9656; Gartner &#8212; 世界SaaS市場規模予測（2025-2028）</a>
+      <a class="source-link" href="https://pitchbook.com/" target="_blank" rel="noopener">&#9656; PitchBook &#8212; AI/ML ベンチャー投資トレンド 2025</a>
     </div>
   </div>
 
@@ -489,102 +439,37 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <!-- 06 日本のSaaS銘柄マップ -->
   <div class="section" id="s6">
     <div class="section-num">06 / 08</div>
-    <h2 class="section-title">日本のSaaS銘柄マップ — 守れる企業と危うい企業</h2>
+    <h2 class="section-title">日本のSaaS銘柄マップ &#8212; 守れる企業と危うい企業</h2>
     <div class="body-text">
-      <p>
-        この構造変化は、日本のSaaS企業にも無関係ではない。
-        東証に上場する主要SaaS企業を「AIエージェント時代の堀の耐久性」で分類してみよう。
-      </p>
+      <p>この構造変化は、日本のSaaS企業にも無関係ではない。東証に上場する主要SaaS企業を「AIエージェント時代の堀の耐久性」で分類してみよう。</p>
     </div>
-
     <div class="data-table-wrap">
       <table class="data-table">
-        <thead>
-          <tr>
-            <th>企業</th>
-            <th>主力サービス</th>
-            <th>堀の源泉</th>
-            <th>AI耐性</th>
-            <th>根拠</th>
-          </tr>
-        </thead>
+        <thead><tr><th>企業</th><th>主力サービス</th><th>堀の源泉</th><th>AI耐性</th><th>根拠</th></tr></thead>
         <tbody>
-          <tr>
-            <td class="company-name">サイボウズ（4776）</td>
-            <td>kintone</td>
-            <td>カスタマイズ性・データ基盤</td>
-            <td class="tag-safe">高</td>
-            <td>ノーコード基盤としてAIエージェントの「作業場」になり得る。API公開済み。</td>
-          </tr>
-          <tr>
-            <td class="company-name">freee（4478）</td>
-            <td>会計・人事労務</td>
-            <td>規制対応・税制準拠</td>
-            <td class="tag-safe">高</td>
-            <td>税法・社会保険の複雑な規制対応はAIだけでは完結しにくい。データの正確性が命。</td>
-          </tr>
-          <tr>
-            <td class="company-name">マネーフォワード（3994）</td>
-            <td>会計・家計簿</td>
-            <td>銀行API接続・規制対応</td>
-            <td class="tag-safe">中〜高</td>
-            <td>金融機関とのAPI接続網は参入障壁。ただしAIによる自動仕訳の脅威あり。</td>
-          </tr>
-          <tr>
-            <td class="company-name">Sansan（4443）</td>
-            <td>名刺管理・Bill One</td>
-            <td>名刺データ資産</td>
-            <td class="tag-neutral">中</td>
-            <td>名刺のデータ化自体はAIが代替可能。Bill One（請求書）の規制対応が鍵。</td>
-          </tr>
-          <tr>
-            <td class="company-name">ラクス（3923）</td>
-            <td>楽楽精算・楽楽明細</td>
-            <td>中小企業の入力代行</td>
-            <td class="tag-risk">低〜中</td>
-            <td>経費精算・請求書処理はAIエージェントが直接代替しやすい領域。</td>
-          </tr>
-          <tr>
-            <td class="company-name">プラスアルファ<br>コンサルティング（4071）</td>
-            <td>タレントパレット</td>
-            <td>人材データ・分析UI</td>
-            <td class="tag-neutral">中</td>
-            <td>人事データの蓄積は堀だが、分析・レポートUIへの依存度が高い。</td>
-          </tr>
+          <tr><td class="company-name">サイボウズ（4776）</td><td>kintone</td><td>カスタマイズ性・データ基盤</td><td class="tag-safe">高</td><td>ノーコード基盤としてAIエージェントの「作業場」になり得る。API公開済み。</td></tr>
+          <tr><td class="company-name">freee（4478）</td><td>会計・人事労務</td><td>規制対応・税制準拠</td><td class="tag-safe">高</td><td>税法・社会保険の複雑な規制対応はAIだけでは完結しにくい。データの正確性が命。</td></tr>
+          <tr><td class="company-name">マネーフォワード（3994）</td><td>会計・家計簿</td><td>銀行API接続・規制対応</td><td class="tag-safe">中&#12316;高</td><td>金融機関とのAPI接続網は参入障壁。ただしAIによる自動仕訳の脅威あり。</td></tr>
+          <tr><td class="company-name">Sansan（4443）</td><td>名刺管理・Bill One</td><td>名刺データ資産</td><td class="tag-neutral">中</td><td>名刺のデータ化自体はAIが代替可能。Bill One（請求書）の規制対応が鍵。</td></tr>
+          <tr><td class="company-name">ラクス（3923）</td><td>楽楽精算・楽楽明細</td><td>中小企業の入力代行</td><td class="tag-risk">低&#12316;中</td><td>経費精算・請求書処理はAIエージェントが直接代替しやすい領域。</td></tr>
+          <tr><td class="company-name">プラスアルファ<br>コンサルティング（4071）</td><td>タレントパレット</td><td>人材データ・分析UI</td><td class="tag-neutral">中</td><td>人事データの蓄積は堀だが、分析・レポートUIへの依存度が高い。</td></tr>
         </tbody>
       </table>
     </div>
-
     <div class="body-text">
-      <p>
-        表を見ると、一つの法則が浮かび上がる。
-      </p>
-      <p>
-        <strong>守れる企業の共通点</strong> — 堀の源泉が「規制対応」「外部接続網（銀行API等）」「データ基盤としてのプラットフォーム性」にある。
-        これらはAIエージェントが「使う側」として依存する領域であり、代替されにくい。
-      </p>
-      <p>
-        <strong>危うい企業の共通点</strong> — 堀の源泉が「UIの使いやすさ」「入力代行・自動化」にある。
-        まさにAIエージェントが得意とする領域と重なるため、
-        月額課金の正当性が問われる局面が来る可能性がある。
-      </p>
+      <p>表を見ると、一つの法則が浮かび上がる。</p>
+      <p><strong>守れる企業の共通点</strong> &#8212; 堀の源泉が「規制対応」「外部接続網（銀行API等）」「データ基盤としてのプラットフォーム性」にある。これらはAIエージェントが「使う側」として依存する領域であり、代替されにくい。</p>
+      <p><strong>危うい企業の共通点</strong> &#8212; 堀の源泉が「UIの使いやすさ」「入力代行・自動化」にある。まさにAIエージェントが得意とする領域と重なるため、月額課金の正当性が問われる局面が来る可能性がある。</p>
     </div>
-
     <div class="key-point">
       <div class="key-point-label">INVESTMENT PERSPECTIVE</div>
-      <div class="key-point-text">
-        SaaS銘柄を評価する軸が変わりつつある。
-        従来の「ARR成長率」「チャーンレート」「NRR」に加え、
-        <strong>「AIエージェント時代にも課金される理由があるか」</strong>を問う必要がある。
-        堀の源泉が「UI」にある企業は危うく、
-        「データ資産」「業界固有の規制対応」「プラットフォーム性」にある企業は堅い。
-      </div>
+      <div class="key-point-text">SaaS銘柄を評価する軸が変わりつつある。従来の「ARR成長率」「チャーンレート」「NRR」に加え、<strong>「AIエージェント時代にも課金される理由があるか」</strong>を問う必要がある。堀の源泉が「UI」にある企業は危うく、「データ資産」「業界固有の規制対応」「プラットフォーム性」にある企業は堅い。</div>
       <div class="keyword-row">
-        <span class="keyword">moatの質の変化</span>
-        <span class="keyword">UI依存 vs データ依存</span>
-        <span class="keyword">規制対応の堀</span>
-        <span class="keyword">プラットフォーム化</span>
-        <span class="keyword">AI組込み能力</span>
+        <span class="keyword">moat&#12398;&#36074;&#12398;&#22793;&#21270;</span>
+        <span class="keyword">UI&#20381;&#23384; vs &#12487;&#12540;&#12479;&#20381;&#23384;</span>
+        <span class="keyword">&#35215;&#21046;&#23550;&#24540;&#12398;&#22528;</span>
+        <span class="keyword">&#12503;&#12521;&#12483;&#12488;&#12501;&#12457;&#12540;&#12512;&#21270;</span>
+        <span class="keyword">AI&#32068;&#36796;&#12415;&#33021;&#21147;</span>
       </div>
     </div>
   </div>
@@ -596,41 +481,22 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="section-num">07 / 08</div>
     <h2 class="section-title">マンガーなら何を見るか</h2>
     <div class="body-text">
-      <p>
-        チャーリー・マンガーは「テクノロジーの変化は既存の堀を破壊する最も強力な力のひとつだ」と繰り返し語っていた。
-        彼はまた「逆転の発想（Inversion）」を好んだ。
-        問題を正面から考えるのではなく、「何が起きたら最悪か」を考え、それを避ける。
-      </p>
-      <p>
-        この思考法をSaaS投資に当てはめると、問いはこうなる。
-      </p>
+      <p>チャーリー・マンガーは「テクノロジーの変化は既存の堀を破壊する最も強力な力のひとつだ」と繰り返し語っていた。彼はまた「逆転の発想（Inversion）」を好んだ。問題を正面から考えるのではなく、「何が起きたら最悪か」を考え、それを避ける。</p>
+      <p>この思考法をSaaS投資に当てはめると、問いはこうなる。</p>
     </div>
     <div class="quote-box">
-      <div class="quote-box-text">
-        「10年後、この企業のサービスに月額を払い続ける理由は何か？
-        AIエージェントが存在する世界で、この堀はまだ機能しているか？
-        もし答えが見つからないなら、なぜ今この株を持っているのか？」
-      </div>
-      <div class="quote-box-source">— マンガーの逆転思考に基づく3つの問い</div>
+      <div class="quote-box-text">「10年後、この企業のサービスに月額を払い続ける理由は何か？AIエージェントが存在する世界で、この堀はまだ機能しているか？もし答えが見つからないなら、なぜ今この株を持っているのか？」</div>
+      <div class="quote-box-source">&#8212; マンガーの逆転思考に基づく3つの問い</div>
     </div>
     <div class="body-text">
-      <p>
-        バフェットもまた、1999年の株主への手紙で航空業界を引き合いに出し、
-        「素晴らしい産業が素晴らしい投資先とは限らない」と書いた。
-        SaaS産業の成長が続くことと、個々のSaaS銘柄が良い投資先であることは、まったく別の問いだ。
-      </p>
-      <p>
-        マンガーのもう一つの教え、<strong>「能力の輪の中にとどまれ」</strong>も重要だ。
-        AI時代のSaaS企業を正しく評価するには、
-        テクノロジーの構造変化を理解する能力が必要になる。
-        それが自分の能力の輪の外にあるなら、無理に投資する必要はない。
-      </p>
+      <p>バフェットもまた、1999年の株主への手紙で航空業界を引き合いに出し、「素晴らしい産業が素晴らしい投資先とは限らない」と書いた。SaaS産業の成長が続くことと、個々のSaaS銘柄が良い投資先であることは、まったく別の問いだ。</p>
+      <p>マンガーのもう一つの教え、<strong>「能力の輪の中にとどまれ」</strong>も重要だ。AI時代のSaaS企業を正しく評価するには、テクノロジーの構造変化を理解する能力が必要になる。それが自分の能力の輪の外にあるなら、無理に投資する必要はない。</p>
     </div>
     <div class="source-box">
       <div class="source-label">RELATED READING</div>
-      <a class="source-link" href="../../../moat/switching-costs/" target="_blank" rel="noopener">▸ 書斎の棚 — スイッチングコスト：最も過小評価される堀</a>
-      <a class="source-link" href="../../../horizons/mental-models/" target="_blank" rel="noopener">▸ 書斎の棚 — マンガーのメンタルモデル入門</a>
-      <a class="source-link" href="../../../principles/circle-of-competence/" target="_blank" rel="noopener">▸ 書斎の棚 — 能力の輪</a>
+      <a class="source-link" href="../../../moat/switching-costs/">&#9656; 書斎の棚 &#8212; スイッチングコスト：最も過小評価される堀</a>
+      <a class="source-link" href="../../../horizons/mental-models/">&#9656; 書斎の棚 &#8212; マンガーのメンタルモデル入門</a>
+      <a class="source-link" href="../../../principles/circle-of-competence/">&#9656; 書斎の棚 &#8212; 能力の輪</a>
     </div>
   </div>
 
@@ -638,37 +504,16 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <!-- 08 結論 -->
   <div class="conclusion" id="s8">
-    <div class="conclusion-label">08 / 08 — CONCLUSION</div>
+    <div class="conclusion-label">08 / 08 &#8212; CONCLUSION</div>
     <h2 class="conclusion-title">堀を持っているか、ではなく「堀を更新できるか」</h2>
     <div class="body-text">
-      <p>
-        「SaaSの死」は、SaaS企業がすべて消えるという意味ではない。
-        メインフレームがクラウドに敗れたときも、IBMは生き残った。
-        オンプレミスがSaaSに敗れたときも、AdobeとMicrosoftは転換に成功した。
-      </p>
-      <p>
-        <strong>「従来の堀に安住する企業が淘汰される」</strong> — テイラーの警告はそういう意味だ。
-      </p>
-      <p>
-        長期投資家として重要なのは3つ。
-      </p>
-      <p>
-        <strong>1. 堀の「耐久性」を見極める。</strong>
-        「堀がある」だけでは不十分。その堀がAIエージェント時代にも機能するかを問う。
-      </p>
-      <p>
-        <strong>2. 経営者の適応能力を見る。</strong>
-        過去の技術転換で生き残った企業は、堀が堅かったのではなく、経営者が堀を更新した企業だった。
-        AdobeのSaaS転換は、シャンタヌ・ナラヤンCEOの決断力あってこそだ。
-      </p>
-      <p>
-        <strong>3. 「ニュースに投資しない」を守る。</strong>
-        「SaaSの死」というフレーズに反射的に売るのは、FOMOの裏返しだ。
-        構造変化は年単位で進む。焦る必要はない。じっくり観察し、確信が持てたときに動けばいい。
-      </p>
-      <p>
-        来週もひとつのテーマを選び、深掘りする。
-      </p>
+      <p>「SaaSの死」は、SaaS企業がすべて消えるという意味ではない。メインフレームがクラウドに敗れたときも、IBMは生き残った。オンプレミスがSaaSに敗れたときも、AdobeとMicrosoftは転換に成功した。</p>
+      <p><strong>「従来の堀に安住する企業が淘汰される」</strong> &#8212; テイラーの警告はそういう意味だ。</p>
+      <p>長期投資家として重要なのは3つ。</p>
+      <p><strong>1. 堀の「耐久性」を見極める。</strong>「堀がある」だけでは不十分。その堀がAIエージェント時代にも機能するかを問う。</p>
+      <p><strong>2. 経営者の適応能力を見る。</strong>過去の技術転換で生き残った企業は、堀が堅かったのではなく、経営者が堀を更新した企業だった。AdobeのSaaS転換は、シャンタヌ・ナラヤンCEOの決断力あってこそだ。</p>
+      <p><strong>3.「ニュースに投資しない」を守る。</strong>「SaaSの死」というフレーズに反射的に売るのは、FOMOの裏返しだ。構造変化は年単位で進む。焦る必要はない。じっくり観察し、確信が持てたときに動けばいい。</p>
+      <p>来週もひとつのテーマを選び、深掘りする。</p>
     </div>
     <div class="keyword-row">
       <span class="keyword">堀の耐久性</span>
@@ -679,46 +524,46 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
+  <!-- 参考文献 -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>日本経済新聞 &#8212;「SaaSの死」対応できない企業は苦境に（OpenAI議長テイラー氏）</li>
+      <li>Sierra AI &#8212; 公式サイト（sierra.ai）</li>
+      <li>Gartner &#8212; 世界SaaS市場規模予測（2025-2028）</li>
+      <li>PitchBook &#8212; AI/ML ベンチャー投資トレンド 2025</li>
+      <li>Berkshire Hathaway &#8212; 1999 Annual Letter to Shareholders</li>
+      <li>Charlie Munger &#8212; Poor Charlie's Almanack（逆転思考・能力の輪）</li>
+    </ul>
+  </div>
+
   <!-- Related Reading -->
   <div class="related">
     <div class="related-label">RELATED READING IN THIS LIBRARY</div>
     <div class="related-list">
-      <a class="related-item" href="../../../moat/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">Moat（経済的堀）の6類型 — SaaSの堀がどの類型に該当するか確認する</span>
-      </a>
-      <a class="related-item" href="../../../moat/switching-costs/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">スイッチングコスト — SaaSの最大の堀を深掘りする</span>
-      </a>
-      <a class="related-item" href="../../../moat/network-effects/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">ネットワーク効果 — Slack・Teamsが持つもうひとつの堀</span>
-      </a>
-      <a class="related-item" href="../../../horizons/mental-models/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">マンガーのメンタルモデル — 逆転思考で投資判断を磨く</span>
-      </a>
-      <a class="related-item" href="../../../principles/circle-of-competence/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">能力の輪 — 自分が理解できる範囲で投資する原則</span>
-      </a>
-      <a class="related-item" href="../../../industries/cybozu-kintone/">
-        <span class="related-item-icon">→</span>
-        <span class="related-item-text">サイボウズ・kintone分析 — 日本SaaSの代表格を詳しく見る</span>
-      </a>
+      <a class="related-item" href="../../../moat/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">Moat（経済的堀）の6類型 &#8212; SaaSの堀がどの類型に該当するか確認する</span></a>
+      <a class="related-item" href="../../../moat/switching-costs/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">スイッチングコスト &#8212; SaaSの最大の堀を深掘りする</span></a>
+      <a class="related-item" href="../../../moat/network-effects/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">ネットワーク効果 &#8212; Slack・Teamsが持つもうひとつの堀</span></a>
+      <a class="related-item" href="../../../horizons/mental-models/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">マンガーのメンタルモデル &#8212; 逆転思考で投資判断を磨く</span></a>
+      <a class="related-item" href="../../../principles/circle-of-competence/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">能力の輪 &#8212; 自分が理解できる範囲で投資する原則</span></a>
+      <a class="related-item" href="../../../industries/cybozu-kintone/"><span class="related-item-icon">&#8594;</span><span class="related-item-text">サイボウズ・kintone分析 &#8212; 日本SaaSの代表格を詳しく見る</span></a>
     </div>
   </div>
 
-  <!-- Nav -->
-  <div class="nav-links">
-    <a class="nav-link" href="../">← 週刊深読みトップへ</a>
-    <a class="nav-link" href="../../">日次キュレーションへ →</a>
+  <!-- Next links -->
+  <div class="next-links">
+    <a class="next-link" href="../">
+      <div class="next-link-label">&#8592; BACK</div>
+      <div class="next-link-title">週刊深読みトップへ</div>
+    </a>
+    <a class="next-link" href="../../">
+      <div class="next-link-label">MORE &#8594;</div>
+      <div class="next-link-title">日次キュレーションへ</div>
+    </a>
   </div>
 
-</div><!-- /container -->
+</div>
 
-<!-- Footer -->
 <footer class="site-footer">
   <nav class="footer-nav">
     <a href="../../../">Library Top</a>
@@ -728,12 +573,121 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <a href="../../../fcf/">FCF</a>
     <a href="../../../people/">人物録</a>
   </nav>
-  <div class="footer-copy">© 2026 投資と思考の書斎 — All Rights Reserved</div>
-  <div class="footer-disclaimer">
-    特定の銘柄の売買を推奨するものではありません。投資判断はご自身の責任でお願いします。
-  </div>
+  <div class="footer-copy">&copy; 2026 投資と思考の書斎 &#8212; All Rights Reserved</div>
+  <div class="footer-disclaimer">特定の銘柄の売買を推奨するものではありません。投資判断はご自身の責任でお願いします。</div>
 </footer>
 
+<!-- ===== Scripts ===== -->
+<script>
+/* Knowledge Graph — SaaS Disruption Concept Map */
+(function(){
+  const canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const W=320,H=240;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  ctx.scale(dpr,dpr);
+
+  const C={concept:'#d4aa22',person:'#5a8a3a',company:'#c05020',tool:'#2a3d6a'};
+  const nodes=[
+    {id:'saas',label:'SaaS',x:160,y:50,vx:0,vy:0,r:18,color:C.concept,cat:'concept',desc:'従来型SaaSビジネスモデル'},
+    {id:'moat',label:'Moat',x:80,y:90,vx:0,vy:0,r:15,color:C.concept,cat:'concept',desc:'経済的堀（スイッチングコスト等）'},
+    {id:'agent',label:'AI Agent',x:240,y:90,vx:0,vy:0,r:16,color:C.tool,cat:'tool',desc:'AIエージェントによる自動化'},
+    {id:'taylor',label:'Taylor',x:260,y:40,vx:0,vy:0,r:12,color:C.person,cat:'person',desc:'ブレット・テイラー（OpenAI議長）'},
+    {id:'munger',label:'Munger',x:40,y:170,vx:0,vy:0,r:12,color:C.person,cat:'person',desc:'チャーリー・マンガー（逆転思考）'},
+    {id:'switch',label:'Switching\nCost',x:50,y:40,vx:0,vy:0,r:11,color:C.concept,cat:'concept',desc:'スイッチングコスト'},
+    {id:'mcp',label:'MCP',x:280,y:150,vx:0,vy:0,r:10,color:C.tool,cat:'tool',desc:'Model Context Protocol'},
+    {id:'jp',label:'JP SaaS',x:160,y:180,vx:0,vy:0,r:14,color:C.company,cat:'company',desc:'日本SaaS銘柄マップ'},
+    {id:'freee',label:'freee',x:100,y:200,vx:0,vy:0,r:9,color:C.company,cat:'company',desc:'会計SaaS（規制対応で堅い）'},
+    {id:'sierra',label:'Sierra AI',x:300,y:60,vx:0,vy:0,r:10,color:C.tool,cat:'tool',desc:'テイラー創業のAIエージェント企業'},
+    {id:'adobe',label:'Adobe',x:200,y:170,vx:0,vy:0,r:10,color:C.company,cat:'company',desc:'SaaS転換で復活した事例'},
+  ];
+  const edges=[
+    ['saas','moat'],['saas','agent'],['taylor','agent'],['taylor','sierra'],
+    ['moat','switch'],['agent','mcp'],['saas','jp'],['jp','freee'],
+    ['munger','moat'],['agent','saas'],['adobe','saas'],['jp','adobe']
+  ];
+  function getNode(id){return nodes.find(n=>n.id===id);}
+  let dragging=null,dragOff={x:0,y:0},hoverNode=null;
+
+  function physics(){
+    const repulsion=700,spring=0.008,damping=0.82,cx=W/2,cy=H/2;
+    nodes.forEach(a=>{nodes.forEach(b=>{
+      if(a===b)return;
+      let dx=a.x-b.x,dy=a.y-b.y,dist=Math.max(Math.hypot(dx,dy),1);
+      let f=repulsion/(dist*dist);a.vx+=dx/dist*f;a.vy+=dy/dist*f;
+    });});
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      let dx=b.x-a.x,dy=b.y-a.y,dist=Math.hypot(dx,dy),f=(dist-55)*spring;
+      a.vx+=dx/dist*f;a.vy+=dy/dist*f;b.vx-=dx/dist*f;b.vy-=dy/dist*f;
+    });
+    nodes.forEach(n=>{
+      if(n===dragging)return;
+      n.vx+=(cx-n.x)*0.002;n.vy+=(cy-n.y)*0.002;
+      n.vx*=damping;n.vy*=damping;n.x+=n.vx;n.y+=n.vy;
+      n.x=Math.max(n.r+4,Math.min(W-n.r-4,n.x));
+      n.y=Math.max(n.r+4,Math.min(H-n.r-20,n.y));
+    });
+  }
+  let time=0;
+  function draw(){
+    time+=.006;physics();ctx.clearRect(0,0,W,H);
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      const hl=hoverNode&&(hoverNode.id===ai||hoverNode.id===bi);
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.1)';ctx.lineWidth=hl?1.5:.7;ctx.stroke();
+    });
+    nodes.forEach((n,i)=>{
+      const hl=hoverNode===n;const pulse=Math.sin(time+i*.7)*.06+1;const r=n.r*(hl?1.15:pulse);
+      ctx.beginPath();ctx.arc(n.x,n.y,r+3,0,Math.PI*2);ctx.fillStyle=n.color+(hl?'15':'08');ctx.fill();
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(hl?'cc':'55');ctx.lineWidth=hl?2:1;ctx.stroke();
+      ctx.fillStyle=n.color;ctx.beginPath();ctx.arc(n.x,n.y,hl?3.5:2,0,Math.PI*2);ctx.fill();
+      ctx.font=(hl?'600':'500')+' '+(hl?'9':'8')+'px "DM Mono",monospace';
+      ctx.fillStyle=hl?'rgba(245,237,224,.9)':'rgba(245,237,224,.55)';ctx.textAlign='center';
+      const lines=n.label.split('\n');
+      lines.forEach((l,li)=>ctx.fillText(l,n.x,n.y+r+10+li*10));
+    });
+    const legend=[{l:'CONCEPT',c:C.concept},{l:'PERSON',c:C.person},{l:'COMPANY',c:C.company},{l:'TOOL',c:C.tool}];
+    let lx=8,ly=H-10;
+    legend.forEach(({l,c})=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='500 5.5px "DM Mono",monospace';ctx.fillStyle='rgba(245,237,224,.35)';ctx.textAlign='left';ctx.fillText(l,lx+8,ly+2);lx+=ctx.measureText(l).width+18;});
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(mx,my){let h=null;nodes.forEach(n=>{if(Math.hypot(mx-n.x,my-n.y)<n.r+8)h=n;});return h;}
+  function getXY(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*(W/r.width),y:(e.clientY-r.top)*(H/r.height)};}
+  const tooltip=document.getElementById('graphTooltip'),ttT=document.getElementById('ttTitle'),ttC=document.getElementById('ttCat'),ttD=document.getElementById('ttDesc');
+
+  canvas.addEventListener('mousemove',function(e){
+    const{x,y}=getXY(e);
+    if(dragging){dragging.x=x+dragOff.x;dragging.y=y+dragOff.y;dragging.vx=0;dragging.vy=0;return;}
+    hoverNode=hitTest(x,y);
+    if(hoverNode){ttT.textContent=hoverNode.label.replace('\n',' ');ttC.textContent=hoverNode.cat.toUpperCase();ttD.textContent=hoverNode.desc;
+      tooltip.style.opacity='1';tooltip.style.left=Math.min(hoverNode.x+20,W-160)+'px';tooltip.style.top=(hoverNode.y-50)+'px';canvas.style.cursor='pointer';
+    }else{tooltip.style.opacity='0';canvas.style.cursor='grab';}
+  });
+  canvas.addEventListener('mouseleave',()=>{tooltip.style.opacity='0';hoverNode=null;dragging=null;});
+  canvas.addEventListener('mousedown',function(e){const{x,y}=getXY(e);const h=hitTest(x,y);if(h){dragging=h;dragOff={x:h.x-x,y:h.y-y};canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){const{x,y}=getXY(e);
+      const map={saas:'s2',moat:'s2',agent:'s4',taylor:'s1',munger:'s7',switch:'s2',mcp:'s4',jp:'s6',freee:'s6',sierra:'s1',adobe:'s3'};
+      const t=document.getElementById(map[dragging.id]);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    }dragging=null;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('touchstart',function(e){e.preventDefault();const t=e.touches[0];const r=canvas.getBoundingClientRect();
+    const mx=(t.clientX-r.left)*(W/r.width),my=(t.clientY-r.top)*(H/r.height);const h=hitTest(mx,my);if(h){dragging=h;dragOff={x:h.x-mx,y:h.y-my};}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!dragging)return;const t=e.touches[0];const r=canvas.getBoundingClientRect();
+    dragging.x=(t.clientX-r.left)*(W/r.width)+dragOff.x;dragging.y=(t.clientY-r.top)*(H/r.height)+dragOff.y;dragging.vx=0;dragging.vy=0;},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragging){const map={saas:'s2',moat:'s2',agent:'s4',taylor:'s1',munger:'s7',switch:'s2',mcp:'s4',jp:'s6',freee:'s6',sierra:'s1',adobe:'s3'};
+    const t=document.getElementById(map[dragging.id]);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}dragging=null;});
+})();
+</script>
 <script src="../../../shared.js"></script>
 <script src="../../../ai-assistant.js"></script>
 <script src="../../../mynote.js"></script>

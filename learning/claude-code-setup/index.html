@@ -5,7 +5,7 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Claude Codeを始めるための完全ガイド。インストールから初期設定、CLAUDE.mdの書き方、最初の一歩までを丁寧に解説。"/>
+<meta name="description" content="Claude Codeを始めるための完全ガイド。Windows/Macのインストール手順、PowerShellの注意点、CLAUDE.mdの書き方、最初の5つのコマンドまで丁寧に解説。"/>
 <meta property="og:title" content="Claude Codeを始める — インストールから『使える状態』までの完全ガイド｜投資と思考の書斎"/>
 <meta property="og:description" content="Claude Codeのインストール・初期設定・CLAUDE.md作成・実践活用までを解説。非エンジニアでも始められる。"/>
 <meta property="og:type" content="article"/>
@@ -20,11 +20,17 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Claude Codeを始める — インストールから『使える状態』までの完全ガイド",
-  "description": "Claude Codeのインストール・初期設定・CLAUDE.md作成・実践活用までを解説。",
+  "description": "Claude Codeのインストール・初期設定・CLAUDE.md作成・実践活用までを解説。Windows/Mac対応。",
   "datePublished": "2026-03-31",
+  "dateModified": "2026-04-09",
   "author": {"@type": "Person", "name": "anni_memo"},
-  "publisher": {"@type": "Organization", "name": "投資と思考の書斎"},
-  "url": "https://anni-memo.github.io/investment-library/learning/claude-code-setup/"
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/learning/claude-code-setup/",
+  "about": [
+    {"@type": "Thing", "name": "Claude Code"},
+    {"@type": "Thing", "name": "AI Coding Assistant"},
+    {"@type": "Thing", "name": "CLAUDE.md"}
+  ]
 }
 </script>
 
@@ -41,6 +47,7 @@
   --serif:'Cormorant Garamond','Noto Serif JP',serif;
   --jp:'Noto Serif JP','Cormorant Garamond',serif;
   --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink);scroll-behavior:smooth}
@@ -52,14 +59,69 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
 .nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
 
-.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+/* ===== Hero 3-column ===== */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
-.hero-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:12px;opacity:.7;position:relative;}
-.hero-title{font-family:var(--serif);font-size:clamp(1.3rem,4.5vw,2.2rem);font-weight:700;color:var(--parch);position:relative;line-height:1.25;}
-.hero-sub{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-top:10px;opacity:.75;position:relative;}
-.hero-lead{margin-top:24px;position:relative;font-family:var(--serif);font-size:clamp(.85rem,2vw,.98rem);color:var(--parch3);font-style:italic;line-height:2;max-width:560px;margin-left:auto;margin-right:auto;}
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
 
+/* Graph View */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* ===== Navigation Cockpit ===== */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Main Content ===== */
 .container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
 .reading-time{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:40px;text-align:center;opacity:.7;}
 
@@ -71,8 +133,14 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .body-text strong{font-weight:600;color:var(--ink);}
 .body-text a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px;}
 .body-text a:hover{color:var(--gold3);}
+.body-text ul,.body-text ol{margin:0.8em 0;padding-left:1.6em;}
+.body-text li{margin-bottom:.5em;line-height:2;}
 
-.code-block{background:var(--ink);color:var(--parch3);padding:20px 24px;margin:20px 0;overflow-x:auto;border-left:3px solid var(--gold);font-family:var(--mono);font-size:.68rem;line-height:1.9;white-space:pre;}
+/* Code block with copy */
+.code-block{background:var(--ink);color:var(--parch3);padding:20px 24px;margin:20px 0;overflow-x:auto;border-left:3px solid var(--gold);font-family:var(--mono);font-size:.68rem;line-height:1.9;white-space:pre;position:relative;}
+.code-block .copy-btn{position:absolute;top:8px;right:8px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--gold3);font-family:var(--mono);font-size:.5rem;padding:4px 10px;cursor:pointer;letter-spacing:.08em;transition:all .2s;border-radius:2px;}
+.code-block .copy-btn:hover{background:rgba(184,144,10,.3);color:var(--parch);}
+.code-block .copy-btn.copied{background:var(--green2);border-color:var(--green3);color:var(--parch);}
 .code-inline{background:rgba(139,105,20,.1);color:var(--ink);padding:2px 6px;font-family:var(--mono);font-size:.78rem;}
 
 .quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
@@ -86,12 +154,34 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .key-point-text strong{font-weight:600;color:var(--ink);}
 
 .layer-card{margin:16px 0;padding:20px;background:var(--parch2);border:1px solid var(--parch3);border-left:3px solid var(--gold);}
-.layer-card-title{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.layer-card-title{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .layer-card-tag{font-family:var(--mono);font-size:.46rem;color:var(--gold);background:rgba(139,105,20,.1);padding:2px 8px;letter-spacing:.1em;}
 .layer-card-desc{font-size:.82rem;color:var(--ink2);line-height:2;font-weight:300;}
 
 .divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
 
+/* Warning / Caution box */
+.warn-box{margin:24px 0;border:1px solid rgba(192,80,32,.35);background:linear-gradient(135deg,rgba(139,58,26,.04),rgba(139,58,26,.08));padding:20px 22px;border-left:4px solid var(--rust2);}
+.warn-box-label{font-family:var(--mono);font-size:.5rem;color:var(--rust);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.warn-box-label::after{content:'';flex:1;height:1px;background:rgba(139,58,26,.2);}
+.warn-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.warn-box-text strong{font-weight:600;color:var(--ink);}
+
+/* Tip box */
+.tip-box{margin:24px 0;border:1px solid rgba(42,74,26,.35);background:linear-gradient(135deg,rgba(42,74,26,.04),rgba(42,74,26,.08));padding:20px 22px;border-left:4px solid var(--green2);}
+.tip-box-label{font-family:var(--mono);font-size:.5rem;color:var(--green);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.tip-box-label::after{content:'';flex:1;height:1px;background:rgba(42,74,26,.2);}
+.tip-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.tip-box-text strong{font-weight:600;color:var(--ink);}
+
+/* OS Tabs */
+.os-tabs{display:flex;gap:4px;margin:20px 0 0;}
+.os-tab{padding:10px 24px;font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;background:var(--parch2);border:1px solid var(--parch3);border-bottom:none;cursor:pointer;color:var(--ink3);transition:all .2s;}
+.os-tab.active{background:var(--parch);color:var(--ink);border-color:var(--gold3);border-top:3px solid var(--gold3);}
+.os-panel{display:none;padding:24px;background:var(--parch);border:1px solid var(--parch3);border-top:none;margin-bottom:20px;}
+.os-panel.active{display:block;}
+
+/* Step list */
 .step-list{counter-reset:step;margin:20px 0;}
 .step-item{counter-increment:step;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--parch3);}
 .step-item::before{content:counter(step);font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);min-width:28px;}
@@ -99,18 +189,40 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .step-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
 .step-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
 
+/* Command card */
+.cmd-grid{display:grid;gap:12px;margin:20px 0;}
+.cmd-card{display:flex;gap:14px;padding:16px 18px;background:var(--parch2);border:1px solid var(--parch3);align-items:flex-start;}
+.cmd-num{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--gold);min-width:24px;padding-top:2px;}
+.cmd-body{flex:1;min-width:0;}
+.cmd-name{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.cmd-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* Req grid */
 .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
 .req-card{padding:16px;background:var(--parch2);border:1px solid var(--parch3);}
 .req-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:8px;}
 .req-text{font-size:.82rem;color:var(--ink2);line-height:1.9;font-weight:300;}
 @media(max-width:600px){.req-grid{grid-template-columns:1fr;}}
 
-.platform-tabs{display:flex;gap:4px;margin:20px 0 0;}
-.platform-tab{padding:10px 20px;font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;background:var(--parch2);border:1px solid var(--parch3);border-bottom:none;cursor:pointer;color:var(--ink3);transition:all .2s;}
-.platform-tab.active{background:var(--parch);color:var(--ink);border-color:var(--gold3);border-top:3px solid var(--gold3);}
-.platform-panel{display:none;padding:20px;background:var(--parch);border:1px solid var(--parch3);border-top:none;margin-bottom:20px;}
-.platform-panel.active{display:block;}
+/* Error table */
+.error-grid{display:grid;gap:12px;margin:20px 0;}
+.error-card{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:16px;background:var(--parch2);border:1px solid var(--parch3);align-items:start;}
+.error-symptom{font-family:var(--mono);font-size:.72rem;color:var(--rust);font-weight:500;line-height:1.7;}
+.error-fix{font-size:.78rem;color:var(--ink2);line-height:1.9;font-weight:300;}
+@media(max-width:600px){.error-card{grid-template-columns:1fr;}}
 
+/* Comparison */
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.comparison-card{padding:20px;border:1px solid var(--parch3);}
+.comparison-card.before{background:rgba(139,58,26,.05);border-color:rgba(139,58,26,.2);}
+.comparison-card.after{background:rgba(42,74,26,.05);border-color:rgba(42,74,26,.2);}
+.comparison-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;margin-bottom:10px;}
+.comparison-card.before .comparison-label{color:var(--rust);}
+.comparison-card.after .comparison-label{color:var(--green2);}
+.comparison-text{font-size:.82rem;line-height:2;font-weight:300;color:var(--ink2);}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+
+/* Person card */
 .person-card{display:flex;gap:20px;padding:24px;background:var(--parch2);border:1px solid var(--parch3);margin:20px 0;align-items:flex-start;}
 .person-icon{width:64px;height:64px;background:var(--ink);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;color:var(--gold3);flex-shrink:0;}
 .person-info{flex:1;}
@@ -122,15 +234,91 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .person-link:hover{background:rgba(139,105,20,.1);border-color:var(--gold3);}
 @media(max-width:600px){.person-card{flex-direction:column;align-items:center;text-align:center;}.person-links{justify-content:center;}}
 
+/* Series nav */
 .series-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0;}
 .series-item{padding:16px;border:1px solid var(--parch3);text-decoration:none;transition:all .2s;position:relative;}
 .series-item:hover{border-color:var(--gold3);background:var(--parch2);}
 .series-item.current{border-color:var(--gold);background:linear-gradient(135deg,rgba(139,105,20,.06),rgba(139,105,20,.12));}
 .series-num{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
 .series-title{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.5;}
-.series-item.current .series-title::after{content:' ← NOW';font-family:var(--mono);font-size:.46rem;color:var(--gold3);font-weight:400;}
+.series-item.current .series-title::after{content:' \2190 NOW';font-family:var(--mono);font-size:.46rem;color:var(--gold3);font-weight:400;}
 @media(max-width:600px){.series-nav{grid-template-columns:1fr;}}
 
+/* Next links */
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
+.next-link:hover{border-color:var(--gold3);background:var(--parch3);}
+.next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+
+/* MyNote FAB */
+.mynote-fab{position:fixed;bottom:90px;right:42px;z-index:8999;width:66px;height:72px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
+.mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
+.mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
+.mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
+.mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:18px;width:50px;height:56px;}}
+.mynote-panel{position:fixed;bottom:90px;right:116px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.1rem;cursor:pointer;padding:2px 6px;transition:color .2s;}
+.mynote-panel-close:hover{color:var(--gold4);}
+.mynote-panel-body{background:repeating-linear-gradient(to bottom,transparent,transparent 27px,rgba(184,144,10,.08) 27px,rgba(184,144,10,.08) 28px);padding:12px 14px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:72px;width:calc(100vw - 16px);max-height:55vh;}}
+.mynote-card-streak{font-family:var(--mono);font-size:.55rem;color:var(--gold3);}
+.mynote-card-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px;}
+.mynote-card-nav-btn{background:none;border:1px solid var(--parch4);padding:3px 10px;font-family:var(--mono);font-size:.5rem;color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;}
+.mynote-card-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-card-nav-date{font-family:var(--mono);font-size:.58rem;color:var(--ink);font-weight:600;min-width:110px;text-align:center;}
+.mynote-panel textarea{width:100%;min-height:100px;font-size:16px;line-height:1.7;padding:10px;border:1px solid var(--parch4);border-radius:4px;resize:none;font-family:var(--jp);background:rgba(255,255,255,.5);color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-panel textarea:focus{border-color:var(--gold);}
+.mynote-panel textarea::placeholder{color:var(--parch4);font-size:.78rem;}
+.mynote-card-status{display:flex;align-items:center;justify-content:space-between;padding:6px 0 0;gap:8px;}
+.mynote-card-saved{font-family:var(--mono);font-size:.44rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
+
+/* PDF Section */
+.pdf-section{margin:32px 0;padding:24px;background:linear-gradient(135deg,var(--ink) 0%,#2a1c0a 100%);border:1px solid rgba(184,144,10,.2);}
+.pdf-section-label{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;}
+.pdf-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--parch);text-decoration:none;font-family:var(--jp);font-size:.95rem;transition:all .2s;margin:4px 8px 4px 0;}
+.pdf-btn:hover{background:rgba(184,144,10,.25);border-color:var(--gold3);}
+.pdf-btn-icon{font-size:1.2rem;}
+.pdf-btn-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.1em;}
+
+/* Reference Section */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+
+/* Timeline */
+.timeline{margin:24px 0;padding-left:24px;border-left:2px solid rgba(184,144,10,.3);}
+.timeline-item{padding:12px 0 12px 20px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parch);}
+.timeline-year{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;}
+.timeline-text{font-size:.82rem;color:var(--ink2);line-height:1.8;font-weight:300;margin-top:4px;}
+
+/* MyNote Calendar */
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+.mynote-card-challenge{font-family:var(--mono);font-size:.42rem;color:var(--gold);letter-spacing:.08em;margin-top:6px;padding-top:6px;border-top:1px solid var(--parch4);}
+.mynote-card-challenge-bar{height:4px;background:var(--parch4);border-radius:2px;margin-top:3px;overflow:hidden;}
+.mynote-card-challenge-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold3));border-radius:2px;transition:width .3s;}
+
+/* Footer */
 .site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
 .footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
 .footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.7;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
@@ -141,23 +329,128 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <body>
 
 <nav class="nav">
-  <a class="nav-back" href="../../">← Library Top</a>
+  <a class="nav-back" href="../../">&#8592; 書斎の入口</a>
   <span class="nav-sep">/</span>
   <a class="nav-back" href="../">まなびの時間</a>
   <span class="nav-sep">/</span>
   <span class="nav-current">Claude Code Setup</span>
 </nav>
 
+<!-- ===== HERO (3-column) ===== -->
 <div class="hero">
-  <div class="hero-label">CLAUDE CODE BEGINNER'S GUIDE</div>
-  <h1 class="hero-title">Claude Codeを始める<br><span style="font-size:.7em;font-weight:400;opacity:.85;">— インストールから「使える状態」までの完全ガイド</span></h1>
-  <div class="hero-sub">FROM ZERO TO YOUR AI PARTNER</div>
-  <p class="hero-lead">AIは道具ではない。正しく設定すれば、あなたの仕事を理解し、<br>提案し、実行する「もう一人の自分」になる。</p>
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">SETUP MAP</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title -->
+    <div class="hero-col-center">
+      <div class="hero-label">CLAUDE CODE BEGINNER'S GUIDE</div>
+      <h1 class="hero-title">Claude Codeを始める<br><span style="font-size:.6em;font-weight:400;opacity:.85;">&#8212; インストールから「使える状態」までの完全ガイド</span></h1>
+      <div class="hero-sub">FROM ZERO TO YOUR AI PARTNER</div>
+      <p class="hero-lead">AIは道具ではない。正しく設定すれば、あなたの仕事を理解し、<br>提案し、実行する「もう一人の自分」になる。</p>
+    </div>
+
+    <!-- Right: Quick Start -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec01"><span class="qa-icon">&#9889;</span> 最短ルートへ</a>
+          <a class="qa-btn-v" href="#sec02"><span class="qa-icon">&#128187;</span> Windows手順</a>
+          <a class="qa-btn-v" href="#sec03"><span class="qa-icon">&#127822;</span> Mac手順</a>
+          <a class="qa-btn-v" href="#sec06"><span class="qa-icon">&#9000;</span> 最初の5コマンド</a>
+          <a class="qa-btn-v" href="../../assets/pdf/learning/claude-code-setup-guide.pdf" target="_blank"><span class="qa-icon">&#128196;</span> PDF版をダウンロード</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<!-- ===== Navigation Cockpit ===== -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">まなびの時間</a><span class="ct-count">5</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>Claude Code Setup</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../obsidian-second-brain/">メモの複利</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-master/">Claude Code Master</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 20 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec00"><span class="toc-num">00</span>この記事でできるようになること</a></li>
+      <li><a href="#sec01"><span class="toc-num">01</span>まず結論 &#8212; 初心者の最短ルート</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>Windowsで始める完全手順</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>Macで始める完全手順</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>Claude Codeとブラウザ版の違い</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>初回ログインで何が起こるか</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>最初に打つ5つのコマンド</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>CLAUDE.md の書き方</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>よくあるエラーと対処</a></li>
+      <li><a href="#sec09"><span class="toc-num">09</span>育てる &#8212; 使うほど賢くなる</a></li>
+      <li><a href="#sec10"><span class="toc-num">10</span>もっと学びたい方へ</a></li>
+      <li><a href="#sec11"><span class="toc-num">11</span>さあ、始めよう</a></li>
+    </ol>
+  </div>
+</div>
 
-  <div class="reading-time">READING TIME: APPROX. 15 MIN</div>
+<!-- ===== MyNote FAB ===== -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">NOTE</div>
+  </div>
+  <span class="mynote-fab-streak" id="mcFabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&#8592;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&#8594;</button>
+    </div>
+    <textarea id="mcText" placeholder="読みながら気づいたことを書き留めよう..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">&#10003; saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
 
   <!-- シリーズナビ -->
   <div class="series-nav">
@@ -175,10 +468,33 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </a>
   </div>
 
-  <!-- 01 -->
-  <div class="section">
-    <div class="section-num">01</div>
-    <h2 class="section-title">Claude Code とは何か</h2>
+  <!-- ===== 00: この記事でできるようになること ===== -->
+  <div class="section" id="sec00">
+    <div class="section-num">00</div>
+    <h2 class="section-title">この記事でできるようになること</h2>
+    <div class="body-text">
+      <p>
+        この記事は、Claude Code を<br>
+        「聞いたことはあるけれど、まだ触ったことがない人」<br>
+        のための入口です。
+      </p>
+      <p>
+        難しいことはしません。<br>
+        まずは次の状態まで連れていきます。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">GOAL OF THIS ARTICLE</div>
+      <div class="key-point-text">
+        <strong>1.</strong> Claude Code をインストールできる<br>
+        <strong>2.</strong> 起動できる<br>
+        <strong>3.</strong> 最初の1回、会話できる<br>
+        <strong>4.</strong> 最低限の CLAUDE.md を書ける<br><br>
+        つまり、「使えるかもしれない」ではなく、<strong>「今日から使える」</strong>状態になることがこの記事の目的です。
+      </div>
+    </div>
+
     <div class="body-text">
       <p>
         Claude Codeは、Anthropic社が提供する<strong>AIコーディングアシスタント</strong>だ。ターミナル（コマンドライン）、デスクトップアプリ、Webアプリ、IDE拡張として動作する。
@@ -187,40 +503,245 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         一般的なAIチャットとの違いは明確だ。Claude Codeは<strong>あなたのPC上のファイルを直接読み書きできる。</strong>コードを書くだけでなく、ファイルを整理し、Webを検索し、APIを叩き、テストを実行する。
       </p>
       <p>
-        プログラマーだけのツールではない。文章を書く人、データを整理する人、情報発信をする人——<strong>PCで何かを作るすべての人</strong>にとって、最強の相棒になる。
+        プログラマーだけのツールではない。文章を書く人、データを整理する人、情報発信をする人&#8212;<strong>PCで何かを作るすべての人</strong>にとって、最強の相棒になる。
       </p>
     </div>
 
-    <div class="key-point">
-      <div class="key-point-label">WHAT MAKES IT DIFFERENT</div>
-      <div class="key-point-text">
-        <strong>普通のAIチャット:</strong> テキストを送り、テキストが返る。それだけ。<br>
-        <strong>Claude Code:</strong> ファイルを読み、コードを書き、コマンドを実行し、結果を確認して修正する。あなたの代わりに「手を動かす」AIだ。
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">BEFORE &#8212; 普通のAIチャット</div>
+        <div class="comparison-text">
+          テキストを送り、テキストが返る。<br>
+          それだけ。コピー&amp;ペーストの往復。
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">AFTER &#8212; Claude Code</div>
+        <div class="comparison-text">
+          ファイルを読み、コードを書き、コマンドを実行し、結果を確認して修正する。<br>
+          <strong>あなたの代わりに「手を動かす」AI。</strong>
+        </div>
       </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- 02 -->
-  <div class="section">
-    <div class="section-num">02</div>
-    <h2 class="section-title">始める前に — 必要なもの</h2>
+  <!-- ===== 01: 最短ルート ===== -->
+  <div class="section" id="sec01">
+    <div class="section-num">01</div>
+    <h2 class="section-title">まず結論 &#8212; 初心者の最短ルート</h2>
+    <div class="body-text">
+      <p>
+        細かい説明は後にして、まず「何をすればいいか」だけ先に見せる。
+      </p>
+    </div>
 
-    <div class="req-grid">
-      <div class="req-card">
-        <div class="req-label">REQUIRED</div>
-        <div class="req-text">
-          <strong>Anthropicアカウント</strong><br>
-          claude.ai で無料登録。MaxプランまたはAPI課金で利用可能。
+    <div class="key-point">
+      <div class="key-point-label">FASTEST PATH &#8212; WINDOWS</div>
+      <div class="key-point-text">
+        <strong>1.</strong> <a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener" style="color:var(--gold2);">Git for Windows</a> をインストールする<br>
+        <strong>2.</strong> PowerShell を開く<br>
+        <strong>3.</strong> 下のコマンドを実行する<br>
+        <strong>4.</strong> 新しいPowerShellを開いて <span class="code-inline">claude</span> と打つ<br><br>
+        これだけで、最初のセットアップが始まる。
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>irm https://claude.ai/install.ps1 | iex</div>
+
+    <div class="body-text">
+      <p>
+        <strong>Macの場合</strong>はもっと簡単だ。ターミナルを開いて1行実行するだけ。
+      </p>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>curl -fsSL https://claude.ai/install.sh | sh</div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">ALSO OK</div>
+      <div class="tip-box-text">
+        ターミナル操作が怖い方は、まずは <a href="https://claude.com/download" target="_blank" rel="noopener" style="color:var(--gold2);">Claude のデスクトップアプリ</a> から始めても大丈夫。<br>
+        ただし、ファイル操作や自動化まで深く使うなら、最終的には Claude Code（ターミナル版）を使えるようになるのがおすすめ。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 02: Windows ===== -->
+  <div class="section" id="sec02">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Windowsで始める完全手順</h2>
+    <div class="body-text">
+      <p>
+        Windowsは少しだけ準備が必要だ。でも手順通りやれば、10分で終わる。
+      </p>
+    </div>
+
+    <!-- PowerShell / CMD 注意ボックス -->
+    <div class="warn-box">
+      <div class="warn-box-label">IMPORTANT &#8212; PowerShell と CMD は別物</div>
+      <div class="warn-box-text">
+        <strong>PS C:\Users\...&gt;</strong> と出ていれば <strong>PowerShell</strong>。これを使う。<br>
+        <strong>C:\Users\...&gt;</strong> だけなら <strong>CMD</strong>（コマンドプロンプト）。別物なので注意。<br><br>
+        PowerShell で CMD 用コマンドを打つと、<span class="code-inline">&amp;&amp;</span> エラーが出ることがある。<br>
+        迷ったら、スタートメニューで「PowerShell」と検索して開こう。
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Git for Windows をインストール</div>
+          <div class="step-desc">
+            <a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener" style="color:var(--gold2);">git-scm.com/downloads/win</a> からダウンロード。インストーラーはすべてデフォルトのままで OK。<br>
+            Git は Claude Code がファイル管理に使う。これがないと正常に動かない。
+          </div>
         </div>
       </div>
-      <div class="req-card">
-        <div class="req-label">RECOMMENDED</div>
-        <div class="req-text">
-          <strong>Maxプラン（月額 $100〜）</strong><br>
-          API従量課金より割安。個人利用ならMaxプランが最適。
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">PowerShell を開く</div>
+          <div class="step-desc">
+            スタートメニュー &#8594; 「PowerShell」で検索 &#8594; クリックで起動。<br>
+            プロンプトが <strong>PS C:\Users\あなたの名前&gt;</strong> になっていれば正解。
+          </div>
         </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Claude Code をインストール</div>
+          <div class="step-desc">
+            PowerShell に以下を貼り付けて Enter。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>irm https://claude.ai/install.ps1 | iex</div>
+
+    <div class="step-list" style="counter-reset:step 3;">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">PowerShell を再起動する</div>
+          <div class="step-desc">
+            インストール後、PowerShell を<strong>いったん閉じて、新しく開く</strong>。<br>
+            これをしないと <span class="code-inline">claude</span> コマンドが認識されない。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Claude Code を起動</div>
+          <div class="step-desc">
+            新しい PowerShell で以下を実行。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>claude</div>
+
+    <div class="body-text">
+      <p>
+        初回起動時にブラウザが開き、ログイン画面が表示される。<br>
+        Anthropic アカウント（Pro / Max / Team / Enterprise のいずれか）でログインすれば完了だ。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 03: Mac ===== -->
+  <div class="section" id="sec03">
+    <div class="section-num">03</div>
+    <h2 class="section-title">Macで始める完全手順</h2>
+    <div class="body-text">
+      <p>
+        Mac はシンプルだ。ターミナルを開いて2つのコマンドを実行するだけ。
+      </p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">ターミナルを開く</div>
+          <div class="step-desc">
+            Spotlight（&#8984; + Space）&#8594;「ターミナル」と入力 &#8594; Enter。<br>
+            または「アプリケーション &#8594; ユーティリティ &#8594; ターミナル」でもOK。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Claude Code をインストール</div>
+          <div class="step-desc">
+            ターミナルに以下を貼り付けて Enter。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>curl -fsSL https://claude.ai/install.sh | sh</div>
+
+    <div class="step-list" style="counter-reset:step 2;">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Claude Code を起動</div>
+          <div class="step-desc">
+            インストール完了後、そのまま以下を実行。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>claude</div>
+
+    <div class="body-text">
+      <p>
+        Mac の場合、Xcode Command Line Tools のインストールを求められることがある。その場合は画面の指示に従ってインストールし、再度 <span class="code-inline">claude</span> を実行しよう。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 04: 違い ===== -->
+  <div class="section" id="sec04">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Claude Code とブラウザ版・デスクトップ版の違い</h2>
+    <div class="body-text">
+      <p>
+        Claude には複数の使い方がある。混乱しやすいので整理しておこう。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Claude Code（ターミナル / CLI） <span class="layer-card-tag">THIS ARTICLE</span></div>
+      <div class="layer-card-desc">
+        ターミナル上で動く。<strong>PC上のファイルを直接読み書き</strong>できる。コードを書き、コマンドを実行し、Git操作もする。最も強力。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">デスクトップアプリ <span class="layer-card-tag">EASY START</span></div>
+      <div class="layer-card-desc">
+        <a href="https://claude.com/download" target="_blank" rel="noopener" style="color:var(--gold2);">claude.com/download</a> からダウンロード。Claude Code と同等の機能をGUIで使える。ターミナルが苦手な人の入口として最適。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Webアプリ（claude.ai） <span class="layer-card-tag">NO INSTALL</span></div>
+      <div class="layer-card-desc">
+        ブラウザで <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--gold2);">claude.ai</a> にアクセスするだけ。テキスト会話が中心。ファイル操作は限定的。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">IDE拡張（VS Code / JetBrains） <span class="layer-card-tag">FOR DEVELOPERS</span></div>
+      <div class="layer-card-desc">
+        エディタ内でClaude Codeが動く。開発者向け。
       </div>
     </div>
 
@@ -233,78 +754,159 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <hr class="divider"/>
 
-  <!-- 03 -->
-  <div class="section">
-    <div class="section-num">03</div>
-    <h2 class="section-title">インストール — 4つの方法</h2>
+  <!-- ===== 05: プラン・初回ログイン ===== -->
+  <div class="section" id="sec05">
+    <div class="section-num">05</div>
+    <h2 class="section-title">初回ログインで何が起こるか</h2>
+
     <div class="body-text">
       <p>
-        Claude Codeは複数の方法で利用できる。自分に合ったものを選ぼう。
+        <span class="code-inline">claude</span> を初めて実行すると、ブラウザが開いてログイン画面が表示される。Anthropic アカウントでログインすれば準備完了だ。
       </p>
     </div>
 
-    <div class="layer-card">
-      <div class="layer-card-title">方法1: デスクトップアプリ <span class="layer-card-tag">RECOMMENDED FOR BEGINNERS</span></div>
-      <div class="layer-card-desc">
-        最も簡単。<a href="https://claude.com/download" style="color:var(--gold2);" target="_blank">claude.com/download</a> からダウンロード。Windows / Mac対応。インストーラーを実行するだけ。
+    <div class="req-grid">
+      <div class="req-card">
+        <div class="req-label">REQUIRED</div>
+        <div class="req-text">
+          <strong>Anthropicアカウント</strong><br>
+          <a href="https://claude.ai" target="_blank" rel="noopener" style="color:var(--gold2);">claude.ai</a> で登録。<strong>Pro または Max プラン</strong>、あるいは API（Console）で利用可能。
+        </div>
+      </div>
+      <div class="req-card">
+        <div class="req-label">RECOMMENDED</div>
+        <div class="req-text">
+          <strong>まずは Pro / Max のいずれかで</strong><br>
+          使い放題の定額制で始められる。詳細は<a href="https://claude.ai/pricing" target="_blank" rel="noopener" style="color:var(--gold2);">公式の価格ページ</a>を確認。
+        </div>
       </div>
     </div>
 
-    <div class="layer-card">
-      <div class="layer-card-title">方法2: Webアプリ <span class="layer-card-tag">NO INSTALL</span></div>
-      <div class="layer-card-desc">
-        <a href="https://claude.ai/code" style="color:var(--gold2);" target="_blank">claude.ai/code</a> にアクセスするだけ。インストール不要だが、ローカルファイルへのアクセスは制限される。
+    <div class="warn-box">
+      <div class="warn-box-label">CAUTION &#8212; 課金の落とし穴</div>
+      <div class="warn-box-text">
+        環境変数 <span class="code-inline">ANTHROPIC_API_KEY</span> が設定されていると、<strong>Proプランのサブスクリプションではなく API 従量課金</strong>が使われることがある。<br><br>
+        サブスクで使いたい場合は、環境変数が設定されていないか確認しよう。<br>
+        <span class="code-inline">/login</span> コマンドでアカウントの切り替えもできる。
       </div>
     </div>
 
-    <div class="layer-card">
-      <div class="layer-card-title">方法3: CLI（ターミナル） <span class="layer-card-tag">FOR POWER USERS</span></div>
-      <div class="layer-card-desc">
-        Node.jsが必要。ターミナルで以下を実行：
+    <div class="body-text">
+      <p>
+        ログインが成功すると、ターミナルに Claude Code の対話画面が表示される。ここからが本番だ。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 06: 最初の5コマンド ===== -->
+  <div class="section" id="sec06">
+    <div class="section-num">06</div>
+    <h2 class="section-title">最初に打つ5つのコマンド</h2>
+    <div class="body-text">
+      <p>
+        Claude Code にログインしたら、まずこの5つを覚えよう。
+      </p>
+    </div>
+
+    <div class="cmd-grid">
+      <div class="cmd-card">
+        <div class="cmd-num">1</div>
+        <div class="cmd-body">
+          <div class="cmd-name">claude</div>
+          <div class="cmd-desc">Claude Code を起動する。作業したいフォルダで実行するのがコツ。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">2</div>
+        <div class="cmd-body">
+          <div class="cmd-name">/help</div>
+          <div class="cmd-desc">使えるコマンドの一覧を表示する。困ったらまずこれ。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">3</div>
+        <div class="cmd-body">
+          <div class="cmd-name">/login</div>
+          <div class="cmd-desc">アカウントを切り替える。APIキーとサブスクを間違えたときにも使う。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">4</div>
+        <div class="cmd-body">
+          <div class="cmd-name">/config</div>
+          <div class="cmd-desc">設定画面を開く。テーマやモデルの切り替えなど。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">5</div>
+        <div class="cmd-body">
+          <div class="cmd-name">/memory</div>
+          <div class="cmd-desc">CLAUDE.md や自動メモリの状態を確認する。AIがあなたの何を覚えているか見える。</div>
+        </div>
       </div>
     </div>
 
-    <div class="code-block">npm install -g @anthropic-ai/claude-code
-claude</div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">方法4: IDE拡張 <span class="layer-card-tag">FOR DEVELOPERS</span></div>
-      <div class="layer-card-desc">
-        VS Code、JetBrains（IntelliJ等）の拡張機能として利用可能。エディタ内でClaude Codeが動く。
+    <div class="tip-box">
+      <div class="tip-box-label">TRY IT</div>
+      <div class="tip-box-text">
+        起動後、まず <span class="code-inline">/help</span> を打ってみよう。使えるコマンドが一覧で表示される。<br>
+        次に「このフォルダの中身を教えて」と日本語で話しかけてみよう。Claude Code があなたの PC 上のファイルを読んで返答する。
       </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- 04 -->
-  <div class="section">
-    <div class="section-num">04</div>
-    <h2 class="section-title">最初の設定 — CLAUDE.md を書く</h2>
+  <!-- ===== 07: CLAUDE.md ===== -->
+  <div class="section" id="sec07">
+    <div class="section-num">07</div>
+    <h2 class="section-title">CLAUDE.md の書き方</h2>
     <div class="body-text">
       <p>
-        Claude Codeをインストールしたら、最初にやるべきことがある。<strong>CLAUDE.md を書くこと</strong>だ。
+        Claude Code をインストールしたら、最初にやるべきことがある。<strong>CLAUDE.md を書くこと</strong>だ。
       </p>
       <p>
-        CLAUDE.mdは、Claude Codeが毎回起動時に読み込む「行動指針書」。ここに書いた内容が、AIの振る舞いを決める。
+        CLAUDE.md は、Claude Code が毎回起動時に読み込む「行動指針書」。ここに書いた内容が、AIの振る舞いを決める。
       </p>
     </div>
 
-    <div class="key-point">
-      <div class="key-point-label">WHY CLAUDE.MD MATTERS</div>
-      <div class="key-point-text">
-        CLAUDE.mdがないClaude Code = 初日の新入社員。<br>
-        CLAUDE.mdがあるClaude Code = <strong>あなたのことを知っている、3年目の優秀なアシスタント。</strong>
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">BEFORE &#8212; CLAUDE.md なし</div>
+        <div class="comparison-text">
+          初日の新入社員。<br>
+          あなたのことを何も知らない。<br>
+          毎回ゼロから説明が必要。
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">AFTER &#8212; CLAUDE.md あり</div>
+        <div class="comparison-text">
+          <strong>3年目の優秀なアシスタント。</strong><br>
+          あなたの好み・方針を知っている。<br>
+          確認してから動く。
+        </div>
       </div>
     </div>
 
+    <!-- 1枚目 -->
     <div class="body-text">
       <p>
-        ホームディレクトリに <span class="code-inline">~/.claude/CLAUDE.md</span> というファイルを作成する。最初はシンプルでいい。
+        <strong>まずは1枚だけ。</strong>ホームディレクトリに <span class="code-inline">~/.claude/CLAUDE.md</span> を作成しよう。最初から完璧を目指さなくていい。
       </p>
     </div>
 
-    <div class="code-block"># 私のCLAUDE.md
+    <div class="layer-card">
+      <div class="layer-card-title">1枚目: 全体共通の CLAUDE.md <span class="layer-card-tag">START HERE</span></div>
+      <div class="layer-card-desc">
+        ファイルの場所: <span class="code-inline">~/.claude/CLAUDE.md</span><br>
+        すべてのプロジェクトで共通の設定。言語・口調・基本ルールを書く。
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button># 私の CLAUDE.md
 
 ## コミュニケーション
 - 日本語で応答してください
@@ -322,23 +924,130 @@ claude</div>
 
     <div class="body-text">
       <p>
-        たったこれだけで、Claude Codeの振る舞いは劇的に変わる。日本語で答え、簡潔に話し、勝手に変更せず確認してくる。
+        たったこれだけで、Claude Code の振る舞いは劇的に変わる。日本語で答え、簡潔に話し、勝手に変更せず確認してくる。
       </p>
       <p>
-        <strong>これは出発点に過ぎない。</strong>使いながら「こうしてほしい」「これはやめて」と気づいたことを追記していく。CLAUDE.mdは生きたドキュメントだ。
+        <strong>これは出発点に過ぎない。</strong>使いながら「こうしてほしい」「これはやめて」と気づいたことを追記していく。CLAUDE.md は生きたドキュメントだ。
       </p>
+    </div>
+
+    <!-- 2枚目 -->
+    <div class="layer-card">
+      <div class="layer-card-title">2枚目: プロジェクト別の CLAUDE.md <span class="layer-card-tag">WHEN YOU'RE READY</span></div>
+      <div class="layer-card-desc">
+        ファイルの場所: プロジェクトフォルダ内の <span class="code-inline">./CLAUDE.md</span> または <span class="code-inline">./.claude/CLAUDE.md</span><br>
+        そのプロジェクト固有のルール。技術スタック・命名規則・特別な注意点を書く。
+      </div>
+    </div>
+
+    <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button># プロジェクト CLAUDE.md（例）
+
+## このプロジェクトについて
+- 名前: 自分のWebサイト
+- 技術: HTML + CSS（フレームワーク不使用）
+- 目的: 自己紹介ページを作る
+
+## ルール
+- シンプルなHTMLを書く。複雑なフレームワークは使わない
+- 画像はすべて images/ フォルダに置く
+- コミットメッセージは日本語で</div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">GROWTH PATH</div>
+      <div class="tip-box-text">
+        <strong>最初は1枚で十分。</strong>慣れてきたら、プロジェクトごとに分ける。<br>
+        Claude Code は <span class="code-inline">~/.claude/CLAUDE.md</span>（全体共通）と <span class="code-inline">./CLAUDE.md</span>（プロジェクト別）の両方を読む。<br>
+        さらに <strong>自動メモリ</strong>機能で、会話の中で学んだことも自動で蓄積されていく。<br><br>
+        詳しくは &#8594; <a href="../claude-code-memory/" style="color:var(--gold2);">Part 2: 記憶を設計する</a>
+      </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- 05 -->
-  <div class="section">
-    <div class="section-num">05</div>
-    <h2 class="section-title">最初の会話 — 何を頼むか</h2>
+  <!-- ===== 08: よくあるエラー ===== -->
+  <div class="section" id="sec08">
+    <div class="section-num">08</div>
+    <h2 class="section-title">よくあるエラーと対処</h2>
     <div class="body-text">
       <p>
-        セットアップが終わったら、実際に使ってみよう。最初の会話で試してほしいことをいくつか紹介する。
+        初心者がハマりやすいポイントをまとめた。エラーが出ても慌てなくていい。ほとんどの場合、原因は単純だ。
+      </p>
+    </div>
+
+    <div class="error-grid">
+      <div class="error-card">
+        <div class="error-symptom">irm is not recognized</div>
+        <div class="error-fix">
+          <strong>CMD を開いている。</strong><br>
+          PowerShell を開き直そう。スタートメニューで「PowerShell」と検索。プロンプトが <span class="code-inline">PS C:\...</span> で始まっていれば正解。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">claude is not recognized</div>
+        <div class="error-fix">
+          <strong>PowerShell の再起動が必要。</strong><br>
+          インストール後、PowerShell をいったん閉じて新しく開く。それでもダメなら、PATH 環境変数を確認。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">Git Bash が必要と言われる</div>
+        <div class="error-fix">
+          <strong>Git for Windows が未導入。</strong><br>
+          <a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener" style="color:var(--gold2);">git-scm.com</a> からインストールしよう。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">サブスクなのに API 料金が発生する</div>
+        <div class="error-fix">
+          <strong>環境変数 ANTHROPIC_API_KEY が設定されている。</strong><br>
+          この変数があると、サブスクではなく API 課金が優先される。PowerShell で <span class="code-inline">$env:ANTHROPIC_API_KEY</span> を確認し、不要なら削除する。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">Xcode Command Line Tools の<br>インストールを求められる（Mac）</div>
+        <div class="error-fix">
+          <strong>画面の指示に従ってインストール。</strong><br>
+          数分かかるが、一度入れれば再要求されない。完了後に再度 <span class="code-inline">claude</span> を実行。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 09: 育てる ===== -->
+  <div class="section" id="sec09">
+    <div class="section-num">09</div>
+    <h2 class="section-title">育てる &#8212; 使うほど賢くなる仕組み</h2>
+    <div class="body-text">
+      <p>
+        Claude Code は使い捨てのツールではない。正しく設定すれば、<strong>使うほど賢くなる</strong>。
+      </p>
+      <p>
+        その仕組みが「メモリ」と「外部脳」だ。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">メモリ（memory/） <span class="layer-card-tag">AUTOMATIC</span></div>
+      <div class="layer-card-desc">
+        Claude Code は会話の中で重要な情報を自動的にメモリに保存する。あなたの好み、プロジェクトの方針、過去のフィードバック。次回の会話でこれらを自動的に参照する。<br><br>
+        詳しくは &#8594; <a href="../claude-code-memory/" style="color:var(--gold2);">Part 2: Claude Codeに記憶を設計する</a>
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">外部脳との接続 <span class="layer-card-tag">ADVANCED</span></div>
+      <div class="layer-card-desc">
+        Obsidian などのノートアプリと連携させると、あなたの全知識にAIがアクセスできるようになる。知識への投資が複利で回り始める。<br><br>
+        詳しくは &#8594; <a href="../obsidian-second-brain/" style="color:var(--gold2);">Part 3: 知識は複利で増える</a>
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        最初の会話で試してほしいことを紹介しておこう。
       </p>
     </div>
 
@@ -346,7 +1055,7 @@ claude</div>
       <div class="layer-card-title">試してみよう 1: ファイル整理 <span class="layer-card-tag">EASY</span></div>
       <div class="layer-card-desc">
         「ダウンロードフォルダの中身を種類別に整理して」<br>
-        → Claude Codeがフォルダの中身を確認し、画像・文書・音楽などに分類してくれる。
+        &#8594; Claude Code がフォルダの中身を確認し、画像・文書・音楽などに分類してくれる。
       </div>
     </div>
 
@@ -354,7 +1063,7 @@ claude</div>
       <div class="layer-card-title">試してみよう 2: 文章作成 <span class="layer-card-tag">PRACTICAL</span></div>
       <div class="layer-card-desc">
         「来週の会議用に、このプロジェクトの進捗報告を書いて」<br>
-        → プロジェクトフォルダの内容を読み、報告書を自動生成。
+        &#8594; プロジェクトフォルダの内容を読み、報告書を自動生成。
       </div>
     </div>
 
@@ -362,45 +1071,7 @@ claude</div>
       <div class="layer-card-title">試してみよう 3: Webサイト作成 <span class="layer-card-tag">AMBITIOUS</span></div>
       <div class="layer-card-desc">
         「自己紹介のWebページを作って」<br>
-        → HTML/CSSを自動生成し、ブラウザで確認できる形で出力。このサイト自体、Claude Codeで作っている。
-      </div>
-    </div>
-
-    <div class="body-text">
-      <p>
-        重要なのは、<strong>完璧な指示を出す必要はない</strong>ということ。曖昧な依頼でも、Claude Codeは確認しながら進めてくれる。「とりあえずこんな感じで」が通じるのが、従来のプログラミングとの最大の違いだ。
-      </p>
-    </div>
-  </div>
-
-  <hr class="divider"/>
-
-  <!-- 06 -->
-  <div class="section">
-    <div class="section-num">06</div>
-    <h2 class="section-title">育てる — 使うほど賢くなる仕組み</h2>
-    <div class="body-text">
-      <p>
-        Claude Codeは使い捨てのツールではない。正しく設定すれば、<strong>使うほど賢くなる</strong>。
-      </p>
-      <p>
-        その仕組みが「メモリ」と「スキル」だ。
-      </p>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">メモリ（memory/） <span class="layer-card-tag">AUTOMATIC</span></div>
-      <div class="layer-card-desc">
-        Claude Codeは会話の中で重要な情報を自動的にメモリに保存する。あなたの好み、プロジェクトの方針、過去のフィードバック。次回の会話でこれらを自動的に参照する。<br><br>
-        詳しくは → <a href="../claude-code-memory/" style="color:var(--gold2);">Part 2: Claude Codeに記憶を設計する</a>
-      </div>
-    </div>
-
-    <div class="layer-card">
-      <div class="layer-card-title">外部脳との接続 <span class="layer-card-tag">ADVANCED</span></div>
-      <div class="layer-card-desc">
-        Obsidianなどのノートアプリと連携させると、あなたの全知識にAIがアクセスできるようになる。知識への投資が複利で回り始める。<br><br>
-        詳しくは → <a href="../obsidian-second-brain/" style="color:var(--gold2);">Part 3: 知識は複利で増える</a>
+        &#8594; HTML/CSS を自動生成し、ブラウザで確認できる形で出力。このサイト自体、Claude Code で作っている。
       </div>
     </div>
 
@@ -414,28 +1085,27 @@ claude</div>
 
   <hr class="divider"/>
 
-  <!-- 07 -->
-  <div class="section">
-    <div class="section-num">07</div>
-    <h2 class="section-title">もっと学びたい方へ — 推薦リソース</h2>
+  <!-- ===== 10: もっと学びたい方へ ===== -->
+  <div class="section" id="sec10">
+    <div class="section-num">10</div>
+    <h2 class="section-title">もっと学びたい方へ &#8212; 推薦リソース</h2>
     <div class="body-text">
       <p>
-        この記事はClaude Codeの「始め方」だけを扱った。より深く学びたい方に、優れた情報源を紹介する。
+        この記事は Claude Code の「始め方」だけを扱った。より深く学びたい方に、優れた情報源を紹介する。
       </p>
     </div>
 
-    <!-- チャエンさん紹介 -->
     <div class="person-card">
       <div class="person-icon">C</div>
       <div class="person-info">
         <div class="person-name">茶圓将裕（チャエン）</div>
         <div class="person-role">DIGIRISE CEO / AI RESEARCHER / 150+ LECTURES/YEAR</div>
         <div class="person-desc">
-          日本語圏におけるClaude Code情報発信の第一人者。デジライズCEOとして生成AIの企業導入を推進しながら、X・YouTubeで最新のAI活用術を毎日発信している。Claude Codeのセットアップから実践活用まで、<strong>非エンジニアにもわかりやすい解説</strong>が特徴。Googleの Gemini AI顧問も務める。
+          日本語圏における Claude Code 情報発信の第一人者。デジライズ CEO として生成AIの企業導入を推進しながら、X・YouTube で最新のAI活用術を毎日発信している。Claude Code のセットアップから実践活用まで、<strong>非エンジニアにもわかりやすい解説</strong>が特徴。Google の Gemini AI 顧問も務める。
         </div>
         <div class="person-links">
           <a class="person-link" href="https://x.com/masahirochaen" target="_blank" rel="noopener">X @masahirochaen</a>
-          <a class="person-link" href="https://www.youtube.com/@chaen_ai" target="_blank" rel="noopener">YouTube チャエン【AI研究所】</a>
+          <a class="person-link" href="https://www.youtube.com/@chaen_ai" target="_blank" rel="noopener">YouTube</a>
           <a class="person-link" href="https://note.com/chaen_channel/" target="_blank" rel="noopener">note</a>
         </div>
       </div>
@@ -450,30 +1120,30 @@ claude</div>
     <div class="layer-card">
       <div class="layer-card-title">Claude Code初心者向け設定マニュアル <span class="layer-card-tag">VIDEO</span></div>
       <div class="layer-card-desc">
-        インストールからCLAUDE.md設定、スキル作成まで、画面を見せながら丁寧に解説。プログラミング経験がなくても追いかけられる。
+        インストールから CLAUDE.md 設定、スキル作成まで、画面を見せながら丁寧に解説。プログラミング経験がなくても追いかけられる。
       </div>
     </div>
 
     <div class="layer-card">
       <div class="layer-card-title">Claude Codeで自動動画編集 <span class="layer-card-tag">ADVANCED</span></div>
       <div class="layer-card-desc">
-        字幕・BGM・画像挿入・無音カットをClaude Codeで全自動化する実演。AIが「手を動かす」とはどういうことかを体感できる。
+        字幕・BGM・画像挿入・無音カットを Claude Code で全自動化する実演。AI が「手を動かす」とはどういうことかを体感できる。
       </div>
     </div>
 
     <div class="layer-card">
       <div class="layer-card-title">カスタムスキル・Hooks活用術 <span class="layer-card-tag">POWER USER</span></div>
       <div class="layer-card-desc">
-        Claude Codeの拡張機能（スキル・フック）の設計方法。自分だけの自動化ワークフローを構築する方法が学べる。
+        Claude Code の拡張機能（スキル・フック）の設計方法。自分だけの自動化ワークフローを構築する方法が学べる。
       </div>
     </div>
   </div>
 
   <hr class="divider"/>
 
-  <!-- 08 -->
-  <div class="section">
-    <div class="section-num">08</div>
+  <!-- ===== 11: さあ、始めよう ===== -->
+  <div class="section" id="sec11">
+    <div class="section-num">11</div>
     <h2 class="section-title">さあ、始めよう</h2>
     <div class="body-text">
       <p>
@@ -483,7 +1153,7 @@ claude</div>
         最初は戸惑うかもしれない。「何を頼めばいいのかわからない」と。でも、それは新しいチームメンバーを迎えた初日と同じだ。最初はぎこちなくても、一緒に仕事を重ねるうちに、阿吽の呼吸になっていく。
       </p>
       <p>
-        <strong>今日インストールして、CLAUDE.mdを1つ書く。</strong>それだけで、あなたとAIの関係は「使い捨て」から「育てる」に変わる。
+        <strong>今日インストールして、CLAUDE.md を1つ書く。</strong>それだけで、あなたとAIの関係は「使い捨て」から「育てる」に変わる。
       </p>
       <p>
         この記事を読んだあなたは、もう始める準備ができている。
@@ -493,12 +1163,84 @@ claude</div>
     <div class="key-point">
       <div class="key-point-label">YOUR FIRST 30 MINUTES</div>
       <div class="key-point-text">
-        <strong>0〜5分:</strong> デスクトップアプリをダウンロード<br>
-        <strong>5〜15分:</strong> CLAUDE.mdを書く（上のテンプレートをコピー）<br>
-        <strong>15〜30分:</strong> 最初の会話を試す（ファイル整理がおすすめ）<br><br>
+        <strong>0&#12316;5分:</strong> Git をインストール（Windows の場合）<br>
+        <strong>5&#12316;10分:</strong> Claude Code をインストール &#8594; 起動 &#8594; ログイン<br>
+        <strong>10&#12316;20分:</strong> <span class="code-inline">/help</span> で探検 &#8594; CLAUDE.md を書く<br>
+        <strong>20&#12316;30分:</strong> 最初の会話を試す（ファイル整理がおすすめ）<br><br>
         30分後、あなたはもう「AIを育てる人」になっている。
       </div>
     </div>
+  </div>
+
+  <!-- Claude Code の進化タイムライン -->
+  <div class="section" id="sec-timeline">
+    <div class="section-num">TIMELINE</div>
+    <h2 class="section-title">Claude Code の進化</h2>
+    <div class="body-text">
+      <p>Claude Code は急速に進化している。主なマイルストーンを振り返ろう。</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2025.02</div>
+        <div class="timeline-text">Claude Code ベータ版リリース。ターミナルベースのAIコーディングアシスタントとして登場。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.05</div>
+        <div class="timeline-text">CLAUDE.md と自動メモリ機能を正式搭載。AIが文脈を記憶し、セッション間で学習を継続。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.09</div>
+        <div class="timeline-text">デスクトップアプリ・Webアプリ版リリース。ターミナル不要で利用可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.11</div>
+        <div class="timeline-text">カスタムスキル・Hooks機能追加。ユーザー独自の自動化ワークフローが構築可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026.01</div>
+        <div class="timeline-text">MCP（Model Context Protocol）統合が進み、外部サービスとの連携が大幅に強化。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026.04</div>
+        <div class="timeline-text">Claude Opus 4.6 搭載。1Mコンテキスト対応で、大規模プロジェクトの一括処理が可能に。</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PDF DL セクション -->
+  <div class="pdf-section">
+    <div class="pdf-section-label">DOWNLOAD</div>
+    <a class="pdf-btn" href="../../assets/pdf/learning/claude-code-setup-guide.pdf" target="_blank">
+      <span class="pdf-btn-icon">&#128196;</span>
+      <span>セットアップガイド PDF<br><span class="pdf-btn-sub">A4 &#215; 5 PAGES</span></span>
+    </a>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>Anthropic, "Claude Code Documentation" &#8212; docs.anthropic.com/en/docs/claude-code</li>
+      <li>Anthropic, "Claude Code Quickstart" &#8212; docs.anthropic.com/en/docs/claude-code/quickstart</li>
+      <li>Anthropic, "Terminal Guide for New Developers" &#8212; docs.anthropic.com/en/docs/claude-code/terminal-guide</li>
+      <li>Anthropic, "Claude Code Memory" &#8212; docs.anthropic.com/en/docs/claude-code/memory</li>
+      <li>Anthropic, "Claude Code Settings" &#8212; docs.anthropic.com/en/docs/claude-code/settings</li>
+      <li>茶圓将裕, "Claude Code初心者向け完全攻略ガイド" &#8212; YouTube @chaen_ai</li>
+    </ul>
+  </div>
+
+  <!-- 次に読む -->
+  <div class="next-links">
+    <a class="next-link" href="../claude-code-memory/">
+      <div class="next-link-label">NEXT &#8594; PART 2</div>
+      <div class="next-link-title">記憶を設計する</div>
+    </a>
+    <a class="next-link" href="../obsidian-second-brain/">
+      <div class="next-link-label">DEEPER &#8594; PART 3</div>
+      <div class="next-link-title">知識は複利で増える</div>
+    </a>
   </div>
 
   <!-- シリーズナビ（下部） -->
@@ -528,6 +1270,336 @@ claude</div>
   </nav>
   <div class="footer-copy">&copy; 2026 投資と思考の書斎</div>
 </footer>
+
+<!-- ===== Scripts ===== -->
+<script>
+/* Copy button for code blocks */
+function copyCode(btn){
+  const block=btn.parentElement;
+  const code=block.textContent.replace('COPY','').replace('COPIED','').trim();
+  navigator.clipboard.writeText(code).then(()=>{
+    btn.textContent='COPIED';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('copied');},1800);
+  });
+}
+
+/* ===== Knowledge Graph — Physics Simulation ===== */
+(function(){
+  const canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const W=320,H=240;
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  canvas.style.width=W+'px';canvas.style.height=H+'px';
+  ctx.scale(dpr,dpr);
+
+  const catColors={step:'#d4aa22',os:'#8b6914',advanced:'#5a8a3a',tool:'#2a3d6a'};
+  const nodes=[
+    {id:'install',label:'Install',x:160,y:50,vx:0,vy:0,r:18,color:catColors.step,cat:'step',desc:'Claude Codeをインストール'},
+    {id:'login',label:'Login',x:90,y:100,vx:0,vy:0,r:14,color:catColors.step,cat:'step',desc:'アカウントでログイン'},
+    {id:'claudemd',label:'CLAUDE.md',x:230,y:100,vx:0,vy:0,r:16,color:catColors.step,cat:'step',desc:'行動指針書を書く'},
+    {id:'first',label:'First Chat',x:160,y:145,vx:0,vy:0,r:15,color:catColors.step,cat:'step',desc:'最初の会話を試す'},
+    {id:'commands',label:'5 Commands',x:100,y:145,vx:0,vy:0,r:12,color:catColors.tool,cat:'tool',desc:'/help /login /config /memory'},
+    {id:'memory',label:'Memory',x:65,y:190,vx:0,vy:0,r:13,color:catColors.advanced,cat:'advanced',desc:'記憶を設計する'},
+    {id:'obsidian',label:'Obsidian',x:255,y:190,vx:0,vy:0,r:13,color:catColors.advanced,cat:'advanced',desc:'外部脳と接続する'},
+    {id:'skills',label:'Skills',x:160,y:205,vx:0,vy:0,r:11,color:catColors.advanced,cat:'advanced',desc:'カスタムスキル・Hooks'},
+    {id:'windows',label:'Windows',x:50,y:45,vx:0,vy:0,r:11,color:catColors.os,cat:'os',desc:'PowerShell + Git'},
+    {id:'mac',label:'Mac',x:270,y:45,vx:0,vy:0,r:11,color:catColors.os,cat:'os',desc:'Terminal + curl'},
+    {id:'desktop',label:'Desktop',x:160,y:15,vx:0,vy:0,r:10,color:catColors.os,cat:'os',desc:'デスクトップアプリ'},
+  ];
+  const edges=[
+    ['windows','install'],['mac','install'],['desktop','install'],
+    ['install','login'],['install','claudemd'],
+    ['login','first'],['login','commands'],['claudemd','first'],
+    ['first','memory'],['first','obsidian'],['first','skills'],
+    ['memory','obsidian'],['commands','first']
+  ];
+
+  function getNode(id){return nodes.find(n=>n.id===id);}
+  let dragging=null,dragOff={x:0,y:0};
+
+  /* Physics */
+  function physics(){
+    const repulsion=800,spring=0.01,damping=0.85,center={x:W/2,y:H/2,force:0.002};
+    nodes.forEach(a=>{
+      nodes.forEach(b=>{
+        if(a===b)return;
+        let dx=a.x-b.x,dy=a.y-b.y;
+        let dist=Math.max(Math.hypot(dx,dy),1);
+        let f=repulsion/(dist*dist);
+        a.vx+=dx/dist*f;a.vy+=dy/dist*f;
+      });
+    });
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      let dx=b.x-a.x,dy=b.y-a.y;
+      let dist=Math.hypot(dx,dy);
+      let f=(dist-60)*spring;
+      a.vx+=dx/dist*f;a.vy+=dy/dist*f;
+      b.vx-=dx/dist*f;b.vy-=dy/dist*f;
+    });
+    nodes.forEach(n=>{
+      if(n===dragging)return;
+      n.vx+=(center.x-n.x)*center.force;
+      n.vy+=(center.y-n.y)*center.force;
+      n.vx*=damping;n.vy*=damping;
+      n.x+=n.vx;n.y+=n.vy;
+      n.x=Math.max(n.r+4,Math.min(W-n.r-4,n.x));
+      n.y=Math.max(n.r+4,Math.min(H-n.r-20,n.y));
+    });
+  }
+
+  /* Draw */
+  let time=0,hoverNode=null;
+  function draw(){
+    time+=.006;
+    physics();
+    ctx.clearRect(0,0,W,H);
+
+    /* edges */
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      const isHover=hoverNode&&(hoverNode.id===ai||hoverNode.id===bi);
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=isHover?'rgba(212,170,34,.45)':'rgba(184,144,10,.12)';
+      ctx.lineWidth=isHover?1.5:0.8;ctx.stroke();
+    });
+
+    /* nodes */
+    nodes.forEach((n,i)=>{
+      const isHover=hoverNode===n;
+      const pulse=Math.sin(time+i*.7)*.06+1;
+      const r=n.r*(isHover?1.15:pulse);
+
+      /* glow */
+      ctx.beginPath();ctx.arc(n.x,n.y,r+4,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHover?'18':'08');ctx.fill();
+
+      /* circle */
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'20';ctx.fill();
+      ctx.strokeStyle=n.color+(isHover?'cc':'66');ctx.lineWidth=isHover?2:1.2;ctx.stroke();
+
+      /* center dot */
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.x,n.y,isHover?4:2.5,0,Math.PI*2);ctx.fill();
+
+      /* label */
+      ctx.font=(isHover?'600':'500')+' '+(isHover?'10':'8.5')+'px "DM Mono",monospace';
+      ctx.fillStyle=isHover?'rgba(245,237,224,.95)':'rgba(245,237,224,.6)';
+      ctx.textAlign='center';
+      ctx.fillText(n.label,n.x,n.y+r+11);
+    });
+
+    /* legend */
+    const legend=[{label:'SETUP',color:catColors.step},{label:'OS',color:catColors.os},{label:'FEATURE',color:catColors.advanced},{label:'TOOL',color:catColors.tool}];
+    let lx=8,ly=H-12;
+    legend.forEach(l=>{
+      ctx.fillStyle=l.color;ctx.beginPath();ctx.arc(lx+4,ly,3,0,Math.PI*2);ctx.fill();
+      ctx.font='500 6px "DM Mono",monospace';ctx.fillStyle='rgba(245,237,224,.4)';ctx.textAlign='left';
+      ctx.fillText(l.label,lx+10,ly+2);
+      lx+=ctx.measureText(l.label).width+20;
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* Hit test */
+  function hitTest(mx,my){
+    let hit=null;
+    nodes.forEach(n=>{if(Math.hypot(mx-n.x,my-n.y)<n.r+8)hit=n;});
+    return hit;
+  }
+  function getXY(e){
+    const rect=canvas.getBoundingClientRect();
+    return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};
+  }
+
+  /* Tooltip */
+  const tooltip=document.getElementById('graphTooltip');
+  const ttTitle=document.getElementById('ttTitle');
+  const ttCat=document.getElementById('ttCat');
+  const ttDesc=document.getElementById('ttDesc');
+
+  canvas.addEventListener('mousemove',function(e){
+    const{x:mx,y:my}=getXY(e);
+    if(dragging){
+      dragging.x=mx+dragOff.x;dragging.y=my+dragOff.y;
+      dragging.vx=0;dragging.vy=0;return;
+    }
+    hoverNode=hitTest(mx,my);
+    if(hoverNode){
+      ttTitle.textContent=hoverNode.label;ttCat.textContent=hoverNode.cat.toUpperCase();ttDesc.textContent=hoverNode.desc;
+      tooltip.style.opacity='1';
+      tooltip.style.left=Math.min(hoverNode.x+20,W-160)+'px';
+      tooltip.style.top=(hoverNode.y-50)+'px';
+      canvas.style.cursor='pointer';
+    }else{
+      tooltip.style.opacity='0';canvas.style.cursor='grab';
+    }
+  });
+  canvas.addEventListener('mouseleave',()=>{tooltip.style.opacity='0';hoverNode=null;dragging=null;});
+
+  /* Drag */
+  canvas.addEventListener('mousedown',function(e){
+    const{x:mx,y:my}=getXY(e);
+    const hit=hitTest(mx,my);
+    if(hit){dragging=hit;dragOff={x:hit.x-mx,y:hit.y-my};canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){
+      const{x:mx,y:my}=getXY(e);
+      const moved=Math.hypot(dragging.x-(mx+dragOff.x),dragging.y-(my+dragOff.y));
+      if(moved<3){/* click */
+        const sectionMap={install:'sec01',login:'sec05',claudemd:'sec07',first:'sec06',commands:'sec06',memory:'sec09',obsidian:'sec09',skills:'sec10',windows:'sec02',mac:'sec03',desktop:'sec04'};
+        const target=document.getElementById(sectionMap[dragging.id]);
+        if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    }
+    dragging=null;canvas.style.cursor='grab';
+  });
+
+  /* Touch */
+  canvas.addEventListener('touchstart',function(e){
+    e.preventDefault();
+    const t=e.touches[0];const rect=canvas.getBoundingClientRect();
+    const mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    const hit=hitTest(mx,my);
+    if(hit){dragging=hit;dragOff={x:hit.x-mx,y:hit.y-my};}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    e.preventDefault();
+    if(!dragging)return;
+    const t=e.touches[0];const rect=canvas.getBoundingClientRect();
+    const mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    dragging.x=mx+dragOff.x;dragging.y=my+dragOff.y;dragging.vx=0;dragging.vy=0;
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragging){
+      const sectionMap={install:'sec01',login:'sec05',claudemd:'sec07',first:'sec06',commands:'sec06',memory:'sec09',obsidian:'sec09',skills:'sec10',windows:'sec02',mac:'sec03',desktop:'sec04'};
+      const target=document.getElementById(sectionMap[dragging.id]);
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    dragging=null;
+  });
+})();
+
+/* ===== MyNote FAB — Full Version ===== */
+(function(){
+  const STORAGE_PREFIX='myNote_';
+  const fab=document.getElementById('mynoteFab');
+  const panel=document.getElementById('mynotePanel');
+  const closeBtn=document.getElementById('mynoteClose');
+  const textarea=document.getElementById('mcText');
+  const savedEl=document.getElementById('mcSaved');
+  const wcEl=document.getElementById('mcWc');
+  const dateEl=document.getElementById('mcDate');
+  const prevBtn=document.getElementById('mcPrev');
+  const nextBtn=document.getElementById('mcNext');
+  const streakEl=document.getElementById('mcStreak');
+  const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+
+  let currentDate=new Date().toISOString().slice(0,10);
+  let saveTimer;
+
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){
+    if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);
+    else localStorage.removeItem(STORAGE_PREFIX+date);
+  }
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+
+  function render(){
+    dateEl.textContent=currentDate;
+    textarea.value=getNote(currentDate);
+    updateWc();
+    updateStreak();
+    renderCalendar();
+    renderChallenge();
+  }
+  function updateWc(){
+    const len=(textarea.value||'').length;
+    wcEl.textContent=len?len+' chars':'';
+  }
+  function save(){
+    setNote(currentDate,textarea.value);
+    savedEl.classList.add('visible');
+    setTimeout(()=>savedEl.classList.remove('visible'),1200);
+    renderCalendar();renderChallenge();updateStreak();
+  }
+
+  function getStreak(){
+    let streak=0,d=new Date();
+    while(true){
+      const k=d.toISOString().slice(0,10);
+      if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;
+    }
+    return streak;
+  }
+  function updateStreak(){
+    const streak=getStreak();
+    const txt=streak?streak+'d streak':'';
+    streakEl.textContent=txt;fabStreakEl.textContent=streak||'';
+  }
+
+  function renderCalendar(){
+    if(!calendarEl)return;
+    calendarEl.innerHTML='';
+    const d=new Date(currentDate);
+    const year=d.getFullYear(),month=d.getMonth();
+    const firstDay=new Date(year,month,1).getDay();
+    const daysInMonth=new Date(year,month+1,0).getDate();
+    const today=new Date().toISOString().slice(0,10);
+    const offset=(firstDay+6)%7;/* Monday-start */
+    for(let i=0;i<offset;i++){
+      const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);
+    }
+    for(let day=1;day<=daysInMonth;day++){
+      const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+      const el=document.createElement('div');
+      el.className='mc-day';
+      if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}
+      else if(dateStr>today)el.classList.add('future');
+      calendarEl.appendChild(el);
+    }
+  }
+
+  function renderChallenge(){
+    if(!challengeEl||!challengeFill)return;
+    const totalDays=66;
+    const streak=getStreak();
+    const pct=Math.min(streak/totalDays*100,100);
+    challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');
+    challengeFill.style.width=pct+'%';
+  }
+
+  function shift(days){
+    const d=new Date(currentDate);d.setDate(d.getDate()+days);
+    currentDate=d.toISOString().slice(0,10);render();
+  }
+
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',()=>shift(-1));
+  nextBtn.addEventListener('click',()=>shift(1));
+
+  /* Auto-resize textarea */
+  textarea.addEventListener('input',function(){
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
+
+  render();
+})();
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
 
 </body>
 </html>
