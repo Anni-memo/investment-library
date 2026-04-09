@@ -282,6 +282,42 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .mynote-card-saved.visible{opacity:1;}
 .mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
 
+/* PDF Section */
+.pdf-section{margin:32px 0;padding:24px;background:linear-gradient(135deg,var(--ink) 0%,#2a1c0a 100%);border:1px solid rgba(184,144,10,.2);}
+.pdf-section-label{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;}
+.pdf-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--parch);text-decoration:none;font-family:var(--jp);font-size:.95rem;transition:all .2s;margin:4px 8px 4px 0;}
+.pdf-btn:hover{background:rgba(184,144,10,.25);border-color:var(--gold3);}
+.pdf-btn-icon{font-size:1.2rem;}
+.pdf-btn-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.1em;}
+
+/* Reference Section */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+
+/* Timeline */
+.timeline{margin:24px 0;padding-left:24px;border-left:2px solid rgba(184,144,10,.3);}
+.timeline-item{padding:12px 0 12px 20px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parch);}
+.timeline-year{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;}
+.timeline-text{font-size:.82rem;color:var(--ink2);line-height:1.8;font-weight:300;margin-top:4px;}
+
+/* MyNote Calendar */
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+.mynote-card-challenge{font-family:var(--mono);font-size:.42rem;color:var(--gold);letter-spacing:.08em;margin-top:6px;padding-top:6px;border-top:1px solid var(--parch4);}
+.mynote-card-challenge-bar{height:4px;background:var(--parch4);border-radius:2px;margin-top:3px;overflow:hidden;}
+.mynote-card-challenge-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold3));border-radius:2px;transition:width .3s;}
+
 /* Footer */
 .site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
 .footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
@@ -403,6 +439,13 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <span class="mynote-card-saved" id="mcSaved">&#10003; saved</span>
       <span class="mynote-card-wordcount" id="mcWc"></span>
     </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
   </div>
 </div>
 
@@ -1129,6 +1172,65 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
+  <!-- Claude Code の進化タイムライン -->
+  <div class="section" id="sec-timeline">
+    <div class="section-num">TIMELINE</div>
+    <h2 class="section-title">Claude Code の進化</h2>
+    <div class="body-text">
+      <p>Claude Code は急速に進化している。主なマイルストーンを振り返ろう。</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2025.02</div>
+        <div class="timeline-text">Claude Code ベータ版リリース。ターミナルベースのAIコーディングアシスタントとして登場。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.05</div>
+        <div class="timeline-text">CLAUDE.md と自動メモリ機能を正式搭載。AIが文脈を記憶し、セッション間で学習を継続。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.09</div>
+        <div class="timeline-text">デスクトップアプリ・Webアプリ版リリース。ターミナル不要で利用可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025.11</div>
+        <div class="timeline-text">カスタムスキル・Hooks機能追加。ユーザー独自の自動化ワークフローが構築可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026.01</div>
+        <div class="timeline-text">MCP（Model Context Protocol）統合が進み、外部サービスとの連携が大幅に強化。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026.04</div>
+        <div class="timeline-text">Claude Opus 4.6 搭載。1Mコンテキスト対応で、大規模プロジェクトの一括処理が可能に。</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PDF DL セクション -->
+  <div class="pdf-section">
+    <div class="pdf-section-label">DOWNLOAD</div>
+    <a class="pdf-btn" href="../../assets/pdf/learning/claude-code-setup-guide.pdf" target="_blank">
+      <span class="pdf-btn-icon">&#128196;</span>
+      <span>セットアップガイド PDF<br><span class="pdf-btn-sub">A4 &#215; 5 PAGES</span></span>
+    </a>
+  </div>
+
+  <!-- 参考文献 -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>Anthropic, "Claude Code Documentation" &#8212; docs.anthropic.com/en/docs/claude-code</li>
+      <li>Anthropic, "Claude Code Quickstart" &#8212; docs.anthropic.com/en/docs/claude-code/quickstart</li>
+      <li>Anthropic, "Terminal Guide for New Developers" &#8212; docs.anthropic.com/en/docs/claude-code/terminal-guide</li>
+      <li>Anthropic, "Claude Code Memory" &#8212; docs.anthropic.com/en/docs/claude-code/memory</li>
+      <li>Anthropic, "Claude Code Settings" &#8212; docs.anthropic.com/en/docs/claude-code/settings</li>
+      <li>茶圓将裕, "Claude Code初心者向け完全攻略ガイド" &#8212; YouTube @chaen_ai</li>
+    </ul>
+  </div>
+
   <!-- 次に読む -->
   <div class="next-links">
     <a class="next-link" href="../claude-code-memory/">
@@ -1181,112 +1283,212 @@ function copyCode(btn){
   });
 }
 
-/* Knowledge Graph - Setup Map */
+/* ===== Knowledge Graph — Physics Simulation ===== */
 (function(){
   const canvas=document.getElementById('graphCanvas');
   if(!canvas)return;
   const ctx=canvas.getContext('2d');
   const dpr=window.devicePixelRatio||1;
-  const W=320,H=220;
+  const W=320,H=240;
   canvas.width=W*dpr;canvas.height=H*dpr;
   canvas.style.width=W+'px';canvas.style.height=H+'px';
   ctx.scale(dpr,dpr);
 
+  const catColors={step:'#d4aa22',os:'#8b6914',advanced:'#5a8a3a',tool:'#2a3d6a'};
   const nodes=[
-    {id:'install',label:'Install',x:160,y:40,r:16,color:'#d4aa22',cat:'STEP 1',desc:'Claude Codeをインストール'},
-    {id:'login',label:'Login',x:80,y:90,r:13,color:'#b8900a',cat:'STEP 2',desc:'アカウントでログイン'},
-    {id:'claudemd',label:'CLAUDE.md',x:240,y:90,r:15,color:'#f0cc55',cat:'STEP 3',desc:'行動指針書を書く'},
-    {id:'first',label:'First Chat',x:160,y:140,r:14,color:'#d4aa22',cat:'STEP 4',desc:'最初の会話を試す'},
-    {id:'memory',label:'Memory',x:60,y:175,r:12,color:'#5a8a3a',cat:'ADVANCED',desc:'記憶を設計する'},
-    {id:'obsidian',label:'Obsidian',x:260,y:175,r:12,color:'#2a3d6a',cat:'ADVANCED',desc:'外部脳と接続する'},
-    {id:'windows',label:'Windows',x:40,y:40,r:10,color:'#8b6914',cat:'OS',desc:'PowerShell + Git'},
-    {id:'mac',label:'Mac',x:280,y:40,r:10,color:'#8b6914',cat:'OS',desc:'Terminal + curl'},
+    {id:'install',label:'Install',x:160,y:50,vx:0,vy:0,r:18,color:catColors.step,cat:'step',desc:'Claude Codeをインストール'},
+    {id:'login',label:'Login',x:90,y:100,vx:0,vy:0,r:14,color:catColors.step,cat:'step',desc:'アカウントでログイン'},
+    {id:'claudemd',label:'CLAUDE.md',x:230,y:100,vx:0,vy:0,r:16,color:catColors.step,cat:'step',desc:'行動指針書を書く'},
+    {id:'first',label:'First Chat',x:160,y:145,vx:0,vy:0,r:15,color:catColors.step,cat:'step',desc:'最初の会話を試す'},
+    {id:'commands',label:'5 Commands',x:100,y:145,vx:0,vy:0,r:12,color:catColors.tool,cat:'tool',desc:'/help /login /config /memory'},
+    {id:'memory',label:'Memory',x:65,y:190,vx:0,vy:0,r:13,color:catColors.advanced,cat:'advanced',desc:'記憶を設計する'},
+    {id:'obsidian',label:'Obsidian',x:255,y:190,vx:0,vy:0,r:13,color:catColors.advanced,cat:'advanced',desc:'外部脳と接続する'},
+    {id:'skills',label:'Skills',x:160,y:205,vx:0,vy:0,r:11,color:catColors.advanced,cat:'advanced',desc:'カスタムスキル・Hooks'},
+    {id:'windows',label:'Windows',x:50,y:45,vx:0,vy:0,r:11,color:catColors.os,cat:'os',desc:'PowerShell + Git'},
+    {id:'mac',label:'Mac',x:270,y:45,vx:0,vy:0,r:11,color:catColors.os,cat:'os',desc:'Terminal + curl'},
+    {id:'desktop',label:'Desktop',x:160,y:15,vx:0,vy:0,r:10,color:catColors.os,cat:'os',desc:'デスクトップアプリ'},
   ];
   const edges=[
-    ['install','login'],['login','first'],['install','claudemd'],
-    ['claudemd','first'],['first','memory'],['first','obsidian'],
-    ['windows','install'],['mac','install'],['memory','obsidian']
+    ['windows','install'],['mac','install'],['desktop','install'],
+    ['install','login'],['install','claudemd'],
+    ['login','first'],['login','commands'],['claudemd','first'],
+    ['first','memory'],['first','obsidian'],['first','skills'],
+    ['memory','obsidian'],['commands','first']
   ];
 
   function getNode(id){return nodes.find(n=>n.id===id);}
+  let dragging=null,dragOff={x:0,y:0};
 
-  /* Animate */
-  let time=0;
+  /* Physics */
+  function physics(){
+    const repulsion=800,spring=0.01,damping=0.85,center={x:W/2,y:H/2,force:0.002};
+    nodes.forEach(a=>{
+      nodes.forEach(b=>{
+        if(a===b)return;
+        let dx=a.x-b.x,dy=a.y-b.y;
+        let dist=Math.max(Math.hypot(dx,dy),1);
+        let f=repulsion/(dist*dist);
+        a.vx+=dx/dist*f;a.vy+=dy/dist*f;
+      });
+    });
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      let dx=b.x-a.x,dy=b.y-a.y;
+      let dist=Math.hypot(dx,dy);
+      let f=(dist-60)*spring;
+      a.vx+=dx/dist*f;a.vy+=dy/dist*f;
+      b.vx-=dx/dist*f;b.vy-=dy/dist*f;
+    });
+    nodes.forEach(n=>{
+      if(n===dragging)return;
+      n.vx+=(center.x-n.x)*center.force;
+      n.vy+=(center.y-n.y)*center.force;
+      n.vx*=damping;n.vy*=damping;
+      n.x+=n.vx;n.y+=n.vy;
+      n.x=Math.max(n.r+4,Math.min(W-n.r-4,n.x));
+      n.y=Math.max(n.r+4,Math.min(H-n.r-20,n.y));
+    });
+  }
+
+  /* Draw */
+  let time=0,hoverNode=null;
   function draw(){
-    time+=.008;
+    time+=.006;
+    physics();
     ctx.clearRect(0,0,W,H);
 
     /* edges */
-    edges.forEach(([a,b])=>{
-      const na=getNode(a),nb=getNode(b);
-      ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);
-      ctx.strokeStyle='rgba(184,144,10,.15)';ctx.lineWidth=1;ctx.stroke();
+    edges.forEach(([ai,bi])=>{
+      const a=getNode(ai),b=getNode(bi);
+      const isHover=hoverNode&&(hoverNode.id===ai||hoverNode.id===bi);
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+      ctx.strokeStyle=isHover?'rgba(212,170,34,.45)':'rgba(184,144,10,.12)';
+      ctx.lineWidth=isHover?1.5:0.8;ctx.stroke();
     });
 
     /* nodes */
     nodes.forEach((n,i)=>{
-      const pulse=Math.sin(time+i*.7)*.08+1;
-      ctx.beginPath();
-      ctx.arc(n.x,n.y,n.r*pulse,0,Math.PI*2);
-      ctx.fillStyle=n.color+'22';ctx.fill();
-      ctx.strokeStyle=n.color+'88';ctx.lineWidth=1.5;ctx.stroke();
+      const isHover=hoverNode===n;
+      const pulse=Math.sin(time+i*.7)*.06+1;
+      const r=n.r*(isHover?1.15:pulse);
 
+      /* glow */
+      ctx.beginPath();ctx.arc(n.x,n.y,r+4,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHover?'18':'08');ctx.fill();
+
+      /* circle */
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'20';ctx.fill();
+      ctx.strokeStyle=n.color+(isHover?'cc':'66');ctx.lineWidth=isHover?2:1.2;ctx.stroke();
+
+      /* center dot */
       ctx.fillStyle=n.color;
-      ctx.beginPath();ctx.arc(n.x,n.y,3,0,Math.PI*2);ctx.fill();
+      ctx.beginPath();ctx.arc(n.x,n.y,isHover?4:2.5,0,Math.PI*2);ctx.fill();
 
-      ctx.font='500 9px "DM Mono",monospace';
-      ctx.fillStyle='rgba(245,237,224,.7)';
+      /* label */
+      ctx.font=(isHover?'600':'500')+' '+(isHover?'10':'8.5')+'px "DM Mono",monospace';
+      ctx.fillStyle=isHover?'rgba(245,237,224,.95)':'rgba(245,237,224,.6)';
       ctx.textAlign='center';
-      ctx.fillText(n.label,n.x,n.y+n.r+12);
+      ctx.fillText(n.label,n.x,n.y+r+11);
+    });
+
+    /* legend */
+    const legend=[{label:'SETUP',color:catColors.step},{label:'OS',color:catColors.os},{label:'FEATURE',color:catColors.advanced},{label:'TOOL',color:catColors.tool}];
+    let lx=8,ly=H-12;
+    legend.forEach(l=>{
+      ctx.fillStyle=l.color;ctx.beginPath();ctx.arc(lx+4,ly,3,0,Math.PI*2);ctx.fill();
+      ctx.font='500 6px "DM Mono",monospace';ctx.fillStyle='rgba(245,237,224,.4)';ctx.textAlign='left';
+      ctx.fillText(l.label,lx+10,ly+2);
+      lx+=ctx.measureText(l.label).width+20;
     });
 
     requestAnimationFrame(draw);
   }
   draw();
 
+  /* Hit test */
+  function hitTest(mx,my){
+    let hit=null;
+    nodes.forEach(n=>{if(Math.hypot(mx-n.x,my-n.y)<n.r+8)hit=n;});
+    return hit;
+  }
+  function getXY(e){
+    const rect=canvas.getBoundingClientRect();
+    return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};
+  }
+
   /* Tooltip */
   const tooltip=document.getElementById('graphTooltip');
   const ttTitle=document.getElementById('ttTitle');
   const ttCat=document.getElementById('ttCat');
   const ttDesc=document.getElementById('ttDesc');
+
   canvas.addEventListener('mousemove',function(e){
-    const rect=canvas.getBoundingClientRect();
-    const mx=(e.clientX-rect.left)*(W/rect.width);
-    const my=(e.clientY-rect.top)*(H/rect.height);
-    let hit=null;
-    nodes.forEach(n=>{
-      if(Math.hypot(mx-n.x,my-n.y)<n.r+6)hit=n;
-    });
-    if(hit){
-      ttTitle.textContent=hit.label;ttCat.textContent=hit.cat;ttDesc.textContent=hit.desc;
+    const{x:mx,y:my}=getXY(e);
+    if(dragging){
+      dragging.x=mx+dragOff.x;dragging.y=my+dragOff.y;
+      dragging.vx=0;dragging.vy=0;return;
+    }
+    hoverNode=hitTest(mx,my);
+    if(hoverNode){
+      ttTitle.textContent=hoverNode.label;ttCat.textContent=hoverNode.cat.toUpperCase();ttDesc.textContent=hoverNode.desc;
       tooltip.style.opacity='1';
-      tooltip.style.left=Math.min(hit.x+20,W-160)+'px';
-      tooltip.style.top=(hit.y-40)+'px';
+      tooltip.style.left=Math.min(hoverNode.x+20,W-160)+'px';
+      tooltip.style.top=(hoverNode.y-50)+'px';
       canvas.style.cursor='pointer';
     }else{
       tooltip.style.opacity='0';canvas.style.cursor='grab';
     }
   });
-  canvas.addEventListener('mouseleave',()=>{tooltip.style.opacity='0';});
+  canvas.addEventListener('mouseleave',()=>{tooltip.style.opacity='0';hoverNode=null;dragging=null;});
 
-  /* Click to scroll */
-  const sectionMap={install:'sec01',login:'sec05',claudemd:'sec07',first:'sec06',memory:'sec09',obsidian:'sec09',windows:'sec02',mac:'sec03'};
-  canvas.addEventListener('click',function(e){
-    const rect=canvas.getBoundingClientRect();
-    const mx=(e.clientX-rect.left)*(W/rect.width);
-    const my=(e.clientY-rect.top)*(H/rect.height);
-    nodes.forEach(n=>{
-      if(Math.hypot(mx-n.x,my-n.y)<n.r+6){
-        const target=document.getElementById(sectionMap[n.id]);
+  /* Drag */
+  canvas.addEventListener('mousedown',function(e){
+    const{x:mx,y:my}=getXY(e);
+    const hit=hitTest(mx,my);
+    if(hit){dragging=hit;dragOff={x:hit.x-mx,y:hit.y-my};canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){
+      const{x:mx,y:my}=getXY(e);
+      const moved=Math.hypot(dragging.x-(mx+dragOff.x),dragging.y-(my+dragOff.y));
+      if(moved<3){/* click */
+        const sectionMap={install:'sec01',login:'sec05',claudemd:'sec07',first:'sec06',commands:'sec06',memory:'sec09',obsidian:'sec09',skills:'sec10',windows:'sec02',mac:'sec03',desktop:'sec04'};
+        const target=document.getElementById(sectionMap[dragging.id]);
         if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
       }
-    });
+    }
+    dragging=null;canvas.style.cursor='grab';
+  });
+
+  /* Touch */
+  canvas.addEventListener('touchstart',function(e){
+    e.preventDefault();
+    const t=e.touches[0];const rect=canvas.getBoundingClientRect();
+    const mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    const hit=hitTest(mx,my);
+    if(hit){dragging=hit;dragOff={x:hit.x-mx,y:hit.y-my};}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    e.preventDefault();
+    if(!dragging)return;
+    const t=e.touches[0];const rect=canvas.getBoundingClientRect();
+    const mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    dragging.x=mx+dragOff.x;dragging.y=my+dragOff.y;dragging.vx=0;dragging.vy=0;
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragging){
+      const sectionMap={install:'sec01',login:'sec05',claudemd:'sec07',first:'sec06',commands:'sec06',memory:'sec09',obsidian:'sec09',skills:'sec10',windows:'sec02',mac:'sec03',desktop:'sec04'};
+      const target=document.getElementById(sectionMap[dragging.id]);
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    dragging=null;
   });
 })();
 
-/* MyNote FAB */
+/* ===== MyNote FAB — Full Version ===== */
 (function(){
-  const KEY='mynote-claude-setup';
+  const STORAGE_PREFIX='myNote_';
   const fab=document.getElementById('mynoteFab');
   const panel=document.getElementById('mynotePanel');
   const closeBtn=document.getElementById('mynoteClose');
@@ -1298,38 +1500,85 @@ function copyCode(btn){
   const nextBtn=document.getElementById('mcNext');
   const streakEl=document.getElementById('mcStreak');
   const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
   if(!fab||!panel)return;
 
   let currentDate=new Date().toISOString().slice(0,10);
-  let allNotes=JSON.parse(localStorage.getItem(KEY)||'{}');
   let saveTimer;
+
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){
+    if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);
+    else localStorage.removeItem(STORAGE_PREFIX+date);
+  }
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
 
   function render(){
     dateEl.textContent=currentDate;
-    textarea.value=allNotes[currentDate]||'';
+    textarea.value=getNote(currentDate);
     updateWc();
     updateStreak();
+    renderCalendar();
+    renderChallenge();
   }
   function updateWc(){
     const len=(textarea.value||'').length;
     wcEl.textContent=len?len+' chars':'';
   }
   function save(){
-    if(textarea.value.trim()){allNotes[currentDate]=textarea.value;}
-    else{delete allNotes[currentDate];}
-    localStorage.setItem(KEY,JSON.stringify(allNotes));
+    setNote(currentDate,textarea.value);
     savedEl.classList.add('visible');
     setTimeout(()=>savedEl.classList.remove('visible'),1200);
+    renderCalendar();renderChallenge();updateStreak();
   }
-  function updateStreak(){
+
+  function getStreak(){
     let streak=0,d=new Date();
     while(true){
       const k=d.toISOString().slice(0,10);
-      if(allNotes[k]){streak++;d.setDate(d.getDate()-1);}else break;
+      if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;
     }
+    return streak;
+  }
+  function updateStreak(){
+    const streak=getStreak();
     const txt=streak?streak+'d streak':'';
     streakEl.textContent=txt;fabStreakEl.textContent=streak||'';
   }
+
+  function renderCalendar(){
+    if(!calendarEl)return;
+    calendarEl.innerHTML='';
+    const d=new Date(currentDate);
+    const year=d.getFullYear(),month=d.getMonth();
+    const firstDay=new Date(year,month,1).getDay();
+    const daysInMonth=new Date(year,month+1,0).getDate();
+    const today=new Date().toISOString().slice(0,10);
+    const offset=(firstDay+6)%7;/* Monday-start */
+    for(let i=0;i<offset;i++){
+      const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);
+    }
+    for(let day=1;day<=daysInMonth;day++){
+      const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+      const el=document.createElement('div');
+      el.className='mc-day';
+      if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}
+      else if(dateStr>today)el.classList.add('future');
+      calendarEl.appendChild(el);
+    }
+  }
+
+  function renderChallenge(){
+    if(!challengeEl||!challengeFill)return;
+    const totalDays=66;
+    const streak=getStreak();
+    const pct=Math.min(streak/totalDays*100,100);
+    challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');
+    challengeFill.style.width=pct+'%';
+  }
+
   function shift(days){
     const d=new Date(currentDate);d.setDate(d.getDate()+days);
     currentDate=d.toISOString().slice(0,10);render();
@@ -1337,13 +1586,20 @@ function copyCode(btn){
 
   fab.addEventListener('click',()=>panel.classList.toggle('open'));
   closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
-  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,600);});
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
   prevBtn.addEventListener('click',()=>shift(-1));
   nextBtn.addEventListener('click',()=>shift(1));
+
+  /* Auto-resize textarea */
+  textarea.addEventListener('input',function(){
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
 
   render();
 })();
 </script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
 
 </body>
 </html>
