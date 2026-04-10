@@ -577,7 +577,7 @@ body::before{
     <a class="other-shelf-link" href="people/">人物録</a>
     <a class="other-shelf-link" href="thinkers/">思索の回廊</a>
     <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
-    <a class="other-shelf-link" href="research/">論考の書庫</a>
+    <a class="other-shelf-link" href="thinking/">論考の書庫</a>
     <a class="other-shelf-link" href="start-here/real-estate/">不動産投資</a>
     <a class="other-shelf-link" href="library-map-classic/">書庫マップ（クラシック）</a>
     <a class="other-shelf-link" href="library-graph/" style="border-color:rgba(184,144,10,.25);color:var(--gold3);opacity:.8;">書庫の鳥瞰図</a>
@@ -607,7 +607,7 @@ body::before{
     <a href="night-reading/">夜の読書室</a> ·
     <a href="book-guide/">読む・聴く案内室</a> ·
     <a href="smart-home/">今日の書斎</a> ·
-    <a href="research/">論考の書庫</a> ·
+    <a href="thinking/">論考の書庫</a> ·
     <a href="learning/">まなびの時間</a> ·
     <a href="nisa/">NISAの始め方</a> ·
     <a href="start-here/">資産形成入門</a> ·
@@ -619,6 +619,7 @@ body::before{
     <a href="risk-defense/">リスクと守り</a> ·
     <a href="library-map-classic/">書庫マップ</a> ·
     <a href="library-graph/">鳥瞰図</a> ·
+    <a href="tools/screener/">銘柄スカウター</a> ·
     <a href="api/articles.json">API</a> ·
     <a href="llms.txt">llms.txt</a>
   </div>
@@ -699,10 +700,10 @@ var SEARCH_DATA = [
   {title:"ピーター・リンチ",url:"people/peter-lynch/",desc:"「自分の知っているものに投資せよ」",cat:"PEOPLE"},
   {title:"フィリップ・フィッシャー",url:"people/philip-fisher/",desc:"成長株投資の先駆者",cat:"PEOPLE"},
   {title:"バフェット後のバークシャー",url:"people/buffett-succession/",desc:"アベル新CEOと変わらない原則",cat:"PEOPLE"},
-  {title:"ニデックの構造分析",url:"research/nidec-moat/",desc:"なぜ勝ち続けるのか——日本電産の強さ",cat:"RESEARCH"},
-  {title:"任天堂の構造分析",url:"research/nintendo-moat/",desc:"なぜ勝ち続けるのか——任天堂の強さ",cat:"RESEARCH"},
-  {title:"信越化学の構造分析",url:"research/shinetsu-moat/",desc:"なぜ勝ち続けるのか——信越化学の強さ",cat:"RESEARCH"},
-  {title:"トヨタの構造分析",url:"research/toyota-moat/",desc:"なぜ勝ち続けるのか——トヨタの強さ",cat:"RESEARCH"},
+  {title:"ニデックの構造分析",url:"thinking/nidec-moat/",desc:"なぜ勝ち続けるのか——日本電産の強さ",cat:"RESEARCH"},
+  {title:"任天堂の構造分析",url:"thinking/nintendo-moat/",desc:"なぜ勝ち続けるのか——任天堂の強さ",cat:"RESEARCH"},
+  {title:"信越化学の構造分析",url:"thinking/shinetsu-moat/",desc:"なぜ勝ち続けるのか——信越化学の強さ",cat:"RESEARCH"},
+  {title:"トヨタの構造分析",url:"thinking/toyota-moat/",desc:"なぜ勝ち続けるのか——トヨタの強さ",cat:"RESEARCH"},
   {title:"投資と心理バイアスの全体図",url:"human/bias-overview/",desc:"なぜ人は高値で買い安値で売るのか",cat:"HUMAN"},
   {title:"ハロー効果と企業評価",url:"human/halo-effect/",desc:"好業績の企業はすべてが素晴らしく見える",cat:"HUMAN"},
   {title:"ナラティブバイアスと投資",url:"human/narrative-bias/",desc:"なぜ人は「物語」に騙されるのか",cat:"HUMAN"},
@@ -715,7 +716,8 @@ var SEARCH_DATA = [
   {title:"インデックス投資の哲学",url:"etf-funds/index-investing-philosophy/",desc:"ボーグルとファーマの革命",cat:"ETF & FUNDS"},
   {title:"iDeCo大改正2026",url:"ideco/ideco-reform-2026/",desc:"国はなぜ老後資産形成を税制優遇するのか",cat:"iDeCo"},
   {title:"新NISAの本当の意味",url:"nisa/nisa-philosophy/",desc:"英国ISAから日本の非課税制度の歴史",cat:"NISA"},
-  {title:"Claude Code マスター",url:"learning/claude-code-master/",desc:"AI活用の実践ガイド",cat:"LEARNING"}
+  {title:"Claude Code マスター",url:"learning/claude-code-master/",desc:"AI活用の実践ガイド",cat:"LEARNING"},
+  {title:"銘柄スカウター",url:"tools/screener/",desc:"営業利益率・PER・PBR・ROE・配当利回りで日本株をスクリーニング。EDINET（金融庁）の公開財務データに基づく無料ツール",cat:"TOOLS"}
 ];
 
 (function(){

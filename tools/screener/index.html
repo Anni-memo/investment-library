@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="営業利益率・PER・PBR・ROE・配当利回りで日本株約3,800社をスクリーニング。EDINET（金融庁）の公開財務データに基づく無料スクリーナー。"/>
+<meta property="og:title" content="銘柄スカウター — 日本株スクリーニングツール｜投資と思考の書斎"/>
+<meta property="og:description" content="営業利益率・PER・PBR・ROE・配当利回りで日本株をスクリーニング。財務データ出典: EDINET（金融庁）"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/tools/screener/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/tools/screener/"/>
+<title>銘柄スカウター — 日本株スクリーニングツール｜投資と思考の書斎</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "銘柄スカウター",
+  "description": "営業利益率・PER・PBR・ROE・配当利回りで日本株約3,800社をスクリーニングできる無料ツール",
+  "url": "https://anni-memo.github.io/investment-library/tools/screener/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資と思考の書斎"}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator_midnight.min.css" rel="stylesheet"/>
+<script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* Nav */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:32px 40px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;display:flex;align-items:center;gap:32px;}
+@media(max-width:768px){.hero-inner{flex-direction:column;text-align:center;}}
+.hero-icon{font-size:3rem;flex-shrink:0;}
+.hero-text{flex:1;}
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:6px;opacity:.7;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.2rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);line-height:1.3;}
+.hero-sub{font-family:var(--jp);font-size:.72rem;color:var(--parch3);margin-top:8px;line-height:1.6;}
+.hero-stats{display:flex;gap:24px;margin-top:12px;}
+.hero-stat{font-family:var(--mono);font-size:.56rem;color:var(--gold3);letter-spacing:.08em;}
+.hero-stat strong{color:var(--gold4);font-size:.72rem;}
+
+/* Main */
+.main-content{max-width:1400px;margin:0 auto;padding:24px 24px 60px;}
+
+/* Filter Panel */
+.filter-panel{background:var(--parch2);border:1px solid var(--parch3);border-radius:4px;padding:20px 24px;margin-bottom:20px;}
+.filter-title{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.filter-title::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.filter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.filter-group{display:flex;flex-direction:column;gap:4px;}
+.filter-label{font-family:var(--mono);font-size:.56rem;color:var(--ink3);letter-spacing:.06em;}
+.filter-range{display:flex;align-items:center;gap:4px;}
+.filter-input{font-family:var(--mono);font-size:.72rem;padding:6px 8px;border:1px solid var(--parch4);border-radius:3px;background:var(--parch);color:var(--ink);width:80px;text-align:right;transition:border-color .2s;}
+.filter-input:focus{outline:none;border-color:var(--gold3);}
+.filter-sep{font-family:var(--mono);font-size:.62rem;color:var(--ink3);}
+.filter-unit{font-family:var(--mono);font-size:.48rem;color:var(--ink3);}
+
+.filter-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.btn{font-family:var(--mono);font-size:.68rem;padding:8px 16px;border:1px solid var(--gold3);border-radius:3px;cursor:pointer;transition:all .15s;letter-spacing:.06em;}
+.btn-primary{background:var(--gold);color:var(--parch);border-color:var(--gold);}.btn-primary:hover{background:var(--gold2);}
+.btn-secondary{background:transparent;color:var(--gold);}.btn-secondary:hover{background:rgba(139,105,20,.08);}
+.btn-preset{font-size:.6rem;padding:6px 12px;background:rgba(139,105,20,.06);color:var(--ink3);border-color:var(--parch4);}.btn-preset:hover{background:rgba(139,105,20,.12);color:var(--gold);border-color:var(--gold3);}
+.btn-preset.active{background:rgba(139,105,20,.15);color:var(--gold);border-color:var(--gold3);font-weight:500;}
+
+/* Presets */
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+.preset-label{font-family:var(--mono);font-size:.48rem;color:var(--ink3);letter-spacing:.1em;align-self:center;margin-right:4px;}
+
+/* Table */
+.table-wrap{background:var(--parch);border:1px solid var(--parch3);border-radius:4px;overflow:hidden;}
+.table-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--parch3);}
+.table-count{font-family:var(--mono);font-size:.56rem;color:var(--ink3);letter-spacing:.06em;}
+.table-actions{display:flex;gap:6px;}
+
+/* Tabulator overrides for parchment theme */
+.tabulator{background:var(--parch);border:none;font-family:var(--jp);font-size:.72rem;}
+.tabulator .tabulator-header{background:var(--ink);border-bottom:2px solid var(--gold);}
+.tabulator .tabulator-header .tabulator-col{background:var(--ink);border-right:1px solid rgba(184,144,10,.15);}
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-col-title{color:var(--parch3);font-family:var(--mono);font-size:.58rem;letter-spacing:.04em;font-weight:400;}
+.tabulator .tabulator-header .tabulator-col.tabulator-sortable .tabulator-col-title{padding-right:20px;}
+.tabulator .tabulator-header .tabulator-col .tabulator-col-content .tabulator-arrow{border-bottom-color:var(--gold3);border-top-color:var(--gold3);}
+.tabulator .tabulator-tableHolder .tabulator-table .tabulator-row{background:var(--parch);border-bottom:1px solid var(--parch3);color:var(--ink);}
+.tabulator .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(2n){background:var(--parch2);}
+.tabulator .tabulator-tableHolder .tabulator-table .tabulator-row:hover{background:rgba(139,105,20,.08);}
+.tabulator .tabulator-tableHolder .tabulator-table .tabulator-row .tabulator-cell{border-right:1px solid rgba(139,105,20,.06);padding:6px 8px;}
+.tabulator .tabulator-footer{background:var(--parch2);border-top:1px solid var(--parch3);color:var(--ink3);}
+.tabulator .tabulator-footer .tabulator-page{color:var(--ink3);border:1px solid var(--parch4);background:var(--parch);font-family:var(--mono);font-size:.6rem;}
+.tabulator .tabulator-footer .tabulator-page.active{background:var(--gold);color:var(--parch);border-color:var(--gold);}
+.tabulator .tabulator-footer .tabulator-page:hover:not(.active){background:rgba(139,105,20,.1);}
+.tabulator .tabulator-footer .tabulator-paginator label{color:var(--ink3);font-family:var(--mono);font-size:.56rem;}
+
+/* Stock code link */
+.stock-code{color:var(--gold);text-decoration:none;font-family:var(--mono);font-weight:500;cursor:pointer;transition:color .15s;}
+.stock-code:hover{color:var(--gold2);text-decoration:underline;}
+.stock-name{font-size:.68rem;}
+
+/* Value colors */
+.val-positive{color:var(--green2);}
+.val-negative{color:var(--rust2);}
+
+/* Chart Modal */
+.chart-overlay{position:fixed;inset:0;background:rgba(26,18,8,.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:24px;}
+.chart-overlay.open{display:flex;}
+.chart-modal{background:var(--parch);border:2px solid var(--gold3);border-radius:6px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;position:relative;}
+.chart-modal-header{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--ink);border-bottom:2px solid var(--gold);}
+.chart-modal-title{font-family:var(--serif);font-size:1rem;color:var(--parch);font-weight:600;}
+.chart-modal-code{font-family:var(--mono);font-size:.56rem;color:var(--gold3);letter-spacing:.1em;margin-left:8px;}
+.chart-close{background:none;border:none;color:var(--parch3);font-size:1.2rem;cursor:pointer;padding:4px 8px;transition:color .15s;}.chart-close:hover{color:var(--gold4);}
+.chart-body{height:500px;background:#131722;}
+@media(max-width:768px){.chart-body{height:350px;}}
+
+/* Disclaimer */
+.disclaimer{max-width:1400px;margin:0 auto;padding:0 24px 40px;font-family:var(--jp);font-size:.62rem;color:var(--ink3);line-height:1.8;}
+.disclaimer-box{background:var(--parch2);border:1px solid var(--parch3);border-radius:4px;padding:16px 20px;}
+.disclaimer-title{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.15em;margin-bottom:8px;}
+
+/* Dark mode */
+[data-theme="dark"]{--ink:#e8dcc8;--ink2:#d4c8b0;--ink3:#b0a088;--parch:#1a1208;--parch2:#221a0e;--parch3:#2d2010;--parch4:#3a2a18;--gold:#d4aa22;--gold2:#f0cc55;--gold3:#f5d870;--gold4:#ffe99a;}
+[data-theme="dark"] body{background:#1a1208;color:#e8dcc8;}
+[data-theme="dark"] html{background:#0e0a04;}
+[data-theme="dark"] .filter-input{background:#2d2010;color:#e8dcc8;border-color:#3a2a18;}
+[data-theme="dark"] .tabulator .tabulator-tableHolder .tabulator-table .tabulator-row{background:#1a1208;color:#e8dcc8;}
+[data-theme="dark"] .tabulator .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(2n){background:#221a0e;}
+[data-theme="dark"] .tabulator .tabulator-tableHolder .tabulator-table .tabulator-row:hover{background:rgba(212,170,34,.1);}
+[data-theme="dark"] .tabulator .tabulator-footer{background:#221a0e;border-top-color:#2d2010;}
+[data-theme="dark"] .tabulator .tabulator-footer .tabulator-page{background:#1a1208;color:#b0a088;border-color:#3a2a18;}
+[data-theme="dark"] .val-positive{color:#5a8a3a;}
+[data-theme="dark"] .val-negative{color:#c05020;}
+
+/* Loading */
+.loading{text-align:center;padding:60px 20px;font-family:var(--jp);color:var(--ink3);}
+.loading-spinner{display:inline-block;width:28px;height:28px;border:3px solid var(--parch3);border-top-color:var(--gold3);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="../../" class="nav-back">書斎</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">銘柄スカウター</span>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-icon">&#x1F50D;</div>
+    <div class="hero-text">
+      <div class="hero-label">TOOLS</div>
+      <h1 class="hero-title">銘柄スカウター</h1>
+      <p class="hero-sub">営業利益率・PER・PBR・ROE・配当利回りで日本株をスクリーニング</p>
+      <div class="hero-stats">
+        <span class="hero-stat" id="heroCount"><strong>-</strong> 銘柄</span>
+        <span class="hero-stat" id="heroUpdated">更新: <strong>-</strong></span>
+        <span class="hero-stat">出典: <strong>EDINET</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="main-content">
+
+  <!-- Filter Panel -->
+  <div class="filter-panel">
+    <div class="filter-title">SCREENING CONDITIONS</div>
+
+    <!-- Presets -->
+    <div class="presets">
+      <span class="preset-label">PRESET</span>
+      <button class="btn btn-preset" data-preset="value">割安株</button>
+      <button class="btn btn-preset" data-preset="quality">高収益</button>
+      <button class="btn btn-preset" data-preset="dividend">高配当</button>
+      <button class="btn btn-preset" data-preset="growth">成長株</button>
+      <button class="btn btn-preset" data-preset="buffett">バフェット基準</button>
+    </div>
+
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label class="filter-label">営業利益率</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="opMarginMin" placeholder="下限" step="0.1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="opMarginMax" placeholder="上限" step="0.1"/>
+          <span class="filter-unit">%</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">PER</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="perMin" placeholder="下限" step="0.1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="perMax" placeholder="上限" step="0.1"/>
+          <span class="filter-unit">倍</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">PBR</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="pbrMin" placeholder="下限" step="0.01"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="pbrMax" placeholder="上限" step="0.01"/>
+          <span class="filter-unit">倍</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">ROE</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="roeMin" placeholder="下限" step="0.1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="roeMax" placeholder="上限" step="0.1"/>
+          <span class="filter-unit">%</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">配当利回り</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="divYieldMin" placeholder="下限" step="0.1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="divYieldMax" placeholder="上限" step="0.1"/>
+          <span class="filter-unit">%</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">自己資本比率</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="equityRatioMin" placeholder="下限" step="0.1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="equityRatioMax" placeholder="上限" step="0.1"/>
+          <span class="filter-unit">%</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">時価総額</label>
+        <div class="filter-range">
+          <input type="number" class="filter-input" id="marketCapMin" placeholder="下限" step="1"/>
+          <span class="filter-sep">〜</span>
+          <input type="number" class="filter-input" id="marketCapMax" placeholder="上限" step="1"/>
+          <span class="filter-unit">億円</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">業種</label>
+        <select id="industryFilter" class="filter-input" style="width:170px;text-align:left;">
+          <option value="">すべて</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-actions">
+      <button class="btn btn-primary" id="btnFilter">スクリーニング実行</button>
+      <button class="btn btn-secondary" id="btnClear">条件クリア</button>
+      <button class="btn btn-secondary" id="btnCsv">CSV出力</button>
+    </div>
+  </div>
+
+  <!-- Data Freshness Notice -->
+  <div style="background:rgba(139,105,20,.06);border-left:3px solid var(--gold3);padding:10px 14px;margin-bottom:16px;font-family:var(--jp);font-size:.68rem;color:var(--ink3);line-height:1.7;">
+    <strong style="color:var(--gold);font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;">NOTE</strong>
+    掲載のPER・PBR・時価総額等は<strong>決算期末時点</strong>の株価を元に算出された値です。日々の株価変動は反映されません。候補発見後は銘柄コードをクリックしてTradingViewチャートで最新値をご確認ください。
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap">
+    <div class="table-header">
+      <span class="table-count" id="tableCount">- 件表示</span>
+    </div>
+    <div id="screenerTable"></div>
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <div class="disclaimer-box">
+    <div class="disclaimer-title">DISCLAIMER</div>
+    <p>当サイトは投資助言を目的としたものではありません。掲載情報は正確性を保証するものではなく、投資判断はご自身の責任において行ってください。当サイトの情報に基づいて生じた損害について、当サイト運営者は一切の責任を負いません。</p>
+    <p style="margin-top:8px;">財務データ出典: <a href="https://edinetdb.jp/" target="_blank" rel="noopener" style="color:var(--gold);">EDINET DB</a>（<a href="https://disclosure2dl.edinet-fsa.go.jp/" target="_blank" rel="noopener" style="color:var(--gold);">EDINET</a>（金融庁）の公開データを構造化）</p>
+  </div>
+</div>
+
+<!-- Chart Modal -->
+<div class="chart-overlay" id="chartOverlay">
+  <div class="chart-modal">
+    <div class="chart-modal-header">
+      <div>
+        <span class="chart-modal-title" id="chartTitle">-</span>
+        <span class="chart-modal-code" id="chartCode">-</span>
+      </div>
+      <button class="chart-close" id="chartClose">&times;</button>
+    </div>
+    <div class="chart-body" id="chartBody"></div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js" defer></script>
+
+<script>
+(function(){
+'use strict';
+
+var DATA_URL = '../../data/screener/stocks.json';
+var allData = [];
+var table = null;
+
+// Presets
+var PRESETS = {
+  value:    {perMax:15, pbrMax:1.5, opMarginMin:5},
+  quality:  {opMarginMin:15, roeMin:10, equityRatioMin:40},
+  dividend: {divYieldMin:3, equityRatioMin:30, opMarginMin:5},
+  growth:   {roeMin:15, opMarginMin:10},
+  buffett:  {opMarginMin:15, roeMin:15, perMax:25, equityRatioMin:30}
+};
+
+// Format helpers
+function fmt(v, digits) {
+  if (v === null || v === undefined || v !== v) return '-';
+  return Number(v).toFixed(digits !== undefined ? digits : 1);
+}
+function fmtInt(v) {
+  if (v === null || v === undefined || v !== v) return '-';
+  return Math.round(v).toLocaleString('ja-JP');
+}
+function fmtBillion(v) {
+  if (v === null || v === undefined || v !== v) return '-';
+  var b = v / 100000000;
+  if (b >= 10000) return (b / 10000).toFixed(1) + '兆';
+  return Math.round(b).toLocaleString('ja-JP') + '億';
+}
+function colorClass(v) {
+  if (v === null || v === undefined || v !== v) return '';
+  return v >= 0 ? 'val-positive' : 'val-negative';
+}
+
+// Load data
+function loadData() {
+  var el = document.getElementById('screenerTable');
+  el.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>データを読み込み中...</p></div>';
+
+  fetch(DATA_URL)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      allData = data.companies || [];
+      document.getElementById('heroCount').innerHTML = '<strong>' + allData.length.toLocaleString('ja-JP') + '</strong> 銘柄';
+      document.getElementById('heroUpdated').innerHTML = '更新: <strong>' + (data.updated || '-') + '</strong>';
+      buildIndustryFilter();
+      initTable(allData);
+    })
+    .catch(function(err) {
+      el.innerHTML = '<div class="loading"><p style="color:var(--rust2);">データの読み込みに失敗しました。<br/>stocks.json が配置されているか確認してください。</p></div>';
+      console.error('Data load error:', err);
+    });
+}
+
+// Industry filter
+function buildIndustryFilter() {
+  var industries = {};
+  allData.forEach(function(s) { if (s.industry) industries[s.industry] = true; });
+  var sel = document.getElementById('industryFilter');
+  Object.keys(industries).sort().forEach(function(ind) {
+    var opt = document.createElement('option');
+    opt.value = ind;
+    opt.textContent = ind;
+    sel.appendChild(opt);
+  });
+}
+
+// Init Tabulator
+function initTable(data) {
+  table = new Tabulator('#screenerTable', {
+    data: data,
+    layout: 'fitDataFill',
+    responsiveLayout: 'collapse',
+    pagination: true,
+    paginationSize: 50,
+    paginationSizeSelector: [25, 50, 100, 200],
+    movableColumns: true,
+    initialSort: [{column: 'op_margin', dir: 'desc'}],
+    placeholder: '<div style="padding:40px;text-align:center;color:var(--ink3);font-family:var(--jp);">条件に一致する銘柄がありません</div>',
+    columns: [
+      {title: 'コード', field: 'code', width: 70, frozen: true, headerSort: true,
+        formatter: function(cell) {
+          var code = cell.getValue();
+          return '<a class="stock-code" data-code="' + code + '" data-name="' + (cell.getRow().getData().name || '') + '">' + code + '</a>';
+        }
+      },
+      {title: '銘柄名', field: 'name', minWidth: 140, headerSort: true,
+        formatter: function(cell) { return '<span class="stock-name">' + (cell.getValue() || '-') + '</span>'; }
+      },
+      {title: '業種', field: 'industry', width: 110, headerSort: true},
+      {title: '営業利益率', field: 'op_margin', width: 95, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { var v = cell.getValue(); return '<span class="' + colorClass(v) + '">' + fmt(v, 1) + '%</span>'; }
+      },
+      {title: 'PER<br><small style="font-size:.5rem;opacity:.6;">期末</small>', field: 'per', width: 70, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmt(cell.getValue(), 1); }
+      },
+      {title: 'PBR<br><small style="font-size:.5rem;opacity:.6;">期末</small>', field: 'pbr', width: 70, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmt(cell.getValue(), 2); }
+      },
+      {title: 'ROE', field: 'roe', width: 70, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { var v = cell.getValue(); return '<span class="' + colorClass(v) + '">' + fmt(v, 1) + '%</span>'; }
+      },
+      {title: '配当利回', field: 'div_yield', width: 80, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmt(cell.getValue(), 2) + '%'; }
+      },
+      {title: '自己資本比率', field: 'equity_ratio', width: 90, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmt(cell.getValue(), 1) + '%'; }
+      },
+      {title: '時価総額', field: 'market_cap', width: 100, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmtBillion(cell.getValue()); }
+      },
+      {title: 'EPS', field: 'eps', width: 80, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmt(cell.getValue(), 1); }
+      },
+      {title: 'BPS', field: 'bps', width: 80, hozAlign: 'right', headerSort: true, sorter: 'number',
+        formatter: function(cell) { return fmtInt(cell.getValue()); }
+      },
+      {title: '決算期', field: 'fiscal_year', width: 80, headerSort: true},
+    ],
+    rowClick: function(e, row) {
+      var d = row.getData();
+      if (d.code) openChart(d.code, d.name);
+    }
+  });
+
+  updateCount();
+}
+
+// Filter
+function applyFilter() {
+  if (!table) return;
+
+  var filters = {
+    opMarginMin: parseFloat(document.getElementById('opMarginMin').value),
+    opMarginMax: parseFloat(document.getElementById('opMarginMax').value),
+    perMin:      parseFloat(document.getElementById('perMin').value),
+    perMax:      parseFloat(document.getElementById('perMax').value),
+    pbrMin:      parseFloat(document.getElementById('pbrMin').value),
+    pbrMax:      parseFloat(document.getElementById('pbrMax').value),
+    roeMin:      parseFloat(document.getElementById('roeMin').value),
+    roeMax:      parseFloat(document.getElementById('roeMax').value),
+    divYieldMin: parseFloat(document.getElementById('divYieldMin').value),
+    divYieldMax: parseFloat(document.getElementById('divYieldMax').value),
+    equityRatioMin: parseFloat(document.getElementById('equityRatioMin').value),
+    equityRatioMax: parseFloat(document.getElementById('equityRatioMax').value),
+    marketCapMin: parseFloat(document.getElementById('marketCapMin').value) * 100000000,
+    marketCapMax: parseFloat(document.getElementById('marketCapMax').value) * 100000000,
+    industry:    document.getElementById('industryFilter').value
+  };
+
+  var filtered = allData.filter(function(s) {
+    if (!isNaN(filters.opMarginMin) && (s.op_margin === null || s.op_margin < filters.opMarginMin)) return false;
+    if (!isNaN(filters.opMarginMax) && (s.op_margin === null || s.op_margin > filters.opMarginMax)) return false;
+    if (!isNaN(filters.perMin) && (s.per === null || s.per < filters.perMin)) return false;
+    if (!isNaN(filters.perMax) && (s.per === null || s.per > filters.perMax)) return false;
+    if (!isNaN(filters.pbrMin) && (s.pbr === null || s.pbr < filters.pbrMin)) return false;
+    if (!isNaN(filters.pbrMax) && (s.pbr === null || s.pbr > filters.pbrMax)) return false;
+    if (!isNaN(filters.roeMin) && (s.roe === null || s.roe < filters.roeMin)) return false;
+    if (!isNaN(filters.roeMax) && (s.roe === null || s.roe > filters.roeMax)) return false;
+    if (!isNaN(filters.divYieldMin) && (s.div_yield === null || s.div_yield < filters.divYieldMin)) return false;
+    if (!isNaN(filters.divYieldMax) && (s.div_yield === null || s.div_yield > filters.divYieldMax)) return false;
+    if (!isNaN(filters.equityRatioMin) && (s.equity_ratio === null || s.equity_ratio < filters.equityRatioMin)) return false;
+    if (!isNaN(filters.equityRatioMax) && (s.equity_ratio === null || s.equity_ratio > filters.equityRatioMax)) return false;
+    if (!isNaN(filters.marketCapMin) && (s.market_cap === null || s.market_cap < filters.marketCapMin)) return false;
+    if (!isNaN(filters.marketCapMax) && (s.market_cap === null || s.market_cap > filters.marketCapMax)) return false;
+    if (filters.industry && s.industry !== filters.industry) return false;
+    return true;
+  });
+
+  table.replaceData(filtered);
+  updateCount();
+}
+
+function clearFilter() {
+  var inputs = document.querySelectorAll('.filter-input');
+  inputs.forEach(function(el) {
+    if (el.tagName === 'SELECT') el.value = '';
+    else el.value = '';
+  });
+  document.querySelectorAll('.btn-preset').forEach(function(b) { b.classList.remove('active'); });
+  table.replaceData(allData);
+  updateCount();
+}
+
+function updateCount() {
+  if (!table) return;
+  var rows = table.getDataCount('active');
+  document.getElementById('tableCount').textContent = rows.toLocaleString('ja-JP') + ' 件表示 / ' + allData.length.toLocaleString('ja-JP') + ' 件中';
+}
+
+// Presets
+function applyPreset(name) {
+  clearFilter();
+  var p = PRESETS[name];
+  if (!p) return;
+  document.querySelectorAll('.btn-preset').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.preset === name);
+  });
+  if (p.opMarginMin) document.getElementById('opMarginMin').value = p.opMarginMin;
+  if (p.perMax) document.getElementById('perMax').value = p.perMax;
+  if (p.pbrMax) document.getElementById('pbrMax').value = p.pbrMax;
+  if (p.roeMin) document.getElementById('roeMin').value = p.roeMin;
+  if (p.divYieldMin) document.getElementById('divYieldMin').value = p.divYieldMin;
+  if (p.equityRatioMin) document.getElementById('equityRatioMin').value = p.equityRatioMin;
+  applyFilter();
+}
+
+// TradingView Chart
+function openChart(code, name) {
+  document.getElementById('chartTitle').textContent = name || code;
+  document.getElementById('chartCode').textContent = code;
+  var overlay = document.getElementById('chartOverlay');
+  overlay.classList.add('open');
+
+  var body = document.getElementById('chartBody');
+  body.innerHTML = '';
+
+  var widget = document.createElement('div');
+  widget.id = 'tradingview-widget';
+  body.appendChild(widget);
+
+  var script = document.createElement('script');
+  script.src = 'https://s3.tradingview.com/tv.js';
+  script.onload = function() {
+    new TradingView.widget({
+      container_id: 'tradingview-widget',
+      symbol: 'TSE:' + code,
+      interval: 'D',
+      timezone: 'Asia/Tokyo',
+      theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light',
+      style: '1',
+      locale: 'ja',
+      toolbar_bg: '#f5ede0',
+      enable_publishing: false,
+      hide_side_toolbar: false,
+      allow_symbol_change: true,
+      autosize: true,
+    });
+  };
+  body.appendChild(script);
+}
+
+function closeChart() {
+  document.getElementById('chartOverlay').classList.remove('open');
+  document.getElementById('chartBody').innerHTML = '';
+}
+
+// CSV export
+function exportCsv() {
+  if (!table) return;
+  table.download('csv', 'screener_' + new Date().toISOString().slice(0,10) + '.csv', {bom: true});
+}
+
+// Event listeners
+document.getElementById('btnFilter').addEventListener('click', applyFilter);
+document.getElementById('btnClear').addEventListener('click', clearFilter);
+document.getElementById('btnCsv').addEventListener('click', exportCsv);
+document.getElementById('chartClose').addEventListener('click', closeChart);
+document.getElementById('chartOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeChart();
+});
+
+document.querySelectorAll('.btn-preset').forEach(function(btn) {
+  btn.addEventListener('click', function() { applyPreset(this.dataset.preset); });
+});
+
+// Enter key triggers filter
+document.querySelectorAll('.filter-input').forEach(function(input) {
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') applyFilter();
+  });
+});
+
+// Stock code click (event delegation)
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('.stock-code');
+  if (link) {
+    e.preventDefault();
+    e.stopPropagation();
+    openChart(link.dataset.code, link.dataset.name);
+  }
+}, true);
+
+// Escape closes chart
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeChart();
+});
+
+// Init
+loadData();
+
+})();
+</script>
+</body>
+</html>

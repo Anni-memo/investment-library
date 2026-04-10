@@ -1,0 +1,33 @@
+name: Update Screener Data
+
+on:
+  schedule:
+    # 毎週月曜 18:00 UTC = 火曜 03:00 JST
+    - cron: '0 18 * * 1'
+  workflow_dispatch: # 手動実行用
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch EDINET DB data
+        env:
+          EDINETDB_API_KEY: ${{ secrets.EDINETDB_API_KEY }}
+        run: python scripts/fetch_edinet.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/screener/stocks.json
+          git diff --staged --quiet || git commit -m "chore: update screener data ($(date +%Y-%m-%d))"
+          git push
