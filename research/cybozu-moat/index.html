@@ -60,7 +60,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* HERO */
 .hero{
   background:linear-gradient(165deg,#020610 0%,#080e22 40%,#0e1838 70%,#04080e 100%);
-  color:var(--parch);padding:72px 24px 56px;position:relative;overflow:hidden;
+  color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;
   border-bottom:3px solid rgba(74,106,184,.5);
 }
 .hero::before{content:'';position:absolute;inset:0;pointer-events:none;
@@ -270,6 +270,30 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
 @media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
 @media(max-width:480px){.nav-cockpit{grid-template-columns:1fr;gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Morimori Addon: Hero 3-col ===== */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+
+/* Graph Card */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:'DM Mono',monospace;font-size:.46rem;color:rgba(212,170,34,.55);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:'Noto Serif JP',serif;font-size:.72rem;color:#f5ede0;font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:'DM Mono',monospace;font-size:.42rem;color:#d4aa22;letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:'Noto Serif JP',serif;font-size:.62rem;color:rgba(245,237,224,.75);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(184,144,10,.05);border:1px solid rgba(184,144,10,.15);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:'DM Mono',monospace;font-size:.58rem;color:rgba(212,170,34,.55);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.08);border:1px solid rgba(184,144,10,.18);color:rgba(245,237,224,.82);text-decoration:none;font-family:'DM Mono',monospace;font-size:.68rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.18);border-color:#d4aa22;color:#f5ede0;}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
 </style>
 <link rel="stylesheet" href="../../shared.css"/>
 </head>
@@ -285,22 +309,49 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </nav>
 
 <!-- HERO -->
+<!-- ── HERO (3-column, morimori) ── -->
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-breadcrumb">RESEARCH SHELF · ESSAY 08</div>
-    <div class="hero-label">SaaS / moat分析 / 経営哲学</div>
-    <h1 class="hero-title">サイボウズ moat解剖</h1>
-    <p class="hero-subtitle">
-      kintone・Garoon・サイボウズOffice——製品全体像と財務5年データ、<br>
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div class="hero-col-center">
+      <div class="hero-eyebrow">RESEARCH SHELF · ESSAY 08</div>
+      <div class="hero-label">SaaS / moat分析 / 経営哲学</div>
+      <h1 class="hero-title">サイボウズ moat解剖</h1>
+      <p class="hero-subtitle">kintone・Garoon・サイボウズOffice——製品全体像と財務5年データ、<br>
       450社パートナーエコシステム、離職率28%→4%の経営哲学まで。<br>
-      PER12.7倍に沈んだ今、長期投資家として何を見るか。
-    </p>
-    <div class="hero-meta">
-      <span class="hero-date">2026.03.28</span>
+      PER12.7倍に沈んだ今、長期投資家として何を見るか。</p>
+      <div class="hero-meta"><span class="hero-date">2026.03.28</span>
       <span class="hero-tag">SaaS</span>
       <span class="hero-tag">moat分析</span>
       <span class="hero-tag">経営哲学</span>
-      <span class="hero-tag">4776</span>
+      <span class="hero-tag">4776</span></div>
+    </div>
+
+    <!-- Right: Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec-metrics"><span class="qa-icon">🔍</span> 財務・事業 主要指標</a>
+          <a class="qa-btn-v" href="#sec-who"><span class="qa-icon">⏰</span> サイボウズとは何者か</a>
+          <a class="qa-btn-v" href="#sec-products"><span class="qa-icon">🧭</span> 製品エコシステム全体図</a>
+          <a class="qa-btn-v" href="#sec-finance"><span class="qa-icon">🔄</span> 財務の深掘り</a>
+          <a class="qa-btn-v" href="#sec-competitors"><span class="qa-icon">📖</span> 競合比較マップ</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1081,5 +1132,187 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
 <script src="../../mynote.js"></script>
+
+<script>
+
+/* ===== Knowledge Graph ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'この記事',section:'セクション',related:'関連記事'};
+
+  var nodes=[
+    {id:'self',label:'サイボウズ moat解剖',x:0,y:0,r:22,color:'#d4aa22',cat:'self',url:null,desc:'この記事'},
+    {id:'sec0',label:'財務・事業 主要指標',x:-110,y:-60,r:14,color:'#b8900a',cat:'section',url:'#sec-metrics',desc:'財務・事業 主要指標'},
+    {id:'sec1',label:'サイボウズとは何者か',x:110,y:-55,r:14,color:'#b8900a',cat:'section',url:'#sec-who',desc:'サイボウズとは何者か'},
+    {id:'sec2',label:'製品エコシステム全体',x:120,y:35,r:14,color:'#b8900a',cat:'section',url:'#sec-products',desc:'製品エコシステム全体図'},
+    {id:'sec3',label:'財務の深掘り',x:-90,y:70,r:14,color:'#b8900a',cat:'section',url:'#sec-finance',desc:'財務の深掘り'},
+    {id:'sec4',label:'競合比較マップ',x:20,y:105,r:14,color:'#b8900a',cat:'section',url:'#sec-competitors',desc:'競合比較マップ'},
+    {id:'rel0',label:'AGM2026',x:-170,y:-30,r:12,color:'#2a3d6a',cat:'related',url:'../cybozu-agm-2026/',desc:'サイボウズ株主総会2026'},
+    {id:'rel1',label:'デジタルネイチャー',x:175,y:-10,r:12,color:'#2a3d6a',cat:'related',url:'../cybozu-digital-nature/',desc:'デジタルネイチャーとサイボウズ'},
+    {id:'rel2',label:'投資',x:-150,y:110,r:12,color:'#2a3d6a',cat:'related',url:'../cybozu-investment/',desc:'AIエージェントはチームを殺すか'},
+    {id:'rel3',label:'SaaSの未来',x:170,y:95,r:12,color:'#2a3d6a',cat:'related',url:'../cybozu-saas-future/',desc:'kintoneは生き残るか'},
+    {id:'rel4',label:'評価',x:0,y:-120,r:12,color:'#2a3d6a',cat:'related',url:'../cybozu-verdict/',desc:'投資判断：サイボウズ'}
+  ];
+
+  var edges=[
+    {from:'self',to:'sec0'},
+    {from:'self',to:'sec1'},
+    {from:'self',to:'sec2'},
+    {from:'self',to:'sec3'},
+    {from:'self',to:'sec4'},
+    {from:'self',to:'rel0'},
+    {from:'self',to:'rel1'},
+    {from:'self',to:'rel2'},
+    {from:'self',to:'rel3'},
+    {from:'self',to:'rel4'},
+    {from:'sec0',to:'sec1'},
+    {from:'sec2',to:'sec3'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  nodes.forEach(function(n){n.px=0;n.py=0;n.vx=0;n.vy=0;n.hover=false;n.dragging=false;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){hovConns[hovId]=true;(connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});}
+
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.1)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;var r=n.r*(isHov?1.2:pulse);
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'55');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.55)';
+        ctx.textAlign='center';ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    var legend=[{l:'この記事',c:'#d4aa22'},{l:'セクション',c:'#b8900a'},{l:'関連記事',c:'#2a3d6a'}];
+    var lx=8,ly=H-10;
+    legend.forEach(function(item){
+      ctx.fillStyle=item.c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='400 7px "Noto Serif JP","DM Mono",sans-serif';
+      ctx.fillStyle='rgba(245,237,224,.4)';ctx.textAlign='left';
+      ctx.fillText(item.l,lx+8,ly+2.5);
+      lx+=ctx.measureText(item.l).width+16;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+8)return n;}return null;}
+  function getXY(e){var rect=canvas.getBoundingClientRect();return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};}
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;dragging.vx=0;dragging.vy=0;return;}
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){hit.hover=true;ttTitle.textContent=hit.label;ttCat.textContent=catLabels[hit.cat]||hit.cat;ttDesc.textContent=hit.desc;tooltip.style.opacity='1';tooltip.style.left=Math.min(hit.px+20,W-160)+'px';tooltip.style.top=(hit.py-55)+'px';canvas.style.cursor='pointer';}
+    else{tooltip.style.opacity='0';canvas.style.cursor='grab';}
+  });
+  canvas.addEventListener('mouseleave',function(){nodes.forEach(function(n){n.hover=false;});tooltip.style.opacity='0';dragging=null;});
+  canvas.addEventListener('mousedown',function(e){var p=getXY(e);var hit=hitTest(p.x,p.y);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){var p=getXY(e);var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));dragging.dragging=false;
+    if(moved<5&&dragging.url){if(dragging.url.charAt(0)==='#'){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.location.href=dragging.url;}}}
+    dragging=null;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('touchstart',function(e){e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);var hit=hitTest(mx,my);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragging){dragging.dragging=false;if(dragging.url){if(dragging.url.charAt(0)==='#'){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.location.href=dragging.url;}}}dragging=null;});
+})();
+
+</script>
 </body>
 </html>

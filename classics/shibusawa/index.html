@@ -23,26 +23,144 @@
 :root{--ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;--parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;--gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;--serif:'Cormorant Garamond','Noto Serif JP',serif;--jp:'Noto Serif JP','Cormorant Garamond',serif;--mono:'DM Mono',monospace;--shadow:0 4px 24px rgba(26,18,8,.18);}
 *{box-sizing:border-box;margin:0;padding:0}html{background:var(--ink);scroll-behavior:smooth}body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
 .nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
-.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.88rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:540px;margin:0 auto;}
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1c0a 100%);color:var(--parch);padding:24px 40px 24px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:14px;opacity:.65;position:relative;}.hero-title{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 20px rgba(212,170,34,.15);position:relative;margin-bottom:18px;}.hero-lead{font-size:.88rem;color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:540px;margin:0 auto;}
 .article{max-width:680px;margin:0 auto;padding:56px 24px 12px;}.article-section{margin-bottom:56px;}.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;opacity:.75;}.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}.section-body{font-size:.88rem;color:var(--ink2);line-height:2.1;font-weight:300;}.section-body p{margin-bottom:1.4em;}.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.86rem;color:var(--ink3);line-height:1.8;}.section-body ul li::before{content:'\2014';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
 .callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
 .further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}.further-inner{max-width:700px;margin:0 auto;}.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}.further-links{display:flex;flex-direction:column;gap:2px;}.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
 .footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}.footer a{color:var(--gold3);text-decoration:none}
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}.scroll-top.visible{opacity:1;pointer-events:all}.scroll-top:hover{background:var(--gold2);color:var(--ink)}
 .music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}.music-toggle:hover{opacity:1;border-color:var(--gold2);}.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;}
+
+/* ===== Morimori Template: Hero 3-col ===== */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+
+/* Graph Card */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* Nav Cockpit */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
 </style>
 </head>
 <body>
 <nav class="nav"><a class="nav-back" href="../../">書斎の入口</a><span class="nav-sep">/</span><a class="nav-back" href="../">教養と人間理解</a><span class="nav-sep">/</span><span class="nav-current">渋沢栄一の資本主義観</span></nav>
-<div class="hero"><div class="hero-shelf">教養と人間理解 &#8212; SHIBUSAWA EIICHI</div><h1 class="hero-title">渋沢栄一の資本主義観</h1><p class="hero-lead">「論語と算盤は一致すべきものである」<br>道徳と利益は対立しない——日本資本主義の原点。</p></div>
+<!-- ── HERO (3-column) ── -->
+<div class="hero">
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div class="hero-col-center">
+      <div class="hero-shelf">教養と人間理解 &#8212; SHIBUSAWA EIICHI</div>
+      <h1 class="hero-title">渋沢栄一の資本主義観</h1>
+      <p class="hero-lead">「論語と算盤は一致すべきものである」<br>道徳と利益は対立しない——日本資本主義の原点。</p>
+    </div>
+
+    <!-- Right: Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec01"><span class="qa-icon">🔍</span> 渋沢栄一とは何者か</a>
+          <a class="qa-btn-v" href="#sec02"><span class="qa-icon">⏰</span> なぜ今も語り継がれる</a>
+          <a class="qa-btn-v" href="#sec03"><span class="qa-icon">🧭</span> 投資家・経営者への示</a>
+          <a class="qa-btn-v" href="#sec04"><span class="qa-icon">🔄</span> どこを読むと本質が見</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ── Navigation Cockpit ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">書斎の入口</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">教養と人間理解</a><span class="ct-count">9</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>渋沢栄一の資本主義観</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 8 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ul class="toc-list">
+      <li><a href="#sec01"><span class="toc-num">01</span>渋沢栄一とは何者か</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>なぜ今も語り継がれるのか</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>投資家・経営者への示唆</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>どこを読むと本質が見えるか</a></li>
+    </ul>
+  </div>
+</div>
+
 <main class="article">
-<div class="article-section"><div class="section-label">WHAT HE DID</div><h2 class="section-title">渋沢栄一とは何者か</h2><div class="section-body"><p>1840年、武蔵国の農家に生まれた渋沢栄一は、日本資本主義の父と呼ばれる人物である。第一国立銀行、東京証券取引所、王子製紙をはじめ、生涯で500を超える企業の設立に関わった。</p><p>しかし渋沢の真の独自性は、企業を数多く創ったことではない。儒教の道徳と近代資本主義を結合させるという、他の誰も試みなかった思想的実験を行ったことにある。</p><p>利益を追求すること自体は悪ではない。しかし道徳を欠いた利益追求は、社会を蝕み、やがて自らをも滅ぼす。この確信が、渋沢のすべての事業を貫いている。</p></div></div>
+<div class="article-section" id="sec01"><div class="section-label">WHAT HE DID</div><h2 class="section-title">渋沢栄一とは何者か</h2><div class="section-body"><p>1840年、武蔵国の農家に生まれた渋沢栄一は、日本資本主義の父と呼ばれる人物である。第一国立銀行、東京証券取引所、王子製紙をはじめ、生涯で500を超える企業の設立に関わった。</p><p>しかし渋沢の真の独自性は、企業を数多く創ったことではない。儒教の道徳と近代資本主義を結合させるという、他の誰も試みなかった思想的実験を行ったことにある。</p><p>利益を追求すること自体は悪ではない。しかし道徳を欠いた利益追求は、社会を蝕み、やがて自らをも滅ぼす。この確信が、渋沢のすべての事業を貫いている。</p></div></div>
 <hr class="divider"/>
-<div class="article-section"><div class="section-label">WHY HE ENDURES</div><h2 class="section-title">なぜ今も語り継がれるのか</h2><div class="section-body"><p>渋沢の主著『論語と算盤』は、道徳と利益は不可分であるという主張を展開した書物である。論語（道徳）と算盤（経済）は一見矛盾するが、本来は一致すべきものだ——これが渋沢の生涯を貫く信念だった。</p><p>ESG投資、ステークホルダー資本主義、パーパス経営。これらは西洋で21世紀に広まった概念だが、渋沢は100年以上前にその本質を言い当てていた。</p><p>2024年から新一万円札の肖像となったことは、渋沢の思想が今なお日本社会の中に生きている証でもある。</p></div></div>
+<div class="article-section" id="sec02"><div class="section-label">WHY HE ENDURES</div><h2 class="section-title">なぜ今も語り継がれるのか</h2><div class="section-body"><p>渋沢の主著『論語と算盤』は、道徳と利益は不可分であるという主張を展開した書物である。論語（道徳）と算盤（経済）は一見矛盾するが、本来は一致すべきものだ——これが渋沢の生涯を貫く信念だった。</p><p>ESG投資、ステークホルダー資本主義、パーパス経営。これらは西洋で21世紀に広まった概念だが、渋沢は100年以上前にその本質を言い当てていた。</p><p>2024年から新一万円札の肖像となったことは、渋沢の思想が今なお日本社会の中に生きている証でもある。</p></div></div>
 <hr class="divider"/>
-<div class="article-section"><div class="section-label">FOR INVESTORS</div><h2 class="section-title">投資家・経営者への示唆</h2><div class="section-body"><p>渋沢の思想は、現代の投資家にとって極めて実践的な指針を与える。</p><ul><li>企業を評価するとき、利益だけでなく経営の倫理性を見る。不正を重ねて利益を積む企業は、必ずどこかで崩れる</li><li>長期にわたり持続する事業は、信頼と道徳の土台の上に築かれている。これは渋沢が実証した原則である</li><li>投機と投資の違い——渋沢はこの区別に厳格だった。一時の値動きに賭けるのではなく、事業の本質的価値に基づいて資本を配分すること</li></ul><div class="callout"><p class="callout-text">「富をなす根源は何かと言えば、仁義道徳。<br>正しい道理の富でなければ、<br>その富は完全に永続することができぬ。」<br>&#8212;&#8212; 渋沢栄一</p></div></div></div>
+<div class="article-section" id="sec03"><div class="section-label">FOR INVESTORS</div><h2 class="section-title">投資家・経営者への示唆</h2><div class="section-body"><p>渋沢の思想は、現代の投資家にとって極めて実践的な指針を与える。</p><ul><li>企業を評価するとき、利益だけでなく経営の倫理性を見る。不正を重ねて利益を積む企業は、必ずどこかで崩れる</li><li>長期にわたり持続する事業は、信頼と道徳の土台の上に築かれている。これは渋沢が実証した原則である</li><li>投機と投資の違い——渋沢はこの区別に厳格だった。一時の値動きに賭けるのではなく、事業の本質的価値に基づいて資本を配分すること</li></ul><div class="callout"><p class="callout-text">「富をなす根源は何かと言えば、仁義道徳。<br>正しい道理の富でなければ、<br>その富は完全に永続することができぬ。」<br>&#8212;&#8212; 渋沢栄一</p></div></div></div>
 <hr class="divider"/>
-<div class="article-section"><div class="section-label">WHERE TO READ</div><h2 class="section-title">どこを読むと本質が見えるか</h2><div class="section-body"><ul><li>『論語と算盤』（角川ソフィア文庫）——渋沢の思想を知るための必読書。全編を通じて道徳と経済の統合が語られる</li><li>第一章「処世と信条」と第四章「仁義と富貴」が核心。まずここから読む</li><li>『雨夜譚』——渋沢の自伝。農家の息子がいかにして日本資本主義の設計者となったか、その人間的な物語を知る</li><li>守屋淳の現代語訳は読みやすく、入門に適している</li></ul></div></div>
+<div class="article-section" id="sec04"><div class="section-label">WHERE TO READ</div><h2 class="section-title">どこを読むと本質が見えるか</h2><div class="section-body"><ul><li>『論語と算盤』（角川ソフィア文庫）——渋沢の思想を知るための必読書。全編を通じて道徳と経済の統合が語られる</li><li>第一章「処世と信条」と第四章「仁義と富貴」が核心。まずここから読む</li><li>『雨夜譚』——渋沢の自伝。農家の息子がいかにして日本資本主義の設計者となったか、その人間的な物語を知る</li><li>守屋淳の現代語訳は読みやすく、入門に適している</li></ul></div></div>
 </main>
 <div style="max-width:700px;margin:0 auto;padding:24px 24px 0;">
   <a target="_blank" href="../../reader/?book=shibusawa" style="display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(135deg,#1a1208 0%,#2d2010 100%);border:1px solid rgba(139,105,20,.25);text-decoration:none;transition:all .2s;border-radius:4px;">
@@ -55,6 +173,42 @@
   </a>
 </div>
 <div class="further"><div class="further-inner"><div class="further-label">関連する記事</div><div class="further-links"><a class="further-link" href="../lives/"><span class="further-link-tag">教養</span><span class="further-link-title">人物と生き方の棚</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../analects/"><span class="further-link-tag">教養</span><span class="further-link-title">論語から何を学ぶか</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../fukuzawa/"><span class="further-link-tag">教養</span><span class="further-link-title">福澤諭吉とは何者だったか</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../../horizons/capitalism/"><span class="further-link-tag">思考</span><span class="further-link-title">資本主義とは何か</span><span class="further-link-arrow">&rarr;</span></a></div></div></div>
+
+<!-- MyNote FAB -->
+<div class="mynote-fab" id="mynoteFab">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">MY NOTE</div>
+    <span class="mynote-fab-streak" id="mcFabStreak"></span>
+  </div>
+</div>
+<div class="mynote-panel" id="mynotePanel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&larr;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&rarr;</button>
+    </div>
+    <textarea id="mcText" placeholder="今日の気づきを書く..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
+  </div>
+</div>
+
 <footer class="footer"><div class="footer-title">投資と思考の書斎</div><div><a href="../../">書斎の入口</a> &middot; <a href="../../hajimete/">初めての方へ</a> &middot; <a href="../../principles/">投資原則</a> &middot; <a href="../../industries/">業種から歩く</a> &middot; <a href="../../horizons/">思考を広げる</a> &middot; <a href="../">教養と人間理解</a></div><div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div><div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div></footer>
 <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
 <button class="music-toggle" id="musicToggle" title="528Hz">&#127925;</button>
@@ -63,5 +217,225 @@
 <script src="../../shared.js"></script>
 <script src="../../ai-assistant.js"></script>
 <script src="../../mynote.js"></script>
+
+<script>
+
+/* ===== Knowledge Graph ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'\u3053\u306e\u8a18\u4e8b',section:'\u30bb\u30af\u30b7\u30e7\u30f3',related:'\u95a2\u9023\u8a18\u4e8b'};
+  var catColors={self:'#d4aa22',section:'#b8900a',related:'#2a3d6a'};
+
+  var nodes=[
+    {id:'self',label:'渋沢栄一の資本主義観',x:0,y:0,r:22,color:'#d4aa22',cat:'self',url:null,desc:'この記事'},
+    {id:'sec0',label:'渋沢栄一とは何者',x:-100,y:-60,r:14,color:'#b8900a',cat:'section',url:'#sec01',desc:'渋沢栄一とは何者か'},
+    {id:'sec1',label:'なぜ今も語り継が',x:100,y:-50,r:14,color:'#b8900a',cat:'section',url:'#sec02',desc:'なぜ今も語り継がれるのか'},
+    {id:'sec2',label:'投資家・経営者へ',x:120,y:40,r:14,color:'#b8900a',cat:'section',url:'#sec03',desc:'投資家・経営者への示唆'},
+    {id:'sec3',label:'どこを読むと本質',x:-80,y:70,r:14,color:'#b8900a',cat:'section',url:'#sec04',desc:'どこを読むと本質が見えるか'},
+    {id:'rel0',label:'古典と思想の棚',x:-160,y:-20,r:12,color:'#2a3d6a',cat:'related',url:'../thought/',desc:'古典と思想の棚'},
+    {id:'rel1',label:'夜と霧',x:170,y:0,r:12,color:'#2a3d6a',cat:'related',url:'../night-and-fog/',desc:'夜と霧'},
+    {id:'rel2',label:'論語',x:-140,y:100,r:11,color:'#2a3d6a',cat:'related',url:'../analects/',desc:'論語'},
+    {id:'rel3',label:'7つの習慣',x:160,y:90,r:11,color:'#2a3d6a',cat:'related',url:'../seven-habits/',desc:'7つの習慣'}
+  ];
+
+  var edges=[
+    {from:'self',to:'sec0'},
+    {from:'self',to:'sec1'},
+    {from:'self',to:'sec2'},
+    {from:'self',to:'sec3'},
+    {from:'self',to:'rel0'},
+    {from:'self',to:'rel1'},
+    {from:'self',to:'rel2'},
+    {from:'self',to:'rel3'},
+    {from:'sec0',to:'sec1'},
+    {from:'sec2',to:'sec3'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  nodes.forEach(function(n){n.px=0;n.py=0;n.vx=0;n.vy=0;n.hover=false;n.dragging=false;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){hovConns[hovId]=true;(connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});};
+
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.08)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;var r=n.r*(isHov?1.2:pulse);
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'44');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.5)';
+        ctx.textAlign='center';ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    var legend=[{l:'\u3053\u306e\u8a18\u4e8b',c:'#d4aa22'},{l:'\u30bb\u30af\u30b7\u30e7\u30f3',c:'#b8900a'},{l:'\u95a2\u9023\u8a18\u4e8b',c:'#2a3d6a'}];
+    var lx=8,ly=H-10;
+    legend.forEach(function(item){
+      ctx.fillStyle=item.c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='400 7px "Noto Serif JP","DM Mono",sans-serif';
+      ctx.fillStyle='rgba(245,237,224,.35)';ctx.textAlign='left';
+      ctx.fillText(item.l,lx+8,ly+2.5);
+      lx+=ctx.measureText(item.l).width+16;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+8)return n;}return null;}
+  function getXY(e){var rect=canvas.getBoundingClientRect();return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};}
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;dragging.vx=0;dragging.vy=0;return;}
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){hit.hover=true;ttTitle.textContent=hit.label;ttCat.textContent=catLabels[hit.cat]||hit.cat;ttDesc.textContent=hit.desc;tooltip.style.opacity='1';tooltip.style.left=Math.min(hit.px+20,W-160)+'px';tooltip.style.top=(hit.py-55)+'px';canvas.style.cursor='pointer';}
+    else{tooltip.style.opacity='0';canvas.style.cursor='grab';}
+  });
+  canvas.addEventListener('mouseleave',function(){nodes.forEach(function(n){n.hover=false;});tooltip.style.opacity='0';dragging=null;});
+  canvas.addEventListener('mousedown',function(e){var p=getXY(e);var hit=hitTest(p.x,p.y);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){var p=getXY(e);var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));dragging.dragging=false;
+    if(moved<5&&dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}
+    dragging=null;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('touchstart',function(e){e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);var hit=hitTest(mx,my);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragging){dragging.dragging=false;if(dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}dragging=null;});
+})();
+
+
+/* ===== MyNote FAB ===== */
+(function(){
+  const STORAGE_PREFIX='myNote_';
+  const fab=document.getElementById('mynoteFab');
+  const panel=document.getElementById('mynotePanel');
+  const closeBtn=document.getElementById('mynoteClose');
+  const textarea=document.getElementById('mcText');
+  const savedEl=document.getElementById('mcSaved');
+  const wcEl=document.getElementById('mcWc');
+  const dateEl=document.getElementById('mcDate');
+  const prevBtn=document.getElementById('mcPrev');
+  const nextBtn=document.getElementById('mcNext');
+  const streakEl=document.getElementById('mcStreak');
+  const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+  let currentDate=new Date().toISOString().slice(0,10);
+  let saveTimer;
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);else localStorage.removeItem(STORAGE_PREFIX+date);}
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+  function render(){dateEl.textContent=currentDate;textarea.value=getNote(currentDate);updateWc();updateStreak();renderCalendar();renderChallenge();}
+  function updateWc(){const len=(textarea.value||'').length;wcEl.textContent=len?len+' chars':'';}
+  function save(){setNote(currentDate,textarea.value);savedEl.classList.add('visible');setTimeout(()=>savedEl.classList.remove('visible'),1200);renderCalendar();renderChallenge();updateStreak();}
+  function getStreak(){let streak=0,d=new Date();while(true){const k=d.toISOString().slice(0,10);if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;}return streak;}
+  function updateStreak(){const streak=getStreak();streakEl.textContent=streak?streak+'d streak':'';fabStreakEl.textContent=streak||'';}
+  function renderCalendar(){if(!calendarEl)return;calendarEl.innerHTML='';const d=new Date(currentDate);const year=d.getFullYear(),month=d.getMonth();const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();const today=new Date().toISOString().slice(0,10);const offset=(firstDay+6)%7;for(let i=0;i<offset;i++){const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);}for(let day=1;day<=daysInMonth;day++){const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');const el=document.createElement('div');el.className='mc-day';if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}else if(dateStr>today)el.classList.add('future');calendarEl.appendChild(el);}}
+  function renderChallenge(){if(!challengeEl||!challengeFill)return;const totalDays=66;const streak=getStreak();const pct=Math.min(streak/totalDays*100,100);challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');challengeFill.style.width=pct+'%';}
+  function shift(days){const d=new Date(currentDate);d.setDate(d.getDate()+days);currentDate=d.toISOString().slice(0,10);render();}
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',()=>shift(-1));
+  nextBtn.addEventListener('click',()=>shift(1));
+  textarea.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';});
+  render();
+})();
+
+</script>
 </body>
 </html>
