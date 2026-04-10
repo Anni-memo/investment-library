@@ -79,7 +79,7 @@ function initTOC(){
   if(!article) return;
   var headings = article.querySelectorAll('h2, h3');
   if(headings.length < 3) return;
-  if(document.querySelector('.toc')) return;
+  if(document.querySelector('.toc') || document.querySelector('.nav-cockpit')) return;
 
   var toc = document.createElement('div');
   toc.className = 'auto-toc';

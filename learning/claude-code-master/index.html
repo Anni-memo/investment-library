@@ -181,6 +181,71 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
 .scroll-top.visible{opacity:1;pointer-events:all}
 .scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+/* HERO 3-COL */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+
+/* QA CARD */
+.qa-card{background:rgba(106,61,138,.04);border:1px solid rgba(106,61,138,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(180,160,220,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(106,61,138,.06);border:1px solid rgba(106,61,138,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(106,61,138,.15);border-color:var(--purple2);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* NAV COCKPIT */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* REF / NEXT */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
+.next-link:hover{border-color:var(--gold3);background:var(--parch3);}
+.next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+
+/* SITE FOOTER */
+.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.7;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
+.footer-copy{font-family:var(--mono);font-size:.48rem;color:var(--parch4);opacity:.4;letter-spacing:.1em;}
 </style>
 </head>
 <body>
@@ -196,57 +261,85 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-code">ANTHROPIC CLI &middot; AI-POWERED DEVELOPMENT</div>
-  <h1 class="hero-name">Claude Code マスター</h1>
-  <div class="hero-name-en">The Complete Guide to Claude Code</div>
-  <div class="hero-tags">
-    <span class="hero-tag">SLASH COMMANDS</span>
-    <span class="hero-tag">MEMORY</span>
-    <span class="hero-tag">MCP</span>
-    <span class="hero-tag">AGENTS</span>
-    <span class="hero-tag">HOOKS</span>
-    <span class="hero-tag">SKILLS</span>
-  </div>
-  <div class="hero-bottom">
-    <div class="hero-verdict">
-      ターミナルに住むAIが、コードを読み、書き、考える。<br>
-      Claude Codeの全機能を一望する地図。
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">FEATURE MAP</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
     </div>
-    <div class="hero-pdf-wrap">
-      <a class="hero-pdf-btn" href="../../assets/pdf/claude-code-cheatsheet.pdf" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="12" y1="18" x2="12" y2="12"/>
-          <polyline points="9 15 12 18 15 15"/>
-        </svg>
-        1枚レポート PDF
-      </a>
-      <span class="hero-pdf-desc">全コマンド・Tips・ショートカットを<br>A4 1枚に凝縮</span>
+
+    <!-- Center: Hero Title -->
+    <div class="hero-col-center">
+      <div class="hero-code">ANTHROPIC CLI &middot; AI-POWERED DEVELOPMENT</div>
+      <h1 class="hero-name">Claude Code マスター</h1>
+      <div class="hero-name-en">The Complete Guide to Claude Code</div>
+      <div class="hero-tags">
+        <span class="hero-tag">SLASH COMMANDS</span>
+        <span class="hero-tag">MEMORY</span>
+        <span class="hero-tag">MCP</span>
+        <span class="hero-tag">AGENTS</span>
+        <span class="hero-tag">HOOKS</span>
+        <span class="hero-tag">SKILLS</span>
+      </div>
+      <div class="hero-bottom" style="margin-top:16px;">
+        <div class="hero-verdict" style="text-align:center;">
+          ターミナルに住むAIが、コードを読み、書き、考える。<br>
+          Claude Codeの全機能を一望する地図。
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Quick Actions + PDF -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#commands"><span class="qa-icon">&#9000;</span> コマンド一覧</a>
+          <a class="qa-btn-v" href="#mcp"><span class="qa-icon">&#128279;</span> MCP連携</a>
+          <a class="qa-btn-v" href="../claude-code-setup/"><span class="qa-icon">&#128640;</span> セットアップ</a>
+          <a class="qa-btn-v" href="../../assets/pdf/claude-code-cheatsheet.pdf" target="_blank"><span class="qa-icon">&#128196;</span> 1枚レポート PDF</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- GRAPH VIEW -->
-<div class="graph-section">
-  <div class="graph-inner">
-    <div class="graph-label">CLAUDE CODE KNOWLEDGE GRAPH</div>
-    <div class="graph-card">
-      <div class="graph-card-label">FEATURE MAP</div>
-      <canvas id="graphCanvas"></canvas>
-      <div class="graph-tooltip" id="graphTooltip">
-        <div class="graph-tooltip-title" id="ttTitle"></div>
-        <div class="graph-tooltip-cat" id="ttCat"></div>
-        <div class="graph-tooltip-desc" id="ttDesc"></div>
+<!-- NAV COCKPIT -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資と思考の書斎</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">まなびの時間</a><span class="ct-count">5</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../obsidian-second-brain/">メモの複利</a></div>
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>Claude Code Master</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+        </div>
       </div>
     </div>
-    <div class="graph-legend">
-      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#9b59b6"></span>コア</div>
-      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#d4aa22"></span>コマンド</div>
-      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#3d6828"></span>機能</div>
-      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#2a3d6a"></span>ツール</div>
-      <div class="graph-legend-item"><span class="graph-legend-dot" style="background:#c05020"></span>記事</div>
-    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 15 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ul class="toc-list">
+      <li><a href="#overview"><span class="toc-num">01</span>Claude Codeとは何か</a></li>
+      <li><a href="#learning-path"><span class="toc-num">02</span>どこから始めるか</a></li>
+      <li><a href="#commands"><span class="toc-num">03</span>毎日使うコマンド</a></li>
+      <li><a href="#shortcuts"><span class="toc-num">04</span>手が覚える操作</a></li>
+      <li><a href="#mcp"><span class="toc-num">05</span>MCPで広がる世界</a></li>
+      <li><a href="#memory-section"><span class="toc-num">06</span>記憶のアーキテクチャ</a></li>
+    </ul>
   </div>
 </div>
 
@@ -254,7 +347,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <main class="article">
 
   <!-- 1. Claude Codeとは -->
-  <div class="article-section">
+  <div class="article-section" id="overview">
     <div class="section-label">OVERVIEW</div>
     <h2 class="section-title">Claude Codeとは何か</h2>
     <div class="section-body">
@@ -269,7 +362,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 2. 学習パス -->
-  <div class="article-section">
+  <div class="article-section" id="learning-path">
     <div class="section-label">LEARNING PATH</div>
     <h2 class="section-title">どこから始めるか</h2>
     <div class="section-body">
@@ -365,7 +458,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 4. キーボードショートカット -->
-  <div class="article-section">
+  <div class="article-section" id="shortcuts">
     <div class="section-label">SHORTCUTS &amp; TIPS</div>
     <h2 class="section-title">手が覚える操作</h2>
     <table class="cmd-table">
@@ -399,7 +492,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <hr class="divider"/>
 
   <!-- 6. メモリ -->
-  <div class="article-section">
+  <div class="article-section" id="memory-section">
     <div class="section-label">MEMORY SYSTEM</div>
     <h2 class="section-title">記憶のアーキテクチャ</h2>
     <div class="section-body">
@@ -410,51 +503,73 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     </div>
   </div>
 
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>Anthropic, "Claude Code Documentation" &mdash; docs.anthropic.com/en/docs/claude-code</li>
+      <li>Anthropic, "Claude Code Commands" &mdash; docs.anthropic.com/en/docs/claude-code/cli-reference</li>
+      <li>Anthropic, "MCP Overview" &mdash; docs.anthropic.com/en/docs/claude-code/mcp</li>
+    </ul>
+  </div>
+
+  <div class="next-links">
+    <a class="next-link" href="../claude-code-setup/">
+      <div class="next-link-label">RELATED &rarr;</div>
+      <div class="next-link-title">セットアップガイド</div>
+    </a>
+    <a class="next-link" href="../claude-code-memory/">
+      <div class="next-link-label">DEEPER &rarr;</div>
+      <div class="next-link-title">記憶を設計する</div>
+    </a>
+  </div>
+
 </main>
 
-<!-- FURTHER READING -->
-<div class="further">
-  <div class="further-inner">
-    <div class="further-label">RELATED ARTICLES</div>
-    <p class="further-reason">この記事に関連する棚の本。Claude Codeの理解を深める3冊。</p>
-    <div class="further-links">
-      <a class="further-link" href="../claude-code-setup/">
-        <span class="further-link-tag">導入</span>
-        <span class="further-link-title">Claude Code セットアップガイド</span>
-        <span class="further-link-arrow">&rarr;</span>
-      </a>
-      <a class="further-link" href="../claude-code-memory/">
-        <span class="further-link-tag">記憶</span>
-        <span class="further-link-title">Claude Code メモリ管理</span>
-        <span class="further-link-arrow">&rarr;</span>
-      </a>
-      <a class="further-link" href="../prompt-optimization/">
-        <span class="further-link-tag">技法</span>
-        <span class="further-link-title">プロンプト最適化</span>
-        <span class="further-link-arrow">&rarr;</span>
-      </a>
-      <a class="further-link" href="../obsidian-second-brain/">
-        <span class="further-link-tag">思考</span>
-        <span class="further-link-title">メモの複利 — Obsidian &times; AI</span>
-        <span class="further-link-arrow">&rarr;</span>
-      </a>
+<!-- MYNOTE FAB -->
+<div class="mynote-fab" id="mynoteFab">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">MY NOTE</div>
+    <span class="mynote-fab-streak" id="mcFabStreak"></span>
+  </div>
+</div>
+<div class="mynote-panel" id="mynotePanel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&larr;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&rarr;</button>
     </div>
+    <textarea id="mcText" placeholder="今日の気づきを書く..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-title">投資と思考の書斎</div>
-  <div>
-    <a href="../../">書斎の入口</a> &middot;
-    <a href="../../hajimete/">初めての方へ</a> &middot;
-    <a href="../../principles/">投資原則</a> &middot;
-    <a href="../../industries/">業種から歩く</a> &middot;
-    <a href="../../horizons/">思考を広げる</a> &middot;
-    <a href="../../people/">人物録</a>
-  </div>
-  <div style="margin-top:8px;">人とAIが共に使える、無料の知の図書館。</div>
-  <div style="margin-top:4px;opacity:.6;">このサイトの内容は情報提供を目的としており、投資助言ではありません。投資は自己責任でお願いします。</div>
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="../../">Library Top</a>
+    <a href="../">まなびの時間</a>
+    <a href="../claude-code-setup/">Setup</a>
+    <a href="../claude-code-memory/">Memory</a>
+    <a href="../prompt-optimization/">Prompt</a>
+  </nav>
+  <div class="footer-copy">&copy; 2026 投資と思考の書斎</div>
 </footer>
 
 <!-- SCROLL TOP -->
@@ -474,11 +589,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   function resize(){
     var rect=canvas.parentElement.getBoundingClientRect();
-    W=rect.width;H=Math.max(320,W*0.45);
+    W=rect.width;H=window.innerWidth>960?200:240;
     canvas.width=W*dpr;canvas.height=H*dpr;
     canvas.style.height=H+'px';
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    nodes.forEach(function(n){n.px=W/2+n.x;n.py=H/2+n.y;});
+    nodes.forEach(function(n){n.px=W/2+n.x*(W/520)*0.85;n.py=H/2+n.y*(H/420)*0.75;});
   }
 
   var nodes=[
@@ -676,8 +791,68 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       dragNode=null;}
   });
 
-  function loop(){simulate();draw();requestAnimationFrame(loop);}
+  // Draw legend on canvas
+  var legendCats=[
+    {label:'コア',color:'#9b59b6'},
+    {label:'コマンド',color:'#d4aa22'},
+    {label:'機能',color:'#3d6828'},
+    {label:'ツール',color:'#2a3d6a'},
+    {label:'記事',color:'#c05020'}
+  ];
+  function drawLegend(){
+    var fs=8;ctx.font='400 '+fs+'px "DM Mono",monospace';
+    var totalW=0;legendCats.forEach(function(c){totalW+=ctx.measureText(c.label).width+20;});
+    var sx=(W-totalW)/2;var ly=H-10;
+    legendCats.forEach(function(c){
+      ctx.beginPath();ctx.arc(sx+4,ly-2,3,0,Math.PI*2);ctx.fillStyle=c.color;ctx.globalAlpha=0.7;ctx.fill();ctx.globalAlpha=1;
+      ctx.fillStyle='rgba(245,237,224,0.5)';ctx.textAlign='left';ctx.textBaseline='middle';
+      ctx.fillText(c.label,sx+10,ly-2);
+      sx+=ctx.measureText(c.label).width+20;
+    });
+  }
+
+  function loop(){simulate();draw();drawLegend();requestAnimationFrame(loop);}
   loop();
+})();
+
+// MyNote FAB
+(function(){
+  var STORAGE_PREFIX='myNote_';
+  var fab=document.getElementById('mynoteFab');
+  var panel=document.getElementById('mynotePanel');
+  var closeBtn=document.getElementById('mynoteClose');
+  var textarea=document.getElementById('mcText');
+  var savedEl=document.getElementById('mcSaved');
+  var wcEl=document.getElementById('mcWc');
+  var dateEl=document.getElementById('mcDate');
+  var prevBtn=document.getElementById('mcPrev');
+  var nextBtn=document.getElementById('mcNext');
+  var streakEl=document.getElementById('mcStreak');
+  var fabStreakEl=document.getElementById('mcFabStreak');
+  var calendarEl=document.getElementById('mcCalendar');
+  var challengeEl=document.getElementById('mcChallenge');
+  var challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+  var currentDate=new Date().toISOString().slice(0,10);
+  var saveTimer;
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);else localStorage.removeItem(STORAGE_PREFIX+date);}
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+  function render(){dateEl.textContent=currentDate;textarea.value=getNote(currentDate);updateWc();updateStreak();renderCalendar();renderChallenge();}
+  function updateWc(){var len=(textarea.value||'').length;wcEl.textContent=len?len+' chars':'';}
+  function save(){setNote(currentDate,textarea.value);savedEl.classList.add('visible');setTimeout(function(){savedEl.classList.remove('visible');},1200);renderCalendar();renderChallenge();updateStreak();}
+  function getStreak(){var streak=0,d=new Date();while(true){var k=d.toISOString().slice(0,10);if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;}return streak;}
+  function updateStreak(){var streak=getStreak();streakEl.textContent=streak?streak+'d streak':'';fabStreakEl.textContent=streak||'';}
+  function renderCalendar(){if(!calendarEl)return;calendarEl.innerHTML='';var d=new Date(currentDate);var year=d.getFullYear(),month=d.getMonth();var firstDay=new Date(year,month,1).getDay();var daysInMonth=new Date(year,month+1,0).getDate();var today=new Date().toISOString().slice(0,10);var offset=(firstDay+6)%7;for(var i=0;i<offset;i++){var el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);}for(var day=1;day<=daysInMonth;day++){var dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');var el=document.createElement('div');el.className='mc-day';if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}else if(dateStr>today)el.classList.add('future');calendarEl.appendChild(el);}}
+  function renderChallenge(){if(!challengeEl||!challengeFill)return;var totalDays=66;var streak=getStreak();var pct=Math.min(streak/totalDays*100,100);challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');challengeFill.style.width=pct+'%';}
+  function shift(days){var d=new Date(currentDate);d.setDate(d.getDate()+days);currentDate=d.toISOString().slice(0,10);render();}
+  fab.addEventListener('click',function(){panel.classList.toggle('open');});
+  closeBtn.addEventListener('click',function(){panel.classList.remove('open');});
+  textarea.addEventListener('input',function(){updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',function(){shift(-1);});
+  nextBtn.addEventListener('click',function(){shift(1);});
+  textarea.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';});
+  render();
 })();
 
 // Scroll top button
