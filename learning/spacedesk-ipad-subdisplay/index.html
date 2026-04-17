@@ -86,9 +86,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
 .qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
 .quick-actions-v{display:flex;flex-direction:column;gap:6px;}
-.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;width:100%;text-align:left;cursor:pointer;line-height:1.4;}
 .qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
 .qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+.qa-btn-v.copied{background:rgba(61,104,40,.35);border-color:var(--green3);color:var(--parch);}
 
 /* ===== Navigation Cockpit ===== */
 .nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
@@ -371,6 +372,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <a class="qa-btn-v" href="#sec04"><span class="qa-icon">&#128279;</span> 3つの接続方法</a>
           <a class="qa-btn-v" href="#sec06"><span class="qa-icon">&#9889;</span> 拡張モード設定</a>
           <a class="qa-btn-v" href="https://www.spacedesk.net/" target="_blank" rel="noopener"><span class="qa-icon">&#127760;</span> spacedesk公式</a>
+          <button type="button" class="qa-btn-v" onclick="copyClaudePrompt(this)"><span class="qa-icon">&#128203;</span> <span class="qa-label">Claude Codeに導入を依頼</span></button>
         </div>
       </div>
     </div>
@@ -902,6 +904,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
           <div class="cmd-desc">両画面のウィンドウを一気に最小化してデスクトップを表示。集中を取り戻したい時に。</div>
         </div>
       </div>
+      <div class="cmd-card">
+        <div class="cmd-num">6</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Ctrl + Shift + &uarr; / &darr;（PageUp/Down, Home/End）</div>
+          <div class="cmd-desc">Windows ターミナル内で<strong>入力欄に文字を入れずに</strong>スクロール。1行ずつ・1ページずつ・最上部/最下部へ。Claude Code のログを少し戻して確認したい時の必須ショートカット。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">7</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + Shift + D &#8212; PowerToys Mouse Jump</div>
+          <div class="cmd-desc">全ディスプレイの縮小プレビューを表示し、クリックした位置にカーソルを瞬間移動。<strong>iPad サブ画面とのカーソル往復が劇的に速くなる</strong>。要 PowerToys（Microsoft 公式・無料）。</div>
+        </div>
+      </div>
     </div>
 
     <div class="tip-box">
@@ -912,6 +928,24 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
         <strong>サブ画面（iPad）:</strong> 設計壁打ち用タブ、調査用ブラウザ、ターミナル<br><br>
         「コードを書きながら、設計AIに相談しながら、別タブでドキュメントを読む」&#8212;&#8212;この並列作業こそ、Claude Code本来の使い方です。
       </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">PowerToys を Claude Code に導入させる &#8212; ワンクリック連携</div>
+      <div class="tip-box-text">
+        下のプロンプトをコピーして Claude Code に貼り付ければ、PowerToys のインストールから Mouse Jump 有効化まで自動で案内してくれます。<br>
+        <strong>iPad 連携で最も効くのが Mouse Jump</strong>（Win+Shift+D）&#8212;&#8212;サブ画面へのカーソル移動が一瞬で終わるようになります。
+      </div>
+      <div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">COPY</button>PowerToys を使って iPad サブ画面とのカーソル移動を効率化したいです。以下を順に実行してください。
+
+1. PowerToys がインストール済みか確認: `winget list Microsoft.PowerToys`
+2. 未インストールなら: `winget install Microsoft.PowerToys`
+3. PowerToys 設定 &rarr; マウス ユーティリティ &rarr; Mouse Jump を有効化する手順を案内
+4. デフォルトショートカット Win+Shift+D の動作確認方法を説明
+5. 併せて「マウスの検索」(Ctrl 2回押し) の有効化も推奨
+
+完了後、iPad サブ画面とのカーソル移動が劇的に速くなります。</div>
     </div>
   </div>
 
@@ -1206,6 +1240,26 @@ function copyCode(btn){
   navigator.clipboard.writeText(code).then(()=>{
     btn.textContent='COPIED';btn.classList.add('copied');
     setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('copied');},1800);
+  });
+}
+
+/* Quick Action: copy Claude Code prompt for PowerToys setup */
+const CLAUDE_POWERTOYS_PROMPT=`PowerToys を使って iPad サブ画面とのカーソル移動を効率化したいです。以下を順に実行してください。
+
+1. PowerToys がインストール済みか確認: \`winget list Microsoft.PowerToys\`
+2. 未インストールなら: \`winget install Microsoft.PowerToys\`
+3. PowerToys 設定 → マウス ユーティリティ → Mouse Jump を有効化する手順を案内
+4. デフォルトショートカット Win+Shift+D の動作確認方法を説明
+5. 併せて「マウスの検索」(Ctrl 2回押し) の有効化も推奨
+
+完了後、iPad サブ画面とのカーソル移動が劇的に速くなります。`;
+function copyClaudePrompt(btn){
+  const label=btn.querySelector('.qa-label');
+  navigator.clipboard.writeText(CLAUDE_POWERTOYS_PROMPT).then(()=>{
+    const original=label.textContent;
+    label.textContent='✓ コピー完了 — Claude Codeに貼付け';
+    btn.classList.add('copied');
+    setTimeout(()=>{label.textContent=original;btn.classList.remove('copied');},2200);
   });
 }
 
