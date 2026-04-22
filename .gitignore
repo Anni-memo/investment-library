@@ -4,3 +4,17 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Claude Code local settings
+.claude/settings.json
+.claude/settings.local.json
+
+# Dev utility scripts (non-production)
+/apply_morimori_*.py
+/generate_setup_*.py
+/test_*.py
+/assets/pdf/learning/generate_skill_graph.py
+
+# In-progress visual verification (Step 5 pending)
+/companies/cybozu-textbook/_visual_check_v2.py
+/companies/cybozu-textbook/_visual_zoom_v2.py
