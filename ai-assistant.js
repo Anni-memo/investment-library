@@ -372,7 +372,7 @@ function initAssistant(){
       {label:'業種から歩く（14業種）',url:'industries/'},
       {label:'企業分析（69社）',url:'companies/'},
       {label:'銘柄メモ',url:'hajimete/memo/'},
-      {label:'論考の棚',url:'research/'},
+      {label:'資産形成の教養',url:'thinking/'},
       {label:'ニュース記事',url:'news/'},
     ]},
     terms:{msg:'用語を入力するか、用語集を開いてください。',items:[

@@ -1,10 +1,10 @@
-# 投資と思考の書斎 (The Investor's Library)
+# 投資Library (The Investor's Library)
 
 > 銘柄の正解ではなく、判断基準を育てる場所。Munger・Buffett・Fisherの思想に学び、投資を入口に文明・歴史・資本・人間理解へ歩いていく静かな知の図書館。
 
 ## サイト概要
 
-- サイト名: 投資と思考の書斎
+- サイト名: 投資Library
 - URL: https://anni-memo.github.io/investment-library/
 - 言語: 日本語
 - 著者: anni_memo
@@ -26,10 +26,10 @@
 - /principles/margin-of-safety/ — 安全域（Margin of Safety）
 
 ### 論考・企業構造分析（Research）
-- /research/nidec-moat/ — ニデック（日本電産）の構造分析
-- /research/nintendo-moat/ — 任天堂の構造分析
-- /research/shinetsu-moat/ — 信越化学の構造分析
-- /research/toyota-moat/ — トヨタの構造分析
+- /thinking/nidec-moat/ — ニデック（日本電産）の構造分析
+- /thinking/nintendo-moat/ — 任天堂の構造分析
+- /thinking/shinetsu-moat/ — 信越化学の構造分析
+- /thinking/toyota-moat/ — トヨタの構造分析
 
 ### 配当（Dividends）
 - /dividends/dividend-aristocrats/ — 日本の配当貴族（日米配当文化の違い）

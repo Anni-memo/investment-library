@@ -62,7 +62,7 @@
     companies:  { x:IX,            y:IY+RH1,            w:COL_A,    h:RH2, label:'企業研究室',         labelEn:'COMPANY RESEARCH',   sub:'企業分析と銘柄研究',             url:'companies/',                   floor:'wood'   },
     hub:        { x:IX+COL_A,      y:IY+RH1,            w:COL_B,    h:RH2, label:'NISAではじめる',     labelEn:'START WITH NISA',    sub:'制度の理解から積立設定まで',       url:'nisa/',                        floor:'marble' },
     fcf:        { x:IX+COL_A+COL_B,y:IY+RH1,            w:COL_C,    h:RH2, label:'キャッシュフローの棚', labelEn:'CASH FLOW',          sub:'FCF / 企業の稼ぐ力を読む',       url:'fcf/',                         floor:'wood'   },
-    research:   { x:IX,            y:IY+RH1+RH2,        w:R3_A,     h:RH3, label:'論考の書庫',         labelEn:'RESEARCH',           sub:'独自の分析と論考',               url:'research/',                    floor:'dark'   },
+    research:   { x:IX,            y:IY+RH1+RH2,        w:R3_A,     h:RH3, label:'論考の書庫',         labelEn:'RESEARCH',           sub:'独自の分析と論考',               url:'thinking/',                    floor:'dark'   },
     news:       { x:IX+R3_A,       y:IY+RH1+RH2,        w:R3_B,     h:RH3, label:'ニュース解説室',     labelEn:'NEWS & INSIGHTS',    sub:'最新ニュースの考察',             url:'news/',                        floor:'stone'  },
     horizons:   { x:IX+R3_A+R3_B,  y:IY+RH1+RH2,        w:R3_C,     h:RH3, label:'思考を広げる棚',     labelEn:'HORIZONS',           sub:'禅・哲学・テクノロジー',          url:'horizons/',                    floor:'ornate' },
     finhistory: { x:IX+R3_A+R3_B+R3_C, y:IY+RH1+RH2,    w:R3_D,     h:RH3, label:'金融史の回廊',       labelEn:'FINANCIAL HISTORY',  sub:'7000年の金融史',                url:'horizons/financial-history/',   floor:'dark'   },
@@ -716,7 +716,7 @@
           drawBookStack(ix+iw*0.70, iy+ih*0.35);
           break;
 
-        /* ─── 論考の棚: 静かな研究室 ─── */
+        /* ─── 資産形成の教養: 静かな研究室 ─── */
         case 'research':
           // Top wall bookshelves (dense)
           for(var s=0;s<5;s++) drawBookshelf(ix+s*48+4, iy, 42, 26, seed+s*37);

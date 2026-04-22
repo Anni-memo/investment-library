@@ -1,5 +1,5 @@
 {
-  "site": "投資と思考の書斎",
+  "site": "投資Library",
   "url": "https://anni-memo.github.io/investment-library/",
   "description": "銘柄の正解ではなく、判断基準を育てる場所。Munger・Buffett・Fisherの思想に学び、投資を入口に文明・歴史・資本・人間理解へ歩いていく静かな知の図書館。",
   "language": "ja",
@@ -855,7 +855,7 @@
     },
     {
       "title": "なぜ勝ち続けるのか――ニデック（日本電産）の強さの構造分析",
-      "url": "/investment-library/research/nidec-moat/",
+      "url": "/investment-library/thinking/nidec-moat/",
       "description": "世界シェアNo.1モーター企業ニデックの競争優位性を構造的に分析。",
       "category": "research",
       "tags": ["ニデック", "日本電産", "moat", "企業分析"],
@@ -863,7 +863,7 @@
     },
     {
       "title": "なぜ勝ち続けるのか――任天堂の強さの構造分析",
-      "url": "/investment-library/research/nintendo-moat/",
+      "url": "/investment-library/thinking/nintendo-moat/",
       "description": "任天堂のIPとハードウェアの独自戦略を構造的に分析。",
       "category": "research",
       "tags": ["任天堂", "moat", "IP", "企業分析"],
@@ -871,7 +871,7 @@
     },
     {
       "title": "なぜ勝ち続けるのか――信越化学の強さの構造分析",
-      "url": "/investment-library/research/shinetsu-moat/",
+      "url": "/investment-library/thinking/shinetsu-moat/",
       "description": "塩ビ・シリコンウエハー世界首位。信越化学の圧倒的な競争優位を分析。",
       "category": "research",
       "tags": ["信越化学", "moat", "化学", "企業分析"],
@@ -879,7 +879,7 @@
     },
     {
       "title": "なぜ勝ち続けるのか――トヨタの強さの構造分析",
-      "url": "/investment-library/research/toyota-moat/",
+      "url": "/investment-library/thinking/toyota-moat/",
       "description": "トヨタ生産方式とグローバル供給網。トヨタの構造的な強さを分析。",
       "category": "research",
       "tags": ["トヨタ", "moat", "TPS", "企業分析"],

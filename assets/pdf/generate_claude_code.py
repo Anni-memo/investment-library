@@ -220,7 +220,7 @@ def build():
     # === FOOTER ===
     story.append(HRFlowable(width="100%", thickness=0.5, color=PARCH4, spaceAfter=1.5*mm))
     story.append(Paragraph(
-        "Claude Code Cheatsheet &middot; 投資と思考の書斎 &middot; anni-memo.github.io/investment-library/ &middot; 2026-04-06",
+        "Claude Code Cheatsheet &middot; 投資Library &middot; anni-memo.github.io/investment-library/ &middot; 2026-04-06",
         sFooter
     ))
 
