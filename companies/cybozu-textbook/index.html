@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="サイボウズ(4776)の教科書。日本企業ソフトウェア史の一章として、歴史・製品・moat・文化・数字・未来を体系的に記録した永久保存版。第三者株主 @anni_equity による企業研究。"/>
+<meta property="og:title" content="サイボウズ教科書｜日本企業ソフトウェア史の一章として｜投資Library"/>
+<meta property="og:description" content="サイボウズ(4776)の歴史・プロダクト・moat・文化・数字・未来を体系的にまとめた永久保存版。決算ナビ連携で"なぜこの数字が出るのか"が読める。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/companies/cybozu-textbook/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/companies/cybozu-textbook/"/>
+<title>サイボウズ教科書 — 日本企業ソフトウェア史の一章として｜投資Library</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "サイボウズ教科書 — 日本企業ソフトウェア史の一章として",
+  "description": "サイボウズ(4776)の歴史・プロダクト・moat・文化・数字・未来を体系的にまとめた永久保存版の企業教科書。",
+  "datePublished": "2026-04-21",
+  "dateModified": "2026-04-22",
+  "author": {"@type": "Person", "name": "anni_equity"},
+  "publisher": {"@type": "Organization", "name": "投資Library", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/companies/cybozu-textbook/",
+  "about": [
+    {"@type": "Organization", "name": "サイボウズ株式会社"},
+    {"@type": "Thing", "name": "kintone"},
+    {"@type": "Thing", "name": "Garoon"},
+    {"@type": "Thing", "name": "日本DX"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;--blue3:#3a5590;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ===== Nav ===== */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:36px 40px 28px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:680px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;text-align:center;}
+
+/* Hero Graph View */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.55);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.64rem;color:rgba(212,170,34,.55);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--jp);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+.hero-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.32em;margin-bottom:14px;opacity:.75;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.6rem,5vw,2.6rem);font-weight:700;color:var(--parch);line-height:1.2;margin-bottom:12px;}
+.hero-title em{font-style:italic;color:var(--gold3);font-weight:500;}
+.hero-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.22em;margin-bottom:28px;opacity:.8;}
+.hero-lead{font-family:var(--serif);font-style:italic;color:var(--parch3);font-size:clamp(.85rem,1.9vw,1rem);line-height:1.95;max-width:680px;margin:0 auto;text-align:left;}
+.hero-lead p{margin-bottom:.65em;}
+.hero-meta{display:flex;justify-content:center;gap:20px;margin-top:24px;flex-wrap:wrap;}
+.hero-meta-item{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.12em;}
+.hero-meta-item strong{color:var(--gold3);}
+
+/* ===== Stakeholder Guide ===== */
+.stakeholder-guide{max-width:1200px;margin:0 auto;padding:36px 40px 0;}
+.sg-label{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.22em;margin-bottom:14px;opacity:.8;display:flex;align-items:center;gap:10px;}
+.sg-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.sg-intro{font-size:.82rem;color:var(--ink2);line-height:1.8;margin-bottom:18px;font-weight:300;}
+.sg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+@media(max-width:960px){.sg-grid{grid-template-columns:repeat(2,1fr);}}
+.sg-card{padding:14px 16px;background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--gold);text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px;transition:all .15s;}
+.sg-card:hover{background:rgba(139,105,20,.08);border-left-color:var(--gold2);transform:translateY(-1px);}
+.sg-icon{font-size:1.1rem;margin-bottom:4px;}
+.sg-name{font-family:var(--serif);font-size:.88rem;font-weight:600;color:var(--ink);}
+.sg-route{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;}
+
+/* ===== TOC Sidebar ===== */
+.toc-sidebar{max-width:1200px;margin:32px auto 0;padding:0 40px;}
+.toc-panel{background:var(--parch2);border:1px solid var(--parch3);padding:20px 24px;border-radius:4px;}
+.toc-label{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.toc-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.toc-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
+@media(max-width:700px){.toc-list{grid-template-columns:1fr;}}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list a{font-family:var(--jp);font-size:.78rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:10px;padding:8px 6px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:26px;}
+.toc-list a.toc-active{color:var(--gold);font-weight:500;background:rgba(139,105,20,.06);}
+
+/* ===== Container ===== */
+.container{max-width:820px;margin:0 auto;padding:56px 24px 0;}
+
+/* ===== Chapter ===== */
+.chapter{margin-bottom:80px;scroll-margin-top:20px;}
+.chapter-header{margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--parch4);}
+.chapter-num{font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.3em;margin-bottom:10px;opacity:.8;}
+.chapter-title{font-family:var(--serif);font-size:clamp(1.3rem,3.8vw,1.95rem);font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:18px;}
+.chapter-hook{font-family:var(--serif);font-size:clamp(.92rem,2vw,1.05rem);font-style:italic;color:var(--ink2);line-height:1.85;padding-left:18px;border-left:3px solid var(--gold);}
+.chapter-body{font-size:.88rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.chapter-body p{margin-bottom:1.4em;}
+.chapter-body h3{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin:2.2em 0 1em;line-height:1.4;padding-left:14px;border-left:3px solid var(--gold2);}
+.chapter-body strong{font-weight:600;color:var(--ink);}
+
+/* Chapter Summary */
+.chapter-summary{margin:44px 0 24px;padding:24px 28px;background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));border:1px solid rgba(139,105,20,.35);}
+.cs-label{font-family:var(--mono);font-size:.64rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.cs-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.cs-points{margin:0 0 20px 22px;font-size:.86rem;line-height:2;color:var(--ink2);font-weight:300;}
+.cs-points li{margin-bottom:6px;}
+.cs-points li strong{font-weight:600;color:var(--ink);}
+.cs-lenses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;padding-top:18px;border-top:1px solid rgba(139,105,20,.2);}
+@media(max-width:600px){.cs-lenses{grid-template-columns:1fr;}}
+.cs-lens{padding:14px 16px;background:var(--parch);border:1px solid var(--parch4);}
+.cs-lens-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.18em;margin-bottom:8px;}
+.cs-lens-investor{border-left:3px solid var(--blue2);}
+.cs-lens-investor .cs-lens-label{color:var(--blue2);}
+.cs-lens-customer{border-left:3px solid var(--green2);}
+.cs-lens-customer .cs-lens-label{color:var(--green2);}
+.cs-lens p{font-size:.82rem;line-height:1.9;color:var(--ink2);font-weight:300;}
+
+/* Chapter Next */
+.chapter-next{display:block;margin-top:36px;padding:22px 26px;background:var(--ink);color:var(--parch);text-decoration:none;border-left:4px solid var(--gold);transition:all .2s;}
+.chapter-next:hover{background:var(--ink2);border-left-color:var(--gold3);}
+.cn-label{display:block;font-family:var(--mono);font-size:.62rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:8px;}
+.cn-title{display:block;font-family:var(--serif);font-size:1.08rem;font-weight:600;color:var(--parch);margin-bottom:8px;}
+.cn-hook{display:block;font-family:var(--serif);font-size:.82rem;font-style:italic;color:var(--parch3);line-height:1.75;}
+
+/* ===== Case Card ===== */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:24px 0;}
+@media(max-width:640px){.case-grid{grid-template-columns:1fr;}}
+.case-card{padding:16px 18px;background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--green2);}
+.case-card[data-sector="public"]{border-left-color:var(--gold);}
+.case-card[data-sector="enterprise"]{border-left-color:var(--green2);}
+.case-card[data-sector="smb"]{border-left-color:var(--blue2);}
+.case-name{font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.case-result{font-size:.78rem;color:var(--ink2);line-height:1.65;margin-bottom:10px;font-weight:500;}
+.case-interp{font-size:.74rem;color:var(--ink3);line-height:1.75;font-style:italic;font-weight:300;}
+
+/* ===== Layer Triad (kintone三層構造の基準ブロック) ===== */
+.layer-triad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin:28px 0;background:var(--gold);padding:2px;box-shadow:var(--shadow);}
+@media(max-width:700px){.layer-triad{grid-template-columns:1fr;}}
+.lt-cell{padding:22px 24px;background:var(--parch);position:relative;}
+.lt-cell:nth-child(1){border-top:3px solid var(--blue2);}
+.lt-cell:nth-child(2){border-top:3px solid var(--green2);}
+.lt-cell:nth-child(3){border-top:3px solid var(--gold2);}
+.lt-index{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:8px;opacity:.7;}
+.lt-label{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.35;}
+.lt-desc{font-size:.78rem;color:var(--ink2);line-height:1.85;font-weight:300;}
+
+/* ===== Quote Box (morimori continued) ===== */
+.quote-box{border-left:4px solid var(--gold);padding:22px 26px;background:var(--parch2);margin:30px 0;position:relative;}
+.quote-box-text{font-size:.9rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
+.quote-box-src{font-family:var(--mono);font-size:.54rem;color:var(--gold);letter-spacing:.1em;margin-top:12px;display:block;}
+
+/* ===== Key Point ===== */
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
+.key-point-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.85;display:flex;align-items:center;gap:8px;}
+.key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.key-point-text{font-size:.86rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.key-point-text strong{font-weight:600;color:var(--ink);}
+
+/* ===== Kessan-Navi Link ===== */
+.kn-ref{border-bottom:1px dotted var(--blue3);cursor:help;position:relative;}
+.kn-ref-link{font-size:.66rem;color:var(--blue2);text-decoration:none;margin-left:2px;vertical-align:super;font-weight:600;}
+.kn-ref-link:hover{color:var(--blue3);}
+.kn-block{margin:24px 0;padding:16px 20px;background:rgba(26,42,74,.04);border:1px solid rgba(26,42,74,.18);border-left:3px solid var(--blue2);}
+.kn-label{font-family:var(--mono);font-size:.54rem;color:var(--blue2);letter-spacing:.2em;margin-bottom:8px;}
+.kn-link{font-family:var(--jp);font-size:.84rem;color:var(--ink2);text-decoration:none;font-weight:500;display:inline-block;}
+.kn-link:hover{color:var(--blue3);}
+.kn-link::after{content:'→';margin-left:6px;color:var(--blue2);}
+
+/* ===== Glossary Term ===== */
+.gloss-term{border-bottom:1px dotted var(--gold);cursor:help;color:inherit;text-decoration:none;transition:background .15s,color .15s;padding:0 2px;}
+.gloss-term:hover{color:var(--gold2);background:rgba(139,105,20,.12);border-bottom-color:var(--gold2);}
+
+/* ===== Three-Layer Timeline ===== */
+.tl3{border-top:2px solid var(--gold);margin:28px 0;}
+.tl3-header{display:grid;grid-template-columns:70px 1fr 1fr 1fr;gap:1px;background:var(--parch3);}
+.tl3-header::before{content:'YEAR';padding:12px 10px;background:var(--ink);color:var(--gold3);font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;}
+.tl3-col-label{padding:12px 14px;background:var(--ink);color:var(--gold3);font-family:var(--mono);font-size:.52rem;letter-spacing:.18em;}
+.tl3-row{display:grid;grid-template-columns:70px 1fr 1fr 1fr;gap:1px;background:var(--parch3);}
+.tl3-year{padding:14px 10px;background:var(--parch2);font-family:var(--mono);font-size:.8rem;color:var(--gold);font-weight:600;text-align:center;}
+.tl3-cell{padding:14px 16px;background:var(--parch);font-size:.76rem;line-height:1.75;color:var(--ink2);font-weight:300;border-top:3px solid transparent;}
+.tl3-cell.tl3-ideology{border-top-color:var(--blue2);}
+.tl3-cell.tl3-product{border-top-color:var(--green2);}
+.tl3-cell.tl3-metric{border-top-color:var(--gold2);}
+.tl3-col-label.tl3-ideology{border-top-color:var(--blue2);}
+.tl3-col-label.tl3-product{border-top-color:var(--green2);}
+.tl3-col-label.tl3-metric{border-top-color:var(--gold2);}
+@media(max-width:700px){
+  .tl3-header,.tl3-row{grid-template-columns:60px 1fr;}
+  .tl3-col-label:nth-child(n+3),.tl3-cell:nth-child(n+3){grid-column:2;}
+  .tl3-col-label:nth-child(n+3){display:none;}
+}
+
+/* ===== Glossary List ===== */
+.gloss-list{margin:24px 0;border-top:1px solid var(--parch4);}
+.gloss-list dt{font-family:var(--serif);font-size:.96rem;font-weight:700;color:var(--ink);padding:16px 0 6px;border-bottom:1px dotted var(--parch4);scroll-margin-top:20px;}
+.gloss-list dd{font-size:.82rem;color:var(--ink2);line-height:1.9;padding:10px 0 16px 20px;font-weight:300;border-bottom:1px solid rgba(139,105,20,.08);margin-bottom:4px;}
+.gloss-list dd:last-child{border-bottom:none;}
+
+/* ===== Update Log ===== */
+.update-log{max-width:820px;margin:56px auto 32px;padding:0 24px;}
+.update-log-title{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin-bottom:18px;padding-left:12px;border-left:3px solid var(--gold);}
+.update-log-table{width:100%;border-collapse:collapse;font-size:.78rem;background:var(--parch2);}
+.update-log-table th,.update-log-table td{padding:10px 12px;border:1px solid var(--parch4);text-align:left;vertical-align:top;line-height:1.7;}
+.update-log-table th{background:var(--ink);color:var(--gold3);font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;font-weight:normal;}
+.update-log-table td{color:var(--ink2);}
+
+/* ===== References ===== */
+.ref-section{max-width:820px;margin:32px auto;padding:28px 24px;background:var(--parch2);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);}
+.ref-section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;}
+.ref-section h2{font-family:var(--serif);font-size:1.1rem;margin-bottom:16px;color:var(--ink);}
+.ref-list{list-style:none;padding:0;font-size:.76rem;line-height:1.8;}
+.ref-list li{padding:6px 0;border-bottom:1px dotted var(--parch4);}
+.ref-list a{color:var(--ink2);text-decoration:none;}
+.ref-list a:hover{color:var(--gold);}
+
+/* ===== Next Links ===== */
+.next-links{max-width:820px;margin:24px auto 48px;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+.next-link{padding:18px 20px;background:var(--parch2);border:1px solid var(--parch4);border-left:3px solid var(--gold);text-decoration:none;color:var(--ink);transition:all .15s;}
+.next-link:hover{background:rgba(139,105,20,.06);border-left-color:var(--gold2);}
+.nl-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:8px;}
+.nl-title{font-family:var(--serif);font-size:.9rem;font-weight:600;margin-bottom:6px;}
+.nl-desc{font-size:.74rem;color:var(--ink3);line-height:1.65;font-weight:300;}
+
+/* ===== Footer ===== */
+.footer{background:var(--ink);color:var(--parch3);padding:32px 24px;text-align:center;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;}
+.footer a{color:var(--gold3);text-decoration:none;}
+
+/* ===== Utils ===== */
+.placeholder{padding:16px 20px;background:rgba(139,105,20,.04);border:1px dashed var(--parch4);color:var(--ink3);font-size:.78rem;line-height:1.8;font-style:italic;margin:1em 0;}
+.placeholder::before{content:'DRAFT · ';font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;font-style:normal;margin-right:6px;}
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav class="nav" aria-label="パンくず">
+  <a class="nav-back" href="../../">← INVESTMENT LIBRARY</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">COMPANIES</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">CYBOZU TEXTBOOK</span>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero">
+  <div class="hero-3col">
+
+    <!-- 左: Quick Actions -->
+    <div class="hero-col-side">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK JUMP</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#intro"><span class="qa-icon">📖</span>はじめに</a>
+          <a class="qa-btn-v" href="#ch4-kintone-structure"><span class="qa-icon">🔧</span>kintoneの正体</a>
+          <a class="qa-btn-v" href="#ch5-moat"><span class="qa-icon">🛡</span>moat分析</a>
+          <a class="qa-btn-v" href="#ch7-numbers"><span class="qa-icon">📊</span>数字で読む</a>
+          <a class="qa-btn-v" href="#appendix-timeline"><span class="qa-icon">🗓</span>三層年表</a>
+          <a class="qa-btn-v" href="#appendix-glossary"><span class="qa-icon">📚</span>用語集</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中央: タイトル -->
+    <div class="hero-col-center">
+      <div class="hero-label">TEXTBOOK · VOL.1 · CYBOZU (4776)</div>
+      <h1 class="hero-title">サイボウズ<em>教科書</em></h1>
+      <div class="hero-sub">— 日本企業ソフトウェア史の一章として —</div>
+      <div class="hero-lead">
+        <p>サイボウズは、単なるグループウェア会社ではない。</p>
+        <p>日本企業の「情報共有できない」「業務が属人化する」「現場が改善できない」という、地味だが深い病巣と、四半世紀かけて向き合ってきた会社である。</p>
+        <p>しかも今、その土台はAI時代に入って別の意味を持ち始めている。kintoneは"業務アプリを作る道具"から、"AIが触る業務基盤"へと変わりつつある。</p>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">AUTHOR <strong>@anni_equity</strong></span>
+        <span class="hero-meta-item">PUBLISHED <strong>2026-04-21</strong></span>
+        <span class="hero-meta-item">v1.0</span>
+        <span class="hero-meta-item">READING <strong>約120分</strong></span>
+      </div>
+    </div>
+
+    <!-- 右: Graph View -->
+    <div class="hero-col-side">
+      <div class="graph-card">
+        <div class="graph-card-label">COMPANY MAP</div>
+        <canvas id="graphCanvas"></canvas>
+      </div>
+      <div class="graph-tooltip" id="graphTooltip">
+        <div class="graph-tooltip-title" id="ttTitle"></div>
+        <div class="graph-tooltip-cat" id="ttCat"></div>
+        <div class="graph-tooltip-desc" id="ttDesc"></div>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ===== Stakeholder Guide ===== -->
+<section class="stakeholder-guide" aria-label="読み順ガイド">
+  <div class="sg-label">WHO ARE YOU? — 最初に読むべき章へ</div>
+  <p class="sg-intro">この教科書は約4〜6万字あります。立場によって最初に読むべき章が異なります。以下のショートカットから、あなたの視点で最も価値が高い入口へ飛んでください。</p>
+  <div class="sg-grid">
+    <a href="#ch7-numbers" class="sg-card" data-role="investor">
+      <span class="sg-icon">📊</span>
+      <span class="sg-name">株主・投資家</span>
+      <span class="sg-route">7 → 5 → 8 → 9</span>
+    </a>
+    <a href="#ch6-culture" class="sg-card" data-role="employee">
+      <span class="sg-icon">🧑‍💼</span>
+      <span class="sg-name">社員・応募者</span>
+      <span class="sg-route">6 → 2 → 4</span>
+    </a>
+    <a href="#ch1-problem-setting" class="sg-card" data-role="customer">
+      <span class="sg-icon">🏢</span>
+      <span class="sg-name">顧客・導入検討</span>
+      <span class="sg-route">1 → 4 → 5</span>
+    </a>
+    <a href="#ch4-kintone-structure" class="sg-card" data-role="developer">
+      <span class="sg-icon">🛠</span>
+      <span class="sg-name">市民開発者</span>
+      <span class="sg-route">4 → 5 → 付録</span>
+    </a>
+    <a href="#ch3-product-evolution" class="sg-card" data-role="competitor">
+      <span class="sg-icon">⚔️</span>
+      <span class="sg-name">競合比較者</span>
+      <span class="sg-route">3 → 5 → 8</span>
+    </a>
+    <a href="#ch2-founding-and-rebirth" class="sg-card" data-role="student">
+      <span class="sg-icon">🎓</span>
+      <span class="sg-name">就活生・学生</span>
+      <span class="sg-route">2 → 6 → 9</span>
+    </a>
+    <a href="#ch4-kintone-structure" class="sg-card" data-role="public">
+      <span class="sg-icon">🏛</span>
+      <span class="sg-name">自治体・公共</span>
+      <span class="sg-route">4 → 5 → 9</span>
+    </a>
+    <a href="#intro" class="sg-card" data-role="first-time">
+      <span class="sg-icon">📖</span>
+      <span class="sg-name">はじめての方</span>
+      <span class="sg-route">0 → 1 → 順</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== TOC ===== -->
+<section class="toc-sidebar" aria-label="目次">
+  <div class="toc-panel">
+    <div class="toc-label">TABLE OF CONTENTS — 10章 + 付録</div>
+    <ol class="toc-list">
+      <li><a href="#intro"><span class="toc-num">00</span><span>はじめに — 日本企業ソフトウェア史の一章</span></a></li>
+      <li><a href="#ch1-problem-setting"><span class="toc-num">01</span><span>サイボウズは、何の問題を解いてきた会社か</span></a></li>
+      <li><a href="#ch2-founding-and-rebirth"><span class="toc-num">02</span><span>創業、停滞、再生</span></a></li>
+      <li><a href="#ch3-product-evolution"><span class="toc-num">03</span><span>製品進化史 — Office・Garoon・メールワイズ・kintone</span></a></li>
+      <li><a href="#ch4-kintone-structure"><span class="toc-num">04</span><span>kintoneの正体 — なぜ"現場主導DX"が回るのか</span></a></li>
+      <li><a href="#ch5-moat"><span class="toc-num">05</span><span>moatはどこにあるのか</span></a></li>
+      <li><a href="#ch6-culture"><span class="toc-num">06</span><span>企業文化という資産</span></a></li>
+      <li><a href="#ch7-numbers"><span class="toc-num">07</span><span>数字で読む現在地</span></a></li>
+      <li><a href="#ch8-risks"><span class="toc-num">08</span><span>弱みと未解決論点</span></a></li>
+      <li><a href="#ch9-future"><span class="toc-num">09</span><span>未来 — 日本DXの基盤企業になれるか</span></a></li>
+      <li><a href="#appendix-timeline"><span class="toc-num">A1</span><span>付録 — 三層年表</span></a></li>
+      <li><a href="#appendix-glossary"><span class="toc-num">A2</span><span>付録 — 用語集</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== Main ===== -->
+<main class="container">
+
+<!-- ===== 00 はじめに ===== -->
+<article class="chapter" id="intro" data-chapter="0">
+  <header class="chapter-header">
+    <div class="chapter-num">PROLOGUE</div>
+    <h2 class="chapter-title">はじめに — これは決算メモではなく、日本企業ソフトウェア史の一章である</h2>
+    <p class="chapter-hook">決算は流れる。だが、企業の構造は流れない。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">本文ドラフト待ち（800〜1,200字）— 第1章完成後、全体俯瞰ができてから執筆する方針。</div>
+  </div>
+</article>
+
+<!-- ===== 01 問題設定 ===== -->
+<article class="chapter" id="ch1-problem-setting" data-chapter="1">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 1</div>
+    <h2 class="chapter-title">サイボウズは、何の問題を解いてきた会社なのか</h2>
+    <p class="chapter-hook">サイボウズが売ってきたのは、ソフトではない。日本企業の"詰まり"をほどく手段だった。</p>
+  </header>
+  <div class="chapter-body">
+
+    <p>サイボウズという会社を「グループウェアの会社」と説明する資料は多い。間違いではありません。ただ、その説明は会社の輪郭をなぞっているだけで、中身にはまだ届いていません。</p>
+
+    <p>この章で見たいのは、製品の集合としてのサイボウズではなく、<strong>解決してきた問題の集合としてのサイボウズ</strong>です。</p>
+
+    <p>情報が共有されない。承認が止まる。例外処理で流れが崩れる。現場が改善できない。日本企業の現場で四半世紀にわたり鳴り続けてきた、地味だが深い警報音に、この会社はひとつずつ応答してきました。製品が先にあったのではない。<strong>詰まりが先にあった</strong>のです。</p>
+
+    <p>だから本章では、Office・Garoon・メールワイズ・<a class="gloss-term" data-term="kintone">kintone</a>という固有名詞をいったん脇に置き、「この会社は何を解いてきたのか」を四つの角度から見ていきます。章の終わりに、その四つが一本の糸でつながっていることを確かめる。その糸の名前が、次章以降の主役になります。</p>
+
+    <h3>1. 「情報共有できない」という、地味で深い病</h3>
+
+    <p>日本企業の現場では、情報共有の不全はたいてい大げさな言葉で語られません。部署ごとにExcelが散らばっている。意思決定がメールの末尾に埋もれている。隣の部署が何を抱えているのか、必要になったときにしか見えない。資料は個人のPCに眠り、業務はその人にだけ貼り付き、同じ質問が何度も繰り返される。症状はありふれています。だからこそ、病として認識されにくい。多くの組織で起きているのは、情報不足ではなく、<strong>情報流通の不全</strong>です。</p>
+
+    <p>この病の厄介なところは、症状が「遅さ」や「ミス」という別の姿で現れることにあります。意思決定が遅い。二重作業が起きる。新人の立ち上がりに時間がかかる。これらはしばしば能力や気合いの問題として処理されますが、実際には、情報がしかるべき場所に、しかるべき形で置かれていないことの結果にすぎません。属人化という言葉で片づけられがちな問題も、根は同じ場所にあります。</p>
+
+    <p>サイボウズが創業直後からこの領域に踏み込んだ理由は単純です。<strong>ここを解かない限り、他のどの業務改善も効かないからです。</strong>掲示板、スケジュール、ポータル、ファイル共有。いま聞けば当たり前に見える機能群は、当たり前の情報共有を組織にインストールするために設計されてきました。</p>
+
+    <p>情報共有は地味です。派手な変革にも見えません。けれど、日本企業ではこの地味な層こそが最も欠けやすい。そして、承認が止まるのも、例外処理で流れが崩れるのも、現場改善が動かないのも、<strong>元をたどればすべて情報が流れていないところから始まっている</strong>。サイボウズはまず、その最下層から手をつけた会社でした。そこを飛ばした改善が、日本企業でことごとく空回りしてきたことを、おそらく誰よりも早く見抜いていたのです。</p>
+
+    <h3>2. 承認フローという、日本特有の詰まり</h3>
+
+    <p>情報が流れるようになっても、次の詰まりが待っています。<strong>承認が、止まる。</strong></p>
+
+    <p>日本企業の承認は、欧米企業のそれとはそもそも形が違います。単に上位者がハンコを押す線形の流れではなく、回覧・稟議・根回しという層が重なり合った立体的な設計になっている。関係部署にあらかじめ声をかけ、懸念をつぶしてから正式な書類を回す。決裁者の手前でいったん止めて調整を入れる。書類の順番そのものに、組織の力学が埋め込まれている。</p>
+
+    <p>この構造は、外から見ると単なる非効率に映ります。実際、非効率な側面は確かにあります。しかし同時に、<strong>合意形成の品質を担保するための仕組み</strong>でもあり、少なくとも現場はそう運用してきました。問題は、仕組みの是非ではなく、この複雑な流れをデジタルでどう受け止めるかです。ここを粗く作れば、現場は紙とメールに戻る。実際、多くのワークフロー製品がここで敗退してきました。</p>
+
+    <p>サイボウズはこの領域に、二十年以上にわたって正面から取り組んできた数少ないベンダーです。<a class="gloss-term" data-term="garoon">Garoon</a>は現在、<strong>7,500社・330万人</strong>に利用されており、阪急阪神ホールディングスでは40数社・約12,000名が共通基盤として運用しています。ITreview Grid Award のグループウェア部門では<strong>5年連続でLeaderを受賞</strong>。数千人から数万人規模の組織で、ポータル・掲示板・スケジュール・ワークフローが当たり前に動き続けているという事実は、機能の話ではありません。<strong>日本企業の承認文化をそのまま載せられる設計思想が、長年の運用を通じて磨かれてきた</strong>という事実です。</p>
+
+    <p>見落とされがちですが、グローバルSaaSがこの層をなかなか置き換えられない理由もここにあります。回覧順の組み替え、代理承認、差し戻しの戻し先、部門横断の合議──日本の組織が自然に行っている動作を、違和感なくデジタル化できるかどうか。<strong>日本語に訳せば済む話ではなく、組織運用の作法そのものを移植する設計</strong>が要ります。Garoonは派手な製品ではありません。しかし、派手でない領域で長く残ってきたことにこそ、この会社の一つの本質が現れています。</p>
+
+    <h3>3. 例外処理が、すべてを止める</h3>
+
+    <p>情報が流れ、承認が動くようになっても、現場にはまだ詰まりが残ります。<strong>例外処理です。</strong></p>
+
+    <p>業務の大半は標準フローに乗ります。申請書のひな形があり、決裁のルートがあり、記録の残し方が決まっている。しかし、どの組織にも必ず「標準では処理できない案件」が一定割合で混ざります。特殊な顧客要望、例外的な取引条件、現場でしか判断できない細かな運用ルール。こうした例外は、全体から見れば少数派ですが、<strong>現場の時間を最も奪うのはこの少数派のほう</strong>です。</p>
+
+    <p>厄介なのは、例外処理が標準フローの外側にあふれた瞬間、業務が紙とExcelとメールに逆戻りする点です。せっかく情報共有を整え、ワークフローを整えても、例外が発生するたびに仕組みの外で処理されるなら、整備した基盤は迂回されていきます。多くの業務システムが「導入したのに現場が使わない」と言われる理由の相当部分が、実はここにあります。<strong>標準化を極めた製品ほど、例外に弱い</strong>という逆説です。</p>
+
+    <p>サイボウズの解き方は、この逆説を正面から引き受けています。SAPやOracleのような重厚長大な基幹系が業務を製品側の標準に寄せるアプローチを取るのに対し、kintoneは<strong>現場が自分で業務アプリを作れる</strong>という方向に振り切りました。非IT部門での導入比率は<strong>93%</strong>。例外処理は「減らす対象」ではなく「<strong>吸収する対象</strong>」だと前提そのものを置き直しているのです。標準化されない業務を標準化で殴るのではなく、標準化されないまま運用できる土台を用意する。例外が多いから現場が疲弊するのではなく、例外を受け止める場所がないから疲弊する──サイボウズは、この前提をひっくり返した会社でした。</p>
+
+    <h3>4. 現場改善という、いちばん動かない領域</h3>
+
+    <p>情報共有・承認・例外という三つの詰まりは、いずれも最後に同じ壁に突き当たります。<strong>現場改善です。</strong></p>
+
+    <p>この領域が厄介なのは、課題が見えていても、それを直せる人が組織の中で最も遠いところに配置されている点にあります。業務の詳細を一番知っているのは現場です。一方で、業務を動かすシステムを変えられるのは、たいてい情報システム部門かベンダーです。両者の距離は物理的にも組織的にも遠く、「ちょっと変えたい」が数ヶ月の稟議と見積りの旅になる。<strong>直したい人と直せる人が一致していない</strong>──これが、日本企業の改善がなかなか動かない構造的な理由です。</p>
+
+    <p>経済産業省が「2025年の崖」で警告した背景にも、DX人材不足という言葉の裏側にも、この構造があります。人材を増やしても、距離そのものが縮まらなければ、現場の改善速度は上がりません。ならば、<strong>距離を前提にしたシステム運用をやめればいい</strong>。これがサイボウズが選んだ答えでした。</p>
+
+    <p>kintoneの非IT部門導入比率<strong>93%</strong>は、この選択の結果です。情報システム部門を経由せずに、現場の担当者が自分で業務アプリを組み立てる。そのために必要なのは高度なコーディングではなく、業務を知っている人間が自分の手を動かせる入口でした。東証プライム企業の導入率は<strong>46%</strong>に達し、契約社数は<strong>3.9万社</strong>を超えています。大企業の現場でも、自治体の窓口でも、同じ原理で<strong>改善の主語が変わった</strong>──「IT部門が現場に改善を提供する」から「現場が自分で改善する」へ。</p>
+
+    <div class="case-grid">
+      <div class="case-card" data-sector="public">
+        <div class="case-name">兵庫県加古川市</div>
+        <div class="case-result">特別定額給付金のオンライン化で事務処理を10倍に効率化</div>
+        <div class="case-interp">標準パッケージで拾えない地域固有業務を、現場の職員がアプリ化した典型例。制度対応のスピードが、ベンダー発注サイクルから職員の業務知識に主導権を移した。</div>
+      </div>
+      <div class="case-card" data-sector="public">
+        <div class="case-name">山形県酒田市</div>
+        <div class="case-result">定期船予約の電話を1日最大70件削減</div>
+        <div class="case-interp">既存の電話受付という運用そのものを現場が再設計した事例。改善対象は画面ではなく、住民と職員の時間だった。</div>
+      </div>
+      <div class="case-card" data-sector="public">
+        <div class="case-name">兵庫県庁</div>
+        <div class="case-result">健康観察システムを2週間でリリース</div>
+        <div class="case-interp">感染症対応のような緊急局面で、調達プロセスを待たずに現場が立ち上げた事例。平時の効率化ではなく、有事の即応力が現場主導の副産物として現れた。</div>
+      </div>
+      <div class="case-card" data-sector="enterprise">
+        <div class="case-name">スタッフサービス</div>
+        <div class="case-result">バックヤード全社ペーパーレス化＋市民開発ガバナンス確立</div>
+        <div class="case-interp">大企業スケールで現場主導の改善を回すと、必ずガバナンス設計が課題になる。同社は「現場が作る」と「IT部門が守る」を両立させる運用モデルを構築し、市民開発の標準形として参照されている。</div>
+      </div>
+    </div>
+
+    <p>自治体と民間大企業、規模も業種も異なる四つの事例が同じ一点を示しています。<strong>改善を動かすのは機能ではなく、主語の設計である</strong>ということ。kintoneが解いてきたのは、ノーコードという流行ではなく、この主語の問題でした。</p>
+
+    <h3>5. サイボウズが辿り着いた答え — 三つの層</h3>
+
+    <p>ここまで四つの詰まりを見てきました。情報共有・承認・例外処理・現場改善。別々の症状に見えて、根はひとつに繋がっています。<strong>業務というものが、データだけでも、手続きだけでも、会話だけでも成り立たない</strong>という事実です。</p>
+
+    <p>日本企業の現場で起きていた詰まりは、この三つのどれかが欠けていたことで発生していました。データはあるのに流れない。手続きはあるのに止まる。会話はあるのに残らない。三つを一体として運用できる土台がなかったから、改善はいつも途中で止まっていたのです。</p>
+
+    <p>サイボウズがたどり着いた答えは、この三つを別々の製品で解くのではなく、<strong>ひとつの構造として重ね合わせる</strong>ことでした。kintoneの本質はノーコードでも、業務アプリビルダーでもありません。次の三つの層が、同じ基盤の上に同時に存在している点にあります。</p>
+
+    <div class="layer-triad">
+      <div class="lt-cell">
+        <div class="lt-index">LAYER 01</div>
+        <div class="lt-label">データベース層</div>
+        <div class="lt-desc">業務データを持つ土台</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-index">LAYER 02</div>
+        <div class="lt-label">プロセス管理層</div>
+        <div class="lt-desc">承認・例外・通知を運ぶ筋肉</div>
+      </div>
+      <div class="lt-cell">
+        <div class="lt-index">LAYER 03</div>
+        <div class="lt-label">コミュニケーション層</div>
+        <div class="lt-desc">人と人のやり取りを残す神経</div>
+      </div>
+    </div>
+
+    <p><strong>データベース層</strong>が業務の事実を持ち、<strong>プロセス管理層</strong>がその事実を動かし、<strong>コミュニケーション層</strong>が動かした人間同士のやり取りを記録として残す。これは単なる機能の寄せ集めではなく、<strong>業務が実際に回るときに必要な三つの働きをそのまま写し取った構造</strong>です。</p>
+
+    <p>この三層は本章で扱った四つの詰まりに過不足なく対応します。情報共有はデータベース層とコミュニケーション層にまたがる問題であり、承認フローと例外処理はプロセス管理層の設計問題、現場改善は三層すべてを現場が自分で組み替えられるかという問題でした。Garoonが情報共有の土台を、メールワイズが顧客接点のコミュニケーションを、kintoneが三層を統合して現場に渡す──製品が違って見えても、<strong>同じ世界観の展開形</strong>として並んでいるのはこのためです。</p>
+
+    <p>三層の中身がなぜこの形で機能するのか、なぜこの構造が日本企業に対して強く働くのかは、第4章で本論として扱います。この章ではまず、<strong>サイボウズの答えはこの三層に集約される</strong>という事実を置いておくだけで十分です。</p>
+
+  </div>
+
+  <!-- 章末サマリー -->
+  <div class="chapter-summary">
+    <div class="cs-label">この章の要点</div>
+    <ol class="cs-points">
+      <li>サイボウズは製品ではなく、日本企業の"詰まり"を解いてきた会社である</li>
+      <li>情報共有・承認・例外・現場改善という四つの課題が一本の糸で繋がっている</li>
+      <li>kintoneの「データベース＋プロセス＋コミュニケーション」はその糸の答えである</li>
+    </ol>
+    <div class="cs-lenses">
+      <div class="cs-lens cs-lens-investor">
+        <div class="cs-lens-label">INVESTOR LENS — 投資家としての論点</div>
+        <p>解いている問題の普遍性が、収益の普遍性を規定する。</p>
+      </div>
+      <div class="cs-lens cs-lens-customer">
+        <div class="cs-lens-label">CUSTOMER LENS — 顧客としての論点</div>
+        <p>導入しているのは道具ではなく、詰まりをほどく運用思想である。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 次章導線 -->
+  <a class="chapter-next" href="#ch2-founding-and-rebirth">
+    <span class="cn-label">NEXT CHAPTER</span>
+    <span class="cn-title">第2章：創業、停滞、再生──サイボウズはなぜ一度壊れ、立て直されたのか</span>
+    <span class="cn-hook">今のサイボウズを理解したいなら、まず"うまくいっていなかった頃"を見なければならない。</span>
+  </a>
+</article>
+
+<!-- ===== 02 創業と再生 ===== -->
+<article class="chapter" id="ch2-founding-and-rebirth" data-chapter="2">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 2</div>
+    <h2 class="chapter-title">創業、停滞、再生 — サイボウズはなぜ一度壊れ、立て直されたのか</h2>
+    <p class="chapter-hook">今のサイボウズを理解したいなら、まず"うまくいっていなかった頃"を見なければならない。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（3,500〜4,500字）— 1997年創業 / Office期 / 高離職率時代 / 転換点 / 理念の再定義</div>
+  </div>
+</article>
+
+<!-- ===== 03 製品進化史 ===== -->
+<article class="chapter" id="ch3-product-evolution" data-chapter="3">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 3</div>
+    <h2 class="chapter-title">製品進化史 — Office、Garoon、メールワイズ、そしてkintone</h2>
+    <p class="chapter-hook">Office、Garoon、メールワイズ、kintoneは、バラバラの製品ではない。ひとつの思想の発展形だ。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（3,500〜4,500字）— 各製品を世界観の展開形として整理。業務の層に応じた製品群。</div>
+  </div>
+</article>
+
+<!-- ===== 04 kintoneの正体 ===== -->
+<article class="chapter" id="ch4-kintone-structure" data-chapter="4">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 4</div>
+    <h2 class="chapter-title">kintoneの正体 — なぜ"現場主導DX"が回るのか</h2>
+    <p class="chapter-hook">kintoneの強さは、ノーコードだからではない。現場が、自分の仕事を自分で作り変えられるからだ。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（4,500〜6,000字）— 本文の中核。データベース層／プロセス管理層／コミュニケーション層の三層構造。非IT部門93%の意味。</div>
+    <!-- 決算ナビ連携リンク候補 -->
+    <aside class="kn-block" data-kn-metric="kintone_revenue">
+      <div class="kn-label">📊 最新値は決算ナビで</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>kintone売上・契約社数・NRR の最新値を見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 05 moat ===== -->
+<article class="chapter" id="ch5-moat" data-chapter="5">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 5</div>
+    <h2 class="chapter-title">moatはどこにあるのか — エコシステム、コミュニティ、ガバナンス、MCP</h2>
+    <p class="chapter-hook">本当のmoatは、アプリの中ではなく、その外側に広がっている。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（4,500〜6,000字）— パートナー3類型／キンコミ／ガブキン／Enterprise Circle／プラグイン経済圏／kintone MCPサーバー</div>
+    <aside class="kn-block" data-kn-metric="partner_count">
+      <div class="kn-label">📊 最新値は決算ナビで</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>パートナー社数・連携サービス数・間販比率 の最新値を見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 06 文化 ===== -->
+<article class="chapter" id="ch6-culture" data-chapter="6">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 6</div>
+    <h2 class="chapter-title">企業文化という資産 — 「100人100通り」の後に何が残るのか</h2>
+    <p class="chapter-hook">サイボウズの文化は、美談ではない。業績を支える運用資産である。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（3,500〜4,500字）— 離職率28%→5%／100人100通りの卒業／マッチング重視／Wantと自主自律</div>
+    <aside class="kn-block" data-kn-metric="attrition_rate">
+      <div class="kn-label">📊 最新値は決算ナビで</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>離職率・女性比率・人的資本指標 の最新値を見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 07 数字で読む現在地 ===== -->
+<article class="chapter" id="ch7-numbers" data-chapter="7">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 7</div>
+    <h2 class="chapter-title">数字で読む現在地 — いま何が起きているか</h2>
+    <p class="chapter-hook">数字は結果に見える。だが本当は、構造の写し絵だ。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（3,500〜5,000字）— 売上／営業利益／製品別売上／クラウド比率／顧客構成／東証プライム浸透／SaaS経営指標</div>
+    <aside class="kn-block" data-kn-metric="total_revenue">
+      <div class="kn-label">📊 この章は決算ナビ主導線です</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>全指標の最新値と四半期推移を決算ナビで見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 08 弱みと未解決 ===== -->
+<article class="chapter" id="ch8-risks" data-chapter="8">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 8</div>
+    <h2 class="chapter-title">弱みと未解決論点 — 海外、AI、Microsoft、その先</h2>
+    <p class="chapter-hook">強い会社ほど、どこで負けうるかを書かなければならない。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（3,500〜5,000字）— 海外68億累積赤字／Power Platform×Copilot Studio／Lovable・v0・Bolt／生成AI時代の業務基盤の位置</div>
+    <aside class="kn-block" data-kn-metric="overseas_revenue">
+      <div class="kn-label">📊 最新値は決算ナビで</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>海外事業・AI関連リリース の最新動向を見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 09 未来 ===== -->
+<article class="chapter" id="ch9-future" data-chapter="9">
+  <header class="chapter-header">
+    <div class="chapter-num">CHAPTER 9</div>
+    <h2 class="chapter-title">未来 — サイボウズは日本DXの基盤企業になれるか</h2>
+    <p class="chapter-hook">サイボウズは伸びる会社か。ではなく、日本の業務基盤として残る会社か。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="placeholder">未執筆（2,500〜3,500字）— 2028年目標／日本語圏業務基盤／AI時代の役割／教科書を更新し続ける意味</div>
+    <aside class="kn-block" data-kn-metric="target_2028">
+      <div class="kn-label">📊 最新値は決算ナビで</div>
+      <a class="kn-link" href="#" data-kessan-link-placeholder>中計2028目標への進捗トラッカーを見る</a>
+    </aside>
+  </div>
+</article>
+
+<!-- ===== 付録 ===== -->
+<article class="chapter" id="appendix-timeline" data-chapter="appendix">
+  <header class="chapter-header">
+    <div class="chapter-num">APPENDIX A1</div>
+    <h2 class="chapter-title">三層年表 — 思想 × 製品 × 業績</h2>
+    <p class="chapter-hook">年表は、理念と製品と数字の交差点を見るための地図である。</p>
+  </header>
+  <div class="chapter-body">
+    <div class="tl3">
+      <div class="tl3-header">
+        <span class="tl3-col-label tl3-ideology">思想・文化</span>
+        <span class="tl3-col-label tl3-product">製品・機能</span>
+        <span class="tl3-col-label tl3-metric">業績・導入</span>
+      </div>
+      <div class="tl3-row" data-year="1997">
+        <div class="tl3-year">1997</div>
+        <div class="tl3-cell tl3-ideology">青野慶久・畑慎也・高須賀宣の3名が愛媛県松山市で創業</div>
+        <div class="tl3-cell tl3-product">サイボウズOffice 初版リリース — スケジュール共有の"掲示板"として</div>
+        <div class="tl3-cell tl3-metric">—</div>
+      </div>
+      <div class="tl3-row" data-year="2000">
+        <div class="tl3-year">2000</div>
+        <div class="tl3-cell tl3-ideology">急成長フェーズ</div>
+        <div class="tl3-cell tl3-product">Office Ver.4 / 大阪証券取引所ナスダック・ジャパン上場</div>
+        <div class="tl3-cell tl3-metric">年商10億円規模へ</div>
+      </div>
+      <div class="tl3-row" data-year="2005">
+        <div class="tl3-year">2005</div>
+        <div class="tl3-cell tl3-ideology">離職率28% — "燃え尽き"のピーク / 青野の経営危機意識</div>
+        <div class="tl3-cell tl3-product">Garoon リリース — 中〜大規模組織向けグループウェア</div>
+        <div class="tl3-cell tl3-metric">—</div>
+      </div>
+      <div class="tl3-row" data-year="2007">
+        <div class="tl3-year">2007</div>
+        <div class="tl3-cell tl3-ideology">働き方改革の模索始まる（ワークスタイル選択制度）</div>
+        <div class="tl3-cell tl3-product">メールワイズ リリース</div>
+        <div class="tl3-cell tl3-metric">—</div>
+      </div>
+      <div class="tl3-row" data-year="2011">
+        <div class="tl3-year">2011</div>
+        <div class="tl3-cell tl3-ideology">「100人100通りの働き方」を正式な人事哲学に</div>
+        <div class="tl3-cell tl3-product">kintone リリース — 業務アプリ構築クラウド</div>
+        <div class="tl3-cell tl3-metric">離職率が5年前の28%から改善トレンド確立</div>
+      </div>
+      <div class="tl3-row" data-year="2014">
+        <div class="tl3-year">2014</div>
+        <div class="tl3-cell tl3-ideology">"チームワークあふれる社会を創る" 企業理念確定</div>
+        <div class="tl3-cell tl3-product">kintone 海外展開開始（米国）</div>
+        <div class="tl3-cell tl3-metric">—</div>
+      </div>
+      <div class="tl3-row" data-year="2018">
+        <div class="tl3-year">2018</div>
+        <div class="tl3-cell tl3-ideology">青野、選択的夫婦別姓訴訟を原告として提訴（社会発信）</div>
+        <div class="tl3-cell tl3-product">kintone 契約1.1万社超</div>
+        <div class="tl3-cell tl3-metric">東証一部指定替え</div>
+      </div>
+      <div class="tl3-row" data-year="2020">
+        <div class="tl3-year">2020</div>
+        <div class="tl3-cell tl3-ideology">コロナ禍でリモート前提運用を全面展開 / 「チームワーク総研」が情報発信の柱に</div>
+        <div class="tl3-cell tl3-product">kintone 大企業導入加速 / オンラインイベント Cybozu Days 拡大</div>
+        <div class="tl3-cell tl3-metric">クラウド事業急拡大</div>
+      </div>
+      <div class="tl3-row" data-year="2023">
+        <div class="tl3-year">2023</div>
+        <div class="tl3-cell tl3-ideology">"Wantと自主自律" を次フェーズの軸に</div>
+        <div class="tl3-cell tl3-product">kintone AI連携の初期実装開始</div>
+        <div class="tl3-cell tl3-metric">kintone契約3.7万社超 / 東証プライム44%</div>
+      </div>
+      <div class="tl3-row" data-year="2024">
+        <div class="tl3-year">2024</div>
+        <div class="tl3-cell tl3-ideology">「100人100通りの働き方」を正式に卒業 — "働き方表現の見直し"</div>
+        <div class="tl3-cell tl3-product">Enterprise Circle（大企業20社）設立</div>
+        <div class="tl3-cell tl3-metric">海外累積赤字68億円を公開 / 現地ローカル戦略へ転換</div>
+      </div>
+      <div class="tl3-row" data-year="2025">
+        <div class="tl3-year">2025</div>
+        <div class="tl3-cell tl3-ideology">青野 "AIの民主化" を公に標榜 / Tech Challenge Party 2026でOpenAI Japan×さくらインターネットと対談</div>
+        <div class="tl3-cell tl3-product">2025-08 kintone MCPサーバー正式リリース / 2025-10 レコード一覧分析AI / 2025-11 kintone AIラボβ（6機能無償）</div>
+        <div class="tl3-cell tl3-metric">売上374.3億円 (+26.1%) / 営業利益101.0億円 (+106.4%) / kintone売上216.9億円 (+33.9%) / kintone3.9万社 / 東証プライム46%</div>
+      </div>
+      <div class="tl3-row" data-year="2026">
+        <div class="tl3-year">2026</div>
+        <div class="tl3-cell tl3-ideology">"CanよりWant" 文脈化が進行</div>
+        <div class="tl3-cell tl3-product">会社予想 売上421.7億円</div>
+        <div class="tl3-cell tl3-metric">アナリスト平均目標株価3,900円（+88%）/ レーティング「強気買い」</div>
+      </div>
+      <div class="tl3-row" data-year="2028">
+        <div class="tl3-year">2028</div>
+        <div class="tl3-cell tl3-ideology">—</div>
+        <div class="tl3-cell tl3-product">—</div>
+        <div class="tl3-cell tl3-metric">中計目標 売上509億円超（2023年度の約2倍）</div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<article class="chapter" id="appendix-glossary" data-chapter="appendix">
+  <header class="chapter-header">
+    <div class="chapter-num">APPENDIX A2</div>
+    <h2 class="chapter-title">用語集</h2>
+    <p class="chapter-hook">本文中の点線下線つきの語はすべてここに定義がある。</p>
+  </header>
+  <div class="chapter-body">
+    <dl class="gloss-list">
+      <dt id="term-kintone">kintone</dt>
+      <dd>サイボウズが2011年にリリースした業務アプリ構築クラウドサービス。データベース層・プロセス管理層・コミュニケーション層の三層構造を持ち、非IT部門93%が作り手となる"現場主導DX"の中核。</dd>
+
+      <dt id="term-garoon">Garoon</dt>
+      <dd>サイボウズの中〜大規模組織向けグループウェア。スケジュール・掲示板・ワークフロー等を統合。7,500社・330万人が利用。ITreview 5年連続Leader。</dd>
+
+      <dt id="term-mailwise">メールワイズ</dt>
+      <dd>サイボウズのメール共有・顧客対応管理ツール。15,000社が利用。月600円/ユーザーから。</dd>
+
+      <dt id="term-mcp">MCP（Model Context Protocol）</dt>
+      <dd>AIエージェントが外部システムを呼び出すためのオープンプロトコル。kintoneは2025年8月に正式対応し、Claude Desktop等のAIから直接操作可能になった。</dd>
+
+      <dt id="term-citizen-dev">市民開発</dt>
+      <dd>非IT部門の業務担当者が自らアプリを構築する開発スタイル。kintoneはこれを意図的に設計思想に据えている。</dd>
+
+      <dt id="term-gabu-kin">ガブキン</dt>
+      <dd>自治体のkintoneユーザーコミュニティ。公共セクターでの市民開発・情報共有の場。</dd>
+
+      <dt id="term-kin-commu">キンコミ</dt>
+      <dd>kintoneの公式ユーザーコミュニティ。プラグインやノウハウの共有・相互支援の中心。</dd>
+
+      <dt id="term-enterprise-circle">Enterprise Circle</dt>
+      <dd>kintoneを導入する大企業20社による情報交換組織。大企業DXのベストプラクティス共有の場。</dd>
+
+      <dt id="term-ai-lab">kintone AIラボ</dt>
+      <dd>2025年11月開始。アプリ作成AI・検索AI・市民開発支援AIを含む6機能をβ無償提供。</dd>
+
+      <dt id="term-100-100">100人100通りの働き方</dt>
+      <dd>サイボウズが2011年から運用してきた、個人ごとに働き方を設計できる人事制度。2024年に正式に卒業し、次のフェーズへ移行。</dd>
+
+      <dt id="term-nrr">NRR（Net Revenue Retention）</dt>
+      <dd>既存顧客からの売上維持率（アップセル・ダウンセル・解約を含む）。SaaSの健全性を測る代表的指標。</dd>
+
+      <dt id="term-arpa">ARPA（Average Revenue Per Account）</dt>
+      <dd>アカウント当たり平均売上。顧客単価のSaaS版。</dd>
+
+      <dt id="term-kansai">間販（かんはん）</dt>
+      <dd>パートナー経由での間接販売。サイボウズのエコシステム戦略の中核。</dd>
+
+      <dt id="term-jp-business-base">日本語圏業務基盤</dt>
+      <dd>日本語・日本の商習慣・日本の監査要件に適合した業務ソフトウェア基盤の総称。本教科書での造語。</dd>
+    </dl>
+  </div>
+</article>
+
+</main>
+
+<!-- ===== Update Log ===== -->
+<section class="update-log" aria-label="更新履歴">
+  <h2 class="update-log-title">更新履歴</h2>
+  <table class="update-log-table">
+    <thead>
+      <tr><th>更新日</th><th>更新箇所</th><th>変更理由</th><th>参照資料</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2026-04-21</td>
+        <td>v1.0 骨格スキャフォールド公開</td>
+        <td>教科書型テンプレート設計（morimori派生）・10章＋付録の雛形実装</td>
+        <td>サイボウズ教科書_最終目次.md v1.0 / テンプレート仕様v1.md</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===== References ===== -->
+<section class="ref-section" aria-label="参考文献">
+  <div class="ref-section-label">REFERENCES · v1.0 時点</div>
+  <h2>参考資料</h2>
+  <ul class="ref-list">
+    <li>サイボウズ株式会社 IR — <a href="https://cybozu.co.jp/company/ir/" target="_blank" rel="noopener">cybozu.co.jp/company/ir/</a></li>
+    <li>2025年12月期 通期決算補足資料</li>
+    <li>kintone MCPサーバー公式ドキュメント（cybozu.dev）</li>
+    <li>kintone AIラボ公式ページ</li>
+    <li>Cybozu Inside Out（技術ブログ）</li>
+    <li>サイボウズ式（オウンドメディア）</li>
+    <li>Tech Challenge Party 2026 登壇資料</li>
+    <li>みんかぶ / 株予報Pro / 電波新聞 / マイナビ / ASCII 等各種メディア</li>
+    <li>— 詳細ソースは「サイボウズ応援PJ」配下のリサーチノートを参照</li>
+  </ul>
+</section>
+
+<!-- ===== Next Links ===== -->
+<nav class="next-links" aria-label="関連コンテンツ">
+  <a href="../cybozu/" class="next-link">
+    <div class="nl-label">RELATED</div>
+    <div class="nl-title">サイボウズ moat分析</div>
+    <div class="nl-desc">このページの姉妹記事。moat5軸の短評と投資判断の骨組み。</div>
+  </a>
+  <a href="../" class="next-link">
+    <div class="nl-label">DEEPER</div>
+    <div class="nl-title">他の企業研究を見る</div>
+    <div class="nl-desc">投資Libraryで扱う227社の企業ページ一覧へ。</div>
+  </a>
+</nav>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <p>© 2026 投資Library · <a href="https://anni-memo.github.io/investment-library/">anni-memo.github.io/investment-library</a></p>
+  <p style="margin-top:8px;opacity:.6;">第三者株主 @anni_equity による企業教科書シリーズ Vol.1 · 生きている教科書として継続更新</p>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+
+<script>
+/* ===== Knowledge Graph — Cybozu Textbook Physics Simulation ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'この教科書',product:'プロダクト',moat:'moat',culture:'文化',risk:'リスク',future:'未来'};
+  var catColors={self:'#d4aa22',product:'#5a8a3a',moat:'#b8900a',culture:'#3a5590',risk:'#c05020',future:'#8b6914'};
+
+  var nodes=[
+    {id:'self',label:'サイボウズ教科書',x:0,y:0,r:22,color:catColors.self,cat:'self',url:null,desc:'日本企業ソフトウェア史の一章'},
+    {id:'kintone',label:'kintone',x:-90,y:-70,r:18,color:catColors.product,cat:'product',url:'#ch4-kintone-structure',desc:'第4章：現場主導DXの正体'},
+    {id:'garoon',label:'Garoon',x:120,y:-60,r:13,color:catColors.product,cat:'product',url:'#ch3-product-evolution',desc:'7,500社330万人の基盤'},
+    {id:'mailwise',label:'メールワイズ',x:140,y:30,r:11,color:catColors.product,cat:'product',url:'#ch3-product-evolution',desc:'15,000社が利用'},
+    {id:'moat',label:'moat',x:-140,y:40,r:17,color:catColors.moat,cat:'moat',url:'#ch5-moat',desc:'第5章：運用の厚み'},
+    {id:'mcp',label:'MCP',x:-180,y:-30,r:11,color:catColors.moat,cat:'moat',url:'#ch5-moat',desc:'AIが叩く業務基盤'},
+    {id:'partner',label:'エコシステム',x:-170,y:110,r:11,color:catColors.moat,cat:'moat',url:'#ch5-moat',desc:'パートナー・キンコミ・ガブキン'},
+    {id:'culture',label:'100人100通り',x:60,y:90,r:14,color:catColors.culture,cat:'culture',url:'#ch6-culture',desc:'第6章：文化という資産'},
+    {id:'founding',label:'創業と再生',x:100,y:-130,r:12,color:catColors.culture,cat:'culture',url:'#ch2-founding-and-rebirth',desc:'第2章：離職率28%→5%'},
+    {id:'risk',label:'弱みと挑戦',x:-60,y:130,r:13,color:catColors.risk,cat:'risk',url:'#ch8-risks',desc:'第8章：海外・AI・Microsoft'},
+    {id:'future',label:'2028年',x:170,y:100,r:12,color:catColors.future,cat:'future',url:'#ch9-future',desc:'第9章：日本DXの基盤企業へ'},
+    {id:'numbers',label:'数字',x:40,y:-130,r:12,color:catColors.future,cat:'future',url:'#ch7-numbers',desc:'第7章：構造の写し絵'}
+  ];
+
+  var edges=[
+    {from:'self',to:'kintone'},{from:'self',to:'moat'},{from:'self',to:'culture'},{from:'self',to:'founding'},
+    {from:'self',to:'numbers'},{from:'self',to:'future'},{from:'self',to:'risk'},
+    {from:'kintone',to:'garoon'},{from:'kintone',to:'mailwise'},{from:'kintone',to:'mcp'},
+    {from:'moat',to:'mcp'},{from:'moat',to:'partner'},
+    {from:'culture',to:'founding'},{from:'culture',to:'numbers'},
+    {from:'risk',to:'mcp'},{from:'future',to:'numbers'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;
+    H=window.innerWidth>960?240:220;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();});
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){
+      hovConns[hovId]=true;
+      (connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});
+    }
+
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.08)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;
+      var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;
+      var r=n.r*(isHov?1.2:pulse);
+
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'44');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.5)';
+        ctx.textAlign='center';
+        ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];
+      if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+14)return n;
+    }
+    return null;
+  }
+  function getXY(e){
+    var rect=canvas.getBoundingClientRect();
+    return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};
+  }
+
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){
+      dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;
+      dragging.vx=0;dragging.vy=0;return;
+    }
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){
+      hit.hover=true;
+      ttTitle.textContent=hit.label;
+      ttCat.textContent=catLabels[hit.cat]||hit.cat;
+      ttDesc.textContent=hit.desc;
+      tooltip.style.opacity='1';
+      tooltip.style.left=Math.min(hit.px+20,W-160)+'px';
+      tooltip.style.top=(hit.py-55)+'px';
+      canvas.style.cursor='pointer';
+    }else{
+      tooltip.style.opacity='0';
+      canvas.style.cursor='grab';
+    }
+  });
+  canvas.addEventListener('mouseleave',function(){
+    nodes.forEach(function(n){n.hover=false;});
+    tooltip.style.opacity='0';dragging=null;
+  });
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);var hit=hitTest(p.x,p.y);
+    if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){
+      var p=getXY(e);
+      var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));
+      dragging.dragging=false;
+      if(moved<5&&dragging.url){
+        if(dragging.url.startsWith('#')){
+          var el=document.getElementById(dragging.url.slice(1));
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        }else{window.open(dragging.url,'_blank');}
+      }
+    }
+    dragging=null;canvas.style.cursor='grab';
+  });
+
+  canvas.addEventListener('touchstart',function(e){
+    e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();
+    var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    var hit=hitTest(mx,my);
+    if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();
+    var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragging){
+      dragging.dragging=false;
+      if(dragging.url){
+        if(dragging.url.startsWith('#')){
+          var el=document.getElementById(dragging.url.slice(1));
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        }else{window.open(dragging.url,'_blank');}
+      }
+    }
+    dragging=null;
+  });
+})();
+
+// TOC active highlight
+(function(){
+  const links = document.querySelectorAll('.toc-list a');
+  const chapters = document.querySelectorAll('.chapter');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(a=>{
+          a.classList.toggle('toc-active', a.getAttribute('href')==='#'+id);
+        });
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  chapters.forEach(c=>io.observe(c));
+})();
+
+// Glossary popover (lightweight)
+(function(){
+  document.querySelectorAll('.gloss-term').forEach(el=>{
+    const key = el.dataset.term || el.textContent.trim();
+    const target = document.getElementById('term-'+key.toLowerCase().replace(/\s+/g,'-'));
+    if(target){
+      el.addEventListener('click', e=>{
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'center'});
+        target.style.background = 'rgba(139,105,20,.15)';
+        setTimeout(()=>{ target.style.background = ''; }, 1600);
+      });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
