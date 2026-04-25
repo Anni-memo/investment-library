@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+  v2-glossary 補助テンプレ（spoke.html）
+  対応配置先: {site-root}/{{SECTION_SLUG}}/{{TERM_SLUG}}/index.html
+  プレースホルダ一覧は README.md を参照。
+  CSSは v2-textbook の v2-styles-partial.html を流用。
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="{{TERM_META_DESCRIPTION}}"/>
+<meta property="og:title" content="{{TERM_NAME_JA}}｜{{SECTION_LABEL}}｜{{SITE_NAME}}"/>
+<meta property="og:description" content="{{TERM_OG_DESCRIPTION}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/"/>
+<title>{{TERM_NAME_JA}}｜{{SECTION_LABEL}}｜{{SITE_NAME}}</title>
+
+<!-- ===== AI可読メタ4点（v2必須） ===== -->
+<meta name="ai-content-policy" content="index:allow, cite:allow, summarize:allow"/>
+<meta name="as-of-date" content="{{AS_OF_DATE}}"/>
+<meta name="referenced-fiscal-period" content="{{FISCAL_PERIOD}}"/>
+<link rel="alternate" type="application/json" href="../_data/{{TERM_SLUG}}.json" title="Term Fact JSON"/>
+
+<!-- ===== JSON-LD @graph（Article + DefinedTerm + BreadcrumbList 3階層） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/#article",
+      "headline": "{{TERM_NAME_JA}} — {{TERM_SUBTITLE}}",
+      "description": "{{TERM_ARTICLE_DESCRIPTION}}",
+      "datePublished": "{{INITIAL_PUBLISHED}}",
+      "dateModified": "{{AS_OF_DATE}}",
+      "inLanguage": "ja",
+      "wordCount": {{WORD_COUNT}},
+      "isPartOf": {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/#page"},
+      "author": {"@type": "Person", "name": "{{AUTHOR_NAME}}", "url": "{{AUTHOR_URL}}"},
+      "publisher": {"@id": "{{SITE_URL_BASE}}/#publisher"},
+      "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/",
+      "mainEntity": {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/#term"},
+      "about": [
+        {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/#term"}
+      ],
+      "mentions": [
+        {{MENTIONS_LIST}}
+        /* 関連指標・関連概念 例:
+        {"@type": "DefinedTerm", "name": "EPS", "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/eps/"},
+        {"@type": "Thing", "name": "バリュエーション・バンド"}
+        */
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/#term",
+      "name": "{{TERM_NAME_JA}}",
+      "alternateName": [{{TERM_ALTERNATE_NAMES}}],
+      "description": "{{TERM_DEFINITION_ONELINE}}",
+      "inDefinedTermSet": {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/#termset"},
+      "termCode": "{{TERM_CODE}}",
+      "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{SITE_URL_BASE}}/#publisher",
+      "name": "{{SITE_NAME}}",
+      "url": "{{SITE_URL_BASE}}/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "{{SITE_ROOT_LABEL}}", "item": "{{SITE_URL_BASE}}/"},
+        {"@type": "ListItem", "position": 2, "name": "{{SECTION_LABEL}}", "item": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/"},
+        {"@type": "ListItem", "position": 3, "name": "{{TERM_NAME_JA}}", "item": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<!-- ===== v2-textbook の v2-styles-partial.html を丸ごと展開 ===== -->
+<!-- v2-styles-partial.html INSERT HERE -->
+
+<!-- ===== 辞書独自CSS（components.html から必要なものを追記） ===== -->
+<!-- 必須推奨: .definition-box / .formula-card / .reading-guide / .related-metrics -->
+
+</head>
+<body>
+
+<nav class="nav">
+  <a href="{{SITE_URL_BASE}}/">{{SITE_ROOT_LABEL}}</a>
+  <span class="nav-sep">/</span>
+  <a href="../">{{SECTION_LABEL}}</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-cur">{{TERM_SLUG_UPPER}}</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">{{GENRE_LABEL_EN}} &middot; {{SECTION_LABEL_EN}}</div>
+  <div class="hero-chapter">TERM &middot; {{TERM_CODE}}</div>
+  <h1 class="hero-title">
+    {{TERM_NAME_JA}}
+    <em>{{TERM_NAME_EN}}</em>
+  </h1>
+  <div class="hero-meta">{{TERM_HOOK}}</div>
+</div>
+
+<div class="container container-narrow">
+
+  <div class="meta-line">{{INITIAL_PUBLISHED}} INITIAL &middot; UPDATED {{AS_OF_DATE}} &middot; 約{{WORD_COUNT_DISPLAY}}字</div>
+
+  <!-- ===== エピグラフ ===== -->
+  <div class="epigraph">
+    {{EPIGRAPH}}
+  </div>
+
+  <!-- ===== 定義ボックス（AI引用の核心） ===== -->
+  <div class="definition-box">
+    <div class="definition-label">DEFINITION</div>
+    <div class="definition-term">{{TERM_NAME_JA}}（{{TERM_NAME_EN}}）</div>
+    <div class="definition-body">
+      {{DEFINITION_HTML}}
+    </div>
+    <div class="definition-formula">
+      <div class="formula-label">FORMULA</div>
+      <div class="formula-display">{{FORMULA_DISPLAY}}</div>
+      <div class="formula-note">{{FORMULA_NOTE}}</div>
+    </div>
+    <div class="definition-meta">
+      <div class="meta-pair"><span class="meta-key">単位</span><span class="meta-val">{{UNIT}}</span></div>
+      <div class="meta-pair"><span class="meta-key">目安レンジ</span><span class="meta-val">{{TYPICAL_RANGE}}</span></div>
+      <div class="meta-pair"><span class="meta-key">データ出典</span><span class="meta-val">{{DATA_SOURCE}}</span></div>
+    </div>
+  </div>
+
+  <!-- ===== リード（導入2-4段落） ===== -->
+  <div class="lede">
+    {{LEDE_HTML}}
+  </div>
+
+  <hr class="ornament">
+
+  <!-- ===== 本文セクション ===== -->
+  {{SECTIONS_HTML}}
+  <!-- ===== セクションテンプレ =====
+    <div class="sec">
+      <div class="sec-num">SECTION 1</div>
+      <h2 class="sec-title-jp">節タイトル（問い型または断定型）</h2>
+      <div class="sec-body">
+        <p>本文段落。1見出し1論点・400-900字。</p>
+        <p><strong>核心フレーズ</strong>を太字で強調。</p>
+      </div>
+    </div>
+    <hr class="ornament">
+  -->
+
+  <!-- ===== 読み方ガイド（辞書特有コンポーネント） ===== -->
+  <div class="reading-guide">
+    <div class="reading-guide-label">READING GUIDE</div>
+    <div class="reading-guide-title">{{READING_GUIDE_TITLE}}</div>
+    <ol class="reading-guide-list">
+      {{READING_GUIDE_ITEMS}}
+      <!-- 例: <li><strong>水準</strong>：過去10年の中央値と比べる（±1σのバンドで位置を測る）</li> -->
+    </ol>
+  </div>
+
+  <!-- ===== 章末サマリー ===== -->
+  <div class="summary-box">
+    <div class="summary-label">TERM SUMMARY</div>
+    <div class="summary-title">この指標の要点</div>
+    <ol class="summary-list">
+      {{SUMMARY_POINTS_HTML}}
+    </ol>
+    <div class="summary-points">
+      <div class="summary-point">
+        <div class="summary-point-label">FOR INVESTORS</div>
+        <div class="summary-point-text">{{FOR_INVESTORS_TEXT}}</div>
+      </div>
+      <div class="summary-point">
+        <div class="summary-point-label">FOR BEGINNERS</div>
+        <div class="summary-point-text">{{FOR_BEGINNERS_TEXT}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 関連指標リンク群 ===== -->
+  <div class="related-metrics">
+    <div class="related-metrics-label">RELATED METRICS</div>
+    <div class="related-metrics-title">あわせて読む指標</div>
+    <div class="related-metrics-grid">
+      {{RELATED_METRICS_HTML}}
+      <!-- 例:
+        <a class="related-metric" href="../pbr/">
+          <span class="related-metric-code">PBR</span>
+          <span class="related-metric-name">株価純資産倍率</span>
+          <span class="related-metric-desc">資産面から見た割高・割安</span>
+        </a>
+      -->
+    </div>
+  </div>
+
+  <!-- ===== 決算ナビ機能CTA ===== -->
+  <div class="kn-cta">
+    <div class="kn-label">USE IN {{SITE_NAME_UPPER}}</div>
+    <div class="kn-title">{{KN_FEATURE_LABEL}}</div>
+    <div class="kn-desc">{{KN_FEATURE_DESC}}</div>
+    <a class="kn-btn" href="{{KN_FEATURE_URL}}">{{KN_FEATURE_LABEL}}を開く &#x2192;</a>
+  </div>
+
+</div>
+
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <a class="back-link" href="../">
+      <span class="back-link-tag">HUB</span>
+      <span class="back-link-title">{{SECTION_LABEL}} トップに戻る</span>
+    </a>
+    {{RELATED_BACK_LINKS}}
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">{{SITE_NAME}}</div>
+  <div>{{FOOTER_LINKS_HTML}}</div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">{{FOOTER_TAGLINE}}</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+</body>
+</html>

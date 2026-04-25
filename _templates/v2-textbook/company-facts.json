@@ -1,0 +1,117 @@
+{
+  "_comment": "v2-textbook 会社ファクトJSONテンプレ。配置先: company-textbook/{{SLUG}}/{{SLUG}}.json。プレースホルダ { { } } を実データで置換する。全補助ページから ../<slug>.json として alternate 参照される正本。",
+
+  "@context": "https://anni-memo.github.io/investment-library/schema/company-fact/v1",
+  "schema_version": "1.0",
+
+  "ticker": "{{TICKER}}",
+  "isin": null,
+  "name_ja": "{{COMPANY_NAME_LEGAL}}",
+  "name_en": "{{COMPANY_NAME_EN}}",
+  "market": "{{MARKET}}",
+  "founded": "{{FOUNDED}}",
+  "headquarters": "{{HEADQUARTERS}}",
+  "representative": "{{REPRESENTATIVE}}",
+
+  "as_of_date": "{{AS_OF_DATE}}",
+  "initial_published": "{{INITIAL_PUBLISHED}}",
+  "last_updated": "{{AS_OF_DATE}}",
+  "referenced_fiscal_period": "{{FISCAL_PERIOD}}",
+
+  "textbook_url": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/",
+  "kessan_navi_url": "{{KESSAN_NAVI_URL}}",
+
+  "editorial_stance": {
+    "author": "anni_memo（@anni_equity）",
+    "position": "第三者株主",
+    "approach": "株主視点の応援と中立分析の両立、弱点・リスクも誠実に記述"
+  },
+
+  "products": [
+    {
+      "name": "{{PRODUCT_NAME}}",
+      "launched_year": 0000,
+      "category": "{{PRODUCT_CATEGORY}}",
+      "customers": 0,
+      "customers_as_of": "{{YYYY-MM}}",
+      "revenue_latest": "{{N百万円}}",
+      "revenue_growth_latest": 0.000,
+      "notes": "{{製品の一行説明}}"
+    }
+  ],
+
+  "revenue_model": {
+    "primary": "{{主要収益源の説明}}",
+    "pricing_tiers": [],
+    "recurring_revenue_latest": "{{N百万円}}",
+    "recurring_revenue_growth_latest": 0.000
+  },
+
+  "key_metrics": {
+    "revenue_latest": "{{N百万円}}",
+    "revenue_growth_latest": 0.000,
+    "operating_profit_latest": "{{N百万円}}",
+    "operating_profit_growth_latest": 0.000,
+    "consecutive_profit_growth_years": 0,
+    "revenue_forecast_next": "{{N百万円}}",
+    "midterm_target": "{{N百万円（20XX年度）}}"
+  },
+
+  "strengths": [
+    {
+      "label": "{{強みラベル}}",
+      "evidence": "{{定量的な裏付け1-2個}}",
+      "page": "/{{CHAPTER_SLUG}}/"
+    }
+  ],
+
+  "risks": [
+    {
+      "label": "{{リスクラベル}}",
+      "evidence": "{{定量的な裏付けまたは発生シナリオ}}",
+      "page": "/risks/"
+    }
+  ],
+
+  "related_entities": {
+    "people": [
+      {"name": "{{人名}}", "role": "{{役職}}", "page": "/culture/"}
+    ],
+    "technologies": [],
+    "competitors": [
+      {"name": "{{競合名}}", "context": "{{どの観点で競合か}}"}
+    ],
+    "partners_communities": [
+      {"name": "{{コミュニティ名}}", "type": "{{性格}}"}
+    ]
+  },
+
+  "pages": {
+    "hub": "/company-textbook/{{SLUG}}/",
+    "problem": "/company-textbook/{{SLUG}}/problem/",
+    "history": "/company-textbook/{{SLUG}}/history/",
+    "products": "/company-textbook/{{SLUG}}/products/",
+    "moat": "/company-textbook/{{SLUG}}/moat/",
+    "culture": "/company-textbook/{{SLUG}}/culture/",
+    "numbers": "/company-textbook/{{SLUG}}/numbers/",
+    "risks": "/company-textbook/{{SLUG}}/risks/",
+    "future": "/company-textbook/{{SLUG}}/future/",
+    "kpi": "/company-textbook/{{SLUG}}/kpi/",
+    "compare": "/company-textbook/{{SLUG}}/compare/",
+    "changelog": "/company-textbook/{{SLUG}}/changelog/",
+    "external_kessan_navi": "{{KESSAN_NAVI_URL}}"
+  },
+
+  "external_references": [
+    {"type": "official", "url": "{{OFFICIAL_URL}}"},
+    {"type": "ir", "url": "{{IR_URL}}"}
+  ],
+
+  "changelog": [
+    {
+      "date": "{{YYYY-MM-DD}}",
+      "change": "初版公開（AI可読資産戦略v2準拠）",
+      "source": "{{決算短信または一次資料名}}"
+    }
+  ]
+}

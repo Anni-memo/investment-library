@@ -1,0 +1,80 @@
+# ==============================================================
+# robots.txt — AI可読資産戦略v2 標準版（Bot別ポリシー）
+# 方針: 検索Bot・引用Bot・学習Bot すべて Allow
+# 根拠: 「AIが参照したくなる一次資産」を提供する側に立つため、
+#       学習データへの取込と引用時のトラフィック還流を両取りする。
+# 最終更新: 2026-04-23
+# ==============================================================
+
+# ----- デフォルト -----
+User-agent: *
+Allow: /
+
+# ----- 検索Bot（従来型Web検索） -----
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# ----- AI引用Bot（AI検索時に引用しトラフィックを返す） -----
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ----- ユーザー起点フェッチ（会話中にユーザーが明示的に取得） -----
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# ----- AI学習Bot（トレーニングデータに取込） -----
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+Sitemap: {{SITEMAP_URL}}
+
+# LLM向けサイト説明
+# {{LLMS_TXT_URL}}

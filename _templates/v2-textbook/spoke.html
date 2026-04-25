@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+  v2-textbook 補助テンプレ（spoke.html）
+  対応配置先: company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/index.html
+  章独自コンポーネント（.layer-triad / .kpi-grid など）は components.html から必要なものを追加。
+-->
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="{{CHAPTER_META_DESCRIPTION}}"/>
+<meta property="og:title" content="第{{CHAPTER_NUM_JP}}章 {{CHAPTER_TITLE_JA}}｜{{COMPANY_NAME_JA}}（{{TICKER}}）｜投資Library"/>
+<meta property="og:description" content="{{CHAPTER_OG_DESCRIPTION}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="第{{CHAPTER_NUM_JP}}章 {{CHAPTER_TITLE_JA}}｜{{COMPANY_NAME_JA}} — 企業の教科書 #{{TEXTBOOK_NUMBER}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/"/>
+<title>第{{CHAPTER_NUM_JP}}章 {{CHAPTER_TITLE_JA}}｜{{COMPANY_NAME_JA}}｜投資Library</title>
+
+<!-- ===== AI可読メタ4点（v2必須） ===== -->
+<meta name="ai-content-policy" content="index:allow, cite:allow, summarize:allow"/>
+<meta name="as-of-date" content="{{AS_OF_DATE}}"/>
+<meta name="referenced-fiscal-period" content="{{FISCAL_PERIOD}}"/>
+<link rel="alternate" type="application/json" href="../{{SLUG}}.json" title="Company Fact JSON"/>
+
+<!-- ===== JSON-LD @graph（Article+isPartOf / Publisher / BreadcrumbList 4階層） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/#article",
+      "headline": "第{{CHAPTER_NUM_JP}}章 {{CHAPTER_TITLE_JA}}",
+      "description": "{{CHAPTER_ARTICLE_DESCRIPTION}}",
+      "datePublished": "{{CHAPTER_PUBLISHED}}",
+      "dateModified": "{{AS_OF_DATE}}",
+      "inLanguage": "ja",
+      "wordCount": {{WORD_COUNT}},
+      "articleSection": "第{{CHAPTER_NUM_JP}}章",
+      "isPartOf": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/#article"},
+      "author": {"@type": "Person", "name": "anni_memo", "url": "https://x.com/anni_equity"},
+      "publisher": {"@id": "https://anni-memo.github.io/investment-library/#publisher"},
+      "url": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/",
+      "mainEntity": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/#{{SLUG}}"},
+      "about": [
+        /* 章固有のabout配列。例:
+        {"@type": "SoftwareApplication", "name": "kintone"},
+        {"@type": "Thing", "name": "三層統合"}
+        */
+      ],
+      "mentions": [
+        /* 章固有のmentions配列。例:
+        {"@type": "SoftwareApplication", "name": "Microsoft Power Platform"},
+        {"@type": "Thing", "name": "Model Context Protocol"}
+        */
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://anni-memo.github.io/investment-library/#publisher",
+      "name": "投資Library",
+      "url": "https://anni-memo.github.io/investment-library/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+        {"@type": "ListItem", "position": 2, "name": "企業の教科書", "item": "https://anni-memo.github.io/investment-library/company-textbook/"},
+        {"@type": "ListItem", "position": 3, "name": "{{COMPANY_NAME_JA}}（{{TICKER}}）", "item": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/"},
+        {"@type": "ListItem", "position": 4, "name": "第{{CHAPTER_NUM_JP}}章 {{CHAPTER_TITLE_JA}}", "item": "https://anni-memo.github.io/investment-library/company-textbook/{{SLUG}}/{{CHAPTER_SLUG}}/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<!-- ===== ここに v2-styles-partial.html の <style>〜</style> を丸ごとコピー ===== -->
+<!-- v2-styles-partial.html INSERT HERE -->
+
+<!-- ===== 章独自コンポーネントCSS（components.html から必要なものを追記） ===== -->
+<!-- 例: .layer-triad / .kpi-grid / .case-grid / .timeline / .compare-table 等 -->
+
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a href="../../">企業の教科書</a>
+  <span class="nav-sep">/</span>
+  <a href="../">{{COMPANY_NAME_JA}} #{{TEXTBOOK_NUMBER}}</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-cur">CH.{{CHAPTER_NUM}} {{CHAPTER_SLUG_UPPER}}</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">{{SLUG_UPPER}} TEXTBOOK</div>
+  <div class="hero-chapter">CHAPTER {{CHAPTER_NUM}}</div>
+  <h1 class="hero-title">
+    {{CHAPTER_TITLE_JA}}
+    <em>{{CHAPTER_TITLE_EN}}</em>
+  </h1>
+  <div class="hero-meta">{{CHAPTER_HOOK}}</div>
+</div>
+
+<div class="container container-narrow">
+
+  <div class="meta-line">{{CHAPTER_PUBLISHED}} INITIAL &middot; AS OF {{FISCAL_PERIOD}} &middot; 約{{WORD_COUNT_DISPLAY}}字</div>
+
+  <!-- ===== エピグラフ（章冒頭1文） ===== -->
+  <div class="epigraph">
+    {{EPIGRAPH}}
+  </div>
+
+  <!-- ===== リード（導入2-4段落） ===== -->
+  <div class="lede">
+    {{LEDE_HTML}}
+    <!-- 例:
+      <p>前章で予告した論点を、この章では内側に踏み込んで分解していきます。</p>
+      <p>...<strong>核心フレーズ</strong>...</p>
+    -->
+  </div>
+
+  <hr class="ornament">
+
+  <!-- ===== 本文セクション（SECTION 1〜N） ===== -->
+  {{SECTIONS_HTML}}
+  <!-- ===== セクションテンプレ =====
+    <div class="sec">
+      <div class="sec-num">SECTION 1</div>
+      <h2 class="sec-title-jp">節タイトル（問い型または断定型）</h2>
+      <div class="sec-body">
+        <p>本文段落。400-900字が目安。</p>
+        <p><strong>核心フレーズ</strong>を太字で強調。</p>
+      </div>
+    </div>
+
+    <hr class="ornament">
+  -->
+
+  <!-- ===== 章末サマリー ===== -->
+  <div class="summary-box">
+    <div class="summary-label">CHAPTER SUMMARY</div>
+    <div class="summary-title">この章の要点</div>
+    <ol class="summary-list">
+      {{SUMMARY_POINTS_HTML}}
+      <!-- 例: <li>要点1</li><li>要点2</li><li>要点3</li> -->
+    </ol>
+    <div class="summary-points">
+      <div class="summary-point">
+        <div class="summary-point-label">FOR INVESTORS</div>
+        <div class="summary-point-text">{{FOR_INVESTORS_TEXT}}</div>
+      </div>
+      <div class="summary-point">
+        <div class="summary-point-label">FOR CUSTOMERS</div>
+        <div class="summary-point-text">{{FOR_CUSTOMERS_TEXT}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 次章ナビゲーション ===== -->
+  <a class="next-card" href="../{{NEXT_SLUG}}/">
+    <div class="next-label">NEXT &middot; CHAPTER {{NEXT_CHAPTER_NUM}}</div>
+    <div class="next-title">→ {{NEXT_TITLE}}</div>
+    <div class="next-sub">{{NEXT_SUB}}</div>
+  </a>
+
+  <!-- ===== 決算ナビCTA ===== -->
+  <div class="kn-cta">
+    <div class="kn-label">EXTERNAL TOOL</div>
+    <div class="kn-title">{{COMPANY_NAME_JA}}（{{TICKER}}）の最新決算を見る</div>
+    <div class="kn-desc">四半期の売上・営業利益・{{CHAPTER_RELEVANT_KPI}}は決算ナビで随時更新中。</div>
+    <a class="kn-btn" href="{{KESSAN_NAVI_URL}}" target="_blank" rel="noopener">決算ナビを開く &#x2197;</a>
+  </div>
+
+</div>
+
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <a class="back-link" href="../">
+      <span class="back-link-tag">HUB</span>
+      <span class="back-link-title">{{COMPANY_NAME_JA}}（{{TICKER}}） — 母艦ページに戻る</span>
+    </a>
+    <a class="back-link" href="../../">
+      <span class="back-link-tag">TEXTBOOK</span>
+      <span class="back-link-title">企業の教科書（シリーズ一覧）</span>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../../../">書斎の入口</a> &middot;
+    <a href="../../../hajimete/">初めての方へ</a> &middot;
+    <a href="../../../principles/">投資原則</a> &middot;
+    <a href="../../../industries/">業種から歩く</a> &middot;
+    <a href="../../../horizons/">思考を広げる</a> &middot;
+    <a href="../../../classics/">教養と人間理解</a> &middot;
+    <a href="../../../people/">人物録</a> &middot;
+    <a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビ &#x2197;</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<script src="../../../shared.js"></script>
+<script src="../../../ai-assistant.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!--
+  v2-textbook 章独自コンポーネント集
+  サイボウズ教科書で実使用された11種のコンポーネント。
+  必要なものだけをspoke.htmlの<style>に追記して使う（全部コピーするのは禁止）。
+  各ブロックは「CSS + HTML」のペアで収録。
+-->
+
+<!-- ========================================================================
+  1. .layer-triad — 三層構造の視覚化（例: kintone章「DB/プロセス/コミュニケーション」）
+  ======================================================================== -->
+<style>
+.layer-triad{background:var(--parch2);border:1px solid var(--parch4);border-left:4px solid var(--gold2);padding:18px 22px;margin:18px 0;}
+.layer-triad-label{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.16em;margin-bottom:10px;}
+.layer-triad ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.layer-triad li{font-size:.82rem;color:var(--ink);line-height:1.7;padding-left:16px;border-left:2px solid var(--gold3);}
+.layer-triad li strong{font-family:var(--jp);font-weight:600;color:var(--ink);background:none;padding:0;}
+</style>
+<div class="layer-triad">
+  <div class="layer-triad-label">THREE-LAYER FOUNDATION</div>
+  <ul>
+    <li><strong>層1名</strong>｜層1の一行説明</li>
+    <li><strong>層2名</strong>｜層2の一行説明</li>
+    <li><strong>層3名</strong>｜層3の一行説明</li>
+  </ul>
+</div>
+
+
+<!-- ========================================================================
+  2. .timeline — 縦線タイムライン（例: history章「創業→停滞→再生」）
+  ======================================================================== -->
+<style>
+.timeline{position:relative;padding:16px 0 16px 32px;margin:24px 0;}
+.timeline::before{content:'';position:absolute;left:8px;top:16px;bottom:16px;width:1px;background:var(--gold2);opacity:.35;}
+.tl-entry{position:relative;margin-bottom:18px;}
+.tl-entry::before{content:'';position:absolute;left:-31px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--gold3);border:2px solid var(--parch);}
+.tl-year{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.14em;margin-bottom:4px;}
+.tl-title{font-family:var(--jp);font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.tl-body{font-size:.76rem;color:var(--ink2);line-height:1.8;}
+</style>
+<div class="timeline">
+  <div class="tl-entry">
+    <div class="tl-year">1997</div>
+    <div class="tl-title">創業</div>
+    <div class="tl-body">エピソードの一行概要。</div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2005</div>
+    <div class="tl-title">停滞期の入口</div>
+    <div class="tl-body">エピソードの一行概要。</div>
+  </div>
+  <div class="tl-entry">
+    <div class="tl-year">2011</div>
+    <div class="tl-title">再生の起点</div>
+    <div class="tl-body">エピソードの一行概要。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  3. .kpi-grid — KPI数値グリッド（例: numbers章「主要指標6つ」）
+  ======================================================================== -->
+<style>
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0;}
+@media(max-width:600px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+.kpi-cell{background:var(--parch2);border:1px solid var(--parch4);padding:14px 14px 12px;border-left:3px solid var(--gold2);}
+.kpi-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.14em;margin-bottom:6px;opacity:.85;}
+.kpi-value{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--ink);line-height:1.2;}
+.kpi-unit{font-size:.64rem;color:var(--ink3);margin-left:4px;font-weight:400;}
+.kpi-delta{font-family:var(--mono);font-size:.56rem;color:var(--gold);margin-top:4px;letter-spacing:.06em;}
+</style>
+<div class="kpi-grid">
+  <div class="kpi-cell">
+    <div class="kpi-label">REVENUE</div>
+    <div class="kpi-value">374<span class="kpi-unit">億円</span></div>
+    <div class="kpi-delta">+26.1% YoY</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">OP PROFIT</div>
+    <div class="kpi-value">101<span class="kpi-unit">億円</span></div>
+    <div class="kpi-delta">+106.4% YoY</div>
+  </div>
+  <div class="kpi-cell">
+    <div class="kpi-label">TURNOVER</div>
+    <div class="kpi-value">5<span class="kpi-unit">%未満</span></div>
+    <div class="kpi-delta">5年連続</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  4. .case-grid — 事例カード4枚（例: problem章「自治体3+大企業1」）
+  ======================================================================== -->
+<style>
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0;}
+@media(max-width:600px){.case-grid{grid-template-columns:1fr;}}
+.case-card{background:var(--parch2);border:1px solid var(--parch4);padding:16px 18px;border-top:3px solid var(--gold2);}
+.case-tag{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.14em;margin-bottom:6px;}
+.case-title{font-family:var(--jp);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.45;}
+.case-body{font-size:.74rem;color:var(--ink2);line-height:1.75;}
+</style>
+<div class="case-grid">
+  <div class="case-card">
+    <div class="case-tag">CASE 01 · LOCAL GOV</div>
+    <div class="case-title">事例タイトル</div>
+    <div class="case-body">事例の要約2-3文。定量的な成果を含める。</div>
+  </div>
+  <div class="case-card">
+    <div class="case-tag">CASE 02 · ENTERPRISE</div>
+    <div class="case-title">事例タイトル</div>
+    <div class="case-body">事例の要約2-3文。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  5. .moat-trio — 三層moat視覚化（例: moat章「パートナー/コミュニティ/MCP」）
+  ======================================================================== -->
+<style>
+.moat-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0;}
+@media(max-width:720px){.moat-trio{grid-template-columns:1fr;}}
+.moat-cell{background:linear-gradient(135deg,var(--parch2) 0%,var(--parch3) 100%);border:1px solid var(--parch4);padding:16px 16px 14px;border-top:3px solid var(--gold2);}
+.moat-layer{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.16em;margin-bottom:6px;}
+.moat-title{font-family:var(--jp);font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.moat-body{font-size:.72rem;color:var(--ink2);line-height:1.8;}
+</style>
+<div class="moat-trio">
+  <div class="moat-cell">
+    <div class="moat-layer">LAYER 1</div>
+    <div class="moat-title">パートナーエコシステム</div>
+    <div class="moat-body">販売・実装の末端で育つ生態系。</div>
+  </div>
+  <div class="moat-cell">
+    <div class="moat-layer">LAYER 2</div>
+    <div class="moat-title">コミュニティ</div>
+    <div class="moat-body">ユーザー側に蓄積する運用知。</div>
+  </div>
+  <div class="moat-cell">
+    <div class="moat-layer">LAYER 3</div>
+    <div class="moat-title">プロトコル接続</div>
+    <div class="moat-body">MCPなど外部からの呼び出し口。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  6. .product-grid — 製品×詰まりマッピング（例: products章「4製品×4詰まり」）
+  ======================================================================== -->
+<style>
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:22px 0;}
+@media(max-width:720px){.product-grid{grid-template-columns:1fr;}}
+.product-card{background:var(--parch2);border:1px solid var(--parch4);padding:18px 18px 16px;border-left:4px solid var(--gold2);}
+.product-year{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.16em;margin-bottom:4px;}
+.product-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.product-role{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.1em;margin-bottom:10px;}
+.product-body{font-size:.76rem;color:var(--ink2);line-height:1.85;}
+</style>
+<div class="product-grid">
+  <div class="product-card">
+    <div class="product-year">1997</div>
+    <div class="product-name">Office</div>
+    <div class="product-role">SHARED INFO LAYER</div>
+    <div class="product-body">スケジュール・掲示板の共有基盤を解いた最初の製品。</div>
+  </div>
+  <div class="product-card">
+    <div class="product-year">2011</div>
+    <div class="product-name">kintone</div>
+    <div class="product-role">FIELD-DRIVEN DX</div>
+    <div class="product-body">三層統合で主語の交代を可能にした現代の中核。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  7. .stat-grid — 統計カード（例: culture章「離職率28→5%等の文化指標」）
+  ======================================================================== -->
+<style>
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:22px 0;}
+@media(max-width:600px){.stat-grid{grid-template-columns:1fr;}}
+.stat-cell{background:linear-gradient(135deg,var(--ink) 0%,#0e1018 100%);color:var(--parch);padding:18px 18px 14px;border:1px solid rgba(212,170,34,.2);}
+.stat-before{font-family:var(--mono);font-size:.52rem;color:var(--parch4);letter-spacing:.14em;margin-bottom:4px;opacity:.7;}
+.stat-after{font-family:var(--serif);font-size:1.3rem;color:var(--gold4);font-weight:700;line-height:1.2;}
+.stat-desc{font-size:.72rem;color:var(--parch3);line-height:1.7;margin-top:8px;}
+</style>
+<div class="stat-grid">
+  <div class="stat-cell">
+    <div class="stat-before">BEFORE 28%（2005年）</div>
+    <div class="stat-after">AFTER 5%未満</div>
+    <div class="stat-desc">離職率を5年連続で維持。人材の積層構造が維持されている。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  8. .risk-pair — 負ける筋/反論の筋（例: risks章）
+  ======================================================================== -->
+<style>
+.risk-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0;}
+@media(max-width:720px){.risk-pair{grid-template-columns:1fr;}}
+.risk-side{background:var(--parch2);border:1px solid var(--parch4);padding:16px 18px;}
+.risk-side.lose{border-left:3px solid #8b3a1a;}
+.risk-side.counter{border-left:3px solid var(--gold2);}
+.risk-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;margin-bottom:6px;}
+.risk-side.lose .risk-label{color:#8b3a1a;}
+.risk-side.counter .risk-label{color:var(--gold);}
+.risk-title{font-family:var(--jp);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.risk-body{font-size:.76rem;color:var(--ink2);line-height:1.8;}
+</style>
+<div class="risk-pair">
+  <div class="risk-side lose">
+    <div class="risk-label">LOSING SCENARIO</div>
+    <div class="risk-title">負ける筋</div>
+    <div class="risk-body">どのシナリオで敗北するかを1-2文で明示。</div>
+  </div>
+  <div class="risk-side counter">
+    <div class="risk-label">COUNTER-ARGUMENT</div>
+    <div class="risk-title">反論の筋</div>
+    <div class="risk-body">それでも勝てる根拠を1-2文で明示。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  9. .pillar-trio — 三層問い（例: future章「伸びる/残るの三層問い」）
+  ======================================================================== -->
+<style>
+.pillar-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0;}
+@media(max-width:720px){.pillar-trio{grid-template-columns:1fr;}}
+.pillar-cell{background:var(--parch2);border:1px solid var(--parch4);padding:18px 18px 16px;border-top:3px solid var(--gold3);}
+.pillar-num{font-family:var(--mono);font-size:.56rem;color:var(--gold);letter-spacing:.16em;margin-bottom:6px;}
+.pillar-question{font-family:var(--serif);font-size:.9rem;font-weight:600;font-style:italic;color:var(--ink);margin-bottom:8px;line-height:1.4;}
+.pillar-body{font-size:.74rem;color:var(--ink2);line-height:1.8;}
+</style>
+<div class="pillar-trio">
+  <div class="pillar-cell">
+    <div class="pillar-num">PILLAR 01</div>
+    <div class="pillar-question">何が残るのか？</div>
+    <div class="pillar-body">短い解説。</div>
+  </div>
+  <div class="pillar-cell">
+    <div class="pillar-num">PILLAR 02</div>
+    <div class="pillar-question">何が変わるのか？</div>
+    <div class="pillar-body">短い解説。</div>
+  </div>
+  <div class="pillar-cell">
+    <div class="pillar-num">PILLAR 03</div>
+    <div class="pillar-question">何が新しく生まれるのか？</div>
+    <div class="pillar-body">短い解説。</div>
+  </div>
+</div>
+
+
+<!-- ========================================================================
+  10. .compare-table — 横断比較表（例: kpi/compare章）
+  ======================================================================== -->
+<style>
+.compare-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:.72rem;}
+.compare-table thead{background:var(--ink);color:var(--parch);}
+.compare-table th{padding:10px 12px;text-align:left;font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;border-right:1px solid rgba(212,170,34,.2);}
+.compare-table th:last-child{border-right:none;}
+.compare-table td{padding:10px 12px;border-bottom:1px solid var(--parch4);vertical-align:top;line-height:1.7;}
+.compare-table tr:nth-child(even){background:var(--parch2);}
+.compare-table td.label{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.08em;}
+.compare-table strong{font-weight:600;color:var(--ink);background:linear-gradient(transparent 60%,rgba(212,170,34,.18) 60%);padding:0 2px;}
+@media(max-width:600px){.compare-table{font-size:.66rem;}.compare-table th,.compare-table td{padding:8px 8px;}}
+</style>
+<table class="compare-table">
+  <thead>
+    <tr>
+      <th>観点</th>
+      <th>kintone</th>
+      <th>Power Platform</th>
+      <th>Airtable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="label">DB層</td>
+      <td>アプリ単位で束ねる</td>
+      <td>Dataverse分離</td>
+      <td>Baseが中心</td>
+    </tr>
+    <tr>
+      <td class="label">導入主語</td>
+      <td><strong>現場（非IT 93%）</strong></td>
+      <td>IT部門主導</td>
+      <td>個人/スモールチーム</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- ========================================================================
+  11. .changelog-entry — 更新履歴エントリ（例: changelog章）
+  ======================================================================== -->
+<style>
+.changelog{margin:22px 0;}
+.changelog-entry{border-left:3px solid var(--gold2);padding:14px 18px 10px 22px;margin-bottom:18px;background:var(--parch2);}
+.cl-date{font-family:var(--mono);font-size:.56rem;color:var(--gold);letter-spacing:.14em;margin-bottom:6px;}
+.cl-version{font-family:var(--mono);font-size:.5rem;color:var(--ink3);margin-left:10px;letter-spacing:.1em;}
+.cl-title{font-family:var(--jp);font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.cl-body{font-size:.76rem;color:var(--ink2);line-height:1.85;}
+.cl-body ul{margin-top:6px;padding-left:18px;}
+.cl-body li{margin-bottom:3px;}
+</style>
+<div class="changelog">
+  <div class="changelog-entry">
+    <div class="cl-date">2026-04-23 <span class="cl-version">v0.2</span></div>
+    <div class="cl-title">母艦＋補助群 12/12 完走</div>
+    <div class="cl-body">
+      <ul>
+        <li>補助ページ #06-12（products/culture/risks/future/kpi/compare/changelog）公開</li>
+        <li>母艦JSON-LD hasPart を12件に拡張</li>
+      </ul>
+    </div>
+  </div>
+  <div class="changelog-entry">
+    <div class="cl-date">2026-04-22 <span class="cl-version">v0.1</span></div>
+    <div class="cl-title">初版公開</div>
+    <div class="cl-body">AI可読資産戦略v2第一号実装。</div>
+  </div>
+</div>
