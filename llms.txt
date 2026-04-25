@@ -104,12 +104,19 @@
 - /learning/claude-code-memory/ — Claude Codeに記憶を設計する — AIを育つ相棒にする5層メモリ構造
 - /learning/claude-code-master/ — Claude Code マスター
 
+### 企業の教科書（Company Textbook・資産ベース永久保存版）
+- /company-textbook/ — 企業の教科書シリーズトップ
+- /company-textbook/cybozu/ — サイボウズ（4776）— 日本発SaaSのmoat構造と永続性（第1号・AI可読資産戦略v2準拠）
+  - 会社ファクトJSON: /company-textbook/cybozu/cybozu.json
+  - 補助ページ群（展開中）: problem / history / products / kintone / moat / culture / numbers / risks / future / kpi / compare / changelog
+
 ### ガイド
 - /hajimete/ — この書斎の歩き方（初めての方へ）
 
 ## APIエンドポイント
 
 - /api/articles.json — 全記事のメタデータ（タイトル・URL・概要・カテゴリ・タグ・追加日）
+- /company-textbook/{slug}/{slug}.json — 各企業教科書の会社ファクトJSON（Schema v1）
 
 ## 利用規約
 

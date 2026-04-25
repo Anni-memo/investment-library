@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="サイボウズが売ってきたのはソフトではなく、日本企業の『詰まり』をほどく手段だった。情報共有・承認フロー・例外処理・現場改善という四つの問題が、データベース・プロセス・コミュニケーションという三層に集約されるまでの構造論。"/>
+<meta property="og:title" content="第1章 サイボウズは、何の問題を解いてきた会社なのか｜サイボウズ（4776）｜投資Library"/>
+<meta property="og:description" content="製品ではなく、解決してきた問題の集合としてサイボウズを読む。四つの詰まりが一本の糸でつながる構造論。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/company-textbook/cybozu/problem/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="第1章 問題設定｜サイボウズ — 企業の教科書 #01"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/company-textbook/cybozu/problem/"/>
+<title>第1章 サイボウズは、何の問題を解いてきた会社なのか｜サイボウズ｜投資Library</title>
+
+<meta name="ai-content-policy" content="index:allow, cite:allow, summarize:allow"/>
+<meta name="as-of-date" content="2026-04-23"/>
+<meta name="referenced-fiscal-period" content="2025年12月期"/>
+<link rel="alternate" type="application/json" href="../cybozu.json" title="Company Fact JSON"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/problem/#article",
+      "headline": "第1章 サイボウズは、何の問題を解いてきた会社なのか",
+      "description": "サイボウズは製品ではなく、日本企業の『詰まり』を解いてきた会社である。情報共有・承認・例外・現場改善という四つの課題が、kintoneのデータベース・プロセス・コミュニケーションの三層に集約される。",
+      "datePublished": "2026-04-23",
+      "dateModified": "2026-04-23",
+      "inLanguage": "ja",
+      "wordCount": 3450,
+      "articleSection": "第1章",
+      "isPartOf": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/#article"},
+      "author": {"@type": "Person", "name": "anni_memo", "url": "https://x.com/anni_equity"},
+      "publisher": {"@id": "https://anni-memo.github.io/investment-library/#publisher"},
+      "url": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/problem/",
+      "mainEntity": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/#cybozu"},
+      "about": [
+        {"@type": "Thing", "name": "情報共有"},
+        {"@type": "Thing", "name": "承認フロー"},
+        {"@type": "Thing", "name": "例外処理"},
+        {"@type": "Thing", "name": "現場改善"},
+        {"@type": "Thing", "name": "三層統合"}
+      ],
+      "mentions": [
+        {"@type": "SoftwareApplication", "name": "Garoon"},
+        {"@type": "SoftwareApplication", "name": "メールワイズ"},
+        {"@type": "SoftwareApplication", "name": "kintone"},
+        {"@type": "Organization", "name": "兵庫県加古川市"},
+        {"@type": "Organization", "name": "山形県酒田市"},
+        {"@type": "Organization", "name": "兵庫県庁"},
+        {"@type": "Organization", "name": "スタッフサービス"}
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://anni-memo.github.io/investment-library/#publisher",
+      "name": "投資Library",
+      "url": "https://anni-memo.github.io/investment-library/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+        {"@type": "ListItem", "position": 2, "name": "企業の教科書", "item": "https://anni-memo.github.io/investment-library/company-textbook/"},
+        {"@type": "ListItem", "position": 3, "name": "サイボウズ（4776）", "item": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/"},
+        {"@type": "ListItem", "position": 4, "name": "第1章 問題設定", "item": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/problem/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav a{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav a:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-cur{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{background:linear-gradient(160deg,var(--ink) 0%,#0e1018 50%,#141826 100%);color:var(--parch);padding:52px 24px 40px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-ornament{font-family:var(--mono);font-size:.66rem;color:var(--gold3);letter-spacing:.36em;margin-bottom:14px;opacity:.75;}
+.hero-chapter{font-family:var(--mono);font-size:.58rem;color:var(--gold4);letter-spacing:.28em;margin-bottom:10px;opacity:.85;}
+.hero-title{font-family:var(--jp);font-size:clamp(1.4rem,4vw,2rem);font-weight:600;line-height:1.4;color:var(--parch);margin-bottom:8px;}
+.hero-title em{font-style:italic;color:var(--gold4);display:block;font-family:var(--serif);font-size:.7em;letter-spacing:.04em;margin-top:10px;font-weight:500;}
+.hero-meta{font-family:var(--mono);font-size:.5rem;color:var(--parch3);letter-spacing:.18em;margin-top:14px;opacity:.7;}
+
+.container{max-width:760px;margin:0 auto;padding:48px 24px 32px;}
+
+.epigraph{border-left:3px solid var(--gold2);padding:14px 20px;margin:0 0 36px;background:var(--parch2);font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.7;}
+
+.lede{font-size:.92rem;color:var(--ink2);line-height:2;margin-bottom:36px;font-weight:400;}
+.lede p + p{margin-top:14px;}
+
+.sec{margin-bottom:42px;}
+.sec-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.22em;margin-bottom:8px;opacity:.7;}
+.sec-title{font-family:var(--jp);font-size:1.18rem;font-weight:600;color:var(--ink);margin-bottom:18px;line-height:1.5;border-bottom:1px solid var(--parch4);padding-bottom:10px;}
+.sec-body{font-size:.84rem;color:var(--ink2);line-height:2.05;font-weight:300;}
+.sec-body p + p{margin-top:14px;}
+.sec-body strong{font-weight:600;color:var(--ink);background:linear-gradient(transparent 60%,rgba(212,170,34,.18) 60%);padding:0 2px;}
+
+.layer-triad{background:var(--parch2);border:1px solid var(--parch4);border-left:4px solid var(--gold2);padding:18px 22px;margin:18px 0;}
+.layer-triad-label{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.16em;margin-bottom:10px;}
+.layer-triad ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.layer-triad li{font-size:.82rem;color:var(--ink);line-height:1.7;padding-left:16px;border-left:2px solid var(--gold3);}
+.layer-triad li strong{font-family:var(--jp);font-weight:600;color:var(--ink);background:none;padding:0;}
+
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 4px;}
+@media(max-width:600px){.case-grid{grid-template-columns:1fr;}}
+.case-card{background:var(--parch2);border:1px solid var(--parch4);border-top:3px solid var(--gold3);padding:14px 16px;}
+.case-tag{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.16em;margin-bottom:6px;text-transform:uppercase;}
+.case-title{font-family:var(--jp);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.5;}
+.case-desc{font-size:.7rem;color:var(--ink3);line-height:1.75;}
+
+hr.ornament{border:none;text-align:center;margin:32px 0;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8'%3E%3Cpath d='M0 4 L24 4 M28 4 L32 4 M36 4 L60 4' stroke='%238b6914' stroke-width='.6' opacity='.5'/%3E%3Ccircle cx='30' cy='4' r='1.4' fill='%23b8900a' opacity='.7'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+
+.summary-box{background:linear-gradient(135deg,var(--ink) 0%,#0e1018 100%);color:var(--parch);padding:28px 26px;margin:48px 0 24px;border:1px solid rgba(212,170,34,.25);}
+.summary-label{font-family:var(--mono);font-size:.5rem;color:var(--gold4);letter-spacing:.22em;margin-bottom:14px;opacity:.85;}
+.summary-title{font-family:var(--serif);font-size:1.05rem;color:var(--parch);font-weight:600;margin-bottom:14px;}
+.summary-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;counter-reset:point;}
+.summary-list li{font-size:.78rem;color:var(--parch3);line-height:1.85;padding-left:22px;position:relative;}
+.summary-list li::before{content:counter(point,decimal-leading-zero);counter-increment:point;font-family:var(--mono);font-size:.62rem;color:var(--gold4);position:absolute;left:0;top:1px;letter-spacing:.05em;}
+.summary-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+@media(max-width:600px){.summary-points{grid-template-columns:1fr;}}
+.summary-point{border-top:1px solid rgba(212,170,34,.25);padding-top:10px;}
+.summary-point-label{font-family:var(--mono);font-size:.46rem;color:var(--gold4);letter-spacing:.14em;margin-bottom:4px;opacity:.85;}
+.summary-point-text{font-size:.74rem;color:var(--parch3);line-height:1.75;}
+
+.next-card{background:var(--parch2);border:1px solid var(--parch4);padding:20px 22px;margin:24px 0 0;display:block;text-decoration:none;transition:border-color .2s;}
+.next-card:hover{border-color:var(--gold2);}
+.prev-card{background:transparent;border:1px solid var(--parch4);padding:14px 18px;margin:14px 0 0;display:block;text-decoration:none;transition:border-color .2s;}
+.prev-card:hover{border-color:var(--gold2);}
+.next-label{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.18em;margin-bottom:8px;}
+.next-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:4px;}
+.next-sub{font-size:.74rem;color:var(--ink3);line-height:1.7;font-style:italic;}
+
+.kn-cta{background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);padding:24px 22px;border:1px solid rgba(74,106,154,.4);text-align:center;margin:36px 0 0;}
+.kn-label{font-family:var(--mono);font-size:.48rem;color:var(--gold4);letter-spacing:.22em;margin-bottom:10px;opacity:.8;}
+.kn-title{font-family:var(--serif);font-size:.96rem;font-weight:600;color:var(--parch);margin-bottom:6px;}
+.kn-desc{font-size:.72rem;color:var(--parch3);line-height:1.7;margin-bottom:14px;}
+.kn-btn{display:inline-block;padding:9px 20px;background:var(--gold);color:var(--ink);font-family:var(--serif);font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em;}
+.kn-btn:hover{background:var(--gold3);}
+
+.back-section{background:var(--ink2);border-top:1px solid rgba(139,105,20,.2);padding:28px 24px;}
+.back-inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.back-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.14em;margin-bottom:6px;opacity:.8;}
+.back-link{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(139,105,20,.18);text-decoration:none;transition:all .18s;}
+.back-link:hover{border-color:var(--gold2);}
+.back-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.1em;width:90px;flex-shrink:0;}
+.back-link-title{font-family:var(--serif);font-size:.88rem;color:var(--parch);}
+
+.footer{background:var(--ink);color:var(--parch4);padding:26px 24px;text-align:center;font-size:.66rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1rem;color:var(--gold3);margin-bottom:6px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.meta-line{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.12em;text-align:center;margin:18px 0 28px;opacity:.7;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a href="../../">企業の教科書</a>
+  <span class="nav-sep">/</span>
+  <a href="../">サイボウズ #01</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-cur">CH.01 PROBLEM</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">CYBOZU TEXTBOOK</div>
+  <div class="hero-chapter">CHAPTER 01</div>
+  <h1 class="hero-title">
+    何の問題を解いてきた会社なのか
+    <em>Four Stuck Points and the Three-Layer Answer</em>
+  </h1>
+  <div class="hero-meta">INFO &middot; APPROVAL &middot; EXCEPTION &middot; FIELD</div>
+</div>
+
+<div class="container">
+
+  <div class="meta-line">2026-04-23 INITIAL &middot; AS OF 2025年12月期 &middot; 約3,450字</div>
+
+  <div class="epigraph">
+    サイボウズが売ってきたのは、ソフトではない。日本企業の&ldquo;詰まり&rdquo;をほどく手段だった。
+  </div>
+
+  <div class="lede">
+    <p>サイボウズという会社を「グループウェアの会社」と説明する資料は多い。間違いではありません。ただ、その説明は会社の輪郭をなぞっているだけで、中身にはまだ届いていません。</p>
+    <p>この章で見たいのは、製品の集合としてのサイボウズではなく、<strong>解決してきた問題の集合としてのサイボウズ</strong>です。</p>
+    <p>情報が共有されない。承認が止まる。例外処理で流れが崩れる。現場が改善できない。日本企業の現場で四半世紀にわたり鳴り続けてきた、地味だが深い警報音に、この会社はひとつずつ応答してきました。製品が先にあったのではない。<strong>詰まりが先にあった</strong>のです。</p>
+    <p>だから本章では、Office・Garoon・メールワイズ・kintoneという固有名詞をいったん脇に置き、「この会社は何を解いてきたのか」を四つの角度から見ていきます。章の終わりに、その四つが一本の糸でつながっていることを確かめる。その糸の名前が、次章以降の主役になります。</p>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 1</div>
+    <h2 class="sec-title">「情報共有できない」という、地味で深い病</h2>
+    <div class="sec-body">
+      <p>日本企業の現場では、情報共有の不全はたいてい大げさな言葉で語られません。部署ごとにExcelが散らばっている。意思決定がメールの末尾に埋もれている。隣の部署が何を抱えているのか、必要になったときにしか見えない。資料は個人のPCに眠り、業務はその人にだけ貼り付き、同じ質問が何度も繰り返される。症状はありふれています。だからこそ、病として認識されにくい。多くの組織で起きているのは、情報不足ではなく、<strong>情報流通の不全</strong>です。</p>
+      <p>この病の厄介なところは、症状が「遅さ」や「ミス」という別の姿で現れることにあります。意思決定が遅い。二重作業が起きる。新人の立ち上がりに時間がかかる。これらはしばしば能力や気合いの問題として処理されますが、実際には、情報がしかるべき場所に、しかるべき形で置かれていないことの結果にすぎません。属人化という言葉で片づけられがちな問題も、根は同じ場所にあります。</p>
+      <p>サイボウズが創業直後からこの領域に踏み込んだ理由は単純です。<strong>ここを解かない限り、他のどの業務改善も効かないからです。</strong> 掲示板、スケジュール、ポータル、ファイル共有。いま聞けば当たり前に見える機能群は、当たり前の情報共有を組織にインストールするために設計されてきました。</p>
+      <p>情報共有は地味です。派手な変革にも見えません。けれど、日本企業ではこの地味な層こそが最も欠けやすい。そして、承認が止まるのも、例外処理で流れが崩れるのも、現場改善が動かないのも、<strong>元をたどればすべて情報が流れていないところから始まっている</strong>。サイボウズはまず、その最下層から手をつけた会社でした。そこを飛ばした改善が、日本企業でことごとく空回りしてきたことを、おそらく誰よりも早く見抜いていたのです。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 2</div>
+    <h2 class="sec-title">承認フローという、日本特有の詰まり</h2>
+    <div class="sec-body">
+      <p>情報が流れるようになっても、次の詰まりが待っています。<strong>承認が、止まる。</strong></p>
+      <p>日本企業の承認は、欧米企業のそれとはそもそも形が違います。単に上位者がハンコを押す線形の流れではなく、回覧・稟議・根回しという層が重なり合った立体的な設計になっている。関係部署にあらかじめ声をかけ、懸念をつぶしてから正式な書類を回す。決裁者の手前でいったん止めて調整を入れる。書類の順番そのものに、組織の力学が埋め込まれている。</p>
+      <p>この構造は、外から見ると単なる非効率に映ります。実際、非効率な側面は確かにあります。しかし同時に、<strong>合意形成の品質を担保するための仕組み</strong>でもあり、少なくとも現場はそう運用してきました。問題は、仕組みの是非ではなく、この複雑な流れをデジタルでどう受け止めるかです。ここを粗く作れば、現場は紙とメールに戻る。実際、多くのワークフロー製品がここで敗退してきました。</p>
+      <p>サイボウズはこの領域に、二十年以上にわたって正面から取り組んできた数少ないベンダーです。Garoonは現在、<strong>7,500社・330万人</strong>に利用されており、阪急阪神ホールディングスでは40数社・約12,000名が共通基盤として運用しています。ITreview Grid Award のグループウェア部門では<strong>5年連続でLeaderを受賞</strong>。数千人から数万人規模の組織で、ポータル・掲示板・スケジュール・ワークフローが当たり前に動き続けているという事実は、機能の話ではありません。<strong>日本企業の承認文化をそのまま載せられる設計思想が、長年の運用を通じて磨かれてきた</strong>という事実です。</p>
+      <p>見落とされがちですが、グローバルSaaSがこの層をなかなか置き換えられない理由もここにあります。回覧順の組み替え、代理承認、差し戻しの戻し先、部門横断の合議──日本の組織が自然に行っている動作を、違和感なくデジタル化できるかどうか。<strong>日本語に訳せば済む話ではなく、組織運用の作法そのものを移植する設計</strong>が要ります。Garoonは派手な製品ではありません。しかし、派手でない領域で長く残ってきたことにこそ、この会社の一つの本質が現れています。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 3</div>
+    <h2 class="sec-title">例外処理が、すべてを止める</h2>
+    <div class="sec-body">
+      <p>情報が流れ、承認が動くようになっても、現場にはまだ詰まりが残ります。<strong>例外処理です。</strong></p>
+      <p>業務の大半は標準フローに乗ります。申請書のひな形があり、決裁のルートがあり、記録の残し方が決まっている。しかし、どの組織にも必ず「標準では処理できない案件」が一定割合で混ざります。特殊な顧客要望、例外的な取引条件、現場でしか判断できない細かな運用ルール。こうした例外は、全体から見れば少数派ですが、<strong>現場の時間を最も奪うのはこの少数派のほう</strong>です。</p>
+      <p>厄介なのは、例外処理が標準フローの外側にあふれた瞬間、業務が紙とExcelとメールに逆戻りする点です。せっかく情報共有を整え、ワークフローを整えても、例外が発生するたびに仕組みの外で処理されるなら、整備した基盤は迂回されていきます。多くの業務システムが「導入したのに現場が使わない」と言われる理由の相当部分が、実はここにあります。<strong>標準化を極めた製品ほど、例外に弱い</strong>という逆説です。</p>
+      <p>サイボウズの解き方は、この逆説を正面から引き受けています。SAPやOracleのような重厚長大な基幹系が業務を製品側の標準に寄せるアプローチを取るのに対し、kintoneは<strong>現場が自分で業務アプリを作れる</strong>という方向に振り切りました。非IT部門での導入比率は<strong>93%</strong>。例外処理は「減らす対象」ではなく「<strong>吸収する対象</strong>」だと前提そのものを置き直しているのです。標準化されない業務を標準化で殴るのではなく、標準化されないまま運用できる土台を用意する。例外が多いから現場が疲弊するのではなく、例外を受け止める場所がないから疲弊する──サイボウズは、この前提をひっくり返した会社でした。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 4</div>
+    <h2 class="sec-title">現場改善という、いちばん動かない領域</h2>
+    <div class="sec-body">
+      <p>情報共有・承認・例外という三つの詰まりは、いずれも最後に同じ壁に突き当たります。<strong>現場改善です。</strong></p>
+      <p>この領域が厄介なのは、課題が見えていても、それを直せる人が組織の中で最も遠いところに配置されている点にあります。業務の詳細を一番知っているのは現場です。一方で、業務を動かすシステムを変えられるのは、たいてい情報システム部門かベンダーです。両者の距離は物理的にも組織的にも遠く、「ちょっと変えたい」が数ヶ月の稟議と見積りの旅になる。<strong>直したい人と直せる人が一致していない</strong>──これが、日本企業の改善がなかなか動かない構造的な理由です。</p>
+      <p>経済産業省が「2025年の崖」で警告した背景にも、DX人材不足という言葉の裏側にも、この構造があります。人材を増やしても、距離そのものが縮まらなければ、現場の改善速度は上がりません。ならば、<strong>距離を前提にしたシステム運用をやめればいい</strong>。これがサイボウズが選んだ答えでした。</p>
+      <p>kintoneの非IT部門導入比率<strong>93%</strong>は、この選択の結果です。情報システム部門を経由せずに、現場の担当者が自分で業務アプリを組み立てる。そのために必要なのは高度なコーディングではなく、業務を知っている人間が自分の手を動かせる入口でした。東証プライム企業の導入率は<strong>46%</strong>に達し、契約社数は<strong>3.9万社</strong>を超えています。大企業の現場でも、自治体の窓口でも、同じ原理で<strong>改善の主語が変わった</strong>──「IT部門が現場に改善を提供する」から「現場が自分で改善する」へ。</p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <div class="case-tag">PUBLIC &middot; CASE 01</div>
+          <div class="case-title">兵庫県加古川市｜特別定額給付金のオンライン化で事務処理を10倍に効率化</div>
+          <div class="case-desc">標準パッケージで拾えない地域固有業務を、現場の職員がアプリ化した典型例。制度対応のスピードが、ベンダー発注サイクルから職員の業務知識に主導権を移した。</div>
+        </div>
+        <div class="case-card">
+          <div class="case-tag">PUBLIC &middot; CASE 02</div>
+          <div class="case-title">山形県酒田市｜定期船予約の電話を1日最大70件削減</div>
+          <div class="case-desc">既存の電話受付という運用そのものを現場が再設計した事例。改善対象は画面ではなく、住民と職員の時間だった。</div>
+        </div>
+        <div class="case-card">
+          <div class="case-tag">PUBLIC &middot; CASE 03</div>
+          <div class="case-title">兵庫県庁｜健康観察システムを2週間でリリース</div>
+          <div class="case-desc">感染症対応のような緊急局面で、調達プロセスを待たずに現場が立ち上げた事例。平時の効率化ではなく、有事の即応力が現場主導の副産物として現れた。</div>
+        </div>
+        <div class="case-card">
+          <div class="case-tag">ENTERPRISE &middot; CASE 04</div>
+          <div class="case-title">スタッフサービス｜バックヤード全社ペーパーレス化＋市民開発ガバナンス確立</div>
+          <div class="case-desc">大企業スケールで現場主導の改善を回すと、必ずガバナンス設計が課題になる。同社は「現場が作る」と「IT部門が守る」を両立させる運用モデルを構築し、市民開発の標準形として参照されている。</div>
+        </div>
+      </div>
+
+      <p>自治体と民間大企業、規模も業種も異なる四つの事例が同じ一点を示しています。<strong>改善を動かすのは機能ではなく、主語の設計である</strong>ということ。kintoneが解いてきたのは、ノーコードという流行ではなく、この主語の問題でした。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 5</div>
+    <h2 class="sec-title">サイボウズが辿り着いた答え — 三つの層</h2>
+    <div class="sec-body">
+      <p>ここまで四つの詰まりを見てきました。情報共有・承認・例外処理・現場改善。別々の症状に見えて、根はひとつに繋がっています。<strong>業務というものが、データだけでも、手続きだけでも、会話だけでも成り立たない</strong>という事実です。</p>
+      <p>日本企業の現場で起きていた詰まりは、この三つのどれかが欠けていたことで発生していました。データはあるのに流れない。手続きはあるのに止まる。会話はあるのに残らない。三つを一体として運用できる土台がなかったから、改善はいつも途中で止まっていたのです。</p>
+      <p>サイボウズがたどり着いた答えは、この三つを別々の製品で解くのではなく、<strong>ひとつの構造として重ね合わせる</strong>ことでした。kintoneの本質はノーコードでも、業務アプリビルダーでもありません。次の三つの層が、同じ基盤の上に同時に存在している点にあります。</p>
+
+      <div class="layer-triad">
+        <div class="layer-triad-label">THREE-LAYER FOUNDATION</div>
+        <ul>
+          <li><strong>データベース層</strong>｜業務データを持つ土台</li>
+          <li><strong>プロセス管理層</strong>｜承認・例外・通知を運ぶ筋肉</li>
+          <li><strong>コミュニケーション層</strong>｜人と人のやり取りを残す神経</li>
+        </ul>
+      </div>
+
+      <p><strong>データベース層</strong>が業務の事実を持ち、<strong>プロセス管理層</strong>がその事実を動かし、<strong>コミュニケーション層</strong>が動かした人間同士のやり取りを記録として残す。これは単なる機能の寄せ集めではなく、<strong>業務が実際に回るときに必要な三つの働きをそのまま写し取った構造</strong>です。</p>
+      <p>この三層は本章で扱った四つの詰まりに過不足なく対応します。情報共有はデータベース層とコミュニケーション層にまたがる問題であり、承認フローと例外処理はプロセス管理層の設計問題、現場改善は三層すべてを現場が自分で組み替えられるかという問題でした。Garoonが情報共有の土台を、メールワイズが顧客接点のコミュニケーションを、kintoneが三層を統合して現場に渡す──製品が違って見えても、<strong>同じ世界観の展開形</strong>として並んでいるのはこのためです。</p>
+      <p>三層の中身がなぜこの形で機能するのか、なぜこの構造が日本企業に対して強く働くのかは、第4章で本論として扱います。この章ではまず、<strong>サイボウズの答えはこの三層に集約される</strong>という事実を置いておくだけで十分です。</p>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-label">CHAPTER SUMMARY</div>
+    <div class="summary-title">この章の要点</div>
+    <ol class="summary-list">
+      <li>サイボウズは製品ではなく、日本企業の&ldquo;詰まり&rdquo;を解いてきた会社である</li>
+      <li>情報共有・承認・例外・現場改善という四つの課題が一本の糸で繋がっている</li>
+      <li>kintoneの「データベース＋プロセス＋コミュニケーション」はその糸の答えである</li>
+    </ol>
+    <div class="summary-points">
+      <div class="summary-point">
+        <div class="summary-point-label">FOR INVESTORS</div>
+        <div class="summary-point-text">解いている問題の普遍性が、収益の普遍性を規定する。</div>
+      </div>
+      <div class="summary-point">
+        <div class="summary-point-label">FOR CUSTOMERS</div>
+        <div class="summary-point-text">導入しているのは道具ではなく、詰まりをほどく運用思想である。</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="next-card" href="../kintone/">
+    <div class="next-label">DEEP DIVE &middot; CHAPTER 04</div>
+    <div class="next-title">→ kintoneの正体 — なぜ「現場主導DX」が回るのか</div>
+    <div class="next-sub">三層の答えを、その内側から物理設計として読み解く。</div>
+  </a>
+
+  <a class="prev-card" href="../">
+    <div class="next-label">HUB</div>
+    <div class="next-title">← 母艦ページ（サイボウズ #01 全体目次）に戻る</div>
+  </a>
+
+  <div class="kn-cta">
+    <div class="kn-label">EXTERNAL TOOL</div>
+    <div class="kn-title">サイボウズ（4776）の最新決算を見る</div>
+    <div class="kn-desc">Garoon・kintoneそれぞれの導入数・売上推移は決算ナビで継続更新中。</div>
+    <a class="kn-btn" href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビを開く &#x2197;</a>
+  </div>
+
+</div>
+
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <a class="back-link" href="../">
+      <span class="back-link-tag">HUB</span>
+      <span class="back-link-title">サイボウズ（4776）— 母艦ページに戻る</span>
+    </a>
+    <a class="back-link" href="../../">
+      <span class="back-link-tag">TEXTBOOK</span>
+      <span class="back-link-title">企業の教科書（シリーズ一覧）</span>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../../../">書斎の入口</a> &middot;
+    <a href="../../../hajimete/">初めての方へ</a> &middot;
+    <a href="../../../principles/">投資原則</a> &middot;
+    <a href="../../../industries/">業種から歩く</a> &middot;
+    <a href="../../../horizons/">思考を広げる</a> &middot;
+    <a href="../../../classics/">教養と人間理解</a> &middot;
+    <a href="../../../people/">人物録</a> &middot;
+    <a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビ &#x2197;</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<script src="../../../shared.js"></script>
+<script src="../../../ai-assistant.js"></script>
+</body>
+</html>

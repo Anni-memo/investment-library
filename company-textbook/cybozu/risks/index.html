@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="サイボウズの構造リスクを海外事業の68億円累積赤字・Microsoft Copilot Studio×Power Platform直接競合・Lovable/v0/Bolt生成AIアプリビルダー・業務基盤カテゴリ自体の生成AI時代存続という4論点で整理する。各論点には負けうる筋と反論の筋が並存する。"/>
+<meta property="og:title" content="第8章 リスクと弱み — 海外、AI、Microsoft、その先｜サイボウズ（4776）｜投資Library"/>
+<meta property="og:description" content="強い会社ほど、どこで負けうるかを書かなければならない。4つの論点を負けうる筋と反論の筋で並列する。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/company-textbook/cybozu/risks/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="第8章 リスクと弱み｜サイボウズ — 企業の教科書 #01"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/company-textbook/cybozu/risks/"/>
+<title>第8章 リスクと弱み — 海外、AI、Microsoft、その先｜サイボウズ｜投資Library</title>
+
+<meta name="ai-content-policy" content="index:allow, cite:allow, summarize:allow"/>
+<meta name="as-of-date" content="2026-04-23"/>
+<meta name="referenced-fiscal-period" content="2025年12月期"/>
+<link rel="alternate" type="application/json" href="../cybozu.json" title="Company Fact JSON"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/risks/#article",
+      "headline": "第8章 リスクと弱み — 海外、AI、Microsoft、その先",
+      "description": "サイボウズの構造リスクを4論点に整理。海外68億円累積赤字・Microsoft Copilot Studio×Power Platform・生成AIアプリビルダー・業務基盤カテゴリ存続。それぞれ負けうる筋と反論の筋を並列する。",
+      "datePublished": "2026-04-23",
+      "dateModified": "2026-04-23",
+      "inLanguage": "ja",
+      "wordCount": 4500,
+      "articleSection": "第8章",
+      "isPartOf": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/#article"},
+      "author": {"@type": "Person", "name": "anni_memo", "url": "https://x.com/anni_equity"},
+      "publisher": {"@id": "https://anni-memo.github.io/investment-library/#publisher"},
+      "url": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/risks/",
+      "mainEntity": {"@id": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/#cybozu"},
+      "about": [
+        {"@type": "Thing", "name": "投資リスク"},
+        {"@type": "Thing", "name": "競合分析"},
+        {"@type": "Thing", "name": "デジタル赤字"},
+        {"@type": "Thing", "name": "生成AI"}
+      ],
+      "mentions": [
+        {"@type": "Organization", "name": "Microsoft"},
+        {"@type": "SoftwareApplication", "name": "Power Platform"},
+        {"@type": "SoftwareApplication", "name": "Copilot Studio"},
+        {"@type": "SoftwareApplication", "name": "Lovable"},
+        {"@type": "SoftwareApplication", "name": "v0"},
+        {"@type": "SoftwareApplication", "name": "Bolt"}
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://anni-memo.github.io/investment-library/#publisher",
+      "name": "投資Library",
+      "url": "https://anni-memo.github.io/investment-library/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+        {"@type": "ListItem", "position": 2, "name": "企業の教科書", "item": "https://anni-memo.github.io/investment-library/company-textbook/"},
+        {"@type": "ListItem", "position": 3, "name": "サイボウズ（4776）", "item": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/"},
+        {"@type": "ListItem", "position": 4, "name": "第8章 リスクと弱み", "item": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/risks/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --red:#8b2a1a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav a{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav a:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-cur{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{background:linear-gradient(160deg,var(--ink) 0%,#0e1018 50%,#141826 100%);color:var(--parch);padding:52px 24px 40px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-ornament{font-family:var(--mono);font-size:.66rem;color:var(--gold3);letter-spacing:.36em;margin-bottom:14px;opacity:.75;}
+.hero-chapter{font-family:var(--mono);font-size:.58rem;color:var(--gold4);letter-spacing:.28em;margin-bottom:10px;opacity:.85;}
+.hero-title{font-family:var(--jp);font-size:clamp(1.4rem,4vw,2rem);font-weight:600;line-height:1.4;color:var(--parch);margin-bottom:8px;}
+.hero-title em{font-style:italic;color:var(--gold4);display:block;font-family:var(--serif);font-size:.7em;letter-spacing:.04em;margin-top:10px;font-weight:500;}
+.hero-meta{font-family:var(--mono);font-size:.5rem;color:var(--parch3);letter-spacing:.18em;margin-top:14px;opacity:.7;}
+
+.container{max-width:760px;margin:0 auto;padding:48px 24px 32px;}
+
+.epigraph{border-left:3px solid var(--gold2);padding:14px 20px;margin:0 0 36px;background:var(--parch2);font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink2);line-height:1.7;}
+
+.lede{font-size:.92rem;color:var(--ink2);line-height:2;margin-bottom:36px;font-weight:400;}
+.lede p + p{margin-top:14px;}
+
+.sec{margin-bottom:42px;}
+.sec-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.22em;margin-bottom:8px;opacity:.7;}
+.sec-title{font-family:var(--jp);font-size:1.18rem;font-weight:600;color:var(--ink);margin-bottom:18px;line-height:1.5;border-bottom:1px solid var(--parch4);padding-bottom:10px;}
+.sec-body{font-size:.84rem;color:var(--ink2);line-height:2.05;font-weight:300;}
+.sec-body p + p{margin-top:14px;}
+.sec-body strong{font-weight:600;color:var(--ink);background:linear-gradient(transparent 60%,rgba(212,170,34,.18) 60%);padding:0 2px;}
+
+.risk-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0;}
+@media(max-width:680px){.risk-pair{grid-template-columns:1fr;}}
+.risk-side{padding:14px 16px;border:1px solid var(--parch4);background:var(--parch2);}
+.risk-side.neg{border-left:3px solid var(--red);}
+.risk-side.pos{border-left:3px solid var(--gold2);}
+.risk-side-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.14em;margin-bottom:6px;text-transform:uppercase;}
+.risk-side.neg .risk-side-label{color:var(--red);}
+.risk-side-text{font-size:.76rem;color:var(--ink2);line-height:1.8;}
+
+hr.ornament{border:none;text-align:center;margin:32px 0;height:8px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8'%3E%3Cpath d='M0 4 L24 4 M28 4 L32 4 M36 4 L60 4' stroke='%238b6914' stroke-width='.6' opacity='.5'/%3E%3Ccircle cx='30' cy='4' r='1.4' fill='%23b8900a' opacity='.7'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+
+.summary-box{background:linear-gradient(135deg,var(--ink) 0%,#0e1018 100%);color:var(--parch);padding:28px 26px;margin:48px 0 24px;border:1px solid rgba(212,170,34,.25);}
+.summary-label{font-family:var(--mono);font-size:.5rem;color:var(--gold4);letter-spacing:.22em;margin-bottom:14px;opacity:.85;}
+.summary-title{font-family:var(--serif);font-size:1.05rem;color:var(--parch);font-weight:600;margin-bottom:14px;}
+.summary-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:18px;counter-reset:point;}
+.summary-list li{font-size:.78rem;color:var(--parch3);line-height:1.85;padding-left:22px;position:relative;}
+.summary-list li::before{content:counter(point,decimal-leading-zero);counter-increment:point;font-family:var(--mono);font-size:.62rem;color:var(--gold4);position:absolute;left:0;top:1px;letter-spacing:.05em;}
+.summary-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+@media(max-width:600px){.summary-points{grid-template-columns:1fr;}}
+.summary-point{border-top:1px solid rgba(212,170,34,.25);padding-top:10px;}
+.summary-point-label{font-family:var(--mono);font-size:.46rem;color:var(--gold4);letter-spacing:.14em;margin-bottom:4px;opacity:.85;}
+.summary-point-text{font-size:.74rem;color:var(--parch3);line-height:1.75;}
+
+.next-card{background:var(--parch2);border:1px solid var(--parch4);padding:20px 22px;margin:24px 0 0;display:block;text-decoration:none;transition:border-color .2s;}
+.next-card:hover{border-color:var(--gold2);}
+.prev-card{background:transparent;border:1px solid var(--parch4);padding:14px 18px;margin:14px 0 0;display:block;text-decoration:none;transition:border-color .2s;}
+.prev-card:hover{border-color:var(--gold2);}
+.next-label{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.18em;margin-bottom:8px;}
+.next-title{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:4px;}
+.next-sub{font-size:.74rem;color:var(--ink3);line-height:1.7;font-style:italic;}
+
+.kn-cta{background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);padding:24px 22px;border:1px solid rgba(74,106,154,.4);text-align:center;margin:36px 0 0;}
+.kn-label{font-family:var(--mono);font-size:.48rem;color:var(--gold4);letter-spacing:.22em;margin-bottom:10px;opacity:.8;}
+.kn-title{font-family:var(--serif);font-size:.96rem;font-weight:600;color:var(--parch);margin-bottom:6px;}
+.kn-desc{font-size:.72rem;color:var(--parch3);line-height:1.7;margin-bottom:14px;}
+.kn-btn{display:inline-block;padding:9px 20px;background:var(--gold);color:var(--ink);font-family:var(--serif);font-size:.82rem;font-weight:600;text-decoration:none;letter-spacing:.04em;}
+.kn-btn:hover{background:var(--gold3);}
+
+.back-section{background:var(--ink2);border-top:1px solid rgba(139,105,20,.2);padding:28px 24px;}
+.back-inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.back-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.14em;margin-bottom:6px;opacity:.8;}
+.back-link{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(139,105,20,.18);text-decoration:none;transition:all .18s;}
+.back-link:hover{border-color:var(--gold2);}
+.back-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.1em;width:90px;flex-shrink:0;}
+.back-link-title{font-family:var(--serif);font-size:.88rem;color:var(--parch);}
+
+.footer{background:var(--ink);color:var(--parch4);padding:26px 24px;text-align:center;font-size:.66rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1rem;color:var(--gold3);margin-bottom:6px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+.meta-line{font-family:var(--mono);font-size:.52rem;color:var(--ink3);letter-spacing:.12em;text-align:center;margin:18px 0 28px;opacity:.7;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a href="../../">企業の教科書</a>
+  <span class="nav-sep">/</span>
+  <a href="../">サイボウズ #01</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-cur">CH.08 RISKS</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">CYBOZU TEXTBOOK</div>
+  <div class="hero-chapter">CHAPTER 08</div>
+  <h1 class="hero-title">
+    リスクと弱み — 海外、AI、Microsoft、その先
+    <em>Where Cybozu Could Lose</em>
+  </h1>
+  <div class="hero-meta">海外68億円 &middot; Microsoft &middot; Lovable &middot; デジタル赤字</div>
+</div>
+
+<div class="container">
+
+  <div class="meta-line">2026-04-23 INITIAL &middot; AS OF 2025年12月期 &middot; 約4,500字</div>
+
+  <div class="epigraph">
+    強い会社ほど、どこで負けうるかを書かなければならない。
+  </div>
+
+  <div class="lede">
+    <p>第7章までに扱ってきたサイボウズの構造は、どの角度から見ても強度を持っていました。四つの詰まりに応答した製品ラインナップ、三層統合によるkintoneの物理設計、外側のmoat、運用資産としての文化、二倍の営業利益。ここまで読み進めた読者は、いまサイボウズに対するポジティブな解像度が最も高くなっているはずです。</p>
+    <p>本章の役割は、その解像度を落とすことではなく、<strong>同じ解像度で弱みと未解決論点を見られる状態にすること</strong>です。強い会社ほど、負けうる場所を自分の言葉で書かなければなりません。書かれていない弱みは、存在しないのではなく、単に見えていないだけです。本章では、サイボウズが現時点で抱えているリスクを四つの角度から取り出し、それぞれについて「負けうる筋」と「反論の筋」を並べて置きます。</p>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 1</div>
+    <h2 class="sec-title">負ける可能性をどう書くか — 強い会社ほど弱みを直視する</h2>
+    <div class="sec-body">
+      <p>賛美一辺倒の記述は、読者の判断力を下げます。サイボウズの話をするときに、いい話だけを並べれば、どんな強い構造でも意思決定の材料としては弱くなる。なぜなら、<strong>読者は自分で「どこが危ういか」を探せなくなる</strong>からです。強みだけの記述は、裏返すと脆弱です。</p>
+      <p>本書の姿勢は、この章で特にはっきり切り替わります。サイボウズの各章で築いてきた枠組み—問題設定、三層統合、外側のmoat、文化の運用資産化—を<strong>そのまま使って、どこで負けうるかを同じ解像度で検証する</strong>。枠組みが本物なら、強い側にも弱い側にも等しく切れ味を見せるはずです。</p>
+      <p>以下の四つが、現時点で特定できる主要な論点です。<strong>海外事業の難しさ</strong>、<strong>Microsoftの直接競合</strong>、<strong>生成AIアプリビルダー系の別軸脅威</strong>、そして<strong>業務基盤そのものが生成AI時代にどう残るかという構造問題</strong>。それぞれに負けうる筋があり、同時にサイボウズが置いてきた反論の筋があります。両方を並べて置くのが本章の作法です。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 2</div>
+    <h2 class="sec-title">海外事業の難しさ — 68億円累積赤字の二面性</h2>
+    <div class="sec-body">
+      <p>第7章で置いた数字を改めて取り出します。海外売上は<strong>約7億円</strong>にとどまり、直近5年の累積赤字は<strong>約68億円</strong>に達しています。中華圏約1,400社、東南アジア約1,290社、米国約880社。単年で見れば、海外は業績の重しです。</p>
+      <div class="risk-pair">
+        <div class="risk-side neg"><div class="risk-side-label">負けうる筋</div><div class="risk-side-text">日本企業の海外SaaS展開が長期で成功した例は多くない。日系企業向けから現地ローカルへの戦略シフトが本格化していること自体が、当初想定のルートで成長できなかったことを示している。シフトが回らなければ、累積赤字は増え続ける。</div></div>
+        <div class="risk-side pos"><div class="risk-side-label">反論の筋</div><div class="risk-side-text">サイボウズはこの赤字を決算資料・投資家向け説明で明示的に公開しており、長期投資フェーズであることを繰り返し示している。第6章で見たように、失敗を織り込んで路線修正できる組織設計になっていることの表れでもある。</div></div>
+      </div>
+      <p>投資家としての判断は、海外累積赤字の絶対額ではなく、<strong>シフト後の現地顧客獲得の速度</strong>で決まります。中華圏の微増、東南アジアの+9%、米国の+2%という現在の水準が加速するか停滞するかを、数年単位で観測し続ける必要があります。この章では答えを確定しません。<strong>未解決論点であることを正面から認める</strong>のが本章の作法です。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 3</div>
+    <h2 class="sec-title">Microsoft Copilot Studio × Power Platform の直接競合</h2>
+    <div class="sec-body">
+      <p>サイボウズが日本の業務基盤として築いてきた位置に、正面から競合し得る唯一の存在が<strong>Microsoft</strong>です。Power Platform（Power Apps、Power Automate、Power BI）はkintoneと同じくローコード・市民開発基盤を提供しており、そこに<strong>Microsoft 365 Copilot</strong>とエージェント作成ツールの<strong>Copilot Studio</strong>が連結しています。両者ともMCP対応を進めており、Microsoft Dataverseはエンタープライズ向けのデータ基盤として整えられています。</p>
+      <div class="risk-pair">
+        <div class="risk-side neg"><div class="risk-side-label">負けうる筋</div><div class="risk-side-text">グローバルの資本と開発力、そしてM365とのシームレスな統合。大企業の情シス部門にとって「既存のMicrosoft契約の延長線上で市民開発とAIエージェントを一本化できる」という選択肢は極めて強い。kintoneがこの層に入り込んでも、更新タイミングでMicrosoftに寄せる判断が起きうる。</div></div>
+        <div class="risk-side pos"><div class="risk-side-label">反論の筋</div><div class="risk-side-text">日本語×業務アプリCRUD×市民開発思想×OSSの4軸を同時に満たしているのはkintoneだけ。日本の階層型権限設計、承認文化、自治体の制度対応で、Microsoftが全方位最適化するコスト構造は重い。外側のmoat（パートナー・コミュニティ）も並走に時間を要する領域。</div></div>
+      </div>
+      <p>サイボウズの市民開発思想は<strong>「AIに任せる」ではなく「AIと人間のハイブリッド」</strong>に明確に寄せています。検索AIがkintoneのアクセス権を継承する設計、プロセス管理設定AIがワークフロー自動設計を担う設計は、日本企業のガバナンス要件と適合しており、外資AIエージェントの汎用設計では代替しにくい深さを持ちます。</p>
+      <p>それでも、Microsoftとの競合は本章で最も重い論点です。Power Platform×Copilot Studioの進化速度を年次で観測することは、kintoneの長期成長ストーリーの最大のリスクファクターです。<strong>反論の筋があることと、リスクが消えることは同じではありません</strong>。この区別を残したうえで、次の論点に進みます。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 4</div>
+    <h2 class="sec-title">Lovable・v0・Bolt — 生成AIアプリビルダーの別軸脅威</h2>
+    <div class="sec-body">
+      <p>Microsoftとは別方向の脅威として、<strong>Lovable、v0、Bolt</strong>といった生成AIアプリビルダーの登場があります。これらのサービスは、自然言語の指示からWebアプリをまるごと生成する発想で設計されており、従来のノーコード・ローコードの延長ではなく、<strong>アプリ生成のパラダイムそのものを置き換えようとしている</strong>領域です。</p>
+      <div class="risk-pair">
+        <div class="risk-side neg"><div class="risk-side-label">負けうる筋</div><div class="risk-side-text">「現場が作る」ための敷居がkintoneよりさらに下がる可能性。生成AIが一文の指示から業務アプリを吐き出せるなら、非IT部門の人間が設計画面を触る必要すらなくなる。現場主導DXの解像度が一段上がれば、kintoneが「すでに解けた問題の前の世代」になる論理的な余地はある。</div></div>
+        <div class="risk-side pos"><div class="risk-side-label">反論の筋</div><div class="risk-side-text">Lovable/v0/Boltが生成するのはアプリの画面とロジック。業務の事実を保持する記録基盤は別に必要。kintoneをSystem of Recordに置いた意味は、アプリ生成の入口が変わっても、データの正解源を握る側は残るという構造主張。アプリ量産が進むほど、記録基盤の需要は増す。</div></div>
+      </div>
+      <p>加えて、サイボウズのAI哲学は<strong>「AIに全部任せて完成品を受け取る」ではなく「AIと一緒に作って結果の責任は人間が持つ」</strong>に寄せています。これは技術的選択というより哲学的選択で、Lovable系の「ゼロから完成品を吐く」設計とは土俵を分けています。どちらが正しいかは未確定ですが、<strong>日本の大企業・自治体のガバナンス要件と整合しているのは明らかに後者</strong>です。この論点は、生成AIアプリビルダーが市場を席巻するかどうかではなく、<strong>ガバナンスが緩い市場と厳しい市場で異なる勝者が立つ</strong>という仮説として読むのが正確です。</p>
+    </div>
+  </div>
+
+  <hr class="ornament">
+
+  <div class="sec">
+    <div class="sec-num">SECTION 5</div>
+    <h2 class="sec-title">生成AI時代に業務基盤はどう残るか — &ldquo;デジタル赤字&rdquo;という文脈</h2>
+    <div class="sec-body">
+      <p>最後の論点は、個別の競合ではなく、<strong>業務基盤というカテゴリそのものが生成AI時代に残るのか</strong>という構造問題です。</p>
+      <p>青野社長は近年の公開対談で、GAFAへの資金流出を<strong>「デジタル赤字」</strong>と呼び、日本が競争優位を持つ領域として「検索エンジンやOSではなく、自治体向け業務基盤やAI化」を挙げています。この指摘は、サイボウズ一社の事業機会の話を超えて、<strong>日本がグローバルAIプラットフォーマーに対してどの層で残れるか</strong>という問いに踏み込んでいます。</p>
+      <div class="risk-pair">
+        <div class="risk-side neg"><div class="risk-side-label">負けうる筋</div><div class="risk-side-text">AIプラットフォーマーが記録基盤まで呑み込むシナリオ。OpenAIやAnthropicの業務エージェントがSaaSを飛び越えて業務そのものを肩代わりしはじめれば、kintoneのような中間レイヤーは必要性を失う。楽観側でも、業務基盤カテゴリの価値の置かれ場所が10年後にいまと同じとは限らない。</div></div>
+        <div class="risk-side pos"><div class="risk-side-label">反論の筋</div><div class="risk-side-text">日本語で、日本の階層型ガバナンスに適合し、自治体や大企業の制度対応が積み上がった業務基盤は、グローバルAIプラットフォーマーが優先投資する対象にはなりにくい。この非対称性は第5章のmoat論点と同じ。AIが強くなるほど、AIが叩く側のローカル基盤の価値が別の意味で残る。</div></div>
+      </div>
+      <p>もちろん、この反論の筋が実際に効くかどうかは、これから十年の観測対象です。サイボウズがkintoneをSystem of Recordとして置き直し、MCP対応で接続口を整え、AIラボで哲学的選択を明示してきたのは、<strong>この不確実性を直視したうえで打った手</strong>の集合だと読めます。それでも、業務基盤カテゴリの存続そのものが最終的に確定しているわけではありません。投資家として、顧客として、サイボウズの長期性を評価するとき、この構造論点から目を逸らすことはできません。</p>
+      <p>第9章では、これらの弱みと未解決論点を踏まえたうえで、<strong>サイボウズが日本DXの基盤企業として残れるか</strong>という未来論を扱います。伸びる会社かどうかではなく、<strong>残る会社かどうか</strong>という問いです。</p>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-label">CHAPTER SUMMARY</div>
+    <div class="summary-title">この章の要点</div>
+    <ol class="summary-list">
+      <li>サイボウズの最大の構造リスクは海外事業（68億円累積赤字）、Microsoft Copilot Studio × Power Platformの直接競合、Lovable/v0/Bolt系の生成AIアプリビルダー、そして業務基盤カテゴリ自体の生成AI時代における存続という4論点に整理できる</li>
+      <li>各論点には「負けうる筋」と「反論の筋」が並存しており、反論の筋があることとリスクが消えることは同じではない</li>
+      <li>デジタル赤字という文脈は、日本の業務基盤がグローバルAIプラットフォーマーに対してどの層で残れるかという構造問題であり、サイボウズ一社の戦略の話を超えている</li>
+    </ol>
+    <div class="summary-points">
+      <div class="summary-point">
+        <div class="summary-point-label">FOR INVESTORS</div>
+        <div class="summary-point-text">リスクファクターは単年の業績ではなく、Power Platformのシェア推移・海外現地顧客の獲得速度・生成AIアプリビルダーのエンタープライズ浸透・MCPエコシステムの競合対応という、構造指標を年次で追う必要がある。</div>
+      </div>
+      <div class="summary-point">
+        <div class="summary-point-label">FOR CUSTOMERS</div>
+        <div class="summary-point-text">業務基盤の選定は、導入時点の機能比較ではなく、十年後にそのベンダーと基盤が残っているかの予測を含む判断である。本章で挙げた4論点は、導入後の基盤存続リスクの評価軸としてそのまま使える。</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="prev-card" href="../numbers/">
+    <div class="next-label">PREV &middot; CHAPTER 07</div>
+    <div class="next-title">← 数字で読む現在地 — 2025年12月期の構造の写し絵</div>
+  </a>
+
+  <a class="next-card" href="../future/">
+    <div class="next-label">NEXT &middot; CHAPTER 09</div>
+    <div class="next-title">→ 未来 — サイボウズは日本DXの基盤企業になれるか</div>
+    <div class="next-sub">サイボウズは伸びる会社か。ではなく、日本の業務基盤として残る会社か。</div>
+  </a>
+
+  <div class="kn-cta">
+    <div class="kn-label">EXTERNAL TOOL</div>
+    <div class="kn-title">サイボウズ（4776）の最新決算を見る</div>
+    <div class="kn-desc">海外セグメント別売上・競合動向は決算ナビで随時更新中。</div>
+    <a class="kn-btn" href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビを開く &#x2197;</a>
+  </div>
+
+</div>
+
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <a class="back-link" href="../">
+      <span class="back-link-tag">HUB</span>
+      <span class="back-link-title">サイボウズ（4776）— 母艦ページに戻る</span>
+    </a>
+    <a class="back-link" href="../../">
+      <span class="back-link-tag">TEXTBOOK</span>
+      <span class="back-link-title">企業の教科書（シリーズ一覧）</span>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../../../">書斎の入口</a> &middot;
+    <a href="../../../hajimete/">初めての方へ</a> &middot;
+    <a href="../../../principles/">投資原則</a> &middot;
+    <a href="../../../industries/">業種から歩く</a> &middot;
+    <a href="../../../horizons/">思考を広げる</a> &middot;
+    <a href="../../../classics/">教養と人間理解</a> &middot;
+    <a href="../../../people/">人物録</a> &middot;
+    <a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビ &#x2197;</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<script src="../../../shared.js"></script>
+<script src="../../../ai-assistant.js"></script>
+</body>
+</html>
