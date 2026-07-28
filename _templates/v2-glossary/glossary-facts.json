@@ -1,0 +1,85 @@
+{
+  "$schema": "./glossary-facts.schema.json",
+  "meta": {
+    "slug": "{{TERM_SLUG}}",
+    "term_code": "{{TERM_CODE}}",
+    "genre": "{{GENRE_SLUG}}",
+    "as_of_date": "{{AS_OF_DATE}}",
+    "initial_published": "{{INITIAL_PUBLISHED}}",
+    "last_updated": "{{AS_OF_DATE}}",
+    "author": "{{AUTHOR_NAME}}",
+    "author_url": "{{AUTHOR_URL}}",
+    "language": "ja",
+    "site_name": "{{SITE_NAME}}",
+    "canonical_url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/{{TERM_SLUG}}/"
+  },
+  "term": {
+    "name_ja": "{{TERM_NAME_JA}}",
+    "name_en": "{{TERM_NAME_EN}}",
+    "short": "{{TERM_SHORT}}",
+    "subtitle": "{{TERM_SUBTITLE}}",
+    "alternate_names": [
+      "{{ALT_NAME_1}}",
+      "{{ALT_NAME_2}}"
+    ],
+    "definition_oneline": "{{TERM_DEFINITION_ONELINE}}",
+    "definition_full": "{{TERM_DEFINITION_FULL}}"
+  },
+  "formula": {
+    "display": "{{FORMULA_DISPLAY}}",
+    "latex": "{{FORMULA_LATEX}}",
+    "note": "{{FORMULA_NOTE}}",
+    "variables": [
+      {"symbol": "P", "name_ja": "株価", "name_en": "Share Price", "unit": "円"},
+      {"symbol": "E", "name_ja": "1株当たり純利益", "name_en": "EPS", "unit": "円"}
+    ]
+  },
+  "meta_numeric": {
+    "unit": "{{UNIT}}",
+    "typical_range": {
+      "low": 0,
+      "high": 0,
+      "display": "{{TYPICAL_RANGE}}"
+    },
+    "direction": "higher_or_lower",
+    "data_source": "{{DATA_SOURCE}}",
+    "update_frequency": "{{UPDATE_FREQUENCY}}"
+  },
+  "reading_guide": [
+    {"axis": "水準", "description": "過去10年の中央値と比べて現在位置を測る"},
+    {"axis": "業種", "description": "同業種の中央値と比べて割高・割安を判断"},
+    {"axis": "時期", "description": "決算発表前後の急変は会計要因を疑う"}
+  ],
+  "related_metrics": [
+    {
+      "slug": "eps",
+      "name_ja": "EPS",
+      "relation": "分母",
+      "description": "1株当たり純利益"
+    }
+  ],
+  "use_cases": [
+    {
+      "context": "長期投資エントリー判断",
+      "how_to_use": "10年バンドの下限付近で拾う戦略"
+    }
+  ],
+  "common_mistakes": [
+    {
+      "mistake": "単純に低いほど割安と判断する",
+      "correction": "業種・成長性・会計特殊要因を考慮する"
+    }
+  ],
+  "kessan_navi_feature": {
+    "url": "{{KN_FEATURE_URL}}",
+    "label": "{{KN_FEATURE_LABEL}}",
+    "description": "{{KN_FEATURE_DESC}}"
+  },
+  "references": [
+    {
+      "title": "{{REF_TITLE_1}}",
+      "url": "{{REF_URL_1}}",
+      "type": "primary_source"
+    }
+  ]
+}

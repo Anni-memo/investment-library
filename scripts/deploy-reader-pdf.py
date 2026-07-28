@@ -266,7 +266,7 @@ def main():
             book_entry = {
                 "slug": slug,
                 "title": title,
-                "author": "投資と思考の書斎",
+                "author": "投資Library",
                 "shelf": "金融史",
                 "chapters": chapters_meta
             }

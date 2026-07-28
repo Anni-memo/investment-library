@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="キーエンスはなぜ営業利益率55%を維持できるのか。ファブレス×直販×コンサル営業の三位一体モデルと、5つのmoat要因を解剖する。"/>
+<meta property="og:title" content="キーエンスのmoat解剖――なぜ営業利益率55%なのか｜投資Library"/>
+<meta property="og:description" content="ファブレス×直販×コンサル営業の三位一体が生む、異常な収益性の構造を解剖する。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/thinking/keyence-moat/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資Library"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/thinking/keyence-moat/"/>
+<title>キーエンスのmoat解剖――なぜ営業利益率55%なのか｜投資Library</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "キーエンスのmoat解剖――なぜ営業利益率55%なのか",
+  "description": "キーエンスのファブレス×直販×コンサル営業モデルと5つのmoat要因を解剖する。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資Library", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-04-06",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "キーエンス"}, {"@type": "Thing", "name": "経済的堀"}, {"@type": "Thing", "name": "競争優位性"}]
+}
+</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* ── NAV ── */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0a0c10 0%,#0e1018 45%,#121520 100%);
+  color:var(--parch);padding:24px 40px 24px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(100,120,180,.05) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.65;position:relative;}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.35em;margin-bottom:18px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.6rem);font-weight:700;line-height:1.25;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.12);position:relative;margin-bottom:20px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.9rem,2.2vw,1.05rem);color:var(--parch3);font-weight:300;line-height:2;position:relative;max-width:580px;margin:0 auto;}
+
+/* ── ARTICLE ── */
+.article{max-width:700px;margin:0 auto;padding:56px 24px 12px;}
+.article-section{margin-bottom:52px;}
+.section-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px;opacity:.75;}
+.section-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.35;}
+.section-body{font-size:.9rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.section-body p{margin-bottom:1.4em;}
+.section-body p:last-child{margin-bottom:0;}
+.section-body ul{list-style:none;padding-left:0;margin:1.2em 0;}
+.section-body ul li{padding:.3em 0 .3em 1.2em;position:relative;font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.section-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-family:var(--mono);}
+
+/* ── DATA TABLE ── */
+.data-table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:.82rem;}
+.data-table th{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.12em;text-align:left;padding:8px 12px;border-bottom:2px solid var(--parch4);font-weight:500;}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--parch3);color:var(--ink2);font-weight:300;}
+.data-table td:first-child{font-weight:500;color:var(--ink);}
+.data-table tr:last-child td{border-bottom:none;}
+
+/* ── CALLOUT ── */
+.callout{border-left:3px solid var(--gold2);padding:18px 22px;margin:32px 0;background:var(--parch2);}
+.callout-text{font-family:var(--serif);font-size:1.0rem;color:var(--ink);line-height:1.85;font-weight:500;}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 52px;}
+
+/* ── FURTHER READING ── */
+.further{background:var(--parch2);border-top:1px solid var(--parch4);padding:44px 24px;}
+.further-inner{max-width:700px;margin:0 auto;}
+.further-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.16em;margin-bottom:8px;opacity:.8;}
+.further-reason{font-size:.78rem;color:var(--ink3);line-height:1.7;margin-bottom:20px;font-weight:300;}
+.further-links{display:flex;flex-direction:column;gap:2px;}
+.further-link{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--parch);border:1px solid var(--parch4);border-left:2px solid rgba(139,105,20,.3);text-decoration:none;color:inherit;transition:all .18s;}
+.further-link:hover{border-left-color:var(--gold2);background:var(--parch3);}
+.further-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;width:80px;}
+.further-link-title{font-family:var(--serif);font-size:.9rem;font-weight:600;color:var(--ink);flex:1;}
+.further-link-arrow{color:var(--gold3);font-size:.85rem;flex-shrink:0;}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* ── SCROLL TO TOP ── */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+.music-toggle{position:fixed;bottom:24px;right:24px;z-index:200;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:.75;}
+.music-toggle:hover{opacity:1;border-color:var(--gold2);}
+.music-toggle.playing{border-color:var(--gold2);color:var(--gold4);opacity:1;box-shadow:0 0 12px rgba(212,170,34,.2);}
+
+/* ===== Morimori Template: Hero 3-col ===== */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+
+/* Graph Card */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* Nav Cockpit */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a class="nav-back" href="../../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">資産形成の教養</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">キーエンスのmoat解剖</span>
+</nav>
+
+<!-- ── HERO (3-column) ── -->
+<div class="hero">
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center -->
+    <div class="hero-col-center">
+      <div class="hero-ornament">KEYENCE MOAT ANATOMY</div>
+      <h1 class="hero-title">キーエンスのmoat解剖<br>――なぜ営業利益率55%なのか</h1>
+      <p class="hero-lead">製造業でありながら工場を持たない。<br>
+    代理店を使わず、すべて直販。<br>
+    この構造が、日本で最も利益率の高い企業を生んだ。</p>
+    </div>
+
+    <!-- Right: Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec01"><span class="qa-icon">🔍</span> 異常な収益性の正体</a>
+          <a class="qa-btn-v" href="#sec02"><span class="qa-icon">⏰</span> ファブレス×直販×コ</a>
+          <a class="qa-btn-v" href="#sec03"><span class="qa-icon">🧭</span> 製造ラインに組み込ま</a>
+          <a class="qa-btn-v" href="#sec04"><span class="qa-icon">🔄</span> 直販が生む「顧客課題</a>
+          <a class="qa-btn-v" href="#sec05"><span class="qa-icon">📖</span> 工場を持たない利益構</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ARTICLE ── -->
+<!-- ── Navigation Cockpit ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資Library</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">資産形成の教養</a><span class="ct-count">17</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>キーエンスのmoat解剖</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 20 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ul class="toc-list">
+      <li><a href="#sec01"><span class="toc-num">01</span>異常な収益性の正体</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>ファブレス×直販×コンサル営業の三位一体</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>製造ラインに組み込まれた計測器は、簡単には交換できない</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>直販が生む「顧客課題のデータベース」</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>工場を持たない利益構造</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>「キーエンスに相談すれば解決する」</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>高給→優秀人材→高い生産性の好循環</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>数字で見るキーエンス</a></li>
+      <li><a href="#sec09"><span class="toc-num">09</span>リスク要因を見逃さない</a></li>
+      <li><a href="#sec10"><span class="toc-num">10</span>投資家としてどう見るか</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="article">
+
+  <!-- ── INTRODUCTION ── -->
+  <div class="article-section" id="sec01">
+    <div class="section-label">INTRODUCTION</div>
+    <h2 class="section-title">異常な収益性の正体</h2>
+    <div class="section-body">
+      <p>キーエンス（6861）は、日本の上場企業の中で最も不思議な存在のひとつである。</p>
+      <p>営業利益率は55%前後。製造業の平均が5〜8%であることを考えれば、これは桁違いの数字だ。時価総額は日本企業トップクラスの約16兆円（2025年時点）。トヨタ、ソニーグループに次ぐ規模でありながら、従業員数はわずか約1万人に過ぎない。</p>
+      <p>センサー、計測器、画像処理システム——扱う製品は地味である。一般消費者がキーエンスの製品に触れることはほぼない。にもかかわらず、この企業は驚異的な利益を生み出し続けている。</p>
+      <p>なぜこれほどの収益性が可能なのか。そしてそれは、持続可能なmoat（経済的堀）に裏打ちされたものなのか。この論考では、キーエンスの利益構造を分解し、5つのmoat要因を特定する。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── BUSINESS MODEL ── -->
+  <div class="article-section" id="sec02">
+    <div class="section-label">BUSINESS MODEL</div>
+    <h2 class="section-title">ファブレス×直販×コンサル営業の三位一体</h2>
+    <div class="section-body">
+      <p>キーエンスのビジネスモデルは、三つの要素が一体となって機能している。どれか一つを取り出しても、この収益性は説明できない。</p>
+
+      <p><strong>ファブレス（工場を持たない）。</strong>キーエンスは製品の企画・開発・設計に特化し、製造は外部の協力工場に委託する。設備投資のリスクを負わないため、固定費が極めて低い。売上が変動しても利益率が大きく崩れにくい構造になっている。</p>
+
+      <p><strong>直販（代理店を使わない）。</strong>営業はすべて自社の社員が行う。代理店マージンが発生しないだけでなく、顧客の課題やニーズを直接吸い上げることができる。このデータが、次の製品開発の原資になる。</p>
+
+      <p><strong>コンサル営業（売るのではなく、解決する）。</strong>キーエンスの営業担当者は、製品を売るのではなく、顧客の製造ラインの課題を分析し、解決策を提案する。「この計測器を導入すれば、不良率がX%下がり、年間Y万円のコスト削減になる」という提案ができるから、顧客は価格ではなく価値で判断する。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">三位一体の構造が重要なのは、それぞれが互いを強化するからだ。<br>ファブレスだから開発に集中でき、直販だから顧客の声が直接届き、<br>コンサル営業だから価格競争に巻き込まれない。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── MOAT 1: SWITCHING COST ── -->
+  <div class="article-section" id="sec03">
+    <div class="section-label">MOAT 01 — SWITCHING COST</div>
+    <h2 class="section-title">製造ラインに組み込まれた計測器は、簡単には交換できない</h2>
+    <div class="section-body">
+      <p>キーエンスの最も強力なmoatは、スイッチングコストである。</p>
+      <p>工場の製造ラインに組み込まれたセンサーや計測器は、単なる部品ではない。それは品質管理システムの一部であり、前後の工程と連携し、データベースと接続し、検査基準のパラメータが精密に設定されている。</p>
+      <p>計測器を別のメーカーに切り替えるとき、発生するコストは製品代金だけではない。</p>
+      <ul>
+        <li>ラインの停止による生産ロス（数時間〜数日）</li>
+        <li>新しい機器のキャリブレーション（校正作業）</li>
+        <li>検査基準の再設定とバリデーション</li>
+        <li>オペレーターの再教育</li>
+        <li>品質保証部門への変更申請と承認プロセス</li>
+      </ul>
+      <p>自動車メーカーのように品質基準が厳しい顧客ほど、このスイッチングコストは大きくなる。一度キーエンスの製品がラインに入れば、よほどの理由がない限り交換されない。これが、安定した収益の基盤になっている。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── MOAT 2: DATA MOAT ── -->
+  <div class="article-section" id="sec04">
+    <div class="section-label">MOAT 02 — DATA MOAT</div>
+    <h2 class="section-title">直販が生む「顧客課題のデータベース」</h2>
+    <div class="section-body">
+      <p>キーエンスが代理店を使わない理由は、マージンの節約だけではない。本質的な価値は、顧客との直接接点から得られるデータにある。</p>
+      <p>約5,500人の営業担当者が、毎日顧客の工場を訪問し、製造現場の課題を聞き取る。「この工程で不良品が出る」「この検査に時間がかかる」「この計測が不安定」——こうした声が、日々データベースに蓄積される。</p>
+      <p>キーエンスの新製品の約7割は「世界初」または「業界初」とされる。これは天才的な技術者がいるからではなく、顧客が何に困っているかを誰よりも正確に把握しているからだ。</p>
+      <p>競合他社が同じ製品を作ることはできる。しかし、数十年にわたって蓄積された「製造現場の課題データベース」を複製することはできない。これは時間とともに価値が増す、典型的な無形資産のmoatである。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">直販モデルは、コストではなく資産である。<br>毎日の営業活動が、競合には見えない情報の堀を深くしていく。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── MOAT 3: FABLESS PROFIT STRUCTURE ── -->
+  <div class="article-section" id="sec05">
+    <div class="section-label">MOAT 03 — FABLESS ADVANTAGE</div>
+    <h2 class="section-title">工場を持たない利益構造</h2>
+    <div class="section-body">
+      <p>キーエンスの粗利率は約80%を超える。これはソフトウェア企業並みの数字であり、製造業としては異例である。</p>
+      <p>ファブレスモデルの利点は、単に固定費が低いことだけではない。</p>
+      <ul>
+        <li>景気後退時に工場の稼働率低下を心配する必要がない</li>
+        <li>技術の進歩に合わせて、最適な製造パートナーを選択できる</li>
+        <li>開発・設計に経営資源を集中投下できる</li>
+        <li>設備投資の減価償却負担がないため、利益のキャッシュ転換率が高い</li>
+      </ul>
+      <p>重要なのは、ファブレスであること自体がmoatではないという点だ。ファブレスモデルは誰でも採用できる。しかし、ファブレスでありながら製品の品質と納期を維持するための協力工場ネットワークと品質管理体制は、長年かけて構築されたものであり、簡単には模倣できない。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── MOAT 4: BRAND & TRUST ── -->
+  <div class="article-section" id="sec06">
+    <div class="section-label">MOAT 04 — BRAND &amp; TRUST</div>
+    <h2 class="section-title">「キーエンスに相談すれば解決する」</h2>
+    <div class="section-body">
+      <p>B2B企業において、ブランドの価値は消費財とは異なる形で現れる。</p>
+      <p>製造現場のエンジニアの間で、キーエンスは「困ったときに相談すれば、翌日にはデモ機を持ってくる会社」として認識されている。即日出荷の体制と、営業担当者の技術知識の深さが、この評判を支えている。</p>
+      <p>この信頼は、購買決定のプロセスに直接影響する。製造ラインの問題が発生したとき、エンジニアが最初に連絡する先がキーエンスであれば、競合他社は比較検討のテーブルにすら載らない可能性がある。</p>
+      <p>BtoB市場では、「検討リストに入るかどうか」が勝負の大半を決める。キーエンスのブランドは、この検討リストの最上位に位置することで、見えない参入障壁として機能している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── MOAT 5: TALENT SYSTEM ── -->
+  <div class="article-section" id="sec07">
+    <div class="section-label">MOAT 05 — TALENT FLYWHEEL</div>
+    <h2 class="section-title">高給→優秀人材→高い生産性の好循環</h2>
+    <div class="section-body">
+      <p>キーエンスの平均年収は約2,200万円（2024年有価証券報告書）。日本の上場企業の中でトップクラスである。</p>
+      <p>高い報酬は、優秀な人材を引きつける。優秀な人材は、高い生産性を生む。高い生産性は、高い利益率を生む。高い利益率は、高い報酬を可能にする。この好循環が、キーエンスの人材moatの核心である。</p>
+      <p>ただし、これは単に「給料が高い」という話ではない。キーエンスの組織運営には独自の特徴がある。</p>
+      <ul>
+        <li>成果に対する報酬連動が明確（営業利益の一定割合が賞与原資）</li>
+        <li>「時間チャージ」の概念——1時間あたりの付加価値を全社員が意識する</li>
+        <li>徹底した合理主義——無駄な会議、無駄な出張、無駄な資料作成を排除する文化</li>
+        <li>若手への権限委譲が早く、年功序列の要素が薄い</li>
+      </ul>
+      <p>この文化は外部から模倣しにくい。高い給料を払うことはできても、組織全体の生産性文化を一朝一夕で再現することはできないからだ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">企業文化は、最も模倣困難なmoatのひとつである。<br>キーエンスの場合、「付加価値の最大化」という思想が<br>採用・評価・日常業務のすべてに浸透している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── NUMBERS ── -->
+  <div class="article-section" id="sec08">
+    <div class="section-label">BY THE NUMBERS</div>
+    <h2 class="section-title">数字で見るキーエンス</h2>
+    <div class="section-body">
+      <p>キーエンスの異常性は、数字を並べると一層鮮明になる。</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>METRIC</th>
+            <th>VALUE</th>
+            <th>NOTE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>売上高（2024年3月期）</td>
+            <td>約9,673億円</td>
+            <td>前年比+4.5%</td>
+          </tr>
+          <tr>
+            <td>営業利益率</td>
+            <td>54.1%</td>
+            <td>製造業平均の約7〜10倍</td>
+          </tr>
+          <tr>
+            <td>粗利率</td>
+            <td>約82%</td>
+            <td>ソフトウェア企業並み</td>
+          </tr>
+          <tr>
+            <td>時価総額</td>
+            <td>約16兆円</td>
+            <td>日本企業トップ5圏内</td>
+          </tr>
+          <tr>
+            <td>従業員数</td>
+            <td>約12,300人</td>
+            <td>連結ベース</td>
+          </tr>
+          <tr>
+            <td>1人当たり営業利益</td>
+            <td>約4,250万円</td>
+            <td>日本製造業で突出</td>
+          </tr>
+          <tr>
+            <td>平均年収</td>
+            <td>約2,200万円</td>
+            <td>上場企業トップクラス</td>
+          </tr>
+          <tr>
+            <td>海外売上比率</td>
+            <td>約60%</td>
+            <td>年々上昇傾向</td>
+          </tr>
+          <tr>
+            <td>自己資本比率</td>
+            <td>約94%</td>
+            <td>実質無借金</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>特に注目すべきは、従業員1人当たりの営業利益である。約4,250万円という数字は、トヨタ（約200万円）やソニー（約500万円）と比べても桁違いだ。これは、ファブレス・直販・高付加価値製品という三要素が生む構造的な帰結である。</p>
+
+      <p>営業利益率の推移を見ると、過去10年間で50〜55%のレンジを維持しており、大きな変動がない。これは一時的な好況ではなく、構造的な優位性であることを示唆している。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── RISKS ── -->
+  <div class="article-section" id="sec09">
+    <div class="section-label">RISK FACTORS</div>
+    <h2 class="section-title">リスク要因を見逃さない</h2>
+    <div class="section-body">
+      <p>moatが深いことと、リスクがないことは別の話である。キーエンスにも、投資家が注視すべきリスクは存在する。</p>
+
+      <p><strong>海外比率の上昇と為替感応度。</strong>海外売上比率が60%を超え、円安は追い風、円高は逆風となる。為替が10円動けば、営業利益に数百億円規模の影響が出る。構造的に優れた企業であっても、為替の影響は利益変動の主因になりうる。</p>
+
+      <p><strong>中国市場のリスク。</strong>中国は重要な成長市場だが、地政学リスク、規制強化、国産化推進の流れがある。中国の計測器メーカーが技術力を高めれば、価格面での競争が激しくなる可能性がある。</p>
+
+      <p><strong>創業者の影響と後継。</strong>創業者の滝崎武光氏は経営の第一線からは退いているが、大株主として影響力を持つ。創業者の哲学がどこまで組織に内在化されているかは、長期的な論点である。</p>
+
+      <p><strong>成長の天井。</strong>キーエンスの主力市場であるFA（ファクトリーオートメーション）市場は巨大だが、無限ではない。売上が1兆円を超えた後も同じ成長率を維持できるかは、新規領域への展開力にかかっている。</p>
+
+      <p><strong>人材採用の持続性。</strong>高い年収で優秀な人材を集める戦略は、転職市場が変化し、ワークライフバランスの価値観が強まる中で、以前ほど有効ではなくなる可能性がある。</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ── INVESTOR'S VIEW ── -->
+  <div class="article-section" id="sec10">
+    <div class="section-label">INVESTOR'S PERSPECTIVE</div>
+    <h2 class="section-title">投資家としてどう見るか</h2>
+    <div class="section-body">
+      <p>キーエンスのmoatは本物である。スイッチングコスト、データの堀、ファブレス構造、ブランド、人材システム——これら5つが重層的に機能し、競合の参入を困難にしている。</p>
+
+      <p>しかし、moatが深いことと、今が買い時であることは、まったく別の問題だ。</p>
+
+      <p>キーエンスは常に「高い」と言われる銘柄である。PER（株価収益率）は概ね40〜50倍のレンジで推移しており、日本の製造業平均（15〜20倍）の2倍以上だ。この高いバリュエーションが正当化されるかは、今後の成長率にかかっている。</p>
+
+      <p>成長余地として注目すべきは以下の領域である。</p>
+      <ul>
+        <li>海外市場の深耕——特にアジア新興国の工場自動化需要</li>
+        <li>ソフトウェア・データ分析領域への拡張</li>
+        <li>ロボットビジョン、3D計測など新しい技術領域</li>
+        <li>医療・食品・製薬など規制産業への浸透</li>
+      </ul>
+
+      <p>長期投資家にとって最も重要な問いは、「この企業のmoatは10年後も維持されているか」である。キーエンスの場合、5つのmoat要因のうち、スイッチングコストとデータの堀は時間とともに強化される性質を持つ。これは、長期保有に適した構造的特徴だ。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-text">優れた企業を見つけることと、適切な価格で買うことは、<br>投資の異なるステップである。<br>キーエンスのmoatは深い。しかし、価格は常にmoatの深さに見合っているとは限らない。</p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ── FURTHER READING ── -->
+<div class="further">
+  <div class="further-inner">
+    <div class="further-label">この棚の隣に置いてある本</div>
+    <p class="further-reason">キーエンスのmoatを理解したら、別の堀の形も見てみる。そして、moatの本質とは何かを考える。</p>
+    <div class="further-links">
+      <a class="further-link" href="../tsmc-ecosystem-moat/">
+        <span class="further-link-tag">RESEARCH</span>
+        <span class="further-link-title">TSMCエコシステムのmoat解剖</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../moat/">
+        <span class="further-link-tag">競争優位</span>
+        <span class="further-link-title">経済的堀の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+      <a class="further-link" href="../../companies/">
+        <span class="further-link-tag">企業分析</span>
+        <span class="further-link-title">企業分析の棚</span>
+        <span class="further-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+
+<!-- MyNote FAB -->
+<div class="mynote-fab" id="mynoteFab">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">MY NOTE</div>
+    <span class="mynote-fab-streak" id="mcFabStreak"></span>
+  </div>
+</div>
+<div class="mynote-panel" id="mynotePanel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&larr;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&rarr;</button>
+    </div>
+    <textarea id="mcText" placeholder="今日の気づきを書く..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../../hajimete/">初めての方へ</a> ·
+    <a href="../../principles/">投資原則</a> ·
+    <a href="../../industries/">業種から歩く</a> ·
+    <a href="../../horizons/">思考を広げる</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);
+});
+
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-VYPK32EB6B');
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+
+<script>
+
+/* ===== Knowledge Graph ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'この記事',section:'セクション',related:'関連記事'};
+  var catColors={self:'#d4aa22',section:'#b8900a',related:'#2a3d6a'};
+
+  var nodes=[
+    {id:'self',label:'キーエンス',x:0,y:0,r:22,color:'#d4aa22',cat:'self',url:null,desc:'キーエンスのmoat解剖――なぜ営業利益率55%なのか'},
+    {id:'sec0',label:'異常な収益性の正',x:-100,y:-60,r:14,color:'#b8900a',cat:'section',url:'#sec01',desc:'異常な収益性の正体'},
+    {id:'sec1',label:'ファブレス×直販',x:100,y:-50,r:14,color:'#b8900a',cat:'section',url:'#sec02',desc:'ファブレス×直販×コンサル営業の三位一体'},
+    {id:'sec2',label:'製造ラインに組み',x:120,y:40,r:14,color:'#b8900a',cat:'section',url:'#sec03',desc:'製造ラインに組み込まれた計測器は、簡単には交換できない'},
+    {id:'sec3',label:'直販が生む「顧客',x:-80,y:70,r:14,color:'#b8900a',cat:'section',url:'#sec04',desc:'直販が生む「顧客課題のデータベース」'},
+    {id:'sec4',label:'工場を持たない利',x:30,y:100,r:14,color:'#b8900a',cat:'section',url:'#sec05',desc:'工場を持たない利益構造'},
+    {id:'rel0',label:'ニデック',x:-160,y:-20,r:12,color:'#2a3d6a',cat:'related',url:'../nidec-moat/',desc:'ニデック'},
+    {id:'rel1',label:'任天堂',x:170,y:0,r:12,color:'#2a3d6a',cat:'related',url:'../nintendo-moat/',desc:'任天堂'},
+    {id:'rel2',label:'信越化学',x:-140,y:100,r:11,color:'#2a3d6a',cat:'related',url:'../shinetsu-moat/',desc:'信越化学'},
+    {id:'rel3',label:'トヨタ',x:160,y:90,r:11,color:'#2a3d6a',cat:'related',url:'../toyota-moat/',desc:'トヨタ'}
+  ];
+
+  var edges=[
+    {from:'self',to:'sec0'},
+    {from:'self',to:'sec1'},
+    {from:'self',to:'sec2'},
+    {from:'self',to:'sec3'},
+    {from:'self',to:'sec4'},
+    {from:'self',to:'rel0'},
+    {from:'self',to:'rel1'},
+    {from:'self',to:'rel2'},
+    {from:'self',to:'rel3'},
+    {from:'sec0',to:'sec1'},
+    {from:'sec2',to:'sec3'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  nodes.forEach(function(n){n.px=0;n.py=0;n.vx=0;n.vy=0;n.hover=false;n.dragging=false;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){hovConns[hovId]=true;(connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});};
+
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.08)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;var r=n.r*(isHov?1.2:pulse);
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'44');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.5)';
+        ctx.textAlign='center';ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    var legend=[{l:'\u3053\u306e\u8a18\u4e8b',c:'#d4aa22'},{l:'\u30bb\u30af\u30b7\u30e7\u30f3',c:'#b8900a'},{l:'\u95a2\u9023\u8a18\u4e8b',c:'#2a3d6a'}];
+    var lx=8,ly=H-10;
+    legend.forEach(function(item){
+      ctx.fillStyle=item.c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='400 7px "Noto Serif JP","DM Mono",sans-serif';
+      ctx.fillStyle='rgba(245,237,224,.35)';ctx.textAlign='left';
+      ctx.fillText(item.l,lx+8,ly+2.5);
+      lx+=ctx.measureText(item.l).width+16;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+8)return n;}return null;}
+  function getXY(e){var rect=canvas.getBoundingClientRect();return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};}
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;dragging.vx=0;dragging.vy=0;return;}
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){hit.hover=true;ttTitle.textContent=hit.label;ttCat.textContent=catLabels[hit.cat]||hit.cat;ttDesc.textContent=hit.desc;tooltip.style.opacity='1';tooltip.style.left=Math.min(hit.px+20,W-160)+'px';tooltip.style.top=(hit.py-55)+'px';canvas.style.cursor='pointer';}
+    else{tooltip.style.opacity='0';canvas.style.cursor='grab';}
+  });
+  canvas.addEventListener('mouseleave',function(){nodes.forEach(function(n){n.hover=false;});tooltip.style.opacity='0';dragging=null;});
+  canvas.addEventListener('mousedown',function(e){var p=getXY(e);var hit=hitTest(p.x,p.y);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){var p=getXY(e);var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));dragging.dragging=false;
+    if(moved<5&&dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}
+    dragging=null;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('touchstart',function(e){e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);var hit=hitTest(mx,my);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragging){dragging.dragging=false;if(dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}dragging=null;});
+})();
+
+
+/* ===== MyNote FAB ===== */
+(function(){
+  const STORAGE_PREFIX='myNote_';
+  const fab=document.getElementById('mynoteFab');
+  const panel=document.getElementById('mynotePanel');
+  const closeBtn=document.getElementById('mynoteClose');
+  const textarea=document.getElementById('mcText');
+  const savedEl=document.getElementById('mcSaved');
+  const wcEl=document.getElementById('mcWc');
+  const dateEl=document.getElementById('mcDate');
+  const prevBtn=document.getElementById('mcPrev');
+  const nextBtn=document.getElementById('mcNext');
+  const streakEl=document.getElementById('mcStreak');
+  const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+  let currentDate=new Date().toISOString().slice(0,10);
+  let saveTimer;
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);else localStorage.removeItem(STORAGE_PREFIX+date);}
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+  function render(){dateEl.textContent=currentDate;textarea.value=getNote(currentDate);updateWc();updateStreak();renderCalendar();renderChallenge();}
+  function updateWc(){const len=(textarea.value||'').length;wcEl.textContent=len?len+' chars':'';}
+  function save(){setNote(currentDate,textarea.value);savedEl.classList.add('visible');setTimeout(()=>savedEl.classList.remove('visible'),1200);renderCalendar();renderChallenge();updateStreak();}
+  function getStreak(){let streak=0,d=new Date();while(true){const k=d.toISOString().slice(0,10);if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;}return streak;}
+  function updateStreak(){const streak=getStreak();streakEl.textContent=streak?streak+'d streak':'';fabStreakEl.textContent=streak||'';}
+  function renderCalendar(){if(!calendarEl)return;calendarEl.innerHTML='';const d=new Date(currentDate);const year=d.getFullYear(),month=d.getMonth();const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();const today=new Date().toISOString().slice(0,10);const offset=(firstDay+6)%7;for(let i=0;i<offset;i++){const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);}for(let day=1;day<=daysInMonth;day++){const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');const el=document.createElement('div');el.className='mc-day';if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}else if(dateStr>today)el.classList.add('future');calendarEl.appendChild(el);}}
+  function renderChallenge(){if(!challengeEl||!challengeFill)return;const totalDays=66;const streak=getStreak();const pct=Math.min(streak/totalDays*100,100);challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');challengeFill.style.width=pct+'%';}
+  function shift(days){const d=new Date(currentDate);d.setDate(d.getDate()+days);currentDate=d.toISOString().slice(0,10);render();}
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',()=>shift(-1));
+  nextBtn.addEventListener('click',()=>shift(1));
+  textarea.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';});
+  render();
+})();
+
+</script>
+</body>
+</html>

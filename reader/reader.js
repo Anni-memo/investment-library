@@ -112,7 +112,7 @@
 
         chapters = book.chapters || [];
         bookTitleEl.textContent = book.title;
-        document.title = book.title + ' | 投資と思考の書斎';
+        document.title = book.title + ' | 投資Library';
 
         buildTOC();
         checkSavedProgress();
@@ -656,7 +656,7 @@
       lines.push('  (' + notes[i].chapter + ' · ' + notes[i].date + ')');
       lines.push('');
     }
-    lines.push('#投資と思考の書斎');
+    lines.push('#投資Library');
     return lines.join('\n');
   }
 
@@ -700,7 +700,7 @@
       '<a href="https://t.me/share/url?text=' + encoded + '" target="_blank" rel="noopener">Telegram</a>' +
       '<a href="https://twitter.com/intent/tweet?text=' + encoded + '" target="_blank" rel="noopener">X (Twitter)</a>' +
       '<a href="https://www.facebook.com/sharer/sharer.php?quote=' + encoded + '" target="_blank" rel="noopener">Facebook</a>' +
-      '<a href="mailto:?subject=' + encodeURIComponent('読書ノート — 投資と思考の書斎') + '&body=' + encoded + '" target="_blank">メール</a>' +
+      '<a href="mailto:?subject=' + encodeURIComponent('読書ノート — 投資Library') + '&body=' + encoded + '" target="_blank">メール</a>' +
       '<button id="share-menu-copy">クリップボードにコピー</button>' +
       '<button id="share-menu-close">閉じる</button>';
     app.appendChild(menu);

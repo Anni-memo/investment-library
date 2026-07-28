@@ -1,0 +1,176 @@
+{
+  "@context": "https://anni-memo.github.io/investment-library/schema/company-fact/v1",
+  "schema_version": "1.0",
+  "ticker": "4776",
+  "isin": null,
+  "name_ja": "サイボウズ株式会社",
+  "name_en": "Cybozu, Inc.",
+  "market": "東証プライム",
+  "founded": "1997-08-08",
+  "headquarters": "東京都中央区日本橋",
+  "representative": "青野慶久",
+  "as_of_date": "2026-04-23",
+  "initial_published": "2026-04-22",
+  "last_updated": "2026-04-23",
+  "referenced_fiscal_period": "2025年12月期",
+  "textbook_url": "https://anni-memo.github.io/investment-library/company-textbook/cybozu/",
+  "kessan_navi_url": "https://kessan.constella-hd.co.jp/stock/4776/",
+  "editorial_stance": {
+    "author": "anni_memo（@anni_equity）",
+    "position": "第三者株主",
+    "approach": "株主視点の応援と中立分析の両立、弱点・リスクも誠実に記述"
+  },
+  "products": [
+    {
+      "name": "kintone",
+      "launched_year": 2011,
+      "category": "業務アプリプラットフォーム",
+      "customers": 39000,
+      "customers_as_of": "2025-12",
+      "revenue_2025": "21,690百万円",
+      "revenue_growth_2025": 0.339,
+      "notes": "非IT部門導入比率93%、東証プライム浸透46%、自治体1,000超"
+    },
+    {
+      "name": "Garoon",
+      "launched_year": 2002,
+      "category": "グループウェア",
+      "customers": 7500,
+      "users": 3300000,
+      "customers_as_of": "2025-12",
+      "awards": ["ITreview Grid Award 2026 Winter Leader（5年連続）"],
+      "notes": "日英中3か国語対応、大規模（最大数万名）導入実績"
+    },
+    {
+      "name": "メールワイズ",
+      "launched_year": 2001,
+      "category": "メール共有・対応管理",
+      "customers": 15000,
+      "customers_as_of": "2025-12",
+      "pricing_from": "600円/ユーザー/月",
+      "notes": "星野リゾート・ブックオフ等のB2Cオペレーション企業で採用"
+    }
+  ],
+  "revenue_model": {
+    "primary": "SaaSサブスクリプション",
+    "pricing_tiers": ["ライトコース", "スタンダードコース", "ワイドコース"],
+    "cloud_revenue_2025": "34,490百万円",
+    "cloud_revenue_growth_2025": 0.287
+  },
+  "key_metrics": {
+    "revenue_2025": "37,430百万円",
+    "revenue_growth_2025": 0.261,
+    "operating_profit_2025": "10,100百万円",
+    "operating_profit_growth_2025": 1.064,
+    "consecutive_profit_growth_years": 3,
+    "revenue_forecast_2026": "42,170百万円",
+    "midterm_target_2028": "50,900百万円（2023年度の2倍）",
+    "turnover_rate": "5%未満（5年連続）",
+    "female_employee_ratio": 0.40,
+    "maternity_leave_attrition": "ゼロ"
+  },
+  "strengths": [
+    {
+      "label": "日本語圏業務基盤としての浸透",
+      "evidence": "東証プライム46%導入、kintone累計3.9万社、自治体1,000超",
+      "page": "/kintone/"
+    },
+    {
+      "label": "現場主導DXの運用思想",
+      "evidence": "kintone非IT部門導入比率93%、市民開発者コミュニティ確立",
+      "page": "/kintone/"
+    },
+    {
+      "label": "パートナー・コミュニティエコシステム",
+      "evidence": "Enterprise Circle大手20社、キンコミ、ITreview Leader 5年連続",
+      "page": "/moat/"
+    },
+    {
+      "label": "企業文化の運用資産化",
+      "evidence": "離職率28%→5%未満、女性社員40%、産休離職ゼロ、100人100通り卒業",
+      "page": "/culture/"
+    },
+    {
+      "label": "AI時代への構造適応",
+      "evidence": "kintone MCPサーバー2025-08正式リリース、AIラボ設立",
+      "page": "/future/"
+    }
+  ],
+  "risks": [
+    {
+      "label": "海外累積赤字",
+      "evidence": "5年累計68億円、日系→現地ローカルへ戦略シフト中",
+      "page": "/risks/"
+    },
+    {
+      "label": "Microsoft 365・Power Platform競合",
+      "evidence": "グローバル大手のバンドル戦略、コスト優位性",
+      "page": "/risks/"
+    },
+    {
+      "label": "生成AI代替リスク（業務アプリ希薄化）",
+      "evidence": "Lovable等ノーコード+AIによる新興プレーヤー、ただしkintone MCPで受益側に転じる兆候",
+      "page": "/risks/"
+    },
+    {
+      "label": "国内中堅層の価格感応度",
+      "evidence": "SMBセグメントの価格競争",
+      "page": "/risks/"
+    }
+  ],
+  "related_entities": {
+    "people": [
+      {"name": "青野慶久", "role": "代表取締役社長", "page": "/culture/"},
+      {"name": "山田理", "role": "副社長", "page": "/culture/"}
+    ],
+    "technologies": ["MCP（Model Context Protocol）", "kintone AIラボ"],
+    "competitors": [
+      {"name": "Microsoft Power Platform", "context": "グローバルバンドル競合"},
+      {"name": "Salesforce", "context": "エンタープライズCRM競合"},
+      {"name": "Lovable", "context": "AI+ノーコード新興プレーヤー"}
+    ],
+    "partners_communities": [
+      {"name": "キンコミ", "type": "ユーザーコミュニティ"},
+      {"name": "Enterprise Circle", "type": "大手企業向けコミュニティ（20社）"},
+      {"name": "ガブキン", "type": "自治体導入コミュニティ（1,000超）"}
+    ]
+  },
+  "pages": {
+    "hub": "/company-textbook/cybozu/",
+    "problem": "/company-textbook/cybozu/problem/",
+    "history": "/company-textbook/cybozu/history/",
+    "products": "/company-textbook/cybozu/products/",
+    "kintone": "/company-textbook/cybozu/kintone/",
+    "moat": "/company-textbook/cybozu/moat/",
+    "culture": "/company-textbook/cybozu/culture/",
+    "numbers": "/company-textbook/cybozu/numbers/",
+    "risks": "/company-textbook/cybozu/risks/",
+    "future": "/company-textbook/cybozu/future/",
+    "kpi": "/company-textbook/cybozu/kpi/",
+    "compare": "/company-textbook/cybozu/compare/",
+    "changelog": "/company-textbook/cybozu/changelog/",
+    "external_kessan_navi": "https://kessan.constella-hd.co.jp/stock/4776/"
+  },
+  "external_references": [
+    {"type": "official", "url": "https://cybozu.co.jp/"},
+    {"type": "ir", "url": "https://cybozu.co.jp/company/ir/"},
+    {"type": "wikidata", "url": "https://www.wikidata.org/wiki/Q11424049"}
+  ],
+  "changelog": [
+    {
+      "date": "2026-04-23",
+      "change": "補助ページ #06-12（products/culture/risks/future/kpi/compare/changelog）を公開、母艦+補助群12/12 LIVE完走",
+      "source": "AI可読資産戦略v2母艦+補助群構造の初版完成"
+    },
+    {
+      "date": "2026-04-23",
+      "change": "補助ページ #01-05（kintone/moat/problem/numbers/history）を先行公開",
+      "source": "サイボウズ2025年12月期決算短信・応援PJファクトブック"
+    },
+    {
+      "date": "2026-04-22",
+      "change": "初版公開（AI可読資産戦略v2第一号実装）",
+      "source": "サイボウズ2025年12月期決算短信・応援PJファクトブック"
+    }
+  ]
+}

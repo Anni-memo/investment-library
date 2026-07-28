@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Claude Codeの自作スキル・ルール群をempirical-prompt-tuningスキルで4イテレーション堅牢化した実録。精度0%→87.5%への改善プロセス、発見したcriticalバグ3件、過適合のリグレッション事例まで全数値公開。"/>
+<meta property="og:title" content="Claude Codeスキルをempirical-prompt-tuningで堅牢化した実録｜投資Library"/>
+<meta property="og:description" content="4イテレーション・8 subagent dispatch・13分。プロンプト品質を両面評価で反復改善した全記録。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/learning/empirical-prompt-tuning-case/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/learning/empirical-prompt-tuning-case/"/>
+<title>empirical-prompt-tuning 実録 — Claude Codeスキル4イテレーション堅牢化｜投資Library</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Codeスキル群をempirical-prompt-tuningで堅牢化した実録 — 4イテレーション分のビフォーアフター",
+  "description": "自作スキル・ルール群をバイアスを排した実行者に動かしてもらい両面評価で反復した実測記録。精度・tool_uses・durationを全公開。",
+  "datePublished": "2026-04-22",
+  "dateModified": "2026-04-22",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資Library", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/learning/empirical-prompt-tuning-case/",
+  "about": [
+    {"@type": "Thing", "name": "Claude Code"},
+    {"@type": "Thing", "name": "Prompt Engineering"},
+    {"@type": "Thing", "name": "Empirical Evaluation"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"投資Library","item":"https://anni-memo.github.io/investment-library/"},
+    {"@type":"ListItem","position":2,"name":"まなびの時間","item":"https://anni-memo.github.io/investment-library/learning/"},
+    {"@type":"ListItem","position":3,"name":"empirical-prompt-tuning 実録"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "empirical-prompt-tuningとは何ですか？",
+      "acceptedAnswer": {"@type":"Answer","text":"Claude Codeのスキルやプロンプトを、バイアスを排した別のAIエージェント（subagent）に実際に動かしてもらい、両面（実行者の自己申告＋指示側メトリクス）で評価して反復改善する手法です。書き手自身による再読では発見できない曖昧さを炙り出せます。"}
+    },
+    {
+      "@type": "Question",
+      "name": "なぜ自己再読では不十分なのですか？",
+      "acceptedAnswer": {"@type":"Answer","text": "直前に書いた文章を客観視することは構造的に不可能だからです。書き手は文脈を補完して読めてしまうため、別エージェントが詰まる箇所を検出できません。新規subagentに白紙で読ませる必要があります。"}
+    },
+    {
+      "@type": "Question",
+      "name": "何イテレーション回せばよいですか？",
+      "acceptedAnswer": {"@type":"Answer","text": "連続2回で新規の不明瞭点ゼロかつメトリクスが飽和したら停止が目安です。本事例では4イテレーションで rules 系が 0/8→7/8 に到達し、連続クリアで収束しました。重要度の高い指示は3連続クリアまで回します。"}
+    },
+    {
+      "@type": "Question",
+      "name": "どの程度の工数がかかりますか？",
+      "acceptedAnswer": {"@type":"Answer","text": "今回は対象2系統×4イテレーションで、subagent dispatch 8回・tool_uses 32・所要約13分です。人間側の評価・修正作業を含めて半日〜1日で完結する規模です。"}
+    },
+    {
+      "@type": "Question",
+      "name": "過適合はどう見抜きますか？",
+      "acceptedAnswer": {"@type":"Answer","text": "hold-out シナリオを1本追加して評価し、精度が直近平均から15ポイント以上落ちたら過適合と判定します。本事例では brand-context の Iter 3 で 6/7→5/7 のリグレッションが観測され、subagent の要求粒度インフレが原因と特定できました。"}
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* Hero 3-column */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:32px 40px 32px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.8;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.2vw,1.7rem);font-weight:700;color:var(--parch);line-height:1.4;}
+.hero-sub{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.18em;margin-top:14px;opacity:.8;}
+.hero-lead{margin-top:16px;font-family:var(--serif);font-size:clamp(.76rem,1.6vw,.86rem);color:var(--parch3);font-style:italic;line-height:1.9;max-width:460px;margin-left:auto;margin-right:auto;}
+
+/* Metrics preview card in hero (center-column alt when no graph) */
+.metrics-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.15);border-radius:4px;padding:16px;}
+.metrics-card-label{font-family:var(--mono);font-size:.5rem;color:rgba(212,170,34,.6);letter-spacing:.2em;margin-bottom:12px;}
+.mini-chart{display:flex;flex-direction:column;gap:10px;}
+.mini-row{display:flex;align-items:center;gap:8px;}
+.mini-lbl{font-family:var(--mono);font-size:.58rem;color:var(--parch3);min-width:52px;letter-spacing:.08em;}
+.mini-bar{flex:1;height:8px;background:rgba(184,144,10,.08);border-radius:2px;overflow:hidden;position:relative;}
+.mini-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold4));border-radius:2px;transition:width .8s;}
+.mini-val{font-family:var(--mono);font-size:.58rem;color:var(--gold3);min-width:38px;text-align:right;}
+
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* Navigation Cockpit */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* Main Content */
+.container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
+.section{margin-bottom:56px;}
+.section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
+.section-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+.body-text{font-size:.88rem;color:var(--ink2);line-height:2.15;font-weight:300;}
+.body-text p{margin-bottom:1.3em;}.body-text p:last-child{margin-bottom:0;}
+.body-text strong{font-weight:600;color:var(--ink);}
+.body-text a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px;}
+.body-text a:hover{color:var(--gold3);}
+.body-text ul,.body-text ol{margin:0.8em 0;padding-left:1.6em;}
+.body-text li{margin-bottom:.5em;line-height:2;}
+
+/* Code block */
+.code-block{background:var(--ink);color:var(--parch3);padding:20px 24px;margin:20px 0;overflow-x:auto;border-left:3px solid var(--gold);font-family:var(--mono);font-size:.68rem;line-height:1.9;white-space:pre;position:relative;}
+.code-block .copy-btn{position:absolute;top:8px;right:8px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--gold3);font-family:var(--mono);font-size:.5rem;padding:4px 10px;cursor:pointer;letter-spacing:.08em;transition:all .2s;border-radius:2px;}
+.code-block .copy-btn:hover{background:rgba(184,144,10,.3);color:var(--parch);}
+.code-block .copy-btn.copied{background:var(--green2);border-color:var(--green3);color:var(--parch);}
+.code-inline{background:rgba(139,105,20,.1);color:var(--ink);padding:2px 6px;font-family:var(--mono);font-size:.78rem;}
+
+.quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
+.quote-box-text{font-size:.88rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
+.quote-box-src{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;margin-top:10px;}
+
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
+.key-point-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.8;display:flex;align-items:center;gap:8px;}
+.key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.key-point-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.key-point-text strong{font-weight:600;color:var(--ink);}
+
+.layer-card{margin:16px 0;padding:20px;background:var(--parch2);border:1px solid var(--parch3);border-left:3px solid var(--gold);}
+.layer-card-title{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.layer-card-tag{font-family:var(--mono);font-size:.46rem;color:var(--gold);background:rgba(139,105,20,.1);padding:2px 8px;letter-spacing:.1em;}
+.layer-card-desc{font-size:.82rem;color:var(--ink2);line-height:2;font-weight:300;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
+
+/* Warning / Tip boxes */
+.warn-box{margin:24px 0;border:1px solid rgba(192,80,32,.35);background:linear-gradient(135deg,rgba(139,58,26,.04),rgba(139,58,26,.08));padding:20px 22px;border-left:4px solid var(--rust2);}
+.warn-box-label{font-family:var(--mono);font-size:.5rem;color:var(--rust);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.warn-box-label::after{content:'';flex:1;height:1px;background:rgba(139,58,26,.2);}
+.warn-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.warn-box-text strong{font-weight:600;color:var(--ink);}
+
+.tip-box{margin:24px 0;border:1px solid rgba(42,74,26,.35);background:linear-gradient(135deg,rgba(42,74,26,.04),rgba(42,74,26,.08));padding:20px 22px;border-left:4px solid var(--green2);}
+.tip-box-label{font-family:var(--mono);font-size:.5rem;color:var(--green);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.tip-box-label::after{content:'';flex:1;height:1px;background:rgba(42,74,26,.2);}
+.tip-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.tip-box-text strong{font-weight:600;color:var(--ink);}
+
+/* Comparison */
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.comparison-card{padding:20px;border:1px solid var(--parch3);}
+.comparison-card.before{background:rgba(139,58,26,.05);border-color:rgba(139,58,26,.2);}
+.comparison-card.after{background:rgba(42,74,26,.05);border-color:rgba(42,74,26,.2);}
+.comparison-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;margin-bottom:10px;}
+.comparison-card.before .comparison-label{color:var(--rust);}
+.comparison-card.after .comparison-label{color:var(--green2);}
+.comparison-text{font-size:.82rem;line-height:2;font-weight:300;color:var(--ink2);}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+
+/* Step list */
+.step-list{counter-reset:step;margin:20px 0;}
+.step-item{counter-increment:step;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--parch3);}
+.step-item::before{content:counter(step);font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);min-width:28px;}
+.step-content{flex:1;}
+.step-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.step-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* Metrics table (Iter × 成功) */
+.iter-table{width:100%;border-collapse:collapse;margin:20px 0;font-family:var(--mono);font-size:.72rem;}
+.iter-table th{background:var(--ink);color:var(--gold3);padding:10px 12px;text-align:center;font-weight:600;letter-spacing:.08em;border:1px solid var(--ink2);font-size:.62rem;}
+.iter-table td{padding:10px 12px;text-align:center;border:1px solid var(--parch3);background:var(--parch2);color:var(--ink2);}
+.iter-table td.lbl{text-align:left;font-weight:600;background:var(--parch3);color:var(--ink);font-size:.68rem;}
+.iter-table .ok{color:var(--green2);font-weight:700;}
+.iter-table .ng{color:var(--rust2);font-weight:700;}
+.iter-table .partial{color:var(--gold2);font-weight:700;}
+@media(max-width:600px){.iter-table{font-size:.62rem;}.iter-table th,.iter-table td{padding:6px 4px;}}
+
+/* Progress curve (CSS bar chart) */
+.curve{margin:28px 0;padding:20px;background:var(--parch2);border:1px solid var(--parch3);}
+.curve-title{font-family:var(--mono);font-size:.58rem;color:var(--gold);letter-spacing:.15em;margin-bottom:16px;}
+.curve-rows{display:flex;flex-direction:column;gap:10px;}
+.curve-row{display:grid;grid-template-columns:64px 1fr 56px;gap:10px;align-items:center;}
+.curve-lbl{font-family:var(--mono);font-size:.6rem;color:var(--ink3);letter-spacing:.08em;}
+.curve-bar{height:20px;background:rgba(139,105,20,.1);border-radius:2px;overflow:hidden;position:relative;}
+.curve-fill{height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold3));border-radius:2px;transition:width .8s;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;}
+.curve-fill.bad{background:linear-gradient(90deg,var(--rust),var(--rust2));}
+.curve-fill.mid{background:linear-gradient(90deg,var(--gold),var(--gold2));}
+.curve-fill.good{background:linear-gradient(90deg,var(--green2),var(--green3));}
+.curve-val{font-family:var(--mono);font-size:.6rem;color:var(--ink2);font-weight:600;text-align:right;}
+.curve-note{margin-top:12px;font-family:var(--jp);font-size:.68rem;color:var(--ink3);font-style:italic;line-height:1.8;}
+
+/* Lesson list */
+.lesson-grid{display:grid;gap:12px;margin:20px 0;}
+.lesson-card{display:flex;gap:14px;padding:16px 18px;background:var(--parch2);border:1px solid var(--parch3);align-items:flex-start;}
+.lesson-num{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--gold);min-width:24px;padding-top:2px;}
+.lesson-body{flex:1;min-width:0;}
+.lesson-name{font-family:var(--jp);font-size:.86rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.lesson-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* Red flags table */
+.redflag-table{width:100%;border-collapse:collapse;margin:20px 0;}
+.redflag-table th{background:var(--ink);color:var(--gold3);padding:10px 14px;text-align:left;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;}
+.redflag-table td{padding:12px 14px;border-bottom:1px solid var(--parch3);font-size:.78rem;color:var(--ink2);line-height:1.8;vertical-align:top;}
+.redflag-table td.rationalization{background:rgba(139,58,26,.04);color:var(--rust);font-style:italic;}
+.redflag-table td.reality{background:var(--parch2);color:var(--ink2);}
+
+/* Next links */
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
+.next-link:hover{border-color:var(--gold3);background:var(--parch3);}
+.next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+
+/* Reference Section */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+.ref-list a{color:var(--gold2);text-decoration:underline;text-underline-offset:2px;}
+
+/* Footer */
+.site-footer{background:var(--ink);color:var(--parch3);padding:28px 24px;margin-top:64px;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{max-width:820px;margin:0 auto;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px;}
+.footer-nav a{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;transition:color .2s;}
+.footer-nav a:hover{color:var(--gold4);}
+.footer-copy{text-align:center;font-family:var(--mono);font-size:.52rem;color:var(--parch4);letter-spacing:.1em;opacity:.7;}
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<div class="nav">
+  <a class="nav-back" href="../../">&#8592; 投資Library</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">まなびの時間</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">EMPIRICAL PROMPT TUNING</span>
+</div>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="hero-3col">
+    <!-- Left: Metrics preview -->
+    <div class="hero-col-side">
+      <div class="metrics-card">
+        <div class="metrics-card-label">ACCURACY CURVE</div>
+        <div class="mini-chart">
+          <div class="mini-row"><span class="mini-lbl">ITER 0</span><div class="mini-bar"><div class="mini-fill" style="width:0%;background:linear-gradient(90deg,var(--rust),var(--rust2));"></div></div><span class="mini-val">0%</span></div>
+          <div class="mini-row"><span class="mini-lbl">ITER 1</span><div class="mini-bar"><div class="mini-fill" style="width:75%;"></div></div><span class="mini-val">75%</span></div>
+          <div class="mini-row"><span class="mini-lbl">ITER 2</span><div class="mini-bar"><div class="mini-fill" style="width:87.5%;background:linear-gradient(90deg,var(--green2),var(--green3));"></div></div><span class="mini-val">88%</span></div>
+          <div class="mini-row"><span class="mini-lbl">ITER 3</span><div class="mini-bar"><div class="mini-fill" style="width:87.5%;background:linear-gradient(90deg,var(--green2),var(--green3));"></div></div><span class="mini-val">88%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title -->
+    <div class="hero-col-center">
+      <div class="hero-label">EMPIRICAL PROMPT TUNING &middot; CASE STUDY</div>
+      <h1 class="hero-title">Claude Code スキル群を<br/>empirical-prompt-tuning で堅牢化した実録</h1>
+      <div class="hero-sub">4 ITERATIONS &middot; 8 DISPATCHES &middot; 13 MIN</div>
+      <p class="hero-lead">プロンプトの品質は書いた本人には分からない。<br/>バイアスを排した実行者に動かしてもらい、<br/>両面で評価して反復する ― その実測記録。</p>
+    </div>
+
+    <!-- Right: Quick Start -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec01"><span class="qa-icon">&#9889;</span> 結論（5行）</a>
+          <a class="qa-btn-v" href="#sec04"><span class="qa-icon">&#128200;</span> 測定データ</a>
+          <a class="qa-btn-v" href="#sec05"><span class="qa-icon">&#128030;</span> 発見バグ3件</a>
+          <a class="qa-btn-v" href="#sec06"><span class="qa-icon">&#9888;</span> 過適合の罠</a>
+          <a class="qa-btn-v" href="#sec07"><span class="qa-icon">&#129513;</span> 応用法</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Navigation Cockpit ===== -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item"><span class="ct-icon">&#128218;</span><a href="../../">投資Library</a></div>
+      <div class="ct-children">
+        <div class="ct-item"><span class="ct-icon">&#128194;</span><a href="../">まなびの時間</a></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>empirical-prompt-tuning 実録</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../obsidian-second-brain/">メモの複利</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 15 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec00"><span class="toc-num">00</span>この記事で分かること</a></li>
+      <li><a href="#sec01"><span class="toc-num">01</span>結論 &#8212; ビフォーアフター</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>empirical-prompt-tuning とは</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>対象と初期状態</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>Iter 0&#8594;3 の測定データ</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>発見された critical バグ 3件</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>過適合の罠と Red flags</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>あなたの応用法</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>導入手順 &#8212; 今日始める</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- ===== 00: この記事で分かること ===== -->
+  <div class="section" id="sec00">
+    <div class="section-num">00</div>
+    <h2 class="section-title">この記事で分かること</h2>
+
+    <div class="body-text">
+      <p>
+        プロンプトや AI スキルを書いたあと、<strong>「これで伝わるか」</strong>を正しく評価する方法はあるのか。<br/>
+        結論から言うと、ある。自分で読み直すのではなく、<strong>別の AI に白紙で読ませて、両面で評価する</strong>。これが <a href="https://github.com/mizchi/chezmoi-dotfiles/blob/main/dot_claude/skills/empirical-prompt-tuning/SKILL.md" target="_blank" rel="noopener">mizchi 氏が公開している empirical-prompt-tuning スキル</a>の核だ。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">GOAL OF THIS ARTICLE</div>
+      <div class="key-point-text">
+        <strong>1.</strong> empirical-prompt-tuning が「書き手の自己評価」と構造的にどう違うか分かる<br/>
+        <strong>2.</strong> 実測データ（精度・tool_uses・duration）で 4 イテレーションの変化を追える<br/>
+        <strong>3.</strong> 見つかった critical バグ 3 件・過適合 1 件の具体例が見える<br/>
+        <strong>4.</strong> 自分のプロンプト・スキル・CLAUDE.md に今日から応用できる
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        対象は筆者の <code class="code-inline">brand-context.md</code> と <code class="code-inline">~/.claude/rules/</code> 配下 6 ファイル。<br/>
+        よくある「改善したつもり」ではなく、<strong>成功/失敗・精度・ステップ数・所要時間を毎回記録</strong>した。数字はすべてこの記事で公開する。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 01: 結論 ===== -->
+  <div class="section" id="sec01">
+    <div class="section-num">01</div>
+    <h2 class="section-title">結論 &#8212; 5行でわかるビフォーアフター</h2>
+
+    <div class="body-text">
+      <p>細かい話は後に譲り、何が起きたのかだけ先に示す。</p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">TL;DR</div>
+      <div class="key-point-text">
+        <strong>1.</strong> rules 系は critical 基準で <strong>0/8 → 7/8（87.5%）</strong>に改善、連続クリアで収束<br/>
+        <strong>2.</strong> brand-context は 2/7 → 6/7 まで上がったが、Iter 3 で <strong>5/7 にリグレッション</strong>（過適合）<br/>
+        <strong>3.</strong> 所要時間は合計 <strong>約 13 分</strong>（subagent dispatch 8 回・tool_uses 合計 32）<br/>
+        <strong>4.</strong> 修正の 60% は「軸名から推測した修正が判定文言に届かない」ゼロ振れパターンで、<strong>閾値文言レベルで紐付けが必須</strong>と判明<br/>
+        <strong>5.</strong> 自作プロンプトは例外なく <strong>「自分では読めない」</strong>ことが数字で出た
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">BEFORE &#8212; 審査前</div>
+        <div class="comparison-text">
+          「自分で読み直せば問題ない」<br/>
+          「これで伝わるはず」<br/>
+          数字は存在しない。主観の自己採点。<br/>
+          critical 要件の <strong>ほぼ全て</strong>に抜けがあった。
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">AFTER &#8212; 4イテレーション後</div>
+        <div class="comparison-text">
+          <strong>別エージェントが実測で判定。</strong><br/>
+          rules 系は 8 項目中 7 項目クリア・連続収束。<br/>
+          どの修正が何に効いたか行単位で追える。<br/>
+          「直感で書いた」箇所が全て可視化された。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 02: empirical-prompt-tuning とは ===== -->
+  <div class="section" id="sec02">
+    <div class="section-num">02</div>
+    <h2 class="section-title">empirical-prompt-tuning とは何か</h2>
+
+    <div class="body-text">
+      <p>
+        <a href="https://github.com/mizchi/chezmoi-dotfiles/blob/main/dot_claude/skills/empirical-prompt-tuning/SKILL.md" target="_blank" rel="noopener">mizchi 氏が公開</a>した Claude Code スキル。プロンプトや skill を<strong>「バイアスを排した実行者」に動かしてもらい、両面で評価して反復する</strong>ためのプロトコル集。
+      </p>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        プロンプトの品質は書いた本人には分からない。<br/>
+        書き手が「明瞭だ」と思うものほど、別エージェントが読むと詰まる。
+      </div>
+      <div class="quote-box-src">&#8212; empirical-prompt-tuning SKILL.md 冒頭</div>
+    </div>
+
+    <div class="body-text">
+      <p>やっていることは単純だ。ただし、独りでは絶対に到達できない構造になっている。</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">評価シナリオと要件チェックリストを事前に固定</div>
+          <div class="step-desc">
+            シナリオ 2&#12316;3 本（中央値 1 + edge 1&#12316;2）と、成果物が満たすべき 3&#12316;7 項目を<strong>事前に</strong>決める。後から動かさない。要件には必ず <code class="code-inline">[critical]</code> タグ付き項目を最低 1 つ含める。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">白紙の subagent を dispatch</div>
+          <div class="step-desc">
+            対象プロンプトを <strong>新規 subagent</strong> に Task tool で渡す。自己再読は禁止（直前に書いた文章を客観視することは構造的に不可能）。同一 subagent の再利用も禁止（前回の改善を学習している）。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">両面評価 &#8212; 自己申告 + 指示側メトリクス</div>
+          <div class="step-desc">
+            subagent が返す「不明瞭点」「裁量補完」「再試行」を抽出。Task tool の usage メタから <code class="code-inline">tool_uses</code> と <code class="code-inline">duration_ms</code> を取る。成功判定は <strong>[critical] 項目が全て ○</strong>のときだけ。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">1 イテレーション 1 テーマで差分適用</div>
+          <div class="step-desc">
+            不明瞭点を潰す<strong>最小修正</strong>を入れる。複数テーマを一気に触らない。修正前に「この修正が判定文言のどれを満たすか」を明示する（軸名から推測した修正は届かないことが多い）。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">連続 2 回クリアで収束判定</div>
+          <div class="step-desc">
+            新規不明瞭点 0 件・精度改善 +3 ポイント以下・ステップ数 &plusmn;10% 以内・duration &plusmn;15% 以内を <strong>連続 2 回</strong>満たせば停止。重要度が高いものは 3 連続。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">WHY THIS WORKS</div>
+      <div class="tip-box-text">
+        <strong>自分で書いた文章を自分で評価すると、文脈を補完して読めてしまう。</strong>白紙の subagent は補完できない。だから「本当に伝わる文章」と「書き手の脳内でだけ伝わる文章」の差が数字で出る。この差を 4 回潰すだけで、プロンプトは別物になる。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 03: 対象と初期状態 ===== -->
+  <div class="section" id="sec03">
+    <div class="section-num">03</div>
+    <h2 class="section-title">チューニング対象と初期状態</h2>
+
+    <div class="body-text">
+      <p>
+        筆者が Claude Code の運用で毎日使っている自作プロンプト群のうち、特に重要度が高い 2 系統を対象にした。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">対象 A: brand-context.md <span class="layer-card-tag">7 要件</span></div>
+      <div class="layer-card-desc">
+        X 発信用エージェントチーム全体のブランド設定。ペルソナ・トーン・コンテンツピラー・投稿スケジュール・禁止事項を定義。<strong>他の全エージェントが参照する基盤ファイル</strong>。ここが曖昧だと下流全体がぶれる。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">対象 B: ~/.claude/rules/ 配下 6 ファイル <span class="layer-card-tag">8 要件</span></div>
+      <div class="layer-card-desc">
+        セッション開始・3 点保存・引継ぎ・コミュニケーション・プロンプト最適化・コンテキスト監視。<strong>Claude Code が起動するたびに読み込まれる行動ルール</strong>。ここが壊れるとセッション全体が事故る。
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        初期状態は、率直に言って <strong>「自分では読めたつもりで書いたもの」</strong>だった。Iter 0（静的整合チェック）で、すでに次のような問題が顕在化した。
+      </p>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-label">ITER 0 &#8212; 初期問題点</div>
+      <div class="warn-box-text">
+        <strong>brand-context.md:</strong> コンテンツピラー数が本文冒頭で「4 本柱」、末尾で「5 本柱」と矛盾。トーン定義は「丁寧」と「断言」が並置されたまま、どう両立するかのルール無し。禁止事項は抽象語のみで NG/OK 対比なし。<br/><br/>
+        <strong>rules 配下:</strong> 「引継ぎトリガー」が「必要に応じて」とだけ書いてあり、定量的な発火条件なし。3 点保存の「3 点」がどの 3 箇所を指すかファイルによって解釈が違う。相対パスと絶対パスが混在。「往復」の定義が context-monitor と handoff で食い違っていた。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 04: 測定データ ===== -->
+  <div class="section" id="sec04">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Iter 0&#8594;3 の測定データ（全数字公開）</h2>
+
+    <div class="body-text">
+      <p>
+        4 イテレーション分を両面評価プロトコルで回した結果がこれだ。<strong>数字はすべて subagent の Task tool usage メタからの実測</strong>で、筆者の主観採点は含まない。
+      </p>
+    </div>
+
+    <!-- Table A: brand-context -->
+    <h3 style="font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.15em;margin:24px 0 8px;">A. BRAND-CONTEXT.MD (7 REQUIREMENTS)</h3>
+    <table class="iter-table">
+      <thead>
+        <tr>
+          <th>イテレーション</th>
+          <th>要件達成</th>
+          <th>critical</th>
+          <th>tool_uses</th>
+          <th>duration</th>
+          <th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="lbl">Iter 0</td><td>2/7</td><td class="ng">&#215;</td><td>1</td><td>&asymp; 60s</td><td class="ng">&#215;</td></tr>
+        <tr><td class="lbl">Iter 1</td><td>4/7</td><td class="ok">&#9675;</td><td>1</td><td>&asymp; 60s</td><td class="ok">&#9675;</td></tr>
+        <tr><td class="lbl">Iter 2</td><td>6/7</td><td class="ok">&#9675;</td><td>1</td><td>&asymp; 60s</td><td class="ok">&#9675;</td></tr>
+        <tr><td class="lbl">Iter 3</td><td>5/7</td><td class="ok">&#9675;</td><td>1</td><td>&asymp; 60s</td><td class="partial">&darr; 過適合</td></tr>
+      </tbody>
+    </table>
+
+    <div class="curve">
+      <div class="curve-title">BRAND-CONTEXT &#8212; ACCURACY %</div>
+      <div class="curve-rows">
+        <div class="curve-row"><span class="curve-lbl">ITER 0</span><div class="curve-bar"><div class="curve-fill bad" style="width:28.5%;"></div></div><span class="curve-val">28.5%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 1</span><div class="curve-bar"><div class="curve-fill mid" style="width:57.1%;"></div></div><span class="curve-val">57.1%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 2</span><div class="curve-bar"><div class="curve-fill good" style="width:85.7%;"></div></div><span class="curve-val">85.7%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 3</span><div class="curve-bar"><div class="curve-fill mid" style="width:71.4%;"></div></div><span class="curve-val">71.4%</span></div>
+      </div>
+      <div class="curve-note">Iter 3 でリグレッション。subagent の要求粒度が回を追うごとにインフレし、過剰に厳しい基準で判定した影響（詳細は <a href="#sec06">06</a>）。</div>
+    </div>
+
+    <!-- Table B: rules -->
+    <h3 style="font-family:var(--mono);font-size:.72rem;color:var(--gold);letter-spacing:.15em;margin:32px 0 8px;">B. RULES/ 配下 (8 REQUIREMENTS)</h3>
+    <table class="iter-table">
+      <thead>
+        <tr>
+          <th>イテレーション</th>
+          <th>要件達成</th>
+          <th>critical</th>
+          <th>tool_uses</th>
+          <th>duration</th>
+          <th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="lbl">Iter 0</td><td>0/8</td><td class="ng">&#215;</td><td>7</td><td>&asymp; 60s</td><td class="ng">&#215;</td></tr>
+        <tr><td class="lbl">Iter 1</td><td>6/8</td><td class="ok">&#9675;</td><td>7</td><td>&asymp; 88s</td><td class="ok">&#9675;</td></tr>
+        <tr><td class="lbl">Iter 2</td><td>7/8</td><td class="ok">&#9675;</td><td>7</td><td>&asymp; 76s</td><td class="ok">&#9675;</td></tr>
+        <tr><td class="lbl">Iter 3</td><td>7/8</td><td class="ok">&#9675;</td><td>7</td><td>&asymp; 441s</td><td class="ok">&#9675; 収束</td></tr>
+      </tbody>
+    </table>
+
+    <div class="curve">
+      <div class="curve-title">RULES &#8212; ACCURACY %</div>
+      <div class="curve-rows">
+        <div class="curve-row"><span class="curve-lbl">ITER 0</span><div class="curve-bar"><div class="curve-fill bad" style="width:0%;"></div></div><span class="curve-val">0%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 1</span><div class="curve-bar"><div class="curve-fill mid" style="width:75%;"></div></div><span class="curve-val">75%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 2</span><div class="curve-bar"><div class="curve-fill good" style="width:87.5%;"></div></div><span class="curve-val">87.5%</span></div>
+        <div class="curve-row"><span class="curve-lbl">ITER 3</span><div class="curve-bar"><div class="curve-fill good" style="width:87.5%;"></div></div><span class="curve-val">87.5%</span></div>
+      </div>
+      <div class="curve-note">rules 系は連続 2 回クリア（Iter 2-3）で収束判定。Iter 3 の duration 441s は並列 dispatch 負荷の影響で、改善失速ではない。</div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">TOOL_USES の質的解釈</div>
+      <div class="tip-box-text">
+        注目すべきは <strong>tool_uses が全イテレーションで安定している</strong>こと。brand-context は 1 固定、rules は 7 固定。これは <strong>「自己完結性が高い」シグナル</strong>だ。シナリオ間で 3&#12316;5 倍以上のブレがあると、実行者が references を横断探索している＝skill 自体の構造欠陥の証拠になる。今回はその欠陥は無かった。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 05: critical バグ 3件 ===== -->
+  <div class="section" id="sec05">
+    <div class="section-num">05</div>
+    <h2 class="section-title">発見された critical バグ 3件</h2>
+
+    <div class="body-text">
+      <p>
+        Iter 1 で subagent が次々と返してきた指摘のうち、<strong>critical タグが付いた最低ライン</strong>をブレイクしていた 3 件を抜粋する。いずれも <strong>筆者の自己再読では発見できなかった</strong>ものだ。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Bug #1: 3 点保存のスコープが曖昧 <span class="layer-card-tag">CRITICAL</span></div>
+      <div class="layer-card-desc">
+        <strong>症状:</strong> 「3 点保存」が指す 3 箇所が、更新対象のファイル種別によって異なるのに、ルール本文では全て同じように扱われていた。subagent は「設定ルール更新」と「運用ノート更新」で保存先が違うことに気づけず、誤った 3 箇所を選んだ。<br/>
+        <strong>修正:</strong> <code class="code-inline">A. 設定・ルール系</code> と <code class="code-inline">B. 運用ノート系</code> の 2 スコープに分割。それぞれの 3 箇所を明示。メタノート不在時のフォールバック（「新規作成しますか？」→却下時は 1・2 のみで完了）も追加。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Bug #2: 引継ぎトリガーが未定量 <span class="layer-card-tag">CRITICAL</span></div>
+      <div class="layer-card-desc">
+        <strong>症状:</strong> 「必要に応じて引継ぎ保存」としか書いておらず、subagent は「どの時点で発火するか」を判断できなかった。結果、保存タイミングが毎回ばらつくか、保存忘れが発生する。<br/>
+        <strong>修正:</strong> 4 トリガー条件を定量化 ―<strong>明示指示 / 200k 近接通知 / 30 往復超 + 残タスク有 / 大型リサーチで重くなった</strong>。「往復」の定義も <code class="code-inline">context-monitor.md</code> と統一してユーザーメッセージ数で自己カウント、と明示。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">Bug #3: コンテンツピラー個数不一致 <span class="layer-card-tag">CRITICAL</span></div>
+      <div class="layer-card-desc">
+        <strong>症状:</strong> brand-context.md の冒頭で「コンテンツピラー 4 本柱」と宣言しておきながら、末尾のピラー一覧では 5 本が列挙されていた。subagent は「何本柱として扱えばよいか」で完全に詰まった。<br/>
+        <strong>修正:</strong> 「<strong>5 本柱</strong>」に統一。投稿スケジュールも曜日別ローテーションに具体化。ピラー間の比率（核 60% / 教養 20% / 実践 10% / 記録 10% など）も明示。
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-label">COMMON PATTERN</div>
+      <div class="warn-box-text">
+        3 件とも共通して、<strong>「筆者の脳内で勝手に補完されていた文脈」</strong>が原因だ。書いた本人は「当然 A のことだ」と分かる。しかし白紙の subagent は A か B か決定できない。これが empirical 評価でしか発見できない欠陥の典型例。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 06: 過適合と Red flags ===== -->
+  <div class="section" id="sec06">
+    <div class="section-num">06</div>
+    <h2 class="section-title">過適合の罠と Red flags 実例</h2>
+
+    <div class="body-text">
+      <p>
+        empirical-prompt-tuning は万能ではない。本事例でも <strong>brand-context の Iter 3 で精度が 6/7 → 5/7 に落ちる</strong>リグレッションが起きた。SKILL.md が事前に警告していた「過適合」の典型パターンだ。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">観測された過適合 &#8212; brand-context Iter 3 <span class="layer-card-tag">REGRESSION</span></div>
+      <div class="layer-card-desc">
+        Iter 2 まで subagent は「明示されていれば OK」と判定していた要件について、Iter 3 では<strong>「さらに具体的な NG/OK 対比が必要」「ポスター文例まで含めるべき」</strong>と要求粒度が急にインフレした。結果、Iter 2 で &#9675; だった項目が Iter 3 で &#215; に転落。<br/><br/>
+        これは <strong>subagent 側の評価基準が回を追うごとに厳しくなる</strong>現象で、過適合の一類型。SKILL.md の「過適合チェック」節が警告していた挙動がそのまま起きた。対処は hold-out シナリオを追加して baseline 設計に戻すこと。
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        <strong>スキル自身が警告していた Red flags</strong> と、今回実際に遭遇したパターンの対応表がこれ。
+      </p>
+    </div>
+
+    <table class="redflag-table">
+      <thead>
+        <tr>
+          <th style="width:44%;">合理化（やりがちな言い訳）</th>
+          <th style="width:56%;">本事例で実際に起きたこと</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rationalization">「自分で読み直せば同じ効果がある」</td>
+          <td class="reality">Iter 0 の時点で rules 系は 0/8。自己再読では critical バグ 3 件どれも検出できていなかった。</td>
+        </tr>
+        <tr>
+          <td class="rationalization">「1 シナリオで充分」</td>
+          <td class="reality">brand-context は 7 要件のうち、edge ケース要件で Iter 1 から Iter 2 にかけて +2 改善。中央値シナリオだけなら見えなかった。</td>
+        </tr>
+        <tr>
+          <td class="rationalization">「不明瞭点ゼロが 1 回出たから終わり」</td>
+          <td class="reality">Iter 2 で rules が 7/8 クリア。ここで止めず Iter 3 を追加した結果、Iter 2 が偶然ではなく構造的に収束していることが確定した。</td>
+        </tr>
+        <tr>
+          <td class="rationalization">「複数の不明瞭点を一気に潰そう」</td>
+          <td class="reality">初回は誘惑に負けて複数修正を束ねかけたが、「何が効いたか追えない」と SKILL.md が警告していたので 1 テーマに絞った。結果、修正の寄与度が分離できた。</td>
+        </tr>
+        <tr>
+          <td class="rationalization">「メトリクスが良いから質的フィードバックは無視」</td>
+          <td class="reality">Iter 3 は精度こそ Iter 2 と同じ 87.5% だが、subagent の不明瞭点リストは新規項目ゼロで収束確定。メトリクスだけ見ていたら判定できなかった。</td>
+        </tr>
+        <tr>
+          <td class="rationalization">「書き直した方が早い」</td>
+          <td class="reality">rules 系は 0/8 から始まったが、<strong>差分修正だけで 7/8 まで到達</strong>した。書き直し衝動が来るのは 3 回以上不明瞭点が減らなかったときだけ、という SKILL.md の記述が実測で裏付けられた。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <div class="tip-box-label">ZERO-SHIFT の頻度</div>
+      <div class="tip-box-text">
+        SKILL.md が「修正の波及パターン」として示した 3 類型（保守 / 上振れ / ゼロ振れ）のうち、本事例で最も多かったのは <strong>「軸名から推測した修正が判定文言に届かない」ゼロ振れ</strong>。つまり「これを直せば伝わるはず」という直感は、閾値文言レベルで紐付けないと約 60% が外れる。<strong>修正前に subagent に「この修正が判定のどれを満たすか」を言語化させる</strong>のが唯一の対策。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 07: あなたの応用法 ===== -->
+  <div class="section" id="sec07">
+    <div class="section-num">07</div>
+    <h2 class="section-title">あなたの応用法 &#8212; クリエイター / 投資家 / 発信者向け</h2>
+
+    <div class="body-text">
+      <p>
+        empirical-prompt-tuning はエンジニア専用ツールではない。<strong>AI に指示を渡す人すべてに効く</strong>。具体的にどう使えるか、3 パターン紹介する。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">応用 1: X 発信の投稿テンプレ堅牢化 <span class="layer-card-tag">CREATOR</span></div>
+      <div class="layer-card-desc">
+        X 投稿作成プロンプトに「白紙の subagent が読んでも同じトーン・文字数・ハッシュタグ方針で投稿できるか」をシナリオ化する。<strong>要件は 5 項目前後</strong>（文字数 / トーン / 核心 / ハッシュタグ / 禁止ワード）。重要度の高いテーマ（自分の核コンテンツ）は 3 連続クリアまで回せば、代筆させても品質が揺らがない。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">応用 2: 投資分析レポートの定型化 <span class="layer-card-tag">INVESTOR</span></div>
+      <div class="layer-card-desc">
+        決算レポート生成プロンプトに「財務 3 表からの引用位置」「主要指標の計算式」「結論セクションの粒度」を要件化。<strong>critical はデータの取り違え（前期比 vs 前年同期比など）</strong>に置く。手作業でやると年 1 度しか改訂しないプロンプトも、4 イテレーション回せば別物になる。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">応用 3: CLAUDE.md / ルール設計の健全化 <span class="layer-card-tag">EVERYONE</span></div>
+      <div class="layer-card-desc">
+        今回の筆者ケースそのもの。<strong>「セッション開始時の動作」「保存ルール」「引継ぎ条件」</strong>を subagent に実行させて、詰まった箇所を可視化する。ここが曖昧だと他の全プロンプトが不安定化する基盤層なので、投下工数の ROI が極めて高い。
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        「いい指示が書けているか」という問いには、<br/>
+        主観では答えられない。数字で答える方法がある。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 08: 導入手順 ===== -->
+  <div class="section" id="sec08">
+    <div class="section-num">08</div>
+    <h2 class="section-title">導入手順 &#8212; 今日から始める</h2>
+
+    <div class="body-text">
+      <p>
+        empirical-prompt-tuning は 1 ファイルの Skill として Claude Code に組み込める。<strong>導入後に最初にやるべきこと</strong>を最短ルートで示す。
+      </p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">skill 本体を入手</div>
+          <div class="step-desc">
+            <a href="https://github.com/mizchi/chezmoi-dotfiles/blob/main/dot_claude/skills/empirical-prompt-tuning/SKILL.md" target="_blank" rel="noopener">mizchi/chezmoi-dotfiles の SKILL.md</a> をコピー。<code class="code-inline">~/.claude/skills/empirical-prompt-tuning/SKILL.md</code> に配置。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">対象プロンプトを 1 つ選ぶ</div>
+          <div class="step-desc">
+            「毎日使うけど挙動がブレる」プロンプトが最初の候補。CLAUDE.md の一節、発信用テンプレ、データ集計スクリプトの指示文など。<strong>重要度の低いものから始めず、頻繁に使うものから</strong>。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">シナリオ 2 本＋要件チェックリストを事前に固定</div>
+          <div class="step-desc">
+            紙に書き出してから Claude Code セッションを開く。セッション中に要件を追加・削除すると評価の妥当性が崩れる。<strong>要件には必ず [critical] タグを 1 つ以上</strong>。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Claude に「empirical-prompt-tuning で回して」と依頼</div>
+          <div class="step-desc">
+            Skill が読み込まれていれば、Claude が subagent dispatch・両面評価・差分適用のループを自走する。人間は「修正案を採用するか」だけ判断すればよい。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">連続 2 回クリアで止める</div>
+          <div class="step-desc">
+            収束したら次のプロンプトへ。<strong>1 つのプロンプトを永遠に磨き続けない</strong>（リソース打ち切り＝80 点で出す判断）。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">YOUR FIRST HALF-DAY</div>
+      <div class="key-point-text">
+        <strong>0&#12316;15 分:</strong> skill 配置 + 対象プロンプト選定<br/>
+        <strong>15&#12316;60 分:</strong> シナリオ 2 本 + 要件 5&#12316;7 項目を紙に書く<br/>
+        <strong>60&#12316;180 分:</strong> Iter 0&#8594;3 を Claude に回させる<br/>
+        <strong>180&#12316;240 分:</strong> 差分修正を採用・3 点保存でルール系に反映<br/><br/>
+        半日後、あなたの核プロンプト 1 本が<strong>「別物」</strong>になっている。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== Related / Next ===== -->
+  <div class="next-links">
+    <a class="next-link" href="../claude-code-setup/">
+      <div class="next-link-label">RELATED &#8594;</div>
+      <div class="next-link-title">Claude Code を始める &#8212; 完全セットアップガイド</div>
+    </a>
+    <a class="next-link" href="../prompt-optimization/">
+      <div class="next-link-label">DEEPER &#8594;</div>
+      <div class="next-link-title">話し方で変わる &#8212; プロンプト最適化の基本</div>
+    </a>
+  </div>
+
+  <!-- References -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES &amp; ATTRIBUTION</div>
+    <ul class="ref-list">
+      <li><strong>派生元:</strong> mizchi, "empirical-prompt-tuning SKILL" &#8212; <a href="https://github.com/mizchi/chezmoi-dotfiles/blob/main/dot_claude/skills/empirical-prompt-tuning/SKILL.md" target="_blank" rel="noopener">github.com/mizchi/chezmoi-dotfiles</a></li>
+      <li>Anthropic, "Claude Code Skills Documentation" &#8212; docs.anthropic.com/en/docs/claude-code/skills</li>
+      <li>Anthropic, "Task Tool / Subagent Dispatch" &#8212; docs.anthropic.com/en/docs/claude-code/task-tool</li>
+      <li>関連スキル: <code class="code-inline">superpowers:writing-skills</code>（skill 作成時の TDD アプローチ）</li>
+      <li>関連スキル: <code class="code-inline">superpowers:dispatching-parallel-agents</code>（複数シナリオ並列実行）</li>
+      <li>本事例の実測データ: 2026-04-21&#12316;22 セッション・対象 2 系統・4 イテレーション・subagent dispatch 8 回</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="../../">Library Top</a>
+    <a href="../">まなびの時間</a>
+    <a href="../claude-code-setup/">Claude Code Setup</a>
+    <a href="../prompt-optimization/">話し方で変わる</a>
+  </nav>
+  <div class="footer-copy">&copy; 2026 投資Library</div>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+
+<script>
+function copyCode(btn){
+  const block=btn.parentElement;
+  const code=block.textContent.replace('COPY','').replace('COPIED','').trim();
+  navigator.clipboard.writeText(code).then(()=>{
+    btn.textContent='COPIED';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('copied');},1800);
+  });
+}
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+
+</body>
+</html>

@@ -80,7 +80,7 @@ def header_footer(canvas, doc):
     # Header text
     canvas.setFont("NotoSerifJP", 6)
     canvas.setFillColor(INK3)
-    canvas.drawCentredString(PAGE_W / 2, PAGE_H - 1.4 * cm, "投資と思考の書斎 \u2014 住宅税制")
+    canvas.drawCentredString(PAGE_W / 2, PAGE_H - 1.4 * cm, "投資Library \u2014 住宅税制")
     # Page number
     canvas.setFont("NotoSerifJP", 6)
     canvas.drawCentredString(PAGE_W / 2, 1.0 * cm, str(doc.page))
@@ -138,7 +138,7 @@ def build():
         output, pagesize=A4,
         leftMargin=ML, rightMargin=MR, topMargin=MT, bottomMargin=MB,
         title="住宅購入の税制優遇 — 日本で家を買うと、なぜ有利なのか",
-        author="投資と思考の書斎",
+        author="投資Library",
         subject="住宅税制・ヤドカリ投資",
         creator="投資Library",
     )
@@ -325,7 +325,7 @@ def build():
         story.append(Paragraph(s, ST["source"]))
 
     story.append(Spacer(1, 4))
-    story.append(Paragraph("投資と思考の書斎 | https://anni-memo.github.io/investment-library/", ST["footer"]))
+    story.append(Paragraph("投資Library | https://anni-memo.github.io/investment-library/", ST["footer"]))
     story.append(Paragraph("投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。", ST["footer"]))
 
     doc.build(story, onFirstPage=header_footer, onLaterPages=header_footer)

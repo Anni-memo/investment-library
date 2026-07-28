@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   投資と思考の書斎 — 共有JavaScript
+   投資Library — 共有JavaScript
    ダークモード・検索・目次・共有ボタン・読了時間
    SPA風ナビゲーション・音楽プレーヤー
    ══════════════════════════════════════════════ */
@@ -79,7 +79,7 @@ function initTOC(){
   if(!article) return;
   var headings = article.querySelectorAll('h2, h3');
   if(headings.length < 3) return;
-  if(document.querySelector('.toc')) return;
+  if(document.querySelector('.toc') || document.querySelector('.nav-cockpit')) return;
 
   var toc = document.createElement('div');
   toc.className = 'auto-toc';

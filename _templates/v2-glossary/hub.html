@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--
+  v2-glossary 母艦テンプレ（hub.html）
+  対応配置先: {site-root}/{{SECTION_SLUG}}/index.html（例: kessan-navi の /guide/index.html）
+  プレースホルダ一覧は README.md を参照。
+  CSSは v2-textbook の v2-styles-partial.html を流用。
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="{{SITE_NAME}}の{{SECTION_LABEL}}。PER・PBR・空売り比率・信用残など、決算を読み解くための指標を定常更新で解説する。"/>
+<meta property="og:title" content="{{SECTION_LABEL}}｜{{SITE_NAME}}"/>
+<meta property="og:description" content="{{OG_DESCRIPTION}}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="{{SITE_URL_BASE}}/{{SECTION_SLUG}}/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="{{SITE_URL_BASE}}/{{SECTION_SLUG}}/"/>
+<title>{{SECTION_LABEL}}｜{{SITE_NAME}}</title>
+
+<!-- ===== AI可読メタ4点（v2必須） ===== -->
+<meta name="ai-content-policy" content="index:allow, cite:allow, summarize:allow"/>
+<meta name="as-of-date" content="{{AS_OF_DATE}}"/>
+<meta name="referenced-fiscal-period" content="{{FISCAL_PERIOD}}"/>
+<link rel="alternate" type="application/json" href="./_data/index.json" title="Glossary Index JSON"/>
+
+<!-- ===== JSON-LD @graph（CollectionPage + DefinedTermSet + Organization + BreadcrumbList） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/#page",
+      "name": "{{SECTION_LABEL}}",
+      "description": "{{ARTICLE_DESCRIPTION}}",
+      "datePublished": "{{INITIAL_PUBLISHED}}",
+      "dateModified": "{{AS_OF_DATE}}",
+      "inLanguage": "ja",
+      "publisher": {"@id": "{{SITE_URL_BASE}}/#publisher"},
+      "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/",
+      "mainEntity": {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/#termset"},
+      "hasPart": [
+        {{HASPART_ITEMS}}
+        /* ===== 補助ページ（個別指標）追加のたびに1行追記 =====
+        {"@type": "Article", "name": "PER（株価収益率）", "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/per/"},
+        {"@type": "Article", "name": "PBR（株価純資産倍率）", "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/pbr/"}
+        */
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/#termset",
+      "name": "{{SECTION_LABEL}}",
+      "description": "{{TERMSET_DESCRIPTION}}",
+      "url": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/",
+      "inLanguage": "ja",
+      "hasDefinedTerm": [
+        {{HASDEFINEDTERM_ITEMS}}
+        /* ===== 補助ページ追加のたびに1行追記 =====
+        {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/per/#term"},
+        {"@id": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/pbr/#term"}
+        */
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{SITE_URL_BASE}}/#publisher",
+      "name": "{{SITE_NAME}}",
+      "url": "{{SITE_URL_BASE}}/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "{{SITE_ROOT_LABEL}}", "item": "{{SITE_URL_BASE}}/"},
+        {"@type": "ListItem", "position": 2, "name": "{{SECTION_LABEL}}", "item": "{{SITE_URL_BASE}}/{{SECTION_SLUG}}/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<!-- ===== v2-textbook の v2-styles-partial.html を丸ごとここに展開 ===== -->
+<!-- v2-styles-partial.html INSERT HERE -->
+
+<!-- ===== 辞書独自CSS（components.html から必要なものを追記） ===== -->
+<!-- 例: .genre-grid / .term-card / .definition-box 等 -->
+
+</head>
+<body>
+
+<nav class="nav">
+  <a href="{{SITE_URL_BASE}}/">{{SITE_ROOT_LABEL}}</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-cur">{{SECTION_LABEL_UPPER}}</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-ornament">GLOSSARY &middot; FINANCIAL METRICS</div>
+  <h1 class="hero-title">
+    {{SECTION_LABEL}}
+    <em>{{SECTION_TAGLINE_EN}}</em>
+  </h1>
+  <div class="hero-meta">{{HERO_META}}</div>
+</div>
+
+<div class="wip-banner">
+  <div class="wip-banner-label">{{WIP_STATUS_LABEL}} &middot; {{LIVE_COUNT}} / {{TOTAL_COUNT}} TERMS LIVE</div>
+  <div class="wip-banner-title">{{WIP_BANNER_TITLE}}</div>
+  <div class="wip-banner-sub">{{WIP_BANNER_SUB}}</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== 導入（INTRO） ===== -->
+  <div class="sec">
+    <div class="sec-label">INTRO</div>
+    <h2 class="sec-title">{{INTRO_TITLE}}</h2>
+    <div class="sec-body">
+      {{INTRO_BODY_HTML}}
+      <!-- 例: <p>決算ナビの{{SECTION_LABEL}}は、四半期ごとの数値を読み解くための共通言語を提供します。</p> -->
+    </div>
+
+    <div class="stance">
+      <div class="stance-label">EDITORIAL STANCE</div>
+      <div class="stance-title">{{STANCE_TITLE}}</div>
+      <p>{{STANCE_BODY_HTML}}</p>
+    </div>
+  </div>
+
+  <!-- ===== ジャンル別TOC ===== -->
+  <div class="sec">
+    <div class="sec-label">TABLE OF CONTENTS</div>
+    <h2 class="sec-title">ジャンル別目次</h2>
+    <div class="sec-body">
+      <p>{{TOC_DESCRIPTION}}</p>
+    </div>
+
+    <!-- ジャンル: バリュエーション -->
+    <div class="toc">
+      <div class="toc-label">VALUATION &middot; バリュエーション</div>
+      <div class="toc-list">
+        {{TOC_ITEMS_VALUATION}}
+      </div>
+    </div>
+
+    <!-- ジャンル: 需給 -->
+    <div class="toc">
+      <div class="toc-label">SUPPLY-DEMAND &middot; 需給</div>
+      <div class="toc-list">
+        {{TOC_ITEMS_SUPPLY_DEMAND}}
+      </div>
+    </div>
+
+    <!-- ジャンル: 財務・短信 -->
+    <div class="toc">
+      <div class="toc-label">FINANCIAL &middot; 財務・短信</div>
+      <div class="toc-list">
+        {{TOC_ITEMS_FINANCIAL}}
+      </div>
+    </div>
+
+    <!-- ジャンル: 機能ガイド（ヒートマップ等） -->
+    <div class="toc">
+      <div class="toc-label">FEATURE GUIDE &middot; 機能の読み方</div>
+      <div class="toc-list">
+        {{TOC_ITEMS_FEATURES}}
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 使い方ガイド ===== -->
+  <div class="sec">
+    <div class="sec-label">HOW TO USE</div>
+    <h2 class="sec-title">{{HOWTO_TITLE}}</h2>
+    <div class="sec-body">
+      {{HOWTO_BODY_HTML}}
+    </div>
+  </div>
+
+</div>
+
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <a class="back-link" href="{{SITE_URL_BASE}}/">
+      <span class="back-link-tag">HOME</span>
+      <span class="back-link-title">{{SITE_NAME}} トップ</span>
+    </a>
+    {{RELATED_BACK_LINKS}}
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-title">{{SITE_NAME}}</div>
+  <div>{{FOOTER_LINKS_HTML}}</div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">{{FOOTER_TAGLINE}}</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+</body>
+</html>

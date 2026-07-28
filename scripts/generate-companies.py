@@ -17,16 +17,16 @@ TEMPLATE = '''<!DOCTYPE html>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="description" content="{name}（{code}）のmoat分析・FCF・競争優位の構造。{verdict}"/>
-<meta property="og:title" content="{name}｜moat分析・FCF・企業研究｜投資と思考の書斎"/>
+<meta property="og:title" content="{name}｜moat分析・FCF・企業研究｜投資Library"/>
 <meta property="og:description" content="{name}（{code}）のmoat分析。{verdict}"/>
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://anni-memo.github.io/investment-library/companies/{slug}/"/>
 <meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="canonical" href="https://anni-memo.github.io/investment-library/companies/{slug}/"/>
-<title>{name} — moat分析｜投資と思考の書斎</title>
+<title>{name} — moat分析｜投資Library</title>
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Article","headline":"{name} — moat分析","description":"{name}（{code}）のmoat分析・FCF・競争優位の構造。","author":{{"@type":"Person","name":"anni_memo"}},"publisher":{{"@type":"Organization","name":"投資と思考の書斎"}},"datePublished":"2026-03-29","inLanguage":"ja"}}
+{{"@context":"https://schema.org","@type":"Article","headline":"{name} — moat分析","description":"{name}（{code}）のmoat分析・FCF・競争優位の構造。","author":{{"@type":"Person","name":"anni_memo"}},"publisher":{{"@type":"Organization","name":"投資Library"}},"datePublished":"2026-03-29","inLanguage":"ja"}}
 </script>
 <link rel="stylesheet" href="../../shared.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -84,7 +84,7 @@ TEMPLATE = '''<!DOCTYPE html>
 </div>
 </div>
 <div class="further"><div class="further-inner"><div class="further-label">関連する記事</div><div class="further-links"><a class="further-link" href="../"><span class="further-link-tag">企業分析</span><span class="further-link-title">企業分析一覧</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../../industries/{industry}/"><span class="further-link-tag">業種</span><span class="further-link-title">{industryName}</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../../moat/"><span class="further-link-tag">MOAT</span><span class="further-link-title">moatをどう見るか</span><span class="further-link-arrow">&rarr;</span></a><a class="further-link" href="../../fcf/"><span class="further-link-tag">FCF</span><span class="further-link-title">FCFとは何か</span><span class="further-link-arrow">&rarr;</span></a></div></div></div>
-<footer class="footer"><div class="footer-title">投資と思考の書斎</div><div><a href="../../">書斎の入口</a> &middot; <a href="../../hajimete/">初めての方へ</a> &middot; <a href="../../principles/">投資原則</a> &middot; <a href="../../industries/">業種から歩く</a> &middot; <a href="../">企業分析</a></div><div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div><div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div></footer>
+<footer class="footer"><div class="footer-title">投資Library</div><div><a href="../../">書斎の入口</a> &middot; <a href="../../hajimete/">初めての方へ</a> &middot; <a href="../../principles/">投資原則</a> &middot; <a href="../../industries/">業種から歩く</a> &middot; <a href="../">企業分析</a></div><div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div><div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div></footer>
 <div class="scroll-top" id="scrollTop" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">&#8593;</div>
 <script>
 window.addEventListener('scroll',function(){{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);}});

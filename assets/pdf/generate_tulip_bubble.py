@@ -177,7 +177,7 @@ def header_footer(canvas, doc):
     # Header
     canvas.setFont("NotoSerifJP", 7)
     canvas.setFillColor(INK3)
-    header_text = "投資と思考の書斎 — 金融史の書庫"
+    header_text = "投資Library — 金融史の書庫"
     canvas.drawCentredString(PAGE_W / 2, PAGE_H - 1.8 * cm, header_text)
 
     # Header gold line
@@ -230,7 +230,7 @@ def build_pdf():
         topMargin=MARGIN_T,
         bottomMargin=MARGIN_B,
         title="チューリップ・バブル — 人類最初の投機バブル",
-        author="投資と思考の書斎",
+        author="投資Library",
         subject="金融史",
         creator="投資Library",
     )
@@ -266,7 +266,7 @@ def build_pdf():
 
     story.append(Spacer(1, 50))
     story.append(HRFlowable(width="40%", thickness=0.3, color=PARCH3, spaceBefore=0, spaceAfter=10))
-    story.append(Paragraph("投資と思考の書斎", ParagraphStyle(
+    story.append(Paragraph("投資Library", ParagraphStyle(
         "pub", fontName="NotoSerifJP", fontSize=8, textColor=GOLD,
         alignment=TA_CENTER, leading=14,
     )))
@@ -479,7 +479,7 @@ def build_pdf():
         "disclaimer", fontName="NotoSerifJP", fontSize=7,
         textColor=INK3, alignment=TA_CENTER, leading=14,
     )
-    story.append(Paragraph("投資と思考の書斎", ParagraphStyle(
+    story.append(Paragraph("投資Library", ParagraphStyle(
         "endpub", fontName="NotoSerifJP", fontSize=9, textColor=GOLD,
         alignment=TA_CENTER, leading=16, spaceAfter=6,
     )))

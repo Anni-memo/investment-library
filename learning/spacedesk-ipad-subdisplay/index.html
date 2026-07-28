@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-VYPK32EB6B');</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="iPadやスマホを外部モニター化する無料ツール「spacedesk」の完全ガイド。Windows 11でのインストール・USB/Wi-Fi接続・拡張モード設定・Claude Code複数タブ運用の活用術まで、外出先で作業効率を倍にする手順を解説。"/>
+<meta property="og:title" content="iPadをClaude Codeのサブ画面にする — spacedeskで外出先の生産性を倍にする完全ガイド｜投資Library"/>
+<meta property="og:description" content="手持ちのiPad・スマホが即席サブモニターに。無料アプリspacedeskのインストールから拡張モード設定、外出先での複数タブ運用までを丁寧に解説。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/learning/spacedesk-ipad-subdisplay/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/learning/spacedesk-ipad-subdisplay/"/>
+<title>iPadをClaude Codeのサブ画面にする — spacedesk完全ガイド｜投資Library</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "iPadをClaude Codeのサブ画面にする — spacedeskで外出先の生産性を倍にする完全ガイド",
+  "description": "無料ツールspacedeskで、手持ちのiPad・スマホをWindows PCの外部モニター化。インストール・接続・拡張モード・活用術までを網羅。",
+  "datePublished": "2026-04-17",
+  "dateModified": "2026-04-17",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資Library", "url": "https://anni-memo.github.io/investment-library/"},
+  "url": "https://anni-memo.github.io/investment-library/learning/spacedesk-ipad-subdisplay/",
+  "about": [
+    {"@type": "Thing", "name": "spacedesk"},
+    {"@type": "Thing", "name": "External Monitor"},
+    {"@type": "Thing", "name": "Claude Code"},
+    {"@type": "Thing", "name": "Productivity"}
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --blue:#1a2a4a;--blue2:#2a3d6a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.2);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(184,144,10,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* ===== Hero 3-column ===== */
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(184,144,10,.1) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-label{font-family:var(--mono);font-size:.46rem;color:var(--gold3);letter-spacing:.3em;margin-bottom:10px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.8rem);font-weight:700;color:var(--parch);position:relative;line-height:1.3;}
+.hero-sub{font-family:var(--mono);font-size:.48rem;color:var(--gold3);letter-spacing:.18em;margin-top:10px;opacity:.75;position:relative;}
+.hero-lead{margin-top:14px;position:relative;font-family:var(--serif);font-size:clamp(.72rem,1.6vw,.82rem);color:var(--parch3);font-style:italic;line-height:1.8;max-width:420px;margin-left:auto;margin-right:auto;}
+
+/* Graph View */
+.graph-card{background:transparent;border:1px solid rgba(184,144,10,.15);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(212,170,34,.45);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(184,144,10,.25);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--jp);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:var(--gold3);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--jp);font-size:.62rem;color:var(--parch3);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions Card in Hero */
+.qa-card{background:rgba(184,144,10,.04);border:1px solid rgba(184,144,10,.12);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(212,170,34,.45);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(184,144,10,.06);border:1px solid rgba(184,144,10,.15);color:var(--parch3);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;width:100%;text-align:left;cursor:pointer;line-height:1.4;}
+.qa-btn-v:hover{background:rgba(184,144,10,.15);border-color:var(--gold3);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+.qa-btn-v.copied{background:rgba(61,104,40,.35);border-color:var(--green3);color:var(--parch);}
+
+/* ===== Navigation Cockpit ===== */
+.nav-cockpit{max-width:1200px;margin:0 auto;padding:20px 40px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.cockpit-panel{background:var(--parch2);border:1px solid var(--parch3);padding:16px 18px;border-radius:4px;}
+.cockpit-label{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.18em;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.cockpit-label::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.cockpit-sublabel{font-family:var(--mono);font-size:.42rem;color:var(--ink3);letter-spacing:.1em;opacity:.5;}
+.cockpit-tree{font-family:var(--mono);font-size:.68rem;line-height:1.7;}
+.ct-item{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:3px;transition:background .15s;}
+.ct-icon{font-size:.72rem;flex-shrink:0;width:18px;text-align:center;}
+.ct-item a{color:var(--ink3);text-decoration:none;transition:color .15s;}
+.ct-item a:hover{color:var(--gold);}
+.ct-count{font-size:.48rem;color:var(--gold);opacity:.6;margin-left:auto;}
+.ct-children{padding-left:20px;position:relative;}
+.ct-children::before{content:'';position:absolute;left:8px;top:0;bottom:12px;width:1px;background:rgba(139,105,20,.4);}
+.ct-children .ct-item{position:relative;}
+.ct-children .ct-item::before{content:'';position:absolute;left:-12px;top:50%;width:10px;height:1.5px;background:rgba(139,105,20,.55);}
+.ct-children .ct-item:last-child::after{content:'';position:absolute;left:-12px;top:50%;bottom:0;width:1px;background:var(--parch2);}
+.ct-root{opacity:.7;}
+.ct-sibling{opacity:.55;}
+.ct-sibling:hover{opacity:1;background:rgba(139,105,20,.06);}
+.ct-current{background:rgba(139,105,20,.1);border-left:2px solid var(--gold);padding-left:4px;}
+.ct-current span:not(.ct-icon){color:var(--gold);font-weight:500;}
+.cockpit-reading{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.12em;opacity:.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--parch3);}
+.toc-list{list-style:none;padding:0;margin:0;}
+.toc-list li{border-bottom:1px solid rgba(139,105,20,.08);}
+.toc-list li:last-child{border-bottom:none;}
+.toc-list a{font-family:var(--jp);font-size:.76rem;color:var(--ink2);text-decoration:none;display:flex;align-items:baseline;gap:8px;padding:6px 4px;transition:all .15s;font-weight:300;line-height:1.5;}
+.toc-list a:hover{color:var(--gold);background:rgba(139,105,20,.04);}
+.toc-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.05em;flex-shrink:0;min-width:18px;}
+@media(max-width:960px){.nav-cockpit{padding:16px 16px 0;gap:12px;}}
+@media(max-width:480px){.nav-cockpit{gap:8px;padding:12px 10px 0;}.toc-list a{font-size:.68rem;padding:5px 2px;}.cockpit-panel{padding:12px 14px;}}
+
+/* ===== Main Content ===== */
+.container{max-width:820px;margin:0 auto;padding:52px 24px 0;}
+.reading-time{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:40px;text-align:center;opacity:.7;}
+
+.section{margin-bottom:56px;}
+.section-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.25em;margin-bottom:8px;opacity:.7;}
+.section-title{font-family:var(--serif);font-size:clamp(1.05rem,3vw,1.35rem);font-weight:700;color:var(--ink);line-height:1.4;margin-bottom:20px;}
+.body-text{font-size:.88rem;color:var(--ink2);line-height:2.15;font-weight:300;}
+.body-text p{margin-bottom:1.3em;}.body-text p:last-child{margin-bottom:0;}
+.body-text strong{font-weight:600;color:var(--ink);}
+.body-text a{color:var(--gold2);text-decoration:underline;text-underline-offset:3px;}
+.body-text a:hover{color:var(--gold3);}
+.body-text ul,.body-text ol{margin:0.8em 0;padding-left:1.6em;}
+.body-text li{margin-bottom:.5em;line-height:2;}
+
+/* Code block with copy */
+.code-block{background:var(--ink);color:var(--parch3);padding:20px 24px;margin:20px 0;overflow-x:auto;border-left:3px solid var(--gold);font-family:var(--mono);font-size:.68rem;line-height:1.9;white-space:pre;position:relative;}
+.code-block .copy-btn{position:absolute;top:8px;right:8px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--gold3);font-family:var(--mono);font-size:.5rem;padding:4px 10px;cursor:pointer;letter-spacing:.08em;transition:all .2s;border-radius:2px;}
+.code-block .copy-btn:hover{background:rgba(184,144,10,.3);color:var(--parch);}
+.code-block .copy-btn.copied{background:var(--green2);border-color:var(--green3);color:var(--parch);}
+.code-inline{background:rgba(139,105,20,.1);color:var(--ink);padding:2px 6px;font-family:var(--mono);font-size:.78rem;}
+
+.quote-box{border-left:4px solid var(--gold);padding:20px 24px;background:var(--parch2);margin:28px 0;}
+.quote-box-text{font-size:.88rem;color:var(--ink2);line-height:2.1;font-style:italic;font-weight:300;}
+.quote-box-src{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;margin-top:10px;}
+
+.key-point{margin:28px 0;border:1px solid rgba(139,105,20,.4);background:linear-gradient(135deg,rgba(139,105,20,.04),rgba(139,105,20,.08));padding:20px 22px;}
+.key-point-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:10px;opacity:.8;display:flex;align-items:center;gap:8px;}
+.key-point-label::after{content:'';flex:1;height:1px;background:rgba(139,105,20,.25);}
+.key-point-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.key-point-text strong{font-weight:600;color:var(--ink);}
+
+.layer-card{margin:16px 0;padding:20px;background:var(--parch2);border:1px solid var(--parch3);border-left:3px solid var(--gold);}
+.layer-card-title{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.layer-card-tag{font-family:var(--mono);font-size:.46rem;color:var(--gold);background:rgba(139,105,20,.1);padding:2px 8px;letter-spacing:.1em;}
+.layer-card-desc{font-size:.82rem;color:var(--ink2);line-height:2;font-weight:300;}
+
+.divider{border:none;border-top:1px solid var(--parch4);margin:0 0 56px;}
+
+/* Warning / Caution box */
+.warn-box{margin:24px 0;border:1px solid rgba(192,80,32,.35);background:linear-gradient(135deg,rgba(139,58,26,.04),rgba(139,58,26,.08));padding:20px 22px;border-left:4px solid var(--rust2);}
+.warn-box-label{font-family:var(--mono);font-size:.5rem;color:var(--rust);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.warn-box-label::after{content:'';flex:1;height:1px;background:rgba(139,58,26,.2);}
+.warn-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.warn-box-text strong{font-weight:600;color:var(--ink);}
+
+/* Tip box */
+.tip-box{margin:24px 0;border:1px solid rgba(42,74,26,.35);background:linear-gradient(135deg,rgba(42,74,26,.04),rgba(42,74,26,.08));padding:20px 22px;border-left:4px solid var(--green2);}
+.tip-box-label{font-family:var(--mono);font-size:.5rem;color:var(--green);letter-spacing:.2em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.tip-box-label::after{content:'';flex:1;height:1px;background:rgba(42,74,26,.2);}
+.tip-box-text{font-size:.84rem;color:var(--ink2);line-height:2.1;font-weight:300;}
+.tip-box-text strong{font-weight:600;color:var(--ink);}
+
+/* OS Tabs */
+.os-tabs{display:flex;gap:4px;margin:20px 0 0;}
+.os-tab{padding:10px 24px;font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;background:var(--parch2);border:1px solid var(--parch3);border-bottom:none;cursor:pointer;color:var(--ink3);transition:all .2s;}
+.os-tab.active{background:var(--parch);color:var(--ink);border-color:var(--gold3);border-top:3px solid var(--gold3);}
+.os-panel{display:none;padding:24px;background:var(--parch);border:1px solid var(--parch3);border-top:none;margin-bottom:20px;}
+.os-panel.active{display:block;}
+
+/* Step list */
+.step-list{counter-reset:step;margin:20px 0;}
+.step-item{counter-increment:step;display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--parch3);}
+.step-item::before{content:counter(step);font-family:var(--mono);font-size:1.1rem;font-weight:700;color:var(--gold);min-width:28px;}
+.step-content{flex:1;}
+.step-title{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.step-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* Command card */
+.cmd-grid{display:grid;gap:12px;margin:20px 0;}
+.cmd-card{display:flex;gap:14px;padding:16px 18px;background:var(--parch2);border:1px solid var(--parch3);align-items:flex-start;}
+.cmd-num{font-family:var(--mono);font-size:.9rem;font-weight:700;color:var(--gold);min-width:24px;padding-top:2px;}
+.cmd-body{flex:1;min-width:0;}
+.cmd-name{font-family:var(--mono);font-size:.78rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.cmd-desc{font-size:.78rem;color:var(--ink3);line-height:1.9;font-weight:300;}
+
+/* Req grid */
+.req-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.req-card{padding:16px;background:var(--parch2);border:1px solid var(--parch3);}
+.req-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.15em;margin-bottom:8px;}
+.req-text{font-size:.82rem;color:var(--ink2);line-height:1.9;font-weight:300;}
+@media(max-width:600px){.req-grid{grid-template-columns:1fr;}}
+
+/* Error table */
+.error-grid{display:grid;gap:12px;margin:20px 0;}
+.error-card{display:grid;grid-template-columns:1fr 1.2fr;gap:16px;padding:16px;background:var(--parch2);border:1px solid var(--parch3);align-items:start;}
+.error-symptom{font-family:var(--mono);font-size:.72rem;color:var(--rust);font-weight:500;line-height:1.7;}
+.error-fix{font-size:.78rem;color:var(--ink2);line-height:1.9;font-weight:300;}
+@media(max-width:600px){.error-card{grid-template-columns:1fr;}}
+
+/* Comparison */
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.comparison-card{padding:20px;border:1px solid var(--parch3);}
+.comparison-card.before{background:rgba(139,58,26,.05);border-color:rgba(139,58,26,.2);}
+.comparison-card.after{background:rgba(42,74,26,.05);border-color:rgba(42,74,26,.2);}
+.comparison-label{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;margin-bottom:10px;}
+.comparison-card.before .comparison-label{color:var(--rust);}
+.comparison-card.after .comparison-label{color:var(--green2);}
+.comparison-text{font-size:.82rem;line-height:2;font-weight:300;color:var(--ink2);}
+@media(max-width:600px){.comparison{grid-template-columns:1fr;}}
+
+/* Person card */
+.person-card{display:flex;gap:20px;padding:24px;background:var(--parch2);border:1px solid var(--parch3);margin:20px 0;align-items:flex-start;}
+.person-icon{width:64px;height:64px;background:var(--ink);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;color:var(--gold3);flex-shrink:0;}
+.person-info{flex:1;}
+.person-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.person-role{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;margin-bottom:10px;}
+.person-desc{font-size:.82rem;color:var(--ink2);line-height:2;font-weight:300;}
+.person-links{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;}
+.person-link{font-family:var(--mono);font-size:.55rem;color:var(--gold2);text-decoration:none;letter-spacing:.05em;padding:4px 12px;border:1px solid rgba(139,105,20,.3);transition:all .2s;}
+.person-link:hover{background:rgba(139,105,20,.1);border-color:var(--gold3);}
+@media(max-width:600px){.person-card{flex-direction:column;align-items:center;text-align:center;}.person-links{justify-content:center;}}
+
+/* Series nav */
+.series-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0;}
+.series-item{padding:16px;border:1px solid var(--parch3);text-decoration:none;transition:all .2s;position:relative;}
+.series-item:hover{border-color:var(--gold3);background:var(--parch2);}
+.series-item.current{border-color:var(--gold);background:linear-gradient(135deg,rgba(139,105,20,.06),rgba(139,105,20,.12));}
+.series-num{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.series-title{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.5;}
+.series-item.current .series-title::after{content:' \2190 NOW';font-family:var(--mono);font-size:.46rem;color:var(--gold3);font-weight:400;}
+@media(max-width:600px){.series-nav{grid-template-columns:1fr;}}
+
+/* Next links */
+.next-links{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0;}
+.next-link{padding:20px;background:var(--parch2);border:1px solid var(--parch3);text-decoration:none;transition:all .2s;}
+.next-link:hover{border-color:var(--gold3);background:var(--parch3);}
+.next-link-label{font-family:var(--mono);font-size:.46rem;color:var(--gold);letter-spacing:.15em;margin-bottom:6px;}
+.next-link-title{font-size:.88rem;font-weight:600;color:var(--ink);}
+@media(max-width:600px){.next-links{grid-template-columns:1fr;}}
+
+/* MyNote FAB */
+.mynote-fab{position:fixed;bottom:90px;right:42px;z-index:8999;width:66px;height:72px;cursor:pointer;transition:all .3s;filter:drop-shadow(0 3px 10px rgba(26,18,8,.4));}
+.mynote-fab:hover{transform:translateY(-3px);filter:drop-shadow(0 6px 16px rgba(26,18,8,.5));}
+.mynote-fab-paper{width:100%;height:100%;background:#faf6ee;border:1px solid var(--parch4);border-radius:2px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.mynote-fab-paper::before{content:'';position:absolute;top:0;right:0;width:12px;height:12px;background:linear-gradient(225deg,var(--parch) 50%,var(--parch4) 50%);border-bottom-left-radius:2px;}
+.mynote-fab-lines{position:absolute;inset:14px 6px 8px;background:repeating-linear-gradient(to bottom,transparent,transparent 6px,rgba(139,105,20,.15) 6px,rgba(139,105,20,.15) 7px);}
+.mynote-fab-text{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.12em;position:relative;margin-top:4px;}
+.mynote-fab-streak{position:absolute;bottom:-4px;right:-4px;font-family:var(--mono);font-size:.42rem;color:var(--gold3);background:var(--ink);padding:1px 4px;border-radius:6px;border:1px solid rgba(184,144,10,.3);line-height:1;}
+@media(max-width:600px){.mynote-fab{bottom:72px;right:18px;width:50px;height:56px;}}
+.mynote-panel{position:fixed;bottom:90px;right:116px;z-index:8998;width:320px;max-width:calc(100vw - 84px);max-height:calc(100vh - 200px);background:#faf6ee;border:1px solid var(--parch4);box-shadow:0 8px 40px rgba(26,18,8,.3);overflow-y:auto;opacity:0;pointer-events:none;transform:translateX(16px) scale(.96);transition:all .25s;border-radius:3px;}
+.mynote-panel.open{opacity:1;pointer-events:all;transform:translateX(0) scale(1);}
+.mynote-panel-header{background:var(--ink);color:var(--parch);padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);}
+.mynote-panel-title{font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.15em;flex:1;}
+.mynote-panel-close{background:none;border:none;color:var(--gold3);font-size:1.1rem;cursor:pointer;padding:2px 6px;transition:color .2s;}
+.mynote-panel-close:hover{color:var(--gold4);}
+.mynote-panel-body{background:repeating-linear-gradient(to bottom,transparent,transparent 27px,rgba(184,144,10,.08) 27px,rgba(184,144,10,.08) 28px);padding:12px 14px;}
+@media(max-width:600px){.mynote-panel{right:8px;bottom:72px;width:calc(100vw - 16px);max-height:55vh;}}
+.mynote-card-streak{font-family:var(--mono);font-size:.55rem;color:var(--gold3);}
+.mynote-card-nav{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px;}
+.mynote-card-nav-btn{background:none;border:1px solid var(--parch4);padding:3px 10px;font-family:var(--mono);font-size:.5rem;color:var(--ink3);cursor:pointer;transition:all .15s;border-radius:2px;}
+.mynote-card-nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.mynote-card-nav-date{font-family:var(--mono);font-size:.58rem;color:var(--ink);font-weight:600;min-width:110px;text-align:center;}
+.mynote-panel textarea{width:100%;min-height:100px;font-size:16px;line-height:1.7;padding:10px;border:1px solid var(--parch4);border-radius:4px;resize:none;font-family:var(--jp);background:rgba(255,255,255,.5);color:var(--ink);outline:none;transition:border-color .2s;}
+.mynote-panel textarea:focus{border-color:var(--gold);}
+.mynote-panel textarea::placeholder{color:var(--parch4);font-size:.78rem;}
+.mynote-card-status{display:flex;align-items:center;justify-content:space-between;padding:6px 0 0;gap:8px;}
+.mynote-card-saved{font-family:var(--mono);font-size:.44rem;color:var(--green2);opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-wordcount{font-family:var(--mono);font-size:.4rem;color:var(--ink3);}
+
+/* PDF Section */
+.pdf-section{margin:32px 0;padding:24px;background:linear-gradient(135deg,var(--ink) 0%,#2a1c0a 100%);border:1px solid rgba(184,144,10,.2);}
+.pdf-section-label{font-family:var(--mono);font-size:.6rem;color:var(--gold3);letter-spacing:.2em;margin-bottom:14px;}
+.pdf-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(184,144,10,.15);border:1px solid rgba(184,144,10,.3);color:var(--parch);text-decoration:none;font-family:var(--jp);font-size:.95rem;transition:all .2s;margin:4px 8px 4px 0;}
+.pdf-btn:hover{background:rgba(184,144,10,.25);border-color:var(--gold3);}
+.pdf-btn-icon{font-size:1.2rem;}
+.pdf-btn-sub{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.1em;}
+
+/* Reference Section */
+.ref-section{margin:48px 0 0;padding:24px;background:var(--parch2);border:1px solid var(--parch3);}
+.ref-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.2em;margin-bottom:12px;}
+.ref-list{list-style:none;padding:0;}
+.ref-list li{font-size:.76rem;color:var(--ink3);line-height:1.9;font-weight:300;padding:4px 0;padding-left:1em;position:relative;}
+.ref-list li::before{content:'\2014';position:absolute;left:0;color:var(--gold);}
+
+/* Timeline */
+.timeline{margin:24px 0;padding-left:24px;border-left:2px solid rgba(184,144,10,.3);}
+.timeline-item{padding:12px 0 12px 20px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--parch);}
+.timeline-year{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.1em;}
+.timeline-text{font-size:.82rem;color:var(--ink2);line-height:1.8;font-weight:300;margin-top:4px;}
+
+/* MyNote Calendar */
+.mynote-card-calendar{margin-top:10px;}
+.mynote-card-calendar-label{font-family:var(--mono);font-size:.4rem;color:var(--gold);letter-spacing:.1em;margin-bottom:3px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;}
+.mynote-card-calendar-weekdays span{font-family:var(--mono);font-size:.32rem;color:var(--ink3);text-align:center;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border-radius:2px;background:var(--parch4);cursor:default;}
+.mc-day.has-note{background:var(--gold);opacity:.7;}
+.mc-day.has-note.today{opacity:1;box-shadow:0 0 0 2px var(--gold3);}
+.mc-day.future{background:transparent;border:1px solid var(--parch4);}
+.mynote-card-challenge{font-family:var(--mono);font-size:.42rem;color:var(--gold);letter-spacing:.08em;margin-top:6px;padding-top:6px;border-top:1px solid var(--parch4);}
+.mynote-card-challenge-bar{height:4px;background:var(--parch4);border-radius:2px;margin-top:3px;overflow:hidden;}
+.mynote-card-challenge-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold3));border-radius:2px;transition:width .3s;}
+
+/* Footer */
+.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;margin-top:80px;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.7;transition:opacity .2s;}.footer-nav a:hover{opacity:1}
+.footer-copy{font-family:var(--mono);font-size:.48rem;color:var(--parch4);opacity:.4;letter-spacing:.1em;}
+</style>
+<link rel="stylesheet" href="../../shared.css"/>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../">&#8592; 書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">まなびの時間</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">iPadをサブ画面にする</span>
+</nav>
+
+<!-- ===== HERO (3-column) ===== -->
+<div class="hero">
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">SPACEDESK MAP</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Title -->
+    <div class="hero-col-center">
+      <div class="hero-label">SPACEDESK COMPLETE GUIDE</div>
+      <h1 class="hero-title">iPadをClaude Codeのサブ画面にする<br><span style="font-size:.6em;font-weight:400;opacity:.85;">&#8212; 手持ちの端末で外出先の生産性を倍にする</span></h1>
+      <div class="hero-sub">FROM SINGLE SCREEN TO DUAL DISPLAY</div>
+      <p class="hero-lead">カフェで、ホテルで、新幹線で。<br>手持ちのiPad・スマホが、ノートPCの「もう一枚の画面」になる。<br>必要なのは無料アプリひとつだけ。</p>
+    </div>
+
+    <!-- Right: Quick Start -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec01"><span class="qa-icon">&#9889;</span> 最短ルートへ</a>
+          <a class="qa-btn-v" href="#sec03"><span class="qa-icon">&#128189;</span> インストール</a>
+          <a class="qa-btn-v" href="#sec04"><span class="qa-icon">&#128279;</span> 3つの接続方法</a>
+          <a class="qa-btn-v" href="#sec06"><span class="qa-icon">&#9889;</span> 拡張モード設定</a>
+          <a class="qa-btn-v" href="https://www.spacedesk.net/" target="_blank" rel="noopener"><span class="qa-icon">&#127760;</span> spacedesk公式</a>
+          <button type="button" class="qa-btn-v" onclick="copyClaudePrompt(this)"><span class="qa-icon">&#128203;</span> <span class="qa-label">Claude Codeに導入を依頼</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Navigation Cockpit ===== -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">現在地 <span class="cockpit-sublabel">YOU ARE HERE</span></div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">&#128218;</span><a href="../../">投資Library</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">&#128194;</span><a href="../">まなびの時間</a><span class="ct-count">6</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">&#128221;</span><span>iPadをサブ画面にする</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-setup/">Claude Code Setup</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-memory/">記憶を設計する</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../obsidian-second-brain/">メモの複利</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../claude-code-master/">Claude Code Master</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">&#128196;</span><a href="../prompt-optimization/">話し方で変わる</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">&#128214; APPROX. 12 MIN READ</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">目次 <span class="cockpit-sublabel">CONTENTS</span></div>
+    <ol class="toc-list">
+      <li><a href="#sec00"><span class="toc-num">00</span>この記事で得られるもの</a></li>
+      <li><a href="#sec01"><span class="toc-num">01</span>まず結論 &#8212; 最短ルート</a></li>
+      <li><a href="#sec02"><span class="toc-num">02</span>spacedeskとは何か</a></li>
+      <li><a href="#sec03"><span class="toc-num">03</span>PC側 &#8212; Driverのインストール</a></li>
+      <li><a href="#sec04"><span class="toc-num">04</span>iPad・スマホ側のアプリ導入</a></li>
+      <li><a href="#sec05"><span class="toc-num">05</span>3つの接続方法</a></li>
+      <li><a href="#sec06"><span class="toc-num">06</span>拡張モードに切り替える</a></li>
+      <li><a href="#sec07"><span class="toc-num">07</span>ウィンドウ移動のショートカット</a></li>
+      <li><a href="#sec08"><span class="toc-num">08</span>外出先で使う4つのメリット</a></li>
+      <li><a href="#sec09"><span class="toc-num">09</span>よくあるトラブルと対処</a></li>
+      <li><a href="#sec10"><span class="toc-num">10</span>使用時の注意点</a></li>
+      <li><a href="#sec11"><span class="toc-num">11</span>さあ、もう1画面を手に入れよう</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ===== MyNote FAB ===== -->
+<div id="mynoteFab" class="mynote-fab" title="あなたのメモ帳">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">NOTE</div>
+  </div>
+  <span class="mynote-fab-streak" id="mcFabStreak"></span>
+</div>
+<div id="mynotePanel" class="mynote-panel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&#8592;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&#8594;</button>
+    </div>
+    <textarea id="mcText" placeholder="読みながら気づいたことを書き留めよう..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">&#10003; saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- ===== 00: この記事で得られるもの ===== -->
+  <div class="section" id="sec00">
+    <div class="section-num">00</div>
+    <h2 class="section-title">この記事で得られるもの</h2>
+    <div class="body-text">
+      <p>
+        ノートPC1画面で Claude Code を複数タブ開いていると、<br>
+        すぐに画面が足りなくなります。
+      </p>
+      <p>
+        メインでコードを書き、別タブで設計を壁打ちし、<br>
+        さらに別タブで調査する&#8212;&#8212;<br>
+        タブの切替えだけで一日が終わってしまう。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">GOAL OF THIS ARTICLE</div>
+      <div class="key-point-text">
+        <strong>1.</strong> 手持ちのiPadやスマホを無料でサブモニター化できる<br>
+        <strong>2.</strong> Wi-Fi/USB/テザリング、3つの接続方法を使い分けられる<br>
+        <strong>3.</strong> 拡張モードで独立した2画面として使える<br>
+        <strong>4.</strong> 外出先でも自宅と同じ作業効率を再現できる<br><br>
+        結論から言えば、<strong>追加費用ゼロで、今日からデュアルモニター環境</strong>が手に入ります。
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        使うのは <strong>spacedesk</strong> というドイツ発の無料ツール。Windows PCの画面を、Wi-Fi や USB 経由で iPad・iPhone・Android 端末へ「拡張表示」できるソフトです。
+      </p>
+      <p>
+        似た製品に Duet Display（有料）があります。品質では Duet に分がありますが、<strong>個人利用なら spacedesk で十分</strong>です。何より無料で、セットアップも10分で終わります。
+      </p>
+      <p>
+        この記事は、実際につまずきやすいポイント&#8212;&#8212;「Driver と Viewer を間違える」「IPアドレスが通らない」「複製モードから抜け出せない」&#8212;&#8212;をすべて先回りして解説します。
+      </p>
+    </div>
+
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">BEFORE &#8212; ノートPC1画面</div>
+        <div class="comparison-text">
+          タブ切替えでコンテキストが飛ぶ。<br>
+          ウィンドウを並べれば各々が狭くて読めない。<br>
+          <strong>思考が断線する。</strong>
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">AFTER &#8212; iPadがサブ画面</div>
+        <div class="comparison-text">
+          メインでコード、iPadで設計資料。<br>
+          同時に視界に入れたまま作業できる。<br>
+          <strong>思考が途切れない。</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 01: 最短ルート ===== -->
+  <div class="section" id="sec01">
+    <div class="section-num">01</div>
+    <h2 class="section-title">まず結論 &#8212; 最短ルート</h2>
+    <div class="body-text">
+      <p>
+        細かい説明は後回しにして、まず「何をすればいいか」だけ先にお伝えします。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">FASTEST PATH &#8212; 4 STEPS</div>
+      <div class="key-point-text">
+        <strong>1.</strong> PCで <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">spacedesk公式</a> から <strong>DRIVER</strong> をダウンロード＆インストール<br>
+        <strong>2.</strong> iPadやスマホで App Store / Google Play から <strong>spacedesk</strong> アプリをインストール<br>
+        <strong>3.</strong> 同じWi-Fi（または USB接続）で PCとiPadをつなぐ<br>
+        <strong>4.</strong> iPadアプリで PC名をタップ &#8594; 接続完了<br><br>
+        この4ステップだけで、iPadがサブモニターになります。
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">IMPORTANT &#8212; 最初にハマるポイント</div>
+      <div class="tip-box-text">
+        spacedeskには「<strong>DRIVER</strong>（送信側）」と「<strong>VIEWER</strong>（受信側）」の2種類があります。<br>
+        今回やりたい「PCをメイン、iPadをサブ」にするには、PCに <strong>DRIVER</strong> を入れる必要があります。<br><br>
+        Microsoft Storeで検索すると VIEWER が先に出てくるので、必ず <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">公式サイト</a> から DRIVER をダウンロードしてください。
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        それでは、ここから各ステップを丁寧に見ていきます。
+      </p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 02: spacedeskとは ===== -->
+  <div class="section" id="sec02">
+    <div class="section-num">02</div>
+    <h2 class="section-title">spacedeskとは何か</h2>
+    <div class="body-text">
+      <p>
+        spacedesk は、ドイツの datronicsoft 社が開発した <strong>無料のミラーリング・拡張ディスプレイソフト</strong>です。2014年のリリース以来、Windows PCのサブモニターソリューションとして世界中で使われてきました。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">送信側（PRIMARY） <span class="layer-card-tag">WINDOWS</span></div>
+      <div class="layer-card-desc">
+        <strong>Windows 10 / 11</strong> が対応。PCの画面を送信するための「Driver」をインストールします。これが記事の主役です。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">受信側（SECONDARY） <span class="layer-card-tag">MULTI-PLATFORM</span></div>
+      <div class="layer-card-desc">
+        <strong>iOS / iPadOS / Android / Amazon Fire / Webブラウザ / 別のWindows PC</strong> が対応。手持ちのほぼすべての端末をサブ画面にできます。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">接続方式 <span class="layer-card-tag">FLEXIBLE</span></div>
+      <div class="layer-card-desc">
+        <strong>Wi-Fi（無線）/ USB（有線）/ 有線LAN</strong> の3方式に対応。自宅では手軽にWi-Fi、外出先では安定のUSB、と使い分けられます。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">料金 <span class="layer-card-tag">FREE</span></div>
+      <div class="layer-card-desc">
+        <strong>個人利用は完全無料</strong>。広告なし、機能制限なし。商用利用にはライセンスが必要ですが、個人の作業用途なら一切の費用はかかりません。
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div class="comparison-card before">
+        <div class="comparison-label">類似製品 &#8212; Duet Display</div>
+        <div class="comparison-text">
+          有料（約1,600円）。USB接続の安定性・遅延の少なさで優れる。<br>
+          イラスト・動画編集などプロ用途向け。
+        </div>
+      </div>
+      <div class="comparison-card after">
+        <div class="comparison-label">spacedesk &#8212; 本記事</div>
+        <div class="comparison-text">
+          <strong>完全無料。</strong>遅延は若干あるが、文書作業・コーディングには十分。<br>
+          試してダメでも損しない。まず導入するのはこちら。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 03: PC側 Driver導入 ===== -->
+  <div class="section" id="sec03">
+    <div class="section-num">03</div>
+    <h2 class="section-title">PC側 &#8212; DRIVERのインストール</h2>
+    <div class="body-text">
+      <p>
+        まず PC（送信側）の準備から進めます。ここが最初の分かれ道です。
+      </p>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-label">CAUTION &#8212; Microsoft Storeには落とし穴</div>
+      <div class="warn-box-text">
+        Microsoft Storeで「spacedesk」と検索すると、最初に <strong>VIEWER</strong>（受信側アプリ）が表示されます。<br>
+        これをインストールしても、PCは <strong>サブ画面側</strong> にしかなれません。<br><br>
+        今回の目的は「PCをメイン、iPadをサブ」にすることなので、必ず<strong>公式サイトから DRIVER をダウンロード</strong>してください。
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">spacedesk公式サイトを開く</div>
+          <div class="step-desc">
+            ブラウザで <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">spacedesk.net</a> にアクセスし、上部メニューの「Download」をクリック。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">DRIVER をダウンロード</div>
+          <div class="step-desc">
+            ダウンロードページの一番上に表示される「<strong>spacedesk DRIVER software for Windows PRIMARY PC (server)</strong>」を選択。<br>
+            64bit版（<span class="code-inline">spacedesk_driver_Win_10_64_v...msi</span>）が一般的です。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">インストーラーを実行</div>
+          <div class="step-desc">
+            ダウンロードした .msi ファイルをダブルクリック。表示される画面はすべて「Next」でOK。<br>
+            利用規約だけ確認してチェックを入れてください。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">PCを再起動</div>
+          <div class="step-desc">
+            インストール完了後、念のためPCを再起動します。再起動後、<strong>タスクトレイに緑色の「sd」アイコン</strong>が表示されていれば成功です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">VERIFY &#8212; サーバーが動いているか確認</div>
+      <div class="tip-box-text">
+        タスクトレイの緑の「sd」アイコンを右クリック &#8594;「Status Window」を選択。<br>
+        「<strong>ON (Running)</strong>」と表示されていれば、PC側の準備は完了です。<br>
+        表示されない場合は、スタートメニューから「spacedesk Driver Console」を起動してください。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 04: iPad・スマホ側 ===== -->
+  <div class="section" id="sec04">
+    <div class="section-num">04</div>
+    <h2 class="section-title">iPad・スマホ側のアプリ導入</h2>
+    <div class="body-text">
+      <p>
+        次にサブ画面にする端末の準備です。こちらは公式サイト経由ではなく、<strong>各端末のストアから直接アプリをインストール</strong>します。
+      </p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">iPad / iPhone の場合</div>
+          <div class="step-desc">
+            App Store を開き、「<strong>spacedesk</strong>」を検索。<br>
+            開発元が「<strong>datronicsoft spol s r.o.</strong>」のアプリをインストールします（偽物に注意）。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">Android / Amazon Fire の場合</div>
+          <div class="step-desc">
+            Google Play または Amazon Appstore で「<strong>spacedesk</strong>」を検索。<br>
+            同じく開発元 <strong>datronicsoft</strong> のアプリをインストールします。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">ブラウザでも可</div>
+          <div class="step-desc">
+            古いタブレットやChromebookなど、アプリをインストールできない端末でも、Chromeなどのブラウザから <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">spacedesk.net</a> の「HTML5 Web Viewer」経由で接続可能です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">NOTE &#8212; 複数端末を同時接続も可能</div>
+      <div class="tip-box-text">
+        spacedeskは複数の受信端末を同時に接続できます。<br>
+        「メイン=PC、右サブ=iPad、左サブ=古いタブレット」といった<strong>3画面構成</strong>も可能です。<br>
+        ノートPC持ち歩き＋複数端末で、一気に作業領域を広げられます。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 05: 3つの接続方法 ===== -->
+  <div class="section" id="sec05">
+    <div class="section-num">05</div>
+    <h2 class="section-title">3つの接続方法 &#8212; 用途で使い分ける</h2>
+
+    <div class="body-text">
+      <p>
+        spacedeskには、自宅向け・外出先向け・最安定の3つの接続方法があります。<br>
+        シーンによって使い分けるのが正解です。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">A. 自宅Wi-Fi経由 <span class="layer-card-tag">最も簡単</span></div>
+      <div class="layer-card-desc">
+        PCとiPadを<strong>同じWi-Fiに接続</strong>するだけ。iPadアプリを起動すると、PC名が自動検出されて画面に表示されます。タップで即接続。<br>
+        <strong>使用シーン:</strong> 自宅・オフィスなど固定Wi-Fi環境。セットアップはこれが最速です。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">B. iPadテザリング経由 <span class="layer-card-tag">外出先向け</span></div>
+      <div class="layer-card-desc">
+        カフェや外出先など、信頼できるWi-Fiがない場所で使う方法。iPad側の「<strong>インターネット共有</strong>」をONにし、PCをiPadのWi-Fiに接続します。両方が同じネットワークに属する状態になり、spacedeskが動きます。<br>
+        <strong>使用シーン:</strong> 出張先・新幹線・カフェなど。ただし通信量を消費するので注意。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">C. USB有線接続 <span class="layer-card-tag">最も安定</span></div>
+      <div class="layer-card-desc">
+        <strong>データ転送対応ケーブル</strong>でPCとiPadをつなぎ、iPadで「信頼」をタップ。そのうえで iPad の「インターネット共有」をONにすると、USB経由のネットワークが確立されます。遅延が少なく、通信量も消費しません。<br>
+        <strong>使用シーン:</strong> 長時間の集中作業・外出先の安定接続。充電専用ケーブルはNG、必ず純正やMFi認証品を使用してください。
+      </div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-label">TROUBLESHOOT &#8212; 自動検出されない場合</div>
+      <div class="warn-box-text">
+        PC名が自動で表示されないときは、<strong>IPアドレスを手動入力</strong>します。<br>
+        PCで「Windowsキー + R &#8594; <span class="code-inline">cmd</span> &#8594; <span class="code-inline">ipconfig</span>」と実行し、<strong>「IPv4 アドレス」</strong>を確認。<br>
+        USBテザリング時は「イーサネット アダプター iPhone/iPad」の欄の <span class="code-inline">172.20.10.x</span> のようなIPが正解です。<br>
+        iPadアプリの「＋」または「Add Address」からこのIPを入力すれば接続できます。
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">FIREWALL &#8212; 通信がブロックされていないか確認</div>
+      <div class="tip-box-text">
+        接続が進まない場合、Windowsファイアウォールでspacedeskがブロックされている可能性があります。<br>
+        「Windowsセキュリティ &#8594; ファイアウォールとネットワーク保護 &#8594; アプリにファイアウォール経由の通信を許可する」から、「<strong>spacedeskService</strong>」または「<strong>spacedesk</strong>」の<strong>プライベート/パブリック両方にチェック</strong>を入れてください。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 06: 拡張モード ===== -->
+  <div class="section" id="sec06">
+    <div class="section-num">06</div>
+    <h2 class="section-title">拡張モードに切り替える &#8212; 独立した2画面にする</h2>
+    <div class="body-text">
+      <p>
+        初回接続時、多くの場合 iPad に <strong>PCと同じ画面</strong> が表示されます（複製モード）。<br>
+        これでは画面を拡張したことになりません。独立した2画面（拡張モード）に切り替えます。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">FASTEST WAY &#8212; ショートカット一発</div>
+      <div class="key-point-text">
+        <strong>Windowsキー + P</strong> を同時押し<br>
+        &#8594; 画面右側にメニューが表示されます<br>
+        &#8594; 「<strong>拡張</strong>」を選択<br><br>
+        これだけで PC=1番、iPad=2番 の独立した2画面になります。
+      </div>
+    </div>
+
+    <div class="body-text">
+      <p>
+        続いて、画面の配置を実際の置き位置に合わせます。これをやらないと「右にiPadを置いているのに、マウスが左端からしか移動しない」という状態になります。
+      </p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">ディスプレイ設定を開く</div>
+          <div class="step-desc">
+            PCのデスクトップを右クリック &#8594;「ディスプレイ設定」を選択。<br>
+            画面上部に「1」「2」のモニター四角が表示されます。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">画面番号を確認</div>
+          <div class="step-desc">
+            「識別」ボタンをクリックすると、各画面に大きな番号が表示されます。iPadに映っている番号を確認しましょう。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">実際の配置にドラッグ</div>
+          <div class="step-desc">
+            iPadの番号四角を、実際の置き位置（PCの右側・左側・上・下）に合わせてドラッグ。<br>
+            これでマウスカーソルが自然に画面間を移動できるようになります。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-content">
+          <div class="step-title">適用して完了</div>
+          <div class="step-desc">
+            「適用」ボタンをクリック。画面がいったん切り替わり、新しい配置が反映されます。問題なければ「変更の維持」を選択。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 07: ウィンドウ移動 ===== -->
+  <div class="section" id="sec07">
+    <div class="section-num">07</div>
+    <h2 class="section-title">ウィンドウ移動のショートカット</h2>
+    <div class="body-text">
+      <p>
+        拡張モードにしたら、あとはウィンドウを自由に配置するだけです。<br>
+        毎日使うショートカットを覚えておくと、作業効率が劇的に上がります。
+      </p>
+    </div>
+
+    <div class="cmd-grid">
+      <div class="cmd-card">
+        <div class="cmd-num">1</div>
+        <div class="cmd-body">
+          <div class="cmd-name">マウスでドラッグ</div>
+          <div class="cmd-desc">ウィンドウのタイトルバーをドラッグし、画面端からiPad側へ押し出す。最も直感的な方法。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">2</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + Shift + ← / →</div>
+          <div class="cmd-desc">選択中のウィンドウを隣の画面へ一発で移動。頻繁に使うならこれが最速。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">3</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + 矢印キー</div>
+          <div class="cmd-desc">ウィンドウを画面の左半分・右半分にスナップ。2画面それぞれで並列配置に便利。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">4</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + P</div>
+          <div class="cmd-desc">表示モードの切替え（複製・拡張・PC画面のみ・セカンドのみ）。プレゼン時の切替えにも活用。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">5</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + D</div>
+          <div class="cmd-desc">両画面のウィンドウを一気に最小化してデスクトップを表示。集中を取り戻したい時に。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">6</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Ctrl + Shift + &uarr; / &darr;（PageUp/Down, Home/End）</div>
+          <div class="cmd-desc">Windows ターミナル内で<strong>入力欄に文字を入れずに</strong>スクロール。1行ずつ・1ページずつ・最上部/最下部へ。Claude Code のログを少し戻して確認したい時の必須ショートカット。</div>
+        </div>
+      </div>
+      <div class="cmd-card">
+        <div class="cmd-num">7</div>
+        <div class="cmd-body">
+          <div class="cmd-name">Win + Shift + D &#8212; PowerToys Mouse Jump</div>
+          <div class="cmd-desc">全ディスプレイの縮小プレビューを表示し、クリックした位置にカーソルを瞬間移動。<strong>iPad サブ画面とのカーソル往復が劇的に速くなる</strong>。要 PowerToys（Microsoft 公式・無料）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">CLAUDE CODE 実践例 &#8212; 複数タブ運用</div>
+      <div class="tip-box-text">
+        Claude Codeは同時に複数タブを起動できるのが強みです。2画面環境なら<strong>タブごとに画面を分担</strong>させることで、切替えコストが消えます。<br><br>
+        <strong>メイン画面（PC）:</strong> 実装中のClaude Codeタブ<br>
+        <strong>サブ画面（iPad）:</strong> 設計壁打ち用タブ、調査用ブラウザ、ターミナル<br><br>
+        「コードを書きながら、設計AIに相談しながら、別タブでドキュメントを読む」&#8212;&#8212;この並列作業こそ、Claude Code本来の使い方です。
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">PowerToys を Claude Code に導入させる &#8212; ワンクリック連携</div>
+      <div class="tip-box-text">
+        下のプロンプトをコピーして Claude Code に貼り付ければ、PowerToys のインストールから Mouse Jump 有効化まで自動で案内してくれます。<br>
+        <strong>iPad 連携で最も効くのが Mouse Jump</strong>（Win+Shift+D）&#8212;&#8212;サブ画面へのカーソル移動が一瞬で終わるようになります。
+      </div>
+      <div class="code-block">
+<button class="copy-btn" onclick="copyCode(this)">COPY</button>PowerToys を使って iPad サブ画面とのカーソル移動を効率化したいです。以下を順に実行してください。
+
+1. PowerToys がインストール済みか確認: `winget list Microsoft.PowerToys`
+2. 未インストールなら: `winget install Microsoft.PowerToys`
+3. PowerToys 設定 &rarr; マウス ユーティリティ &rarr; Mouse Jump を有効化する手順を案内
+4. デフォルトショートカット Win+Shift+D の動作確認方法を説明
+5. 併せて「マウスの検索」(Ctrl 2回押し) の有効化も推奨
+
+完了後、iPad サブ画面とのカーソル移動が劇的に速くなります。</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 08: 外出先メリット ===== -->
+  <div class="section" id="sec08">
+    <div class="section-num">08</div>
+    <h2 class="section-title">外出先で使う4つのメリット</h2>
+    <div class="body-text">
+      <p>
+        このセットアップの真価は、実は<strong>外出先</strong>で発揮されます。自宅だけならモニターを買えば済む話。でも外出先では、そうはいきません。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">1. カフェで擬似デュアルモニター環境 <span class="layer-card-tag">MOBILITY</span></div>
+      <div class="layer-card-desc">
+        ノートPC1台では狭かった画面が、iPadを横に並べるだけで<strong>作業領域が1.5〜2倍</strong>に拡大します。出張先のホテル、カフェ、新幹線&#8212;&#8212;場所を問わず自宅と同じ環境を再現できます。旅先で急な作業が入っても、ストレスなく対応可能です。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">2. Claude Codeの複数タブ運用に最適 <span class="layer-card-tag">PRODUCTIVITY</span></div>
+      <div class="layer-card-desc">
+        Claude Codeは同時に複数タブを起動できるのが強みです。<br>
+        「実装中のプロジェクト」「設計・企画の壁打ち」「過去セッションの参照」&#8212;&#8212;これらを<strong>同時に視界に入れる</strong>ことで、切替えコストがゼロになり、思考が途切れません。<br>
+        1画面だとタブ切替えで失われていた文脈が、2画面では保持されます。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">3. スマホでも代用可能 <span class="layer-card-tag">ACCESSIBLE</span></div>
+      <div class="layer-card-desc">
+        iPadが手元になくても、Android・iPhoneでもサブ画面化できます。画面は小さくても<strong>ターミナル・チャット・参考資料</strong>の表示には十分実用的。<br>
+        「サブ画面用に別端末を買う必要はない」&#8212;&#8212;これが spacedesk の強みです。いま手持ちのスマホを立てかけるだけで、3画面環境さえ構築できます。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">4. 初期投資ゼロ <span class="layer-card-tag">COST-EFFECTIVE</span></div>
+      <div class="layer-card-desc">
+        手持ちのデバイスだけで完結するため、<strong>追加費用は発生しません</strong>。外部モニター（安くても1万円〜）を持ち歩く必要も、高価な周辺機器を買う必要もない。<br>
+        「まず試してみる」のハードルが限りなく低いのが、この方法の最大のメリット。合わなければやめればいい、それだけです。
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        新しい道具は、買う前にまず手持ちで試す。<br>
+        外部モニターを買う前に、手元のiPadで1週間試してみる。<br>
+        それだけで「本当に必要か」が見えてくる。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 09: トラブル対処 ===== -->
+  <div class="section" id="sec09">
+    <div class="section-num">09</div>
+    <h2 class="section-title">よくあるトラブルと対処</h2>
+    <div class="body-text">
+      <p>
+        実際に使ってみて、詰まりやすいポイントをまとめました。ほとんどの場合、原因は単純です。
+      </p>
+    </div>
+
+    <div class="error-grid">
+      <div class="error-card">
+        <div class="error-symptom">iPadからPC名が見えない</div>
+        <div class="error-fix">
+          <strong>Wi-Fiが別ネットワーク、または自動検出がブロック。</strong><br>
+          両デバイスが同じWi-Fiか確認。2.4GHz/5GHzの分離や、ゲストWi-Fiでは通信が遮断されることがあります。手動でIPアドレスを入力すれば接続できます。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">IP入力後も接続が進まない</div>
+        <div class="error-fix">
+          <strong>Windowsファイアウォールでブロック。</strong><br>
+          spacedeskService の受信通信を許可してください。「Windowsセキュリティ &#8594; ファイアウォール &#8594; アプリの許可」でプライベート/パブリック両方にチェックを入れます。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">PCをサブ画面にしかできない</div>
+        <div class="error-fix">
+          <strong>DRIVERではなくVIEWERを入れている。</strong><br>
+          Microsoft Store版はVIEWER（受信側）です。公式サイト <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">spacedesk.net</a> からDRIVERをダウンロードし直してください。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">iPadに複製画面しか映らない</div>
+        <div class="error-fix">
+          <strong>ディスプレイ設定が「複製」のまま。</strong><br>
+          Windowsキー + P を同時押しし、「拡張」を選択してください。これで独立した2画面として動作します。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">USB接続でネットワーク認識しない</div>
+        <div class="error-fix">
+          <strong>ケーブルが充電専用、または信頼設定が未完了。</strong><br>
+          データ転送対応ケーブル（iPad付属純正品が確実）を使用し、iPadで「このコンピュータを信頼」をタップ。その後 iPad の「インターネット共有」をONにします。
+        </div>
+      </div>
+      <div class="error-card">
+        <div class="error-symptom">遅延が気になる・画質が悪い</div>
+        <div class="error-fix">
+          <strong>Wi-Fi接続の通信品質が原因。</strong><br>
+          spacedesk Driver Console の設定から解像度・フレームレートを調整。USB接続に切り替えると劇的に改善します。動画視聴用途には不向きなので、文書・コーディングのみで使用してください。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 10: 使用時の注意点 ===== -->
+  <div class="section" id="sec10">
+    <div class="section-num">10</div>
+    <h2 class="section-title">使用時の注意点</h2>
+    <div class="body-text">
+      <p>
+        便利なツールですが、万能ではありません。長く使うために知っておきたい注意点を整理しておきます。
+      </p>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">バッテリー消費が早い <span class="layer-card-tag">BATTERY</span></div>
+      <div class="layer-card-desc">
+        iPad側の画面が常時点灯し、通信も継続するため、バッテリー消費は通常より早くなります。長時間利用する場合は<strong>充電ケーブルを繋ぎながら</strong>の使用を推奨します。新幹線・カフェなど電源が確保しやすい場所を選ぶと安心です。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">テザリング通信量に注意 <span class="layer-card-tag">DATA USAGE</span></div>
+      <div class="layer-card-desc">
+        iPadテザリング経由で接続する場合、画面転送は通信量を消費します。長時間使う場合は<strong>USB接続に切り替え</strong>が無難です。USB接続ならテザリングONにしてもデータ通信はUSB経由になるので、モバイル通信量は消費しません。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">遅延は発生する <span class="layer-card-tag">LATENCY</span></div>
+      <div class="layer-card-desc">
+        Wi-Fi接続では数十ミリ秒〜の遅延があります。文書作業・コーディングなら問題ありませんが、<strong>動画視聴・ゲーム・リアルタイム音声編集には不向き</strong>です。どうしても必要なら有料のDuet Displayを検討しましょう。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">画質設定は調整できる <span class="layer-card-tag">CUSTOMIZABLE</span></div>
+      <div class="layer-card-desc">
+        spacedesk Driver Console の設定画面から、<strong>解像度・フレームレート・画質</strong>を調整できます。通信環境が悪い時は画質を下げると遅延が改善します。逆に有線接続で余裕があるなら、最高画質にして快適に使えます。
+      </div>
+    </div>
+
+    <div class="layer-card">
+      <div class="layer-card-title">商用利用はライセンス必要 <span class="layer-card-tag">COMMERCIAL</span></div>
+      <div class="layer-card-desc">
+        個人の作業用途は無料ですが、<strong>業務での商用利用にはライセンス契約が必要</strong>です。会社のPCで使う場合は、IT部門に確認してから導入しましょう。個人副業・フリーランスの作業用途なら問題ありません。
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-label">長く使うコツ</div>
+      <div class="tip-box-text">
+        <strong>メイン接続をUSB、緊急用にWi-Fi</strong>&#8212;&#8212;この運用が最も安定します。<br>
+        USBケーブル1本を常にPCバッグに入れておけば、出先で「あ、iPad繋げよう」と思った瞬間に、即デュアル環境が手に入ります。<br>
+        この「一手間の省略」が、日々の作業効率を大きく変えます。
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ===== 11: さあ、もう1画面を ===== -->
+  <div class="section" id="sec11">
+    <div class="section-num">11</div>
+    <h2 class="section-title">さあ、もう1画面を手に入れよう</h2>
+    <div class="body-text">
+      <p>
+        道具は、買う前に「借りて試す」のが鉄則です。
+      </p>
+      <p>
+        外部モニターを買う前に、手元のiPadで1週間だけ試してみる。それで「やっぱり要らない」と思えば、諦めればいい。逆に「これは手放せない」と感じたら、本格的な外部モニターへの投資を検討すればいい。
+      </p>
+      <p>
+        <strong>spacedeskは、その判断のための「試運転」になります。</strong>何より、費用ゼロで、10分で、始められます。
+      </p>
+      <p>
+        Claude Codeを使い始めたあなたなら、すでに「複数タブで同時に考える」ことの価値を知っているはず。その価値を、<strong>ノートPC1台の狭さ</strong>で諦める必要はありません。
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div class="key-point-label">YOUR FIRST 10 MINUTES</div>
+      <div class="key-point-text">
+        <strong>0〜3分:</strong> spacedesk公式サイトから DRIVER をダウンロード＆インストール<br>
+        <strong>3〜5分:</strong> iPad / スマホに spacedeskアプリをインストール<br>
+        <strong>5〜7分:</strong> 同じWi-FiまたはUSBで接続<br>
+        <strong>7〜10分:</strong> Windowsキー + P で「拡張」に切替、配置を調整<br><br>
+        10分後、あなたの外出先の作業環境は<strong>自宅と同じ2画面</strong>になっています。
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <div class="quote-box-text">
+        画面が増えると、思考が広がる。<br>
+        思考が広がると、できることが増える。<br>
+        &#8212;&#8212; まずは、手元の端末から。
+      </div>
+    </div>
+  </div>
+
+  <!-- spacedeskの歴史タイムライン -->
+  <div class="section" id="sec-timeline">
+    <div class="section-num">TIMELINE</div>
+    <h2 class="section-title">spacedesk の歩み</h2>
+    <div class="body-text">
+      <p>10年以上続く、ドイツ発の息の長いプロダクト。主なマイルストーンを見ておきましょう。</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2014</div>
+        <div class="timeline-text">ドイツの datronicsoft 社が初版をリリース。当初はWindows間でのセカンドディスプレイ化が主目的。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2016</div>
+        <div class="timeline-text">Android版クライアントアプリをリリース。Windows PC → Androidタブレットの拡張が可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-text">iOS / iPadOS版を正式リリース。iPadをセカンドディスプレイ化する定番ソリューションとして広まる。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-text">コロナ禍のリモートワーク需要で利用者が急増。在宅勤務のデュアルモニター化の定番手段に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <div class="timeline-text">HTML5 Web Viewer対応。アプリをインストールできない端末でもブラウザ経由で利用可能に。</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-text">Windows 11 / iPadOS 18 環境で引き続き安定動作。Claude Code などのAIツールの複数タブ運用環境として注目が高まる。</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- 参考文献 -->
+  <div class="ref-section">
+    <div class="ref-label">REFERENCES</div>
+    <ul class="ref-list">
+      <li>spacedesk 公式サイト &#8212; <a href="https://www.spacedesk.net/" target="_blank" rel="noopener" style="color:var(--gold2);">spacedesk.net</a></li>
+      <li>datronicsoft (開発元) &#8212; ドイツのソフトウェア企業。2014年からspacedeskを提供</li>
+      <li>Microsoft Docs, "Windows 11 複数モニター設定" &#8212; support.microsoft.com</li>
+      <li>Apple Support, "iPad のインターネット共有" &#8212; support.apple.com</li>
+      <li>Duet Display 公式サイト（比較対象） &#8212; duetdisplay.com</li>
+    </ul>
+  </div>
+
+  <!-- 次に読む -->
+  <div class="next-links">
+    <a class="next-link" href="../claude-code-setup/">
+      <div class="next-link-label">RELATED &#8594; LEARNING</div>
+      <div class="next-link-title">Claude Codeを始める</div>
+    </a>
+    <a class="next-link" href="../claude-code-master/">
+      <div class="next-link-label">DEEPER &#8594; MASTERY</div>
+      <div class="next-link-title">Claude Code マスター</div>
+    </a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="../../">Library Top</a>
+    <a href="../">まなびの時間</a>
+    <a href="../claude-code-setup/">Claude Code Setup</a>
+    <a href="../claude-code-master/">Claude Code マスター</a>
+  </nav>
+  <div class="footer-copy">&copy; 2026 投資Library</div>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+
+<!-- ===== Scripts ===== -->
+<script>
+/* Copy button for code blocks */
+function copyCode(btn){
+  const block=btn.parentElement;
+  const code=block.textContent.replace('COPY','').replace('COPIED','').trim();
+  navigator.clipboard.writeText(code).then(()=>{
+    btn.textContent='COPIED';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('copied');},1800);
+  });
+}
+
+/* Quick Action: copy Claude Code prompt for PowerToys setup */
+const CLAUDE_POWERTOYS_PROMPT=`PowerToys を使って iPad サブ画面とのカーソル移動を効率化したいです。以下を順に実行してください。
+
+1. PowerToys がインストール済みか確認: \`winget list Microsoft.PowerToys\`
+2. 未インストールなら: \`winget install Microsoft.PowerToys\`
+3. PowerToys 設定 → マウス ユーティリティ → Mouse Jump を有効化する手順を案内
+4. デフォルトショートカット Win+Shift+D の動作確認方法を説明
+5. 併せて「マウスの検索」(Ctrl 2回押し) の有効化も推奨
+
+完了後、iPad サブ画面とのカーソル移動が劇的に速くなります。`;
+function copyClaudePrompt(btn){
+  const label=btn.querySelector('.qa-label');
+  navigator.clipboard.writeText(CLAUDE_POWERTOYS_PROMPT).then(()=>{
+    const original=label.textContent;
+    label.textContent='✓ コピー完了 — Claude Codeに貼付け';
+    btn.classList.add('copied');
+    setTimeout(()=>{label.textContent=original;btn.classList.remove('copied');},2200);
+  });
+}
+
+/* ===== Knowledge Graph — Template-aligned Physics Simulation ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'この記事',step:'手順',device:'端末',conn:'接続',advanced:'活用'};
+  var catColors={self:'#d4aa22',step:'#b8900a',device:'#8b6914',conn:'#5a8a3a',advanced:'#2a3d6a'};
+
+  var nodes=[
+    {id:'self',label:'iPadをサブ画面に',x:0,y:0,r:22,color:catColors.self,cat:'self',url:null,desc:'この記事'},
+    {id:'driver',label:'DRIVER導入',x:-110,y:-60,r:16,color:catColors.step,cat:'step',url:'#sec03',desc:'PC側ソフトをインストール'},
+    {id:'app',label:'アプリ導入',x:120,y:-50,r:16,color:catColors.step,cat:'step',url:'#sec04',desc:'iPad/スマホアプリを入れる'},
+    {id:'connect',label:'接続する',x:100,y:70,r:14,color:catColors.conn,cat:'conn',url:'#sec05',desc:'3つの接続方法'},
+    {id:'extend',label:'拡張モード',x:-60,y:90,r:14,color:catColors.step,cat:'step',url:'#sec06',desc:'Win+P で独立2画面に'},
+    {id:'wifi',label:'Wi-Fi',x:160,y:30,r:11,color:catColors.conn,cat:'conn',url:'#sec05',desc:'自宅で最も簡単'},
+    {id:'usb',label:'USB',x:150,y:110,r:12,color:catColors.conn,cat:'conn',url:'#sec05',desc:'外出先で最も安定'},
+    {id:'tether',label:'テザリング',x:60,y:130,r:11,color:catColors.conn,cat:'conn',url:'#sec05',desc:'外出先Wi-Fi無しで'},
+    {id:'ipad',label:'iPad',x:-170,y:-30,r:12,color:catColors.device,cat:'device',url:'#sec04',desc:'iPadOS'},
+    {id:'android',label:'Android',x:-140,y:40,r:11,color:catColors.device,cat:'device',url:'#sec04',desc:'Android端末'},
+    {id:'claudecode',label:'Claude Code活用',x:-30,y:-130,r:12,color:catColors.advanced,cat:'advanced',url:'#sec07',desc:'複数タブ並列作業'},
+  ];
+
+  var edges=[
+    {from:'self',to:'driver'},{from:'self',to:'app'},{from:'self',to:'connect'},
+    {from:'self',to:'extend'},{from:'self',to:'claudecode'},
+    {from:'driver',to:'connect'},{from:'app',to:'connect'},
+    {from:'app',to:'ipad'},{from:'app',to:'android'},
+    {from:'connect',to:'wifi'},{from:'connect',to:'usb'},{from:'connect',to:'tether'},
+    {from:'extend',to:'claudecode'}
+  ];
+
+  /* Connection map for hover highlight */
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  /* Default labels: self + direct connections of self */
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;
+    H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',function(){resize();});
+
+  /* Physics */
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+
+    /* Determine hover and connections */
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){
+      hovConns[hovId]=true;
+      (connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});
+    }
+
+    /* Edges */
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.08)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    /* Nodes */
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;
+      var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;
+      var r=n.r*(isHov?1.2:pulse);
+
+      /* glow */
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+
+      /* circle */
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'44');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+
+      /* center dot */
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+
+      /* label: show if hovered, connected, or in default set */
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.5)';
+        ctx.textAlign='center';
+        ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    /* Legend */
+    var legend=[
+      {l:'\u3053\u306e\u8a18\u4e8b',c:catColors.self},
+      {l:'\u624b\u9806',c:catColors.step},
+      {l:'\u74b0\u5883',c:catColors.os},
+      {l:'\u6a5f\u80fd',c:catColors.advanced},
+      {l:'\u30c4\u30fc\u30eb',c:catColors.tool}
+    ];
+    var lx=8,ly=H-10;
+    legend.forEach(function(item){
+      ctx.fillStyle=item.c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='400 7px "Noto Serif JP","DM Mono",sans-serif';
+      ctx.fillStyle='rgba(245,237,224,.35)';ctx.textAlign='left';
+      ctx.fillText(item.l,lx+8,ly+2.5);
+      lx+=ctx.measureText(item.l).width+16;
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  /* Hit test */
+  function hitTest(x,y){
+    for(var i=nodes.length-1;i>=0;i--){
+      var n=nodes[i];
+      if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+8)return n;
+    }
+    return null;
+  }
+  function getXY(e){
+    var rect=canvas.getBoundingClientRect();
+    return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};
+  }
+
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){
+      dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;
+      dragging.vx=0;dragging.vy=0;return;
+    }
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){
+      hit.hover=true;
+      ttTitle.textContent=hit.label;
+      ttCat.textContent=catLabels[hit.cat]||hit.cat;
+      ttDesc.textContent=hit.desc;
+      tooltip.style.opacity='1';
+      tooltip.style.left=Math.min(hit.px+20,W-160)+'px';
+      tooltip.style.top=(hit.py-55)+'px';
+      canvas.style.cursor='pointer';
+    }else{
+      tooltip.style.opacity='0';
+      canvas.style.cursor='grab';
+    }
+  });
+  canvas.addEventListener('mouseleave',function(){
+    nodes.forEach(function(n){n.hover=false;});
+    tooltip.style.opacity='0';dragging=null;
+  });
+  canvas.addEventListener('mousedown',function(e){
+    var p=getXY(e);var hit=hitTest(p.x,p.y);
+    if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}
+  });
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){
+      var p=getXY(e);
+      var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));
+      dragging.dragging=false;
+      if(moved<5&&dragging.url){
+        if(dragging.url.startsWith('#')){
+          var el=document.getElementById(dragging.url.slice(1));
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        }else{window.open(dragging.url,'_blank');}
+      }
+    }
+    dragging=null;canvas.style.cursor='grab';
+  });
+
+  /* Touch */
+  canvas.addEventListener('touchstart',function(e){
+    e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();
+    var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    var hit=hitTest(mx,my);
+    if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}
+  },{passive:false});
+  canvas.addEventListener('touchmove',function(e){
+    e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();
+    var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);
+    dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;
+  },{passive:false});
+  canvas.addEventListener('touchend',function(){
+    if(dragging){
+      dragging.dragging=false;
+      if(dragging.url){
+        if(dragging.url.startsWith('#')){
+          var el=document.getElementById(dragging.url.slice(1));
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        }else{window.open(dragging.url,'_blank');}
+      }
+    }
+    dragging=null;
+  });
+})();
+
+/* ===== MyNote FAB — Full Version ===== */
+(function(){
+  const STORAGE_PREFIX='myNote_';
+  const fab=document.getElementById('mynoteFab');
+  const panel=document.getElementById('mynotePanel');
+  const closeBtn=document.getElementById('mynoteClose');
+  const textarea=document.getElementById('mcText');
+  const savedEl=document.getElementById('mcSaved');
+  const wcEl=document.getElementById('mcWc');
+  const dateEl=document.getElementById('mcDate');
+  const prevBtn=document.getElementById('mcPrev');
+  const nextBtn=document.getElementById('mcNext');
+  const streakEl=document.getElementById('mcStreak');
+  const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+
+  let currentDate=new Date().toISOString().slice(0,10);
+  let saveTimer;
+
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){
+    if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);
+    else localStorage.removeItem(STORAGE_PREFIX+date);
+  }
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+
+  function render(){
+    dateEl.textContent=currentDate;
+    textarea.value=getNote(currentDate);
+    updateWc();
+    updateStreak();
+    renderCalendar();
+    renderChallenge();
+  }
+  function updateWc(){
+    const len=(textarea.value||'').length;
+    wcEl.textContent=len?len+' chars':'';
+  }
+  function save(){
+    setNote(currentDate,textarea.value);
+    savedEl.classList.add('visible');
+    setTimeout(()=>savedEl.classList.remove('visible'),1200);
+    renderCalendar();renderChallenge();updateStreak();
+  }
+
+  function getStreak(){
+    let streak=0,d=new Date();
+    while(true){
+      const k=d.toISOString().slice(0,10);
+      if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;
+    }
+    return streak;
+  }
+  function updateStreak(){
+    const streak=getStreak();
+    const txt=streak?streak+'d streak':'';
+    streakEl.textContent=txt;fabStreakEl.textContent=streak||'';
+  }
+
+  function renderCalendar(){
+    if(!calendarEl)return;
+    calendarEl.innerHTML='';
+    const d=new Date(currentDate);
+    const year=d.getFullYear(),month=d.getMonth();
+    const firstDay=new Date(year,month,1).getDay();
+    const daysInMonth=new Date(year,month+1,0).getDate();
+    const today=new Date().toISOString().slice(0,10);
+    const offset=(firstDay+6)%7;/* Monday-start */
+    for(let i=0;i<offset;i++){
+      const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);
+    }
+    for(let day=1;day<=daysInMonth;day++){
+      const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+      const el=document.createElement('div');
+      el.className='mc-day';
+      if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}
+      else if(dateStr>today)el.classList.add('future');
+      calendarEl.appendChild(el);
+    }
+  }
+
+  function renderChallenge(){
+    if(!challengeEl||!challengeFill)return;
+    const totalDays=66;
+    const streak=getStreak();
+    const pct=Math.min(streak/totalDays*100,100);
+    challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');
+    challengeFill.style.width=pct+'%';
+  }
+
+  function shift(days){
+    const d=new Date(currentDate);d.setDate(d.getDate()+days);
+    currentDate=d.toISOString().slice(0,10);render();
+  }
+
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',()=>shift(-1));
+  nextBtn.addEventListener('click',()=>shift(1));
+
+  /* Auto-resize textarea */
+  textarea.addEventListener('input',function(){
+    this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';
+  });
+
+  render();
+})();
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+
+</body>
+</html>

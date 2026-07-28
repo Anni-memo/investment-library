@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta property="og:title" content="「安い株」と「良い株」は違う｜資産形成の教養"/>
+<meta property="og:description" content="PERが低い株が割安とは限らない。バリュートラップの罠、「良い企業を適正価格で」という哲学、長期複利の力——長期投資家が本当に理解すべき株の選び方を論じる。"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="description" content="「安い株」と「良い株」の違いを解剖する。バリュートラップの罠、複利が教える良い企業の定義、実用的な3指標。"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/thinking/cheap-vs-good/"/>
+<title>「安い株」と「良い株」は違う｜資産形成の教養</title>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"「安い株」と「良い株」は違う",
+  "datePublished":"2026-03-27",
+  "author":{"@type":"Person","name":"anni_memo"},
+  "publisher":{"@type":"Organization","name":"投資Library"},
+  "about":["バリュー投資","企業分析","投資哲学"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --wine:#5a1a2a;--wine2:#7a2a3a;--wine3:#a03a4a;
+  --green:#2a4a1a;--green2:#3d6828;
+  --blue:#1a2a4a;--blue2:#2a3d6a;--blue3:#3a5a8a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(90,26,42,.4);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+.hero{
+  background:linear-gradient(165deg,#0c0608 0%,#180c10 40%,#200e14 70%,#120608 100%);
+  color:var(--parch);padding:24px 40px 24px;position:relative;overflow:hidden;
+  border-bottom:3px solid rgba(90,26,42,.6);
+}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(90,26,42,.14) 0%,transparent 60%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(160,58,74,.5),transparent);}
+.hero-inner{max-width:780px;margin:0 auto;}
+.hero-breadcrumb{font-family:var(--mono);font-size:.5rem;color:rgba(200,140,155,.5);letter-spacing:.18em;margin-bottom:20px;}
+.hero-label{font-family:var(--mono);font-size:.52rem;color:rgba(190,120,135,.65);letter-spacing:.28em;margin-bottom:14px;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.6rem,4.5vw,2.8rem);font-weight:700;color:var(--parch);line-height:1.15;margin-bottom:14px;}
+.hero-subtitle{font-family:var(--serif);font-style:italic;font-size:clamp(.82rem,2vw,.96rem);color:rgba(220,185,190,.7);line-height:1.9;margin-bottom:28px;}
+.hero-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.hero-date{font-family:var(--mono);font-size:.52rem;color:rgba(190,140,150,.6);letter-spacing:.08em;}
+.hero-tag{font-family:var(--mono);font-size:.44rem;padding:3px 10px;border:1px solid rgba(90,26,42,.4);color:rgba(200,140,150,.85);letter-spacing:.08em;}
+.summary-wrap{background:var(--parch);border-bottom:1px solid var(--parch4);padding:0 24px;}
+.summary-inner{max-width:780px;margin:0 auto;padding:36px 0;}
+.summary-label{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.22em;margin-bottom:16px;opacity:.7;}
+.summary-text{font-family:var(--serif);font-size:clamp(.88rem,2.2vw,1.02rem);color:var(--ink2);line-height:2.1;font-weight:300;border-left:3px solid var(--wine2);padding-left:18px;}
+.summary-text strong{color:var(--ink);font-weight:600;}
+.article-wrap{padding:0 24px;}
+.article-inner{max-width:780px;margin:0 auto;padding:52px 0 80px;}
+/* 比較ボックス */
+.compare-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:48px;border:1px solid var(--parch4);}
+@media(max-width:560px){.compare-wrap{grid-template-columns:1fr;}}
+.compare-col{padding:22px;}
+.compare-col.left{border-right:1px solid var(--parch4);background:rgba(90,26,42,.04);}
+.compare-col.right{background:rgba(42,74,26,.04);}
+.compare-head{font-family:var(--mono);font-size:.5rem;letter-spacing:.14em;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid;}
+.compare-col.left .compare-head{color:var(--wine2);border-color:var(--wine2);}
+.compare-col.right .compare-head{color:var(--green2);border-color:var(--green2);}
+.compare-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.compare-items{display:flex;flex-direction:column;gap:6px;}
+.compare-item{font-size:.78rem;color:var(--ink2);line-height:1.7;padding:6px 10px;border-left:2px solid;}
+.compare-col.left .compare-item{border-color:var(--wine2);background:rgba(90,26,42,.03);}
+.compare-col.right .compare-item{border-color:var(--green2);background:rgba(42,74,26,.03);}
+/* エッセイ */
+.essay-section{margin-bottom:48px;}
+.essay-num{font-family:var(--mono);font-size:.5rem;color:var(--wine2);letter-spacing:.25em;margin-bottom:8px;opacity:.75;}
+.essay-heading{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--parch4);}
+.essay-heading span{color:var(--wine2);}
+.essay-text{font-size:.86rem;color:var(--ink2);line-height:2.2;font-weight:300;}
+.essay-text strong{color:var(--ink);font-weight:600;}
+.essay-text em{color:var(--wine2);font-style:normal;font-weight:600;}
+.callout{margin:20px 0;padding:18px 22px;background:var(--parch2);border-left:3px solid var(--wine2);}
+.callout-text{font-family:var(--serif);font-size:.94rem;color:var(--ink);line-height:2;font-style:italic;}
+.callout-text strong{font-style:normal;font-weight:700;}
+/* 複利シミュレーション */
+.sim-wrap{background:var(--parch2);border:1px solid var(--parch4);padding:22px 24px;margin:20px 0;}
+.sim-label{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.18em;margin-bottom:14px;opacity:.7;}
+.sim-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+@media(max-width:560px){.sim-grid{grid-template-columns:1fr;}}
+.sim-card{background:var(--parch3);padding:14px;text-align:center;border:1px solid var(--parch4);}
+.sim-card-label{font-family:var(--mono);font-size:.44rem;color:var(--ink3);letter-spacing:.1em;margin-bottom:6px;opacity:.7;}
+.sim-val-small{font-family:var(--mono);font-size:.8rem;color:var(--ink3);margin-bottom:2px;}
+.sim-val{font-family:var(--mono);font-size:1.2rem;font-weight:700;margin-bottom:4px;}
+.sim-card.good .sim-val{color:var(--green2);}
+.sim-card.mid .sim-val{color:var(--gold2);}
+.sim-card.base .sim-val{color:var(--ink3);}
+.sim-desc{font-size:.68rem;color:var(--ink3);line-height:1.5;}
+.article-divider{display:flex;align-items:center;gap:16px;margin:0 0 44px;font-family:var(--mono);font-size:.44rem;color:var(--ink3);letter-spacing:.2em;opacity:.4;}
+.article-divider::before,.article-divider::after{content:'';flex:1;height:1px;background:var(--parch4);}
+.closing-note{background:linear-gradient(135deg,var(--ink) 0%,var(--ink2) 100%);border:1px solid rgba(184,144,10,.2);padding:28px;}
+.closing-label{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.22em;margin-bottom:14px;opacity:.75;}
+.closing-text{font-family:var(--serif);font-size:.88rem;color:var(--parch3);line-height:2.1;font-weight:300;}
+.closing-text strong{color:var(--parch);font-weight:500;}
+.back-link-wrap{margin-top:48px;text-align:center;}
+.back-link{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border:1px solid rgba(184,144,10,.35);font-family:var(--mono);font-size:.56rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;transition:all .2s;}
+.back-link:hover{background:rgba(184,144,10,.08);border-color:var(--gold2);}
+.site-footer{background:var(--ink);color:var(--parch4);text-align:center;padding:36px 24px;border-top:1px solid rgba(184,144,10,.2);}
+.footer-nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px;}
+.footer-nav a{font-family:var(--mono);font-size:.55rem;color:var(--gold3);text-decoration:none;letter-spacing:.1em;opacity:.65;transition:opacity .2s;}
+.footer-nav a:hover{opacity:1}
+.footer-copy{font-family:var(--mono);font-size:.46rem;color:var(--parch4);opacity:.35;letter-spacing:.12em;}
+
+
+/* ===== Morimori Template: Hero 3-col ===== */
+.hero-3col{display:grid;grid-template-columns:1fr 1.618fr 1fr;gap:28px;max-width:1200px;margin:0 auto;align-items:center;position:relative;}
+@media(max-width:960px){.hero-3col{grid-template-columns:1fr;max-width:600px;gap:16px;}}
+.hero-col-center{text-align:center;padding:0;}
+.hero-col-side{min-width:0;}
+.hero-col-center .hero-inner{max-width:100%;}
+
+/* Graph Card */
+.graph-card{background:transparent;border:1px solid rgba(200,140,80,.2);border-radius:4px;position:relative;overflow:hidden;}
+.graph-card canvas{display:block;width:100%;cursor:grab;}
+.graph-card-label{position:absolute;top:10px;left:14px;font-family:var(--mono);font-size:.46rem;color:rgba(220,170,110,.55);letter-spacing:.2em;z-index:2;pointer-events:none;}
+.graph-tooltip{position:absolute;background:rgba(13,15,20,.92);border:1px solid rgba(200,140,80,.3);padding:8px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:10;max-width:200px;}
+.graph-tooltip-title{font-family:var(--serif);font-size:.72rem;color:var(--parch);font-weight:600;margin-bottom:2px;}
+.graph-tooltip-cat{font-family:var(--mono);font-size:.42rem;color:rgba(220,170,110,.85);letter-spacing:.1em;text-transform:uppercase;}
+.graph-tooltip-desc{font-family:var(--serif);font-size:.62rem;color:rgba(220,200,170,.75);margin-top:4px;line-height:1.5;}
+
+/* Quick Actions */
+.qa-card{background:rgba(200,140,80,.06);border:1px solid rgba(200,140,80,.18);border-radius:4px;padding:14px 16px;}
+.qa-card-label{font-family:var(--mono);font-size:.58rem;color:rgba(220,170,110,.6);letter-spacing:.2em;margin-bottom:10px;}
+.quick-actions-v{display:flex;flex-direction:column;gap:6px;}
+.qa-btn-v{display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(200,140,80,.08);border:1px solid rgba(200,140,80,.2);color:rgba(220,200,170,.85);text-decoration:none;font-family:var(--mono);font-size:.72rem;transition:all .15s;border-radius:3px;}
+.qa-btn-v:hover{background:rgba(200,140,80,.18);border-color:rgba(220,170,110,.6);color:var(--parch);}
+.qa-btn-v .qa-icon{font-size:.85rem;flex-shrink:0;}
+
+/* ===== MyNote FAB ===== */
+.mynote-fab{position:fixed;right:22px;bottom:22px;width:58px;height:58px;z-index:9998;cursor:pointer;transition:transform .2s;}
+.mynote-fab:hover{transform:scale(1.08);}
+.mynote-fab-paper{width:100%;height:100%;background:linear-gradient(145deg,#f5ecd8,#e8dcc0);border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25),inset 0 1px 2px rgba(255,255,255,.4);position:relative;overflow:hidden;border:1px solid rgba(139,105,20,.3);}
+.mynote-fab-lines{position:absolute;inset:10px 8px;background-image:repeating-linear-gradient(transparent 0,transparent 6px,rgba(139,105,20,.18) 6px,rgba(139,105,20,.18) 7px);}
+.mynote-fab-text{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:var(--mono,monospace);font-size:.44rem;color:rgba(80,55,10,.75);letter-spacing:.12em;}
+.mynote-fab-streak{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 5px;background:#d4aa22;color:#1a1208;border-radius:9px;font-family:var(--mono,monospace);font-size:.6rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.3);}
+.mynote-fab-streak:empty{display:none;}
+.mynote-panel{position:fixed;right:22px;bottom:90px;width:320px;max-width:calc(100vw - 44px);max-height:calc(100vh - 120px);background:#f5ecd8;border:1px solid rgba(139,105,20,.4);border-radius:6px;box-shadow:0 12px 36px rgba(0,0,0,.35);z-index:9999;display:none;flex-direction:column;overflow:hidden;}
+.mynote-panel.open{display:flex;}
+.mynote-panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid rgba(139,105,20,.2);background:rgba(139,105,20,.08);}
+.mynote-panel-title{font-family:var(--mono,monospace);font-size:.62rem;color:rgba(80,55,10,.85);letter-spacing:.18em;}
+.mynote-panel-close{background:none;border:none;font-size:1.2rem;color:rgba(80,55,10,.7);cursor:pointer;line-height:1;}
+.mynote-panel-body{padding:14px;overflow-y:auto;flex:1;}
+.mynote-card-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.mynote-card-nav-btn{background:none;border:1px solid rgba(139,105,20,.3);color:rgba(80,55,10,.8);padding:2px 10px;border-radius:3px;cursor:pointer;font-family:var(--mono,monospace);}
+.mynote-card-nav-date{font-family:var(--mono,monospace);font-size:.7rem;color:rgba(80,55,10,.85);}
+#mcText{width:100%;min-height:100px;background:transparent;border:none;outline:none;resize:none;font-family:var(--serif,serif);font-size:.82rem;color:#2a1f08;line-height:1.8;background-image:repeating-linear-gradient(transparent 0,transparent 27px,rgba(139,105,20,.2) 27px,rgba(139,105,20,.2) 28px);}
+.mynote-card-status{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--mono,monospace);font-size:.52rem;color:rgba(80,55,10,.55);}
+.mynote-card-saved{opacity:0;transition:opacity .3s;}
+.mynote-card-saved.visible{opacity:1;}
+.mynote-card-streak{display:block;margin-top:6px;font-family:var(--mono,monospace);font-size:.58rem;color:#b8900a;}
+.mynote-card-calendar{margin-top:14px;padding-top:10px;border-top:1px solid rgba(139,105,20,.2);}
+.mynote-card-calendar-label{font-family:var(--mono,monospace);font-size:.5rem;color:rgba(80,55,10,.6);letter-spacing:.14em;margin-bottom:6px;}
+.mynote-card-calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-family:var(--mono,monospace);font-size:.46rem;color:rgba(80,55,10,.5);text-align:center;margin-bottom:4px;}
+.mynote-card-calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.mc-day{aspect-ratio:1;border:1px solid rgba(139,105,20,.15);border-radius:2px;}
+.mc-day.has-note{background:#d4aa22;border-color:#b8900a;}
+.mc-day.today{box-shadow:0 0 0 1px #8b4513;}
+.mc-day.future{opacity:.3;}
+.mynote-card-challenge{margin-top:10px;font-family:var(--mono,monospace);font-size:.52rem;color:rgba(80,55,10,.7);letter-spacing:.06em;}
+.mynote-card-challenge-bar{margin-top:4px;height:4px;background:rgba(139,105,20,.15);border-radius:2px;overflow:hidden;}
+.mynote-card-challenge-fill{height:100%;background:linear-gradient(90deg,#d4aa22,#b8900a);transition:width .4s;}
+
+</style>
+<link rel="stylesheet" href="../../shared.css"/>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-back" href="../../">← Library Top</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">資産形成の教養</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">「安い株」と「良い株」は違う</span>
+</nav>
+<!-- ── HERO (3-column, Morimori) ── -->
+<div class="hero">
+  <div class="hero-3col">
+    <!-- Left: Knowledge Graph -->
+    <div class="hero-col-side hero-col-left">
+      <div class="graph-card">
+        <div class="graph-card-label">KNOWLEDGE GRAPH</div>
+        <canvas id="graphCanvas"></canvas>
+        <div class="graph-tooltip" id="graphTooltip">
+          <div class="graph-tooltip-title" id="ttTitle"></div>
+          <div class="graph-tooltip-cat" id="ttCat"></div>
+          <div class="graph-tooltip-desc" id="ttDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: 既存ヒーロー内容を完全保持 -->
+    <div class="hero-col-center">
+      <div class="hero-inner">
+    <div class="hero-breadcrumb">THE THINKING SHELF · ESSAY 07</div>
+    <div class="hero-label">INVESTMENT PHILOSOPHY · VALUE VS QUALITY</div>
+    <h1 class="hero-title">「安い株」と「良い株」は違う</h1>
+    <p class="hero-subtitle">
+      PERが低い株が割安とは限らない——<br>
+      バリュートラップの罠と、長期複利が教えてくれる本当の答え
+    </p>
+    <div class="hero-meta">
+      <span class="hero-date">2026.03.27</span>
+      <span class="hero-tag">投資哲学</span>
+      <span class="hero-tag">バリュー</span>
+      <span class="hero-tag">長期複利</span>
+    </div>
+    </div>
+
+    <!-- Right: Quick Actions -->
+    <div class="hero-col-side hero-col-right">
+      <div class="qa-card">
+        <div class="qa-card-label">QUICK START</div>
+        <div class="quick-actions-v">
+          <a class="qa-btn-v" href="#sec-trap"><span class="qa-icon">🔍</span> バリュートラップ</a>
+          <a class="qa-btn-v" href="#sec-compounding"><span class="qa-icon">⏰</span> 複利が教える「良い企</a>
+          <a class="qa-btn-v" href="#sec-price"><span class="qa-icon">🧭</span> 「安さ」はまったく関</a>
+          <a class="qa-btn-v" href="#sec-metrics"><span class="qa-icon">🔄</span> 「良い企業」を見分け</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- ── NAV COCKPIT ── -->
+<div class="nav-cockpit">
+  <div class="cockpit-panel">
+    <div class="cockpit-label">LOCATION</div>
+    <div class="cockpit-tree">
+      <div class="ct-item ct-root"><span class="ct-icon">📚</span><a href="../../">書斎の入口</a></div>
+      <div class="ct-children">
+        <div class="ct-item ct-folder"><span class="ct-icon">📂</span><a href="../">資産形成の教養</a><span class="ct-count">14</span></div>
+        <div class="ct-children">
+          <div class="ct-item ct-current"><span class="ct-icon">📄</span><span>「安い株」と「良い株」は違う</span></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../buyback-anatomy/">自社株買いの解剖</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../buffett-shosha/">バフェットが日本の商社株を買った理由</a></div>
+          <div class="ct-item ct-sibling"><span class="ct-icon">📄</span><a href="../sogo-shosha-capital/">商社株の資本配分哲学</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cockpit-reading">⏱ 約8分</div>
+  </div>
+  <div class="cockpit-panel">
+    <div class="cockpit-label">TABLE OF CONTENTS</div>
+    <ol class="toc-list">
+      <li><a href="#sec-trap">バリュートラップ</a></li>
+      <li><a href="#sec-compounding">複利が教える「良い企業」の定義</a></li>
+      <li><a href="#sec-price">「安さ」はまったく関係ないのか</a></li>
+      <li><a href="#sec-metrics">「良い企業」を見分ける実用的な3指標</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="summary-wrap">
+  <div class="summary-inner">
+    <div class="summary-label">PREMISE — この記事の前提</div>
+    <p class="summary-text">
+      「PERが低い＝割安」「PBRが1倍以下＝お得」という理解は、半分だけ正しい。<br><br>
+      本稿では、<strong>「安い株」と「良い株」の根本的な違い</strong>を整理する。
+      長期投資で本当に複利が働くのは、「安いだけの株」ではなく「良い企業を適正な価格で買った株」だ。
+      この違いを腹落ちさせることが、長期投資の入口になる。
+    </p>
+  </div>
+</div>
+<div class="article-wrap">
+<div class="article-inner">
+
+  <!-- 比較 -->
+  <div class="compare-wrap">
+    <div class="compare-col left">
+      <div class="compare-head">CHEAP STOCK · 「安い株」の特徴</div>
+      <div class="compare-title">指標は安いが、理由がある</div>
+      <div class="compare-items">
+        <div class="compare-item">PERが低い、PBRが低い</div>
+        <div class="compare-item">業績が停滞・悪化中</div>
+        <div class="compare-item">競争優位（moat）が弱い</div>
+        <div class="compare-item">市場が「成長を織り込まない」と判断</div>
+        <div class="compare-item">10年後も同じかそれ以下の利益</div>
+        <div class="compare-item">→ 安いのには理由がある</div>
+      </div>
+    </div>
+    <div class="compare-col right">
+      <div class="compare-head">GOOD STOCK · 「良い株」の特徴</div>
+      <div class="compare-title">高く見えても、長期で正当化される</div>
+      <div class="compare-items">
+        <div class="compare-item">PERは高めに見える場合もある</div>
+        <div class="compare-item">FCFが毎年積み上がっている</div>
+        <div class="compare-item">moatが強く、競合が入れない</div>
+        <div class="compare-item">10年後に利益が2〜3倍になっている</div>
+        <div class="compare-item">配当・自社株買いを継続できる</div>
+        <div class="compare-item">→ 「割高」に見えても複利で正当化</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="essay-section">
+    <div class="essay-num">01 / 04</div>
+    <h2 id="sec-trap" class="essay-heading"><span>バリュートラップ——</span>「安さ」が罠になるとき</h2>
+    <p class="essay-text">
+      株式投資を始めた人が最初にハマりやすい罠がバリュートラップだ。
+      「PERが5倍なんて激安だ！」と買ったが、5年後も10年後もPERが5倍のまま——なぜか。<br><br>
+      それは<em>市場がその企業の成長を評価していないから</em>だ。
+      利益が増えない企業の株価は理論上も上がらない。
+      PERが低いのは「割安」ではなく、「成長が期待されていない」という市場の評価を反映しているに過ぎない。<br><br>
+      典型的なバリュートラップの特徴：競争優位を持たない業界の中で戦っている、
+      利益は出ているが成長しない、資本を再投資しても利益率が上がらない。
+      こういう企業に「安いから」と飛びつくのは、<strong>「安いには理由がある」</strong>という事実を無視した行為だ。
+    </p>
+    <div class="callout">
+      <p class="callout-text">
+        「<strong>凡庸な企業を素晴らしい価格で買うより、素晴らしい企業を凡庸な価格で買う方がずっと良い。</strong>」<br>
+        <span style="font-size:.72rem;opacity:.7;display:block;margin-top:8px;">— ウォーレン・バフェット（1989年 バークシャー・ハサウェイ 株主への手紙より）</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="article-divider">· · ·</div>
+
+  <div class="essay-section">
+    <div class="essay-num">02 / 04</div>
+    <h2 id="sec-compounding" class="essay-heading"><span>複利が教える</span>「良い企業」の定義</h2>
+    <p class="essay-text">
+      長期投資で資産が複利で増えるには、企業の利益自体が複利で増え続けることが必要だ。
+      そのためには、<em>再投資した資本が高いリターンを生み続ける構造</em>——つまりmoatが必要になる。<br><br>
+      ROE（自己資本利益率）が高く安定している企業は、内部留保を再投資するたびに
+      利益が増えるサイクルを持っている。このサイクルが10年・20年と続くとき、
+      株価のリターンは驚異的な数字になる。
+    </p>
+    <div class="sim-wrap">
+      <div class="sim-label">COMPOUND SIMULATION — 100万円を投資して20年後（配当再投資なし・単純試算）</div>
+      <div class="sim-grid">
+        <div class="sim-card base">
+          <div class="sim-card-label">停滞企業（年+2%）</div>
+          <div class="sim-val-small">業績停滞・低PER株</div>
+          <div class="sim-val">148万円</div>
+          <div class="sim-desc">20年で+48%。インフレを考えると実質ほぼ横ばい</div>
+        </div>
+        <div class="sim-card mid">
+          <div class="sim-card-label">平均的企業（年+7%）</div>
+          <div class="sim-val-small">市場平均程度</div>
+          <div class="sim-val">387万円</div>
+          <div class="sim-desc">20年で約4倍。市場平均のインデックス投資に近い</div>
+        </div>
+        <div class="sim-card good">
+          <div class="sim-card-label">moat強い企業（年+15%）</div>
+          <div class="sim-val-small">強いFCF・高ROE</div>
+          <div class="sim-val">1,637万円</div>
+          <div class="sim-desc">20年で約16倍。複利の力が最大限に機能する</div>
+        </div>
+      </div>
+    </div>
+    <p class="essay-text">
+      この差は「利回りの違い」ではなく<strong>「事業の質の違い」</strong>が生み出す。
+      年+15%という数字は夢ではなく、moatの強い企業が長期で達成してきた実績に近い。
+      重要なのは「安く買う」ことより「質の高い企業を選ぶ」ことだ。
+    </p>
+  </div>
+
+  <div class="article-divider">· · ·</div>
+
+  <div class="essay-section">
+    <div class="essay-num">03 / 04</div>
+    <h2 id="sec-price" class="essay-heading"><span>では「安さ」は</span>まったく関係ないのか</h2>
+    <p class="essay-text">
+      いや、関係する。ただし<em>前提として「良い企業」であることが必要</em>だ。<br><br>
+      良い企業を「適正価格以下」で買えるのが理想だ。
+      しかし良い企業はめったに大きく割安にはならない。
+      市場もその質を知っているからだ。<br><br>
+      だから長期投資家が取れる現実的な戦略は3つだ。<br><br>
+      <strong>① 良い企業が市場全体の暴落に引きずられて下落した局面で買う</strong>（2020年コロナショック、2022年金利急騰など）<br>
+      <strong>② 良い企業でも「一時的な悪材料」で売られたときに買う</strong>（リコールや訴訟など本業と無関係な悪材料）<br>
+      <strong>③ 「適正価格」と判断できる水準なら、割安でなくても買う</strong>（モメンタムを追わず、長期視点で割高でないと判断できるなら）<br><br>
+      大切なのは、安さを「企業の質」より優先しないことだ。
+    </p>
+  </div>
+
+  <div class="article-divider">· · ·</div>
+
+  <div class="essay-section">
+    <div class="essay-num">04 / 04</div>
+    <h2 id="sec-metrics" class="essay-heading"><span>「良い企業」を見分ける</span>実用的な3指標</h2>
+    <p class="essay-text">
+      <strong>① ROE（自己資本利益率）が高く安定しているか</strong><br>
+      10〜15%以上を長年維持している企業は、再投資効率が高い。
+      レバレッジ（借金）で上げているROEは要注意——借金ゼロで高ROEが本物だ。<br><br>
+      <strong>② FCF（フリーキャッシュフロー）が利益とともに増えているか</strong><br>
+      利益は会計上の数字だが、FCFは実際に手元に来るキャッシュだ。
+      FCFが毎年着実に増えている企業は、利益の質が高い。<br><br>
+      <strong>③ 10年後も同じビジネスをしていると想像できるか</strong><br>
+      バフェットが「10年後に買い増したいか」を問うのはこのためだ。
+      技術変化・規制・競合の出現によって価値が消えるリスクを常に意識する。
+    </p>
+  </div>
+
+  <div class="article-divider">· · ·</div>
+
+  <div class="closing-note">
+    <div class="closing-label">INVESTOR'S NOTE — この記事の結論</div>
+    <p class="closing-text">
+      「安い株を探す」という思考から「良い企業を探す」という思考へ——
+      この転換が長期投資家への第一歩だ。<br><br>
+      PERが低いことは「割安」のシグナルではなく、「市場がその企業の成長に期待していない」シグナルかもしれない。
+      まず「この企業は10年後も稼ぎ続けられるか」を問い、その答えがYesなら
+      価格を検討する——この順番が正しい。<br><br>
+      <strong>「適正価格の良い企業」は「安価な凡庸企業」より、長期で必ず勝つ。</strong>
+      複利がそれを証明している。
+    </p>
+  </div>
+
+  <div class="back-link-wrap">
+    <a class="back-link" href="../">← 資産形成の教養に戻る</a>
+  </div>
+</div>
+</div>
+
+
+<!-- MyNote FAB -->
+<div class="mynote-fab" id="mynoteFab">
+  <div class="mynote-fab-paper">
+    <div class="mynote-fab-lines"></div>
+    <div class="mynote-fab-text">MY NOTE</div>
+    <span class="mynote-fab-streak" id="mcFabStreak"></span>
+  </div>
+</div>
+<div class="mynote-panel" id="mynotePanel">
+  <div class="mynote-panel-header">
+    <span class="mynote-panel-title">MY NOTE</span>
+    <button class="mynote-panel-close" id="mynoteClose">&times;</button>
+  </div>
+  <div class="mynote-panel-body">
+    <div class="mynote-card-nav">
+      <button class="mynote-card-nav-btn" id="mcPrev">&larr;</button>
+      <span class="mynote-card-nav-date" id="mcDate"></span>
+      <button class="mynote-card-nav-btn" id="mcNext">&rarr;</button>
+    </div>
+    <textarea id="mcText" placeholder="今日の気づきを書く..."></textarea>
+    <div class="mynote-card-status">
+      <span class="mynote-card-saved" id="mcSaved">saved</span>
+      <span class="mynote-card-wordcount" id="mcWc"></span>
+    </div>
+    <span class="mynote-card-streak" id="mcStreak"></span>
+    <div class="mynote-card-calendar">
+      <div class="mynote-card-calendar-label">THIS MONTH</div>
+      <div class="mynote-card-calendar-weekdays"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+      <div class="mynote-card-calendar-grid" id="mcCalendar"></div>
+    </div>
+    <div class="mynote-card-challenge" id="mcChallenge"></div>
+    <div class="mynote-card-challenge-bar"><div class="mynote-card-challenge-fill" id="mcChallengeFill"></div></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-nav">
+    <a href="../../">Library Top</a>
+    <a href="../">資産形成の教養</a>
+    <a href="../../companies/">企業分析</a>
+    <a href="../../news/">News Curation</a>
+  </div>
+  <div class="footer-copy">© 2026 投資Library · The Research Shelf</div>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+
+
+<script>
+
+/* ===== Knowledge Graph ===== */
+(function(){
+  var canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  var ctx=canvas.getContext('2d');
+  var dpr=window.devicePixelRatio||1;
+  var tooltip=document.getElementById('graphTooltip');
+  var ttTitle=document.getElementById('ttTitle');
+  var ttCat=document.getElementById('ttCat');
+  var ttDesc=document.getElementById('ttDesc');
+  var W,H;
+
+  var catLabels={self:'この記事',section:'セクション',related:'関連記事'};
+  var catColors={self:'#d4aa22',section:'#b8900a',related:'#2a3d6a'};
+
+  var nodes=[
+    {id:'self',label:'安い vs 良い',x:0,y:0,r:22,color:'#d4aa22',cat:'self',url:null,desc:'「安い株」と「良い株」は違う'},
+    {id:'sec0',label:'バリュートラップ',x:-100,y:-60,r:14,color:'#b8900a',cat:'section',url:'#sec-trap',desc:'バリュートラップ'},
+    {id:'sec1',label:'複利が教える「良',x:100,y:-50,r:14,color:'#b8900a',cat:'section',url:'#sec-compounding',desc:'複利が教える「良い企業」の定義'},
+    {id:'sec2',label:'「安さ」はまった',x:120,y:40,r:14,color:'#b8900a',cat:'section',url:'#sec-price',desc:'「安さ」はまったく関係ないのか'},
+    {id:'sec3',label:'「良い企業」を見',x:-80,y:70,r:14,color:'#b8900a',cat:'section',url:'#sec-metrics',desc:'「良い企業」を見分ける実用的な3指標'},
+    {id:'rel0',label:'自社株買い',x:-160,y:-20,r:12,color:'#2a3d6a',cat:'related',url:'../buyback-anatomy/',desc:'自社株買い'},
+    {id:'rel1',label:'営業利益率',x:170,y:0,r:12,color:'#2a3d6a',cat:'related',url:'../operating-margin-screening/',desc:'営業利益率'},
+    {id:'rel2',label:'キーエンス',x:-140,y:100,r:11,color:'#2a3d6a',cat:'related',url:'../keyence-moat/',desc:'キーエンス'},
+    {id:'rel3',label:'バフェット商社',x:160,y:90,r:11,color:'#2a3d6a',cat:'related',url:'../buffett-shosha/',desc:'バフェット商社'}
+  ];
+
+  var edges=[
+    {from:'self',to:'sec0'},
+    {from:'self',to:'sec1'},
+    {from:'self',to:'sec2'},
+    {from:'self',to:'sec3'},
+    {from:'self',to:'rel0'},
+    {from:'self',to:'rel1'},
+    {from:'self',to:'rel2'},
+    {from:'self',to:'rel3'},
+    {from:'sec0',to:'sec1'},
+    {from:'sec2',to:'sec3'}
+  ];
+
+  var connMap={};
+  nodes.forEach(function(n){connMap[n.id]=[];});
+  edges.forEach(function(e){
+    if(connMap[e.from])connMap[e.from].push(e.to);
+    if(connMap[e.to])connMap[e.to].push(e.from);
+  });
+  var defaultLabels={self:true};
+  if(connMap.self)connMap.self.forEach(function(id){defaultLabels[id]=true;});
+
+  function findNode(id){for(var i=0;i<nodes.length;i++){if(nodes[i].id===id)return nodes[i];}return null;}
+
+  nodes.forEach(function(n){n.px=0;n.py=0;n.vx=0;n.vy=0;n.hover=false;n.dragging=false;});
+
+  function resize(){
+    var rect=canvas.parentElement.getBoundingClientRect();
+    W=rect.width;H=window.innerWidth>960?200:240;
+    canvas.width=W*dpr;canvas.height=H*dpr;
+    canvas.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    nodes.forEach(function(n){
+      n.px=W/2+n.x*(W/520)*0.85;
+      n.py=H/2+n.y*(H/420)*0.75;
+      n.vx=0;n.vy=0;
+    });
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  function simulate(){
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      for(var j=i+1;j<nodes.length;j++){
+        var b=nodes[j];
+        var dx=b.px-a.px,dy=b.py-a.py;
+        var dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var force=180/dist;
+        var fx=dx/dist*force,fy=dy/dist*force;
+        if(!a.dragging){a.vx-=fx*0.008;a.vy-=fy*0.008;}
+        if(!b.dragging){b.vx+=fx*0.008;b.vy+=fy*0.008;}
+      }
+    }
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);
+      if(!a||!b)return;
+      var dx=b.px-a.px,dy=b.py-a.py;
+      var dist=Math.sqrt(dx*dx+dy*dy)||1;
+      var force=(dist-90)*0.0025;
+      var fx=dx/dist*force,fy=dy/dist*force;
+      if(!a.dragging){a.vx+=fx;a.vy+=fy;}
+      if(!b.dragging){b.vx-=fx;b.vy-=fy;}
+    });
+    nodes.forEach(function(n){
+      if(n.dragging)return;
+      n.vx+=(W/2-n.px)*0.0002;
+      n.vy+=(H/2-n.py)*0.0002;
+      n.vx*=0.91;n.vy*=0.91;
+      n.px+=n.vx;n.py+=n.vy;
+      n.px=Math.max(n.r+10,Math.min(W-n.r-10,n.px));
+      n.py=Math.max(n.r+10,Math.min(H-n.r-10,n.py));
+    });
+  }
+
+  var time=0;
+  function draw(){
+    time+=0.006;
+    simulate();
+    ctx.clearRect(0,0,W,H);
+    var hovId=null,hovConns={};
+    nodes.forEach(function(n){if(n.hover)hovId=n.id;});
+    if(hovId){hovConns[hovId]=true;(connMap[hovId]||[]).forEach(function(id){hovConns[id]=true;});};
+
+    edges.forEach(function(e){
+      var a=findNode(e.from),b=findNode(e.to);if(!a||!b)return;
+      var hl=hovId&&(hovConns[e.from]||hovConns[e.to]);
+      ctx.beginPath();ctx.moveTo(a.px,a.py);ctx.lineTo(b.px,b.py);
+      ctx.strokeStyle=hl?'rgba(212,170,34,.4)':'rgba(184,144,10,.08)';
+      ctx.lineWidth=hl?1.8:0.6;ctx.stroke();
+    });
+
+    nodes.forEach(function(n,i){
+      var isHov=n.hover;var isConn=hovId&&hovConns[n.id]&&!isHov;
+      var pulse=Math.sin(time+i*0.7)*0.06+1;var r=n.r*(isHov?1.2:pulse);
+      ctx.beginPath();ctx.arc(n.px,n.py,r+5,0,Math.PI*2);
+      ctx.fillStyle=n.color+(isHov?'20':'06');ctx.fill();
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,Math.PI*2);
+      ctx.fillStyle=n.color+'18';ctx.fill();
+      ctx.strokeStyle=n.color+(isHov?'dd':isConn?'88':'44');
+      ctx.lineWidth=isHov?2.5:isConn?1.8:1;ctx.stroke();
+      ctx.fillStyle=n.color;
+      ctx.beginPath();ctx.arc(n.px,n.py,isHov?4.5:isConn?3:2,0,Math.PI*2);ctx.fill();
+      var showLabel=isHov||isConn||(!hovId&&defaultLabels[n.id]);
+      if(showLabel){
+        var fs=isHov?10:isConn?9:8;
+        ctx.font=(isHov?'600':'400')+' '+fs+'px "Noto Serif JP","DM Mono",sans-serif';
+        ctx.fillStyle=isHov?'rgba(245,237,224,.95)':isConn?'rgba(245,237,224,.8)':'rgba(245,237,224,.5)';
+        ctx.textAlign='center';ctx.fillText(n.label,n.px,n.py+r+12);
+      }
+    });
+
+    var legend=[{l:'\u3053\u306e\u8a18\u4e8b',c:'#d4aa22'},{l:'\u30bb\u30af\u30b7\u30e7\u30f3',c:'#b8900a'},{l:'\u95a2\u9023\u8a18\u4e8b',c:'#2a3d6a'}];
+    var lx=8,ly=H-10;
+    legend.forEach(function(item){
+      ctx.fillStyle=item.c;ctx.beginPath();ctx.arc(lx+3,ly,2.5,0,Math.PI*2);ctx.fill();
+      ctx.font='400 7px "Noto Serif JP","DM Mono",sans-serif';
+      ctx.fillStyle='rgba(245,237,224,.35)';ctx.textAlign='left';
+      ctx.fillText(item.l,lx+8,ly+2.5);
+      lx+=ctx.measureText(item.l).width+16;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  function hitTest(x,y){for(var i=nodes.length-1;i>=0;i--){var n=nodes[i];if(Math.sqrt((x-n.px)*(x-n.px)+(y-n.py)*(y-n.py))<n.r+8)return n;}return null;}
+  function getXY(e){var rect=canvas.getBoundingClientRect();return{x:(e.clientX-rect.left)*(W/rect.width),y:(e.clientY-rect.top)*(H/rect.height)};}
+  var dragging=null,dragOff={x:0,y:0},dragStart=null;
+  canvas.addEventListener('mousemove',function(e){
+    var p=getXY(e);
+    if(dragging){dragging.px=p.x+dragOff.x;dragging.py=p.y+dragOff.y;dragging.vx=0;dragging.vy=0;return;}
+    nodes.forEach(function(n){n.hover=false;});
+    var hit=hitTest(p.x,p.y);
+    if(hit){hit.hover=true;ttTitle.textContent=hit.label;ttCat.textContent=catLabels[hit.cat]||hit.cat;ttDesc.textContent=hit.desc;tooltip.style.opacity='1';tooltip.style.left=Math.min(hit.px+20,W-160)+'px';tooltip.style.top=(hit.py-55)+'px';canvas.style.cursor='pointer';}
+    else{tooltip.style.opacity='0';canvas.style.cursor='grab';}
+  });
+  canvas.addEventListener('mouseleave',function(){nodes.forEach(function(n){n.hover=false;});tooltip.style.opacity='0';dragging=null;});
+  canvas.addEventListener('mousedown',function(e){var p=getXY(e);var hit=hitTest(p.x,p.y);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-p.x,y:hit.py-p.y};dragStart={x:p.x,y:p.y};canvas.style.cursor='grabbing';}});
+  canvas.addEventListener('mouseup',function(e){
+    if(dragging){var p=getXY(e);var moved=Math.sqrt((p.x-dragStart.x)*(p.x-dragStart.x)+(p.y-dragStart.y)*(p.y-dragStart.y));dragging.dragging=false;
+    if(moved<5&&dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}
+    dragging=null;canvas.style.cursor='grab';
+  });
+  canvas.addEventListener('touchstart',function(e){e.preventDefault();var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);var hit=hitTest(mx,my);if(hit){dragging=hit;hit.dragging=true;dragOff={x:hit.px-mx,y:hit.py-my};dragStart={x:mx,y:my};}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){e.preventDefault();if(!dragging)return;var t=e.touches[0];var rect=canvas.getBoundingClientRect();var mx=(t.clientX-rect.left)*(W/rect.width),my=(t.clientY-rect.top)*(H/rect.height);dragging.px=mx+dragOff.x;dragging.py=my+dragOff.y;dragging.vx=0;dragging.vy=0;},{passive:false});
+  canvas.addEventListener('touchend',function(){if(dragging){dragging.dragging=false;if(dragging.url){if(dragging.url.startsWith('#')){var el=document.getElementById(dragging.url.slice(1));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}else{window.open(dragging.url,'_blank');}}}dragging=null;});
+})();
+
+
+/* ===== MyNote FAB ===== */
+(function(){
+  const STORAGE_PREFIX='myNote_';
+  const fab=document.getElementById('mynoteFab');
+  const panel=document.getElementById('mynotePanel');
+  const closeBtn=document.getElementById('mynoteClose');
+  const textarea=document.getElementById('mcText');
+  const savedEl=document.getElementById('mcSaved');
+  const wcEl=document.getElementById('mcWc');
+  const dateEl=document.getElementById('mcDate');
+  const prevBtn=document.getElementById('mcPrev');
+  const nextBtn=document.getElementById('mcNext');
+  const streakEl=document.getElementById('mcStreak');
+  const fabStreakEl=document.getElementById('mcFabStreak');
+  const calendarEl=document.getElementById('mcCalendar');
+  const challengeEl=document.getElementById('mcChallenge');
+  const challengeFill=document.getElementById('mcChallengeFill');
+  if(!fab||!panel)return;
+  let currentDate=new Date().toISOString().slice(0,10);
+  let saveTimer;
+  function getNote(date){return localStorage.getItem(STORAGE_PREFIX+date)||'';}
+  function setNote(date,val){if(val.trim())localStorage.setItem(STORAGE_PREFIX+date,val);else localStorage.removeItem(STORAGE_PREFIX+date);}
+  function hasNote(date){return!!localStorage.getItem(STORAGE_PREFIX+date);}
+  function render(){dateEl.textContent=currentDate;textarea.value=getNote(currentDate);updateWc();updateStreak();renderCalendar();renderChallenge();}
+  function updateWc(){const len=(textarea.value||'').length;wcEl.textContent=len?len+' chars':'';}
+  function save(){setNote(currentDate,textarea.value);savedEl.classList.add('visible');setTimeout(()=>savedEl.classList.remove('visible'),1200);renderCalendar();renderChallenge();updateStreak();}
+  function getStreak(){let streak=0,d=new Date();while(true){const k=d.toISOString().slice(0,10);if(hasNote(k)){streak++;d.setDate(d.getDate()-1);}else break;}return streak;}
+  function updateStreak(){const streak=getStreak();streakEl.textContent=streak?streak+'d streak':'';fabStreakEl.textContent=streak||'';}
+  function renderCalendar(){if(!calendarEl)return;calendarEl.innerHTML='';const d=new Date(currentDate);const year=d.getFullYear(),month=d.getMonth();const firstDay=new Date(year,month,1).getDay();const daysInMonth=new Date(year,month+1,0).getDate();const today=new Date().toISOString().slice(0,10);const offset=(firstDay+6)%7;for(let i=0;i<offset;i++){const el=document.createElement('div');el.className='mc-day';el.style.opacity='0';calendarEl.appendChild(el);}for(let day=1;day<=daysInMonth;day++){const dateStr=year+'-'+String(month+1).padStart(2,'0')+'-'+String(day).padStart(2,'0');const el=document.createElement('div');el.className='mc-day';if(hasNote(dateStr)){el.classList.add('has-note');if(dateStr===today)el.classList.add('today');}else if(dateStr>today)el.classList.add('future');calendarEl.appendChild(el);}}
+  function renderChallenge(){if(!challengeEl||!challengeFill)return;const totalDays=66;const streak=getStreak();const pct=Math.min(streak/totalDays*100,100);challengeEl.textContent='66-DAY CHALLENGE: '+streak+' / '+totalDays+(streak>=totalDays?' \u2714':'');challengeFill.style.width=pct+'%';}
+  function shift(days){const d=new Date(currentDate);d.setDate(d.getDate()+days);currentDate=d.toISOString().slice(0,10);render();}
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  closeBtn.addEventListener('click',()=>panel.classList.remove('open'));
+  textarea.addEventListener('input',()=>{updateWc();clearTimeout(saveTimer);saveTimer=setTimeout(save,500);});
+  prevBtn.addEventListener('click',()=>shift(-1));
+  nextBtn.addEventListener('click',()=>shift(1));
+  textarea.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.max(100,this.scrollHeight)+'px';});
+  render();
+})();
+
+</script>
+</body>
+</html>

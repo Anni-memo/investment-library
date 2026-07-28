@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="1社の全体像を、事業構造・moat・FCF・競争環境・AI代替リスクまで一冊に束ねる永久保存版。投資家のための企業の教科書シリーズ。"/>
+<meta property="og:title" content="企業の教科書｜1社を一冊で読み切る永久保存版｜投資Library"/>
+<meta property="og:description" content="事業構造・moat・FCF・競争環境・AI代替リスク・決算動向を一冊に束ねる、投資家のための企業の教科書シリーズ。"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/company-textbook/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="企業の教科書 — 投資Library"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/company-textbook/"/>
+<title>企業の教科書｜投資Library</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "企業の教科書",
+  "description": "1社の全体像を、事業構造・moat・FCF・競争環境・AI代替リスクまで一冊に束ねる永久保存版シリーズ。",
+  "url": "https://anni-memo.github.io/investment-library/company-textbook/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "投資Library",
+    "url": "https://anni-memo.github.io/investment-library/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+      {"@type": "ListItem", "position": 2, "name": "企業の教科書"}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "企業の教科書シリーズとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1社の全体像を、事業構造・競争優位（moat）・FCF・競争環境・AI代替リスク・決算動向まで一冊に束ねて読み切るための永久保存版シリーズです。短期の値動きではなく、10年単位で企業を理解することを目的としています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "moat分析（ thinking/ 配下）や企業分析（ companies/ 配下）とどう違いますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "moat分析は競争優位の有無を主題にした短編、企業分析はmoat・FCFなど切り口別の研究ノートです。企業の教科書は、それらを束ねて1社を「教科書」として読み切れる長編として再構成したものです。章立て・年表・用語集・決算動向導線を標準装備します。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "最新の決算数値はどこで確認できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "各教科書は「決算ナビ」への外部導線を末尾に持ちます。教科書は10年単位の構造解説、決算ナビは四半期ごとの数値動向を担う、役割分担です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どんな基準で掲載企業を選んでいますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "長期保有・応援投資の対象として理解を深めたい企業を起点にしています。初回は日本発SaaSの永続性を考える教材としてサイボウズ（4776）を取り上げ、以降は商社・半導体・高配当など、テーマを変えながら継続的に増やしていきます。"
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --blue:#1a2a4a;--blue2:#2a3d6a;--blue3:#4a6a9a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* NAV */
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,var(--ink) 0%,#0e1018 50%,#141826 100%);
+  color:var(--parch);padding:56px 24px 44px;text-align:center;
+  position:relative;overflow:hidden;border-bottom:3px solid var(--gold);
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(72,136,208,.08) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-ornament{font-family:var(--mono);font-size:.7rem;color:var(--gold3);letter-spacing:.4em;margin-bottom:16px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.8rem);font-weight:700;line-height:1.2;color:var(--parch);margin-bottom:6px;text-shadow:0 2px 20px rgba(72,136,208,.15);position:relative;}
+.hero-title em{font-style:italic;color:var(--gold4);display:block;font-size:.58em;letter-spacing:.06em;margin-top:8px;}
+.hero-sub{font-size:.84rem;color:var(--parch3);font-weight:300;margin-top:16px;line-height:1.95;position:relative;max-width:560px;margin-left:auto;margin-right:auto;}
+
+/* INTRO */
+.intro{background:var(--parch);border-bottom:1px solid var(--parch4);padding:40px 24px;}
+.intro-inner{max-width:860px;margin:0 auto;}
+.intro-lead{font-family:var(--serif);font-size:clamp(1rem,2.5vw,1.2rem);font-weight:600;color:var(--ink);line-height:1.6;border-left:3px solid var(--gold2);padding-left:16px;margin-bottom:14px;}
+.intro-body{font-size:.84rem;color:var(--ink3);line-height:2;font-weight:300;}
+
+/* SECTION */
+.shelf-section{padding:44px 24px;border-bottom:1px solid var(--parch4);}
+.shelf-section:nth-child(even){background:var(--parch2);}
+.shelf-section:nth-child(odd){background:var(--parch);}
+.shelf-inner{max-width:860px;margin:0 auto;}
+.shelf-header{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap;}
+.shelf-num{font-family:var(--mono);font-size:.52rem;color:var(--gold);letter-spacing:.12em;}
+.shelf-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);}
+.shelf-desc{font-size:.78rem;color:var(--ink3);line-height:1.75;margin-bottom:22px;font-weight:300;}
+
+/* ARTICLE LIST */
+.article-list{display:flex;flex-direction:column;gap:2px;}
+.article-item{
+  display:flex;align-items:flex-start;gap:14px;padding:16px 18px;
+  background:var(--parch2);border:1px solid var(--parch4);
+  text-decoration:none;color:inherit;transition:all .18s;
+}
+.article-item:hover{border-color:var(--gold3);background:var(--parch3);}
+.article-item.coming{opacity:.45;pointer-events:none;background:var(--parch2);}
+.article-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold);letter-spacing:.1em;flex-shrink:0;padding-top:3px;width:80px;}
+.article-body{flex:1;min-width:0;}
+.article-title{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:3px;}
+.article-sub{font-size:.72rem;color:var(--ink3);line-height:1.6;}
+.article-arrow{color:var(--gold3);font-size:.9rem;flex-shrink:0;padding-top:3px;}
+.coming-label{font-family:var(--mono);font-size:.48rem;color:var(--ink3);letter-spacing:.08em;font-style:italic;padding-top:3px;}
+.new-badge{display:inline-block;font-family:var(--mono);font-size:.44rem;background:var(--gold2);color:var(--ink);padding:2px 6px;margin-left:6px;letter-spacing:.08em;vertical-align:middle;}
+
+/* STRUCTURE CARDS (6 lenses) */
+.lens-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+@media(max-width:700px){.lens-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.lens-grid{grid-template-columns:1fr}}
+.lens-card{padding:18px 16px;background:var(--parch2);border:1px solid var(--parch4);border-top:3px solid var(--gold);}
+.lens-num{font-family:var(--mono);font-size:.48rem;color:var(--gold);letter-spacing:.12em;margin-bottom:6px;}
+.lens-title{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:4px;}
+.lens-desc{font-size:.72rem;color:var(--ink3);line-height:1.65;}
+
+/* KESSAN NAVI CTA */
+.kn-cta{background:linear-gradient(135deg,var(--blue) 0%,var(--blue2) 100%);padding:30px 24px;border:1px solid rgba(74,106,154,.4);text-align:center;margin-top:22px;}
+.kn-label{font-family:var(--mono);font-size:.48rem;color:var(--gold4);letter-spacing:.22em;margin-bottom:10px;opacity:.8;}
+.kn-title{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--parch);margin-bottom:6px;}
+.kn-desc{font-size:.75rem;color:var(--parch3);line-height:1.7;margin-bottom:16px;}
+.kn-btn{display:inline-block;padding:10px 22px;background:var(--gold);color:var(--ink);font-family:var(--serif);font-size:.84rem;font-weight:600;text-decoration:none;border:1px solid var(--gold);letter-spacing:.04em;transition:all .2s;}
+.kn-btn:hover{background:var(--gold3);border-color:var(--gold3);}
+.kn-ext{font-family:var(--mono);font-size:.6rem;margin-left:6px;opacity:.75;}
+
+/* BACK */
+.back-section{background:var(--ink2);border-top:1px solid rgba(139,105,20,.2);padding:36px 24px;}
+.back-inner{max-width:860px;margin:0 auto;}
+.back-label{font-family:var(--mono);font-size:.52rem;color:var(--gold3);letter-spacing:.14em;margin-bottom:16px;opacity:.8;}
+.back-links{display:flex;flex-direction:column;gap:2px;}
+.back-link{
+  display:flex;align-items:center;gap:12px;padding:14px 16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(139,105,20,.18);
+  text-decoration:none;transition:all .18s;
+}
+.back-link:hover{border-color:var(--gold2);background:rgba(255,255,255,.07);}
+.back-link-tag{font-family:var(--mono);font-size:.5rem;color:var(--gold3);letter-spacing:.1em;width:90px;flex-shrink:0;}
+.back-link-title{font-family:var(--serif);font-size:.9rem;color:var(--parch);font-weight:500;}
+
+/* FOOTER */
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.25);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em}
+.footer a{color:var(--gold3);text-decoration:none}
+
+/* SCROLL */
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-back" href="../">書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">企業の教科書</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ornament">COMPANY TEXTBOOK</div>
+  <h1 class="hero-title">
+    企業の教科書
+    <em>One Company, One Textbook</em>
+  </h1>
+  <p class="hero-sub">
+    1社の全体像を、一冊で読み切る。<br>
+    事業構造・moat・FCF・競争環境・AI代替リスク——<br>
+    10年単位で企業を理解するための永久保存版。
+  </p>
+</div>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-inner">
+    <p class="intro-lead">短期の値動きではなく、10年単位で「この会社の骨格」を理解する。</p>
+    <p class="intro-body">
+      四半期決算やチャートでは見えない、事業そのものの構造を読む。<br>
+      売上の源泉はどこか、何が競争優位を支え、FCFは誰の懐に入るのか。<br>
+      AIの登場でこの事業はどう変わり得るか。そして次の10年、この会社は何を残すか。<br>
+      企業の教科書は、1社を1冊として束ねる長編研究ノートである。<br>
+      章立て・年表・用語集を標準装備し、最新決算は決算ナビへ橋渡しする。<br>
+      雑音から距離を取り、静かに企業を読む場所として使ってほしい。
+    </p>
+  </div>
+</div>
+
+<!-- SHELF 01: 連載中 -->
+<div class="shelf-section">
+  <div class="shelf-inner">
+    <div class="shelf-header">
+      <span class="shelf-num">SHELF 01</span>
+      <span class="shelf-name">連載中の教科書</span>
+    </div>
+    <p class="shelf-desc">現在公開中の教科書。第1号は日本発SaaSの永続性を考える教材として、サイボウズ（4776）を取り上げる。</p>
+    <div class="article-list">
+      <a class="article-item" href="cybozu/">
+        <span class="article-tag">#01 CYBOZU</span>
+        <div class="article-body">
+          <div class="article-title">サイボウズ（4776）— 日本発SaaSのmoat構造と永続性<span class="new-badge">NEW</span></div>
+          <div class="article-sub">kintone・Garoon・メールワイズ——業務システムの毛細血管。第三者株主の視点で事業構造・競争優位・AI代替リスクを読む。</div>
+        </div>
+        <span class="article-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SHELF 02: 執筆予定 -->
+<div class="shelf-section">
+  <div class="shelf-inner">
+    <div class="shelf-header">
+      <span class="shelf-num">SHELF 02</span>
+      <span class="shelf-name">執筆予定の棚</span>
+    </div>
+    <p class="shelf-desc">テーマを変えながら継続的に増やす予定の教科書群。順序は固定ではなく、決算動向や読者関心によって組み替える。</p>
+    <div class="article-list">
+      <div class="article-item coming">
+        <span class="article-tag">SOGO SHOSHA</span>
+        <div class="article-body">
+          <div class="article-title">総合商社 — 資本配分の教科書</div>
+          <div class="article-sub">三菱商事・三井物産・伊藤忠・丸紅・住友商事。バフェット買付後の総合商社を資本配分装置として読む。</div>
+        </div>
+        <span class="coming-label">COMING SOON</span>
+      </div>
+      <div class="article-item coming">
+        <span class="article-tag">SEMICONDUCTOR</span>
+        <div class="article-body">
+          <div class="article-title">半導体装置 — エコシステム的moatの教科書</div>
+          <div class="article-sub">東京エレクトロン・SCREEN・アドバンテスト。TSMCを中心に並ぶ非対称依存の構造を読む。</div>
+        </div>
+        <span class="coming-label">COMING SOON</span>
+      </div>
+      <div class="article-item coming">
+        <span class="article-tag">DIVIDEND</span>
+        <div class="article-body">
+          <div class="article-title">高配当企業 — 還元と再投資の教科書</div>
+          <div class="article-sub">配当貴族候補銘柄を横断し、配当持続性を支える事業構造とFCFの厚みを読む。</div>
+        </div>
+        <span class="coming-label">COMING SOON</span>
+      </div>
+      <div class="article-item coming">
+        <span class="article-tag">KEYENCE</span>
+        <div class="article-body">
+          <div class="article-title">キーエンス — 高収益が続く仕組みの教科書</div>
+          <div class="article-sub">営業利益率50%超の構造を、価格決定力・顧客密着・無借金経営の3軸で読む。</div>
+        </div>
+        <span class="coming-label">COMING SOON</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHELF 03: 教科書が扱う6つの視点 -->
+<div class="shelf-section">
+  <div class="shelf-inner">
+    <div class="shelf-header">
+      <span class="shelf-num">SHELF 03</span>
+      <span class="shelf-name">教科書が扱う6つの視点</span>
+    </div>
+    <p class="shelf-desc">各教科書は、以下6つのレンズで1社を読み解く。どの教科書を開いても同じ章立てで横比較できる、読書の基準線。</p>
+    <div class="lens-grid">
+      <div class="lens-card">
+        <div class="lens-num">LENS 01</div>
+        <div class="lens-title">事業構造</div>
+        <div class="lens-desc">売上の源泉、セグメント別の貢献、誰にいくらで何を売っているか。</div>
+      </div>
+      <div class="lens-card">
+        <div class="lens-num">LENS 02</div>
+        <div class="lens-title">競争優位（moat）</div>
+        <div class="lens-desc">ブランド・スイッチングコスト・ネットワーク効果・コスト優位・規制——4つの型で分解する。</div>
+      </div>
+      <div class="lens-card">
+        <div class="lens-num">LENS 03</div>
+        <div class="lens-title">FCFと資本配分</div>
+        <div class="lens-desc">自由キャッシュフローはどこへ向かうか。再投資・自社株買い・配当・M&Aの比率を読む。</div>
+      </div>
+      <div class="lens-card">
+        <div class="lens-num">LENS 04</div>
+        <div class="lens-title">競争環境</div>
+        <div class="lens-desc">同業・代替・川上川下。数字ではなく地図として競争を把握する。</div>
+      </div>
+      <div class="lens-card">
+        <div class="lens-num">LENS 05</div>
+        <div class="lens-title">AI代替リスク</div>
+        <div class="lens-desc">生成AIによって希薄化する価値、逆に強化される価値。10年後の立ち位置を静かに問う。</div>
+      </div>
+      <div class="lens-card">
+        <div class="lens-num">LENS 06</div>
+        <div class="lens-title">決算動向（外部）</div>
+        <div class="lens-desc">四半期の数値動向は決算ナビで。教科書は構造、決算ナビは数字、の役割分担。</div>
+      </div>
+    </div>
+
+    <!-- 決算ナビ CTA -->
+    <div class="kn-cta">
+      <div class="kn-label">EXTERNAL TOOL</div>
+      <div class="kn-title">最新決算は「決算ナビ」で</div>
+      <div class="kn-desc">
+        教科書は10年単位の構造解説を担い、四半期ごとの数値動向は決算ナビに委ねる。<br>
+        両者を往復することで、構造と数字の両面から1社を読み切る。
+      </div>
+      <a class="kn-btn" href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビを開く<span class="kn-ext">&#x2197;</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="back-section">
+  <div class="back-inner">
+    <div class="back-label">関連する書架へ</div>
+    <div class="back-links">
+      <a class="back-link" href="../companies/">
+        <span class="back-link-tag">COMPANIES</span>
+        <span class="back-link-title">企業分析（切り口別の短編ノート）</span>
+      </a>
+      <a class="back-link" href="../thinking/">
+        <span class="back-link-tag">THINKING</span>
+        <span class="back-link-title">思考の棚（moat分析とケース）</span>
+      </a>
+      <a class="back-link" href="../industries/">
+        <span class="back-link-tag">INDUSTRIES</span>
+        <span class="back-link-title">業種から歩く</span>
+      </a>
+      <a class="back-link" href="../principles/">
+        <span class="back-link-tag">PRINCIPLES</span>
+        <span class="back-link-title">私の投資原則</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../">書斎の入口</a> &middot;
+    <a href="../hajimete/">初めての方へ</a> &middot;
+    <a href="../principles/">投資原則</a> &middot;
+    <a href="../industries/">業種から歩く</a> &middot;
+    <a href="../horizons/">思考を広げる</a> &middot;
+    <a href="../classics/">教養と人間理解</a> &middot;
+    <a href="../people/">人物録</a> &middot;
+    <a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener">決算ナビ &#x2197;</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</div>
+<script>window.addEventListener('scroll',function(){document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>300);});</script>
+<script src="../shared.js"></script>
+<script src="../ai-assistant.js"></script>
+</body>
+</html>
