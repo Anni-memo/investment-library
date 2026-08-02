@@ -58,10 +58,26 @@
   /* ── マップ専用トークン（勢力図の可視化に使う配色。ライト値） ── */
   --kg-grid:#e1e0d9;--kg-axis:#c3c2b7;--kg-ring:rgba(26,18,8,.12);
   --kg-sor:#3a5590;--kg-soe:#c05020;--kg-both:#5a8a3a;--kg-both-deep:#3d6828;
+  /* ── 絵地図専用トークン（昼の海図） ── */
+  --emap-sea:#dfe6da;--emap-sea-wave:rgba(74,53,32,.20);
+  --emap-land:#e8d8be;--emap-land-cool:#d7dde2;--emap-coast:#4a3520;--emap-glow:rgba(240,204,85,.9);
+  --emap-glow-op:.18;
+  /* ── 絵地図ラベル専用トークン（第2巡・ダーク可読性修正） ── */
+  --emap-lbl:#1a1208;--emap-lbl2:#2d2010;--emap-lbl3:#4a3520;
+  --emap-lbl-gold:#8b6914;--emap-lbl-both:#3d6828;
+  --emap-label-bg:rgba(245,237,224,.82);
 }
 :root[data-theme="dark"]{
   --kg-grid:#3a2a18;--kg-axis:#4a3520;--kg-ring:rgba(232,220,200,.12);
   --kg-sor:#7fa6e8;--kg-soe:#e08a54;--kg-both:#7ec98f;--kg-both-deep:#9fe0ae;
+  /* ── 絵地図専用トークン（夜の海図） ── */
+  --emap-sea:#0f1c2e;--emap-sea-wave:rgba(180,200,220,.14);
+  --emap-land:#241a10;--emap-land-cool:#1a2028;--emap-coast:#a3823f;--emap-glow:#f0cc55;
+  --emap-glow-op:.85;
+  /* ── 絵地図ラベル専用トークン（夜=パーチメント/金系。shared.jsのJS注入に依存せず本ページ内で完結させる） ── */
+  --emap-lbl:#f2e8d5;--emap-lbl2:#e0d3b8;--emap-lbl3:#c9b892;
+  --emap-lbl-gold:#f5d870;--emap-lbl-both:#9fe0ae;
+  --emap-label-bg:rgba(20,14,8,.72);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink);scroll-behavior:smooth}
@@ -102,11 +118,25 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .kg-dot:hover circle,.kg-dot:focus circle{stroke-width:3;}
 .kg-dot:focus{outline:none;}
 .kg-dot:focus circle{stroke:var(--ink);}
-#kg-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--parch);
+.kg-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--parch);
   font-size:.76rem;line-height:1.55;padding:8px 12px;max-width:260px;border-radius:3px;
   opacity:0;transition:opacity .1s;z-index:5;box-shadow:var(--shadow);}
-#kg-tip b{color:var(--gold3);}
+.kg-tip b{color:var(--gold3);}
 .kg-note{font-size:.8rem;color:var(--ink2);margin-top:12px;max-width:48em;line-height:1.85;}
+
+/* ── 絵地図（古地図様式）── */
+.emap-sub{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--gold2);
+  margin:36px 0 10px;padding-top:18px;border-top:1px dashed var(--parch4);}
+.emap-icon{transform-box:fill-box;transform-origin:center;transition:transform .15s ease;}
+.kg-dot:hover .emap-icon,.kg-dot:focus .emap-icon{transform:scale(1.14);}
+.emap-glow{opacity:var(--emap-glow-op);transition:opacity .3s ease;}
+.emap-label{font-family:var(--jp);}
+.emap-continent{font-family:var(--serif);font-style:italic;fill:var(--emap-coast);opacity:.75;}
+.emap-note{font-family:var(--mono);fill:var(--emap-lbl3);opacity:.85;}
+.emap-note.gold{fill:var(--emap-lbl-gold);opacity:1;}
+.emap-note.both{fill:var(--emap-lbl-both);opacity:1;}
+.emap-label-bg{fill:var(--emap-label-bg);}
+.emap-title-box{fill:var(--emap-label-bg);stroke:var(--emap-coast);stroke-width:1;}
 
 .kg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:6px;}
 .kg-card{background:var(--parch2);border:1px solid var(--parch4);padding:16px 18px;font-size:.82rem;border-radius:2px;}
@@ -206,6 +236,251 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <span class="section-num">03</span>
     <h2 class="section-title">地図（2026年08月時点の観測）</h2>
   </div>
+  <p class="kg-note" style="margin-top:0;">同じ2軸を、古地図の姿で描き直します。左＝記録の大陸、右＝会話の大陸。北ほど大企業・情シス主導、南ほど中小・現場・個人。地名や城・村に触れる（またはフォーカスする）と、各勢力の説明が出ます。</p>
+  <div class="kg-mapbox" id="emap-mapbox">
+    <svg viewBox="0 0 900 700" role="img" aria-label="記録の大陸と会話の大陸、2つの大陸に主要ツールを城・村・港として配置した絵地図">
+      <defs>
+        <pattern id="em-waves" width="70" height="34" patternUnits="userSpaceOnUse">
+          <path d="M0,17 Q17.5,7 35,17 T70,17" fill="none" stroke="var(--emap-sea-wave)" stroke-width="1.1"/>
+        </pattern>
+        <filter id="em-blur" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="5"/></filter>
+        <marker id="em-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--emap-lbl2)"/></marker>
+        <marker id="em-arr-gold" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--emap-lbl-gold)"/></marker>
+        <marker id="em-arr-both" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--kg-both-deep)"/></marker>
+
+        <symbol id="ic-castle" viewBox="-20 -28 40 40" fill="currentColor">
+          <rect x="-14" y="-4" width="28" height="16"/>
+          <rect x="-16" y="-11" width="6" height="9"/>
+          <rect x="-3" y="-13" width="6" height="11"/>
+          <rect x="10" y="-11" width="6" height="9"/>
+          <polygon points="-3,-13 0,-21 3,-13"/>
+          <line x1="0" y1="-21" x2="0" y2="-27" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M0,-27 L6,-24 L0,-21.5 Z"/>
+        </symbol>
+        <symbol id="ic-village" viewBox="-20 -20 40 30" fill="currentColor">
+          <rect x="-17" y="-3" width="11" height="9"/>
+          <polygon points="-18,-3 -11.5,-11 -5,-3"/>
+          <rect x="-3" y="-5" width="12" height="11"/>
+          <polygon points="-4,-5 3,-13 10,-5"/>
+          <rect x="10" y="-2" width="9" height="8"/>
+          <polygon points="9,-2 14.5,-9 20,-2"/>
+        </symbol>
+        <symbol id="ic-port" viewBox="-26 -26 52 34" fill="currentColor">
+          <rect x="-8" y="-14" width="16" height="16"/>
+          <polygon points="-9,-14 0,-24 9,-14"/>
+          <rect x="-24" y="4" width="48" height="3"/>
+          <rect x="-21" y="4" width="2" height="10"/>
+          <rect x="-1" y="4" width="2" height="10"/>
+          <rect x="17" y="4" width="2" height="10"/>
+          <path d="M-17,10 q6,-4 12,0 l-1.5,3.5 h-9 z" opacity=".9"/>
+        </symbol>
+        <symbol id="ic-island" viewBox="-18 -16 36 24" fill="currentColor">
+          <ellipse cx="0" cy="6" rx="16" ry="6"/>
+          <path d="M-9,5 L-6,-8 L-3,5 Z"/>
+          <path d="M-1,6 L3,-11 L7,6 Z"/>
+          <path d="M6,5 L9,-5 L12,5 Z"/>
+        </symbol>
+        <symbol id="ic-festival" viewBox="-18 -18 36 26" fill="currentColor">
+          <ellipse cx="0" cy="6" rx="16" ry="6"/>
+          <line x1="0" y1="6" x2="0" y2="-14" stroke="currentColor" stroke-width="2"/>
+          <path d="M0,-14 L10,-9 L0,-4 Z"/>
+          <path d="M0,-6 L8,-2 L0,2 Z" opacity=".65"/>
+        </symbol>
+        <symbol id="ic-boat" viewBox="-12 -8 24 14" fill="currentColor">
+          <path d="M-10,4 Q0,-6 10,4 Z"/>
+          <line x1="0" y1="4" x2="0" y2="-6" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M0,-6 L6,-2 L0,1 Z"/>
+        </symbol>
+      </defs>
+
+      <!-- 海 -->
+      <rect x="10" y="10" width="880" height="680" fill="var(--emap-sea)"/>
+      <rect x="10" y="10" width="880" height="680" fill="url(#em-waves)"/>
+
+      <!-- 記録の大陸 -->
+      <path d="M175,55 Q230,40 260,75 Q300,60 340,90 Q380,110 372,150 Q365,185 400,205 Q430,225 405,260 Q380,290 340,300 Q300,310 310,345 Q320,380 280,400 Q250,415 270,450 Q300,480 350,470 Q400,460 410,500 Q415,545 380,570 Q350,600 360,630 Q365,655 320,660 Q260,668 220,655 Q170,645 150,610 Q120,580 130,540 Q140,500 110,470 Q80,445 95,400 Q108,360 90,320 Q72,280 90,240 Q105,205 85,170 Q68,135 100,100 Q130,65 175,55 Z"
+        fill="var(--emap-land-cool)" stroke="var(--emap-coast)" stroke-width="2"/>
+      <path d="M175,55 Q230,40 260,75 Q300,60 340,90 Q380,110 372,150 Q365,185 400,205 Q430,225 405,260 Q380,290 340,300 Q300,310 310,345 Q320,380 280,400 Q250,415 270,450 Q300,480 350,470 Q400,460 410,500 Q415,545 380,570 Q350,600 360,630 Q365,655 320,660 Q260,668 220,655 Q170,645 150,610 Q120,580 130,540 Q140,500 110,470 Q80,445 95,400 Q108,360 90,320 Q72,280 90,240 Q105,205 85,170 Q68,135 100,100 Q130,65 175,55 Z"
+        fill="var(--kg-sor)" opacity=".10"/>
+
+      <!-- 会話の大陸 -->
+      <path d="M650,50 Q700,35 740,60 Q790,50 815,85 Q845,115 825,150 Q805,180 835,205 Q860,225 838,255 Q815,280 785,265 Q755,255 748,285 Q742,315 778,330 Q812,345 795,380 Q780,410 805,435 Q835,455 818,490 Q800,520 818,550 Q838,578 805,600 Q775,618 780,640 Q762,655 725,645 Q690,635 675,605 Q660,578 630,588 Q600,598 582,572 Q565,548 585,518 Q605,490 575,465 Q550,445 565,412 Q580,382 550,358 Q525,338 540,302 Q555,268 525,245 Q500,225 520,190 Q540,160 515,130 Q495,105 525,78 Q555,52 600,58 Q625,45 650,50 Z"
+        fill="var(--emap-land)" stroke="var(--emap-coast)" stroke-width="2"/>
+      <path d="M650,50 Q700,35 740,60 Q790,50 815,85 Q845,115 825,150 Q805,180 835,205 Q860,225 838,255 Q815,280 785,265 Q755,255 748,285 Q742,315 778,330 Q812,345 795,380 Q780,410 805,435 Q835,455 818,490 Q800,520 818,550 Q838,578 805,600 Q775,618 780,640 Q762,655 725,645 Q690,635 675,605 Q660,578 630,588 Q600,598 582,572 Q565,548 585,518 Q605,490 575,465 Q550,445 565,412 Q580,382 550,358 Q525,338 540,302 Q555,268 525,245 Q500,225 520,190 Q540,160 515,130 Q495,105 525,78 Q555,52 600,58 Q625,45 650,50 Z"
+        fill="var(--kg-soe)" opacity=".10"/>
+
+      <!-- 海峡の群島: Notion・Lark（一体型）／A6: 円形の"顔文字"感を避けるため輪郭を不定形に -->
+      <path d="M406,382 Q418,360 444,362 Q462,364 466,384 Q470,402 452,414 Q436,424 420,416 Q400,408 398,394 Q398,384 406,382 Z" fill="var(--emap-land)" stroke="var(--emap-coast)" stroke-width="1.6"/>
+      <path d="M406,382 Q418,360 444,362 Q462,364 466,384 Q470,402 452,414 Q436,424 420,416 Q400,408 398,394 Q398,384 406,382 Z" fill="var(--kg-both)" opacity=".16"/>
+      <path d="M446,412 Q456,394 480,396 Q504,398 508,418 Q512,436 496,450 Q480,462 462,454 Q444,446 440,428 Q440,418 446,412 Z" fill="var(--emap-land)" stroke="var(--emap-coast)" stroke-width="1.6"/>
+      <path d="M446,412 Q456,394 480,396 Q504,398 508,418 Q512,436 496,450 Q480,462 462,454 Q444,446 440,428 Q440,418 446,412 Z" fill="var(--kg-both)" opacity=".16"/>
+
+      <!-- 南東の離島: Discordの祝祭の島（別種目） -->
+      <path d="M800,570 Q825,556 852,568 Q870,585 858,608 Q838,624 812,616 Q792,600 800,570 Z" fill="var(--emap-land)" stroke="var(--emap-coast)" stroke-width="1.6" stroke-dasharray="4 3"/>
+      <path d="M800,570 Q825,556 852,568 Q870,585 858,608 Q838,624 812,616 Q792,600 800,570 Z" fill="var(--kg-soe)" opacity=".14"/>
+
+      <!-- 装飾枠 -->
+      <rect x="10" y="10" width="880" height="680" fill="none" stroke="var(--emap-coast)" stroke-width="2.5"/>
+      <rect x="16" y="16" width="868" height="668" fill="none" stroke="var(--emap-coast)" stroke-width=".75" opacity=".55"/>
+      <g fill="var(--emap-coast)">
+        <rect x="6" y="6" width="8" height="8" transform="rotate(45 10 10)"/>
+        <rect x="886" y="6" width="8" height="8" transform="rotate(45 890 10)"/>
+        <rect x="6" y="686" width="8" height="8" transform="rotate(45 10 690)"/>
+        <rect x="886" y="686" width="8" height="8" transform="rotate(45 890 690)"/>
+      </g>
+
+      <!-- タイトルカルトゥーシュ（北西隅／B9: 控えめな飾り題箱） -->
+      <g transform="translate(30,22)">
+        <rect x="0" y="0" width="172" height="26" rx="4" class="emap-title-box"/>
+        <line x1="8" y1="13" x2="17" y2="13" stroke="var(--emap-coast)" stroke-width="1" opacity=".7"/>
+        <line x1="155" y1="13" x2="164" y2="13" stroke="var(--emap-coast)" stroke-width="1" opacity=".7"/>
+        <text x="86" y="17" font-size="10.5" text-anchor="middle" fill="var(--emap-lbl)" font-family="var(--serif)">勢力図──記録と会話の二大陸</text>
+      </g>
+
+      <!-- コンパスローズ（北東隅） -->
+      <g transform="translate(830,52)">
+        <circle r="24" fill="none" stroke="var(--emap-coast)" stroke-width="1"/>
+        <path d="M0,-22 L5,0 L0,22 L-5,0 Z" fill="var(--emap-coast)" opacity=".85"/>
+        <path d="M-22,0 L0,-5 L22,0 L0,5 Z" fill="var(--emap-coast)" opacity=".5"/>
+        <text x="0" y="-29" font-size="11" text-anchor="middle" fill="var(--emap-coast)" font-family="var(--mono)">N</text>
+      </g>
+
+      <!-- E5橋: 帝国の艦隊が北の城下町を結ぶ（B8: 277億ドル航路との輻輳回避のため制御点をやや北へ） -->
+      <path d="M690,108 Q480,26 258,108" fill="none" stroke="var(--emap-lbl-gold)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#em-arr-gold)"/>
+      <rect x="415" y="49" width="170" height="20" rx="4" class="emap-label-bg"/>
+      <text x="500" y="63" font-size="12" fill="var(--emap-lbl-gold)" text-anchor="middle" class="emap-label">E5艦隊（帝国の同梱航路）</text>
+      <g transform="translate(541,62) rotate(200)" fill="var(--emap-lbl-gold)"><use href="#ic-boat" x="-12" y="-8" width="24" height="14"/></g>
+      <g transform="translate(390,66) rotate(195)" fill="var(--emap-lbl-gold)"><use href="#ic-boat" x="-12" y="-8" width="24" height="14"/></g>
+
+      <!-- 南下を試みるが、村には届かない -->
+      <path d="M258,112 Q150,230 175,345 Q188,420 216,460" fill="none" stroke="var(--emap-lbl-gold)" stroke-width="1.3" stroke-dasharray="3 9" opacity=".5"/>
+      <text x="150" y="490" font-size="11" text-anchor="middle" class="emap-note gold" font-style="italic">南下を試みるが、村には届かない</text>
+
+      <!-- Salesforce → Slack: 277億ドルの航路 -->
+      <path d="M340,222 Q460,192 573,220" fill="none" stroke="var(--emap-lbl2)" stroke-width="1.8" marker-end="url(#em-arr)"/>
+      <rect x="333" y="168" width="254" height="20" rx="4" class="emap-label-bg"/>
+      <text x="460" y="183" font-size="12" fill="var(--emap-lbl2)" text-anchor="middle" class="emap-label">277億ドルの航路（正本が入口を買った）</text>
+
+      <!-- 東の商船: Larkへ向かう航路（S3: ラベルを内側・左へ寄せてDiscord/飾り枠との余白を確保） -->
+      <path d="M888,562 Q758,642 598,562 Q518,502 474,436" fill="none" stroke="var(--kg-both-deep)" stroke-width="1.3" stroke-dasharray="3 5" marker-end="url(#em-arr-both)"/>
+      <text x="712" y="616" font-size="11" text-anchor="middle" class="emap-note both">東の商船（Larkへ）</text>
+      <g transform="translate(866,553) rotate(130)" fill="var(--kg-both-deep)"><use href="#ic-boat" x="-12" y="-8" width="24" height="14"/></g>
+
+      <!-- 大陸・海峡ラベル -->
+      <text x="112" y="258" font-size="15" text-anchor="middle" class="emap-continent">記録の大陸</text>
+      <text x="112" y="274" font-size="10" text-anchor="middle" class="emap-note" font-family="var(--mono)">SoR・正本</text>
+      <text x="800" y="352" font-size="15" text-anchor="middle" class="emap-continent">会話の大陸</text>
+      <text x="800" y="368" font-size="10" text-anchor="middle" class="emap-note" font-family="var(--mono)">SoE・入口</text>
+      <text x="450" y="305" font-size="13" text-anchor="middle" class="emap-continent">海峡</text>
+
+      <!-- 北・南の帯 -->
+      <text x="450" y="27" font-size="12" text-anchor="middle" class="emap-note" font-family="var(--mono)">北 ── 大企業・情シス主導</text>
+      <text x="450" y="674" font-size="12" text-anchor="middle" class="emap-note" font-family="var(--mono)">南 ── 中小・現場・個人</text>
+
+      <!-- 記録の大陸: 北部の3城 -->
+      <g class="kg-dot" tabindex="0" data-d="ERP＝「お金とモノ」の正本。大企業の情シスが数年がかりで導入する層">
+        <use href="#ic-castle" class="emap-icon" x="150" y="67" width="40" height="40" fill="var(--kg-sor)"/>
+        <text x="170" y="68" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">SAP</text>
+      </g>
+      <g class="kg-dot" tabindex="0" data-d="IT・業務ワークフローの正本。大企業向け。消費課金（Pro Plusアドオン）へ移行中">
+        <use href="#ic-castle" class="emap-icon" x="230" y="47" width="40" height="40" fill="var(--kg-sor)"/>
+        <text x="250" y="48" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">ServiceNow</text>
+      </g>
+      <g class="kg-dot" tabindex="0" data-d="Microsoftのノーコード基盤（Dataverse）。機能はkintone上位互換だが情シスがいないと運用できない＝購買動線が違う（追補C）">
+        <use href="#ic-castle" class="emap-icon" x="210" y="112" width="40" height="40" fill="var(--kg-sor)"/>
+        <text x="230" y="170" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Power Platform</text>
+      </g>
+
+      <!-- 記録の大陸: 城主Salesforce（海峡側） -->
+      <g class="kg-dot" tabindex="0" data-d="CRM（顧客の正本）の代表。記録層を持つがゆえに入口（Slack）を買った。Agentforceで消費課金へ">
+        <use href="#ic-castle" class="emap-icon" x="312" y="186" width="56" height="56" fill="var(--kg-sor)"/>
+        <text x="340" y="259" font-size="14" font-weight="700" text-anchor="middle" fill="var(--emap-lbl)">Salesforce</text>
+        <text x="340" y="273" font-size="10" text-anchor="middle" class="emap-note" font-family="var(--mono)">城主の城</text>
+      </g>
+
+      <!-- 記録の大陸: 中部Airtableの町 -->
+      <g class="kg-dot" tabindex="0" data-d="表計算型の業務DB。現場寄りだが英語圏中心で日本の中小への浸透は限定的">
+        <use href="#ic-village" class="emap-icon" x="275" y="325" width="40" height="30" fill="var(--kg-sor)"/>
+        <text x="295" y="372" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Airtable</text>
+      </g>
+
+      <!-- 記録の大陸: 南岸kintone村（最重要ランドマーク／A5: 主役感を強化・拡大＋淡い暖色ハロー＋畑を追加） -->
+      <g class="kg-dot" tabindex="0" data-d="ノーコード業務アプリ基盤（国内39,000社・解約率0.92%）。レコードに会話が同居する一体型を、中小・現場が自分で作れる価格で提供。Salesforceが277億ドルで後付けした構造を生まれつき持つ">
+        <circle cx="345" cy="497" r="34" fill="var(--emap-glow)" class="emap-glow" filter="url(#em-blur)"/>
+        <g opacity=".85">
+          <rect x="288" y="519" width="22" height="13" fill="var(--emap-land)" stroke="var(--emap-coast)" stroke-width="1"/>
+          <line x1="290" y1="523" x2="308" y2="523" stroke="var(--kg-both)" stroke-width="1"/>
+          <line x1="290" y1="527" x2="308" y2="527" stroke="var(--kg-both)" stroke-width="1"/>
+          <line x1="290" y1="530.5" x2="308" y2="530.5" stroke="var(--kg-both)" stroke-width="1"/>
+        </g>
+        <use href="#ic-village" class="emap-icon" x="307" y="468" width="76" height="57" fill="var(--kg-both)"/>
+        <line x1="368" y1="516" x2="386" y2="516" stroke="var(--emap-coast)" stroke-width="1.5"/>
+        <circle cx="388" cy="514" r="2.2" fill="var(--kg-both)"/>
+        <text x="345" y="546" font-size="16" font-weight="700" text-anchor="middle" fill="var(--emap-lbl)">kintone</text>
+        <text x="345" y="561" font-size="10" text-anchor="middle" class="emap-note" font-family="var(--mono)">村・小さな港</text>
+      </g>
+
+      <!-- 会話の大陸: 帝国の城塞都市Teams（B7: 城壁ライン＋塔で威厳を付与。共有シンボルic-portは変えずTeams固有の加飾として重ねる） -->
+      <g class="kg-dot" tabindex="0" data-d="企業内チャットのシェア首位。M365バンドルの力。単体の使いやすさではなく「同梱」で勝っている">
+        <g opacity=".9" fill="var(--kg-soe)">
+          <rect x="668" y="104" width="94" height="6" opacity=".5"/>
+          <rect x="668" y="92" width="7" height="14"/>
+          <rect x="667" y="86" width="9" height="7"/>
+          <rect x="755" y="92" width="7" height="14"/>
+          <rect x="753" y="86" width="9" height="7"/>
+          <rect x="710" y="96" width="7" height="10"/>
+          <rect x="709" y="90" width="9" height="7"/>
+        </g>
+        <use href="#ic-port" class="emap-icon" x="676" y="61" width="78" height="51" fill="var(--kg-soe)"/>
+        <text x="715" y="50" font-size="14" font-weight="700" text-anchor="middle" fill="var(--emap-lbl)">Teams</text>
+        <text x="715" y="132" font-size="10" text-anchor="middle" class="emap-note" font-family="var(--mono)">帝国の城塞都市</text>
+      </g>
+
+      <!-- 会話の大陸: Slack港 -->
+      <g class="kg-dot" tabindex="0" data-d="ビジネスチャットの代表。2021年からSalesforce傘下。Agentforceの会話面＝AI時代の「入口」の座">
+        <use href="#ic-port" class="emap-icon" x="549" y="194" width="52" height="34" fill="var(--kg-soe)"/>
+        <text x="575" y="246" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Slack港</text>
+      </g>
+
+      <!-- 会話の大陸: 南部の村 -->
+      <g class="kg-dot" tabindex="0" data-d="日本の中小・現場（ノンデスクワーカー）チャットの強者。kintone顧客層と最も重なる隣人">
+        <use href="#ic-village" class="emap-icon" x="675" y="480" width="40" height="30" fill="var(--kg-soe)"/>
+        <text x="695" y="528" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">LINE WORKS</text>
+      </g>
+      <g class="kg-dot" tabindex="0" data-d="国産・中小向けビジネスチャット">
+        <use href="#ic-village" class="emap-icon" x="625" y="540" width="40" height="30" fill="var(--kg-soe)"/>
+        <text x="645" y="588" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Chatwork</text>
+      </g>
+
+      <!-- 南東離島: Discordの祝祭の島 -->
+      <g class="kg-dot" tabindex="0" data-d="コミュニティ用途の世界標準（ゲーム発）。ビジネスチャットとは別種目で、企業の業務には通常使わない">
+        <use href="#ic-festival" class="emap-icon" x="812" y="574" width="36" height="26" fill="var(--kg-soe)"/>
+        <text x="830" y="618" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Discord</text>
+        <text x="830" y="632" font-size="9.5" text-anchor="middle" class="emap-note" font-family="var(--mono)">※別種目</text>
+      </g>
+
+      <!-- 海峡の群島 -->
+      <g class="kg-dot" tabindex="0" data-d="ドキュメント×DBの一体型。個人〜中堅。AI統合を急速に進める">
+        <use href="#ic-island" class="emap-icon" x="414" y="381" width="36" height="24" fill="var(--kg-both)"/>
+        <text x="432" y="373" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Notion</text>
+      </g>
+      <g class="kg-dot" tabindex="0" data-d="ByteDanceの一体型（チャット×文書×DB）。kintoneと同型の設計思想を持つ外来競合。国内中小への浸透を監視（§7-5）">
+        <use href="#ic-island" class="emap-icon" x="457" y="417" width="36" height="24" fill="var(--kg-both)"/>
+        <text x="475" y="459" font-size="13" text-anchor="middle" fill="var(--emap-lbl)">Lark</text>
+      </g>
+
+      <text x="26" y="674" font-size="11" fill="var(--emap-lbl3)" class="emap-note">位置は購買動線による定性配置の比喩地図です</text>
+    </svg>
+    <div class="kg-legend">
+      <span><i style="background:var(--kg-sor)"></i>記録の大陸 ― SoR・正本</span>
+      <span><i style="background:var(--kg-soe)"></i>会話の大陸 ― SoE・入口</span>
+      <span><i style="background:var(--kg-both)"></i>一体型の島・村 ― 記録×会話の同居</span>
+    </div>
+    <div class="kg-tip" role="status"></div>
+  </div>
+  <p class="kg-note">城・村・港に触れる（またはフォーカスする）と各プレーヤーの説明が出ます。<b>kintone村の位置の意味</b>: 記録の大陸の南岸（記録×現場）はMicrosoftの重力（会話の大陸・北部）から最も遠い座標であり、同時にLark・LINE WORKSという「下からの隣人」に最も近い座標でもあります。</p>
+
+  <div class="emap-sub">観測資料（正確な座標版）</div>
   <div class="kg-mapbox" id="kg-mapbox">
     <svg viewBox="0 0 900 640" role="img" aria-label="記録層と会話層、大企業と中小現場の2軸に主要ツールを配置したマップ">
       <line x1="470" y1="50" x2="470" y2="570" stroke="var(--kg-grid)" stroke-width="1"/>
@@ -260,7 +535,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
       <span><i style="background:var(--kg-soe)"></i>会話層（SoE）― チャット・入口</span>
       <span><i style="background:var(--kg-both)"></i>一体型 ― 記録×会話の同居</span>
     </div>
-    <div id="kg-tip" role="status"></div>
+    <div class="kg-tip" role="status"></div>
   </div>
   <p class="kg-note">ドットに触れる（またはフォーカスする）と各プレーヤーの説明が出ます。<b>kintoneの位置の意味</b>: 左下（記録×現場）はMicrosoftの重力（右上）から最も遠い座標であり、同時にLark・LINE WORKSという「下からの隣人」に最も近い座標でもあります。</p>
 
@@ -358,27 +633,30 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>200);});
 
 (function(){
-  var box=document.getElementById('kg-mapbox'),tip=document.getElementById('kg-tip');
-  if(!box||!tip) return;
-  function show(g,x,y){
-    var name=g.querySelector('text').textContent;
-    tip.innerHTML='<b>'+name+'</b><br>'+g.getAttribute('data-d');
-    tip.style.opacity='1';
-    var r=box.getBoundingClientRect();
-    var tx=Math.min(Math.max(x-r.left+14,8),r.width-270), ty=y-r.top+14;
-    tip.style.left=tx+'px'; tip.style.top=ty+'px';
-  }
-  document.querySelectorAll('.kg-dot').forEach(function(g){
-    g.addEventListener('mousemove',function(e){show(g,e.clientX,e.clientY);});
-    g.addEventListener('mouseleave',function(){tip.style.opacity='0';});
-    g.addEventListener('focus',function(){
-      var c=g.querySelector('circle').getBoundingClientRect();
-      show(g,c.left+c.width/2,c.top+c.height);
+  document.querySelectorAll('.kg-mapbox').forEach(function(box){
+    var tip=box.querySelector('.kg-tip');
+    if(!tip) return;
+    function show(g,x,y){
+      var name=g.querySelector('text').textContent;
+      tip.innerHTML='<b>'+name+'</b><br>'+g.getAttribute('data-d');
+      tip.style.opacity='1';
+      var r=box.getBoundingClientRect();
+      var tx=Math.min(Math.max(x-r.left+14,8),r.width-270), ty=y-r.top+14;
+      tip.style.left=tx+'px'; tip.style.top=ty+'px';
+    }
+    box.querySelectorAll('.kg-dot').forEach(function(g){
+      g.addEventListener('mousemove',function(e){show(g,e.clientX,e.clientY);});
+      g.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+      g.addEventListener('focus',function(){
+        var anchor=g.querySelector('circle')||g.querySelector('use');
+        var c=anchor.getBoundingClientRect();
+        show(g,c.left+c.width/2,c.top+c.height);
+      });
+      g.addEventListener('blur',function(){tip.style.opacity='0';});
+      g.addEventListener('touchstart',function(e){
+        var t=e.touches[0]; show(g,t.clientX,t.clientY);
+      },{passive:true});
     });
-    g.addEventListener('blur',function(){tip.style.opacity='0';});
-    g.addEventListener('touchstart',function(e){
-      var t=e.touches[0]; show(g,t.clientX,t.clientY);
-    },{passive:true});
   });
 })();
 </script>
