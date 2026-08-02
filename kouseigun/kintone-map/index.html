@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VYPK32EB6B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VYPK32EB6B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="kintoneはどこに立っているのか。「記録層（SoR・正本）」と「会話層（SoE・入口）」の2軸で、kintoneを含む主要な業務ソフトの勢力地形を観測する。恒星群の間・展示01。"/>
+<meta property="og:title" content="kintone位置取りマップ｜恒星群の間｜投資Library"/>
+<meta property="og:description" content="記録層×会話層の2軸で、kintoneを含む業務ソフトの勢力地形を観測する。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://anni-memo.github.io/investment-library/kouseigun/kintone-map/"/>
+<meta property="og:image" content="https://anni-memo.github.io/investment-library/og-image.png"/>
+<meta property="og:image:alt" content="投資Library"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://anni-memo.github.io/investment-library/kouseigun/kintone-map/"/>
+<title>kintone位置取りマップ｜恒星群の間｜投資Library</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "kintoneはどこに立っているのか — 記録層×会話層の勢力マップ",
+  "description": "記録層（SoR）と会話層（SoE）の2軸で、kintoneを含む主要な業務ソフトの勢力地形を観測する。",
+  "author": {"@type": "Person", "name": "anni_memo"},
+  "publisher": {"@type": "Organization", "name": "投資Library", "url": "https://anni-memo.github.io/investment-library/"},
+  "datePublished": "2026-08-02",
+  "inLanguage": "ja",
+  "about": [{"@type": "Thing", "name": "サイボウズ"}, {"@type": "Thing", "name": "kintone"}],
+  "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "書斎の入口", "item": "https://anni-memo.github.io/investment-library/"},
+    {"@type": "ListItem", "position": 2, "name": "恒星群の間", "item": "https://anni-memo.github.io/investment-library/kouseigun/"},
+    {"@type": "ListItem", "position": 3, "name": "kintone位置取りマップ"}
+  ]}
+}
+</script>
+
+<link rel="stylesheet" href="../../shared.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --ink:#1a1208;--ink2:#2d2010;--ink3:#4a3520;
+  --parch:#f5ede0;--parch2:#efe4d0;--parch3:#e8d8be;--parch4:#dfc9a8;
+  --gold:#8b6914;--gold2:#b8900a;--gold3:#d4aa22;--gold4:#f0cc55;
+  --rust:#8b3a1a;--rust2:#c05020;
+  --green:#2a4a1a;--green2:#3d6828;--green3:#5a8a3a;
+  --serif:'Cormorant Garamond','Noto Serif JP',serif;
+  --jp:'Noto Serif JP','Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --shadow:0 4px 24px rgba(26,18,8,.18);
+  /* ── マップ専用トークン（勢力図の可視化に使う配色。ライト値） ── */
+  --kg-grid:#e1e0d9;--kg-axis:#c3c2b7;--kg-ring:rgba(26,18,8,.12);
+  --kg-sor:#3a5590;--kg-soe:#c05020;--kg-both:#5a8a3a;--kg-both-deep:#3d6828;
+}
+:root[data-theme="dark"]{
+  --kg-grid:#3a2a18;--kg-axis:#4a3520;--kg-ring:rgba(232,220,200,.12);
+  --kg-sor:#7fa6e8;--kg-soe:#e08a54;--kg-both:#7ec98f;--kg-both-deep:#9fe0ae;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--parch);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+.nav{background:var(--ink);padding:12px 24px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(184,144,10,.25);flex-wrap:wrap;}
+.nav-back{font-family:var(--mono);font-size:.62rem;color:var(--gold3);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+.nav-back:hover{color:var(--gold4)}
+.nav-sep{color:rgba(139,105,20,.4);font-size:.7rem}
+.nav-current{font-family:var(--mono);font-size:.62rem;color:var(--parch4);letter-spacing:.06em}
+
+.hero{background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 45%,#2a1a0a 100%);color:var(--parch);padding:52px 24px 44px;text-align:center;position:relative;overflow:hidden;border-bottom:3px solid var(--gold);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(160,130,30,.08) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),transparent);}
+.hero-shelf{font-family:var(--mono);font-size:.58rem;color:var(--gold3);letter-spacing:.28em;margin-bottom:12px;opacity:.7;position:relative;}
+.hero-title{font-family:var(--serif);font-size:clamp(1.5rem,4.4vw,2.4rem);font-weight:700;line-height:1.35;color:var(--parch);text-shadow:0 2px 24px rgba(180,130,20,.15);position:relative;margin-bottom:16px;}
+.hero-lead{font-family:var(--serif);font-size:clamp(.86rem,2vw,.98rem);color:var(--parch3);font-weight:300;line-height:1.95;position:relative;max-width:600px;margin:0 auto;font-style:italic;}
+
+.article{max-width:900px;margin:0 auto;padding:44px 20px 20px;}
+.section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-top:10px;padding-bottom:10px;border-bottom:1px solid var(--parch4);}
+.section-header:not(:first-child){margin-top:44px;}
+.section-num{font-family:var(--mono);font-size:.56rem;color:var(--gold2);letter-spacing:.15em;}
+.section-title{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);}
+
+.kg-terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:8px;}
+.kg-term{background:var(--parch2);border:1px solid var(--parch4);padding:16px 18px;border-radius:2px;}
+.kg-term b{display:block;font-family:var(--serif);font-size:.92rem;color:var(--ink);margin-bottom:6px;}
+.kg-term span{font-size:.8rem;color:var(--ink2);line-height:1.8;}
+.kg-tag{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;padding:2px 9px;margin-bottom:10px;color:#fff;border-radius:2px;}
+
+.kg-mapbox{background:var(--parch2);border:1px solid var(--parch4);padding:14px 8px 6px;position:relative;overflow-x:auto;border-radius:2px;}
+.kg-mapbox svg{display:block;width:100%;height:auto;min-width:640px;}
+.kg-legend{display:flex;flex-wrap:wrap;gap:18px;font-size:.78rem;color:var(--ink2);padding:12px 12px 10px;}
+.kg-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;}
+.kg-dot{cursor:pointer;}
+.kg-dot circle{transition:r .12s ease;}
+.kg-dot:hover circle,.kg-dot:focus circle{stroke-width:3;}
+.kg-dot:focus{outline:none;}
+.kg-dot:focus circle{stroke:var(--ink);}
+#kg-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--parch);
+  font-size:.76rem;line-height:1.55;padding:8px 12px;max-width:260px;border-radius:3px;
+  opacity:0;transition:opacity .1s;z-index:5;box-shadow:var(--shadow);}
+#kg-tip b{color:var(--gold3);}
+.kg-note{font-size:.8rem;color:var(--ink2);margin-top:12px;max-width:48em;line-height:1.85;}
+
+.kg-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:6px;}
+.kg-card{background:var(--parch2);border:1px solid var(--parch4);padding:16px 18px;font-size:.82rem;border-radius:2px;}
+.kg-card b{display:block;margin-bottom:6px;font-family:var(--serif);font-size:.9rem;color:var(--ink);}
+.kg-card.growth{border-left:3px solid var(--kg-both);}
+.kg-card.threat{border-left:3px solid var(--kg-soe);}
+.kg-card p{margin:.3em 0;color:var(--ink2);line-height:1.75;}
+
+.kg-clock{display:flex;flex-wrap:wrap;gap:0;margin-top:6px;border:1px solid var(--parch4);background:var(--parch2);border-radius:2px;overflow:hidden;}
+.kg-clock>div{flex:1 1 180px;padding:16px 18px;border-right:1px solid var(--parch3);border-bottom:1px solid var(--parch3);}
+.kg-clock>div:last-child{border-right:none;}
+.kg-clock b{display:block;font-family:var(--mono);font-size:.72rem;color:var(--gold2);margin-bottom:6px;letter-spacing:.04em;}
+.kg-clock span{font-size:.8rem;color:var(--ink2);line-height:1.7;}
+
+.kg-details{margin-top:32px;font-size:.85rem;}
+.kg-details summary{cursor:pointer;color:var(--gold2);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;padding:8px 0;}
+.kg-table-wrap{overflow-x:auto;margin-top:10px;}
+.kg-table{border-collapse:collapse;width:100%;font-size:.78rem;min-width:560px;}
+.kg-table th,.kg-table td{border:1px solid var(--parch4);padding:8px 12px;text-align:left;vertical-align:top;}
+.kg-table th{background:var(--parch2);font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--gold2);font-weight:600;}
+.kg-table td{color:var(--ink2);}
+.kg-table td:first-child{white-space:nowrap;font-weight:600;color:var(--ink);}
+
+.caution-block{background:linear-gradient(135deg,rgba(139,58,26,.06),transparent);border:1px solid rgba(139,58,26,.2);border-radius:2px;padding:20px 22px;margin:40px 0 8px;}
+.caution-title{font-family:var(--serif);font-size:.92rem;font-weight:600;color:var(--rust2);margin-bottom:8px;}
+.caution-body{font-size:.78rem;line-height:1.85;color:var(--ink2);}
+.caution-body p{margin-bottom:8px;}
+.caution-body p:last-child{margin-bottom:0;}
+
+.kg-back{display:inline-block;margin:28px 0 4px;font-family:var(--mono);font-size:.68rem;color:var(--gold2);text-decoration:none;letter-spacing:.05em;border:1px solid var(--parch4);padding:8px 16px;border-radius:2px;transition:all .18s;}
+.kg-back:hover{border-color:var(--gold3);color:var(--gold3);background:var(--parch2);}
+
+.footer{background:var(--ink);color:var(--parch4);padding:28px 24px;text-align:center;font-size:.68rem;line-height:1.9;border-top:2px solid rgba(139,105,20,.44);}
+.footer-title{font-family:var(--serif);font-size:1.1rem;color:var(--gold3);margin-bottom:8px;letter-spacing:.06em;}
+.footer a{color:var(--gold3);text-decoration:none;}
+
+.scroll-top{position:fixed;bottom:24px;right:24px;z-index:100;width:40px;height:40px;background:var(--ink);border:1px solid rgba(139,105,20,.44);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--gold3);box-shadow:var(--shadow);transition:all .2s;opacity:0;pointer-events:none;}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{background:var(--gold2);color:var(--ink)}
+
+@media (max-width:480px){
+  .kg-clock>div{flex:1 1 100%;border-right:none;}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-back" href="../../">← 書斎の入口</a>
+  <span class="nav-sep">/</span>
+  <a class="nav-back" href="../">恒星群の間</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">kintone位置取りマップ</span>
+</nav>
+
+<div class="hero">
+  <div class="hero-shelf">恒星群の間 ― 展示01</div>
+  <h1 class="hero-title">kintoneはどこに立っているのか<br>── 記録層×会話層の勢力マップ</h1>
+  <p class="hero-lead">「CRMマップ」ではなくこの2軸なのが本資料の要点です。CRMは数あるジャンルの一つにすぎず、業務ソフトの地形は「記録層（正本）か、会話層（入口）か」×「誰が買うのか」で読むと構造が見えます。</p>
+</div>
+
+<div class="article">
+
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">まず用語の整理 ── kintoneはCRMではありません</h2>
+  </div>
+  <div class="kg-terms">
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-sor)">記録層 SoR</span><b>System of Record ＝ 正本</b><span>業務の公式な記録・権限・履歴を持つ層。<b>CRMはこの層の1ジャンル</b>（「顧客」という対象専用の正本。代表=Salesforce）。ERP（SAP）は「お金とモノ」の正本。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-soe)">会話層 SoE</span><b>System of Engagement ＝ 入口</b><span>人が一日中いる場所。チャット・通知・会話。Slack・Teams・LINE WORKSなど。AIエージェント時代は「入口」の重力が増す層。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-both)">一体型</span><b>記録×会話の同居</b><span>kintoneの正体はCRMではなく<b>「何の正本にでもなれるノーコードの箱」</b>（Gartner分類では市民開発プラットフォーム）。レコードに会話が付随する一体型で、CRMアプリを「作る」ことはできる。</span></div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">勢力マップ（2026年08月時点の観測）</h2>
+  </div>
+  <div class="kg-mapbox" id="kg-mapbox">
+    <svg viewBox="0 0 900 640" role="img" aria-label="記録層と会話層、大企業と中小現場の2軸に主要ツールを配置したマップ">
+      <line x1="470" y1="50" x2="470" y2="570" stroke="var(--kg-grid)" stroke-width="1"/>
+      <line x1="90" y1="310" x2="860" y2="310" stroke="var(--kg-grid)" stroke-width="1"/>
+      <rect x="90" y="50" width="770" height="520" fill="none" stroke="var(--kg-axis)" stroke-width="1"/>
+      <text x="100" y="40" font-size="13" fill="var(--ink3)">◀ 記録層（SoR・正本）</text>
+      <text x="860" y="40" font-size="13" fill="var(--ink3)" text-anchor="end">会話層（SoE・入口）▶</text>
+      <text x="60" y="66" font-size="13" fill="var(--ink3)" writing-mode="tb">大企業・情シス主導</text>
+      <text x="60" y="430" font-size="13" fill="var(--ink3)" writing-mode="tb">中小・現場・個人</text>
+
+      <path d="M 262 118 Q 560 -8 800 96" fill="none" stroke="var(--ink3)" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <text x="536" y="52" font-size="12" fill="var(--ink3)" text-anchor="middle">E5バンドル＝上からの圧力（§5）</text>
+
+      <defs>
+        <marker id="kg-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--ink3)"/></marker>
+        <marker id="kg-arrG" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--kg-both)"/></marker>
+        <marker id="kg-arrT" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--kg-soe)"/></marker>
+      </defs>
+      <path d="M 214 200 Q 420 150 636 190" fill="none" stroke="var(--ink3)" stroke-width="1.6" marker-end="url(#kg-arr)"/>
+      <text x="424" y="152" font-size="12" fill="var(--ink2)" text-anchor="middle">2021年 約277億ドルで買収＝「正本が入口を買った」</text>
+
+      <path d="M 316 468 L 316 388" fill="none" stroke="var(--kg-both)" stroke-width="2" marker-end="url(#kg-arrG)"/>
+      <text x="326" y="404" font-size="12" fill="var(--kg-both-deep)">深耕ベクトル（ワイド・大企業比率3割接近）</text>
+
+      <path d="M 344 480 Q 560 420 718 216" fill="none" stroke="var(--kg-both)" stroke-width="1.3" stroke-dasharray="3 5"/>
+      <path d="M 344 486 Q 540 500 716 476" fill="none" stroke="var(--kg-both)" stroke-width="1.3" stroke-dasharray="3 5"/>
+      <text x="560" y="530" font-size="12" fill="var(--kg-both-deep)">MCP戦略＝どの入口からでも読み書きされる正本（§5）</text>
+
+      <path d="M 566 428 L 386 470" fill="none" stroke="var(--kg-soe)" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#kg-arrT)"/>
+      <text x="536" y="456" font-size="12" fill="var(--kg-soe)">一体型の外来競合（追補E）</text>
+
+      <g class="kg-dot" tabindex="0" data-d="ERP＝「お金とモノ」の正本。大企業の情シスが数年がかりで導入する層"><circle cx="150" cy="112" r="9" fill="var(--kg-sor)" stroke="var(--parch2)" stroke-width="2"/><text x="150" y="94" font-size="13" fill="var(--ink)" text-anchor="middle">SAP</text></g>
+      <g class="kg-dot" tabindex="0" data-d="IT・業務ワークフローの正本。大企業向け。消費課金（Pro Plusアドオン）へ移行中"><circle cx="236" cy="88" r="9" fill="var(--kg-sor)" stroke="var(--parch2)" stroke-width="2"/><text x="236" y="70" font-size="13" fill="var(--ink)" text-anchor="middle">ServiceNow</text></g>
+      <g class="kg-dot" tabindex="0" data-d="CRM（顧客の正本）の代表。記録層を持つがゆえに入口（Slack）を買った。Agentforceで消費課金へ"><circle cx="196" cy="206" r="9" fill="var(--kg-sor)" stroke="var(--parch2)" stroke-width="2"/><text x="196" y="232" font-size="13" fill="var(--ink)" text-anchor="middle">Salesforce</text></g>
+      <g class="kg-dot" tabindex="0" data-d="Microsoftのノーコード基盤（Dataverse）。機能はkintone上位互換だが情シスがいないと運用できない＝購買動線が違う（追補C）"><circle cx="262" cy="140" r="9" fill="var(--kg-sor)" stroke="var(--parch2)" stroke-width="2"/><text x="262" y="166" font-size="13" fill="var(--ink)" text-anchor="middle">Power Platform</text></g>
+      <g class="kg-dot" tabindex="0" data-d="表計算型の業務DB。現場寄りだが英語圏中心で日本の中小への浸透は限定的"><circle cx="320" cy="352" r="9" fill="var(--kg-sor)" stroke="var(--parch2)" stroke-width="2"/><text x="320" y="334" font-size="13" fill="var(--ink)" text-anchor="middle">Airtable</text></g>
+
+      <g class="kg-dot" tabindex="0" data-d="企業内チャットのシェア首位。M365バンドルの力。単体の使いやすさではなく「同梱」で勝っている"><circle cx="800" cy="120" r="9" fill="var(--kg-soe)" stroke="var(--parch2)" stroke-width="2"/><text x="800" y="102" font-size="13" fill="var(--ink)" text-anchor="middle">Teams</text></g>
+      <g class="kg-dot" tabindex="0" data-d="ビジネスチャットの代表。2021年からSalesforce傘下。Agentforceの会話面＝AI時代の「入口」の座"><circle cx="656" cy="196" r="9" fill="var(--kg-soe)" stroke="var(--parch2)" stroke-width="2"/><text x="656" y="222" font-size="13" fill="var(--ink)" text-anchor="middle">Slack</text></g>
+      <g class="kg-dot" tabindex="0" data-d="日本の中小・現場（ノンデスクワーカー）チャットの強者。kintone顧客層と最も重なる隣人"><circle cx="732" cy="482" r="9" fill="var(--kg-soe)" stroke="var(--parch2)" stroke-width="2"/><text x="732" y="464" font-size="13" fill="var(--ink)" text-anchor="middle">LINE WORKS</text></g>
+      <g class="kg-dot" tabindex="0" data-d="国産・中小向けビジネスチャット"><circle cx="678" cy="540" r="9" fill="var(--kg-soe)" stroke="var(--parch2)" stroke-width="2"/><text x="678" y="566" font-size="13" fill="var(--ink)" text-anchor="middle">Chatwork</text></g>
+      <g class="kg-dot" tabindex="0" data-d="コミュニティ用途の世界標準（ゲーム発）。ビジネスチャットとは別種目で、企業の業務には通常使わない"><circle cx="822" cy="556" r="9" fill="var(--kg-soe)" stroke="var(--parch2)" stroke-width="2"/><text x="822" y="538" font-size="13" fill="var(--ink)" text-anchor="middle">Discord</text></g>
+
+      <g class="kg-dot" tabindex="0" data-d="ドキュメント×DBの一体型。個人〜中堅。AI統合を急速に進める"><circle cx="490" cy="368" r="9" fill="var(--kg-both)" stroke="var(--parch2)" stroke-width="2"/><text x="490" y="350" font-size="13" fill="var(--ink)" text-anchor="middle">Notion</text></g>
+      <g class="kg-dot" tabindex="0" data-d="ByteDanceの一体型（チャット×文書×DB）。kintoneと同型の設計思想を持つ外来競合。国内中小への浸透を監視（§7-5）"><circle cx="580" cy="424" r="9" fill="var(--kg-both)" stroke="var(--parch2)" stroke-width="2"/><text x="580" y="406" font-size="13" fill="var(--ink)" text-anchor="middle">Lark</text></g>
+      <g class="kg-dot" tabindex="0" data-d="ノーコード業務アプリ基盤（国内39,000社・解約率0.92%）。レコードに会話が同居する一体型を、中小・現場が自分で作れる価格で提供。Salesforceが277億ドルで後付けした構造を生まれつき持つ"><circle cx="330" cy="484" r="13" fill="var(--kg-both)" stroke="var(--parch2)" stroke-width="3"/><circle cx="330" cy="484" r="19" fill="none" stroke="var(--kg-both)" stroke-width="1.2" opacity=".5"/><text x="330" y="518" font-size="15" font-weight="700" fill="var(--ink)" text-anchor="middle">kintone</text></g>
+
+      <text x="94" y="590" font-size="11.5" fill="var(--ink3)">位置は機能表ではなく「主戦場の購買動線」による定性配置</text>
+    </svg>
+    <div class="kg-legend">
+      <span><i style="background:var(--kg-sor)"></i>記録層（SoR）― CRM・ERP・ワークフローの正本</span>
+      <span><i style="background:var(--kg-soe)"></i>会話層（SoE）― チャット・入口</span>
+      <span><i style="background:var(--kg-both)"></i>一体型 ― 記録×会話の同居</span>
+    </div>
+    <div id="kg-tip" role="status"></div>
+  </div>
+  <p class="kg-note">ドットに触れる（またはフォーカスする）と各プレーヤーの説明が出ます。<b>kintoneの位置の意味</b>: 左下（記録×現場）はMicrosoftの重力（右上）から最も遠い座標であり、同時にLark・LINE WORKSという「下からの隣人」に最も近い座標でもあります。</p>
+
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">成長と脅威 ── このマップの動き方</h2>
+  </div>
+  <div class="kg-cards">
+    <div class="kg-card growth"><b>成長ベクトル①: 上へ（深耕）</b><p>新規ロゴ獲得は終盤（プライム導入率46〜47%）。成長はワイドコース・大企業比率（3割接近中）＝マップを上に登る動き。</p></div>
+    <div class="kg-card growth"><b>成長ベクトル②: 課金の転換</b><p>座標は変わらず「稼ぎ方」が変わる動き。シート課金→AIクレジット課金（2026年秋有償化）。全監視項目中の最重要。マップに描けないからこそ見落とされる罠。</p></div>
+    <div class="kg-card growth"><b>成長ベクトル③: 入口と繋がる配管</b><p>入口（右側）を取りには行かず、MCPでどの入口からも読み書きされる正本になる戦略。Salesforceは入口を「買い」、サイボウズは「繋がる」。</p></div>
+    <div class="kg-card threat"><b>脅威①: 上からのE5バンドル</b><p>Teams+Power Platformの同梱攻勢。ただし効くのは情シスを持つ中堅以上で、左下の本丸には届きにくい（追補C）。</p></div>
+    <div class="kg-card threat"><b>脅威②: 同じ座標を狙う一体型</b><p>Lark・Notionはkintoneと同じ「記録×会話」の設計思想。国内中小への浸透＝新規案件での競合遭遇率を監視。</p></div>
+    <div class="kg-card threat"><b>脅威③: 入口の重力そのもの</b><p>AIエージェント時代は右側（会話層）が入口の座を強める。人が画面を開かなくなればシート課金が痩せる——最も怖い課金転換リスクの源泉。</p></div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">判定の時計</h2>
+  </div>
+  <div class="kg-clock">
+    <div><b>2026年8月中旬</b><span>Q2決算。通期計画（営利+4.1%）超過ペースの持続を確認</span></div>
+    <div><b>2026年秋</b><span>AI有償クレジット開始＝②罠回避の最重要観測点</span></div>
+    <div><b>2026〜27年</b><span>NRRは値上げ剥落で見かけ低下。報道に反応しない（規律）</span></div>
+    <div><b>2028年2月</b><span>FY2027決算で判定解禁: ARRオーガニック15%超→強気確定／10%割れ→弱気確定</span></div>
+  </div>
+
+  <details class="kg-details">
+    <summary>表で見る（全プレーヤー一覧）</summary>
+    <div class="kg-table-wrap">
+      <table class="kg-table">
+        <tr><th>ツール</th><th>層</th><th>主対象</th><th>一言</th></tr>
+        <tr><td>SAP</td><td>記録層（ERP）</td><td>大企業</td><td>お金とモノの正本</td></tr>
+        <tr><td>ServiceNow</td><td>記録層</td><td>大企業</td><td>ワークフローの正本</td></tr>
+        <tr><td>Salesforce</td><td>記録層（CRM）</td><td>大企業〜中堅</td><td>顧客の正本。Slackを買収し入口を確保</td></tr>
+        <tr><td>Power Platform</td><td>記録層</td><td>情シスのいる企業</td><td>機能は上位互換、購買動線が別</td></tr>
+        <tr><td>Airtable</td><td>記録層</td><td>中堅・現場</td><td>英語圏中心の業務DB</td></tr>
+        <tr><td>kintone</td><td>一体型</td><td>中小・現場</td><td>何の正本にもなれる箱＋会話同居</td></tr>
+        <tr><td>Notion</td><td>一体型</td><td>個人〜中堅</td><td>文書×DB</td></tr>
+        <tr><td>Lark</td><td>一体型</td><td>中小〜中堅</td><td>kintoneと同型思想の外来競合</td></tr>
+        <tr><td>Slack</td><td>会話層</td><td>企業</td><td>Salesforce傘下・Agentforceの入口</td></tr>
+        <tr><td>Teams</td><td>会話層</td><td>大企業</td><td>シェア首位（バンドルの力）</td></tr>
+        <tr><td>LINE WORKS</td><td>会話層</td><td>中小・現場</td><td>kintone顧客層と最重複</td></tr>
+        <tr><td>Chatwork</td><td>会話層</td><td>中小</td><td>国産ビジネスチャット</td></tr>
+        <tr><td>Discord</td><td>会話層</td><td>コミュニティ</td><td>ビジネスとは別種目</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <div class="caution-block">
+    <div class="caution-title">出典・免責</div>
+    <div class="caution-body">
+      <p>出典: サイボウズ/kintone競争優位性分析（2026-07）・各社公開情報。位置は定性配置であり、市場シェアの実測ではありません。</p>
+      <p>本コンテンツは企業研究の教材であり、投資助言ではありません。特定銘柄の売買を推奨するものではありません。数値は作成時点の公開情報に基づきます。</p>
+    </div>
+  </div>
+
+  <a class="kg-back" href="../">← 恒星群の間 トップへ戻る</a>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-title">投資Library</div>
+  <div>
+    <a href="../../">書斎の入口</a> ·
+    <a href="../">恒星群の間</a> ·
+    <a href="../../companies/cybozu-textbook/">サイボウズ教科書</a> ·
+    <a href="../../moat/">moatをどう見るか</a>
+  </div>
+  <div style="margin-top:6px;font-size:.62rem;color:rgba(223,201,168,.5);">人とAIが共に使える、無料の知の図書館。</div>
+  <div style="margin-top:8px">投資は自己責任です。このサイトの内容は情報提供を目的とし、投資助言ではありません。</div>
+
+  <div class="footer-kn-ext" style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(139,105,20,.18);font-size:.66rem;letter-spacing:.02em;"><a href="https://kessan.constella-hd.co.jp/" target="_blank" rel="noopener" style="color:#d4aa22;text-decoration:none;">決算ナビ &#x2197; <span style="color:rgba(223,201,168,.6);margin-left:6px;">— 四半期決算の数字は別サイトで</span></a></div>
+</footer>
+
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>200);});
+
+(function(){
+  var box=document.getElementById('kg-mapbox'),tip=document.getElementById('kg-tip');
+  if(!box||!tip) return;
+  function show(g,x,y){
+    var name=g.querySelector('text').textContent;
+    tip.innerHTML='<b>'+name+'</b><br>'+g.getAttribute('data-d');
+    tip.style.opacity='1';
+    var r=box.getBoundingClientRect();
+    var tx=Math.min(Math.max(x-r.left+14,8),r.width-270), ty=y-r.top+14;
+    tip.style.left=tx+'px'; tip.style.top=ty+'px';
+  }
+  document.querySelectorAll('.kg-dot').forEach(function(g){
+    g.addEventListener('mousemove',function(e){show(g,e.clientX,e.clientY);});
+    g.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+    g.addEventListener('focus',function(){
+      var c=g.querySelector('circle').getBoundingClientRect();
+      show(g,c.left+c.width/2,c.top+c.height);
+    });
+    g.addEventListener('blur',function(){tip.style.opacity='0';});
+    g.addEventListener('touchstart',function(e){
+      var t=e.touches[0]; show(g,t.clientX,t.clientY);
+    },{passive:true});
+  });
+})();
+</script>
+<script src="../../shared.js"></script>
+<script src="../../ai-assistant.js"></script>
+<script src="../../mynote.js"></script>
+</body>
+</html>
