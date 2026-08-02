@@ -136,6 +136,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .caution-body p{margin-bottom:8px;}
 .caution-body p:last-child{margin-bottom:0;}
 
+.hero-hook{font-family:var(--serif);font-size:clamp(1.15rem,2.8vw,1.55rem);font-weight:700;color:var(--gold3);letter-spacing:.02em;margin-bottom:14px;position:relative;}
+.kg-card.win{border-left:3px solid var(--gold3);}
+.kg-closing{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--ink2);line-height:1.9;text-align:center;max-width:44em;margin:36px auto 8px;padding:20px 14px;border-top:1px solid var(--parch4);border-bottom:1px solid var(--parch4);}
+
 .kg-back{display:inline-block;margin:28px 0 4px;font-family:var(--mono);font-size:.68rem;color:var(--gold2);text-decoration:none;letter-spacing:.05em;border:1px solid var(--parch4);padding:8px 16px;border-radius:2px;transition:all .18s;}
 .kg-back:hover{border-color:var(--gold3);color:var(--gold3);background:var(--parch2);}
 
@@ -154,6 +158,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 </style>
 </head>
 <body>
+<!-- 物語構成: ③戦記型（物語マスター書 1.0.0 第2部2.2③準拠）／フック:「帝国は村を落とせない」／実装課題#1対応・2026-08-02 -->
 
 <nav class="nav">
   <a class="nav-back" href="../../">← 書斎の入口</a>
@@ -166,15 +171,17 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 <div class="hero">
   <div class="hero-shelf">恒星群の間 ― 展示01</div>
   <h1 class="hero-title">kintoneはどこに立っているのか<br>── 記録層×会話層の勢力マップ</h1>
-  <p class="hero-lead">「CRMマップ」ではなくこの2軸なのが本資料の要点です。CRMは数あるジャンルの一つにすぎず、業務ソフトの地形は「記録層（正本）か、会話層（入口）か」×「誰が買うのか」で読むと構造が見えます。</p>
+  <p class="hero-hook">帝国は、村を落とせない。</p>
+  <p class="hero-lead">世界最強のソフトウェア帝国が、日本の中小企業の「村」をどうしても攻め落とせずにいます。機能表の上ではとうに帝国の圧勝のはずなのに、なぜか村は残り続けている。この地図は、その攻防を観測した記録です。</p>
 </div>
 
 <div class="article">
 
   <div class="section-header">
     <span class="section-num">01</span>
-    <h2 class="section-title">まず用語の整理 ── kintoneはCRMではありません</h2>
+    <h2 class="section-title">地形 ── 記録の大陸と、会話の大陸</h2>
   </div>
+  <p class="kg-note" style="margin-top:0;">この世界には二つの大陸があります。業務ソフトが正本（記録）を積み上げる<b>記録の大陸</b>と、人が一日中会話している<b>会話の大陸</b>。もう一つ、縦の軸があります。北は情報システム部門を抱える大企業の「城下町」、南は現場の人間が自分の判断で道具を選ぶ「村」。「CRMマップ」ではなくこの2軸で読むのが本資料の要点です──CRMは数あるジャンルの一つにすぎず、業務ソフトの地形は「記録層（正本）か、会話層（入口）か」×「誰が買うのか」で読むと構造が見えてきます。まず、地形を作る3つの言葉を整理します。</p>
   <div class="kg-terms">
     <div class="kg-term"><span class="kg-tag" style="background:var(--kg-sor)">記録層 SoR</span><b>System of Record ＝ 正本</b><span>業務の公式な記録・権限・履歴を持つ層。<b>CRMはこの層の1ジャンル</b>（「顧客」という対象専用の正本。代表=Salesforce）。ERP（SAP）は「お金とモノ」の正本。</span></div>
     <div class="kg-term"><span class="kg-tag" style="background:var(--kg-soe)">会話層 SoE</span><b>System of Engagement ＝ 入口</b><span>人が一日中いる場所。チャット・通知・会話。Slack・Teams・LINE WORKSなど。AIエージェント時代は「入口」の重力が増す層。</span></div>
@@ -183,7 +190,21 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 
   <div class="section-header">
     <span class="section-num">02</span>
-    <h2 class="section-title">勢力マップ（2026年08月時点の観測）</h2>
+    <h2 class="section-title">登場勢力 ── 地図を読む前に</h2>
+  </div>
+  <p class="kg-note" style="margin-top:0;">地図そのものより先に、そこに立つ者たちを紹介します。凡例は物語の登場人物表です。</p>
+  <div class="kg-terms">
+    <div class="kg-term"><span class="kg-tag" style="background:var(--gold2)">帝国</span><b>Microsoft</b><span>Teams（会話の大陸）とPower Platform（記録の大陸）を同梱で束ねる艦隊、その名はE5。城下町ならどこへでも同梱で乗り込む。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-sor)">城主</span><b>Salesforce</b><span>記録の大陸に城（CRM＝顧客の正本）を持つ者。2021年、約277億ドルで会話の港Slackを買い取った──「正本が入口を買った」取引。Agentforceでこの入口を消費課金の最前線にする。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-both)">村</span><b>kintone</b><span>地図の左下、記録と会話が同居する道具を、現場の民が自分の判断で組み立てられる形で提供する辺境。国内39,000社・解約率0.92%。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-soe)">隣人</span><b>LINE WORKS・Chatwork</b><span>村のすぐ東に住む、日本の中小・現場（ノンデスクワーカー）向け会話の担い手。kintone顧客層と最も重なる隣人。</span></div>
+    <div class="kg-term"><span class="kg-tag" style="background:var(--kg-both-deep)">商人</span><b>Lark・Notion</b><span>さらに東からやってきた、村と同じ「記録×会話一体」の設計思想を掲げる商人たち。</span></div>
+  </div>
+  <p class="kg-note">帝国・城主・村・商人といった呼び名は、構造を読むための比喩であり、優劣や善悪の評価ではありません。</p>
+
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">地図（2026年08月時点の観測）</h2>
   </div>
   <div class="kg-mapbox" id="kg-mapbox">
     <svg viewBox="0 0 900 640" role="img" aria-label="記録層と会話層、大企業と中小現場の2軸に主要ツールを配置したマップ">
@@ -244,9 +265,10 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <p class="kg-note">ドットに触れる（またはフォーカスする）と各プレーヤーの説明が出ます。<b>kintoneの位置の意味</b>: 左下（記録×現場）はMicrosoftの重力（右上）から最も遠い座標であり、同時にLark・LINE WORKSという「下からの隣人」に最も近い座標でもあります。</p>
 
   <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">成長と脅威 ── このマップの動き方</h2>
+    <span class="section-num">04</span>
+    <h2 class="section-title">なぜ帝国は村を落とせないのか</h2>
   </div>
+  <p class="kg-note" style="margin-top:0;">E5艦隊は情シスのいる城下町にしか接岸できません（購買動線）。村の道具は現場が自分で直せます。位置は機能表ではなく「主戦場の購買動線」で決まる──地図自身がそう注記しています。攻防の中身を、成長と脅威のベクトルで見ていきます。</p>
   <div class="kg-cards">
     <div class="kg-card growth"><b>成長ベクトル①: 上へ（深耕）</b><p>新規ロゴ獲得は終盤（プライム導入率46〜47%）。成長はワイドコース・大企業比率（3割接近中）＝マップを上に登る動き。</p></div>
     <div class="kg-card growth"><b>成長ベクトル②: 課金の転換</b><p>座標は変わらず「稼ぎ方」が変わる動き。シート課金→AIクレジット課金（2026年秋有償化）。全監視項目中の最重要。マップに描けないからこそ見落とされる罠。</p></div>
@@ -257,8 +279,20 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   </div>
 
   <div class="section-header">
-    <span class="section-num">04</span>
-    <h2 class="section-title">判定の時計</h2>
+    <span class="section-num">05</span>
+    <h2 class="section-title">村が落ちるとしたら</h2>
+  </div>
+  <p class="kg-note" style="margin-top:0;">ただし、上からではありません。反証材料は3つあります。</p>
+  <div class="kg-cards">
+    <div class="kg-card threat"><b>① 入口の重力</b><p>会話の大陸がAIエージェント時代の玄関になり、画面を開かない現場が増えれば、席の数で課金する村の収益はそこから静かに痩せていきます。</p></div>
+    <div class="kg-card threat"><b>② 東の商人</b><p>Larkはkintoneと同じ「記録×会話一体」の設計思想を掲げる商人です。国内中小への浸透が進めば、村は新規案件で商人と鉢合わせる回数が増えます。</p></div>
+    <div class="kg-card threat"><b>③ 村自身の稼ぎ方の転換失敗</b><p>シート課金からAIクレジット課金への転換（2026年秋有償化）に村がつまずけば、地図には描けない場所で村は静かに傾きます。全監視項目中の最重要点です。</p></div>
+    <div class="kg-card win"><b>帝国が勝つ条件</b><p>村が北へ深耕し、大企業比率が3割に近づくほど、村は自ら情シスを持つ城下町の領域に足を踏み入れます。そここそが帝国のE5艦隊が接岸できる唯一の岸辺です。</p></div>
+  </div>
+
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">観測の時計</h2>
   </div>
   <div class="kg-clock">
     <div><b>2026年8月中旬</b><span>Q2決算。通期計画（営利+4.1%）超過ペースの持続を確認</span></div>
@@ -266,6 +300,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div><b>2026〜27年</b><span>NRRは値上げ剥落で見かけ低下。報道に反応しない（規律）</span></div>
     <div><b>2028年2月</b><span>FY2027決算で判定解禁: ARRオーガニック15%超→強気確定／10%割れ→弱気確定</span></div>
   </div>
+
+  <p class="kg-closing">私はこの村の観測を続けます。城の強さは城壁の高さではなく、誰が門を叩き続けるかで決まるからです。</p>
 
   <details class="kg-details">
     <summary>表で見る（全プレーヤー一覧）</summary>
@@ -294,6 +330,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
     <div class="caution-body">
       <p>出典: サイボウズ/kintone競争優位性分析（2026-07）・各社公開情報。位置は定性配置であり、市場シェアの実測ではありません。</p>
       <p>本コンテンツは企業研究の教材であり、投資助言ではありません。特定銘柄の売買を推奨するものではありません。数値は作成時点の公開情報に基づきます。</p>
+      <p>開示: 筆者はサイボウズ株式（kintone提供元）を保有しています（直近30日以内の売買なし・2026-08-02時点）。</p>
+      <p>本ページの文章・図版はAIとの共同制作です。</p>
     </div>
   </div>
 
