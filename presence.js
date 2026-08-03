@@ -40,8 +40,6 @@ var presenceState = {};
 var channelRef = null;
 var reconnectAttempts = 0;
 var MAX_RECONNECT = 2;
-var fallbackActive = false;
-var fallbackInterval = null;
 
 function initPresence(){
   // WebSocket接続
@@ -109,21 +107,21 @@ function initPresence(){
     if(reconnectAttempts <= MAX_RECONNECT){
       setTimeout(initPresence, 5000);
     } else {
-      // 接続失敗 → フォールバック疑似表示
-      startFallbackPresence();
+      // 実測できない時に数字を出さない（物語書: 事実を曲げない）
+      removePresenceUI();
     }
   };
 
   ws.onerror = function(){
-    // エラー時もフォールバック準備
-    if(reconnectAttempts >= MAX_RECONNECT){
-      startFallbackPresence();
-    }
+    // 再接続/非表示の判定はoncloseに一本化（onerror後は必ずoncloseが発火する）
   };
 }
 
 // ── UI更新 ──
+// 実測できた時（presence_state / presence_diff を受信できた時）にのみ呼ばれる。
+// ここでウィジェットを生成するため、接続に失敗したまま終わればDOMは生成されない。
 function updatePresenceUI(){
+  insertPresenceUI();
   var count = Object.keys(presenceState).length;
   var el = document.getElementById('presenceCount');
   if(el){
@@ -136,60 +134,14 @@ function updatePresenceUI(){
   }
 }
 
-// ── フォールバック疑似表示 ──
-function getFallbackCount(){
-  var hour = new Date().getHours();
-  var min, max;
-  if(hour >= 6 && hour < 12){       // 朝
-    min = 3; max = 8;
-  } else if(hour >= 12 && hour < 18){ // 昼
-    min = 15; max = 30;
-  } else if(hour >= 18 && hour < 24){ // 夜
-    min = 8; max = 20;
-  } else {                            // 深夜
-    min = 1; max = 5;
-  }
-  return min + Math.floor(Math.random() * (max - min + 1));
+// ── 接続不能時: ウィジェットを非表示化（DOMから除去） ──
+// 実測できない時に数字を出さない（物語書: 事実を曲げない）
+function removePresenceUI(){
+  var widget = document.getElementById('presenceWidget');
+  if(widget && widget.parentNode) widget.parentNode.removeChild(widget);
 }
 
-// 棚ごとの疑似在室人数
-function getShelfCounts(total){
-  var shelves = ['lobby','invest','morning','people','culture','industries','horizons','news'];
-  var counts = {};
-  var remaining = total;
-  for(var i = 0; i < shelves.length; i++){
-    if(i === shelves.length - 1){
-      counts[shelves[i]] = Math.max(0, remaining);
-    } else {
-      var c = Math.floor(Math.random() * Math.ceil(remaining / (shelves.length - i) * 1.5));
-      c = Math.min(c, remaining);
-      counts[shelves[i]] = c;
-      remaining -= c;
-    }
-  }
-  return counts;
-}
-
-function startFallbackPresence(){
-  if(fallbackActive) return;
-  fallbackActive = true;
-  updateFallbackUI();
-  // 30秒ごとに微変動
-  fallbackInterval = setInterval(updateFallbackUI, 30000);
-}
-
-function updateFallbackUI(){
-  var count = getFallbackCount();
-  var el = document.getElementById('presenceCount');
-  if(el){
-    el.textContent = '\u4ECA\u3053\u306E\u66F8\u658E\u306B ' + count + '\u4EBA';
-    el.style.opacity = '1';
-  }
-  // 棚ごとカウントをグローバルに公開（NPC等から参照可能）
-  window.__shelfPresence = getShelfCounts(count);
-}
-
-// ── Presence UIを各ページに挿入 ──
+// ── Presence UIを各ページに挿入（実測値を受信した時にのみ呼ばれる） ──
 function insertPresenceUI(){
   // 既にあれば何もしない
   if(document.getElementById('presenceWidget')) return;
@@ -201,7 +153,7 @@ function insertPresenceUI(){
   widget.innerHTML =
     '<div id="presenceBar" style="display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(26,18,8,.92);border:1px solid rgba(184,144,10,.2);backdrop-filter:blur(10px);border-radius:2px;box-shadow:0 2px 12px rgba(26,18,8,.3);transition:all .3s;">' +
       '<div style="width:7px;height:7px;border-radius:50%;background:#5a9a78;animation:presencePulse 2s ease infinite;flex-shrink:0;"></div>' +
-      '<span id="presenceCount" style="font-size:.58rem;color:#f5ede0;letter-spacing:.06em;opacity:0;transition:opacity .5s;font-weight:400;">接続中...</span>' +
+      '<span id="presenceCount" style="font-size:.58rem;color:#f5ede0;letter-spacing:.06em;opacity:0;transition:opacity .5s;font-weight:400;"></span>' +
     '</div>';
 
   document.body.appendChild(widget);
@@ -217,7 +169,8 @@ function insertPresenceUI(){
 
 // ── 初期化 ──
 function init(){
-  insertPresenceUI();
+  // ウィジェットはここでは挿入しない。実測値（presence_state/diff）を
+  // 受信できた時だけ updatePresenceUI() 経由で生成する。
   initPresence();
 }
 

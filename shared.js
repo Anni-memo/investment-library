@@ -439,3 +439,82 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 })();
+
+/* ══════════════════════════════════════════════
+   訪れた土地（訪問済み棚の記録）
+   既存の挙動に影響しないよう完全に独立したIIFEとして末尾に追加。
+   現在パスの第1階層（例: classics/companies/kouseigun 等）を
+   localStorage['il_visited_shelves'] に重複なく追記するだけの機能。
+   ══════════════════════════════════════════════ */
+(function(){
+try {
+  var VISITED_KEY = 'il_visited_shelves';
+
+  // canonicalタグからサイトのベースパス（/investment-library/ 等）を推定し、
+  // それを除いた最初のパスセグメントを「棚key」とする
+  function computeShelfKey(pathname){
+    try {
+      var base = null;
+      var canon = document.querySelector('link[rel="canonical"]');
+      if(canon){
+        var href = canon.getAttribute('href');
+        if(href){
+          var u = new URL(href, window.location.origin);
+          var m = u.pathname.match(/^(\/[^\/]+\/)/);
+          if(m) base = m[1];
+        }
+      }
+      var rel = pathname;
+      if(base && pathname.indexOf(base) === 0){
+        rel = pathname.slice(base.length);
+      } else {
+        rel = pathname.replace(/^\/+/, '');
+      }
+      var seg = rel.split('/').filter(function(s){ return s.length > 0; })[0];
+      return seg || null;
+    } catch(e){ return null; }
+  }
+
+  function recordVisit(pathname){
+    try {
+      var key = computeShelfKey(pathname || window.location.pathname);
+      if(!key) return;
+      var raw = localStorage.getItem(VISITED_KEY);
+      var list = [];
+      if(raw){
+        try { list = JSON.parse(raw); if(!Array.isArray(list)) list = []; } catch(e){ list = []; }
+      }
+      if(list.indexOf(key) === -1){
+        list.push(key);
+        localStorage.setItem(VISITED_KEY, JSON.stringify(list));
+      }
+    } catch(e){}
+  }
+
+  // 初回読み込み時
+  recordVisit(window.location.pathname);
+
+  // SPAナビゲーション（shared.js内のspaNavigateはhistory.pushStateで遷移するため、
+  // pushStateをフックして各遷移先も記録する。既存コードへの変更は行わない）
+  try {
+    if(window.history && window.history.pushState){
+      var _origPushState = window.history.pushState;
+      window.history.pushState = function(state, title, url){
+        var ret = _origPushState.apply(this, arguments);
+        try {
+          if(url){
+            var u = new URL(url, window.location.origin);
+            recordVisit(u.pathname);
+          }
+        } catch(e){}
+        return ret;
+      };
+    }
+  } catch(e){}
+
+  // ブラウザの戻る/進むでの遷移も記録
+  window.addEventListener('popstate', function(){
+    recordVisit(window.location.pathname);
+  });
+} catch(e){}
+})();
