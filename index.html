@@ -15,6 +15,9 @@
 <link rel="manifest" href="manifest.json"/>
 <meta name="theme-color" content="#1a1208"/>
 <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="書斎"/>
 <link rel="icon" href="favicon.ico"/>
 <meta name="description" content="Munger・Buffett・Fisherの投資哲学を体系的に学べる無料のオンライン図書館。moat（競争優位性）・FCF（フリーキャッシュフロー）・投資原則・業種分析・行動経済学・メンタルモデルまで、長期投資家の判断基準を育てる。"/>
 <meta property="og:title" content="投資Library｜長期投資の知的基盤"/>
@@ -261,6 +264,78 @@ body::before{
   .hero-tagline{font-size:.75rem;letter-spacing:.06em;margin-bottom:20px;}
 }
 
+/* ── WORLD MAP HERO（書庫の世界地図・昼夜二相トークン） ── */
+:root{
+  --wm-sea:#dfe6da; --wm-sea-wave:rgba(74,53,32,.20);
+  --wm-land:#e8d8be; --wm-land2:#d7dde2; --wm-coast:#4a3520;
+  --wm-glow:#f0cc55; --wm-glow-op:.14;
+  --wm-lbl:#1a1208; --wm-lbl2:#2d2010; --wm-lbl3:#4a3520;
+  --wm-lbl-gold:#8b6914; --wm-label-bg:rgba(245,237,224,.85);
+  --wm-panel-bg:rgba(14,10,6,.55); --wm-panel-border:rgba(212,170,34,.32);
+  /* 第2巡S1: ライト時のランドマークアイコンは濃いインク色シルエットに統一（発光カラーとは分離） */
+  --wm-icon-ink:#1a1208;
+}
+:root[data-theme="dark"]{
+  --wm-sea:#0f1c2e; --wm-sea-wave:rgba(180,200,220,.14);
+  --wm-land:#241a10; --wm-land2:#1a2028; --wm-coast:#a3823f;
+  --wm-glow:#f5d870; --wm-glow-op:.9;
+  --wm-lbl:#f2e8d5; --wm-lbl2:#e0d3b8; --wm-lbl3:#c9b892;
+  --wm-lbl-gold:#f5d870; --wm-label-bg:rgba(20,14,8,.78);
+  --wm-panel-bg:rgba(6,4,2,.62); --wm-panel-border:rgba(212,170,34,.45);
+}
+.wm-lead{
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(.82rem,2vw,.96rem);color:#f0e6cf;
+  max-width:560px;margin:0 auto 18px;line-height:1.9;
+  position:relative;z-index:2;opacity:.92;
+}
+.wm-mapbox{
+  background:var(--wm-panel-bg);border:1px solid var(--wm-panel-border);
+  border-radius:3px;padding:10px 8px 8px;position:relative;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  max-width:960px;margin:0 auto;box-shadow:var(--shadow2);
+}
+.wm-mapbox svg{display:block;width:100%;height:auto;min-width:680px;}
+.wm-icon{transform-box:fill-box;transform-origin:center;transition:transform .15s ease;}
+.wm-dot{cursor:pointer;outline:none;}
+.wm-dot:hover .wm-icon,.wm-dot:focus .wm-icon{transform:scale(1.12);}
+/* 第2巡S1: ライトモードのみアイコンを濃いインク色に固定（ダークモードの発光配色・不透明度は無変更）
+   根本原因: シンボル内は fill="currentColor" なので実際の発色は <use> の fill 属性ではなく
+   継承される color プロパティで決まる（.hero{color:var(--parch)}を継承していたため、地図アイコンは
+   実質すべてパーチメント色で描画され、明地では地に沈み、暗地では発光して見えていた）。
+   → ライトモードのみ color を上書きしてcurrentColor経由の発色を濃いインクに固定する。
+   拡大は transform:scale ではなく各<use>のwidth/height/x/y実寸を直接引き上げる方式にした
+   （transform-box:fill-boxを<use>に使うと一部アイコンの原点計算がズレて地図外へ飛び出す実害を確認したため）。 */
+:root:not([data-theme="dark"]) .wm-icon{fill:var(--wm-icon-ink) !important;color:var(--wm-icon-ink);}
+.wm-glow{opacity:var(--wm-glow-op);transition:opacity .4s ease;}
+.wm-star{opacity:calc(var(--wm-glow-op) * .85);transition:opacity .4s ease;}
+@media(prefers-reduced-motion:no-preference){
+  :root[data-theme="dark"] .wm-star{animation:wmTwinkle 3.4s ease-in-out infinite;}
+  .wm-star:nth-child(2n){animation-delay:.7s;}
+  .wm-star:nth-child(3n){animation-delay:1.6s;}
+}
+@keyframes wmTwinkle{0%,100%{opacity:calc(var(--wm-glow-op) * .5);}50%{opacity:var(--wm-glow-op);}}
+.wm-label{font-family:var(--jp);}
+.wm-continent{font-family:var(--serif);font-style:italic;fill:var(--wm-coast);opacity:.8;}
+.wm-note{font-family:var(--mono);fill:var(--wm-lbl3);opacity:.85;}
+.wm-note.gold{fill:var(--wm-lbl-gold);opacity:1;}
+.wm-title-box{fill:var(--wm-label-bg);stroke:var(--wm-coast);stroke-width:1;}
+.wm-tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--parch);
+  font-size:.74rem;line-height:1.55;padding:8px 12px;max-width:230px;border-radius:3px;
+  opacity:0;transition:opacity .12s;z-index:5;box-shadow:var(--shadow);font-family:var(--jp);}
+@media(prefers-reduced-motion:reduce){.wm-icon,.wm-glow,.wm-star{transition:none;animation:none;}}
+.wm-fallback{text-align:center;margin-top:14px;position:relative;z-index:2;}
+.wm-fallback a{
+  font-family:var(--mono);font-size:.62rem;color:rgba(240,230,207,.75);
+  letter-spacing:.06em;text-decoration:none;border-bottom:1px dotted rgba(240,230,207,.4);
+  padding-bottom:1px;transition:color .2s;
+}
+.wm-fallback a:hover{color:var(--gold4);}
+@media(max-width:768px){
+  .wm-mapbox svg{min-width:600px;}
+  .wm-lead{padding:0 8px;}
+}
+
 /* ── Library Map ── */
 /* ── ROOM MAP (CSS Grid) ── */
 .room-map-section{
@@ -489,45 +564,291 @@ body::before{
       <div style="font-family:var(--mono);font-size:.6rem;color:#ffe99a;letter-spacing:.35em;margin-bottom:8px;">GATEWAY TO WISDOM</div>
       <div style="font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;color:#f5ede0;margin-bottom:3px;">智慧への入口</div>
       <div style="font-family:var(--jp);font-size:.72rem;color:#f0cc55;line-height:1.8;font-weight:500;margin-bottom:10px;">書架に並ぶ思考の断片。知の複利はここから始まる。</div>
-      <div class="room-grid" style="margin:0 auto;">
-        <a href="etf-funds/" class="room-card room-card--etf">
-          <div class="room-card-en">ETF &amp; FUNDS</div>
-          <div class="room-card-name">積立と分散の部屋</div>
-          <div class="room-card-sub">市場全体を静かに持つ</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
-        <a href="start-here/" class="room-card room-card--center">
-          <div class="room-card-en">START HERE</div>
-          <div class="room-card-name">資産形成の入口</div>
-          <div class="room-card-sub">最初の一歩を整える</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
-        <a href="dividends/" class="room-card room-card--dividend">
-          <div class="room-card-en">DIVIDENDS</div>
-          <div class="room-card-name">配当と還元の部屋</div>
-          <div class="room-card-sub">続く配当を見極める</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
-        <a href="ideco/" class="room-card room-card--ideco">
-          <div class="room-card-en">iDeCo</div>
-          <div class="room-card-name">NISA・iDeCo・老後資産の部屋</div>
-          <div class="room-card-sub">節税の器と制約を知る</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
-        <a href="taxes/" class="room-card room-card--taxes">
-          <div class="room-card-en">TAXES</div>
-          <div class="room-card-name">税金と口座の部屋</div>
-          <div class="room-card-sub">利益を守る器を選ぶ</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
-        <a href="risk-defense/" class="room-card room-card--risk">
-          <div class="room-card-en">RISK DEFENSE</div>
-          <div class="room-card-name">守りとリスク管理の部屋</div>
-          <div class="room-card-sub">退場しないための土台</div>
-          <div class="room-card-arrow">ENTER →</div>
-        </a>
+      <p class="wm-lead">ここは歩いて回る投資の書庫。地図のどこからでも、旅は始められます。</p>
+      <div class="wm-mapbox" id="wm-mapbox">
+        <svg viewBox="0 0 1200 640" role="img" aria-label="投資Libraryの書庫を描いた世界地図。港・城下町・天文台の丘・山脈・森・神殿・街・回廊などのランドマークをクリックすると各コーナーへ移動します。">
+          <defs>
+            <pattern id="wm-waves" width="70" height="34" patternUnits="userSpaceOnUse">
+              <path d="M0,17 Q17.5,7 35,17 T70,17" fill="none" stroke="var(--wm-sea-wave)" stroke-width="1.1"/>
+            </pattern>
+            <filter id="wm-blur" x="-160%" y="-160%" width="420%" height="420%"><feGaussianBlur stdDeviation="6"/></filter>
+            <marker id="wm-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--wm-lbl2)"/></marker>
+
+            <symbol id="wm-ic-port" viewBox="-26 -26 52 34" fill="currentColor">
+              <rect x="-8" y="-14" width="16" height="16"/>
+              <polygon points="-9,-14 0,-24 9,-14"/>
+              <rect x="-24" y="4" width="48" height="3"/>
+              <rect x="-21" y="4" width="2" height="10"/>
+              <rect x="-1" y="4" width="2" height="10"/>
+              <rect x="17" y="4" width="2" height="10"/>
+              <path d="M-17,10 q6,-4 12,0 l-1.5,3.5 h-9 z" opacity=".9"/>
+            </symbol>
+            <symbol id="wm-ic-city" viewBox="-40 -34 80 44" fill="currentColor">
+              <rect x="-38" y="-8" width="20" height="18"/>
+              <polygon points="-38,-8 -28,-19 -18,-8"/>
+              <rect x="-14" y="-18" width="22" height="28"/>
+              <polygon points="-14,-18 -3,-31 8,-18"/>
+              <rect x="12" y="-4" width="20" height="14"/>
+              <polygon points="12,-4 22,-13 32,-4"/>
+            </symbol>
+            <symbol id="wm-ic-observatory" viewBox="-16 -38 42 50" fill="currentColor">
+              <!-- 第2巡S3: ドーム天文台＋望遠鏡の筒＋星1つのシルエットに特徴化（夜の星の瞬きはこの外側の.wm-starで別途維持） -->
+              <rect x="-11" y="6" width="24" height="4"/>
+              <rect x="-7" y="-13" width="14" height="19"/>
+              <path d="M-8,-13 A8,8 0 0 1 8,-13 Z"/>
+              <path d="M2,-15 L15,-28 L18,-25 L6,-12 Z"/>
+              <path d="M20,-33 Q21,-30 24,-29 Q21,-28 20,-25 Q19,-28 16,-29 Q19,-30 20,-33 Z"/>
+            </symbol>
+            <symbol id="wm-ic-mountain" viewBox="-34 -26 68 30" fill="currentColor">
+              <polygon points="-32,4 -18,-22 -4,4"/>
+              <polygon points="-8,4 4,-26 16,4"/>
+              <polygon points="10,4 24,-18 34,4"/>
+              <polygon points="1,-16 4,-26 7,-16 4,-12" opacity=".55"/>
+            </symbol>
+            <symbol id="wm-ic-forest" viewBox="-26 -26 52 30" fill="currentColor">
+              <rect x="-19" y="0" width="3" height="4"/>
+              <polygon points="-24,2 -17.5,-14 -11,2"/>
+              <polygon points="-25,-4 -17.5,-20 -10,-4" opacity=".92"/>
+              <rect x="-2" y="0" width="4" height="4"/>
+              <polygon points="-9,2 0,-22 9,2"/>
+              <polygon points="-10,-6 0,-26 10,-6" opacity=".92"/>
+              <rect x="15" y="0" width="3" height="4"/>
+              <polygon points="10,2 16.5,-14 23,2"/>
+            </symbol>
+            <symbol id="wm-ic-temple" viewBox="-26 -30 52 34" fill="currentColor">
+              <polygon points="-24,-14 0,-28 24,-14"/>
+              <rect x="-24" y="-14" width="48" height="4"/>
+              <rect x="-19" y="-10" width="4" height="14"/>
+              <rect x="-9" y="-10" width="4" height="14"/>
+              <rect x="1" y="-10" width="4" height="14"/>
+              <rect x="11" y="-10" width="4" height="14"/>
+              <rect x="-26" y="4" width="52" height="4"/>
+              <rect x="-23" y="8" width="46" height="3"/>
+            </symbol>
+            <symbol id="wm-ic-corridor" viewBox="-28 -26 56 30" fill="currentColor">
+              <!-- 第2巡A5: 破風（ペディメント）を追加し柱廊らしいシルエットに強化。柱もやや太く -->
+              <polygon points="-26,-18 0,-25 26,-18"/>
+              <rect x="-26" y="-18" width="52" height="3"/>
+              <rect x="-22" y="-15" width="3.5" height="15"/>
+              <rect x="-9" y="-15" width="3.5" height="15"/>
+              <rect x="5.5" y="-15" width="3.5" height="15"/>
+              <rect x="18.5" y="-15" width="3.5" height="15"/>
+              <rect x="-26" y="0" width="52" height="2.5"/>
+            </symbol>
+            <symbol id="wm-ic-town" viewBox="-24 -26 48 30" fill="currentColor">
+              <rect x="-22" y="-4" width="16" height="10"/>
+              <polygon points="-23,-4 -14,-15 -5,-4"/>
+              <rect x="2" y="-7" width="18" height="13"/>
+              <polygon points="1,-7 11,-19 21,-7"/>
+              <line x1="11" y1="-19" x2="11" y2="-25" stroke="currentColor" stroke-width="1.6"/>
+              <polygon points="11,-25 18,-22 11,-19.5"/>
+            </symbol>
+            <symbol id="wm-ic-sun" viewBox="-16 -16 32 32" fill="currentColor">
+              <circle r="6.5"/>
+              <g stroke="currentColor" stroke-width="1.6">
+                <line x1="0" y1="-10" x2="0" y2="-14"/>
+                <line x1="0" y1="10" x2="0" y2="14"/>
+                <line x1="-10" y1="0" x2="-14" y2="0"/>
+                <line x1="10" y1="0" x2="14" y2="0"/>
+                <line x1="-7" y1="-7" x2="-10" y2="-10"/>
+                <line x1="7" y1="-7" x2="10" y2="-10"/>
+                <line x1="-7" y1="7" x2="-10" y2="10"/>
+                <line x1="7" y1="7" x2="10" y2="10"/>
+              </g>
+            </symbol>
+            <symbol id="wm-ic-moon" viewBox="-18 -20 36 26" fill="currentColor">
+              <!-- 第2巡バグ修正: 旧パスのA円弧2本が打ち消し合い三日月が実質不可視だったため、mask方式の三日月に置換 -->
+              <mask id="wm-moon-mask"><rect x="-20" y="-22" width="40" height="30" fill="#fff"/><circle cx="6" cy="-8" r="8" fill="#000"/></mask>
+              <circle cx="0" cy="-9" r="9" mask="url(#wm-moon-mask)"/>
+              <rect x="-16" y="2" width="7" height="6"/>
+              <polygon points="-17,2 -12.5,-4 -8,2"/>
+              <circle cx="-12.5" cy="5" r="1.4" opacity=".9"/>
+            </symbol>
+            <symbol id="wm-ic-scroll" viewBox="-22 -14 44 20" fill="currentColor">
+              <path d="M-20,-10 Q-22,-10 -22,-6 L-22,6 Q-22,10 -18,10 L-2,10 L-2,-10 Z"/>
+              <path d="M20,-10 Q22,-10 22,-6 L22,6 Q22,10 18,10 L2,10 L2,-10 Z"/>
+              <rect x="-2" y="-10" width="4" height="20" opacity=".85"/>
+            </symbol>
+          </defs>
+
+          <!-- 海 -->
+          <rect x="10" y="10" width="1180" height="620" fill="var(--wm-sea)"/>
+          <rect x="10" y="10" width="1180" height="620" fill="url(#wm-waves)"/>
+
+          <!-- 書庫大陸（本島） -->
+          <path d="M260,120 Q340,75 430,95 Q520,65 610,100 Q700,80 760,135 Q812,148 802,168 Q822,184 775,210 Q815,235 790,280 Q825,310 795,350 Q820,385 785,415 Q800,455 765,470 Q775,505 735,510 Q745,545 700,555 Q705,585 675,560 Q660,540 655,580 Q615,600 580,570 Q535,590 500,565 Q455,585 420,560 Q375,575 345,545 Q300,555 280,520 Q235,530 220,490 Q180,495 175,455 Q140,445 155,405 Q120,385 145,350 Q110,320 140,290 Q115,255 150,225 Q130,195 170,175 Q160,145 200,130 Q210,105 260,120 Z"
+            fill="var(--wm-land)" stroke="var(--wm-coast)" stroke-width="2"/>
+
+          <!-- 歴史の大陸（東の島） -->
+          <path d="M900,190 Q960,160 1020,180 Q1080,165 1120,205 Q1150,235 1125,270 Q1155,300 1130,335 Q1150,370 1115,395 Q1130,430 1090,445 Q1095,470 1050,465 Q1015,485 985,460 Q950,470 930,440 Q895,450 880,415 Q855,400 870,365 Q840,340 860,305 Q835,275 860,245 Q845,215 880,205 Q870,180 900,190 Z"
+            fill="var(--wm-land2)" stroke="var(--wm-coast)" stroke-width="2"/>
+
+          <!-- 装飾枠 -->
+          <rect x="10" y="10" width="1180" height="620" fill="none" stroke="var(--wm-coast)" stroke-width="2.5"/>
+          <rect x="16" y="16" width="1168" height="608" fill="none" stroke="var(--wm-coast)" stroke-width=".75" opacity=".5"/>
+          <g fill="var(--wm-coast)">
+            <rect x="6" y="6" width="8" height="8" transform="rotate(45 10 10)"/>
+            <rect x="1186" y="6" width="8" height="8" transform="rotate(45 1190 10)"/>
+            <rect x="6" y="626" width="8" height="8" transform="rotate(45 10 630)"/>
+            <rect x="1186" y="626" width="8" height="8" transform="rotate(45 1190 630)"/>
+          </g>
+
+          <!-- タイトルカルトゥーシュ -->
+          <g transform="translate(380,20)">
+            <rect x="0" y="0" width="440" height="30" rx="4" class="wm-title-box"/>
+            <line x1="10" y1="15" x2="24" y2="15" stroke="var(--wm-coast)" stroke-width="1" opacity=".7"/>
+            <line x1="416" y1="15" x2="430" y2="15" stroke="var(--wm-coast)" stroke-width="1" opacity=".7"/>
+            <text x="220" y="20" font-size="13" text-anchor="middle" fill="var(--wm-lbl)" font-family="var(--serif)">投資Library ── 歩いて回る書庫の地図</text>
+          </g>
+
+          <!-- コンパスローズ -->
+          <g transform="translate(1130,68)">
+            <circle r="26" fill="none" stroke="var(--wm-coast)" stroke-width="1"/>
+            <path d="M0,-24 L5.5,0 L0,24 L-5.5,0 Z" fill="var(--wm-coast)" opacity=".85"/>
+            <path d="M-24,0 L0,-5.5 L24,0 L0,5.5 Z" fill="var(--wm-coast)" opacity=".5"/>
+            <text x="0" y="-31" font-size="11" text-anchor="middle" fill="var(--wm-coast)" font-family="var(--mono)">N</text>
+          </g>
+
+          <!-- 歴史の大陸への航路 -->
+          <path d="M782,300 Q822,292 858,302" fill="none" stroke="var(--wm-lbl2)" stroke-width="1.3" stroke-dasharray="4 5" marker-end="url(#wm-arr)" opacity=".7"/>
+          <text x="818" y="286" font-size="10.5" text-anchor="middle" class="wm-note">歴史への航路</text>
+
+          <!-- 大陸ラベル -->
+          <text x="300" y="255" font-size="15" text-anchor="middle" class="wm-continent">書庫大陸</text>
+          <text x="1000" y="230" font-size="14" text-anchor="middle" class="wm-continent">歴史の大陸</text>
+
+          <!-- 装飾: 迷いの小道（人間の森のそば） -->
+          <path d="M255,290 Q275,310 258,330 Q248,345 265,355" fill="none" stroke="var(--wm-lbl3)" stroke-width="1" stroke-dasharray="2 5" opacity=".6"/>
+          <text x="270" y="368" font-size="10" text-anchor="middle" class="wm-note" font-style="italic">迷いの小道</text>
+
+          <!-- 装飾: 歴史の大陸の地名 -->
+          <text x="945" y="255" font-size="10" text-anchor="middle" class="wm-note gold" font-style="italic">バブルの岬</text>
+          <text x="1055" y="410" font-size="10" text-anchor="middle" class="wm-note gold" font-style="italic">革命の街道</text>
+
+          <!-- ランドマーク: はじまりの港 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="start-here/" data-name="はじまりの港" data-tip="はじめての方はここから。資産形成の土台を整える旅の起点。" aria-label="はじまりの港：はじめての方はここから。資産形成の土台を整える旅の起点。">
+            <rect class="wm-hit" x="178" y="468" width="100" height="94" fill="transparent"/>
+            <circle cx="228" cy="495" r="24" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-port" class="wm-icon" x="200" y="475" width="56" height="37" fill="var(--wm-lbl-gold)"/>
+            <text x="228" y="540" font-size="14" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">はじまりの港</text>
+            <text x="228" y="554" font-size="9.5" text-anchor="middle" class="wm-note" font-family="var(--mono)">START HERE</text>
+          </g>
+
+          <!-- ランドマーク: 制度の街 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="nisa/" data-name="制度の街" data-tip="NISA・iDeCoの広場と、税と口座を扱う役場のある街。" aria-label="制度の街：NISA・iDeCoの広場と、税と口座を扱う役場のある街。">
+            <rect class="wm-hit" x="280" y="475" width="100" height="79" fill="transparent"/>
+            <circle cx="330" cy="500" r="22" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-town" class="wm-icon" x="302" y="483" width="56" height="35" fill="var(--wm-lbl-gold)"/>
+            <text x="330" y="533" font-size="13" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">制度の街</text>
+            <text x="330" y="546" font-size="9" text-anchor="middle" class="wm-note" font-family="var(--mono)">NISA・iDeCo・税</text>
+          </g>
+
+          <!-- ランドマーク: 土台の神殿 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="foundation/" data-name="土台の神殿" data-tip="個人憲法という泉のある神殿。判断の土台をここで築く。" aria-label="土台の神殿：個人憲法という泉のある神殿。判断の土台をここで築く。">
+            <rect class="wm-hit" x="450" y="483" width="100" height="83" fill="transparent"/>
+            <circle cx="500" cy="510" r="24" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-temple" class="wm-icon" x="470" y="489" width="60" height="39" fill="var(--wm-lbl-gold)"/>
+            <text x="500" y="545" font-size="14" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">土台の神殿</text>
+            <text x="500" y="558" font-size="9.5" text-anchor="middle" class="wm-note" font-family="var(--mono)">FOUNDATION</text>
+          </g>
+
+          <!-- ランドマーク: 夜の灯り -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="night-reading/" data-name="夜の灯り" data-tip="眠る前に心を整える、西へ続く小道。夜の読書室。" aria-label="夜の灯り：眠る前に心を整える、西へ続く小道。夜の読書室。">
+            <rect class="wm-hit" x="364" y="506" width="100" height="58" fill="transparent"/>
+            <circle cx="414" cy="525" r="16" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <path d="M500,505 Q455,522 414,525" fill="none" stroke="var(--wm-lbl3)" stroke-width="1.2" stroke-dasharray="3 4" opacity=".7"/>
+            <use href="#wm-ic-moon" class="wm-icon" x="393" y="510" width="42" height="30" fill="var(--wm-lbl2)"/>
+            <text x="412" y="556" font-size="11.5" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">夜の灯り</text>
+          </g>
+
+          <!-- ランドマーク: 朝の道 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="morning-method/" data-name="朝の道" data-tip="朝の実践で一日を整える、東へ続く小道。モーニングメソッド。" aria-label="朝の道：朝の実践で一日を整える、東へ続く小道。モーニングメソッド。">
+            <rect class="wm-hit" x="536" y="506" width="100" height="58" fill="transparent"/>
+            <circle cx="586" cy="525" r="16" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <path d="M500,505 Q548,522 586,525" fill="none" stroke="var(--wm-lbl-gold)" stroke-width="1.2" stroke-dasharray="3 4" opacity=".7"/>
+            <use href="#wm-ic-sun" class="wm-icon" x="568" y="509" width="37" height="32" fill="var(--wm-lbl-gold)"/>
+            <text x="588" y="556" font-size="11.5" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">朝の道</text>
+          </g>
+
+          <!-- ランドマーク: 人物録回廊 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="people/" data-name="人物録回廊" data-tip="投資と人生の実践者たちが並ぶ回廊。" aria-label="人物録回廊：投資と人生の実践者たちが並ぶ回廊。">
+            <rect class="wm-hit" x="535" y="409" width="100" height="59" fill="transparent"/>
+            <circle cx="585" cy="430" r="18" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-corridor" class="wm-icon" x="553" y="411" width="65" height="35" fill="var(--wm-lbl2)"/>
+            <text x="585" y="460" font-size="12" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">人物録回廊</text>
+          </g>
+
+          <!-- ランドマーク: 企業の大陸（城下町） -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="companies/" data-name="企業の大陸" data-tip="227社の城下町群。moat・FCFで一社を深く読む。" aria-label="企業の大陸：227社の城下町群。moat・FCFで一社を深く読む。">
+            <rect class="wm-hit" x="460" y="253" width="120" height="104" fill="transparent"/>
+            <circle cx="520" cy="290" r="34" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-city" class="wm-icon" x="474" y="257" width="93" height="51" fill="var(--wm-lbl-gold)"/>
+            <!-- 城下町クラスタ: 家々＋小さな城2〜3棟（第2巡S2: 中央ラベルだけでなく地図上にアンカーを持たせる） -->
+            <g class="wm-icon" fill="var(--wm-lbl-gold)">
+              <rect x="474" y="304" width="10" height="9"/>
+              <polygon points="473,304 479,297 485,304"/>
+              <rect x="496" y="300" width="12" height="13"/>
+              <rect x="495" y="295" width="4" height="6"/>
+              <rect x="504" y="295" width="4" height="6"/>
+              <rect x="516" y="305" width="10" height="8"/>
+              <polygon points="515,305 521,299 527,305"/>
+              <rect x="536" y="299" width="12" height="14"/>
+              <rect x="535" y="294" width="4" height="6"/>
+              <rect x="544" y="294" width="4" height="6"/>
+              <rect x="554" y="305" width="9" height="8"/>
+              <polygon points="553,305 558.5,299 564,305"/>
+            </g>
+            <text x="520" y="335" font-size="16" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">企業の大陸</text>
+            <text x="520" y="349" font-size="9.5" text-anchor="middle" class="wm-note" font-family="var(--mono)">227社の城下町群</text>
+          </g>
+
+          <!-- ランドマーク: 星の天文台 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="kouseigun/" data-name="星の天文台" data-tip="恒星群の間。高品質企業を望遠鏡で観測する丘。夜は星が瞬く。" aria-label="星の天文台：恒星群の間。高品質企業を望遠鏡で観測する丘。夜は星が瞬く。">
+            <rect class="wm-hit" x="500" y="161" width="120" height="82" fill="transparent"/>
+            <circle cx="560" cy="195" r="26" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <g class="wm-star" fill="var(--wm-glow)">
+              <circle cx="530" cy="170" r="1.6"/>
+              <circle cx="592" cy="165" r="1.4"/>
+              <circle cx="600" cy="195" r="1.6"/>
+              <circle cx="524" cy="200" r="1.3"/>
+              <circle cx="575" cy="150" r="1.5"/>
+            </g>
+            <use href="#wm-ic-observatory" class="wm-icon" x="539" y="160" width="42" height="50" fill="var(--wm-lbl-gold)"/>
+            <text x="560" y="222" font-size="13" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">星の天文台</text>
+            <text x="560" y="235" font-size="9" text-anchor="middle" class="wm-note" font-family="var(--mono)">恒星群の間</text>
+          </g>
+
+          <!-- ランドマーク: 古典の山脈 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="classics/" data-name="古典の山脈" data-tip="山中の書院。先人の古典と思想を読む。" aria-label="古典の山脈：山中の書院。先人の古典と思想を読む。">
+            <rect class="wm-hit" x="410" y="91" width="120" height="82" fill="transparent"/>
+            <circle cx="470" cy="120" r="26" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-mountain" class="wm-icon" x="431" y="99" width="79" height="39" fill="var(--wm-lbl2)"/>
+            <text x="470" y="165" font-size="13" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">古典の山脈</text>
+          </g>
+
+          <!-- ランドマーク: 人間の森 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="human/" data-name="人間の森" data-tip="バイアスの森。人はなぜ高値で買い安値で売るのか。" aria-label="人間の森：バイアスの森。人はなぜ高値で買い安値で売るのか。">
+            <rect class="wm-hit" x="168" y="271" width="120" height="62" fill="transparent"/>
+            <circle cx="228" cy="300" r="26" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-forest" class="wm-icon" x="198" y="278" width="60" height="35" fill="var(--wm-lbl2)"/>
+            <text x="228" y="325" font-size="13" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">人間の森</text>
+          </g>
+
+          <!-- ランドマーク: 歴史の大陸 -->
+          <g class="wm-dot" tabindex="0" role="link" data-href="horizons/" data-name="歴史の大陸" data-tip="金融史の大陸。バブルの岬、革命の街道を歩く。" aria-label="歴史の大陸：金融史の大陸。バブルの岬、革命の街道を歩く。">
+            <rect class="wm-hit" x="928" y="277" width="144" height="74" fill="transparent"/>
+            <circle cx="1000" cy="310" r="26" fill="var(--wm-glow)" class="wm-glow" filter="url(#wm-blur)"/>
+            <use href="#wm-ic-scroll" class="wm-icon" x="975" y="298" width="51" height="23" fill="var(--wm-lbl-gold)"/>
+            <text x="1000" y="337" font-size="13" font-weight="700" text-anchor="middle" fill="var(--wm-lbl)">歴史の大陸</text>
+          </g>
+
+          <text x="26" y="618" font-size="10.5" fill="var(--wm-lbl3)" class="wm-note">位置は比喩の配置です。実際の距離・方角を示すものではありません。</text>
+        </svg>
+        <div class="wm-tip" role="status"></div>
       </div>
-      <a href="library-graph/" class="room-map-graph-link" style="margin-top:14px;margin-bottom:20px;">📖 書庫の鳥瞰図で全体を眺める →</a>
+      <div class="wm-fallback">
+        <a href="#other-shelves-nav" onclick="var t=document.getElementById('other-shelves-nav'); if(t){ event.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }">地図が苦手な方へ ── 一覧から探す ↓</a>
+      </div>
     </div>
   </div>
 
@@ -600,7 +921,7 @@ body::before{
 <!-- ══════════════ OTHER SECTIONS ══════════════ -->
 
 <!-- ══════════════ OTHER SHELVES ══════════════ -->
-<div class="other-shelves">
+<div class="other-shelves" id="other-shelves-nav">
   <div class="other-shelves-label">OTHER ROOMS</div>
   <div class="other-shelves-grid">
     <a class="other-shelf-link" href="foundation/">個人憲法</a>
@@ -608,19 +929,75 @@ body::before{
     <a class="other-shelf-link" href="principles/">投資原則</a>
     <a class="other-shelf-link" href="moat/">moat</a>
     <a class="other-shelf-link" href="fcf/">FCF</a>
+    <a class="other-shelf-link" href="companies/">企業分析一覧</a>
     <a class="other-shelf-link" href="industries/">業種分析</a>
     <a class="other-shelf-link" href="horizons/">思考を広げる</a>
     <a class="other-shelf-link" href="horizons/financial-history/">金融史</a>
     <a class="other-shelf-link" href="nisa/">NISA eラーニング</a>
+    <a class="other-shelf-link" href="human/">人間理解</a>
+    <a class="other-shelf-link" href="classics/">古典と先人の知恵</a>
     <a class="other-shelf-link" href="people/">人物録</a>
     <a class="other-shelf-link" href="thinkers/">思索の回廊</a>
     <a class="other-shelf-link" href="book-guide/">読む・聴く案内室</a>
     <a class="other-shelf-link" href="thinking/">論考の書庫</a>
+    <a class="other-shelf-link" href="morning-method/">モーニングメソッド</a>
+    <a class="other-shelf-link" href="night-reading/">夜の読書室</a>
     <a class="other-shelf-link" href="start-here/real-estate/">不動産投資</a>
+    <a class="other-shelf-link" href="kouseigun/" style="border-color:rgba(184,144,10,.25);color:var(--gold3);opacity:.85;">恒星群の間</a>
     <a class="other-shelf-link" href="library-map-classic/">書庫マップ（クラシック）</a>
     <a class="other-shelf-link" href="library-graph/" style="border-color:rgba(184,144,10,.25);color:var(--gold3);opacity:.8;">書庫の鳥瞰図</a>
   </div>
 </div>
+
+<!-- ── APP INSTALL（第2巡B7: start-here/index.htmlから移植） ── -->
+<div id="pwa-install-section" style="display:none;max-width:700px;margin:0 auto;padding:32px 24px 0;">
+  <div style="background:linear-gradient(135deg,#1a1208 0%,#2a1c08 100%);border:1px solid rgba(139,105,20,.3);border-radius:2px;padding:28px 24px;text-align:center;">
+    <div style="font-size:1.6rem;margin-bottom:10px;">&#128218;</div>
+    <div style="font-family:var(--serif);font-size:1.1rem;color:#f5ede0;font-weight:600;margin-bottom:8px;">アプリに追加する</div>
+    <p style="font-size:.78rem;color:#dfc9a8;line-height:1.7;margin-bottom:18px;">ホーム画面に追加すると、いつでもすぐに書斎にアクセスできます。</p>
+    <button id="pwa-install-btn" style="background:#b8900a;color:#1a1208;border:none;padding:12px 32px;font-family:var(--jp);font-size:.85rem;font-weight:600;cursor:pointer;letter-spacing:.06em;transition:all .2s;">アプリに追加</button>
+    <div id="pwa-install-guide" style="display:none;margin-top:14px;font-size:.75rem;color:#dfc9a8;line-height:1.8;"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var section = document.getElementById('pwa-install-section');
+  var btn = document.getElementById('pwa-install-btn');
+  var guide = document.getElementById('pwa-install-guide');
+  var deferredPrompt = null;
+
+  // Already installed (standalone) -> hide
+  if(window.matchMedia('(display-mode:standalone)').matches) return;
+
+  section.style.display = 'block';
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  btn.addEventListener('click', function(){
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function(r){
+        if(r.outcome === 'accepted') section.style.display = 'none';
+        deferredPrompt = null;
+      });
+    } else {
+      var ua = navigator.userAgent;
+      if(/iPhone|iPad/.test(ua)){
+        guide.innerHTML = '1. 画面下の <b>共有ボタン（□↑）</b> をタップ<br>2. <b>「ホーム画面に追加」</b> を選択';
+      } else if(/Android/.test(ua)){
+        guide.innerHTML = '1. ブラウザの <b>メニュー（⋮）</b> をタップ<br>2. <b>「ホーム画面に追加」</b> を選択';
+      } else {
+        guide.innerHTML = 'ブラウザのメニューから <b>「アプリをインストール」</b> または <b>「ホーム画面に追加」</b> を選択してください。';
+      }
+      guide.style.display = 'block';
+    }
+  });
+})();
+</script>
 
 <!-- ══════════════ FOOTER ══════════════ -->
 
@@ -631,6 +1008,8 @@ body::before{
     <a href="principles/">投資原則</a> ·
     <a href="moat/">moat</a> ·
     <a href="fcf/">FCF</a> ·
+    <a href="companies/">企業分析一覧</a> ·
+    <a href="kouseigun/">恒星群の間</a> ·
     <a href="industries/">業種から歩く</a> ·
     <a href="horizons/">思考を広げる</a> ·
     <a href="horizons/financial-history/">金融史</a> ·
@@ -785,6 +1164,58 @@ var SEARCH_DATA = [
 })();
 
 // NPCガイド・ヒーローグラフ削除済み
+
+// ── 書庫の世界地図（ランドマーク: ホバーツールチップ＋クリック/タップ遷移） ──
+// 注意: shared.jsのSPAナビは<a>クリックを横取りするため、ランドマークは<g data-href>にし
+// クリック/タップ時に location.href で確実に遷移させる（<a>は使わない）。
+(function(){
+  var box = document.getElementById('wm-mapbox');
+  if(!box) return;
+  var tip = box.querySelector('.wm-tip');
+  if(!tip) return;
+
+  function show(g, x, y){
+    var name = g.getAttribute('data-name') || '';
+    var desc = g.getAttribute('data-tip') || '';
+    tip.innerHTML = '<b>' + name + '</b><br>' + desc;
+    tip.style.opacity = '1';
+    var r = box.getBoundingClientRect();
+    var tx = Math.min(Math.max(x - r.left + 14, 8), r.width - 246);
+    var ty = y - r.top + 14;
+    tip.style.left = tx + 'px';
+    tip.style.top = ty + 'px';
+  }
+  function hide(){ tip.style.opacity = '0'; }
+  function go(g){
+    var href = g.getAttribute('data-href');
+    if(href) window.location.href = href;
+  }
+
+  var dots = box.querySelectorAll('.wm-dot');
+  for(var i = 0; i < dots.length; i++){
+    (function(g){
+      g.addEventListener('mousemove', function(e){ show(g, e.clientX, e.clientY); });
+      g.addEventListener('mouseleave', hide);
+      g.addEventListener('focus', function(){
+        var anchor = g.querySelector('use') || g.querySelector('circle');
+        var c = anchor ? anchor.getBoundingClientRect() : g.getBoundingClientRect();
+        show(g, c.left + c.width / 2, c.top + c.height);
+      });
+      g.addEventListener('blur', hide);
+      g.addEventListener('click', function(e){ e.preventDefault(); go(g); });
+      g.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(g); }
+      });
+      g.addEventListener('touchstart', function(e){
+        var t = e.touches[0];
+        show(g, t.clientX, t.clientY);
+      }, {passive:true});
+    })(dots[i]);
+  }
+  document.addEventListener('click', function(e){
+    if(!box.contains(e.target)) hide();
+  });
+})();
 </script>
 <script src="onboarding.js"></script>
 <script src="shared.js"></script>
