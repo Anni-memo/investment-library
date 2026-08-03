@@ -847,7 +847,7 @@ body::before{
         <div class="wm-tip" role="status"></div>
       </div>
       <div class="wm-fallback">
-        <a href="#other-shelves-nav" onclick="var t=document.getElementById('other-shelves-nav'); if(t){ event.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }">地図が苦手な方へ ── 一覧から探す ↓</a>
+        <a href="#other-shelves-nav" onclick="try{ if(typeof gtag==='function'){ gtag('event','map_fallback_nav_click',{}); } }catch(e){} var t=document.getElementById('other-shelves-nav'); if(t){ event.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }">地図が苦手な方へ ── 一覧から探す ↓</a>
       </div>
     </div>
   </div>
@@ -978,6 +978,7 @@ body::before{
   });
 
   btn.addEventListener('click', function(){
+    try{ if(typeof gtag === 'function'){ gtag('event','pwa_install_click',{}); } }catch(e){}
     if(deferredPrompt){
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then(function(r){
@@ -1188,6 +1189,15 @@ var SEARCH_DATA = [
   function hide(){ tip.style.opacity = '0'; }
   function go(g){
     var href = g.getAttribute('data-href');
+    // GAクリック計測（遷移は妨げない。gtag未定義でも例外を出さない）
+    try{
+      if(typeof gtag === 'function'){
+        gtag('event','map_landmark_click',{
+          landmark_name: g.getAttribute('data-name') || '',
+          destination: href || ''
+        });
+      }
+    }catch(e){}
     if(href) window.location.href = href;
   }
 
@@ -1215,6 +1225,65 @@ var SEARCH_DATA = [
   document.addEventListener('click', function(e){
     if(!box.contains(e.target)) hide();
   });
+
+  // ── 訪れた土地（訪問済みランドマークに小さな旗を表示） ──
+  // shared.jsが記録した localStorage['il_visited_shelves'] を読み、
+  // 該当ランドマークに旗アイコンを追加＋ツールチップに「⚑ 訪問済み」を追記する。
+  // 未訪問のランドマークは一切変更しない（ダークモードの発光表現も無変更）。
+  try{
+    var visitedRaw = localStorage.getItem('il_visited_shelves');
+    var visited = [];
+    if(visitedRaw){
+      try{ visited = JSON.parse(visitedRaw); if(!Array.isArray(visited)) visited = []; }catch(e2){ visited = []; }
+    }
+    if(visited.length){
+      var svgNS = 'http://www.w3.org/2000/svg';
+      for(var vi = 0; vi < dots.length; vi++){
+        var vg = dots[vi];
+        var vhref = vg.getAttribute('data-href') || '';
+        var vkey = vhref.replace(/^\/+/, '').split('/')[0];
+        if(!vkey || visited.indexOf(vkey) === -1) continue;
+
+        var glow = vg.querySelector('circle.wm-glow');
+        if(!glow) continue;
+        var cx = parseFloat(glow.getAttribute('cx')) || 0;
+        var cy = parseFloat(glow.getAttribute('cy')) || 0;
+        var r = parseFloat(glow.getAttribute('r')) || 20;
+        var fx = cx + r * 0.68;
+        var fy = cy - r * 0.78;
+
+        var flag = document.createElementNS(svgNS, 'g');
+        flag.setAttribute('class', 'wm-visited-flag');
+        flag.setAttribute('transform', 'translate(' + fx.toFixed(1) + ',' + fy.toFixed(1) + ')');
+        flag.setAttribute('aria-hidden', 'true');
+
+        var pole = document.createElementNS(svgNS, 'line');
+        pole.setAttribute('x1', '0'); pole.setAttribute('y1', '0');
+        pole.setAttribute('x2', '0'); pole.setAttribute('y2', '-15');
+        pole.setAttribute('stroke', 'var(--wm-coast)');
+        pole.setAttribute('stroke-width', '1.3');
+        flag.appendChild(pole);
+
+        var pennant = document.createElementNS(svgNS, 'polygon');
+        pennant.setAttribute('points', '0,-15 11,-10.5 0,-6');
+        pennant.setAttribute('fill', 'var(--wm-lbl-gold)');
+        pennant.setAttribute('stroke', 'var(--wm-coast)');
+        pennant.setAttribute('stroke-width', '0.6');
+        flag.appendChild(pennant);
+
+        vg.appendChild(flag);
+
+        var tipText = vg.getAttribute('data-tip');
+        if(tipText && tipText.indexOf('訪問済み') === -1){
+          vg.setAttribute('data-tip', tipText + '　⚑ 訪問済み');
+        }
+        var ariaLabel = vg.getAttribute('aria-label');
+        if(ariaLabel && ariaLabel.indexOf('訪問済み') === -1){
+          vg.setAttribute('aria-label', ariaLabel + '　訪問済み');
+        }
+      }
+    }
+  }catch(e3){}
 })();
 </script>
 <script src="onboarding.js"></script>

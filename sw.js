@@ -5,7 +5,7 @@
 // to these cache-first static assets. HTML navigation itself is always
 // network-first (see below) and does NOT need a version bump to show
 // new articles.
-const CACHE_NAME = 'shosai-v1';
+const CACHE_NAME = 'shosai-v2';
 const HOME_URL = '/investment-library/';
 const OFFLINE_URL = '/investment-library/offline.html';
 
