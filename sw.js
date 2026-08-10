@@ -5,7 +5,7 @@
 // to these cache-first static assets. HTML navigation itself is always
 // network-first (see below) and does NOT need a version bump to show
 // new articles.
-const CACHE_NAME = 'shosai-v2';
+const CACHE_NAME = 'shosai-v3';
 const HOME_URL = '/investment-library/';
 const OFFLINE_URL = '/investment-library/offline.html';
 
@@ -13,7 +13,10 @@ const PRECACHE = [
   HOME_URL,
   '/investment-library/shared.css',
   '/investment-library/shared.js',
-  OFFLINE_URL
+  OFFLINE_URL,
+  '/investment-library/assets/textures/library_paper_16x9_01.webp',
+  '/investment-library/assets/textures/library_paper_16x9_02.webp',
+  '/investment-library/assets/textures/library_chapter_16x9_01.webp'
 ];
 
 self.addEventListener('install', e => {

@@ -274,6 +274,20 @@ body::before{
   --wm-panel-bg:rgba(14,10,6,.55); --wm-panel-border:rgba(212,170,34,.32);
   /* 第2巡S1: ライト時のランドマークアイコンは濃いインク色シルエットに統一（発光カラーとは分離） */
   --wm-icon-ink:#1a1208;
+  /* R1: SVG地図の紙質感パターン不透明度（ライト=はっきり／ダークは潰れないよう抑えめ） */
+  --wm-paper-op:.3;
+  /* R1: ヒーロー外側背景のテーマ連動テクスチャ（画像読み込み前のフラッシュ防止用フォールバック色を併記） */
+  --hero-bg-color:#e7ddc4;
+  --hero-bg-image:url('assets/textures/library_paper_16x9_01.webp');
+  /* ライトは薄い明色オーバーレイ（地図・紙が主役）。文字コントラストは下記ヒーロー文字色を濃色インクに切替えて確保する */
+  --hero-bg-overlay:linear-gradient(180deg,rgba(255,250,240,.22) 0%,rgba(255,250,240,.08) 40%,rgba(232,216,190,.20) 100%);
+  /* R1: ヒーロー文字色（ライトは紙地の上で読めるよう濃色インクへ。ダークは既存の白系配色を無変更で維持） */
+  --hero-title-color:#1a1208; --hero-title-shadow:0 1px 1px rgba(255,255,255,.5);
+  --hero-eyebrow-color:#5c3f0e;
+  --hero-subtitle-color:#2d2010;
+  --hero-tagline-color:#6b4a10;
+  --hero-lead-color:#3a2810;
+  --hero-fallback-color:rgba(26,18,8,.85); --hero-fallback-border:rgba(26,18,8,.4); --hero-fallback-hover:#6b4a10;
 }
 :root[data-theme="dark"]{
   --wm-sea:#0f1c2e; --wm-sea-wave:rgba(180,200,220,.14);
@@ -282,10 +296,54 @@ body::before{
   --wm-lbl:#f2e8d5; --wm-lbl2:#e0d3b8; --wm-lbl3:#c9b892;
   --wm-lbl-gold:#f5d870; --wm-label-bg:rgba(20,14,8,.78);
   --wm-panel-bg:rgba(6,4,2,.62); --wm-panel-border:rgba(212,170,34,.45);
+  --wm-paper-op:.12;
+  --hero-bg-color:#141d15;
+  --hero-bg-image:url('assets/textures/library_chapter_16x9_01.webp');
+  --hero-bg-overlay:linear-gradient(180deg,rgba(10,8,4,.3) 0%,rgba(10,8,4,.2) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.5) 100%);
+  /* ダークは既存相当の配色（写真背景時代からの白系ヒーロー文字を無変更維持） */
+  --hero-title-color:#ffffff; --hero-title-shadow:0 2px 16px rgba(0,0,0,.4);
+  --hero-eyebrow-color:#ffe99a;
+  --hero-subtitle-color:#f5ede0;
+  --hero-tagline-color:#f0cc55;
+  --hero-lead-color:#f0e6cf;
+  --hero-fallback-color:rgba(240,230,207,.75); --hero-fallback-border:rgba(240,230,207,.4); --hero-fallback-hover:var(--gold4);
 }
+.hero-bg-texture{
+  position:absolute;inset:0;z-index:0;
+  background-color:var(--hero-bg-color);
+  background-image:var(--hero-bg-image);
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+}
+.hero-bg-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:var(--hero-bg-overlay);
+}
+/* R1-2: ライトテーマのみ、ヒーロー下部バナー帯（白文字前提）の可読性を回復するスクリム。
+   ダークテーマは元の写真背景時代からの配色のままで問題ないため無変更（ルールを追加しない＝byte同等）。
+   各バナーは元の色相を保ったまま不透明度のみ引き上げ、紙地テクスチャの明るさが透けないようにする。 */
+:root:not([data-theme="dark"]) .hero-banner--nav{
+  background:linear-gradient(135deg,rgba(14,10,6,.94) 0%,rgba(28,20,10,.92) 50%,rgba(16,12,6,.94) 100%) !important;
+}
+:root:not([data-theme="dark"]) .hero-banner--foundation{
+  background:linear-gradient(135deg,rgba(18,12,6,.94) 0%,rgba(42,30,14,.92) 50%,rgba(24,16,8,.94) 100%) !important;
+}
+:root:not([data-theme="dark"]) .hero-banner--morning{
+  background:linear-gradient(135deg,rgba(10,18,16,.94) 0%,rgba(26,42,34,.92) 50%,rgba(14,24,16,.94) 100%) !important;
+}
+:root:not([data-theme="dark"]) .hero-banner--history{
+  background:linear-gradient(135deg,rgba(10,14,24,.94) 0%,rgba(20,26,42,.92) 50%,rgba(14,20,32,.94) 100%) !important;
+}
+/* R1-2: バナー内CTA・アイキャッチラベルは低不透明度の金/青文字が背景を濃くしただけでは4.5:1に届かないため、
+   ライトテーマのみ文字の不透明度を引き上げる（色相・ダークテーマは無変更）。inline styleより詳細度を上げるため属性セレクタ＋!important。 */
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(212,170,34,.6)"]{color:rgba(212,170,34,.95) !important;}
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(212,170,34,.55)"]{color:rgba(212,170,34,.92) !important;}
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(212,170,34,.5)"]{color:rgba(212,170,34,.92) !important;}
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(240,204,85,.7)"]{color:rgba(240,204,85,.95) !important;}
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(140,180,232,.7)"]{color:rgba(140,180,232,.95) !important;}
+:root:not([data-theme="dark"]) .hero-banner [style*="color:rgba(72,136,208,.5)"]{color:rgb(120,180,240) !important;}
 .wm-lead{
   font-family:var(--serif);font-style:italic;
-  font-size:clamp(.82rem,2vw,.96rem);color:#f0e6cf;
+  font-size:clamp(.82rem,2vw,.96rem);color:var(--hero-lead-color);
   max-width:560px;margin:0 auto 18px;line-height:1.9;
   position:relative;z-index:2;opacity:.92;
 }
@@ -326,11 +384,11 @@ body::before{
 @media(prefers-reduced-motion:reduce){.wm-icon,.wm-glow,.wm-star{transition:none;animation:none;}}
 .wm-fallback{text-align:center;margin-top:14px;position:relative;z-index:2;}
 .wm-fallback a{
-  font-family:var(--mono);font-size:.62rem;color:rgba(240,230,207,.75);
-  letter-spacing:.06em;text-decoration:none;border-bottom:1px dotted rgba(240,230,207,.4);
+  font-family:var(--mono);font-size:.62rem;color:var(--hero-fallback-color);
+  letter-spacing:.06em;text-decoration:none;border-bottom:1px dotted var(--hero-fallback-border);
   padding-bottom:1px;transition:color .2s;
 }
-.wm-fallback a:hover{color:var(--gold4);}
+.wm-fallback a:hover{color:var(--hero-fallback-hover);}
 @media(max-width:768px){
   .wm-mapbox svg{min-width:600px;}
   .wm-lead{padding:0 8px;}
@@ -553,23 +611,27 @@ body::before{
 
 <!-- ══════════════ HERO + BANNERS (共通背景) ══════════════ -->
 <div class="hero-wrap" style="position:relative;overflow:hidden;">
-  <!-- 共通背景画像 -->
-  <div style="position:absolute;inset:0;background:url('assets/hero-poster.jpg') center/cover no-repeat;z-index:0;"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,4,.3) 0%,rgba(10,8,4,.2) 30%,rgba(10,8,4,.35) 60%,rgba(10,8,4,.5) 100%);z-index:1;pointer-events:none;"></div>
+  <!-- 共通背景画像（R1: テーマ連動テクスチャ。hero-poster.jpgはファイルとして残置・参照のみ外す） -->
+  <div class="hero-bg-texture"></div>
+  <div class="hero-bg-overlay"></div>
 
   <!-- HERO -->
   <div class="hero hero--home" style="background:transparent;padding-bottom:0;">
     <div style="position:relative;z-index:4;">
-      <div style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:#ffffff;letter-spacing:.06em;margin-bottom:4px;text-shadow:0 2px 16px rgba(0,0,0,.4);">投資Library</div>
-      <div style="font-family:var(--mono);font-size:.6rem;color:#ffe99a;letter-spacing:.35em;margin-bottom:8px;">GATEWAY TO WISDOM</div>
-      <div style="font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;color:#f5ede0;margin-bottom:3px;">智慧への入口</div>
-      <div style="font-family:var(--jp);font-size:.72rem;color:#f0cc55;line-height:1.8;font-weight:500;margin-bottom:10px;">書架に並ぶ思考の断片。知の複利はここから始まる。</div>
+      <div style="font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;color:var(--hero-title-color);letter-spacing:.06em;margin-bottom:4px;text-shadow:var(--hero-title-shadow);">投資Library</div>
+      <div style="font-family:var(--mono);font-size:.6rem;color:var(--hero-eyebrow-color);letter-spacing:.35em;margin-bottom:8px;">GATEWAY TO WISDOM</div>
+      <div style="font-family:var(--serif);font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;color:var(--hero-subtitle-color);margin-bottom:3px;">智慧への入口</div>
+      <div style="font-family:var(--jp);font-size:.72rem;color:var(--hero-tagline-color);line-height:1.8;font-weight:500;margin-bottom:10px;">書架に並ぶ思考の断片。知の複利はここから始まる。</div>
       <p class="wm-lead">ここは歩いて回る投資の書庫。地図のどこからでも、旅は始められます。</p>
       <div class="wm-mapbox" id="wm-mapbox">
         <svg viewBox="0 0 1200 640" role="img" aria-label="投資Libraryの書庫を描いた世界地図。港・城下町・天文台の丘・山脈・森・神殿・街・回廊などのランドマークをクリックすると各コーナーへ移動します。">
           <defs>
             <pattern id="wm-waves" width="70" height="34" patternUnits="userSpaceOnUse">
               <path d="M0,17 Q17.5,7 35,17 T70,17" fill="none" stroke="var(--wm-sea-wave)" stroke-width="1.1"/>
+            </pattern>
+            <!-- R1: SVG地図の紙質感パターン（viewBox全面 1200x640・海陸fillの上・ランドマークの下に重ねる） -->
+            <pattern id="wm-paper" patternUnits="userSpaceOnUse" x="0" y="0" width="1200" height="640">
+              <image href="assets/textures/library_paper_16x9_02.webp" x="0" y="0" width="1200" height="640" preserveAspectRatio="xMidYMid slice"/>
             </pattern>
             <filter id="wm-blur" x="-160%" y="-160%" width="420%" height="420%"><feGaussianBlur stdDeviation="6"/></filter>
             <marker id="wm-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--wm-lbl2)"/></marker>
@@ -682,6 +744,9 @@ body::before{
           <!-- 歴史の大陸（東の島） -->
           <path d="M900,190 Q960,160 1020,180 Q1080,165 1120,205 Q1150,235 1125,270 Q1155,300 1130,335 Q1150,370 1115,395 Q1130,430 1090,445 Q1095,470 1050,465 Q1015,485 985,460 Q950,470 930,440 Q895,450 880,415 Q855,400 870,365 Q840,340 860,305 Q835,275 860,245 Q845,215 880,205 Q870,180 900,190 Z"
             fill="var(--wm-land2)" stroke="var(--wm-coast)" stroke-width="2"/>
+
+          <!-- R1: 紙質感テクスチャ（海陸fillの上・ランドマークや装飾枠の下のレイヤ。不透明度は--wm-paper-opでテーマ別制御） -->
+          <rect x="10" y="10" width="1180" height="620" fill="url(#wm-paper)" style="mix-blend-mode:multiply;opacity:var(--wm-paper-op);pointer-events:none"/>
 
           <!-- 装飾枠 -->
           <rect x="10" y="10" width="1180" height="620" fill="none" stroke="var(--wm-coast)" stroke-width="2.5"/>
@@ -853,7 +918,7 @@ body::before{
   </div>
 
   <!-- ══════════════ 3 主動線（ヒーロー直下） ══════════════ -->
-  <div style="background:linear-gradient(135deg,rgba(14,10,6,.72) 0%,rgba(28,20,10,.68) 50%,rgba(16,12,6,.72) 100%);padding:32px 24px 36px;border-bottom:1px solid rgba(212,170,34,.18);position:relative;z-index:2;">
+  <div class="hero-banner hero-banner--nav" style="background:linear-gradient(135deg,rgba(14,10,6,.72) 0%,rgba(28,20,10,.68) 50%,rgba(16,12,6,.72) 100%);padding:32px 24px 36px;border-bottom:1px solid rgba(212,170,34,.18);position:relative;z-index:2;">
     <div style="max-width:960px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:20px;">
         <div style="font-family:'DM Mono',monospace;font-size:.52rem;color:rgba(212,170,34,.6);letter-spacing:.3em;margin-bottom:6px;">3 WAYS TO EXPLORE</div>
@@ -891,7 +956,7 @@ body::before{
   </div>
 
   <!-- FOUNDATION / PERSONAL CONSTITUTION -->
-  <div style="background:linear-gradient(135deg,rgba(18,12,6,.65) 0%,rgba(42,30,14,.6) 50%,rgba(24,16,8,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(212,170,34,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+  <div class="hero-banner hero-banner--foundation" style="background:linear-gradient(135deg,rgba(18,12,6,.65) 0%,rgba(42,30,14,.6) 50%,rgba(24,16,8,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(212,170,34,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
     <a href="foundation/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
       <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">あなたの人生をプログラミングする</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">脳科学・習慣設計・朝の実践——投資判断の土台を築く</div>
@@ -900,7 +965,7 @@ body::before{
   </div>
 
   <!-- MORNING METHOD -->
-  <div id="morningSection" style="background:linear-gradient(135deg,rgba(10,18,16,.65) 0%,rgba(26,42,34,.6) 50%,rgba(14,24,16,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+  <div id="morningSection" class="hero-banner hero-banner--morning" style="background:linear-gradient(135deg,rgba(10,18,16,.65) 0%,rgba(26,42,34,.6) 50%,rgba(14,24,16,.65) 100%);padding:28px 24px;border-bottom:1px solid rgba(90,154,120,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
     <a href="morning-method/" style="display:block;text-decoration:none;padding:20px 48px;border:1px solid rgba(212,170,34,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(212,170,34,.45)';this.style.background='rgba(212,170,34,.04)'" onmouseout="this.style.borderColor='rgba(212,170,34,.2)';this.style.background='transparent'">
       <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">土台をつくる — 朝の実践を始める</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">本日の積み上げ——瞑想・運動・読書・ジャーナリング</div>
@@ -909,7 +974,7 @@ body::before{
   </div>
 
   <!-- FINANCIAL HISTORY -->
-  <div style="background:linear-gradient(135deg,rgba(10,14,24,.6) 0%,rgba(20,26,42,.55) 50%,rgba(14,20,32,.6) 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
+  <div class="hero-banner hero-banner--history" style="background:linear-gradient(135deg,rgba(10,14,24,.6) 0%,rgba(20,26,42,.55) 50%,rgba(14,20,32,.6) 100%);padding:24px 24px;border-bottom:1px solid rgba(72,136,208,.12);display:flex;justify-content:center;align-items:center;position:relative;z-index:2;">
     <a href="horizons/financial-history/" style="display:block;text-decoration:none;padding:18px 44px;border:1px solid rgba(72,136,208,.2);transition:all .3s;max-width:480px;text-align:center;" onmouseover="this.style.borderColor='rgba(72,136,208,.45)';this.style.background='rgba(72,136,208,.04)'" onmouseout="this.style.borderColor='rgba(72,136,208,.2)';this.style.background='transparent'">
       <div style="font-family:'Cormorant Garamond','Noto Serif JP',serif;font-size:clamp(1rem,3vw,1.3rem);font-weight:600;color:#f5ede0;line-height:1.4;margin-bottom:8px;">金融史の書庫</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.75rem;color:#dfc9a8;line-height:1.8;font-weight:300;">メソポタミアから堂島米市場、リーマン・ショック、AI革命まで</div>
